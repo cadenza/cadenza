@@ -51,5 +51,16 @@ namespace Mono.Rocks.Tests {
 
 			AssertAreSame (result, data);
 		}
+
+		[Test]
+		public void Slice ()
+		{
+			var data = "0123456789";
+
+			Assert.AreEqual ("0", data.Slice (0, 1));
+			Assert.AreEqual ("89", data.Slice (8, 10));
+			Assert.AreEqual ("456789", data.Slice (4, -1));
+			Assert.AreEqual ("8", data.Slice (8, -2));
+		}
 	}
 }

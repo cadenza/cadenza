@@ -39,5 +39,19 @@ namespace Mono.Rocks {
 				action (s);
 			}
 		}
+
+		public static string Slice (this string self, int start, int end)
+		{
+			if (start < 0 || start >= self.Length)
+				throw new ArgumentOutOfRangeException ("start");
+
+			if (end < 0)
+				end += self.Length + 1;
+
+			if (end < start || end > self.Length)
+				throw new ArgumentOutOfRangeException ("end");
+
+			return self.Substring (start, end - start);
+		}
 	}
 }
