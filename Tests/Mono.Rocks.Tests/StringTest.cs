@@ -41,13 +41,19 @@ namespace Mono.Rocks.Tests {
 		public void EachLine ()
 		{
 			var data = new string [3];
-			var result = new string [] { "one", "two", "three" };
+			var result = new [] { "one", "two", "three" };
 
 			int i = 0;
 			@"
 			one
 			two
 			three".EachLine (line => data [i++] = line.Trim ());
+
+			foreach (string s in data)
+				Console.WriteLine ("data: {0}", s);
+
+			foreach (string s in result)
+				Console.WriteLine ("result: {0}", s);
 
 			AssertAreSame (result, data);
 		}

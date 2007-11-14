@@ -34,14 +34,19 @@ namespace Mono.Rocks {
 
 		public static void EachLine (this string self, Action<string> action)
 		{
-			var delim = new string [] { Environment.NewLine };
-			foreach (var s in self.Split (delim, StringSplitOptions.RemoveEmptyEntries)) {
+			Check.Self (self);
+
+			var lines = self.Split (new char [] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+
+			foreach (var s in lines) {
 				action (s);
 			}
 		}
 
 		public static string Slice (this string self, int start, int end)
 		{
+			Check.Self (self);
+
 			if (start < 0 || start >= self.Length)
 				throw new ArgumentOutOfRangeException ("start");
 

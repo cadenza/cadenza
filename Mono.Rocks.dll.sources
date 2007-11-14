@@ -1,4 +1,5 @@
 ./Mono.Rocks/AssemblyInfo.cs
+./Mono.Rocks/Check.cs
 ./Mono.Rocks/IEnumerable.cs
 ./Mono.Rocks/Int32.cs
 ./Mono.Rocks/String.cs

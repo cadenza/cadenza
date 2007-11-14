@@ -28,6 +28,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace Mono.Rocks {
@@ -36,6 +38,8 @@ namespace Mono.Rocks {
 
 		public static string Join<TSource> (this IEnumerable<TSource> self, string separator)
 		{
+			Check.Self (self);
+
 			var coll = self as ICollection<TSource>;
 			if (coll != null && coll.Count == 0)
 				return string.Empty;
@@ -56,7 +60,26 @@ namespace Mono.Rocks {
 
 		public static string Join<TSource> (this IEnumerable<TSource> self)
 		{
+			Check.Self (self);
+
 			return self.Join (null);
+		}
+
+		public static IEnumerable<TSource> Repeat<TSource> (this IEnumerable<TSource> self, int number)
+		{
+			Check.Self (self);
+
+			for (int i = 0; i < number; i++) {
+				foreach (var element in self)
+					yield return element;
+			}
+		}
+
+		public static string PathCombine (this IEnumerable<string> self)
+		{
+			Check.Self (self);
+
+			return self.Aggregate (((a, b) => Path.Combine (a, b)));
 		}
 	}
 }

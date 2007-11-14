@@ -1,5 +1,5 @@
 ﻿//
-// IEnumerableTest.cs
+// Check.cs
 //
 // Author:
 //   Jb Evain (jbevain@novell.com)
@@ -27,47 +27,15 @@
 //
 
 using System;
-using System.IO;
 
-using NUnit.Framework;
+namespace Mono.Rocks {
 
-using Mono.Rocks;
+	static class Check {
 
-namespace Mono.Rocks.Tests {
-
-	[TestFixture]
-	public class IEnumerableTest : BaseRocksFixture {
-
-		[Test]
-		public void Join ()
+		public static void Self (object self)
 		{
-			var data = new [] { 0, 1, 2, 3, 4, 5 };
-			var result = "0, 1, 2, 3, 4, 5";
-
-			Assert.AreEqual (result, data.Join (", "));
-		}
-
-		[Test]
-		public void JoinEmpty ()
-		{
-			var data = new int [] {};
-
-			Assert.AreEqual (string.Empty, data.Join ());
-		}
-
-		[Test]
-		public void Repeat ()
-		{
-			Assert.AreEqual ("foofoofoo", new [] {"foo"}.Repeat (3).Join ());
-			Assert.AreEqual ("foobarfoobar", new [] {"foo", "bar"}.Repeat (2).Join ());
-		}
-
-		[Test]
-		public void PathCombine ()
-		{
-			var data = new [] {"a", "b", "c"};
-			var result = string.Format ("a{0}b{0}c", Path.DirectorySeparatorChar);
-			Assert.AreEqual (result, data.PathCombine ());
+			if (self == null)
+				throw new ArgumentNullException ("self");
 		}
 	}
 }

@@ -37,6 +37,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mono.Rocks\Check.cs" />
     <Compile Include="Mono.Rocks\IEnumerable.cs" />
     <Compile Include="Mono.Rocks\Int32.cs" />
     <Compile Include="Mono.Rocks\String.cs" />
