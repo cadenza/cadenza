@@ -15,4 +15,4 @@ Mono.Rocks.Tests.dll: Mono.Rocks.Tests.dll.sources
 	$(MCS) -r:Mono.Rocks.dll -r:System.Core -pkg:mono-nunit -t:library -out:Mono.Rocks.Tests.dll $(MCS_FLAGS) @Mono.Rocks.Tests.dll.sources
 
 run-test: Mono.Rocks.Tests.dll
-	nunit-console Mono.Rocks.Tests.dll
+	nunit-console2 Mono.Rocks.Tests.dll
