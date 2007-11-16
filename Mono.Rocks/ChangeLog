@@ -1,0 +1,4 @@
+2007-11-15  Sebastien Pouliot  <sebastien@ximian.com>
+
+	* IEnumerable.cs: Replaced PathCombine with a version that reduce
+	the number of validation and temporary string allocations.

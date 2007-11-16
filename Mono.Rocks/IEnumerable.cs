@@ -79,7 +79,37 @@ namespace Mono.Rocks {
 		{
 			Check.Self (self);
 
-			return self.Aggregate (((a, b) => Path.Combine (a, b)));
+			char [] invalid = Path.GetInvalidPathChars ();
+			char [] separators = { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar, Path.VolumeSeparatorChar };
+
+			StringBuilder sb = null;
+			string previous = null;
+			foreach (string s in self) {
+				if (s == null)
+					throw new ArgumentNullException ("path");
+				if (s.Length == 0)
+					continue;
+				if (s.IndexOfAny (invalid) != -1)
+					throw new ArgumentException ("Illegal character in path");
+
+				if (sb == null) {
+					sb = new StringBuilder (s);
+					previous = s;
+				} else {
+					if (Path.IsPathRooted (s)) {
+						sb = new StringBuilder (s);
+						continue;
+					}
+
+					char last = ((IEnumerable<char>) previous).Last ();
+					if (!separators.Contains (last))
+						sb.Append (Path.DirectorySeparatorChar);
+
+					sb.Append (s);
+					previous = s;
+				}
+			}
+			return (sb == null) ? String.Empty : sb.ToString ();
 		}
 	}
 }
