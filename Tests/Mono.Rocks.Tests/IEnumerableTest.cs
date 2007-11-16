@@ -63,11 +63,63 @@ namespace Mono.Rocks.Tests {
 		}
 
 		[Test]
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void PathCombine_SelfNull ()
+		{
+			string [] data = null;
+			data.PathCombine ();
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void PathCombine_Null ()
+		{
+			var data = new [] { "a", "b", null, "c" };
+			data.PathCombine ();
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentException))]
+		public void PathCombine_InvalidPathChars ()
+		{
+			// 0x00 (NULL) is the only cross-platform invalid path character
+			var data = new [] { "a", "b\x00", "c" };
+			data.PathCombine ();
+		}
+
+		[Test]
 		public void PathCombine ()
 		{
 			var data = new [] {"a", "b", "c"};
 			var result = string.Format ("a{0}b{0}c", Path.DirectorySeparatorChar);
 			Assert.AreEqual (result, data.PathCombine ());
+
+			data = new [] { "a", String.Empty, "b", "c" };
+			Assert.AreEqual (result, data.PathCombine (), "empty elemetns");
+
+			string rooted = Path.DirectorySeparatorChar + "d";
+			data = new [] { "a", rooted };
+			Assert.AreEqual (rooted, data.PathCombine (), "rooted path2");
+
+			data = new [] { "a", "b", rooted, "c" };
+			string expected = Path.Combine (Path.Combine (Path.Combine ("a", "b"), rooted), "c");
+			Assert.AreEqual (expected, data.PathCombine (), "rooted path2 (complex)");
+
+			string end1 = "d" + Path.DirectorySeparatorChar;
+			data = new [] { rooted, end1, "e" };
+			expected = Path.Combine (Path.Combine (rooted, end1), "e");
+			Assert.AreEqual (expected, data.PathCombine (), "DirectorySeparatorChar");
+
+			string end2 = "d" + Path.AltDirectorySeparatorChar;
+			data = new [] { rooted, end2, "f" };
+			expected = Path.Combine (Path.Combine (rooted, end2), "f");
+			Assert.AreEqual (expected, data.PathCombine (), "AltDirectorySeparatorChar");
+
+			data = new [] { "a" };
+			Assert.AreEqual (Path.Combine ("a", String.Empty), data.PathCombine (), "single string");
+
+			data = new [] { String.Empty };
+			Assert.AreEqual (Path.Combine (String.Empty, String.Empty), data.PathCombine (), "single empty string");
 		}
 	}
 }
