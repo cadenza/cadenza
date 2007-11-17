@@ -1,5 +1,5 @@
 ﻿//
-// String.cs
+// ICustomAttributeProviderTest.cs
 //
 // Author:
 //   Jb Evain (jbevain@novell.com)
@@ -27,43 +27,41 @@
 //
 
 using System;
+using System.IO;
+using System.Reflection;
 
-namespace Mono.Rocks {
+using NUnit.Framework;
 
-	public static class StringRocks {
+using Mono.Rocks;
 
-		public static void EachLine (this string self, Action<string> action)
-		{
-			Check.Self (self);
+namespace Mono.Rocks.Tests {
 
-			var lines = self.Split (new char [] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+	[TestFixture]
+	public class ICustomAttributeProviderTest : BaseRocksFixture {
 
-			foreach (var s in lines) {
-				action (s);
-			}
+		[AttributeUsage (AttributeTargets.All, AllowMultiple = true)]
+		class FooAttribute : Attribute {
 		}
 
-		public static string Slice (this string self, int start, int end)
-		{
-			Check.Self (self);
-
-			if (start < 0 || start >= self.Length)
-				throw new ArgumentOutOfRangeException ("start");
-
-			if (end < 0)
-				end += self.Length + 1;
-
-			if (end < start || end > self.Length)
-				throw new ArgumentOutOfRangeException ("end");
-
-			return self.Substring (start, end - start);
+		[Foo ()]
+		[Foo ()]
+		class Bar {
 		}
 
-		public static TEnum ToEnum<TEnum> (this string self)
+		[Test]
+		public void GetCustomAttribute ()
 		{
-			Check.Self (self);
+			FooAttribute foo = typeof (Bar).GetCustomAttribute<FooAttribute> ();
+			Assert.IsNotNull (foo); // cannot assert the value
+		}
 
-			return (TEnum) Enum.Parse (typeof (TEnum), self);
+		[Test]
+		public void GetCustomAttributes ()
+		{
+			var attributes = typeof (Bar).GetCustomAttributes<FooAttribute> ();
+
+			Assert.IsNotNull (attributes);
+			Assert.AreEqual (2, attributes.Length);
 		}
 	}
 }

@@ -3,3 +3,4 @@
 ./Tests/Mono.Rocks.Tests/BaseRocksFixture.cs
 ./Tests/Mono.Rocks.Tests/StringTest.cs
 ./Tests/Mono.Rocks.Tests/IEnumerableTest.cs
+./Tests/Mono.Rocks.Tests/ICustomAttributeProviderTest.cs

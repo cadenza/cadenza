@@ -68,5 +68,32 @@ namespace Mono.Rocks.Tests {
 			Assert.AreEqual ("456789", data.Slice (4, -1));
 			Assert.AreEqual ("8", data.Slice (8, -2));
 		}
+
+		enum Foo {
+			Bar,
+			Baz,
+			Gazonk
+		}
+
+		[Test]
+		public void ToEnum ()
+		{
+			Assert.AreEqual (Foo.Gazonk, "Gazonk".ToEnum<Foo> ());
+			Assert.AreEqual (Foo.Bar, "Bar".ToEnum<Foo> ());
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentException))]
+		public void ToEnumNotInEnum ()
+		{
+			"Gens".ToEnum<Foo> ();
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentException))]
+		public void ToEnumNotEnum ()
+		{
+			"Bar".ToEnum<string> ();
+		}
 	}
 }

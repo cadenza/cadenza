@@ -1,5 +1,5 @@
 ﻿//
-// String.cs
+// ICustomAttributeProvider.cs
 //
 // Author:
 //   Jb Evain (jbevain@novell.com)
@@ -27,43 +27,30 @@
 //
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace Mono.Rocks {
 
-	public static class StringRocks {
+	public static class ICustomAttributeProviderRocks {
 
-		public static void EachLine (this string self, Action<string> action)
+		public static TAttribute GetCustomAttribute<TAttribute> (this ICustomAttributeProvider self) where TAttribute : Attribute
 		{
 			Check.Self (self);
 
-			var lines = self.Split (new char [] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+			var attributes = self.GetCustomAttributes (typeof (TAttribute), true);
+			if (attributes == null || attributes.Length == 0)
+				return null;
 
-			foreach (var s in lines) {
-				action (s);
-			}
+			return (TAttribute) attributes [0];
 		}
 
-		public static string Slice (this string self, int start, int end)
+		public static TAttribute [] GetCustomAttributes<TAttribute> (this ICustomAttributeProvider self) where TAttribute : Attribute
 		{
 			Check.Self (self);
 
-			if (start < 0 || start >= self.Length)
-				throw new ArgumentOutOfRangeException ("start");
-
-			if (end < 0)
-				end += self.Length + 1;
-
-			if (end < start || end > self.Length)
-				throw new ArgumentOutOfRangeException ("end");
-
-			return self.Substring (start, end - start);
-		}
-
-		public static TEnum ToEnum<TEnum> (this string self)
-		{
-			Check.Self (self);
-
-			return (TEnum) Enum.Parse (typeof (TEnum), self);
+			return (TAttribute []) self.GetCustomAttributes (typeof (TAttribute), true);
 		}
 	}
 }

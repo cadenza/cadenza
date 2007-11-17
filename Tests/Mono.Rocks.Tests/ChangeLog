@@ -1,3 +1,10 @@
+2007-11-17  Jb Evain  <jbevain@novell.com>
+
+	* StringTest.cs: Tests for ToEnum.
+
+	* ICustomAttributeProviderTest.cs: Add tests for GetCustomAttributes
+	and GetCustomAttribute.
+
 2007-11-15  Sebastien Pouliot  <sebastien@ximian.com>
 
 	* IEnumerableTest.cs: Added more test cases for PathCombine

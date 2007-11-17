@@ -1,3 +1,10 @@
+2007-11-17  Jb Evain  <jbevain@novell.com>
+
+	* String.cs: Add ToEnum.
+
+	* ICustomAttributeProvider.cs: Add generic versions of GetCustomAttributes
+	and GetCustomAttribute.
+
 2007-11-15  Sebastien Pouliot  <sebastien@ximian.com>
 
 	* IEnumerable.cs: Replaced PathCombine with a version that reduce
