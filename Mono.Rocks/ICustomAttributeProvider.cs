@@ -39,11 +39,11 @@ namespace Mono.Rocks {
 		{
 			Check.Self (self);
 
-			var attributes = self.GetCustomAttributes (typeof (TAttribute), true);
+			var attributes = self.GetCustomAttributes<TAttribute> ();
 			if (attributes == null || attributes.Length == 0)
 				return null;
 
-			return (TAttribute) attributes [0];
+			return attributes [0];
 		}
 
 		public static TAttribute [] GetCustomAttributes<TAttribute> (this ICustomAttributeProvider self) where TAttribute : Attribute
