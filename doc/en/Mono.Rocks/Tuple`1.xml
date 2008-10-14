@@ -1,0 +1,1245 @@
+<Type Name="Tuple&lt;T&gt;" FullName="Mono.Rocks.Tuple&lt;T&gt;">
+  <TypeSignature Language="C#" Value="public struct Tuple&lt;T&gt; : IEquatable&lt;Mono.Rocks.Tuple&lt;T&gt;&gt;, System.Collections.Generic.IList&lt;object&gt;, System.Collections.IList" />
+  <AssemblyInfo>
+    <AssemblyName>Mono.Rocks</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <TypeParameters>
+    <TypeParameter Name="T" />
+  </TypeParameters>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.Collections.Generic.IList&lt;System.Object&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.Collections.IList</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.IEquatable&lt;Mono.Rocks.Tuple&lt;T&gt;&gt;</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Reflection.DefaultMember("Item")</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <typeparam name="T">
+            The first value type.
+            </typeparam>
+    <summary>
+            A strongly-typed sequence of 1 variously typed values.
+            </summary>
+    <remarks>
+      <para>
+            A <c>Tuple</c> is an immutable, strongly typed sequence of variously
+            typed values with each value lacking an otherwise meaningful name aside
+            from its position.
+            </para>
+      <para>
+            Tuples provide an indexer to access variables by-index in a loosely
+            typed manner, and provide a set of properties to access variables
+            by-index in a strongly typed manner.  Strongly typed properties use
+            the pattern <c>_N</c>, where <c>N</c> is the ones-based value position.
+            The indexer, as always, uses 0-based positions.  Thus the value
+            <see cref="P:Mono.Rocks.Tuple`1._1" /> and <c>tuple[0]</c> refer to the same value,
+            except <see cref="P:Mono.Rocks.Tuple`1._1" /> is strongly typed, while
+            <c>tuple[0]</c> is typed as a <see cref="T:System.Object" /> (and thus
+            potentially boxed).
+            </para>
+      <para>
+            Tuples also implement the common collection interfaces, and all collection
+            methods that would require mutating the Tuple throw
+            <see cref="T:System.NotSupportedException" />.
+            </para>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Tuple (T value);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="value" Type="T" />
+      </Parameters>
+      <Docs>
+        <param name="value">
+            A <typeparamref name="T" /> which is used to initialize the <see cref="P:Mono.Rocks.Tuple{T}.1" /> property.
+            </param>
+        <summary>
+            Constructs and initializes a new <see cref="T:Mono.Rocks.Tuple{T}" /> instance.
+            </summary>
+        <remarks>
+          <para>
+            Constructs and initializes a new <see cref="T:Mono.Rocks.Tuple{T}" /> instance.
+            </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="_1">
+      <MemberSignature Language="C#" Value="public T _1 { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The first tuple value.
+            </summary>
+        <value>
+            A <typeparamref name="T" /> which is the first tuple value.
+            </value>
+        <remarks>
+            The first tuple value.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Aggregate&lt;TResult&gt;">
+      <MemberSignature Language="C#" Value="public TResult Aggregate&lt;TResult&gt; (Func&lt;T,TResult&gt; func);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="func" Type="System.Func&lt;T,TResult&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TResult">
+            The return type.
+            </typeparam>
+        <param name="func">
+            A <see cref="T:System.Func{T,TResult}" /> which will be invoked, providing the values
+            <see cref="P:Mono.Rocks.Tuple`1._1" /> to <paramref name="func" /> and
+            returning the value returned by <paramref name="func" />.
+            </param>
+        <summary>
+            Converts the <see cref="T:Mono.Rocks.Tuple{T}" /> into a <typeparamref name="TResult" />.
+            </summary>
+        <returns>
+            The <typeparamref name="TResult" /> returned by <paramref name="func" />.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+            Passes the values <see cref="P:Mono.Rocks.Tuple`1._1" /> to
+            <paramref name="func" />, returning the value produced by
+            	<paramref name="func" />.
+            </block>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="func" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public bool Equals (Mono.Rocks.Tuple&lt;T&gt; obj);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="obj" Type="Mono.Rocks.Tuple&lt;T&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="obj">
+            A <see cref="T:Mono.Rocks.Tuple{T}" /> to compare this instance against.
+            </param>
+        <summary>
+            Determines whether the current instance and the specified <see cref="T:Mono.Rocks.Tuple{T}" /> have the same value.
+            </summary>
+        <returns>
+          <para>
+            <see langword="true" /> if each member of <paramref name="obj" />
+            and the current instance have the same value (according to
+            <see cref="M:System.Object.Equals(System.Object)" />); otherwise
+            <see langword="false" /> is returned.
+            </para>
+        </returns>
+        <remarks>
+          <para>
+            This method checks for value equality
+            (<see cref="M:System.Object.Equals(System.Object)" />), as defined by each
+            value type.
+            </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Equals">
+      <MemberSignature Language="C#" Value="public override bool Equals (object obj);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="obj" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="obj">
+            A <see cref="T:System.Object" /> to compare this instance against.
+            </param>
+        <summary>
+            Determines whether the current instance and the specified object have the same value.
+            </summary>
+        <returns>
+          <para>
+            <see langword="true" /> if <paramref name="obj" /> is a
+            <see cref="T:Mono.Rocks.Tuple{T}" /> and each member of <paramref name="obj" />
+            and the current instance have the same value (according to
+            <see cref="M:System.Object.Equals(System.Object)" />); otherwise
+            <see langword="false" /> is returned.
+            </para>
+        </returns>
+        <remarks>
+          <para>
+            This method checks for value equality
+            (<see cref="M:System.Object.Equals(System.Object)" />), as defined by each
+            value type.
+            </para>
+          <para>
+            <block subset="none" type="note">
+            This method overrides <see cref="M:System.Object.Equals(System.Object)" />.
+            </block>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEnumerator">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IEnumerator&lt;object&gt; GetEnumerator ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerator&lt;System.Object&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Returns an <see cref="T:System.Collections.Generic.IEnumerator{System.Object}" /> for the current instance.
+            </summary>
+        <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerator{System.Object}" /> for the current instance.
+            </returns>
+        <remarks>
+          <para>
+            Returns each value in the <see cref="T:Mono.Rocks.Tuple{T}" /> as an
+            <see cref="T:System.Object" />, in the order
+            <see cref="P:Mono.Rocks.Tuple`1._1" />.
+            </para>
+        </remarks>
+      </Docs>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Diagnostics.DebuggerHidden</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Member>
+    <Member MemberName="GetHashCode">
+      <MemberSignature Language="C#" Value="public override int GetHashCode ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Generates a hash code for the current instance.
+            </summary>
+        <returns>
+            A <see cref="T:System.Int32" /> containing the hash code for this instance.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="note">
+            This method overrides <see cref="M:System.Object.GetHashCode" />.
+            </block>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Item">
+      <MemberSignature Language="C#" Value="public object this[int index] { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Object</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="index">
+            An <see cref="T:System.Int32" /> that specifies the zero-based index
+            of the value in the current instance to get.  This value is &gt;= 0, and
+            less than <see cref="P:Mono.Rocks.Tuple`1.System#Collections#Generic#ICollection{System#Object}#Count" />.
+            </param>
+        <summary>
+            Gets the value at the specified index in the current instance.
+            </summary>
+        <value>
+            The element at the specified <paramref name="index" /> of the current instance.
+            </value>
+        <remarks>
+          <see cref="T:Mono.Rocks.Tuple{T}" /> is immutable; the setter cannot be invoked.
+            </remarks>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="index" /> is less than 0 or greater than or equal to
+            <see cref="P:Mono.Rocks.Tuple`1.System#Collections#Generic#ICollection{System#Object}#Count" />.
+            </exception>
+        <exception cref="T:System.NotSupportedException">
+            The setter was called.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Match&lt;TResult&gt;">
+      <MemberSignature Language="C#" Value="public TResult Match&lt;TResult&gt; (Func&lt;T,Mono.Rocks.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="matchers" Type="System.Func&lt;T,Mono.Rocks.Maybe&lt;TResult&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TResult">
+            The return type.
+            </typeparam>
+        <param name="matchers">
+            A <see cref="T:System.Func{T,Mono.Rocks.Maybe{TResult}}" />
+            array containing the conversion routines to use to convert
+            the current <see cref="T:Mono.Rocks.Tuple{T}" /> instance into a
+            <typeparamref name="TResult" /> value.
+            </param>
+        <summary>
+            Converts the current <see cref="T:Mono.Rocks.Tuple{T}" /> instance into a <typeparamref name="TResult" />.
+            </summary>
+        <returns>
+            The <typeparamref name="TResult" /> returned by one of the <paramref name="matchers" />.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+              <para>
+            The current <see cref="T:Mono.Rocks.Tuple{T}" /> instance is converted into a
+            <typeparamref name="TResult" /> instance by trying each
+            <see cref="T:System.Func{T,Mono.Rocks.Maybe{TResult}}" />
+            within <paramref name="matchers" />.
+            </para>
+              <para>
+            This method returns
+            <see cref="P:Mono.Rocks.Maybe{TResult}.Value" />
+            for the first delegate to return a
+            <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
+            where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+            is <see langword="true" />.
+            </para>
+              <para>
+            If no
+            <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+            returns a
+            <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
+            where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+            is <see langword="true" />, then an
+            <see cref="T:System.InvalidOperationException" /> is thrown.
+            </para>
+            </block>
+            <code lang="C#">
+            var    a = Tuple.Create (1, 2);
+            string b = a.Match (
+            (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
+            (t, v) =&gt; "*default*".Just ());
+            Console.WriteLine (b);  // prints "foo!"</code>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="matchers" /> is <see langword="null" />.
+            </exception>
+        <exception cref="T:System.InvalidOperationException">
+            None of the
+            <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+            delegates within <paramref name="matchers" /> returned a
+            <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance where
+            <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" /> was
+            <see langword="true" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Equality">
+      <MemberSignature Language="C#" Value="public static bool op_Equality (Mono.Rocks.Tuple&lt;T&gt; a, Mono.Rocks.Tuple&lt;T&gt; b);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Mono.Rocks.Tuple&lt;T&gt;" />
+        <Parameter Name="b" Type="Mono.Rocks.Tuple&lt;T&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="a">
+            The first <see cref="T:Mono.Rocks.Tuple{T}" /> to compare.
+            </param>
+        <param name="b">
+            The second <see cref="T:Mono.Rocks.Tuple{T}" /> to compare.
+            </param>
+        <summary>
+            Returns a <see cref="T:System.Boolean" /> value
+            indicating whether the two specified values are equal to each other.
+            </summary>
+        <returns>
+          <see langword="true" /> if <paramref name="a" /> and
+            <paramref name="b" /> represent the same value; otherwise, <see langword="false" />.
+            </returns>
+        <remarks>To be added.</remarks>
+        <altmember cref="M:Mono.Rocks.Tuple`1.Equals(Mono.Rocks.Tuple{`0})" />
+      </Docs>
+    </Member>
+    <Member MemberName="op_Inequality">
+      <MemberSignature Language="C#" Value="public static bool op_Inequality (Mono.Rocks.Tuple&lt;T&gt; a, Mono.Rocks.Tuple&lt;T&gt; b);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="a" Type="Mono.Rocks.Tuple&lt;T&gt;" />
+        <Parameter Name="b" Type="Mono.Rocks.Tuple&lt;T&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="a">
+            The first <see cref="T:Mono.Rocks.Tuple{T}" /> to compare.
+            </param>
+        <param name="b">
+            The second <see cref="T:Mono.Rocks.Tuple{T}" /> to compare.
+            </param>
+        <summary>
+            Returns a <see cref="T:System.Boolean" /> value
+            indicating whether the two specified values are not equal to each other.
+            </summary>
+        <returns>
+          <see langword="true" /> if <paramref name="a" /> and
+            <paramref name="b" /> do not represent the same value; otherwise, <see langword="false" />.
+            </returns>
+        <remarks>To be added.</remarks>
+        <altmember cref="M:Mono.Rocks.Tuple`1.Equals(Mono.Rocks.Tuple{`0})" />
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.Clear">
+      <MemberSignature Language="C#" Value="void ICollection&lt;object&gt;.Clear ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </summary>
+        <remarks>
+          <para>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </para>
+          <para>
+            <see cref="T:Mono.Rocks.Tuple{T}" /> is immutable; modification is not supported.
+            </para>
+        </remarks>
+        <exception cref="T:System.NotSupportedException">
+            This member is not supported.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.Contains">
+      <MemberSignature Language="C#" Value="bool ICollection&lt;object&gt;.Contains (object value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="value">
+            The <see cref="T:System.Object" /> to locate in the current instance.
+            </param>
+        <summary>
+            Determines whether <paramref name="value" /><see cref="M:System.Object.Equals(System.Object)" /> any value within this
+            <see cref="T:Mono.Rocks.Tuple{T}" /> instance.
+            </summary>
+        <returns>
+          <see langword="true" /> if <paramref name="value" /> is
+            contained in the current instance; otherwise, <see langword="false" />.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="note">
+            This method determines equality by calling
+            <see cref="M:System.Object.Equls(System.Object,System.Object)" /> on
+            each value contained within this tuple and <paramref name="value" />.
+            </block>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.Remove">
+      <MemberSignature Language="C#" Value="bool ICollection&lt;object&gt;.Remove (object item);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="item" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="item">To be added.</param>
+        <summary>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </para>
+          <para>
+            <see cref="T:Mono.Rocks.Tuple{T}" /> is immutable; modification is not supported.
+            </para>
+        </remarks>
+        <exception cref="T:System.NotSupportedException">
+            This member is not supported.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.Add">
+      <MemberSignature Language="C#" Value="void ICollection&lt;object&gt;.Add (object item);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="item" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="item">To be added.</param>
+        <summary>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </summary>
+        <remarks>
+          <para>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </para>
+          <para>
+            <see cref="T:Mono.Rocks.Tuple{T}" /> is immutable; modification is not supported.
+            </para>
+        </remarks>
+        <exception cref="T:System.NotSupportedException">
+            This member is not supported.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.CopyTo">
+      <MemberSignature Language="C#" Value="void ICollection&lt;object&gt;.CopyTo (object[] array, int arrayIndex);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="array" Type="System.Object[]" />
+        <Parameter Name="arrayIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="array">
+            The one-dimensional
+            <see cref="T:System.Array" /> that is the destination for the values
+            to be copied from the current instance.
+            </param>
+        <param name="arrayIndex">
+            A <see cref="T:System.Int32" /> that specifies
+            the first index of <paramref name="array" /> to which the elements of the
+            current <see cref="T:Mono.Rocks.Tuple{T}" /> are copied.
+            </param>
+        <summary>
+            Copies the values of the current
+            <see cref="T:Mono.Rocks.Tuple{T}" /> to the specified <see cref="T:System.Array" />,
+            starting at the <paramref name="arrayIndex" /> index of the array.
+            </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <para>
+            <paramref name="arrayIndex" /> is &gt;=
+            <paramref name="array" />'s <see cref="P:System.Array.Length" /> property.
+            </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="arrayIndex" /> + <see cref="P:System.Collections.ICollection.Count" />
+            of the current instance is &gt;
+            <paramref name="array" />'s <see cref="P:System.Array.Length" /> property.
+            </para>
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="array" /> is <see langword="null" />.
+            </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="arrayIndex" /> is negative.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.IsReadOnly">
+      <MemberSignature Language="C#" Value="bool System.Collections.Generic.ICollection&lt;System.Object&gt;.IsReadOnly { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets a value indicating whether the current instance is read-only
+            </summary>
+        <value>
+          <see langword="true" />.
+            </value>
+        <remarks>
+            This property always returns <see langword="true" />.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.Count">
+      <MemberSignature Language="C#" Value="int System.Collections.Generic.ICollection&lt;System.Object&gt;.Count { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The number of values in the <see cref="T:Mono.Rocks.Tuple{T}" />.
+            </summary>
+        <value>
+            A <see cref="T:System.Int32" /> containing the number
+            of values in this <see cref="T:Mono.Rocks.Tuple{T}" />.
+            </value>
+        <remarks>
+            This values is always equal to 1.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.Generic.IList&lt;System.Object&gt;.RemoveAt">
+      <MemberSignature Language="C#" Value="void IList&lt;object&gt;.RemoveAt (int index);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </summary>
+        <remarks>
+          <para>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </para>
+          <para>
+            <see cref="T:Mono.Rocks.Tuple{T}" /> is immutable; modification is not supported.
+            </para>
+        </remarks>
+        <exception cref="T:System.NotSupportedException">
+            This member is not supported.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.Generic.IList&lt;System.Object&gt;.IndexOf">
+      <MemberSignature Language="C#" Value="int IList&lt;object&gt;.IndexOf (object value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="value">
+            The <see cref="T:System.Object" /> to locate in the current instance.
+            </param>
+        <summary>
+            Searches the current instance, returning the index of
+            the first occurrence of the specified <see cref="T:System.Object" />.
+            </summary>
+        <returns>
+            A <see cref="T:System.Int32" /> that specifies the
+            index of the first occurrence of <paramref name="value" /> in the current
+            instance, if found; otherwise, -1.
+            </returns>
+        <remarks>
+            This method uses
+            <see cref="M:System.Object.Equals(System.Object,System.Object)" /> to determine
+            value equality.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.Generic.IList&lt;System.Object&gt;.Insert">
+      <MemberSignature Language="C#" Value="void IList&lt;object&gt;.Insert (int index, object item);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" />
+        <Parameter Name="item" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <param name="item">To be added.</param>
+        <summary>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </summary>
+        <remarks>
+          <para>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </para>
+          <para>
+            <see cref="T:Mono.Rocks.Tuple{T}" /> is immutable; modification is not supported.
+            </para>
+        </remarks>
+        <exception cref="T:System.NotSupportedException">
+            This member is not supported.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.ICollection.CopyTo">
+      <MemberSignature Language="C#" Value="void ICollection.CopyTo (Array array, int index);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="array" Type="System.Array" />
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="array">
+            The one-dimensional
+            <see cref="T:System.Array" /> that is the destination for the values
+            to be copied from the current instance.
+            </param>
+        <param name="index">
+            A <see cref="T:System.Int32" /> that specifies
+            the first index of <paramref name="array" /> to which the elements of the
+            current <see cref="T:Mono.Rocks.Tuple{T}" /> are copied.
+            </param>
+        <summary>
+            Copies the values of the current
+            <see cref="T:Mono.Rocks.Tuple{T}" /> to the specified <see cref="T:System.Array" />,
+            starting at the <paramref name="index" /> index of the array.
+            </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">
+          <para>
+            <paramref name="index" /> is &gt;=
+            <paramref name="array" />'s <see cref="P:System.Array.Length" /> property.
+            </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="index" /> + <see cref="P:System.Collections.ICollection.Count" />
+            of the current instance is &gt;
+            <paramref name="array" />'s <see cref="P:System.Array.Length" /> property.
+            </para>
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="array" /> is <see langword="null" />.
+            </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="index" /> is negative.
+            </exception>
+        <exception cref="T:System.InvalidCastException">
+            At least one element in the current instance is not
+            assignment-compatible with the type of <paramref name="array" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.ICollection.Count">
+      <MemberSignature Language="C#" Value="int System.Collections.ICollection.Count { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The number of values in the <see cref="T:Mono.Rocks.Tuple{T}" />.
+            </summary>
+        <value>
+            A <see cref="T:System.Int32" /> containing the number
+            of values in this <see cref="T:Mono.Rocks.Tuple{T}" />.
+            </value>
+        <remarks>
+            This values is always equal to 1.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.ICollection.IsSynchronized">
+      <MemberSignature Language="C#" Value="bool System.Collections.ICollection.IsSynchronized { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets a value indicating whether access ot the
+            current instance is synchronized (thread-safe)
+            </summary>
+        <value>
+            This property always returns <see langword="true" />.
+            </value>
+        <remarks>
+          <para>
+            <see cref="T:Mono.Rocks.Tuple{T}" /> instance are immutable, and thus the instances
+            themselves are always thread-safe.  However, this does not mean that
+            the values exposed by the tuple are thread safe, so care should be
+            taken if necessary.
+            </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.ICollection.SyncRoot">
+      <MemberSignature Language="C#" Value="object System.Collections.ICollection.SyncRoot { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Object</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets an object that can be used to synchronize access
+            to the current instance.
+            </summary>
+        <value>
+            A <see cref="T:System.Object" /> that can be used to
+            synchronize access to the current instance.
+            </value>
+        <remarks>
+          <para>
+            This property shouldn't be used, as <see cref="T:Mono.Rocks.Tuple{T}" /> instances
+            are immutable, and thus require no locking.
+            </para>
+          <para>
+            The object returned is shared by all <see cref="T:Mono.Rocks.Tuple{T}" /> instances.
+            </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.IEnumerable.GetEnumerator">
+      <MemberSignature Language="C#" Value="System.Collections.IEnumerator IEnumerable.GetEnumerator ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.IEnumerator</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Returns an <see cref="T:System.Collections.IEnumerator" /> for the current instance.
+            </summary>
+        <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> for the current instance.
+            </returns>
+        <remarks>
+          <para>
+            Returns each value in the <see cref="T:Mono.Rocks.Tuple{T}" /> as an
+            <see cref="T:System.Object" />, in the order
+            <see cref="P:Mono.Rocks.Tuple`1._1" />.
+            </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.IList.Add">
+      <MemberSignature Language="C#" Value="int IList.Add (object value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>
+          <para>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </para>
+          <para>
+            <see cref="T:Mono.Rocks.Tuple{T}" /> is immutable; modification is not supported.
+            </para>
+        </remarks>
+        <exception cref="T:System.NotSupportedException">
+            This member is not supported.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.IList.Clear">
+      <MemberSignature Language="C#" Value="void IList.Clear ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </summary>
+        <remarks>
+          <para>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </para>
+          <para>
+            <see cref="T:Mono.Rocks.Tuple{T}" /> is immutable; modification is not supported.
+            </para>
+        </remarks>
+        <exception cref="T:System.NotSupportedException">
+            This member is not supported.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.IList.Contains">
+      <MemberSignature Language="C#" Value="bool IList.Contains (object value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="value">
+            The <see cref="T:System.Object" /> to locate in the current instance.
+            </param>
+        <summary>
+            Determines whether <paramref name="value" /><see cref="M:System.Object.Equals(System.Object)" /> any value within this
+            <see cref="T:Mono.Rocks.Tuple{T}" /> instance.
+            </summary>
+        <returns>
+          <see langword="true" /> if <paramref name="value" /> is
+            contained in the current instance; otherwise, <see langword="false" />.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="note">
+            This method determines equality by calling
+            <see cref="M:System.Object.Equls(System.Object,System.Object)" /> on
+            each value contained within this tuple and <paramref name="value" />.
+            </block>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.IList.IndexOf">
+      <MemberSignature Language="C#" Value="int IList.IndexOf (object value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="value">
+            The <see cref="T:System.Object" /> to locate in the current instance.
+            </param>
+        <summary>
+            Searches the current instance, returning the index of
+            the first occurrence of the specified <see cref="T:System.Object" />.
+            </summary>
+        <returns>
+            A <see cref="T:System.Int32" /> that specifies the
+            index of the first occurrence of <paramref name="value" /> in the current
+            instance, if found; otherwise, -1.
+            </returns>
+        <remarks>
+            This method uses
+            <see cref="M:System.Object.Equals(System.Object,System.Object)" /> to determine
+            value equality.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.IList.Insert">
+      <MemberSignature Language="C#" Value="void IList.Insert (int index, object value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" />
+        <Parameter Name="value" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </summary>
+        <remarks>
+          <para>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </para>
+          <para>
+            <see cref="T:Mono.Rocks.Tuple{T}" /> is immutable; modification is not supported.
+            </para>
+        </remarks>
+        <exception cref="T:System.NotSupportedException">
+            This member is not supported.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.IList.IsFixedSize">
+      <MemberSignature Language="C#" Value="bool System.Collections.IList.IsFixedSize { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets a <see cref="T:System.Boolean" /> indicating
+            whether the <see cref="P:Mono.Rocks.Tuple`1.System#Collections#ICollection#Count" />
+            cannot be changed.
+            </summary>
+        <returns>
+          <see cref="T:Mono.Rocks.Tuple{T}" /> is immutable; its size cannot be changed.
+            </returns>
+        <value>
+          <see langword="true" />
+        </value>
+        <value>
+          <see langword="true" />
+        </value>
+        <value>
+          <see langword="true" />
+        </value>
+        <value>
+          <see langword="true" />
+        </value>
+        <value>
+          <see langword="true" />
+        </value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.IList.IsReadOnly">
+      <MemberSignature Language="C#" Value="bool System.Collections.IList.IsReadOnly { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets a value indicating whether the current instance is read-only
+            </summary>
+        <value>
+          <see langword="true" />.
+            </value>
+        <remarks>
+            This property always returns <see langword="true" />.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.IList.Remove">
+      <MemberSignature Language="C#" Value="void IList.Remove (object value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </summary>
+        <remarks>
+          <para>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </para>
+          <para>
+            <see cref="T:Mono.Rocks.Tuple{T}" /> is immutable; modification is not supported.
+            </para>
+        </remarks>
+        <exception cref="T:System.NotSupportedException">
+            This member is not supported.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.IList.RemoveAt">
+      <MemberSignature Language="C#" Value="void IList.RemoveAt (int index);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
+        <summary>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </summary>
+        <remarks>
+          <para>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </para>
+          <para>
+            <see cref="T:Mono.Rocks.Tuple{T}" /> is immutable; modification is not supported.
+            </para>
+        </remarks>
+        <exception cref="T:System.NotSupportedException">
+            This member is not supported.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="ToString">
+      <MemberSignature Language="C#" Value="public override string ToString ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Returns a <see cref="T:System.String" /> representation of the value of the current instance.
+            </summary>
+        <returns>
+            A <see cref="T:System.String" /> representation of the value of the current instance.
+            </returns>
+        <remarks>
+          <para>
+            <block subset="none" type="behaviors">
+            Returns <c>(</c>, followed by a comma-separated list of the result of
+            calling <see cref="M:System.Object.ToString" /> on
+            <see cref="P:Mono.Rocks.Tuple`1._1" />, followed by <c>)</c>.
+            </block>
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,216 @@
+<Type Name="NaturalStringComparer" FullName="Mono.Rocks.NaturalStringComparer">
+  <TypeSignature Language="C#" Value="public sealed class NaturalStringComparer : System.Collections.Generic.IComparer&lt;string&gt;, System.Collections.IComparer" />
+  <AssemblyInfo>
+    <AssemblyName>Mono.Rocks</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <ThreadingSafetyStatement>
+    This type is thread safe.
+  </ThreadingSafetyStatement>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.Collections.Generic.IComparer&lt;System.String&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.Collections.IComparer</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>
+      Provides <see cref="T:System.Collections.IComparer" /> and 
+      <see cref="T:System.Collections.Generic.IComparer{System.String}" />
+      implementations to sort strings in a "natural" fashion.
+    </summary>
+    <remarks>
+      <para>
+        "Natural" string comparison compares strings as humans would compare
+        them, not as computers do.  Thus the string <c>"10"</c> sorts after
+        <c>"2"</c>, whereas "normally" <c>"10"</c> would sort before
+        <c>"2"</c> because normal string comparison works a character at a
+        time, and <c>"1"</c> is before <c>"2"</c>.
+      </para>
+    </remarks>
+    <altmember cref="M:Mono.Rocks.IEnumerableRocks.OrderByNatural``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})" />
+    <altmember cref="M:Mono.Rocks.IEnumerableRocks.SortNatural(System.Collections.Generic.IEnumerable{System.String})" />
+  </Docs>
+  <Members>
+    <Member MemberName="Compare">
+      <MemberSignature Language="C#" Value="public int Compare (string x, string y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.String" />
+        <Parameter Name="y" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="x">
+          The first <see cref="T:System.String" /> to compare.
+        </param>
+        <param name="y">
+          The second <see cref="T:System.String" /> to compare.
+        </param>
+        <summary>
+          Returns the sort order of two <see cref="T:System.String" /> instances.
+        </summary>
+        <returns>
+          <para>
+            The return value is a negative number, zero, or a positive number 
+            reflecting the sort order of <paramref name="a" /> as compared to 
+            <paramref name="b" />. For non-zero return values, the exact value 
+            returned by this method is unspecified. The following table defines 
+            the return value:
+          </para>
+          <list type="table">
+            <listheader>
+              <term>Value</term>
+              <description>Condition</description>
+            </listheader>
+            <item>
+              <term>A negative number</term>
+              <description>
+                <paramref name="a" /> &lt; <paramref name="b" />.
+              </description>
+            </item>
+            <item>
+              <term>Zero</term>
+              <description>
+                <paramref name="a" /> == <paramref name="b" />.
+              </description>
+            </item>
+            <item>
+              <term>A positive number</term>
+              <description>
+                <paramref name="a" /> &gt; <paramref name="b" />.
+              </description>
+            </item>
+          </list>
+          <block subset="none" type="note">
+            A null reference is considered to compare less than any other 
+            non-null object, and equal to any other null reference, 
+            independent of the underlying <see cref="T:System.Type" /> of 
+            either object.
+          </block>
+        </returns>
+        <remarks>
+          <para>
+            This method compares <paramref name="x" /> to <paramref name="y" />
+            using a "natural" string comparison algorithm, so that strings
+            with embedded numeric data sort by the numeric data in conjunction
+            with the surrounding string, instead of treating the numeric data
+            as part of the string itself.
+          </para>
+          <para>
+            This allows <c>"foo10"</c> to sort after <c>"foo2"</c>, as is
+            usually expected when looking at sorted text, instead of having
+            <c>"foo10"</c> sort before <c>"foo2"</c>, as
+            <see cref="T:System.Collections.Generic.Comparer{System.String}" />
+            would do.
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Default">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.NaturalStringComparer Default { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.NaturalStringComparer</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+          Returns the default <see cref="T:Mono.Rocks.NaturalStringComparer" /> 
+          instance to use for comparing strings.
+        </summary>
+        <value>
+          A <see cref="T:Mono.Rocks.NaturalStringComparer" /> 
+          instance to use for comparing strings.
+        </value>
+        <remarks>
+          <para>This field is read-only.</para>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.IComparer.Compare">
+      <MemberSignature Language="C#" Value="int IComparer.Compare (object x, object y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="System.Object" />
+        <Parameter Name="y" Type="System.Object" />
+      </Parameters>
+      <Docs>
+        <param name="x">
+          The first <see cref="T:System.Object" /> to compare.
+        </param>
+        <param name="y">
+          The second <see cref="T:System.Object" /> to compare.
+        </param>
+        <summary>
+          Returns the sort order of two <see cref="T:System.Object" /> instances.
+        </summary>
+        <returns>
+          <para>
+            The return value is a negative number, zero, or a positive number 
+            reflecting the sort order of <paramref name="a" /> as compared to 
+            <paramref name="b" />. For non-zero return values, the exact value 
+            returned by this method is unspecified. The following table defines 
+            the return value:
+          </para>
+          <list type="table">
+            <listheader>
+              <term>Value</term>
+              <description>Condition</description>
+            </listheader>
+            <item>
+              <term>A negative number</term>
+              <description>
+                <paramref name="a" /> &lt; <paramref name="b" />.
+              </description>
+            </item>
+            <item>
+              <term>Zero</term>
+              <description>
+                <paramref name="a" /> == <paramref name="b" />.
+              </description>
+            </item>
+            <item>
+              <term>A positive number</term>
+              <description>
+                <paramref name="a" /> &gt; <paramref name="b" />.
+              </description>
+            </item>
+          </list>
+          <block subset="none" type="note">
+            A null reference is considered to compare less than any other 
+            non-null object, and equal to any other null reference, 
+            independent of the underlying <see cref="T:System.Type" /> of 
+            either object.
+          </block>
+        </returns>
+        <remarks>
+          <para>
+            This method calls 
+            <see cref="M:Mono.Rocks.NaturalStringComparer.Compare(System.String,System.String)" />,
+            passing <c><paramref name="x" />.ToString()</c> and 
+            <c><paramref name="y" />.ToString()</c> as arguments.
+          </para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

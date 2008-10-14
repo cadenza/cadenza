@@ -26,6 +26,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -40,6 +41,20 @@ namespace Mono.Rocks.Tests {
 		public void AssertAreSame<T> (IEnumerable<T> expected, IEnumerable<T> data)
 		{
 			Assert.IsTrue (data.SequenceEqual (expected));
+		}
+
+		public static void AssertException<TException> (Action action)
+		{
+			try {
+				action ();
+			}
+			catch (Exception e)
+			{
+				if (e.GetType () != typeof (TException))
+					throw new InvalidOperationException (
+							string.Format ("invalid exception type!  Expected {0}, got {1}.",
+								typeof (TException).FullName, e.GetType().FullName));
+			}
 		}
 	}
 }

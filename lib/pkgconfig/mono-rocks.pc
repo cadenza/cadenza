@@ -1,0 +1,11 @@
+prefix=${pcfiledir}/../..
+exec_prefix=${pcfiledir}/../..
+libdir=${exec_prefix}/lib
+assemblies_dir=${libdir}/mono-rocks
+Libraries=${assemblies_dir}/Mono.Rocks.dll
+ 
+Name: Mono.Rocks
+Description: C# Utility Library
+Version: 0.1.0
+Requires: 
+Libs: -r:Mono.Rocks.dll

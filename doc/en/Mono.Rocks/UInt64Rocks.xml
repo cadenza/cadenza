@@ -1,0 +1,104 @@
+<Type Name="UInt64Rocks" FullName="Mono.Rocks.UInt64Rocks">
+  <TypeSignature Language="C#" Value="public static class UInt64Rocks" />
+  <AssemblyInfo>
+    <AssemblyName>Mono.Rocks</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+    </Attribute>
+    <Attribute>
+      <AttributeName>System.CLSCompliant(false)</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      Extension methods for <see cref="T:System.UInt64" />.
+    </summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="IsEven">
+      <MemberSignature Language="C#" Value="public static bool IsEven (this ulong value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.UInt64" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="value">
+          A <see cref="T:System.UInt64" /> containing the value to check.
+        </param>
+        <summary>
+          Gets a value indicating whether <paramref name="value" /> is an even number.
+        </summary>
+        <returns>
+          <see langword="true" /> if <paramref name="value" /> is an even number;
+          otherwise, <see langword="false" />.
+        </returns>
+        <remarks>
+          <para>
+            For purposes of this method, an even value is a number
+            evenly divisible by 2 and the number 0; all other numbers
+            are odd.
+          </para>
+        </remarks>
+        <altmember cref="M:Mono.Rocks.UInt64Rocks.IsOdd(System.UInt64)" />
+      </Docs>
+    </Member>
+    <Member MemberName="IsOdd">
+      <MemberSignature Language="C#" Value="public static bool IsOdd (this ulong value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.UInt64" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="value">
+          A <see cref="T:System.UInt64" /> containing the value to check.
+        </param>
+        <summary>
+          Gets a value indicating whether <paramref name="value" /> is an odd number.
+        </summary>
+        <returns>
+          <see langword="true" /> if <paramref name="value" /> is an odd number;
+          otherwise, <see langword="false" />.
+        </returns>
+        <remarks>
+          <para>
+            For purposes of this method, an even value is a number
+            evenly divisible by 2 and the number 0; all other numbers
+            are odd.
+          </para>
+        </remarks>
+        <altmember cref="M:Mono.Rocks.UInt64Rocks.IsEven(System.UInt64)" />
+      </Docs>
+    </Member>
+  </Members>
+</Type>

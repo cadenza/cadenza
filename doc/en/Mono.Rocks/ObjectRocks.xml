@@ -1,0 +1,305 @@
+<Type Name="ObjectRocks" FullName="Mono.Rocks.ObjectRocks">
+  <TypeSignature Language="C#" Value="public static class ObjectRocks" />
+  <AssemblyInfo>
+    <AssemblyName>Mono.Rocks</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>Extension methods on <see cref="T:System.Object" />.</summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Just&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;T&gt; Just&lt;T&gt; (this T self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.Maybe&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="T" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+          The type to convert into a <see cref="T:Mono.Rocks.Maybe{T}" />.
+        </typeparam>
+        <param name="self">
+          A value of type <typeparamref name="T" /> to convert into a 
+          <see cref="T:Mono.Rocks.Maybe{T}" />.
+        </param>
+        <summary>
+          Create a new <see cref="T:Mono.Rocks.Maybe{T}" /> instance
+          initialized to a specified value.  The returned value will not be 
+          <see cref="F:Mono.Rocks.Maybe{T}.Nothing" />.
+        </summary>
+        <returns>
+          <para>
+            A new <see cref="T:Mono.Rocks.Maybe{T}" /> instance
+            initialized to a specified value.
+          </para>
+          <para>
+            The returned value will not be 
+            <see cref="F:Mono.Rocks.Maybe{T}.Nothing" />.
+          </para>
+        </returns>
+        <remarks>
+          <para>
+            Use this method when you want to ensure that 
+            <see cref="T:Mono.Rocks.Maybe{T}" /> instance is created in which
+						<see cref="P:Mono.Rocks.Maybe{T}.Value" /> will not throw.
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <typeparamref name="T" /> is a reference type and
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:Mono.Rocks.ObjectRocks.ToMaybe``1(``0)" />
+      </Docs>
+    </Member>
+    <Member MemberName="Match&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static TResult Match&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,Mono.Rocks.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="TSource" RefType="this" />
+        <Parameter Name="matchers" Type="System.Func&lt;TSource,Mono.Rocks.Maybe&lt;TResult&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">The source type.</typeparam>
+        <typeparam name="TResult">The result type.</typeparam>
+        <param name="self">
+          A value of type <typeparamref name="TSource" /> to convert to 
+          <typeparamref name="TResult" />.
+        </param>
+        <param name="matchers">
+          A <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+          array containing the conversion routines to try, in order, to
+          convert <paramref name="self" /> into a 
+          <typeparamref name="TResult" />.
+        </param>
+        <summary>
+          Converts the <typeparamref name="TSource" /> instance 
+          <paramref name="self" /> into a <typeparamref name="TResult" />.
+        </summary>
+        <returns>
+          A value of type <typeparamref name="TResult" />, as returned by one
+          of the conversion delegates in <paramref name="matchers" />.
+        </returns>
+        <remarks>
+          <block subset="none" type="behaviors">
+            <para>
+              <paramref name="self" /> is converted into a 
+              <typeparamref name="TResult" /> instance by trying each
+              <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+              within <paramref name="matchers" />.
+            </para>
+            <para>
+              This method returns the value of
+              where <see cref="P:Mono.Rocks.Maybe{TResult}.Value" /> 
+              for the first delegate to return a
+              <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
+              where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+              is <see langword="true" />.
+            </para>
+            <para>
+              If no 
+              <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+              returns a 
+              <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
+              where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+              is <see langword="true" />, then an
+              <see cref="T:System.InvalidOperationException" /> is thrown.
+            </para>
+          </block>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/ObjectTest.cs#Match">Assert.AreEqual ("foo",
+	"foo".Match (
+		s =&gt; Maybe.When (s.Length != 3, "bar!"),
+		s =&gt; s.Just ()));
+Assert.AreEqual ("bar!",
+	5.Match (
+		v =&gt; Maybe.When (v != 3, "bar!"),
+		v =&gt; v.ToString ().Just()));
+var m = new Func&lt;string, Maybe&lt;int&gt;&gt;[] {
+	v =&gt; Maybe.When (v == "bar",    1),
+	v =&gt; Maybe.When (v.Length == 5, 2),
+	v =&gt; (-1).Just (),
+};
+Assert.AreEqual (1, "bar".Match (m));
+Assert.AreEqual (2, "12345".Match (m));
+Assert.AreEqual (-1, "*default*".Match (m));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="matchers" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          None of the 
+          <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+          delegates within <paramref name="matchers" /> returned a 
+          <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance where
+          <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" /> was
+          <see langword="true" />.
+        </exception>
+        <altmember cref="M:Mono.Rocks.Maybe.When``1(System.Boolean,``0)" />
+        <altmember cref="M:Mono.Rocks.Maybe.When``1(System.Boolean,System.Func{``0})" />
+      </Docs>
+    </Member>
+    <Member MemberName="ToMaybe&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;T&gt; ToMaybe&lt;T&gt; (this T self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.Maybe&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="T" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+          The type to convert into a <see cref="T:Mono.Rocks.Maybe{T}" />.
+        </typeparam>
+        <param name="self">
+          A value of type <typeparamref name="T" /> to convert into a 
+          <see cref="T:Mono.Rocks.Maybe{T}" />.
+        </param>
+        <summary>
+          Create a new <see cref="T:Mono.Rocks.Maybe{T}" /> instance
+          initialized to a specified value.  The returned value may be 
+          <see cref="F:Mono.Rocks.Maybe{T}.Nothing" />.
+        </summary>
+        <returns>
+          <para>
+            A new <see cref="T:Mono.Rocks.Maybe{T}" /> instance
+            initialized to a specified value.
+          </para>
+          <block subset="none" type="note">
+            The value returned may be 
+            <see cref="F:Mono.Rocks.Maybe{T}.Nothing" />.
+          </block>
+        </returns>
+        <remarks>
+          <para>
+            Use this method when you want to ensure that a possibly invalid
+            <see cref="T:Mono.Rocks.Maybe{T}" /> instance is created.
+            If <typeparamref name="T" /> is a reference type and 
+            <paramref name="self" /> is <see langword="null" />, then
+            <see cref="F:Mono.Rocks.Maybe{T}.Nothing" /> will be returned;
+            otherwise, a new <see cref="T:Mono.Rocks.Maybe{T}" /> will be
+            created containing the value <paramref name="self" />.
+          </para>
+        </remarks>
+        <altmember cref="M:Mono.Rocks.ObjectRocks.Just``1(``0)" />
+      </Docs>
+    </Member>
+    <Member MemberName="With&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static TResult With&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; selector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="TSource" RefType="this" />
+        <Parameter Name="selector" Type="System.Func&lt;TSource,TResult&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">The type to operate on.</typeparam>
+        <typeparam name="TResult">The type to return.</typeparam>
+        <param name="self">
+          A <typeparamref name="TSource" /> containing the value to manipulate.
+          This value may be <see langword="null" /> (unlike most other
+          extension methods).
+        </param>
+        <param name="selector">
+          A <see cref="T:System.Func{TSource,TResult}" /> which will be
+          invoked with <paramref name="self" /> as a parameter.
+        </param>
+        <summary>
+          Supports chaining otherwise temporary values.
+        </summary>
+        <returns>
+          The value of type <typeparamref name="TResult" /> returned by
+          <paramref name="selector" />.
+        </returns>
+        <remarks>
+          <para>
+            <c>With</c> is useful for easily using an intermediate value within
+            an expression "chain" without requiring an explicit variable
+            declaration (which is useful for reducing in-scope variables, as no
+            variable is explicitly declared).
+          </para>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/ObjectTest.cs#With">// sorts the array, then returns the 
+// element in the middle of the array.
+Assert.AreEqual (3,
+	new[]{5, 4, 3, 2, 1}.Sort ()
+	.With (c =&gt; c.ElementAt (c.Count()/2)));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="selector" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,280 @@
+<Type Name="Maybe" FullName="Mono.Rocks.Maybe">
+  <TypeSignature Language="C#" Value="public static class Maybe" />
+  <AssemblyInfo>
+    <AssemblyName>Mono.Rocks</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <ThreadingSafetyStatement>
+    This type is thread safe.
+  </ThreadingSafetyStatement>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+      Static utility methods for creating 
+      <see cref="T:Mono.Rocks.Maybe{T}" /> instances.
+    </summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="TryParse&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;T&gt; TryParse&lt;T&gt; (string value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.Maybe&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+          The type of object to attempt to parse out of 
+          <paramref name="value" />.
+        </typeparam>
+        <param name="value">
+          A <see cref="T:System.String" /> containing the value to parse into
+          an instance of type <typeparamref name="T" />.
+        </param>
+        <summary>
+          Converts the <see cref="T:System.String" /><paramref name="value" />
+          into an instance of type <typeparamref name="T" />.
+        </summary>
+        <returns>
+          A <see cref="T:Mono.Rocks.Maybe{T}" />.  If <paramref name="value" />
+          could be converted into a value of type <typeparamref name="T" />,
+          then <see cref="P:Mono.Rocks.Maybe{T}.HasValue" /> will be
+          <see langword="true" /> and 
+          <see cref="P:Mono.Rocks.Maybe{T}.Value" /> will contain the
+          converted value; otherwise, 
+          <see cref="P:Mono.Rocks.Maybe{T}.HasValue" /> will be
+          <see langword="false" />.
+        </returns>
+        <remarks>
+          <para>
+            <c>TryParse</c> uses 
+            <see cref="M:System.ComponentModel.TypeConverter.ConvertFromString(System.String)" />
+            to convert <paramref name="value" /> into a value of type 
+            <typeparamref name="T" />.  If <paramref name="value" /> could not
+            be converted (e.g.
+            <see cref="M:System.ComponentModel.TypeConverter.CanConvertFrom(System.Type)" />
+            returned <see langword="false" /> or
+            <see cref="M:System.ComponentModel.TypeConverter.ConvertFromString(System.String)" />
+            threw an exception), then 
+            <see cref="F:Mono.Rocks.Maybe{T}.Nothing" /> is returned;
+            otherwise, a new <see cref="T:Mono.Rocks.Maybe{T}" /> will be
+            created, 
+            <see cref="P:Mono.Rocks.Maybe{T}.HasValue" /> will be 
+            <see langword="true" />, and 
+            <see cref="P:Mono.Rocks.Maybe{T}.Value" /> will contain the
+            converted value.
+          </para>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/MaybeTest.cs#TryParse">Maybe&lt;int&gt; n;
+
+n = Maybe.TryParse&lt;int&gt; (null);
+Assert.IsFalse (n.HasValue);
+
+n = Maybe.TryParse&lt;int&gt; ("");
+Assert.IsFalse (n.HasValue);
+
+n = Maybe.TryParse&lt;int&gt; ("foo");
+Assert.IsFalse (n.HasValue);
+
+n = Maybe.TryParse&lt;int&gt; ("42.01");
+Assert.IsFalse (n.HasValue);
+
+n = Maybe.TryParse&lt;int&gt; ("42");
+Assert.IsTrue (n.HasValue);
+Assert.AreEqual (42, n.Value);
+</code>
+        </remarks>
+        <altmember cref="M:System.ComponentModel.TypeConverter.CanConvertFrom(System.Type)" />
+        <altmember cref="M:System.ComponentModel.TypeConverter.ConvertFromString(System.String)" />
+      </Docs>
+    </Member>
+    <Member MemberName="TryParse&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;TResult&gt; TryParse&lt;TSource,TResult&gt; (TSource value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.Maybe&lt;TResult&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="TSource" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <typeparam name="TResult">To be added.</typeparam>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="When&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;T&gt; When&lt;T&gt; (bool condition, Func&lt;T&gt; creator);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.Maybe&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="condition" Type="System.Boolean" />
+        <Parameter Name="creator" Type="System.Func&lt;T&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+          The type of value that <see cref="T:Mono.Rocks.Maybe{T}" /> should
+          contain.
+        </typeparam>
+        <param name="condition">
+          If <see langword="true" />, <c>When</c> returns
+          <c><paramref name="creator" />().Just()</c>.
+          Otherwise, <c>When</c> returns 
+          <see cref="F:Mono.Rocks.Maybe{T}.Nothing" />.
+        </param>
+        <param name="creator">
+          A <see cref="T:System.Func{T}" /> which is used to create the value
+          returned when <paramref name="condition" /> is 
+          <see langword="true" />.
+        </param>
+        <summary>
+          Returns a value-containing <see cref="T:Mono.Rocks.Maybe{T}" />
+          instance or <see cref="F:Mono.Rocks.Maybe{T}.Nothing" />, depending
+          on <paramref name="condition" />.
+        </summary>
+        <returns>
+          A <see cref="T:Mono.Rocks.Maybe{T}" />.  If 
+          <paramref name="condition" /> is <see langword="true" />,
+          then <paramref name="creator" /> is evaluated and a 
+          <see cref="T:Mono.Rocks.Maybe{T}" /> instance containing the value
+          returned by <paramref name="creator" /> is returned; otherwise,
+          <see cref="F:Mono.Rocks.Maybe{T}.Nothing" /> is returned.
+        </returns>
+        <remarks>
+          <para>
+            Use this method instead of 
+            <see cref="M:Mono.Rocks.Maybe.When``1(System.Boolean,``0)" />
+            when the value you need to return can only be created when
+            <paramref name="condition" /> is <see langword="true" />.
+          </para>
+          <code lang="C#">string s = GetSomeString();
+int length;
+
+// BAD:
+length = s.Match (
+    v =&gt; Maybe.When (s != null, s.Length),  // may throw, if s == null
+    v =&gt; Maybe.When (s == null, 0));
+
+// GOOD:
+length = s.Match (
+    v =&gt; Maybe.When (s != null, () =&gt; s.Length),  // delays evaluation.
+    v =&gt; Maybe.When (s == null, 0));
+          </code>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/MaybeTest.cs#When_Creator">bool invoked = false;
+r = Maybe.When (false, () =&gt; {invoked = true; return 42;});
+Assert.IsFalse (invoked);
+Assert.IsFalse (r.HasValue);
+
+r = Maybe.When (true, () =&gt; {invoked = true; return 42;});
+Assert.IsTrue (invoked);
+Assert.IsTrue (r.HasValue);
+Assert.AreEqual (42, r.Value);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="condition" /> is <see langword="true" /> and
+          <paramref name="creator" /> returned <see langword="null" />.
+        </exception>
+        <altmember cref="M:Mono.Rocks.Maybe.When``1(System.Boolean,``0)" />
+        <altmember cref="M:Mono.Rocks.ObjectRocks.Match``2(``0,System.Func{``0,Mono.Rocks.Maybe{``1}}[])" />
+      </Docs>
+    </Member>
+    <Member MemberName="When&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;T&gt; When&lt;T&gt; (bool condition, T value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.Maybe&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="condition" Type="System.Boolean" />
+        <Parameter Name="value" Type="T" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+          The type of value that <see cref="T:Mono.Rocks.Maybe{T}" /> should
+          contain.
+        </typeparam>
+        <param name="condition">
+          If <see langword="true" />, <c>When</c> returns
+          <c><paramref name="value" />.Just()</c>.
+          Otherwise, <c>When</c> returns 
+          <see cref="F:Mono.Rocks.Maybe{T}.Nothing" />.
+        </param>
+        <param name="value">
+          A <typeparamref name="T" /> containing the value to return when
+          <paramref name="condition" /> is <see langword="true" />.
+        </param>
+        <summary>
+          Returns a value-containing <see cref="T:Mono.Rocks.Maybe{T}" />
+          instance or <see cref="F:Mono.Rocks.Maybe{T}.Nothing" />, depending
+          on <paramref name="condition" />.
+        </summary>
+        <returns>
+          A <see cref="T:Mono.Rocks.Maybe{T}" />.  If 
+          <paramref name="condition" /> is <see langword="true" />,
+          then a 
+          <see cref="T:Mono.Rocks.Maybe{T}" /> instance containing the value
+          <paramref name="value" /> is returned; otherwise,
+          <see cref="F:Mono.Rocks.Maybe{T}.Nothing" /> is returned.
+        </returns>
+        <remarks>
+          <para>
+            Use this method instead of 
+            <see cref="M:Mono.Rocks.Maybe.When``1(System.Boolean,System.Func{``0})" />
+            when it doesn't matter of <paramref name="value" /> is
+            immediately evaluated.
+          </para>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/MaybeTest.cs#When">var r = Maybe.When (true, 42);
+Assert.IsTrue (r.HasValue);
+Assert.AreEqual (42, r.Value);
+
+r = Maybe.When (false, 42);
+Assert.IsFalse (r.HasValue);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="condition" /> is <see langword="true" /> and
+          <paramref name="value" /> returned <see langword="null" />.
+        </exception>
+        <altmember cref="M:Mono.Rocks.Maybe.When``1(System.Boolean,``0)" />
+        <altmember cref="M:Mono.Rocks.ObjectRocks.Match``2(``0,System.Func{``0,Mono.Rocks.Maybe{``1}}[])" />
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -10,40 +10,66 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mono.Rocks.Tests</RootNamespace>
     <AssemblyName>Mono.Rocks.Tests</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\lib\mono-rocks\Debug</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <EnvironmentVariables>
+      <EnvironmentVariables />
+    </EnvironmentVariables>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\lib\mono-rocks\Release</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework" />
+    <Reference Include="nunit.framework, Version=2.2.9.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mono.Rocks.Tests\BaseRocksFixture.cs" />
-    <Compile Include="Mono.Rocks.Tests\ICustomAttributeProviderTest.cs" />
-    <Compile Include="Mono.Rocks.Tests\StringTest.cs" />
-    <Compile Include="Mono.Rocks.Tests\IEnumerableTest.cs" />
-    <Compile Include="Mono.Rocks.Tests\Int32Test.cs" />
     <Compile Include="Mono.Rocks.Tests\AssemblyInfo.cs" />
+    <Compile Include="Mono.Rocks.Tests\BaseRocksFixture.cs" />
+    <Compile Include="Mono.Rocks.Tests\DelegateTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\EitherTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\EnumerableValueReaderTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\ICustomAttributeProviderTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\IEnumerableTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\Int16Test.cs" />
+    <Compile Include="Mono.Rocks.Tests\Int32Test.cs" />
+    <Compile Include="Mono.Rocks.Tests\Int64Test.cs" />
+    <Compile Include="Mono.Rocks.Tests\JaggedArrayTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\KeyValuePairTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\LambdaTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\MaybeTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\NaturalStringComparerTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\NullableTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\ObjectTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\RectangularArrayTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\SequenceTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\StreamTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\SystemStreamConverterTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\StringTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\TextReaderTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\TextValueReaderTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\TuplesTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\TypeTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\UInt16Test.cs" />
+    <Compile Include="Mono.Rocks.Tests\UInt32Test.cs" />
+    <Compile Include="Mono.Rocks.Tests\UInt64Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mono.Rocks.csproj">
@@ -59,4 +85,11 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <GtkDesignInfo gtkVersion="2.12.1" />
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
 </Project>

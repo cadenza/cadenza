@@ -1,0 +1,154 @@
+<Type Name="KeyValuePairRocks" FullName="Mono.Rocks.KeyValuePairRocks">
+  <TypeSignature Language="C#" Value="public static class KeyValuePairRocks" />
+  <AssemblyInfo>
+    <AssemblyName>Mono.Rocks</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      Extension methods for 
+      <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />.
+    </summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Aggregate&lt;TKey,TValue,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;TKey,TValue,TResult&gt; (this System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; self, Func&lt;TKey,TValue,TResult&gt; func);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="func" Type="System.Func&lt;TKey,TValue,TResult&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">The type of the key.</typeparam>
+        <typeparam name="TValue">Type type of the value.</typeparam>
+        <typeparam name="TResult">The type to accumulator value.</typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />.
+          instance to convert into a <typeparamref name="TResult" />.
+        </param>
+        <param name="func">
+          A <see cref="T:System.Func{TKey,TValue,TResult}" /> which is invoked
+          to convert the 
+          <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />
+          into a <typeparamref name="TResult" />.
+        </param>
+        <summary>
+          Applies an accumulator to a 
+          <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />,
+          converting the 
+          <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />
+          into a different value.
+        </summary>
+        <returns>
+          A <typeparamref name="TResult" />, which is the return value of
+          <paramref name="func" />.
+        </returns>
+        <remarks>
+          <para>
+            This is useful primarily to avoid an unseemly temporary (or to
+            more easily use 
+            <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />s
+            within expressions).
+          </para>
+          <code lang="C#">
+var dict = new Dictionary&lt;int, int&gt; { 
+    { 1, 1 },
+    { 2, 4 },
+    { 3, 9 },
+};
+string entries = dict
+    .Select( 
+        e =&gt; /* e is a KeyValuePair&lt;int,int&gt; */ 
+            e.Aggregate( (k, v) =&gt; string.Format("({0},{1})", k, v) ) )
+    .Implode("|");
+// entries contains "(1,1)|(2,4)|(3,9)"
+          </code>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToTuple&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;TKey,TValue&gt; ToTuple&lt;TKey,TValue&gt; (this System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.Tuple&lt;TKey,TValue&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">The type of the key.</typeparam>
+        <typeparam name="TValue">The type of the value.</typeparam>
+        <param name="self">
+          A 
+          <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />.
+          to convert into a
+          <see cref="T:Mono.Rocks.Tuple{TKey,TValue}" />.
+        </param>
+        <summary>
+          Converts a 
+          <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />
+          into a
+          <see cref="T:Mono.Rocks.Tuple{TKey,TValue}" />.
+        </summary>
+        <returns>
+          A <see cref="T:Mono.Rocks.Tuple{TKey,TValue}" /> struct.
+        </returns>
+        <remarks>
+          <para>
+            The value of the returned <see cref="P:Mono.Rocks.Tuple`2._1" />
+            property is copied from 
+            <see cref="P:System.Collections.Generic.KeyValuePair`2.Key" />
+            and the value of the returned 
+            <see cref="P:Mono.Rocks.Tuple`2._2" />
+            is copied from 
+            <see cref="P:System.Collections.Generic.KeyValuePair`2.Value" />.
+          </para>
+          <code lang="C#">
+KeyValuePair&lt;string, int&gt; kvp   = new KeyValuePair&lt;string, int&gt; ("s", 1);
+Tuple&lt;string, int&gt;        tuple = kvp.ToTuple ();
+    // tuple._1 == "s", tuple._2 == 1</code>
+        </remarks>
+        <altmember cref="M:Mono.Rocks.TupleRocks.ToKeyValuePair``2(Mono.Rocks.Tuple{``0,``1})" />
+      </Docs>
+    </Member>
+  </Members>
+</Type>

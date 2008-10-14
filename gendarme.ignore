@@ -1,0 +1,89 @@
+# Double-checked locking *is* safe (with some constraints); the rule is broken.
+R: Gendarme.Rules.Concurrency.DoubleCheckLockingRule
+M: Mono.Rocks.Cons`1<T> Mono.Rocks.Cons`1::get_Tail()
+
+# OK - Stylistic choice
+R: Gendarme.Rules.Design.AvoidRefAndOutParametersRule
+## StreamRocks uses the return value for chaining
+M: Mono.Rocks.StreamConverter Mono.Rocks.StreamConverter::Read(System.Boolean&)
+M: Mono.Rocks.StreamConverter Mono.Rocks.StreamConverter::Read(System.Byte&)
+M: Mono.Rocks.StreamConverter Mono.Rocks.StreamConverter::Read(System.Char&)
+M: Mono.Rocks.StreamConverter Mono.Rocks.StreamConverter::Read(System.Double&)
+M: Mono.Rocks.StreamConverter Mono.Rocks.StreamConverter::Read(System.Int16&)
+M: Mono.Rocks.StreamConverter Mono.Rocks.StreamConverter::Read(System.Int32&)
+M: Mono.Rocks.StreamConverter Mono.Rocks.StreamConverter::Read(System.Int64&)
+M: Mono.Rocks.StreamConverter Mono.Rocks.StreamConverter::Read(System.Single&)
+M: Mono.Rocks.StreamConverter Mono.Rocks.StreamConverter::Read(System.UInt16&)
+M: Mono.Rocks.StreamConverter Mono.Rocks.StreamConverter::Read(System.UInt32&)
+M: Mono.Rocks.StreamConverter Mono.Rocks.StreamConverter::Read(System.UInt64&)
+M: Mono.Rocks.StreamConverter Mono.Rocks.StreamConverter::Read(TValue&)
+M: Mono.Rocks.StreamConverter Mono.Rocks.StreamConverter::Read(System.Int32,System.Text.Encoding,System.String&)
+## IEnumerableRocks.Convert uses parameters to do type detection
+M: System.Void Mono.Rocks.IEnumerableRocks::Convert(System.Collections.Generic.IEnumerable`1<TSource>,TValue&)
+M: System.Void Mono.Rocks.IEnumerableRocks::Convert(System.Collections.Generic.IEnumerable`1<TSource>,TValue1&,TValue2&)
+M: System.Void Mono.Rocks.IEnumerableRocks::Convert(System.Collections.Generic.IEnumerable`1<TSource>,TValue1&,TValue2&,TValue3&)
+M: System.Void Mono.Rocks.IEnumerableRocks::Convert(System.Collections.Generic.IEnumerable`1<TSource>,TValue1&,TValue2&,TValue3&,TValue4&)
+
+# OK: We're following System.Nullable<T>'s public interface
+R: Gendarme.Rules.Design.ConsiderConvertingMethodToPropertyRule
+M: T Mono.Rocks.Maybe`1::GetValueOrDefault()
+
+# OK: How do you specify a value that means "no flags" w/o a 0 value?
+R: Gendarme.Rules.Design.FlagsShouldNotDefineAZeroValueRule
+T: Mono.Rocks.TextReaderLineOptions
+
+# OK: Stylistic choice
+R: Gendarme.Rules.Exceptions.DontSwallowErrorsCatchingNonspecificExceptionsRule
+M: Mono.Rocks.Maybe`1<T> Mono.Rocks.Maybe::TryParse(System.String)
+
+# OK: Stylistic choice (the `IEnumerable<T> iter` member is disposed when we
+#     reach the end of the list).
+R: Gendarme.Rules.Design.TypesWithDisposableFieldsShouldBeDisposableRule
+T: Mono.Rocks.Cons`1
+
+# OK - Tuple is a special case (disables warnings on _1, etc.)
+R: Gendarme.Rules.Naming.UseCorrectCasingRule
+T: Mono.Rocks.Tuple`1
+T: Mono.Rocks.Tuple`2
+T: Mono.Rocks.Tuple`3
+T: Mono.Rocks.Tuple`4
+
+# OK - Tuple is a special case (disables "Collection" suffix)
+R: Gendarme.Rules.Naming.UseCorrectSuffixRule
+T: Mono.Rocks.Cons`1
+T: Mono.Rocks.Tuple
+T: Mono.Rocks.Tuple`1
+T: Mono.Rocks.Tuple`2
+T: Mono.Rocks.Tuple`3
+T: Mono.Rocks.Tuple`4
+
+# OK - A poll on ##csharp and local devs prefers "Indices" over "Indexes" here
+R: Gendarme.Rules.Naming.UsePreferredTermsRule
+## public methods
+M: System.Collections.Generic.IEnumerable`1<System.Int32> Mono.Rocks.IEnumerableRocks::FindIndices(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+M: System.Collections.Generic.IEnumerable`1<System.Int32> Mono.Rocks.IEnumerableRocks::IndicesOf(System.Collections.Generic.IEnumerable`1<TSource>,TSource)
+M: System.Collections.Generic.IEnumerable`1<System.Int32> Mono.Rocks.IEnumerableRocks::IndicesOfAny(System.Collections.Generic.IEnumerable`1<TSource>,System.Collections.Generic.IEnumerable`1<TSource>)
+M: System.Collections.Generic.IEnumerable`1<System.Int32> Mono.Rocks.IEnumerableRocks::IndicesOfAny(System.Collections.Generic.IEnumerable`1<TSource>,TSource[])
+## private methods
+M: System.Collections.Generic.IEnumerable`1<System.Int32> Mono.Rocks.IEnumerableRocks::CreateFindIndicesIterator(System.Collections.Generic.IEnumerable`1<TSource>,System.Func`2<TSource,System.Boolean>)
+
+# OK - Mono BUG makes it report false positives in some cases where generics are used:
+# https://bugzilla.novell.com/show_bug.cgi?id=320901
+R: Gendarme.Rules.Performance.AvoidUncalledPrivateCodeRule
+T: Mono.Rocks.IEnumerableRocks
+T: Mono.Rocks.Sequence
+
+# OK - Gendarme Bug?
+R: Gendarme.Rules.Performance.ImplementEqualsTypeRule
+T: Mono.Rocks.Tuple`1
+T: Mono.Rocks.Tuple`2
+T: Mono.Rocks.Tuple`3
+T: Mono.Rocks.Tuple`4
+## This is by design: Tuple shouldn't have Tuple.Equals(Tuple), as then *all*
+## Tuple subclasses would need to worry about it in addition to Equals(object).
+T: Mono.Rocks.Tuple
+
+# OK - it's cleaner with the extra local (otherwise manually write `foreach`).
+R: Gendarme.Rules.Performance.RemoveUnusedLocalVariablesRule
+M: System.Void Mono.Rocks.IEnumerableRocks::Apply(System.Collections.Generic.IEnumerable`1<TSource>)
+

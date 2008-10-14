@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ItemType>GenericProject</ItemType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{255BEC25-C4C0-4288-A99E-0EAA266D0AD6}</ProjectGuid>
+    <Description>Mono.Rocks monodoc documentation</Description>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Default|AnyCPU' ">
+    <OutputPath>.</OutputPath>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="Custom" name="Update Documentation" command="mdoc update -o en ../lib/mono-rocks/Mono.Rocks.dll" workingdir="${ProjectDir}" />
+        <Command type="Build" command="mdoc assemble -o mono-rocks-docs en" workingdir="${ProjectDir}" />
+        <Command type="AfterBuild" command="cp mono-rocks-docs.* ../lib/monodoc/sources" workingdir="${ProjectDir}" />
+        <Command type="Custom" name="Build Html Documentation" command="mdoc export-html --template=doc-template.xsl --ext=html -o mono-rocks en" workingdir="${ProjectDir}" />
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="doc-template.xsl" />
+    <None Include="en\Mono.Rocks\CurryRocks.xml" />
+    <None Include="en\Mono.Rocks\ICustomAttributeProviderRocks.xml" />
+    <None Include="en\Mono.Rocks\IEnumerableRocks.xml" />
+    <None Include="en\Mono.Rocks\Int16Rocks.xml" />
+    <None Include="en\Mono.Rocks\Int32Rocks.xml" />
+    <None Include="en\Mono.Rocks\Int64Rocks.xml" />
+    <None Include="en\Mono.Rocks\KeyValuePairRocks.xml" />
+    <None Include="en\Mono.Rocks\Lambda.xml" />
+    <None Include="en\Mono.Rocks\NaturalStringComparer.xml" />
+    <None Include="en\Mono.Rocks\NullableRocks.xml" />
+    <None Include="en\Mono.Rocks\Sequence.xml" />
+    <None Include="en\Mono.Rocks\StreamConverter.xml" />
+    <None Include="en\Mono.Rocks\StreamRocks.xml" />
+    <None Include="en\Mono.Rocks\StringRocks.xml" />
+    <None Include="en\Mono.Rocks\TextReaderRocks.xml" />
+    <None Include="en\Mono.Rocks\Tuple.xml" />
+    <None Include="en\Mono.Rocks\TupleRocks.xml" />
+    <None Include="en\Mono.Rocks\Tuple`1.xml" />
+    <None Include="en\Mono.Rocks\Tuple`2.xml" />
+    <None Include="en\Mono.Rocks\Tuple`3.xml" />
+    <None Include="en\Mono.Rocks\Tuple`4.xml" />
+    <None Include="en\Mono.Rocks\UInt16Rocks.xml" />
+    <None Include="en\Mono.Rocks\UInt32Rocks.xml" />
+    <None Include="en\Mono.Rocks\UInt64Rocks.xml" />
+    <None Include="en\index.xml" />
+    <None Include="en\ns-Mono.Rocks.xml" />
+    <None Include="mono-rocks-docs.source" />
+    <None Include="prettyprint.js" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <MonoDevelop.ChangeLogAddIn.ChangeLogInfo policy="UpdateNearestChangeLog" />
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+</Project>

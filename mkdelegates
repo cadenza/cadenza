@@ -1,0 +1,653 @@
+#!/usr/bin/perl
+use strict;
+use Generator;
+use Getopt::Long;
+
+# TODO:
+# Tuplize?
+#   Action<Tuple<...>> Tuplize<...>(Action<...> self)
+#     { return x => self (x._...);
+#   Func<Tuple<...>, TResult> Tuplize<...>(Func<..., TResult> self)
+#     { return x => self (x._...);
+
+my $n = 1;
+my $namespace = "Mono.Rocks";
+my $output = "Delegates.cs";
+my $help = undef;
+
+GetOptions (
+	"n|count=i",    \$n,
+	"o|output=s",   \$output,
+	"namespace=s",  \$namespace,
+	"h|?|help",     \$help
+);
+
+if ($help) {
+	print <<EOF;
+$0 [-n N] [-o FILE] [-h]
+Create a C# file containing extension methods for various delegate types.
+
+Options:
+  -n, --count=N       The number of types to generate.  Default is 1.
+  -o, --output=FILE   The file to create.  Default is `Curry.cs'.
+      --namespace=NS  Place the types within the namespace NS.
+                        Default is `Mono.Rocks'.
+  -h, -?, --help      Show this message and exit.
+EOF
+	exit 0;
+}
+
+if ($n < 1) {
+	print STDERR "error: n must be >= 1, was $n\n";
+	exit 1;
+}
+
+my $handle = *STDOUT;
+
+my $g = Generator->new ($handle);
+
+my $header = <<EOF;
+//
+// $output: Extension methods for various delegate types.
+// 
+// GENERATED CODE: DO NOT EDIT.
+//
+// To regenerate this code, execute: $0 -n $n -o $output
+//
+// Copyright (c) 2008 Novell, Inc. (http://www.novell.com)
+EOF
+$g->Write ($header);
+$g->WriteLicense ();
+$g->Write ("using System;\n");
+$g->Write ("using System.Linq.Expressions;\n\n");
+
+$g->Namespace ($namespace, sub {
+	$g->Write ("\n");
+	$g->XmlSummary(
+qq(Provides extension methods on <see cref="T:System.Action{T}"/>,
+<see cref="T:System.Func{T,TResult}"/>, and related delegates.));
+	$g->XmlRemarks (
+qq(<para>
+ <see cref="T:Mono.Rocks.DelegateRocks" /> provides methods methods for:
+</para>
+<list type="bullet">
+ <item><term>
+  Delegate currying and partial application (<see cref="M:Mono.Rocks.DelegateRocks.Curry" />)
+ </term></item>
+ <item><term>
+  Delegate composition (<see cref="M:Mono.Rocks.DelegateRocks.Compose" />)
+ </term></item>
+</list>
+<para>
+ Currying via partial application is a way to easily transform 
+ functions which accept N arguments into functions which accept 
+ N-1 arguments, by "fixing" arguments with a value.
+</para>
+<code lang="C#">
+// partial application:
+Func&lt;int,int,int,int&gt; function = (int a, int b, int c) => a + b + c;
+Func&lt;int,int,int&gt;     f_3      = function.Curry (3);
+Func&lt;int&gt;             f_321    = function.Curry (3, 2, 1);
+Console.WriteLine (f_3 (2, 1));  // prints (3 + 2 + 1) == "6"
+Console.WriteLine (f_321 ());    // prints (3 + 2 + 1) == "6"</code>
+<para>
+ "Traditional" currying converts a delegate that accepts N arguments
+ into a delegate which accepts only one argument, but when invoked may 
+ return a further delegate (etc.) until the final value is returned.
+</para>
+<code lang="C#">
+// traditional currying:
+Func&lt;int, Func&lt;int, Func&lt;int, int&gt;&gt;&gt; curry = function.Curry ();
+Func&lt;int, Func&lt;int, int&gt;&gt;            fc_1  = curry (1);
+Func&lt;int, int&gt;                       fc_12 = fc_1 (2);
+Console.WriteLine (fc_12 (3));        // prints (3 + 2 + 1) == "6"
+Console.WriteLine (curry (3)(2)(1));  // prints (3 + 2 + 1) == "6"</code>
+<para>
+ Composition is a way to easy chain (or pipe) together multiple delegates
+ so that the return value of a "composer" delegate is used as the input 
+ parameter for the chained delegate:
+</para>
+<code lang="C#">
+var              tostring = Lambda.F ((int n) => n.ToString ());
+var               doubler = Lambda.F ((int n) => n * 2);
+var  double_then_tostring = tostring.Compose (doubler);
+Console.WriteLine (double_then_tostring (5));
+	// Prints "10";</code>
+<para>
+ All possible argument and return delegate permutations are provided
+ for the <see cref="T:System.Action{T}"/>, 
+ <see cref="T:System.Func{T,TResult}"/>, and related types.
+</para>));
+	$g->Type ("public static partial class DelegateRocks ", sub {
+		for (my $ntypes = 1; $ntypes <= $n; ++$ntypes) {
+			for (my $nret = 0; $nret < $ntypes; ++$nret) {
+				$g->Write ("\n");
+				create_delegate_doc ($g, $nret, $ntypes, 
+					Generator::GetDocAction ($ntypes), action_ret_xml ($nret, $ntypes));
+				$g->Method (
+					sub { action_ret_type ($g, $nret, $ntypes); },
+					sub { action_curry ($g, $nret, $ntypes); },
+					sub { action_args ($g, $nret, $ntypes); },
+					sub { curry_body ($g, $nret, $ntypes); }
+				);
+				$g->Write ("\n");
+				create_tuple_doc ($g, $nret, $ntypes, 
+					Generator::GetDocAction ($ntypes), action_ret_xml ($nret, $ntypes));
+				$g->Method (
+					sub { action_ret_type ($g, $nret, $ntypes); },
+					sub { action_curry ($g, $nret, $ntypes); },
+					sub { action_tuple_args ($g, $nret, $ntypes); },
+					sub { tuple_body ($g, $nret, $ntypes); }
+				);
+				$g->Write ("\n");
+				create_delegate_doc ($g, $nret, $ntypes, 
+					Generator::GetDocFunc ($ntypes), func_ret_xml ($nret, $ntypes));
+				$g->Method (
+					sub { func_ret_type ($g, $nret, $ntypes); },
+					sub { func_curry ($g, $nret, $ntypes); },
+					sub { func_args ($g, $nret, $ntypes); },
+					sub { curry_body ($g, $nret, $ntypes); }
+				);
+				$g->Write ("\n");
+				create_tuple_doc ($g, $nret, $ntypes, 
+					Generator::GetDocFunc ($ntypes), func_ret_xml ($nret, $ntypes));
+				$g->Method (
+					sub { func_ret_type ($g, $nret, $ntypes); },
+					sub { func_curry ($g, $nret, $ntypes); },
+					sub { func_tuple_args ($g, $nret, $ntypes); },
+					sub { tuple_body ($g, $nret, $ntypes); }
+				);
+			}
+		}
+		$g->Write ("//\n");
+		$g->Write ("// \"Real\" currying method idea courtesy of:\n");
+		$g->Write ("// http://blogs.msdn.com/wesdyer/archive/2007/01/29/currying-and-partial-function-application.aspx\n");
+		$g->Write ("//\n\n");
+		for (my $ntypes = 1; $ntypes <= $n; ++$ntypes) {
+			$g->Write ("\n");
+			create_compose_doc ($g, $ntypes, 
+				Generator::GetDocAction ($ntypes+1, $ntypes+1), 
+				Generator::GetDocAction ($ntypes+1, 1, $ntypes));
+			$g->Method (
+				sub { action_compose_ret_type ($g, $ntypes); },
+				sub { action_compose ($g, $ntypes); },
+				sub { compose_action_args ($g, $ntypes); },
+				sub { compose_body ($g, $ntypes); }
+			);
+			$g->Write ("\n");
+			create_compose_doc ($g, $ntypes, 
+				Generator::GetDocFunc ($ntypes+1, $ntypes+1), 
+				Generator::GetDocFunc ($ntypes+1, 1, $ntypes));
+			$g->Method (
+				sub { func_compose_ret_type ($g, $ntypes); },
+				sub { func_compose ($g, $ntypes); },
+				sub { compose_func_args ($g, $ntypes); },
+				sub { compose_body ($g, $ntypes); }
+			);
+			$g->Write ("\n");
+			create_tcurry_doc ($g, $ntypes, 
+				Generator::GetDocAction ($ntypes), tcurry_action_ret_xmls ($ntypes));
+			$g->Method (
+				sub { action_tcurry_ret_type ($g, $ntypes); },
+				sub { action_tcurry ($g, $ntypes); },
+				sub { tcurry_action_args ($g, $ntypes); },
+				sub { tcurry_body ($g, $ntypes); },
+			);
+			$g->Write ("\n");
+			create_tcurry_doc ($g, $ntypes, 
+				Generator::GetDocFunc ($ntypes), tcurry_func_ret_xmls ($ntypes));
+			$g->Method (
+				sub { func_tcurry_ret_type ($g, $ntypes); },
+				sub { func_tcurry ($g, $ntypes); },
+				sub { tcurry_func_args ($g, $ntypes); },
+				sub { tcurry_body ($g, $ntypes); },
+			);
+		}
+	});
+});
+
+sub action_ret_type {
+	my ($g, $nret, $ntypes) = @_;
+
+	$g->Write ("public static ")->Action ($nret);
+	my $ret_start = $ntypes - $nret + 1;
+	if ($nret) {
+		$g->Write ("<");
+		$g->TypeParameterList ($ntypes, $ret_start);
+		$g->Write (">");
+	}
+}
+
+sub action_curry {
+	my ($g, $nret, $ntypes) = @_;
+
+	$g->Write ("\n\tCurry<");
+	$g->TypeParameterList ($ntypes);
+	$g->Write (">");
+}
+
+sub action_args {
+	my ($g, $nret, $ntypes) = @_;
+
+	$g->Write ("this ")->Action ($nret)->Write ("<");
+	$g->TypeParameterList ($ntypes);
+	$g->Write ("> self, ");
+	$g->MethodParameterList ($ntypes, 1, $ntypes - $nret);
+}
+
+sub action_tuple_args {
+	my ($g, $nret, $ntypes) = @_;
+
+	$g->Write ("this ")->Action ($nret)->Write ("<");
+	$g->TypeParameterList ($ntypes);
+	$g->Write ("> self, ");
+	$g->Write ("Tuple<")->TypeParameterList ($ntypes, 1, $ntypes - $nret)->Write ("> values");
+}
+
+sub curry_body {
+	my ($g, $nret, $ntypes) = @_;
+
+	my $ret_start = $ntypes - $nret + 1;
+	$g->Write ("Check.Self (self);\n\n");
+	$g->Write ("return (");
+	if ($nret) {
+		$g->ValueList ($ntypes, $ret_start);
+	}
+	$g->Write (") => self (");
+	$g->ValueList ($ntypes, 1, $ntypes - $nret);
+	if ($nret) {
+		$g->Write (", ");
+		$g->ValueList ($ntypes, $ret_start);
+	}
+	$g->Write (");\n");
+}
+
+sub tuple_body {
+	my ($g, $nret, $ntypes) = @_;
+
+	my $ret_start = $ntypes - $nret + 1;
+	$g->Write ("Check.Self (self);\n");
+	$g->Write ("return (");
+	if ($nret) {
+		$g->ValueList ($ntypes, $ret_start);
+	}
+	$g->Write (") => self (");
+	$g->Write ("values._1");
+	for (my $i = 2; $i <= $ntypes - $nret; ++$i) {
+		$g->Write (", ")->Write ("values._$i");
+	}
+	if ($nret) {
+		$g->Write (", ");
+		$g->ValueList ($ntypes, $ret_start);
+	}
+	$g->Write (");\n");
+}
+
+sub func_ret_type {
+	my ($g, $nret, $ntypes) = @_;
+
+	$g->Write ("public static ")->Func ($nret)->Write ("<");
+	my $ret_start = $ntypes - $nret + 1;
+	if ($nret) {
+		$g->TypeParameterList ($ntypes, $ret_start);
+		$g->Write (", ");
+	}
+	$g->Write ("TResult>");
+}
+
+sub func_ret_xml {
+	my ($nret, $ntypes) = @_;
+
+	my $t = Generator::GetDocFuncType ($nret) . "{";
+	if ($nret) {
+		$t .= Generator::GetTypeParameterList ($ntypes, $ntypes - $nret + 1) . ", ";
+	}
+	$t .= "TResult}";
+	return $t;
+}
+
+sub func_curry {
+	my ($g, $nret, $ntypes) = @_;
+
+	$g->Write ("\n\tCurry<");
+	$g->TypeParameterList ($ntypes);
+	$g->Write (", TResult>");
+}
+
+sub func_args {
+	my ($g, $nret, $ntypes) = @_;
+
+	$g->Write ("this ")->Func ($nret)->Write ("<");
+	$g->TypeParameterList ($ntypes);
+	$g->Write (", TResult> self, ");
+	$g->MethodParameterList ($ntypes, 1, $ntypes - $nret);
+}
+
+sub func_tuple_args {
+	my ($g, $nret, $ntypes) = @_;
+
+	$g->Write ("this ")->Func ($nret)->Write ("<");
+	$g->TypeParameterList ($ntypes);
+	$g->Write (", TResult> self, ");
+	$g->Write ("Tuple<")->TypeParameterList ($ntypes, 1, $ntypes - $nret)->Write ("> values");
+}
+
+sub action_ret_type {
+	my ($g, $nret, $ntypes) = @_;
+
+	$g->Write ("public static ")->Action ($nret);
+	my $ret_start = $ntypes - $nret + 1;
+	if ($nret) {
+		$g->Write ("<");
+		$g->TypeParameterList ($ntypes, $ret_start);
+		$g->Write (">");
+	}
+}
+
+sub action_ret_xml {
+	my ($nret, $ntypes) = @_;
+
+	return Generator::GetDocActionType ($nret) . 
+		($nret > 0 ? "{" . Generator::GetTypeParameterList ($ntypes, $ntypes - $nret + 1) .  "}" : "");
+}
+
+sub create_curry_doc {
+	my ($g, $nret, $ntypes, $tself, $tret, $values) = @_;
+
+	for (my $i = 1; $i <= $ntypes; ++$i) {
+		$g->XmlTypeparam (Generator::GetTypeParameter ($ntypes, $i), 
+			"A <see cref=\"T:$tself\"/> parameter type.");
+	}
+	if ($tself =~ m/Func/) {
+		$g->XmlTypeparam ("TResult", "The <see cref=\"T:$tself\"/> return type.");
+	}
+	$g->XmlParam ("self", 
+		"The <see cref=\"T:$tself\"/> to curry.");
+	$values->();
+	$g->XmlSummary ("Creates a <see cref=\"T:$tret\"/> delegate.");
+	$g->XmlReturns (
+qq(Returns a <see cref="T:$tret"/> which, when invoked, will
+invoke <paramref name="self"/> along with the provided fixed parameters.));
+	# $g->XmlRemarks ("");
+}
+
+sub create_delegate_doc {
+	my ($g, $nret, $ntypes, $tself, $tret) = @_;
+
+	create_curry_doc ($g, $nret, $ntypes, $tself, $tret, sub {
+		for (my $i = 1; $i <= $ntypes - $nret; ++$i) {
+			my $tp = Generator::GetTypeParameter ($ntypes, $i);
+			$g->XmlParam (Generator::GetValue ($ntypes, $i),
+				"A value of type <typeparamref name=\"$tp\"/> to fix.");
+		}
+	});
+}
+
+sub create_tuple_doc {
+	my ($g, $nret, $ntypes, $tself, $tret) = @_;
+
+	create_curry_doc ($g, $nret, $ntypes, $tself, $tret, sub {
+		$g->XmlParam ("values",
+			"A value of type <see cref=\"T:Mono.Rocks.Tuple{" . 
+			Generator::GetTypeParameterList ($ntypes, 1, $ntypes - $nret) . 
+			"}\"/> which contains the values to fix.");
+	});
+}
+
+sub create_compose_doc {
+	my ($g, $ntypes, $tself, $tret) = @_;
+
+	my $targ = Generator::GetDocFunc ($ntypes+1, 1, $ntypes, 
+		Generator::GetTypeParameter ($ntypes+1, $ntypes+1));
+
+	for (my $i = 1; $i <= $ntypes; ++$i) {
+		$g->XmlTypeparam (Generator::GetTypeParameter ($ntypes+1, $i), 
+			"A <see cref=\"T:$targ\" /> parameter type.");
+	}
+	$g->XmlTypeparam (Generator::GetTypeParameter ($ntypes+1, $ntypes+1),
+		"The <see cref=\"T:$targ\" /> return type, and <see cref=\"T:$tself\" /> argument type.");
+
+	if ($tself =~ m/Func/) {
+		$g->XmlTypeparam ("TResult", "The <see cref=\"T:$tself\"/> return type.");
+	}
+	$g->XmlParam ("self", 
+		qq(The <see cref="T:$tself" /> to compose.));
+	$g->XmlParam ("composer",
+		qq(The <see cref="T:$targ" /> to compose with <paramref name="self" />.));
+	$g->XmlSummary ("Creates a <see cref=\"T:$tret\"/> delegate.");
+	$g->XmlReturns (
+qq(Returns a <see cref="T:$tret" /> which, when invoked, will
+invoke <paramref name="composer" /> and pass the return value of
+<paramref name="composer" /> to <paramref name="self" />.));
+	$g->XmlException ("System.ArgumentNullException", 
+		qq(<paramref name="self" /> or <paramref name="composer" /> is <see langword="null" />.));
+	$g->XmlRemarks (
+qq(<para>
+ Composition is useful for chaining delegates together, so that the 
+ return value of <paramref name="composer" /> is automatically used as 
+ the input parameter for <paramref name="self" />.
+</para>
+<code lang="C#">
+var              tostring = Lambda.F ((int n) => n.ToString ());
+var               doubler = Lambda.F ((int n) => n * 2);
+var  double_then_tostring = tostring.Compose (doubler);
+Console.WriteLine (double_then_tostring (5));
+	// Prints "10";</code>));
+}
+
+sub action_compose_ret_type {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("public static ")->Action ($ntypes);
+	$g->Write ("<");
+	$g->TypeParameterList ($ntypes+1, 1, $ntypes);
+	$g->Write (">");
+}
+
+sub func_compose_ret_type {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("public static ")->Func ($ntypes);
+	$g->Write ("<");
+	$g->TypeParameterList ($ntypes+1, 1, $ntypes);
+	$g->Write (", TResult>");
+}
+
+sub action_compose {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("\n\tCompose<");
+	$g->TypeParameterList ($ntypes+1);
+	$g->Write (">");
+}
+
+sub compose_action_args {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("this ")
+		->Action ($ntypes)->Write ("<")->TypeParameterList ($ntypes+1, $ntypes+1, $ntypes+1)->Write ("> self, ");
+	$g->Func ($ntypes)->Write ("<")->TypeParameterList ($ntypes+1, 1, $ntypes+1)->Write ("> composer");
+}
+
+sub func_compose {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("\n\tCompose<");
+	$g->TypeParameterList ($ntypes+1);
+	$g->Write (", TResult>");
+}
+
+sub compose_func_args {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("this ")
+		->Func ($ntypes)->Write ("<")->TypeParameterList ($ntypes+1, $ntypes+1, $ntypes+1)->Write (", TResult> self, ");
+	$g->Func ($ntypes)->Write ("<")->TypeParameterList ($ntypes+1)->Write ("> composer");
+}
+
+sub compose_body {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("Check.Self (self);\n");
+	$g->Write ("Check.Composer (composer);\n\n");
+	$g->Write ("return (");
+	$g->ValueList ($ntypes);
+	$g->Write (") => self (composer (");
+	$g->ValueList ($ntypes);
+	$g->Write ("));\n");
+}
+
+sub create_tcurry_doc {
+	my ($g, $ntypes, $tself, @trets) = @_;
+
+	for (my $i = 1; $i <= $ntypes; ++$i) {
+		$g->XmlTypeparam (Generator::GetTypeParameter ($ntypes+1, $i), 
+			"A <see cref=\"T:$tself\" /> parameter type.");
+	}
+	if ($tself =~ m/Func/) {
+		$g->XmlTypeparam ("TResult", "The <see cref=\"T:$tself\"/> return type.");
+	}
+	$g->XmlParam ("self", qq(The <see cref="T:$tself" /> to curry.));
+	my $rets = qq(A <see cref="T:)
+		. join ("\" /> which, when invoked, will return \na <see cref=\"T:", @trets)
+		. "\" /> which, when invoked, will invoke <paramref name=\"self\" />";
+	if ($tself =~ m/Func/) {
+		$rets .= "\nand return the value that <paramref name=\"self\" /> returned";
+	}
+	$rets .= ".";
+	$g->XmlSummary ("Creates a <see cref=\"T:$trets[0]\"/> for currying.");
+	$g->XmlReturns ($rets);
+	$g->XmlRemarks (
+qq(<para>
+ This is the more "traditional" view of currying, turning a method
+ which takes <c>(X * Y)-&gt;Z</c> (i.e. separate arguments) into a
+ <c>X -&gt; (Y -&gt; Z)</c> (that is a "chain" of nested Funcs such that 
+ you provide only one argument to each Func until you provide enough
+ arguments to invoke the original method).
+</para>
+<code lang="C#">
+Func&lt;int,int,int,int&gt; function = (int a, int b, int c) =&gt; a + b + c;
+Func&lt;int,Func&lt;int,Func&lt;int, int&gt;&gt;&gt; curry = function.Curry ();
+Assert.AreEqual(6, curry (3)(2)(1));</code>));
+	$g->XmlException ("System.ArgumentNullException", 
+		qq(<paramref name="self" /> is <see langword="null" />.));
+}
+
+sub tcurry_action_ret_xmls {
+	my ($ntypes) = @_;
+
+	my @r = ();
+	for (my $i = 1; $i <= $ntypes; ++$i) {
+		push @r, tcurry_action_ret_xml ($ntypes, $i);
+	}
+
+	return @r;
+}
+
+sub tcurry_action_ret_xml {
+	my ($ntypes, $start) = @_;
+
+	my $r = "";
+	for (my $i = $start; $i < $ntypes; ++$i) {
+		$r .= "System.Func{" . Generator::GetTypeParameter ($ntypes, $i) .  ",";
+	}
+	$r .= "System.Action{" . Generator::GetTypeParameter ($ntypes, $ntypes) .  "}";
+	$r .= "}" x ($ntypes - $start);
+
+	return $r;
+}
+
+sub tcurry_func_ret_xml {
+	my ($ntypes, $start) = @_;
+
+	my $r = "";
+	for (my $i = $start; $i < $ntypes; ++$i) {
+		$r .= "System.Func{" . Generator::GetTypeParameter ($ntypes, $i) . ",";
+	}
+	$r .= "System.Func{" . Generator::GetTypeParameter ($ntypes, $ntypes) .  ",TResult}";
+	$r .= "}" x ($ntypes - $start);
+
+	return $r;
+}
+
+sub tcurry_func_ret_xmls {
+	my ($ntypes) = @_;
+
+	my @r = ();
+	for (my $i = 1; $i <= $ntypes; ++$i) {
+		push @r, tcurry_func_ret_xml ($ntypes, $i);
+	}
+
+	return @r;
+}
+
+sub action_tcurry_ret_type {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("public static ");
+	for (my $i = 1; $i < $ntypes; ++$i) {
+		$g->Write ("Func<")->TypeParameter ($ntypes, $i)->Write (", ");
+	}
+	$g->Write ("Action<")->TypeParameter ($ntypes, $ntypes)->Write (">");
+	$g->Write (">" x ($ntypes-1));
+}
+
+sub func_tcurry_ret_type {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("public static ");
+	for (my $i = 1; $i < $ntypes; ++$i) {
+		$g->Write ("Func<")->TypeParameter ($ntypes, $i)->Write (", ");
+	}
+	$g->Write ("Func<")->TypeParameter ($ntypes, $ntypes)->Write (", TResult>");
+	$g->Write (">" x ($ntypes-1));
+}
+
+sub action_tcurry {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("\n\tCurry<");
+	$g->TypeParameterList ($ntypes);
+	$g->Write (">");
+}
+
+sub func_tcurry {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("\n\tCurry<");
+	$g->TypeParameterList ($ntypes);
+	$g->Write (", TResult>");
+}
+
+sub tcurry_action_args {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("this ")->Action ($ntypes)->Write ("<");
+	$g->TypeParameterList ($ntypes);
+	$g->Write ("> self");
+}
+
+sub tcurry_func_args {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("this ")->Func ($ntypes)->Write ("<");
+	$g->TypeParameterList ($ntypes);
+	$g->Write (", TResult> self");
+}
+
+sub tcurry_body {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("Check.Self (self);\n\n");
+	if ($ntypes == 1) {
+		$g->Write ("return self;\n");
+		return;
+	}
+
+	$g->Write ("return ")->Value ($ntypes, 1);
+	for (my $i = 2; $i <= $ntypes; ++$i) {
+		$g->Write (" => ")->Value ($ntypes, $i);
+	}
+	$g->Write (" => self (")->ValueList ($ntypes)->Write (");\n");
+}
+

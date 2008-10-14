@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>lib\mono-rocks\Debug</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>lib\mono-rocks\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -37,12 +37,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mono.Rocks\AssemblyInfo.cs" />
     <Compile Include="Mono.Rocks\Check.cs" />
+    <Compile Include="Mono.Rocks\Delegates.cs" />
+    <Compile Include="Mono.Rocks\Either.cs" />
+    <Compile Include="Mono.Rocks\Eithers.cs" />
+    <Compile Include="Mono.Rocks\EnumerableValueReader.cs" />
     <Compile Include="Mono.Rocks\ICustomAttributeProvider.cs" />
     <Compile Include="Mono.Rocks\IEnumerable.cs" />
+    <Compile Include="Mono.Rocks\Int16.cs" />
     <Compile Include="Mono.Rocks\Int32.cs" />
+    <Compile Include="Mono.Rocks\Int64.cs" />
+    <Compile Include="Mono.Rocks\IValueReader.cs" />
+    <Compile Include="Mono.Rocks\IValueWriter.cs" />
+    <Compile Include="Mono.Rocks\JaggedArray.cs" />
+    <Compile Include="Mono.Rocks\KeyValuePair.cs" />
+    <Compile Include="Mono.Rocks\Lambda.cs" />
+    <Compile Include="Mono.Rocks\Lambdas.cs" />
+    <Compile Include="Mono.Rocks\Maybe.cs" />
+    <Compile Include="Mono.Rocks\NaturalStringComparer.cs" />
+    <Compile Include="Mono.Rocks\Nullable.cs" />
+    <Compile Include="Mono.Rocks\Object.cs" />
+    <Compile Include="Mono.Rocks\RectangularArray.cs" />
+    <Compile Include="Mono.Rocks\Sequence.cs" />
+    <Compile Include="Mono.Rocks\Stream.cs" />
+    <Compile Include="Mono.Rocks\StreamConverter.cs" />
+    <Compile Include="Mono.Rocks\SystemStreamConverter.cs" />
     <Compile Include="Mono.Rocks\String.cs" />
-    <Compile Include="Mono.Rocks\AssemblyInfo.cs" />
+    <Compile Include="Mono.Rocks\TextReader.cs" />
+    <Compile Include="Mono.Rocks\TextValueReader.cs" />
+    <Compile Include="Mono.Rocks\Tuple.cs" />
+    <Compile Include="Mono.Rocks\Tuples.cs" />
+    <Compile Include="Mono.Rocks\Type.cs" />
+    <Compile Include="Mono.Rocks\UInt16.cs" />
+    <Compile Include="Mono.Rocks\UInt32.cs" />
+    <Compile Include="Mono.Rocks\UInt64.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
@@ -52,4 +81,11 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <GtkDesignInfo gtkVersion="2.12.1" />
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
 </Project>

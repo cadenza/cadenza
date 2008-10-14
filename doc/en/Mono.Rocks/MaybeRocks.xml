@@ -1,0 +1,239 @@
+<Type Name="MaybeRocks" FullName="Mono.Rocks.MaybeRocks">
+  <TypeSignature Language="C#" Value="public static class MaybeRocks" />
+  <AssemblyInfo>
+    <AssemblyName>Mono.Rocks</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <ThreadingSafetyStatement>
+    This type is thread safe.
+  </ThreadingSafetyStatement>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      Extension methods for <see cref="T:Mono.Rocks.Maybe{T}" />.
+    </summary>
+    <remarks>
+      <para>
+        These methods provide C# query comprehension support for 
+        <see cref="T:Mono.Rocks.Maybe{T}" /> instances:
+      </para>
+      <code lang="C#" src="../../Tests/Mono.Rocks.Tests/MaybeTest.cs#SelectMany_QueryComprehension">Assert.AreEqual (Maybe&lt;int&gt;.Nothing,
+		from x in 5.ToMaybe ()
+		from y in Maybe&lt;int&gt;.Nothing
+		select x + y);
+Assert.AreEqual (9.ToMaybe (),
+		from x in 5.ToMaybe ()
+		from y in 4.ToMaybe ()
+		select x + y);
+</code>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Select&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;TResult&gt; Select&lt;TSource,TResult&gt; (this Mono.Rocks.Maybe&lt;TSource&gt; self, Func&lt;TSource,TResult&gt; selector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.Maybe&lt;TResult&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Mono.Rocks.Maybe&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="selector" Type="System.Func&lt;TSource,TResult&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of value in <paramref name="self" />.
+        </typeparam>
+        <typeparam name="TResult">
+          The type of the resulting value.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:Mono.Rocks.Maybe{TSource}" /> containing a value to
+          project.
+        </param>
+        <param name="selector">
+          A <see cref="T:System.Func{TSource,TResult}" /> which is
+          used to convert <c><paramref name="self" />.Value</c> 
+          into the value returned.
+        </param>
+        <summary>
+          Projects a <see cref="T:Mono.Rocks.Maybe{TSoruce}" /> into a
+          <see cref="T:Mono.Rocks.Maybe{TResult}" />.
+        </summary>
+        <returns>
+          A <see cref="T:Mono.Rocks.Maybe{TResult}" /> containing
+          <see cref="F:Mono.Rocks.Maybe{TResult}.Nothing" /> if 
+          <paramref name="self" /> contains no value
+          (<see cref="P:Mono.Rocks.Maybe{TSource}.HasValue" /> is 
+          <see langword="false" />) or if 
+          <paramref name="selector" /> returns <see langword="null" />;
+          otherwise returns
+          <c><paramref name="selector" />(<paramref name="self" />).ToMaybe()</c>.
+        </returns>
+        <remarks>
+          <para>
+            This method is provided to support C# query comprehension
+            expressions on <see cref="T:Mono.Rocks.Maybe{T}" /> types.
+          </para>
+          <block subset="none" type="behavior">
+            <para>
+              If <paramref name="self" /> contains no value 
+              (<see cref="P:Mono.Rocks.Maybe{TSource}.HasValue" /> is 
+              <see langword="false" />), then
+              <see cref="F:Mono.Rocks.Maybe{TResult}.Nothing" /> is returned.
+            </para>
+            <para>
+              Otherwise, 
+              <c><paramref name="selector" />(<paramref name="self" />.Value).ToMaybe()</c>
+              is returned.
+            </para>
+          </block>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/MaybeTest.cs#Select">Assert.AreEqual (2.Just (),
+	1.Just ().Select (x =&gt; x + 1));
+Assert.AreEqual (2.Just (),
+	from x in 1.Just ()
+	select x + 1);
+</code>
+        </remarks>
+        <altmember cref="M:Mono.Rocks.ObjectRocks.ToMaybe``1(``0)" />
+      </Docs>
+    </Member>
+    <Member MemberName="SelectMany&lt;TSource,TCollection,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;TResult&gt; SelectMany&lt;TSource,TCollection,TResult&gt; (this Mono.Rocks.Maybe&lt;TSource&gt; self, Func&lt;TSource,Mono.Rocks.Maybe&lt;TCollection&gt;&gt; selector, Func&lt;TSource,TCollection,TResult&gt; resultSelector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.Maybe&lt;TResult&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TCollection" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Mono.Rocks.Maybe&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="selector" Type="System.Func&lt;TSource,Mono.Rocks.Maybe&lt;TCollection&gt;&gt;" />
+        <Parameter Name="resultSelector" Type="System.Func&lt;TSource,TCollection,TResult&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of value in <paramref name="self" />.
+        </typeparam>
+        <typeparam name="TCollection">
+          The type of the intermediate value within 
+          <paramref name="selector" />.
+        </typeparam>
+        <typeparam name="TResult">
+          The type of the resulting value.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:Mono.Rocks.Maybe{TSource}" /> containing a value to
+          project.
+        </param>
+        <param name="selector">
+          A <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TCollection}}" />
+          used to generate an intermediate value.
+        </param>
+        <param name="resultSelector">
+          A <see cref="T:System.Func{TSource,TCollection,TResult}" /> which is
+          used to convert <c><paramref name="self" />.Value</c> and
+          <c><paramref name="selector" />(<paramref name="self" />).Value</c>
+          into the value returned.
+        </param>
+        <summary>
+          Projects a <see cref="T:Mono.Rocks.Maybe{TSoruce}" /> and
+          <see cref="T:Mono.Rocks.Maybe{TCollection}" /> into a 
+          <see cref="T:Mono.Rocks.Maybe{TResult}" />.
+        </summary>
+        <returns>
+          A <see cref="T:Mono.Rocks.Maybe{TResult}" /> containing
+          <see cref="F:Mono.Rocks.Maybe{TResult}.Nothing" /> if either
+          <paramref name="self" />'s 
+          <see name="P:Mono.Rocks.Maybe{TSource}.HasValue" /> or
+          <paramref name="selector" />(<paramref name="self" />)'s 
+          <see cref="P:Mono.Rocks.Maybe{TCollection}.HasValue" /> property 
+          is <see langword="false" />; otherwise, returns
+          <c><paramref name="resultSelector" />(<paramref name="self" />.Value,
+          <paramref name="selector" />(<paramref name="self" />).Value).ToMaybe()</c>.
+        </returns>
+        <remarks>
+          <para>
+            This method is provided to support C# query comprehension
+            expressions on <see cref="T:Mono.Rocks.Maybe{T}" /> types.
+            <c>SelectMany</c> acts as a "null propagation of nullables" for
+            any type, as opposed to just <see cref="T:System.Nullable{T}" />
+            types.
+          </para>
+          <block subset="none" type="behavior">
+            <para>
+              If <paramref name="self" /> contains no value 
+              (<see cref="P:Mono.Rocks.Maybe{TSource}.HasValue" /> is 
+              <see langword="false" />), then
+              <see cref="F:Mono.Rocks.Maybe{TResult}.Nothing" /> is returned.
+            </para>
+            <para>
+              If <paramref name="selector" />(<paramref name="self" />) 
+              contains no value 
+              (<see cref="P:Mono.Rocks.Maybe{TCollection}.HasValue" /> is 
+              <see langword="false" />), then
+              <see cref="F:Mono.Rocks.Maybe{TResult}.Nothing" /> is returned.
+            </para>
+            <para>
+              Otherwise, 
+              <c><paramref name="resultSelector" />(<paramref name="self" />.Value,
+              <paramref name="selector" />(<paramref name="self" />).Value).ToMaybe()</c>
+              is returned.  (This means that if 
+              <paramref name="resultSelector" /> returns <see langword="null" />,
+              then <see cref="F:Mono.Rocks.Maybe{TResult}.Nothing" /> is
+              returned.)
+            </para>
+          </block>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/MaybeTest.cs#SelectMany_TCollection">Assert.AreEqual (Maybe&lt;int&gt;.Nothing, 
+		5.Just().SelectMany(
+			x =&gt; Maybe&lt;int&gt;.Nothing,
+			(x, y) =&gt; x + y));
+Assert.AreEqual (Maybe&lt;int&gt;.Nothing,
+		from x in 5.Just ()
+		from y in Maybe&lt;int&gt;.Nothing
+		select x + y);
+Assert.AreEqual (9.Just (),
+		5.Just().SelectMany(
+			x =&gt; 4.Just (),
+			(x, y) =&gt; x + y));
+Assert.AreEqual (9.Just (),
+		from x in 5.Just ()
+		from y in 4.Just ()
+		select x + y);
+</code>
+        </remarks>
+        <altmember cref="M:Mono.Rocks.ObjectRocks.ToMaybe``1(``0)" />
+      </Docs>
+    </Member>
+  </Members>
+</Type>

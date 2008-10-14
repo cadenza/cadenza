@@ -1,0 +1,241 @@
+<Type Name="Tuple" FullName="Mono.Rocks.Tuple">
+  <TypeSignature Language="C#" Value="public static class Tuple" />
+  <AssemblyInfo>
+    <AssemblyName>Mono.Rocks</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+            Utility methods to create Tuple instances.
+            </summary>
+    <remarks>
+      <para>
+            Provides a set of <see cref="M:Mono.Rocks.Tuple.Create" /> methods so that
+            C# type inferencing can easily be used with tuples.  For example,
+            instead of:
+            </para>
+      <code lang="C#">
+            Tuple&lt;int, long&gt; a = new Tuple&lt;int, long&gt; (1, 2L);</code>
+      <para>You can instead write:</para>
+      <code lang="C#">
+            Tuple&lt;int, long&gt; b = Tuple.Create (1, 2L);
+            // or
+            var              c = Tuple.Create (1, 2L);</code>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Create&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;T&gt; Create&lt;T&gt; (T value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.Tuple&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="T" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+            The first <see cref="T:Mono.Rocks.Tuple{T}" /> value type.
+            </typeparam>
+        <param name="value">
+            The first <see cref="T:Mono.Rocks.Tuple{T}" /> value.
+            </param>
+        <summary>
+            Creates a <see cref="T:Mono.Rocks.Tuple{T}" />.
+            </summary>
+        <returns>
+            A <see cref="T:Mono.Rocks.Tuple{T}" /> initialized with the parameter values.
+            </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Create&lt;T1,T2&gt;">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;T1,T2&gt; Create&lt;T1,T2&gt; (T1 value1, T2 value2);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.Tuple&lt;T1,T2&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value1" Type="T1" />
+        <Parameter Name="value2" Type="T2" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            The first <see cref="T:Mono.Rocks.Tuple{T1, T2}" /> value type.
+            </typeparam>
+        <typeparam name="T2">
+            The second <see cref="T:Mono.Rocks.Tuple{T1, T2}" /> value type.
+            </typeparam>
+        <param name="value1">
+            The first <see cref="T:Mono.Rocks.Tuple{T1, T2}" /> value.
+            </param>
+        <param name="value2">
+            The second <see cref="T:Mono.Rocks.Tuple{T1, T2}" /> value.
+            </param>
+        <summary>
+            Creates a <see cref="T:Mono.Rocks.Tuple{T1, T2}" />.
+            </summary>
+        <returns>
+            A <see cref="T:Mono.Rocks.Tuple{T1, T2}" /> initialized with the parameter values.
+            </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Create&lt;T1,T2,T3&gt;">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;T1,T2,T3&gt; Create&lt;T1,T2,T3&gt; (T1 value1, T2 value2, T3 value3);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.Tuple&lt;T1,T2,T3&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="T3" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value1" Type="T1" />
+        <Parameter Name="value2" Type="T2" />
+        <Parameter Name="value3" Type="T3" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            The first <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" /> value type.
+            </typeparam>
+        <typeparam name="T2">
+            The second <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" /> value type.
+            </typeparam>
+        <typeparam name="T3">
+            The third <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" /> value type.
+            </typeparam>
+        <param name="value1">
+            The first <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" /> value.
+            </param>
+        <param name="value2">
+            The second <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" /> value.
+            </param>
+        <param name="value3">
+            The third <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" /> value.
+            </param>
+        <summary>
+            Creates a <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" />.
+            </summary>
+        <returns>
+            A <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" /> initialized with the parameter values.
+            </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Create&lt;T1,T2,T3,T4&gt;">
+      <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt; Create&lt;T1,T2,T3,T4&gt; (T1 value1, T2 value2, T3 value3, T4 value4);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="T3" />
+        <TypeParameter Name="T4" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value1" Type="T1" />
+        <Parameter Name="value2" Type="T2" />
+        <Parameter Name="value3" Type="T3" />
+        <Parameter Name="value4" Type="T4" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            The first <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> value type.
+            </typeparam>
+        <typeparam name="T2">
+            The second <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> value type.
+            </typeparam>
+        <typeparam name="T3">
+            The third <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> value type.
+            </typeparam>
+        <typeparam name="T4">
+            The fourth <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> value type.
+            </typeparam>
+        <param name="value1">
+            The first <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> value.
+            </param>
+        <param name="value2">
+            The second <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> value.
+            </param>
+        <param name="value3">
+            The third <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> value.
+            </param>
+        <param name="value4">
+            The fourth <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> value.
+            </param>
+        <summary>
+            Creates a <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" />.
+            </summary>
+        <returns>
+            A <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> initialized with the parameter values.
+            </returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxValues">
+      <MemberSignature Language="C#" Value="public static readonly int MaxValues = 4;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <MemberValue>4</MemberValue>
+      <Docs>
+        <summary>
+            The maximum number of Tuple types provided.
+            </summary>
+        <value>
+            The maximum number of Tuple types provided.
+            </value>
+        <remarks>
+          <para>
+            Only tuples up to a certain "arity" are supported; for example,
+            a <c>Tuple&lt;T1, T2, ..., T100&gt;</c> isn't supported (and won't
+            likely ever be).
+            </para>
+          <para>
+            <see cref="P:Mono.Rocks.Tuple.MaxValues" /> is the maximum number of
+            values that the Tuple types support.  If you need to support
+            more values, then you need to either live with potential boxing
+            and use a e.g. <see cref="T:System.Collections.Generic.List{System.Object}" />
+            or nest Tuple instantiations, e.g.
+            <c>Tuple&lt;int, Tuple&lt;int, Tuple&lt;int, Tuple&lt;int, int&gt;&gt;&gt;&gt;</c>.
+            The problem with such nesting is that it becomes "unnatural" to access
+            later elements -- <c>t._2._2._2._2</c> to access the fifth value for
+            the previous example.
+            </para>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

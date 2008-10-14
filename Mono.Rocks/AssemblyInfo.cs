@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+using System;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -10,6 +11,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright ("Copyright © 2007 Novell, Inc. and contributors")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
+
+[assembly: CLSCompliant (true)]
 
 [assembly: ComVisible (false)]
 [assembly: Guid ("098c331b-2893-4367-8d3a-4a350ef2e9bb")]

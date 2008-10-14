@@ -1,0 +1,85 @@
+<Type Name="TupleRocks" FullName="Mono.Rocks.TupleRocks">
+  <TypeSignature Language="C#" Value="public static class TupleRocks" />
+  <AssemblyInfo>
+    <AssemblyName>Mono.Rocks</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>
+      Extension methods for Tuples.
+    </summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="ToKeyValuePair&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; ToKeyValuePair&lt;TKey,TValue&gt; (this Mono.Rocks.Tuple&lt;TKey,TValue&gt; self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Mono.Rocks.Tuple&lt;TKey,TValue&gt;" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">The type of the key.</typeparam>
+        <typeparam name="TValue">The type of the value.</typeparam>
+        <param name="self">
+          A 
+          <see cref="T:Mono.Rocks.Tuple{TKey,TValue}" />
+          to convert into a
+          <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />.
+        </param>
+        <summary>
+          Converts a 
+          <see cref="T:Mono.Rocks.Tuple{TKey,TValue}" />
+          into a
+          <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />.
+        </summary>
+        <returns>
+          A 
+          <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />
+          structure.
+        </returns>
+        <remarks>
+          <para>
+            The value of the returned 
+            <see cref="P:System.Collections.Generic.KeyValuePair`2.Key" />
+            property is copied from 
+            <see cref="P:Mono.Rocks.Tuple`2._1" />
+            and the value of the returned 
+            <see cref="P:System.Collections.Generic.KeyValuePair`2.Value" />
+            is copied from 
+            <see cref="P:Mono.Rocks.Tuple`2._2" />.
+          </para>
+          <code lang="C#">
+var                       tuple = Tuple.Create ("s", 1);
+KeyValuePair&lt;string, int&gt; kvp   = tuple.ToKeyValuePair ();
+    // kvp.Key == "s", kvp.Value == 1</code>
+        </remarks>
+        <altmember cref="M:Mono.Rocks.TupleRocks.ToKeyValuePair``2(Mono.Rocks.Tuple{``0,``1})" />
+      </Docs>
+    </Member>
+  </Members>
+</Type>

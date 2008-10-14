@@ -1,0 +1,85 @@
+sourcesdir = lib/monodoc/sources
+
+ASSEMBLIES = $(mrdir)/Mono.Rocks.dll
+
+UPDATER = $(MONODOCER) -overrides -pretty -path:doc/en
+
+.PHONY: assemble clean doc doc-install edit html update update-delete
+
+doc: assemble html $(mrdir)/Mono.Rocks.xml
+
+doc-install:
+	-mkdir -p $(libdir)/mono-rocks $(libdir)/monodoc/sources
+	cp $(sourcesdir)/mono-rocks-docs.* $(libdir)/monodoc/sources
+	cp $(mrdir)/Mono.Rocks.xml $(libdir)/mono-rocks/
+
+$(mrdir)/Mono.Rocks.xml:
+	mdoc-export-msxdoc -o $@ doc/en
+
+assemble: $(sourcesdir)/mono-rocks-docs.zip $(sourcesdir)/mono-rocks-docs.tree
+
+$(srcdir)/doc/en/examples/Mono.Rocks.dll: $(srcdir)/Mono.Rocks.dll
+	cp $^ $@
+	-cp $^.mdb $@.mdb
+
+%.exe: %.cs $(srcdir)/doc/en/examples/Mono.Rocks.dll
+	gmcs -debug+ -r:Mono.Posix.dll -r:System.Core.dll -lib:doc/en/examples -r:NDesk.Options.dll -out:$@ $<
+
+DOCUMENTATION = $(shell find $(srcdir)/doc/en -type f -name \*.xml)
+
+DOC_EXAMPLES_SRC =
+DOC_EXAMPLES_OUTPUT =
+
+%.txt: %.in %.exe
+	-rm $@
+	exec 3<$< ; \
+	while read line 0<&3 ; do \
+		if test -n "$$line" ; then \
+			echo "$$ $$line" | sed 's#doc/en/examples/##' >> $@ ; \
+			sh -c "$$line" >> $@ ; \
+		else \
+			echo "" >> $@ ; \
+		fi ; \
+	done ; \
+	exec 3>&-;
+
+$(sourcesdir)/mono-rocks-docs.zip $(sourcesdir)/mono-rocks-docs.tree: $(DOCUMENTATION)
+	mdoc-assemble -o $(sourcesdir)/mono-rocks-docs $(srcdir)/doc/en 
+
+doc-update: $(addprefix $(srcdir)/, $(ASSEMBLIES)) $(DOC_EXAMPLES_SRC) $(DOC_EXAMPLES_OUTPUT)
+	sed -i -f $(srcdir)/doc/fixup.sed doc/mono-rocks.xml
+	for a in $(ASSEMBLIES) ; do \
+		$(UPDATER) -importslashdoc:$(srcdir)/doc/mono-rocks.xml -assembly:$(srcdir)/$$a ; \
+	done
+
+doc-update-delete: $(addprefix $(srcdir)/, $(ASSEMBLIES)) $(DOC_EXAMPLES_SRC) $(DOC_EXAMPLES_OUTPUT)
+	sed -i -f $(srcdir)/doc/fixup.sed doc/mono-rocks.xml
+	for a in $(ASSEMBLIES) ; do \
+		$(UPDATER) --delete -importslashdoc:$(srcdir)/doc/mono-rocks.xml -assembly:$(srcdir)/$$a ; \
+	done
+
+DOC_EXTRA_DIST = \
+	$(srcdir)/doc/doc-template.xsl \
+	$(srcdir)/doc/ndesk-options-docs.source \
+	$(DOCUMENTATION) \
+	$(DOC_EXAMPLES_OUTPUT)
+
+DOC_CLEANFILES = \
+	$(sourcesdir)/mono-rocks-docs.zip \
+	$(sourcesdir)/mono-rocks-docs.tree \
+	doc/en/examples/Mono.Rocks.dll* \
+	doc/en/examples/*.exe \
+	$(DOC_EXAMPLES_OUTPUT)
+
+edit:
+	monodoc --edit $(srcdir)/doc/en
+
+html: $(DOCUMENTATION)
+	mdoc export-html --default-template > doc/doc-def-template.xsl
+	mdoc export-html --template=doc/doc-template.xsl --ext=html -o doc/$(PACKAGE) doc/en
+	cp doc/prettyprint.js doc/$(PACKAGE)
+	(cd doc && zip -q -r ../archive/$(PACKAGE)-$(VERSION)-docs.zip $(PACKAGE))
+
+doc-clean:
+	-rm $(DOC_CLEANFILES)
+

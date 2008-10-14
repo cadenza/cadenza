@@ -1,0 +1,451 @@
+2008-10-04  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush (monodocer update; mkdelegates doc update).
+
+2008-10-04  Jonathan Pryor  <jpryor@novell.com>
+
+	* mkdelegates: Add "traditional" currying extension methods.
+
+2008-09-27  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush TextReader changes.
+
+2008-09-27  Jonathan Pryor  <jpryor@novell.com>
+
+	* Makefile: Ignore more warnings when building unit tests.
+	* doc/en/**: Flush .Tokens() changes.
+
+2008-09-27  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add
+	  Mono.Rocks/StreamConverter.cs to the build.
+	* doc/en/**: Flush SystemStreamConverter changes.
+
+2008-09-27  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush IValueReader/IValueWriter changes.
+
+2008-09-27  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush all the doc changes from previous commit.
+
+2008-09-27  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add
+	  Mono.Rocks/EnumerableValueReader.cs, Mono.Rocks/IValueReader.cs,
+	  Mono.Rocks/IValueWriter.cs, Mono.Rocks/SystemStreamConverter.cs,
+	  Mono.Rocks/TextValueReader.cs to the build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Add
+	  Tests/Mono.Rocks.Tests/EnumerableValueReaderTest.cs, 
+	  Tests/Mono.Rocks.Tests/SystemStreamConverterTest.cs, 
+	  Tests/Mono.Rocks.Tests/TextValueReaderTest.cs to the build.
+
+2008-09-26  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add Mono.Rocks/Type.cs 
+	  to the build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Add
+	  Tests/Mono.Rocks.Tests/TypeTest.cs to the build.
+
+2008-09-25  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Add Stream.WriteTo() extension method.
+
+2008-09-25  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush.
+
+2008-09-23  Jonathan Pryor  <jpryor@novell.com>
+
+	* Makefile: `check` shouldn't test NotWorking tests; add `check-all`
+	  target which tests all tests, including NotWorking tests.
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add
+	  Mono.Rocks/JaggedArray.cs and Mono.Rocks/RectangularArray.cs to the
+	  build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Add
+	  Tests/Mono.Rocks.Tests/JaggedArrayTest.cs and
+	  Tests/Mono.Rocks.Tests/RectangularArrayTest.cs to the build.
+	* doc/en/**: Add new types.
+
+2008-09-23  Jonathan Pryor  <jpryor@novell.com>
+
+	* Makefile: Add `shell` target, which runs `csharp -r:Mono.Rocks.dll` 
+	  for simple interactive testing.
+	* doc/en/**: Flush.
+
+2008-09-22  Jonathan Pryor  <jpryor@novell.com>
+
+	* . (svn:ignore): Ignore MonoDevelop-generated directories.
+
+2008-09-22  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush.
+	* . (svn:ignore): Update ignored files list.
+
+2008-09-22  Jonathan Pryor  <jpryor@novell.com>
+
+	* lib/mono-rocks (svn:ignore): Ignore generated directories.
+
+2008-09-22  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add Mono.Rocks/Either.cs 
+	  to the build.
+	* Mono.Rocks.csproj, Tests/Mono.Rocks.Tests.csproj: Update output 
+	  directory; correct filename errors.
+	* doc/en/Mono.Rocks/Either.xml: Added.
+
+2008-09-22  Jonathan Pryor  <jpryor@novell.com>
+
+	* Makefile: Place Mono.Rocks.dll & Mono.Rocks.Tests.dll into
+	  lib/mono-rocks; add an `install` target -- usage is:
+	    make install prefix=/path/to/root/prefix
+	  If necessary, libdir can also be set if $prefix/lib isn't the
+	  correct $libdir:
+	    make install prefix=/path/to/root/prefix libdir=/alt/libdir
+	  Rename `run-test` to `check`.
+	* doc/Makefile.include: place mono-rocks-docs.{tree,zip} into
+	  lib/monodoc/sources; add doc-install target; fix 
+	  mono-rocksdocs.{tree,zip} generation.
+	* doc/mono-rocks-docs.source: Moved to
+	  lib/monodoc/sources/mono-rocks-docs.source.
+	* lib/monodoc/sources/mono-rocks-docs.source: @basefile needs to refer
+	  to the correct filename.
+	* lib/mono-rocks (svn:ignore), lib/monodoc/sources (svn:ignore): 
+	  Ignore generated files.
+	* lib/pkgconfig/mono-rocks.pc: Added; pkg-config control file for
+	  Mono.Rocks.dll.
+
+2008-09-20  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/Mono.Rocks/Cons`1.cs: Removed (should have removed along with
+	  Mono.Rocks/Cons.cs on 2008-09-14...).
+
+2008-09-20  Jonathan Pryor  <jpryor@novell.com>
+
+	* mkeithers: Added; generates Mono.Rocks/Eithers.cs.
+	* Makefile: Generate Mono.Rocks/Eithers.cs with mkeithers.
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add Mono.Rocks/Eithers.cs 
+	  to the build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Add
+	  Tests/Mono.Rocks.Tests/EitherTest.cs to the build.
+
+2008-09-18  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/index.xml, doc/en/Mono.Rocks/Maybe`1.xml: Flush.
+	* doc/en/Mono.Rocks/IEnumerableRocks.xml: Document .SelectFromEach() 
+	  and .Zip().
+
+2008-09-18  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/Makefile.include: For VS.NET users, export XML Documentation into
+	  Mono.Rocks.xml.
+
+2008-09-18  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/Mono.Rocks/NaturalStringComparer.xml: Document.
+	* doc/en/Mono.Rocks/Maybe`1.xml: Threading Safety Statement.
+
+2008-09-17  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/Mono.Rocks/Maybe`1.xml: Document Maybe<T>.
+
+2008-09-17  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/index.xml, doc/en/Mono.Rocks/Maybe.xml,
+	  doc/en/Mono.Rocks/MaybeRocks.xml: Document Maybe & MaybeRocks.
+
+2008-09-16  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/Mono.Rocks/Sequence.xml: Document Sequence.
+
+2008-09-15  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Document StringRocks.
+
+2008-09-14  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Remove Mono.Rocks/Cons.cs 
+	  from the build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Remove
+	  Tests/Mono.Rocks.Tests/ConsTest.cs from the build.
+	* doc/en/**: Flush Cons<T> removal.
+
+2008-09-12  Jonathan Pryor  <jpryor@novell.com>
+
+	* mktuples: Add .Match() method, which is a "nicer" version of
+	  ObjectRocks.Match() for use with tuples.
+	* doc/fixup.sed: Allow .Match() documentation to be imported.
+	* doc/en/**: Flush.
+
+2008-09-11  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush.
+
+2008-09-10  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush.
+
+2008-09-07  Jonathan Pryor  <jpryor@novell.com>
+
+	* gendarm.ignore: Add additional members to ignore.
+
+2008-09-07  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add Mono.Rocks/Cons.cs 
+	  to the build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Add
+	  Tests/Mono.Rocks.Tests/ConsTest.cs to the build.
+	* doc/en/**: Flush updated types.
+
+2008-09-06  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add Mono.Rocks/Maybe.cs 
+	  to the build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Add
+	  Tests/Mono.Rocks.Tests/MaybeTest.cs to the build.
+
+2008-09-04  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush TextReaderRocks & some StringRocks docs.
+
+2008-09-04  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush.
+	* Generator.pm: Fix GetDocAction(), GetDocFunc() to pass the correct number
+	  of types to GetDoc*Type(); allow GetDocFunc() to accept the return type
+	  name (needed for .Compose() documentation).
+	* Makefile: Rename mkcurry to mkdelegates.
+	* mkcurry: Rename to mkdelegates.
+	* mkdelegates: Add .Compose() extension methods.
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Rename Mono.Rocks/Curry.cs 
+	  to Mono.Rocks/Delegates.cs.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Rename
+	  Tests/Mono.Rocks.Tests/CurryTest.cs to 
+	  Tests/Mono.Rocks.Tests/DelegateTest.cs.
+
+2008-09-03  Jonathan Pryor  <jpryor@novell.com>
+
+	* mktuples, doc/en/**: Fix doc typo.
+
+2008-09-03  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush documentation for Int32Rocks.
+
+2008-09-03  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush documentation for .With().
+
+2008-09-02  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add Mono.Rocks/Object.cs 
+	  to the build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Add 
+	  Tests/Mono.Rocks.Tests/ObjectTest.cs to the tests.
+
+2008-09-02  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush.
+
+2008-09-01  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/doc.mdproj: Add additional XML documentation files.
+	* doc/en/**: Flush.
+
+2008-09-01  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add Mono.Rocks/Nullable.cs 
+	  to the build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Add 
+	  Tests/Mono.Rocks.Tests/NullableTest.cs to the tests.
+	* mktuples.cs: Don't generate the Tuple.CreateNullable() methods anymore, as
+	  NullableRocks.ToNullable() serves the same purpose (easily converting a
+	  value type into a nullable value type).
+	* doc/en/**: Flush; remove Tuple.CreateNullable(), add Nullable.xml.
+
+2008-08-31  Jonathan Pryor  <jpryor@novell.com>
+
+	* gendarme.ignore: Update ignored members.
+	* Generator.pm: Add GetTypeParameterList(), GetValue(), GetDocActionType(),
+	  GetDocFuncType(), XmlValue(), Nth(); alter GetDocFunc() and GetDocAction()
+	  to generate nicer-looking cref-able strings (e.g. Action{T1,T2} instead of
+	  Action{``0, ``1}).
+	* Makefile: Don't warn on CS1591, and add additional dependency checks so
+	  that when Generator.pm changes we rebuild all generated source.
+	* mkcurry: Generate XML documentation; remove Tuple null checks.
+	* mktuples.cs: Major changes: make Tuples structs instead of classes.  This
+	  means that, in order to continue supporting the collection interfaces,
+	  each Tuple type needs to fully implement them instead of sharing
+	  implementation in a base Tuple type (as was done before).  Generate XML
+	  documentation for all of these members.  The reason for this change is
+	  performance and semantics; value types were deemed as more logical and
+	  faster (due to less GC pressure).
+	* doc/Makefile.include: Rename `update*' targets to `doc-update*'; run a
+	  short sed script on doc/mono-rocks.xml before importing.
+	* doc/en/**: Flush (lots of imported docs from mkcurry and mktuples, plus
+	  "manual" docs for TupleRocks.xml and KeyValuePairRocks.xml).
+	* doc/fixup.sed: Due to a gmcs bug bnc421815, the XML documentation
+	  //member/@name for explicitly implemented interface members is wrong (or
+	  at minimum completely different from CSC's output), so this sed script
+	  corrects the doc/mono-rocks.xml file so that monodocer can properly import
+	  the inline XML documentation for explicitly implemented members.
+	  This file, in short, is a hack.
+
+2008-08-28  Jonathan Pryor  <jpryor@novell.com>
+
+	* mklambda, doc/en/**: Update Mono.Rocks.Lambda docs (oops).
+
+2008-08-28  Jonathan Pryor  <jpryor@novell.com>
+
+	* mklambda: Change method names: s/Func/A/g or s/Func/F/g for
+	  Action vs. Func, and s/Expression/XA/g or s/Expression/XF/g for
+	  Expression<Action> vs. Expression<Func>, respectively.
+	  This is done because Func/Expression could be ambiguous --
+	  Lambda.Func<int>(Console.WriteLine) (for Console.WriteLine(int)) was
+	  ambiguous between Lambda.Func<int>(Action<int>) and
+	  Lambda.Func<int,int>(Func<int,int>); FAIL.  Thus, we need different method
+	  names for Action vs. Func (and then different methods for 
+	  Expression<T>-accepting methods as well).  Use A instead of Action, etc.,
+	  because this is shorter, makes for a reasonably short Expression method
+	  name (ExpressionAction vs. ExpressionFunc would be annoyingly long), and
+	  people I asked about this thought it would be fine. :-)
+	* doc/en/**: Flush method name changes.
+
+2008-08-28  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush (adds CLSCompliance attributes).
+	* doc/doc-template.xsl: The information panel should provide Mono.Rocks
+	  information, not NDesk.Options.
+
+2008-08-27  Jonathan Pryor  <jpryor@novell.com>
+
+	* mktuples: Disable CLS Compliance checking on the _N members.
+
+2008-08-27  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add
+	  Mono.Rocks/StreamConverter.cs to the build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Add
+	  Tests/Mono.Rocks.Tests/StreamConverterTest.cs to the build.
+	* doc/en/**: Flush.
+
+2008-08-27  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/index.xml, doc/en/Mono.Rocks/IEnumerableRocks.xml: Flush; removes
+	  IEnumerableRocks.Implode<T>(IEnumerable<T>,string,Action<StringBuilder,T>).
+
+2008-08-26  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.csproj: Reset the <TargetFrameworkVersion/> to 3.5 so that
+	  Mono.Rocks builds properly in VS.NET.
+
+2008-08-26  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/index.xml: Flush.
+
+2008-08-26  Jonathan Pryor  <jpryor@novell.com>
+
+	* Makefile: Generate an XML documentation file, extracting the documentation
+	  generated by mklambda.
+	* doc/ (svn:ignore): Ignore generated files.
+	* doc/Makefile.include: Import the documentation generated by gmcs into
+	  monodoc format.
+	* doc/en/**: Flush.
+	* mklambda: Generate inline XML documentation; change parameter names to
+	  simplify documentation generation.
+	* Generator.cs: Add new methods to assist XML documentation generation.
+
+2008-08-19  Jonathan Pryor  <jpryor@novell.com>
+
+	* mkcurry: Add Tuple overloads for each Curry function, such that
+	  a.Curry(1,2) is equivalent to a.Curry(Tuple.Create(1,2)).
+
+2008-08-19  Jonathan Pryor  <jpryor@novell.com>
+
+	* mklambda: Generate RecFunc() methods.
+	* Makefile: Improve dependency checking for Mono.Rocks.Tests.dll.
+
+2008-08-19  Jonathan Pryor  <jpryor@novell.com>
+
+	* Makefile: mklambda should generate Lambdas.cs.
+	* mklambda.cs: Make Lambda a partial class.
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add Mono.Rocks/Lambdas.cs 
+	  to the build.
+
+2008-08-19  Jonathan Pryor  <jpryor@novell.com>
+
+	* Generator.pm: Added; utility type for C# source generation.
+	* mkcurry: Added; generator for Mono.Rocks/Curry.cs
+	* mklambda, mktuple: Refactor/rewrite using Generator.pm.
+	* Makefile: Generate Mono.Rocks/Curry.cs.
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add Mono.Rocks/Curry.cs 
+	  to the build.
+	* Mono>Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Add
+	  Tests/Mono.Rocks.Tests/CurryTest.cs to the build.
+
+2008-08-17  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.csproj, Mono.Rocks.dll.sources: Add Lambda.cs to the build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Add
+	  LambdaTest.cs to the build.
+	* Makefile: Generate Mono.Rocks/Lambda.cs from mklambda.
+	* mklambda: Added; Lambda.cs generation program.
+
+2008-08-17  Jonathan Pryor  <jpryor@novell.com>
+
+	* . (svn:ignore): Add files to ignore.
+	* doc/Makefile.include: cleanup warnings from `make clean` in topdir.
+	* Makefile: Add check-gendarme target, to check Mono.Rocks.dll for coding
+	  warnings/errors with Gendarme.
+	* gendarme.ignore: List of Gendarme warnings to ignore.
+
+2008-08-17  Jonathan Pryor  <jpryor@novell.com>
+
+	* ., doc, Tests (svn:ignore): Add files to ignore.
+
+2008-08-17  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.csproj, Mono.Rocks.dll.sources: Add Int16.cs, Int64.cs,
+	  UInt16.cs, UInt32.cs, UInt64.cs to the build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Add
+	  Int16Test.cs, Int64Test.cs, UInt16Test.cs, UInt32Test.cs, UInt64Test.cs.
+
+2008-08-14  Jonathan Pryor  <jpryor@novell.com>
+
+	* mktuples: Change method parameter names to please Gendarme.
+
+2008-08-08  Jonathan Pryor  <jpryor@novell.com>
+
+	* Tests/Mono.Rocks.Tests.csproj: Add additional tests.
+	* Mono.Rocks.sln: Add doc/doc.mdproj to the build.
+	* doc/doc.mdproj: Added; project file to build documentation.
+	* doc/ndesk-options-docs.source: Renamed to doc/mono-rocks-docs.source.
+	* lib/mono-rocks, lib/monodoc/sources: Added.
+
+2008-08-07  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.csproj: Add Mono.Rocks/Stream.cs to the build.
+
+2008-08-07  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/**: Flush.
+
+2008-08-07  Jonathan Pryor  <jpryor@novell.com>
+
+	* doc/en/Mono.Rocks/StreamRocks.xml: Added; stubs for
+	  Mono.Rocks.StreamRocks.
+
+2008-08-07  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources: Add Mono.Rocks/Stream.cs to the build.
+	* Mono.Rocks.Tests.dll.sources: Add Tests/Mono.Rocks.Tests/StreamTest.cs 
+	  to the build.
+
+2008-08-05  Jonathan Pryor  <jpryor@novell.com>
+
+	* . (svn:ignore): Ignore generated files.
+	* archive: Added; ignore generated files.
+	* doc/**: Added; documentation stubs, Makefile.include to update the docs
+	  and generate an HTML version of the output, etc.
+	* ChangeLog: Added.
+	* Makefile: include doc/Makefile.include to allow documentation generation.
+

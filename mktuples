@@ -1,0 +1,806 @@
+#!/usr/bin/perl
+use strict;
+use Generator;
+use Getopt::Long;
+
+my $n = 1;
+my $namespace = "Mono.Rocks";
+my $output = "Tuples.cs";
+my $help = undef;
+
+GetOptions (
+	"n|count=i",    \$n,
+	"o|output=s",   \$output,
+	"namespace=s",  \$namespace,
+	"h|?|help",     \$help
+);
+
+if ($help) {
+	print <<EOF;
+$0 [-n N] [-o FILE] [-h]
+Create a C# file containing N tuple types.
+
+Options:
+  -n, --count=N       The number of types to generate.  Defaults is 1.
+  -o, --output=FILE   The file to create.  Default is `Tuples.cs'.
+      --namespace=NS  Place the types within the namespace NS.
+                        Default is `Mono.Rocks'.
+  -h, -?, --help      Show this message and exit.
+EOF
+	exit 0;
+}
+
+if ($n < 1) {
+	print STDERR "error: n must be >= 1, was $n\n";
+	exit 1;
+}
+
+my $handle = *STDOUT;
+
+my $g = Generator->new ($handle);
+
+my $header = <<EOF;
+//
+// $output: Tuple types.
+//
+// GENERATED CODE: DO NOT EDIT.
+//
+// To regenerate this code, execute: $0 -n $n -o $output
+//
+// Copyright (c) 2008 Novell, Inc. (http://www.novell.com)
+EOF
+$g->Write ($header);
+$g->WriteLicense ();
+$g->Write ("using System;\n");
+$g->Write ("using System.Collections;\n");
+$g->Write ("using System.Collections.Generic;\n");
+$g->Write ("using System.Reflection;\n");
+$g->Write ("using System.Text;\n\n");
+
+$g->Namespace ($namespace, sub {
+	create_tuple ($g, $n);
+
+	create_funcs ($g, $n);
+
+	for (my $i = 1; $i <= $n; ++$i) {
+		create_type ($g, $i);
+	}
+
+});
+
+sub create_tuple {
+	my ($g, $n) = @_;
+
+	$g->Write ("\n");
+	$g->XmlSummary ("Utility methods to create Tuple instances.");
+	$g->XmlRemarks (
+qq(<para>
+ Provides a set of <see cref="M:Mono.Rocks.Tuple.Create"/> methods so that
+ C# type inferencing can easily be used with tuples.  For example,
+ instead of:
+</para>
+<code lang="C#">
+Tuple&lt;int, long&gt; a = new Tuple&lt;int, long&gt; (1, 2L);</code>
+<para>You can instead write:</para>
+<code lang="C#">
+Tuple&lt;int, long&gt; b = Tuple.Create (1, 2L);
+// or
+var              c = Tuple.Create (1, 2L);</code>
+));
+	$g->Type ( "public static partial class Tuple", sub {
+		$g->Write ("\n");
+		$g->XmlSummary ("The maximum number of Tuple types provided.");
+		$g->XmlValue("The maximum number of Tuple types provided.");
+		$g->XmlRemarks (
+qq(<para>
+ Only tuples up to a certain "arity" are supported; for example,
+ a <c>Tuple&lt;T1, T2, ..., T100&gt;</c> isn't supported (and won't
+ likely ever be).
+</para>
+<para>
+ <see cref="P:Mono.Rocks.Tuple.MaxValues" /> is the maximum number of
+ values that the Tuple types support.  If you need to support
+ more values, then you need to either live with potential boxing
+ and use a e.g. <see cref="T:System.Collections.Generic.List{System.Object}" />
+ or nest Tuple instantiations, e.g. 
+ <c>Tuple&lt;int, Tuple&lt;int, Tuple&lt;int, Tuple&lt;int, int>>>></c>.
+ The problem with such nesting is that it becomes "unnatural" to access 
+ later elements -- <c>t._2._2._2._2</c> to access the fifth value for
+ the previous example.
+</para>
+));
+		$g->Write ("public static readonly int MaxValues = $n;\n");
+
+		create_tuple_method ($g, 1);
+
+		for (my $i = 2; $i <= $n; ++$i) {
+			create_tuple_method ($g, $i);
+		}
+	});
+}
+
+sub create_funcs {
+	my ($g, $n) = @_;
+	if ($n > $g->MaxSystemFuncs) {
+		for (my $i = $g->MaxSystemFuncs+1; $i <= $n; ++$i) {
+			$g->Write ("\npublic delegate TResult RocksFunc<");
+			$g->TypeParameterList ($i);
+			$g->Write (", TResult> (");
+			$g->MethodParameterList ($i);
+			$g->Write (");");
+		}
+		$g->Write ("\n");
+	}
+}
+
+sub create_tuple_method {
+	my ($g, $n) = @_;
+
+	$g->Write ("\n");
+
+	my $t = "Mono.Rocks.Tuple{" . Generator::GetTypeParameterList ($n) . "}";
+	for (my $i = 1; $i <= $n; ++$i) {
+		$g->XmlTypeparam (Generator::GetTypeParameter ($n, $i), 
+			"The " . Generator::Nth ($i) . " <see cref=\"T:$t\"/> value type.");
+	}
+	for (my $i = 1; $i <= $n; ++$i) {
+		$g->XmlParam (Generator::GetValue ($n, $i), 
+			"The " . Generator::Nth ($i) . " <see cref=\"T:$t\"/> value.");
+	}
+	$g->XmlSummary ("Creates a <see cref=\"T:$t\"/>.");
+	$g->XmlReturns ("A <see cref=\"T:$t\"/> initialized with the parameter values.");
+	$g->Method (
+		sub {
+			$g->Write ("public static Tuple<")->TypeParameterList ($n)->Write (">"); 
+		},
+		sub {
+			$g->Write ("\n\tCreate");
+			$g->Write ("<")->TypeParameterList ($n)->Write (">");
+		},
+		sub { $g->MethodParameterList ($n); },
+		sub {
+			$g->Write ("return new Tuple<")->TypeParameterList ($n)->Write ("> (")
+				->ValueList ($n)->Write (");\n");
+		}
+	);
+}
+
+sub create_type {
+	my ($g, $n) = @_;
+
+	my $type  = "Mono.Rocks.Tuple{" . Generator::GetTypeParameterList ($n) . "}";
+	my $typeN = "Mono.Rocks.Tuple`$n";
+
+	$g->Write ("\n");
+	for (my $i = 1; $i <= $n; ++$i) {
+		$g->XmlTypeparam (Generator::GetTypeParameter ($n, $i),
+			"The " . Generator::Nth ($i) . " value type.");
+	}
+	$g->XmlSummary ("A strongly-typed sequence of $n variously typed values.");
+	$g->XmlRemarks (
+qq(<para>
+ A <c>Tuple</c> is an immutable, strongly typed sequence of variously 
+ typed values with each value lacking an otherwise meaningful name aside 
+ from its position.
+</para>
+<para>
+ Tuples provide an indexer to access variables by-index in a loosely
+ typed manner, and provide a set of properties to access variables 
+ by-index in a strongly typed manner.  Strongly typed properties use
+ the pattern <c>_N</c>, where <c>N</c> is the ones-based value position.
+ The indexer, as always, uses 0-based positions.  Thus the value
+ <see cref="P:$typeN._1"/> and <c>tuple[0]</c> refer to the same value,
+ except <see cref="P:$typeN._1"/> is strongly typed, while
+ <c>tuple[0]</c> is typed as a <see cref="T:System.Object"/> (and thus
+ potentially boxed).
+</para>
+<para>
+ Tuples also implement the common collection interfaces, and all collection
+ methods that would require mutating the Tuple throw 
+ <see cref="T:System.NotSupportedException"/>.
+</para>));
+	$g->Type (
+		sub { 
+			$g->Write ("public struct Tuple<")->TypeParameterList ($n)->Write (">\n")
+				->Write ("\t: IList, IList<object>, IEquatable<Tuple<")->TypeParameterList ($n)->Write (">>\n");
+		},
+		sub {
+			$g->Write ("// For .SyncRoot implementation\n");
+			$g->Write ("private static object syncRoot = new object ();\n");
+			$g->Write ("\n");
+			for (my $i = 1; $i <= $n; ++$i) {
+				$g->Write ("private ")->TypeParameter ($n, $i)->Write (" ")
+					->Value ($n, $i)->Write (";\n");
+			}
+
+			$g->Write ("\n");
+			for (my $i = 1; $i <= $n; ++$i) {
+				$g->XmlParam (Generator::GetValue ($n, $i),
+					"A <typeparamref name=\"" . Generator::GetTypeParameter ($n, $i) . "\"/> " . 
+					"which is used to initialize the <see cref=\"P:$type.$i\"/> property.");
+			}
+			$g->XmlSummary (qq(Constructs and initializes a new <see cref="T:$type"/> instance.));
+			$g->XmlRemarks (qq(<para>
+ Constructs and initializes a new <see cref="T:$type"/> instance.
+</para>));
+			$g->Method (
+				"public ",
+				"Tuple",
+				sub { $g->MethodParameterList ($n); },
+				sub {
+					for (my $i = 1; $i <= $n; ++$i) {
+						$g->Write ("this.")->Value ($n, $i)->Write (" = ")->Value ($n, $i)->Write (";\n");
+					}
+			});
+
+			for (my $i = 1; $i <= $n; ++$i) {
+				$g->Write ("\n");
+				$g->XmlSummary ("The " . Generator::Nth ($i) . " tuple value.");
+				$g->XmlValue ("A <typeparamref name=\"" . Generator::GetTypeParameter ($n, $i) . 
+					"\"/> which is the " . Generator::Nth ($i) . " tuple value.");
+				$g->XmlRemarks ("The " . Generator::Nth ($i) . " tuple value.");
+				$g->Write ("[CLSCompliant (false)]\n");
+				$g->Write ("public ")->TypeParameter ($n, $i)
+					->Write (" _$i {get{return ")->Value ($n, $i)->Write (";}}\n");
+			}
+
+			$g->Write ("\n");
+			$g->XmlSummary ("Generates a hash code for the current instance.");
+			$g->XmlReturns ("A <see cref=\"T:System.Int32\"/> containing the hash code for this instance.");
+			$g->XmlRemarks (
+qq(<para>
+ <block subset="none" type="note">
+  This method overrides <see cref="M:System.Object.GetHashCode"/>.
+ </block>
+</para>));
+			$g->Method ("public override int ", "GetHashCode", "", sub {
+					$g->Write ("int hc = 0;\n");
+					for (my $i = 1; $i <= $n; ++$i) {
+						$g->Write ("hc ^= _$i.GetHashCode ();\n");
+					}
+					$g->Write ("return hc;\n");
+			});
+
+			$g->Write ("\n");
+			$g->XmlParam ("obj", "A <see cref=\"T:System.Object\"/> to compare this instance against.");
+			$g->XmlSummary ("Determines whether the current instance and the specified object have the same value.");
+			$g->XmlReturns (qq(<para>
+ <see langword="true"/> if <paramref name="obj"/> is a 
+ <see cref="T:$type"/> and each member of <paramref name="obj"/>
+ and the current instance have the same value (according to
+ <see cref="M:System.Object.Equals(System.Object)"/>); otherwise
+ <see langword="false"/> is returned.
+</para>));
+			$g->XmlRemarks (qq(<para>
+ This method checks for value equality 
+ (<see cref="M:System.Object.Equals(System.Object)"/>), as defined by each
+ value type.
+</para>
+<para>
+ <block subset="none" type="note">
+  This method overrides <see cref="M:System.Object.Equals(System.Object)"/>.
+ </block>
+</para>));
+			$g->Method ("public override bool ", "Equals", "object obj", sub {
+				$g->Write ("if (!(obj is ")
+					->Write ("Tuple<")->TypeParameterList ($n)->Write (">))\n")
+					->Write ("\treturn false;\n")
+					->Write ("return Equals ((Tuple<")->TypeParameterList ($n)->Write (">) obj);\n");
+			});
+
+			$g->Write ("\n");
+			$g->XmlParam ("obj", "A <see cref=\"T:$type\"/> to compare this instance against.");
+			$g->XmlSummary ("Determines whether the current instance and the specified <see cref=\"T:$type\"/> have the same value.");
+			$g->XmlReturns (qq(<para>
+ <see langword="true"/> if each member of <paramref name="obj"/>
+ and the current instance have the same value (according to
+ <see cref="M:System.Object.Equals(System.Object)"/>); otherwise
+ <see langword="false"/> is returned.
+</para>));
+			$g->XmlRemarks (qq(<para>
+ This method checks for value equality 
+ (<see cref="M:System.Object.Equals(System.Object)"/>), as defined by each
+ value type.
+</para>));
+			$g->Method ("public bool ", "Equals", 
+				sub { $g->Write ("Tuple<")->TypeParameterList ($n)->Write ("> obj"); },
+				sub {
+					$g->Write ("return EqualityComparer<")->TypeParameter ($n, 1)
+						->Write (">.Default.Equals (_1, obj._1)\n");
+					for (my $i = 2; $i <= $n; ++$i) {
+						$g->Write ("\t&& EqualityComparer<")->TypeParameter ($n, $i)
+							->Write (">.Default.Equals (_$i, obj._$i)\n");
+					}
+					$g->Write ("\t;\n");
+			});
+			$g->Write ("#region ICollection\n\n");
+			$g->XmlParam ("array", qq(The one-dimensional
+<see cref="T:System.Array"/> that is the destination for the values
+to be copied from the current instance.));
+			$g->XmlParam ("index", qq(A <see cref="T:System.Int32"/> that specifies
+the first index of <paramref name="array"/> to which the elements of the
+current <see cref="T:$type"/> are copied.));
+			$g->XmlSummary (qq(Copies the values of the current 
+<see cref="T:$type"/> to the specified <see cref="T:System.Array"/>,
+starting at the <paramref name="index"/> index of the array.));
+			$g->XmlException ("System.ArgumentException", 
+qq(<para>
+ <paramref name="index" /> is >= 
+ <paramref name="array"/>'s <see cref="P:System.Array.Length"/> property.
+</para>
+<para>-or-</para>
+<para>
+ <paramref name="index" /> + <see cref="P:System.Collections.ICollection.Count"/>
+ of the current instance is >
+ <paramref name="array"/>'s <see cref="P:System.Array.Length"/> property.
+</para>));
+			$g->XmlException ("System.ArgumentNullException", 
+				"<paramref name=\"array\"/> is <see langword=\"null\"/>.");
+			$g->XmlException ("System.ArgumentOutOfRangeException",
+				"<paramref name=\"index\"/> is negative.");
+			$g->XmlException ("System.InvalidCastException",
+				"At least one element in the current instance is not\n" . 
+				"assignment-compatible with the type of <paramref name=\"array\"/>.");
+			$g->Method ("void ", "ICollection.CopyTo", "Array array, int index", sub {
+				$g->Write ("if (array == null)\n");
+				$g->Write ("\tthrow new ArgumentNullException (\"array\");\n");
+				$g->Write ("if (index < 0)\n");
+				$g->Write ("\tthrow new ArgumentOutOfRangeException (\"index\");\n");
+				$g->Write ("if (array.Length - index <= 0 ||\n");
+				$g->Write ("\t\t(array.Length - index) < $n)\n");
+				$g->Write ("\tthrow new ArgumentException (\"index\");\n");
+				for (my $i = 1; $i <= $n; ++$i) {
+					$g->Write ("array.SetValue (_$i, index + ", $i-1, ");\n");
+				}
+			});
+			$g->Write ("\n");
+			$g->XmlSummary ("The number of values in the <see cref=\"T:$type\"/>.");
+			$g->XmlValue ("A <see cref=\"T:System.Int32\"/> containing the number \n" .
+				"of values in this <see cref=\"T:$type\"/>.");
+			$g->XmlRemarks ("This values is always equal to $n.");
+			$g->Write ("int ICollection.Count {\n\tget {return $n;}\n}\n");
+			$g->Write ("\n");
+			$g->XmlSummary ("Gets a value indicating whether access ot the \n" . 
+				"current instance is synchronized (thread-safe)");
+			$g->XmlValue ("This property always returns <see langword=\"true\"/>.");
+			$g->XmlRemarks (qq(<para>
+ <see cref="T:$type"/> instance are immutable, and thus the instances
+ themselves are always thread-safe.  However, this does not mean that 
+ the values exposed by the tuple are thread safe, so care should be 
+ taken if necessary.
+</para>));
+			$g->Write ("bool ICollection.IsSynchronized  {get {return true;}}\n");
+
+			$g->Write ("\n");
+			$g->XmlSummary (qq(Gets an object that can be used to synchronize access
+to the current instance.));
+			$g->XmlValue (qq(A <see cref="T:System.Object"/> that can be used to
+synchronize access to the current instance.));
+			$g->XmlRemarks (qq(<para>
+ This property shouldn't be used, as <see cref="T:$type"/> instances
+ are immutable, and thus require no locking.
+</para>
+<para>
+ The object returned is shared by all <see cref="T:$type"/> instances.
+</para>));
+			$g->Write ("object ICollection.SyncRoot {get {return syncRoot;}}\n");
+			$g->Write ("#endregion\n");
+			$g->Write ("\n");
+			$g->Write ("#region ICollection<T>\n\n");
+			create_notsupp_doc ($g, $type);
+			$g->Method ("void ", "ICollection<object>.Add", "object item",
+				"throw new NotSupportedException ();\n");
+			$g->Write ("\n");
+			create_notsupp_doc ($g, $type);
+			$g->Method ("void ", "ICollection<object>.Clear", "",
+				"throw new NotSupportedException ();\n");
+			$g->Write ("\n");
+			create_notsupp_doc ($g, $type);
+			$g->Method ("bool ", "ICollection<object>.Remove", "object item",
+				"throw new NotSupportedException ();\n");
+
+			$g->Write ("\n");
+			$g->XmlSummary ("Gets a value indicating whether the current instance is read-only");
+			$g->XmlValue ("<see langword=\"true\"/>.");
+			$g->XmlRemarks ("This property always returns <see langword=\"true\"/>.");
+			$g->Write ("bool ICollection<object>.IsReadOnly {get {return true;}}\n");
+
+			$g->Write ("\n");
+			$g->XmlParam ("value", 
+				qq(The <see cref="T:System.Object"/> to locate in the current instance.));
+			$g->XmlSummary (qq(Determines whether <paramref name=\"value\"/>
+<see cref="M:System.Object.Equals(System.Object)"/> any value within this
+<see cref="T:$type"/> instance.));
+			$g->XmlReturns (qq(<see langword="true"/> if <paramref name="value"/> is
+contained in the current instance; otherwise, <see langword="false"/>.));
+			$g->XmlRemarks (qq(<para>
+ <block subset="none" type="note">
+  This method determines equality by calling 
+  <see cref="M:System.Object.Equls(System.Object,System.Object)"/> on
+  each value contained within this tuple and <paramref name="value"/>.
+ </block>
+</para>));
+			$g->Method ("bool ", "ICollection<object>.Contains", "object value", 
+				"return ((IList<object>) this).IndexOf (value) >= 0;\n");
+
+			$g->Write ("\n");
+			$g->XmlSummary ("The number of values in the <see cref=\"T:$type\"/>.");
+			$g->XmlValue ("A <see cref=\"T:System.Int32\"/> containing the number \n" .
+				"of values in this <see cref=\"T:$type\"/>.");
+			$g->XmlRemarks ("This values is always equal to $n.");
+			$g->Write ("int ICollection<object>.Count {\n\tget {return $n;}\n}\n");
+			$g->Write ("\n");
+			$g->XmlParam ("array", qq(The one-dimensional
+<see cref="T:System.Array"/> that is the destination for the values
+to be copied from the current instance.));
+			$g->XmlParam ("arrayIndex", qq(A <see cref="T:System.Int32"/> that specifies
+the first index of <paramref name="array"/> to which the elements of the
+current <see cref="T:$type"/> are copied.));
+			$g->XmlSummary (qq(Copies the values of the current 
+<see cref="T:$type"/> to the specified <see cref="T:System.Array"/>,
+starting at the <paramref name="arrayIndex"/> index of the array.));
+			$g->XmlException ("System.ArgumentException", 
+qq(<para>
+ <paramref name="arrayIndex" /> is >= 
+ <paramref name="array"/>'s <see cref="P:System.Array.Length"/> property.
+</para>
+<para>-or-</para>
+<para>
+ <paramref name="arrayIndex" /> + <see cref="P:System.Collections.ICollection.Count"/>
+ of the current instance is >
+ <paramref name="array"/>'s <see cref="P:System.Array.Length"/> property.
+</para>));
+			$g->XmlException ("System.ArgumentNullException", 
+				"<paramref name=\"array\"/> is <see langword=\"null\"/>.");
+			$g->XmlException ("System.ArgumentOutOfRangeException",
+				"<paramref name=\"arrayIndex\"/> is negative.");
+			$g->Method ("void ", "ICollection<object>.CopyTo", "object[] array, int arrayIndex", sub {
+				$g->Write ("if (array == null)\n");
+				$g->Write ("\tthrow new ArgumentNullException (\"array\");\n");
+				$g->Write ("if (arrayIndex < 0)\n");
+				$g->Write ("\tthrow new ArgumentOutOfRangeException (\"arrayIndex\");\n");
+				$g->Write ("if (array.Length - arrayIndex <= 0 ||\n");
+				$g->Write ("\t\t(array.Length - arrayIndex) < $n)\n");
+				$g->Write ("\tthrow new ArgumentException (\"arrayIndex\");\n");
+				for (my $i = 1; $i <= $n; ++$i) {
+					$g->Write ("array [arrayIndex + ", $i-1, "] = _$i;\n");
+				}
+			});
+
+			$g->Write ("#endregion\n");
+			$g->Write ("#region IEnumerable\n\n");
+			$g->XmlSummary (
+qq(Returns an <see cref="T:System.Collections.IEnumerator"/> for the current instance.));
+			$g->XmlReturns (
+qq(An <see cref="T:System.Collections.IEnumerator"/> for the current instance.));
+			$g->XmlRemarks (qq(<para>
+ Returns each value in the <see cref="T:$type"/> as an
+ <see cref="T:System.Object"/>, in the order 
+ @{[ create_values_doc ($typeN, $n) ]}.
+</para>));
+			$g->Method ("IEnumerator ", "IEnumerable.GetEnumerator", "",
+				"return GetEnumerator ();\n");
+			$g->Write ("\n#endregion\n");
+			$g->Write ("#region IEnumerable<T>\n\n");
+			$g->XmlSummary (
+qq(Returns an <see cref="T:System.Collections.Generic.IEnumerator{System.Object}"/> for the current instance.));
+			$g->XmlReturns (
+qq(An <see cref="T:System.Collections.Generic.IEnumerator{System.Object}"/> for the current instance.));
+			$g->XmlRemarks (qq(<para>
+ Returns each value in the <see cref="T:$type"/> as an
+ <see cref="T:System.Object"/>, in the order 
+ @{[ create_values_doc ($typeN, $n) ]}.
+</para>));
+			$g->Method ("public IEnumerator<object> ", "GetEnumerator", "", sub {
+				for (my $i = 1; $i <= $n; ++$i) {
+					$g->Write ("yield return _$i;\n");
+				}
+			});
+			$g->Write ("\n#endregion\n");
+			$g->Write ("#region IList\n\n");
+			create_notsupp_doc ($g, $type);
+			$g->Method ("int ", "IList.Add", "object value",
+				"throw new NotSupportedException ();\n");
+			$g->Write ("\n");
+			create_notsupp_doc ($g, $type);
+			$g->Method ("void ", "IList.Clear", "",
+				"throw new NotSupportedException ();\n");
+
+			$g->Write ("\n");
+			$g->XmlParam ("value", 
+				qq(The <see cref="T:System.Object"/> to locate in the current instance.));
+			$g->XmlSummary (qq(Determines whether <paramref name=\"value\"/>
+<see cref="M:System.Object.Equals(System.Object)"/> any value within this
+<see cref="T:$type"/> instance.));
+			$g->XmlReturns (qq(<see langword="true"/> if <paramref name="value"/> is
+contained in the current instance; otherwise, <see langword="false"/>.));
+			$g->XmlRemarks (qq(<para>
+ <block subset="none" type="note">
+  This method determines equality by calling 
+  <see cref="M:System.Object.Equls(System.Object,System.Object)"/> on
+  each value contained within this tuple and <paramref name="value"/>.
+ </block>
+</para>));
+			$g->Method ("bool ", "IList.Contains", "object value", 
+				"return ((IList) this).IndexOf (value) >= 0;\n");
+
+			$g->Write ("\n");
+			$g->XmlParam ("value", 
+				qq(The <see cref="T:System.Object"/> to locate in the current instance.));
+			$g->XmlSummary (qq(Searches the current instance, returning the index of
+the first occurrence of the specified <see cref="T:System.Object"/>.));
+			$g->XmlReturns (qq(A <see cref="T:System.Int32"/> that specifies the
+index of the first occurrence of <paramref name="value"/> in the current
+instance, if found; otherwise, -1.));
+			$g->XmlRemarks (qq(This method uses
+<see cref="M:System.Object.Equals(System.Object,System.Object)"/> to determine
+value equality.));
+			$g->Method ("int ", "IList.IndexOf", "object value", sub {
+				for (my $i = 1; $i <= $n; ++$i) {
+					$g->Write ("if (object.Equals (_$i, value)) return ", $i-1, ";\n");
+				}
+				$g->Write ("return -1;\n");
+			});
+			$g->Write ("\n");
+			create_notsupp_doc ($g, $type);
+			$g->Method ("void ", "IList.Insert", "int index, object value",
+				"throw new NotSupportedException ();\n");
+			$g->Write ("\n");
+			create_notsupp_doc ($g, $type);
+			$g->Method ("void ", "IList.Remove", "object value",
+				"throw new NotSupportedException ();\n");
+			$g->Write ("\n");
+			create_notsupp_doc ($g, $type);
+			$g->Method ("void ", "IList.RemoveAt", "int index",
+				"throw new NotSupportedException ();\n");
+
+			$g->Write ("\n");
+			$g->XmlSummary (qq(Gets a <see cref="T:System.Boolean"/> indicating
+whether the <see cref="P:$typeN.System#Collections#ICollection#Count"/>
+cannot be changed.));
+			$g->XmlValue ("<see langword=\"true\"/>");
+			$g->XmlReturns (qq(<see cref="T:$type"/> is immutable; its size cannot be changed.));
+			$g->Write ("bool IList.IsFixedSize {get {return true;}}\n");
+
+			$g->Write ("\n");
+			$g->XmlSummary ("Gets a value indicating whether the current instance is read-only");
+			$g->XmlValue ("<see langword=\"true\"/>.");
+			$g->XmlRemarks ("This property always returns <see langword=\"true\"/>.");
+			$g->Write ("bool IList.IsReadOnly {get {return true;}}\n");
+
+			$g->Write ("\n#endregion\n");
+			$g->Write ("#region IList<T>\n\n");
+			create_notsupp_doc ($g, $type);
+			$g->Method ("void ", "IList<object>.Insert", "int index, object item",
+				"throw new NotSupportedException ();\n");
+
+			$g->Write ("\n");
+			$g->XmlParam ("value", 
+				qq(The <see cref="T:System.Object"/> to locate in the current instance.));
+			$g->XmlSummary (qq(Searches the current instance, returning the index of
+the first occurrence of the specified <see cref="T:System.Object"/>.));
+			$g->XmlReturns (qq(A <see cref="T:System.Int32"/> that specifies the
+index of the first occurrence of <paramref name="value"/> in the current
+instance, if found; otherwise, -1.));
+			$g->XmlRemarks (qq(This method uses
+<see cref="M:System.Object.Equals(System.Object,System.Object)"/> to determine
+value equality.));
+			$g->Method ("int ", "IList<object>.IndexOf", "object value", sub {
+				for (my $i = 1; $i <= $n; ++$i) {
+					$g->Write ("if (object.Equals (_$i, value)) return ", $i-1, ";\n");
+				}
+				$g->Write ("return -1;\n");
+			});
+			$g->Write ("\n");
+			create_notsupp_doc ($g, $type);
+			$g->Method ("void ", "IList<object>.RemoveAt", "int index",
+				"throw new NotSupportedException ();\n");
+
+			$g->XmlParam ("index", 
+qq(An <see cref="T:System.Int32"/> that specifies the zero-based index
+of the value in the current instance to get.  This value is >= 0, and 
+less than <see cref="P:$typeN.System#Collections#Generic#ICollection{System#Object}#Count"/>.));
+			$g->XmlSummary ("Gets the value at the specified index in the current instance.");
+			$g->XmlValue (qq(The element at the specified <paramref name="index"/> of the current instance.));
+			$g->XmlException ("System.ArgumentOutOfRangeException",
+qq(<paramref name="index"/> is less than 0 or greater than or equal to 
+<see cref="P:$typeN.System#Collections#Generic#ICollection{System#Object}#Count"/>.));
+			$g->XmlException ("System.NotSupportedException", qq(The setter was called.));
+			$g->XmlRemarks (qq(<see cref="T:$type"/> is immutable; the setter cannot be invoked.));
+			$g->Write ("\npublic object this [int index] {\n")
+				->Write ("\tget {\n")
+				->Write ("\t\tswitch (index) {\n");
+			for (my $i = 1; $i <= $n; ++$i) {
+				$g->Write ("\t\t\tcase ", $i-1, ": return _$i;\n");
+			}
+			$g->Write ("\t\t}\n");
+			$g->Write ("\t\tthrow new ArgumentOutOfRangeException (\"index\");\n");
+			$g->Write ("\t}\n");
+			$g->Write ("\tset {throw new NotSupportedException (\"Tuple is read-only\");}\n");
+			$g->Write ("}\n");
+			$g->Write ("\n#endregion\n");
+
+			my $f = Generator::GetDocFunc ($n);
+			$g->Write ("\n");
+			$g->XmlTypeparam ("TResult", "The return type.");
+			$g->XmlParam ("func", 
+qq(A <see cref="T:$f"/> which will be invoked, providing the values
+@{[ create_values_doc ($typeN, $n) ]} to <paramref name="func"/> and
+returning the value returned by <paramref name="func"/>.));
+			$g->XmlSummary (qq(Converts the <see cref="T:$type"/> into a <typeparamref name="TResult"/>.));
+			$g->XmlReturns (qq(The <typeparamref name="TResult"/> returned by <paramref name="func"/>.));
+			$g->XmlRemarks (qq(<para>
+ <block subset="none" type="behaviors">
+  Passes the values @{[ create_values_doc ($typeN, $n) ]} to 
+  <paramref name="func"/>, returning the value produced by 
+	<paramref name="func"/>.
+ </block>
+</para>));
+			$g->XmlException ("System.ArgumentNullException", 
+				qq(<paramref name="func"/> is <see langword="null"/>.));
+			$g->Method ("public TResult ", "Aggregate<TResult>", 
+				sub { $g->Func ($n)->Write ("<")->TypeParameterList ($n)->Write (", TResult> func"); },
+				sub { 
+					$g->Write ("if (func == null)\n")
+						->Write ("\tthrow new ArgumentNullException (\"func\");\n");
+					$g->Write ("return func (")->ValueList ($n)->Write (");\n"); 
+				}
+			);
+
+			$f = Generator::GetDocFunc ($n, 1, $n, "Mono.Rocks.Maybe{TResult}");
+			$g->Write ("\n");
+			$g->XmlTypeparam ("TResult", "The return type.");
+			$g->XmlParam ("matchers", 
+qq(A <see cref="T:$f" /> 
+array containing the conversion routines to use to convert 
+the current <see cref="T:$type" /> instance into a 
+<typeparamref name="TResult" /> value.));
+			$g->XmlSummary (qq(Converts the current <see cref="T:$type"/> instance into a <typeparamref name="TResult"/>.));
+			$g->XmlReturns (qq(The <typeparamref name="TResult"/> returned by one of the <paramref name="matchers"/>.));
+			$g->XmlRemarks (qq(<para>
+ <block subset="none" type="behaviors">
+  <para>
+   The current <see cref="T:$type" /> instance is converted into a 
+   <typeparamref name="TResult" /> instance by trying each
+   <see cref="T:$f" />
+   within <paramref name="matchers" />.
+  </para>
+  <para>
+   This method returns 
+   <see cref="P:Mono.Rocks.Maybe{TResult}.Value" /> 
+   for the first delegate to return a
+   <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
+   where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+   is <see langword="true" />.
+  </para>
+  <para>
+   If no 
+   <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+   returns a 
+   <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
+   where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+   is <see langword="true" />, then an
+   <see cref="T:System.InvalidOperationException" /> is thrown.
+  </para>
+ </block>
+ <code lang="C#">
+var    a = Tuple.Create (1, 2);
+string b = a.Match (
+    (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
+    (t, v) =&gt; "*default*".Just ());
+Console.WriteLine (b);  // prints "foo!"</code>
+</para>));
+			$g->XmlException ("System.ArgumentNullException", 
+				qq(<paramref name="matchers"/> is <see langword="null"/>.));
+			$g->XmlException ("System.InvalidOperationException", 
+qq(None of the 
+<see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+delegates within <paramref name="matchers" /> returned a 
+<see cref="T:Mono.Rocks.Maybe{TResult}" /> instance where
+<see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" /> was
+<see langword="true" />.));
+			$g->Method ("public TResult ", "Match<TResult>", 
+				sub { 
+					$g->Write ("params ");
+					$g->Func ($n)->Write ("<")->TypeParameterList ($n)
+						->Write (", Maybe<TResult>>[] matchers");
+				},
+				sub { 
+					$g->Write ("if (matchers == null)\n")
+						->Write ("\tthrow new ArgumentNullException (\"matchers\");\n");
+					$g->Write ("foreach (var m in matchers) {\n")
+						->Write ("\tvar r = m (")->ValueList ($n)->Write (");\n")
+						->Write ("\tif (r.HasValue)\n")
+						->Write ("\t\treturn r.Value;\n")
+						->Write ("}\n");
+					$g->Write ("throw new InvalidOperationException (\"no match\");\n");
+				}
+			);
+
+			$g->Write ("\n");
+			$g->XmlSummary (qq(Returns a <see cref="T:System.String"/> representation of the value of the current instance.));
+			$g->XmlReturns (qq(A <see cref="T:System.String"/> representation of the value of the current instance.));
+			$g->XmlRemarks (qq(<para>
+ <block subset="none" type="behaviors">
+  Returns <c>(</c>, followed by a comma-separated list of the result of
+  calling <see cref="M:System.Object.ToString"/> on 
+  @{[ create_values_doc ($typeN, $n) ]}, followed by <c>)</c>.
+ </block>
+</para>));
+			$g->Method ("public override string ", "ToString", "", sub {
+				$g->Write ("StringBuilder buf = new StringBuilder ();\n");
+				$g->Write ("buf.Append (\"(\");\n");
+				$g->Write ("buf.Append (_1);\n");
+				for (my $i = 2; $i <= $n; ++$i) {
+					$g->Write ("buf.Append (\", \");\n");
+					$g->Write ("buf.Append (_$i);\n");
+				}
+				$g->Write ("buf.Append (\")\");\n");
+				$g->Write ("return buf.ToString ();\n");
+			});
+
+			$g->Write ("\n");
+			$g->XmlParam ("a", qq(The first <see cref="T:$type"/> to compare.));
+			$g->XmlParam ("b", qq(The second <see cref="T:$type"/> to compare.));
+			$g->XmlSummary (qq(Returns a <see cref="T:System.Boolean"/> value
+indicating whether the two specified values are equal to each other.));
+			$g->XmlReturns (qq(<see langword="true"/> if <paramref name="a"/> and
+<paramref name="b"/> represent the same value; otherwise, <see langword="false"/>.));
+			$g->Write ("/// <seealso cref=\"M:$typeN.Equals(Mono.Rocks.Tuple{@{[ create_xmldoc_list ($n) ]}})\"/>\n");
+			$g->Method ("public static bool ", "operator== ", 
+				sub {
+					$g->Write ("Tuple<")->TypeParameterList ($n)->Write ("> a, "); 
+					$g->Write ("Tuple<")->TypeParameterList ($n)->Write ("> b"); 
+				},
+				"return a.Equals (b);\n");
+
+			$g->Write ("\n");
+			$g->XmlParam ("a", qq(The first <see cref="T:$type"/> to compare.));
+			$g->XmlParam ("b", qq(The second <see cref="T:$type"/> to compare.));
+			$g->XmlSummary (qq(Returns a <see cref="T:System.Boolean"/> value
+indicating whether the two specified values are not equal to each other.));
+			$g->XmlReturns (qq(<see langword="true"/> if <paramref name="a"/> and
+<paramref name="b"/> do not represent the same value; otherwise, <see langword="false"/>.));
+			$g->Write ("/// <seealso cref=\"M:$typeN.Equals(Mono.Rocks.Tuple{@{[ create_xmldoc_list ($n) ]}})\"/>\n");
+			$g->Method ("public static bool ", "operator!=", 
+				sub {
+					$g->Write ("Tuple<")->TypeParameterList ($n)->Write ("> a, "); 
+					$g->Write ("Tuple<")->TypeParameterList ($n)->Write ("> b"); 
+				},
+				"return !a.Equals (b);\n");
+	});
+}
+
+sub create_notsupp_doc {
+	my ($g, $type) = @_;
+
+	$g->XmlSummary ("Throws <see cref=\"T:System.NotSupportedException\"/>.");
+	$g->XmlRemarks (qq(<para>
+ Throws <see cref=\"T:System.NotSupportedException\"/>.
+</para>
+<para>
+ <see cref="T:$type"/> is immutable; modification is not supported.
+</para>));
+	$g->XmlException ("System.NotSupportedException", 
+		"This member is not supported.");
+}
+
+sub create_values_doc {
+	my ($type, $n) = @_;
+
+	my $list = "<see cref=\"P:$type._1\"/>";
+	for (my $i = 2; $i <= $n; ++$i) {
+		$list .= ", <see cref=\"P:$type._$i\"/>";
+	}
+	return $list;
+}
+
+sub create_xmldoc_list {
+	my ($n) = @_;
+
+	my $t = "`0";
+	for (my $i = 1; $i < $n; ++$i) {
+		$t .= ",`$i";
+	}
+	return $t;
+}
