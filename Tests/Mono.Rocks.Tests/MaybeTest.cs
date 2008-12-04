@@ -213,6 +213,9 @@ namespace Mono.Rocks.Tests {
 			Maybe<int> z = 1.ToMaybe ();
 			Assert.IsTrue (x.Equals (z));
 			Assert.IsTrue (y.Equals (z));
+			Maybe<int> w = 2.ToMaybe ();
+			Assert.IsFalse (x.Equals (w));
+			Assert.IsFalse (w.Equals (x));
 		}
 
 		[Test]

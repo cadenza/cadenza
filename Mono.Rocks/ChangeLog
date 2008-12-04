@@ -1,3 +1,8 @@
+2008-12-04  Jonathan Pryor  <jpryor@novell.com>
+
+	* Maybe.cs: Equals() should compare Value==obj.Value, otherwise the
+	  result will always be true.
+
 2008-10-04  Jonathan Pryor  <jpryor@novell.com>
 
 	* Delegates.cs: Flush (adds "traditional" .Curry() methods).

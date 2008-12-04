@@ -138,7 +138,7 @@ namespace Mono.Rocks {
 				return false;
 			if (!HasValue)
 				return true;
-			return EqualityComparer<T>.Default.Equals (Value, Value);
+			return EqualityComparer<T>.Default.Equals (Value, obj.Value);
 		}
 
 		public override int GetHashCode ()
