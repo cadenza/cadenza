@@ -1,3 +1,8 @@
+2008-12-08  Jonathan Pryor  <jpryor@novell.com>
+
+	* mkdelegates: Add .Timings() extension method to get a list of how
+	  long it takes a delegate to execute.
+
 2008-10-04  Jonathan Pryor  <jpryor@novell.com>
 
 	* doc/en/**: Flush (monodocer update; mkdelegates doc update).

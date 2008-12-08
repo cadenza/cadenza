@@ -59,6 +59,8 @@ EOF
 $g->Write ($header);
 $g->WriteLicense ();
 $g->Write ("using System;\n");
+$g->Write ("using System.Collections.Generic;\n");
+$g->Write ("using System.Diagnostics;\n");
 $g->Write ("using System.Linq.Expressions;\n\n");
 
 $g->Namespace ($namespace, sub {
@@ -159,6 +161,32 @@ Console.WriteLine (double_then_tostring (5));
 				);
 			}
 		}
+
+		$g->Write ("\n");
+		$g->Method (
+			"public static IEnumerable<TimeSpan> ",
+			sub { timings ($g, 0); },
+			sub { timings_args ($g, 0); },
+			sub { timings_body ($g, 0); }
+		);
+		$g->Write ("\n");
+		$g->Method (
+			"public static IEnumerable<TimeSpan> ",
+			sub { timings ($g, 0); },
+			sub { timings_args_full ($g, 0); },
+			sub { timings_body_full ($g, 0); }
+		);
+
+		$g->Write ("\n");
+		$g->Method (
+			"private static IEnumerable<TimeSpan> ",
+			sub { timings_iter ($g, 0); },
+			sub { timings_iter_args ($g, 0); },
+			sub { timings_iter_body ($g, 0); }
+		);
+
+		$g->Write ("\n");
+
 		$g->Write ("//\n");
 		$g->Write ("// \"Real\" currying method idea courtesy of:\n");
 		$g->Write ("// http://blogs.msdn.com/wesdyer/archive/2007/01/29/currying-and-partial-function-application.aspx\n");
@@ -201,6 +229,27 @@ Console.WriteLine (double_then_tostring (5));
 				sub { func_tcurry ($g, $ntypes); },
 				sub { tcurry_func_args ($g, $ntypes); },
 				sub { tcurry_body ($g, $ntypes); },
+			);
+			$g->Write ("\n");
+			$g->Method (
+				"public static IEnumerable<TimeSpan> ",
+				sub { timings ($g, $ntypes); },
+				sub { timings_args ($g, $ntypes); },
+				sub { timings_body ($g, $ntypes); },
+			);
+			$g->Write ("\n");
+			$g->Method (
+				"public static IEnumerable<TimeSpan> ",
+				sub { timings ($g, $ntypes); },
+				sub { timings_args_full ($g, $ntypes); },
+				sub { timings_body_full ($g, $ntypes); },
+			);
+			$g->Write ("\n");
+			$g->Method (
+				"private static IEnumerable<TimeSpan> ",
+				sub { timings_iter ($g, $ntypes); },
+				sub { timings_iter_args ($g, $ntypes); },
+				sub { timings_iter_body ($g, $ntypes); },
 			);
 		}
 	});
@@ -649,5 +698,95 @@ sub tcurry_body {
 		$g->Write (" => ")->Value ($ntypes, $i);
 	}
 	$g->Write (" => self (")->ValueList ($ntypes)->Write (");\n");
+}
+
+sub timings {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("Timings");
+	if ($ntypes > 0) {
+		$g->Write ("<")->TypeParameterList ($ntypes)->Write (">");
+	}
+}
+
+sub timings_args {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("this ")->Action ($ntypes);
+	if ($ntypes == 0) {
+		$g->Write (" self");
+	}
+	else {
+		$g->Write ("<")->TypeParameterList ($ntypes)->Write ("> self, ")
+			->MethodParameterList ($ntypes);
+	}
+}
+
+sub timings_args_full {
+	my ($g, $ntypes) = @_;
+
+	timings_args ($g, $ntypes);
+	$g->Write (", int runs, int loopsPerRun");
+}
+
+sub timings_body {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("Check.Self (self);\n\n");
+	$g->Write ("Stopwatch watch = Stopwatch.StartNew ();\n");
+	$g->Write ("self (")->ValueList ($ntypes)->Write (");\n");
+	$g->Write ("watch.Stop ();\n");
+	$g->Write ("long ms = watch.ElapsedMilliseconds;\n");
+	$g->Write ("watch.Reset ();\n");
+	$g->Write ("return CreateTimingsIterator (self");
+	if ($ntypes > 0) {
+		$g->Write (", ")->ValueList ($ntypes);
+	}
+	$g->Write (", 5, (int) (ms > 1000 ? 2 : 1000 / (ms+1)), watch);\n");
+}
+
+sub timings_body_full {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("Check.Self (self);\n\n");
+	$g->Write ("if (runs < 0)\n");
+	$g->Write ("\tthrow new ArgumentException (\"negative values aren't supported\", \"runs\");\n");
+	$g->Write ("if (loopsPerRun < 0)\n");
+	$g->Write ("\tthrow new ArgumentException (\"negative values aren't supported\", \"loopsPerRun\");\n");
+	$g->Write ("self (")->ValueList ($ntypes)->Write (");\n");
+	$g->Write ("return CreateTimingsIterator (self");
+	if ($ntypes > 0) {
+		$g->Write (", ")->ValueList ($ntypes);
+	}
+	$g->Write (", runs, loopsPerRun, new Stopwatch ());\n");
+}
+
+sub timings_iter {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("CreateTimingsIterator");
+	if ($ntypes > 0) {
+		$g->Write ("<")->TypeParameterList ($ntypes)->Write (">");
+	}
+}
+
+sub timings_iter_args {
+	my ($g, $ntypes) = @_;
+
+	timings_args_full ($g, $ntypes);
+	$g->Write (", Stopwatch watch");
+}
+
+sub timings_iter_body {
+	my ($g, $ntypes) = @_;
+
+	$g->Write ("for (int i = 0; i < runs; ++i) {\n");
+	$g->Write ("\twatch.Start ();\n");
+	$g->Write ("\tfor (int j = 0; j < loopsPerRun; ++j)\n");
+	$g->Write ("\t\tself (")->ValueList ($ntypes)->Write (");\n");
+	$g->Write ("\twatch.Stop ();\n");
+	$g->Write ("\tyield return watch.Elapsed;\n");
+	$g->Write ("\twatch.Reset ();\n");
+	$g->Write ("}\n");
 }
 

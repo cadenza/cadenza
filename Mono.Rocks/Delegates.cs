@@ -27,6 +27,8 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq.Expressions;
 
 namespace Mono.Rocks {
@@ -1389,6 +1391,43 @@ namespace Mono.Rocks {
 			Check.Self (self);
 			return (value2, value3, value4) => self (values._1, value2, value3, value4);
 		}
+
+		public static IEnumerable<TimeSpan> Timings (this Action self)
+		{
+			Check.Self (self);
+
+			Stopwatch watch = Stopwatch.StartNew ();
+			self ();
+			watch.Stop ();
+			long ms = watch.ElapsedMilliseconds;
+			watch.Reset ();
+			return CreateTimingsIterator (self, 5, (int) (ms > 1000 ? 2 : 1000 / (ms+1)), watch);
+		}
+
+		public static IEnumerable<TimeSpan> Timings (this Action self, int runs, int loopsPerRun)
+		{
+			Check.Self (self);
+
+			if (runs < 0)
+				throw new ArgumentException ("negative values aren't supported", "runs");
+			if (loopsPerRun < 0)
+				throw new ArgumentException ("negative values aren't supported", "loopsPerRun");
+			self ();
+			return CreateTimingsIterator (self, runs, loopsPerRun, new Stopwatch ());
+		}
+
+		private static IEnumerable<TimeSpan> CreateTimingsIterator (this Action self, int runs, int loopsPerRun, Stopwatch watch)
+		{
+			for (int i = 0; i < runs; ++i) {
+				watch.Start ();
+				for (int j = 0; j < loopsPerRun; ++j)
+					self ();
+				watch.Stop ();
+				yield return watch.Elapsed;
+				watch.Reset ();
+			}
+		}
+
 		//
 		// "Real" currying method idea courtesy of:
 		// http://blogs.msdn.com/wesdyer/archive/2007/01/29/currying-and-partial-function-application.aspx
@@ -1562,6 +1601,42 @@ namespace Mono.Rocks {
 			Check.Self (self);
 
 			return self;
+		}
+
+		public static IEnumerable<TimeSpan> Timings<T> (this Action<T> self, T value)
+		{
+			Check.Self (self);
+
+			Stopwatch watch = Stopwatch.StartNew ();
+			self (value);
+			watch.Stop ();
+			long ms = watch.ElapsedMilliseconds;
+			watch.Reset ();
+			return CreateTimingsIterator (self, value, 5, (int) (ms > 1000 ? 2 : 1000 / (ms+1)), watch);
+		}
+
+		public static IEnumerable<TimeSpan> Timings<T> (this Action<T> self, T value, int runs, int loopsPerRun)
+		{
+			Check.Self (self);
+
+			if (runs < 0)
+				throw new ArgumentException ("negative values aren't supported", "runs");
+			if (loopsPerRun < 0)
+				throw new ArgumentException ("negative values aren't supported", "loopsPerRun");
+			self (value);
+			return CreateTimingsIterator (self, value, runs, loopsPerRun, new Stopwatch ());
+		}
+
+		private static IEnumerable<TimeSpan> CreateTimingsIterator<T> (this Action<T> self, T value, int runs, int loopsPerRun, Stopwatch watch)
+		{
+			for (int i = 0; i < runs; ++i) {
+				watch.Start ();
+				for (int j = 0; j < loopsPerRun; ++j)
+					self (value);
+				watch.Stop ();
+				yield return watch.Elapsed;
+				watch.Reset ();
+			}
 		}
 
 		/// <typeparam name="T1">
@@ -1745,6 +1820,42 @@ namespace Mono.Rocks {
 			Check.Self (self);
 
 			return value1 => value2 => self (value1, value2);
+		}
+
+		public static IEnumerable<TimeSpan> Timings<T1, T2> (this Action<T1, T2> self, T1 value1, T2 value2)
+		{
+			Check.Self (self);
+
+			Stopwatch watch = Stopwatch.StartNew ();
+			self (value1, value2);
+			watch.Stop ();
+			long ms = watch.ElapsedMilliseconds;
+			watch.Reset ();
+			return CreateTimingsIterator (self, value1, value2, 5, (int) (ms > 1000 ? 2 : 1000 / (ms+1)), watch);
+		}
+
+		public static IEnumerable<TimeSpan> Timings<T1, T2> (this Action<T1, T2> self, T1 value1, T2 value2, int runs, int loopsPerRun)
+		{
+			Check.Self (self);
+
+			if (runs < 0)
+				throw new ArgumentException ("negative values aren't supported", "runs");
+			if (loopsPerRun < 0)
+				throw new ArgumentException ("negative values aren't supported", "loopsPerRun");
+			self (value1, value2);
+			return CreateTimingsIterator (self, value1, value2, runs, loopsPerRun, new Stopwatch ());
+		}
+
+		private static IEnumerable<TimeSpan> CreateTimingsIterator<T1, T2> (this Action<T1, T2> self, T1 value1, T2 value2, int runs, int loopsPerRun, Stopwatch watch)
+		{
+			for (int i = 0; i < runs; ++i) {
+				watch.Start ();
+				for (int j = 0; j < loopsPerRun; ++j)
+					self (value1, value2);
+				watch.Stop ();
+				yield return watch.Elapsed;
+				watch.Reset ();
+			}
 		}
 
 		/// <typeparam name="T1">
@@ -1942,6 +2053,42 @@ namespace Mono.Rocks {
 			Check.Self (self);
 
 			return value1 => value2 => value3 => self (value1, value2, value3);
+		}
+
+		public static IEnumerable<TimeSpan> Timings<T1, T2, T3> (this Action<T1, T2, T3> self, T1 value1, T2 value2, T3 value3)
+		{
+			Check.Self (self);
+
+			Stopwatch watch = Stopwatch.StartNew ();
+			self (value1, value2, value3);
+			watch.Stop ();
+			long ms = watch.ElapsedMilliseconds;
+			watch.Reset ();
+			return CreateTimingsIterator (self, value1, value2, value3, 5, (int) (ms > 1000 ? 2 : 1000 / (ms+1)), watch);
+		}
+
+		public static IEnumerable<TimeSpan> Timings<T1, T2, T3> (this Action<T1, T2, T3> self, T1 value1, T2 value2, T3 value3, int runs, int loopsPerRun)
+		{
+			Check.Self (self);
+
+			if (runs < 0)
+				throw new ArgumentException ("negative values aren't supported", "runs");
+			if (loopsPerRun < 0)
+				throw new ArgumentException ("negative values aren't supported", "loopsPerRun");
+			self (value1, value2, value3);
+			return CreateTimingsIterator (self, value1, value2, value3, runs, loopsPerRun, new Stopwatch ());
+		}
+
+		private static IEnumerable<TimeSpan> CreateTimingsIterator<T1, T2, T3> (this Action<T1, T2, T3> self, T1 value1, T2 value2, T3 value3, int runs, int loopsPerRun, Stopwatch watch)
+		{
+			for (int i = 0; i < runs; ++i) {
+				watch.Start ();
+				for (int j = 0; j < loopsPerRun; ++j)
+					self (value1, value2, value3);
+				watch.Stop ();
+				yield return watch.Elapsed;
+				watch.Reset ();
+			}
 		}
 
 		/// <typeparam name="T1">
@@ -2153,6 +2300,42 @@ namespace Mono.Rocks {
 			Check.Self (self);
 
 			return value1 => value2 => value3 => value4 => self (value1, value2, value3, value4);
+		}
+
+		public static IEnumerable<TimeSpan> Timings<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, T1 value1, T2 value2, T3 value3, T4 value4)
+		{
+			Check.Self (self);
+
+			Stopwatch watch = Stopwatch.StartNew ();
+			self (value1, value2, value3, value4);
+			watch.Stop ();
+			long ms = watch.ElapsedMilliseconds;
+			watch.Reset ();
+			return CreateTimingsIterator (self, value1, value2, value3, value4, 5, (int) (ms > 1000 ? 2 : 1000 / (ms+1)), watch);
+		}
+
+		public static IEnumerable<TimeSpan> Timings<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, T1 value1, T2 value2, T3 value3, T4 value4, int runs, int loopsPerRun)
+		{
+			Check.Self (self);
+
+			if (runs < 0)
+				throw new ArgumentException ("negative values aren't supported", "runs");
+			if (loopsPerRun < 0)
+				throw new ArgumentException ("negative values aren't supported", "loopsPerRun");
+			self (value1, value2, value3, value4);
+			return CreateTimingsIterator (self, value1, value2, value3, value4, runs, loopsPerRun, new Stopwatch ());
+		}
+
+		private static IEnumerable<TimeSpan> CreateTimingsIterator<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, T1 value1, T2 value2, T3 value3, T4 value4, int runs, int loopsPerRun, Stopwatch watch)
+		{
+			for (int i = 0; i < runs; ++i) {
+				watch.Start ();
+				for (int j = 0; j < loopsPerRun; ++j)
+					self (value1, value2, value3, value4);
+				watch.Stop ();
+				yield return watch.Elapsed;
+				watch.Reset ();
+			}
 		}
 	}
 }

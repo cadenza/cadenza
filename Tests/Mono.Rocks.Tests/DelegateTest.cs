@@ -27,6 +27,9 @@
 //
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 
 using NUnit.Framework;
 
@@ -383,6 +386,154 @@ namespace Mono.Rocks.Tests {
 			var c = b (1);
 			var d = c (2);
 			Assert.AreEqual (6, d (3));
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void Timings_A0_SelfNull ()
+		{
+			Action                s = null;
+			IEnumerable<TimeSpan> r = s.Timings ();
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void Timings_F0_SelfNull ()
+		{
+			Action                s = null;
+			IEnumerable<TimeSpan> r = s.Timings (1, 1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentException))]
+		public void Timings_F0_NegativeRuns ()
+		{
+			Action                s = () => {};
+			IEnumerable<TimeSpan> r = s.Timings (-1, 1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentException))]
+		public void Timings_F0_NegativeLoopsPerRun ()
+		{
+			Action                s = () => {};
+			IEnumerable<TimeSpan> r = s.Timings (1, -1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void Timings_A1_SelfNull ()
+		{
+			Action<byte>          s = null;
+			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b');
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void Timings_F1_SelfNull ()
+		{
+			Action<byte>          s = null;
+			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b', 1, 1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentException))]
+		public void Timings_F1_NegativeRuns ()
+		{
+			Action<byte>          s = a => {};
+			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b', -1, 1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentException))]
+		public void Timings_F1_NegativeLoopsPerRun ()
+		{
+			Action<byte>          s = a => {};
+			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b', 1, -1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void Timings_A2_SelfNull ()
+		{
+			Action<byte, char>    s = null;
+			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b', 'c');
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void Timings_F2_SelfNull ()
+		{
+			Action<byte, char>    s = null;
+			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b', 'c', 1, 1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentException))]
+		public void Timings_F2_NegativeRuns ()
+		{
+			Action<byte, char>    s = (a, b) => {};
+			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b', 'c', -1, 1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentException))]
+		public void Timings_F2_NegativeLoopsPerRun ()
+		{
+			Action<byte, char>    s = (a, b) => {};
+			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b', 'c', 1, -1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void Timings_A3_SelfNull ()
+		{
+			Action<byte, char, short> s = null;
+			IEnumerable<TimeSpan>     r = s.Timings ((byte) 'b', 'c', (short) 16);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void Timings_F3_SelfNull ()
+		{
+			Action<byte, char, short> s = null;
+			IEnumerable<TimeSpan>     r = s.Timings ((byte) 'b', 'c', (short) 16, 1, 1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentException))]
+		public void Timings_F3_NegativeRuns ()
+		{
+			Action<byte, char, short> s = (a, b, c) => {};
+			IEnumerable<TimeSpan>     r = s.Timings ((byte) 'b', 'c', (short) 16, -1, 1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentException))]
+		public void Timings_F3_NegativeLoopsPerRun ()
+		{
+			Action<byte, char, short> s = (a, b, c) => {};
+			IEnumerable<TimeSpan>     r = s.Timings ((byte) 'b', 'c', (short) 16, 1, -1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void Timings_A4_SelfNull ()
+		{
+			Action<byte, char, short, int>  s = null;
+			IEnumerable<TimeSpan>           r = s.Timings ((byte) 'b', 'c', (short) 16, 32);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void Timings_F4_SelfNull ()
+		{
+			Action<byte, char, short, int>  s = null;
+			IEnumerable<TimeSpan>           r = s.Timings ((byte) 'b', 'c', (short) 16, 32, 1, 1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentException))]
+		public void Timings_F4_NegativeRuns ()
+		{
+			Action<byte, char, short, int>  s = (a, b, c, d) => {};
+			IEnumerable<TimeSpan>           r = s.Timings ((byte) 'b', 'c', (short) 16, 32, -1, 1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentException))]
+		public void Timings_F4_NegativeLoopsPerRun ()
+		{
+			Action<byte, char, short, int>  s = (a, b, c, d) => {};
+			IEnumerable<TimeSpan>           r = s.Timings ((byte) 'b', 'c', (short) 16, 32, 1, -1);
+		}
+
+		[Test]
+		public void Timings ()
+		{
+			List<TimeSpan> c = Lambda.A (()=>Thread.Sleep (1000)).Timings (1, 1).ToList ();
+			Assert.AreEqual (1, c.Count);
+			Assert.AreEqual (1000, (int) c [0].TotalMilliseconds);
 		}
 	}
 }
