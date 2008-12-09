@@ -27,6 +27,7 @@
 //
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
@@ -52,6 +53,43 @@ namespace Mono.Rocks.Tests {
 			int n;
 			new EnumerableValueReader<DateTime> (new[]{DateTime.Now})
 				.Read (out n);
+		}
+
+		[Test, ExpectedException (typeof (InvalidOperationException))]
+		public void Read_PastEnd ()
+		{
+			char a, b;
+			new[]{1}.ToValueReader ().Read (out a).Read (out b);
+		}
+
+		class Foo : IEnumerable<int> {
+			public bool WasDisposed;
+
+			IEnumerator IEnumerable.GetEnumerator ()
+			{
+				return GetEnumerator ();
+			}
+
+			public IEnumerator<int> GetEnumerator ()
+			{
+				try {
+					yield return 0;
+				}
+				finally {
+					WasDisposed = true;
+				}
+			}
+		}
+
+		[Test]
+		public void Read_EnumeratorDisposed ()
+		{
+			Foo f = new Foo ();
+			using (var r = f.ToValueReader ()) {
+				char a;
+				r.Read (out a);
+			}
+			Assert.IsTrue (f.WasDisposed);
 		}
 
 		[Test]

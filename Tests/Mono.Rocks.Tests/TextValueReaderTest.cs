@@ -117,6 +117,13 @@ namespace Mono.Rocks.Tests {
 			r.Read<TvrOp> (out op);
 		}
 
+		[Test, ExpectedException (typeof (InvalidOperationException))]
+		public void Read_PastEnd ()
+		{
+			string a, b;
+			new[]{"foo"}.ToValueReader ().Read (out a).Read (out b);
+		}
+
 		[Test]
 		public void Read_Generic ()
 		{
