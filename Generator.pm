@@ -232,7 +232,7 @@ sub ValueList {
 	$start ||= 1;
 	$end   ||= $max;
 
-	return if $max == 0;
+	return $self if $max == 0;
 
 	$self->Value ($max, $start);
 	for (my $i = $start + 1; $i <= $end; ++$i) {

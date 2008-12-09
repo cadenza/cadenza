@@ -1,3 +1,7 @@
+2008-12-09  Jonathan Pryor  <jpryor@novell.com>
+
+	* Generator.pm (ValueList): Return a value when $max==0.
+
 2008-12-08  Jonathan Pryor  <jpryor@novell.com>
 
 	* mkdelegates: Add .Timings() extension method to get a list of how
