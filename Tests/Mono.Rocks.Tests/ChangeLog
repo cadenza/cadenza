@@ -1,5 +1,9 @@
 2008-12-09  Jonathan Pryor  <jpryor@novell.com>
 
+	* EitherTest.cs: Ensure that nullable types can be parsed.
+
+2008-12-09  Jonathan Pryor  <jpryor@novell.com>
+
 	* EnumerableValueReaderTest.cs, TextValueReaderTest.cs: Ensure that an
 	  InvalidOperationException is thrown when we read past the end of the
 	  Reader.

@@ -103,6 +103,15 @@ namespace Mono.Rocks.Tests {
 			v = Either.TryParse<int> ("42");
 			var n = v.Fold (i => i, i => -1);
 			Assert.AreEqual (42, n);
+
+			var v2 = Either.TryParse<int?> ("3.14159");
+			e = v2.Fold (i => null, i => i);
+			Assert.IsNotNull (e);
+			Assert.IsTrue (typeof(Exception).IsAssignableFrom (e.GetType()));
+
+			v2 = Either.TryParse<int?> ("42");
+			n = v2.Fold (i => i.Value, i => -1);
+			Assert.AreEqual (42, n);
 			#endregion
 
 			#region TryParse2
