@@ -54,7 +54,7 @@ $(mrdir)/Mono.Rocks.Tests.dll: Mono.Rocks.Tests.dll.sources $(shell cat Mono.Roc
 	$(MCS) -debug+ -r:$(mrdir)/Mono.Rocks.dll -r:System.Core -pkg:mono-nunit -t:library -out:$@ $(MCS_FLAGS) $(TST_FLAGS) @Mono.Rocks.Tests.dll.sources
 
 check: $(mrdir)/Mono.Rocks.Tests.dll
-	nunit-console2 /exclude:NotWorking $(mrdir)/Mono.Rocks.Tests.dll
+	nunit-console2 -exclude:NotWorking $(mrdir)/Mono.Rocks.Tests.dll
 
 check-all: $(mrdir)/Mono.Rocks.Tests.dll
 	nunit-console2 $(mrdir)/Mono.Rocks.Tests.dll
