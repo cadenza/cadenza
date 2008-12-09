@@ -1,3 +1,7 @@
+2008-12-08  Jonathan Pryor  <jpryor@novell.com>
+
+	* Delegates.cs: Flush (adds .Timings() methods).
+
 2008-12-04  Jonathan Pryor  <jpryor@novell.com>
 
 	* Maybe.cs: Equals() should compare Value==obj.Value, otherwise the
