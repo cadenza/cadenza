@@ -120,19 +120,58 @@ namespace Mono.Rocks {
 			return (sb == null) ? String.Empty : sb.ToString ();
 		}
 
-		public static IEnumerable<TSource> Apply<TSource> (this IEnumerable<TSource> self, Action<TSource> action)
+		public static void ForEach<TSource> (this IEnumerable<TSource> self, Action<TSource> action)
 		{
 			Check.Self (self);
 			if (action == null)
 				throw new ArgumentNullException ("action");
 
-			return CreateApplyIterator (self, action);
+			foreach (var item in self)
+				action (item);
 		}
 
-		private static IEnumerable<TSource> CreateApplyIterator<TSource> (IEnumerable<TSource> self, Action<TSource> action)
+		public static void ForEach<TSource> (this IEnumerable<TSource> self, Action<TSource, int> action)
+		{
+			Check.Self (self);
+			if (action == null)
+				throw new ArgumentNullException ("action");
+
+			int index = 0;
+			foreach (var item in self)
+				action (item, checked (index++));
+		}
+
+		public static IEnumerable<TSource> Each<TSource> (this IEnumerable<TSource> self, Action<TSource> action)
+		{
+			Check.Self (self);
+			if (action == null)
+				throw new ArgumentNullException ("action");
+
+			return CreateEachIterator (self, action);
+		}
+
+		private static IEnumerable<TSource> CreateEachIterator<TSource> (IEnumerable<TSource> self, Action<TSource> action)
 		{
 			foreach (var item in self) {
 				action (item);
+				yield return item;
+			}
+		}
+
+		public static IEnumerable<TSource> Each<TSource> (this IEnumerable<TSource> self, Action<TSource, int> action)
+		{
+			Check.Self (self);
+			if (action == null)
+				throw new ArgumentNullException ("action");
+
+			return CreateEachIterator (self, action);
+		}
+
+		private static IEnumerable<TSource> CreateEachIterator<TSource> (IEnumerable<TSource> self, Action<TSource, int> action)
+		{
+			int index = 0;
+			foreach (var item in self) {
+				action (item, checked(index++));
 				yield return item;
 			}
 		}

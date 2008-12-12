@@ -1,5 +1,10 @@
 2008-12-09  Jonathan Pryor  <jpryor@novell.com>
 
+	* IEnumerableTest.cs: Add tests for .Each(), .ForEach().
+	* Int32Test.cs, StringTest.cs: Cope with .Apply()->.Each() rename.
+
+2008-12-09  Jonathan Pryor  <jpryor@novell.com>
+
 	* EitherTest.cs: Ensure that nullable types can be parsed.
 
 2008-12-09  Jonathan Pryor  <jpryor@novell.com>

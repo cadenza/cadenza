@@ -160,6 +160,53 @@ namespace Mono.Rocks.Tests {
 			Assert.AreEqual (Path.Combine (String.Empty, String.Empty), data.PathCombine (), "single empty string");
 		}
 
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void ForEach_SelfNull ()
+		{
+			IEnumerable<char> e = null;
+			e.ForEach (c => Console.WriteLine (c));
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void ForEach_ActionNull ()
+		{
+			IEnumerable<char> e = new []{'a'};
+			Action<char>      a = null;
+			e.ForEach (a);
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void ForEach2_SelfNull ()
+		{
+			IEnumerable<char> e = null;
+			Action<char, int> a = (c, i) => Console.WriteLine (c);
+			e.ForEach (a);
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void ForEach2_ActionNull ()
+		{
+			IEnumerable<char> e = new[]{'a'};
+			Action<char, int> a = null;
+			e.ForEach (a);
+		}
+
+		[Test]
+		public void ForEach ()
+		{
+			int count = 0;
+			Enumerable.Range (0, 10).ForEach (n => ++count);
+			Assert.AreEqual (10, count);
+
+			count = 0;
+			int index = 0;
+			Enumerable.Range (0, 10).ForEach ((n, i) => {++count; index += i;});
+			Assert.AreEqual (10, count);
+			Assert.AreEqual (0+1+2+3+4+5+6+7+8+9, index);
+		}
+
 		[Test]
 		[ExpectedException (typeof (ArgumentNullException))]
 		public void Apply_SelfNull ()
@@ -178,18 +225,51 @@ namespace Mono.Rocks.Tests {
 
 		[Test]
 		[ExpectedException (typeof (ArgumentNullException))]
-		public void ApplyAction_SelfNull ()
+		public void Each_SelfNull ()
 		{
 			IEnumerable<char> e = null;
-			e.Apply (c => Console.WriteLine (c));
+			e.Each (c => Console.WriteLine (c));
 		}
 
 		[Test]
-		public void ApplyAction ()
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void Each_ActionNull ()
+		{
+			IEnumerable<char> e = new []{'a'};
+			Action<char>      a = null;
+			e.Each (a);
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void Each2_SelfNull ()
+		{
+			IEnumerable<char> e = null;
+			Action<char, int> a = (c, i) => Console.WriteLine (c);
+			e.Each (a);
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void Each2_ActionNull ()
+		{
+			IEnumerable<char> e = new[]{'a'};
+			Action<char, int> a = null;
+			e.Each (a);
+		}
+
+		[Test]
+		public void Each ()
 		{
 			int count = 0;
-			Enumerable.Range (0, 10).Apply (n => ++count).Apply ();
+			Enumerable.Range (0, 10).Each (n => ++count).Apply ();
 			Assert.AreEqual (10, count);
+
+			count = 0;
+			int index = 0;
+			Enumerable.Range (0, 10).Each ((n, i) => {++count; index += i;}).Apply ();
+			Assert.AreEqual (10, count);
+			Assert.AreEqual (0+1+2+3+4+5+6+7+8+9, index);
 		}
 
 		[Test]

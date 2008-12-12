@@ -61,7 +61,7 @@ namespace Mono.Rocks.Tests {
 			@"
 			one
 			two
-			three".Lines ().Apply (line => data [i++] = line.Trim ()).Apply ();
+			three".Lines ().ForEach (line => data [i++] = line.Trim ());
 
 #if false
 			foreach (string s in data)

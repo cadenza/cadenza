@@ -1,3 +1,11 @@
+2008-12-12  Jonathan Pryor  <jpryor@novell.com>
+
+	* IEnumerable.cs: Rename .Apply<T>(Action<T>) to .Each<T>(Action<T>).
+	  Add .Each<T>(Action<T,int>), .ForEach<T>(Action<T>), and
+	  .ForEach<T>(Action<T, int>).  The .ForEach() overloads are a
+	  shortened version of .Each(...).Apply(), and provides compatibility
+	  with List<T>.ForEach().
+
 2008-12-08  Jonathan Pryor  <jpryor@novell.com>
 
 	* Delegates.cs: Flush (adds .Timings() methods).
