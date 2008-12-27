@@ -1,3 +1,7 @@
+2008-12-26  Jonathan Pryor  <jpryor@novell.com>
+
+	* DelegateTest.cs: Update tests for .Timings().
+
 2008-12-09  Jonathan Pryor  <jpryor@novell.com>
 
 	* IEnumerableTest.cs: Add tests for .Each(), .ForEach().

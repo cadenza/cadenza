@@ -1,3 +1,14 @@
+2008-12-26  Jonathan Pryor  <jpryor@novell.com>
+
+	* mkdelegates: Alter .Timings():
+	  - Remove "all defaults" .Timings() overload, as it has no utility --
+	    it would "automagically" determine the "appropriate" runs &
+	    loopsPerRun values, but wouldn't communicate these to the caller,
+	    and loopsPerRun is crucial to understanding the timings.
+	  - Ensure that Stopwatch is pre-JITed as well as `self'.
+	  - Generate documentation.
+	* Generator.pm: Add GetValueList() static method.
+
 2008-12-09  Jonathan Pryor  <jpryor@novell.com>
 
 	* Makefile (check): Recent versions of nunit-console2 require -exclude

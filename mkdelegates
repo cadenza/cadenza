@@ -79,6 +79,9 @@ qq(<para>
  <item><term>
   Delegate composition (<see cref="M:Mono.Rocks.DelegateRocks.Compose" />)
  </term></item>
+ <item><term>
+  Timing generation (<see cref="M:Mono.Rocks.DelegateRocks.Timings" />)
+ </term></item>
 </list>
 <para>
  Currying via partial application is a way to easily transform 
@@ -163,6 +166,7 @@ Console.WriteLine (double_then_tostring (5));
 		}
 
 		$g->Write ("\n");
+		create_timings_doc ($g, Generator::GetDocAction (0), 0);
 		$g->Method (
 			"public static IEnumerable<TimeSpan> ",
 			sub { timings ($g, 0); },
@@ -170,6 +174,7 @@ Console.WriteLine (double_then_tostring (5));
 			sub { timings_body ($g, 0); }
 		);
 		$g->Write ("\n");
+		create_timings_doc ($g, Generator::GetDocAction (0), 0, 1);
 		$g->Method (
 			"public static IEnumerable<TimeSpan> ",
 			sub { timings ($g, 0); },
@@ -231,6 +236,7 @@ Console.WriteLine (double_then_tostring (5));
 				sub { tcurry_body ($g, $ntypes); },
 			);
 			$g->Write ("\n");
+			create_timings_doc ($g, Generator::GetDocAction ($ntypes), $ntypes);
 			$g->Method (
 				"public static IEnumerable<TimeSpan> ",
 				sub { timings ($g, $ntypes); },
@@ -238,6 +244,7 @@ Console.WriteLine (double_then_tostring (5));
 				sub { timings_body ($g, $ntypes); },
 			);
 			$g->Write ("\n");
+			create_timings_doc ($g, Generator::GetDocAction ($ntypes), $ntypes, 1);
 			$g->Method (
 				"public static IEnumerable<TimeSpan> ",
 				sub { timings ($g, $ntypes); },
@@ -700,6 +707,85 @@ sub tcurry_body {
 	$g->Write (" => self (")->ValueList ($ntypes)->Write (");\n");
 }
 
+sub action_cref {
+	my ($n) = @_;
+
+	my $cref = Generator::GetDocActionType ($n);
+	if ($n > 0) {
+		$cref .= "{``0";
+		for (my $i = 1; $i < $n; ++$i) {
+			$cref .= ",``$i";
+		}
+		$cref .= "}";
+	}
+	return $cref;
+}
+
+sub create_timings_doc {
+	my ($g, $tself, $nargs, $full) = @_;
+
+	for (my $i = 1; $i <= $nargs; ++$i) {
+		$g->XmlTypeparam (Generator::GetTypeParameter ($nargs, $i), 
+			"A <see cref=\"T:$tself\" /> parameter type.");
+	}
+	$g->XmlParam ("self", qq(The <see cref="T:$tself" /> to generate timings for.));
+	for (my $i = 1; $i <= $nargs; ++$i) {
+		$g->XmlParam (Generator::GetValue ($nargs, $i), 
+			"The " . Generator::Nth ($i) . " <paramref name=\"self\"/> parameter value.");
+	}
+	$g->XmlParam ("runs",
+qq(The number of <see cref="T:System.TimeSpan" /> values to return.));
+	$g->XmlParam ("loopsPerRun",
+qq(The number of times to execute <paramref name="self" /> for each 
+<see cref="T:System.TimeSpan" /> value returned.)) if $full;
+	$g->XmlSummary ("Get timing information for delegate invocations.");
+	$g->XmlReturns (
+qq(An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+which will return the timing information for <paramref name="self" />.));
+	if (defined $full) {
+		$g->XmlRemarks (
+qq(<para>
+ Generates <paramref name="runs" /> <see cref="T:System.TimeSpan" />
+ instances, in which each <c>TimeSpan</c> instance is the amount of time
+ required to execute <paramref name="self" /> for
+ <paramref name="loopsPerRun" /> times.
+</para>));
+	} else {
+		my $alt = "Mono.Rocks.DelegateRocks.Timings"
+			. ($nargs == 0 ? "" : "``$nargs")
+			. "(" . action_cref ($nargs);
+		for (my $i = 0; $i < $nargs; ++$i) {
+			$alt .= ",``$i";
+		}
+		$alt .= ",System.Int32,System.Int32)";
+
+		$g->XmlRemarks (
+"<para>\n" . 
+" This is equivalent to calling\n" .
+" <see cref=\"M:$alt\"/>\n" .
+" with a <paramref name=\"loopsPerRun\" /> value of <c>1</c>,\n" .
+" e.g. as if by calling <c>self.Timing (" .
+Generator::GetValueList ($nargs) . 
+($nargs == 0 ? "" : ", ") . 
+"runs, 1)</c>.\n" . 
+"</para>");
+		$g->Write ("/// <seealso cref=\"M:$alt\" />\n");
+	}
+	$g->XmlException ("System.ArgumentException", 
+qq(<para>
+ <paramref name="runs" /> is negative.
+</para>) . 
+(defined ($full)
+	? qq(
+<para>-or-</para>
+ <paramref name="loopsPerRun" /> is negative.
+<para>
+</para>)
+	: ""));
+	$g->XmlException ("System.ArgumentNullException", 
+		qq(<paramref name="self" /> is <see langword="null" />.));
+}
+
 sub timings {
 	my ($g, $ntypes) = @_;
 
@@ -720,29 +806,24 @@ sub timings_args {
 		$g->Write ("<")->TypeParameterList ($ntypes)->Write ("> self, ")
 			->MethodParameterList ($ntypes);
 	}
+	$g->Write (", int runs");
 }
 
 sub timings_args_full {
 	my ($g, $ntypes) = @_;
 
 	timings_args ($g, $ntypes);
-	$g->Write (", int runs, int loopsPerRun");
+	$g->Write (", int loopsPerRun");
 }
 
 sub timings_body {
 	my ($g, $ntypes) = @_;
 
-	$g->Write ("Check.Self (self);\n\n");
-	$g->Write ("Stopwatch watch = Stopwatch.StartNew ();\n");
-	$g->Write ("self (")->ValueList ($ntypes)->Write (");\n");
-	$g->Write ("watch.Stop ();\n");
-	$g->Write ("long ms = watch.ElapsedMilliseconds;\n");
-	$g->Write ("watch.Reset ();\n");
-	$g->Write ("return CreateTimingsIterator (self");
+	$g->Write ("return Timings (self");
 	if ($ntypes > 0) {
 		$g->Write (", ")->ValueList ($ntypes);
 	}
-	$g->Write (", 5, (int) (ms > 1000 ? 2 : 1000 / (ms+1)), watch);\n");
+	$g->Write (", runs, 1);\n");
 }
 
 sub timings_body_full {
@@ -753,12 +834,12 @@ sub timings_body_full {
 	$g->Write ("\tthrow new ArgumentException (\"negative values aren't supported\", \"runs\");\n");
 	$g->Write ("if (loopsPerRun < 0)\n");
 	$g->Write ("\tthrow new ArgumentException (\"negative values aren't supported\", \"loopsPerRun\");\n");
-	$g->Write ("self (")->ValueList ($ntypes)->Write (");\n");
+	$g->Write ("\n");
 	$g->Write ("return CreateTimingsIterator (self");
 	if ($ntypes > 0) {
 		$g->Write (", ")->ValueList ($ntypes);
 	}
-	$g->Write (", runs, loopsPerRun, new Stopwatch ());\n");
+	$g->Write (", runs, loopsPerRun);\n");
 }
 
 sub timings_iter {
@@ -774,12 +855,17 @@ sub timings_iter_args {
 	my ($g, $ntypes) = @_;
 
 	timings_args_full ($g, $ntypes);
-	$g->Write (", Stopwatch watch");
 }
 
 sub timings_iter_body {
 	my ($g, $ntypes) = @_;
 
+	$g->Write ("// Ensure that required methods are already JITed\n");
+	$g->Write ("Stopwatch watch = Stopwatch.StartNew ();\n");
+	$g->Write ("self (")->ValueList ($ntypes)->Write (");\n");
+	$g->Write ("watch.Stop ();\n");
+	$g->Write ("watch.Reset ();\n");
+	$g->Write ("\n");
 	$g->Write ("for (int i = 0; i < runs; ++i) {\n");
 	$g->Write ("\twatch.Start ();\n");
 	$g->Write ("\tfor (int j = 0; j < loopsPerRun; ++j)\n");

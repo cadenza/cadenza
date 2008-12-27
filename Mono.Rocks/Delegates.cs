@@ -48,6 +48,9 @@ namespace Mono.Rocks {
 	///    <item><term>
 	///     Delegate composition (<see cref="M:Mono.Rocks.DelegateRocks.Compose" />)
 	///    </term></item>
+	///    <item><term>
+	///     Timing generation (<see cref="M:Mono.Rocks.DelegateRocks.Timings" />)
+	///    </term></item>
 	///   </list>
 	///   <para>
 	///    Currying via partial application is a way to easily transform 
@@ -1392,18 +1395,78 @@ namespace Mono.Rocks {
 			return (value2, value3, value4) => self (values._1, value2, value3, value4);
 		}
 
-		public static IEnumerable<TimeSpan> Timings (this Action self)
+		/// <param name="self">
+		///   The <see cref="T:System.Action" /> to generate timings for.
+		/// </param>
+		/// <param name="runs">
+		///   The number of <see cref="T:System.TimeSpan" /> values to return.
+		/// </param>
+		/// <summary>
+		///   Get timing information for delegate invocations.
+		/// </summary>
+		/// <returns>
+		///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+		///   which will return the timing information for <paramref name="self" />.
+		/// </returns>
+		/// <remarks>
+		///   <para>
+		///    This is equivalent to calling
+		///    <see cref="M:Mono.Rocks.DelegateRocks.Timings(System.Action,System.Int32,System.Int32)"/>
+		///    with a <paramref name="loopsPerRun" /> value of <c>1</c>,
+		///    e.g. as if by calling <c>self.Timing (runs, 1)</c>.
+		///   </para>
+		/// </remarks>
+		/// <seealso cref="M:Mono.Rocks.DelegateRocks.Timings(System.Action,System.Int32,System.Int32)" />
+		/// <exception cref="T:System.ArgumentException">
+		///   <para>
+		///    <paramref name="runs" /> is negative.
+		///   </para>
+		/// </exception>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
+		public static IEnumerable<TimeSpan> Timings (this Action self, int runs)
 		{
-			Check.Self (self);
-
-			Stopwatch watch = Stopwatch.StartNew ();
-			self ();
-			watch.Stop ();
-			long ms = watch.ElapsedMilliseconds;
-			watch.Reset ();
-			return CreateTimingsIterator (self, 5, (int) (ms > 1000 ? 2 : 1000 / (ms+1)), watch);
+			return Timings (self, runs, 1);
 		}
 
+		/// <param name="self">
+		///   The <see cref="T:System.Action" /> to generate timings for.
+		/// </param>
+		/// <param name="runs">
+		///   The number of <see cref="T:System.TimeSpan" /> values to return.
+		/// </param>
+		/// <param name="loopsPerRun">
+		///   The number of times to execute <paramref name="self" /> for each 
+		///   <see cref="T:System.TimeSpan" /> value returned.
+		/// </param>
+		/// <summary>
+		///   Get timing information for delegate invocations.
+		/// </summary>
+		/// <returns>
+		///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+		///   which will return the timing information for <paramref name="self" />.
+		/// </returns>
+		/// <remarks>
+		///   <para>
+		///    Generates <paramref name="runs" /> <see cref="T:System.TimeSpan" />
+		///    instances, in which each <c>TimeSpan</c> instance is the amount of time
+		///    required to execute <paramref name="self" /> for
+		///    <paramref name="loopsPerRun" /> times.
+		///   </para>
+		/// </remarks>
+		/// <exception cref="T:System.ArgumentException">
+		///   <para>
+		///    <paramref name="runs" /> is negative.
+		///   </para>
+		///   <para>-or-</para>
+		///    <paramref name="loopsPerRun" /> is negative.
+		///   <para>
+		///   </para>
+		/// </exception>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static IEnumerable<TimeSpan> Timings (this Action self, int runs, int loopsPerRun)
 		{
 			Check.Self (self);
@@ -1412,12 +1475,18 @@ namespace Mono.Rocks {
 				throw new ArgumentException ("negative values aren't supported", "runs");
 			if (loopsPerRun < 0)
 				throw new ArgumentException ("negative values aren't supported", "loopsPerRun");
-			self ();
-			return CreateTimingsIterator (self, runs, loopsPerRun, new Stopwatch ());
+
+			return CreateTimingsIterator (self, runs, loopsPerRun);
 		}
 
-		private static IEnumerable<TimeSpan> CreateTimingsIterator (this Action self, int runs, int loopsPerRun, Stopwatch watch)
+		private static IEnumerable<TimeSpan> CreateTimingsIterator (this Action self, int runs, int loopsPerRun)
 		{
+			// Ensure that required methods are already JITed
+			Stopwatch watch = Stopwatch.StartNew ();
+			self ();
+			watch.Stop ();
+			watch.Reset ();
+
 			for (int i = 0; i < runs; ++i) {
 				watch.Start ();
 				for (int j = 0; j < loopsPerRun; ++j)
@@ -1603,18 +1672,90 @@ namespace Mono.Rocks {
 			return self;
 		}
 
-		public static IEnumerable<TimeSpan> Timings<T> (this Action<T> self, T value)
+		/// <typeparam name="T">
+		///   A <see cref="T:System.Action{T}" /> parameter type.
+		/// </typeparam>
+		/// <param name="self">
+		///   The <see cref="T:System.Action{T}" /> to generate timings for.
+		/// </param>
+		/// <param name="value">
+		///   The first <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="runs">
+		///   The number of <see cref="T:System.TimeSpan" /> values to return.
+		/// </param>
+		/// <summary>
+		///   Get timing information for delegate invocations.
+		/// </summary>
+		/// <returns>
+		///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+		///   which will return the timing information for <paramref name="self" />.
+		/// </returns>
+		/// <remarks>
+		///   <para>
+		///    This is equivalent to calling
+		///    <see cref="M:Mono.Rocks.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)"/>
+		///    with a <paramref name="loopsPerRun" /> value of <c>1</c>,
+		///    e.g. as if by calling <c>self.Timing (value, runs, 1)</c>.
+		///   </para>
+		/// </remarks>
+		/// <seealso cref="M:Mono.Rocks.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
+		/// <exception cref="T:System.ArgumentException">
+		///   <para>
+		///    <paramref name="runs" /> is negative.
+		///   </para>
+		/// </exception>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
+		public static IEnumerable<TimeSpan> Timings<T> (this Action<T> self, T value, int runs)
 		{
-			Check.Self (self);
-
-			Stopwatch watch = Stopwatch.StartNew ();
-			self (value);
-			watch.Stop ();
-			long ms = watch.ElapsedMilliseconds;
-			watch.Reset ();
-			return CreateTimingsIterator (self, value, 5, (int) (ms > 1000 ? 2 : 1000 / (ms+1)), watch);
+			return Timings (self, value, runs, 1);
 		}
 
+		/// <typeparam name="T">
+		///   A <see cref="T:System.Action{T}" /> parameter type.
+		/// </typeparam>
+		/// <param name="self">
+		///   The <see cref="T:System.Action{T}" /> to generate timings for.
+		/// </param>
+		/// <param name="value">
+		///   The first <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="runs">
+		///   The number of <see cref="T:System.TimeSpan" /> values to return.
+		/// </param>
+		/// <param name="loopsPerRun">
+		///   The number of times to execute <paramref name="self" /> for each 
+		///   <see cref="T:System.TimeSpan" /> value returned.
+		/// </param>
+		/// <summary>
+		///   Get timing information for delegate invocations.
+		/// </summary>
+		/// <returns>
+		///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+		///   which will return the timing information for <paramref name="self" />.
+		/// </returns>
+		/// <remarks>
+		///   <para>
+		///    Generates <paramref name="runs" /> <see cref="T:System.TimeSpan" />
+		///    instances, in which each <c>TimeSpan</c> instance is the amount of time
+		///    required to execute <paramref name="self" /> for
+		///    <paramref name="loopsPerRun" /> times.
+		///   </para>
+		/// </remarks>
+		/// <exception cref="T:System.ArgumentException">
+		///   <para>
+		///    <paramref name="runs" /> is negative.
+		///   </para>
+		///   <para>-or-</para>
+		///    <paramref name="loopsPerRun" /> is negative.
+		///   <para>
+		///   </para>
+		/// </exception>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static IEnumerable<TimeSpan> Timings<T> (this Action<T> self, T value, int runs, int loopsPerRun)
 		{
 			Check.Self (self);
@@ -1623,12 +1764,18 @@ namespace Mono.Rocks {
 				throw new ArgumentException ("negative values aren't supported", "runs");
 			if (loopsPerRun < 0)
 				throw new ArgumentException ("negative values aren't supported", "loopsPerRun");
-			self (value);
-			return CreateTimingsIterator (self, value, runs, loopsPerRun, new Stopwatch ());
+
+			return CreateTimingsIterator (self, value, runs, loopsPerRun);
 		}
 
-		private static IEnumerable<TimeSpan> CreateTimingsIterator<T> (this Action<T> self, T value, int runs, int loopsPerRun, Stopwatch watch)
+		private static IEnumerable<TimeSpan> CreateTimingsIterator<T> (this Action<T> self, T value, int runs, int loopsPerRun)
 		{
+			// Ensure that required methods are already JITed
+			Stopwatch watch = Stopwatch.StartNew ();
+			self (value);
+			watch.Stop ();
+			watch.Reset ();
+
 			for (int i = 0; i < runs; ++i) {
 				watch.Start ();
 				for (int j = 0; j < loopsPerRun; ++j)
@@ -1822,18 +1969,102 @@ namespace Mono.Rocks {
 			return value1 => value2 => self (value1, value2);
 		}
 
-		public static IEnumerable<TimeSpan> Timings<T1, T2> (this Action<T1, T2> self, T1 value1, T2 value2)
+		/// <typeparam name="T1">
+		///   A <see cref="T:System.Action{T1,T2}" /> parameter type.
+		/// </typeparam>
+		/// <typeparam name="T2">
+		///   A <see cref="T:System.Action{T1,T2}" /> parameter type.
+		/// </typeparam>
+		/// <param name="self">
+		///   The <see cref="T:System.Action{T1,T2}" /> to generate timings for.
+		/// </param>
+		/// <param name="value1">
+		///   The first <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="value2">
+		///   The second <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="runs">
+		///   The number of <see cref="T:System.TimeSpan" /> values to return.
+		/// </param>
+		/// <summary>
+		///   Get timing information for delegate invocations.
+		/// </summary>
+		/// <returns>
+		///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+		///   which will return the timing information for <paramref name="self" />.
+		/// </returns>
+		/// <remarks>
+		///   <para>
+		///    This is equivalent to calling
+		///    <see cref="M:Mono.Rocks.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)"/>
+		///    with a <paramref name="loopsPerRun" /> value of <c>1</c>,
+		///    e.g. as if by calling <c>self.Timing (value1, value2, runs, 1)</c>.
+		///   </para>
+		/// </remarks>
+		/// <seealso cref="M:Mono.Rocks.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
+		/// <exception cref="T:System.ArgumentException">
+		///   <para>
+		///    <paramref name="runs" /> is negative.
+		///   </para>
+		/// </exception>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
+		public static IEnumerable<TimeSpan> Timings<T1, T2> (this Action<T1, T2> self, T1 value1, T2 value2, int runs)
 		{
-			Check.Self (self);
-
-			Stopwatch watch = Stopwatch.StartNew ();
-			self (value1, value2);
-			watch.Stop ();
-			long ms = watch.ElapsedMilliseconds;
-			watch.Reset ();
-			return CreateTimingsIterator (self, value1, value2, 5, (int) (ms > 1000 ? 2 : 1000 / (ms+1)), watch);
+			return Timings (self, value1, value2, runs, 1);
 		}
 
+		/// <typeparam name="T1">
+		///   A <see cref="T:System.Action{T1,T2}" /> parameter type.
+		/// </typeparam>
+		/// <typeparam name="T2">
+		///   A <see cref="T:System.Action{T1,T2}" /> parameter type.
+		/// </typeparam>
+		/// <param name="self">
+		///   The <see cref="T:System.Action{T1,T2}" /> to generate timings for.
+		/// </param>
+		/// <param name="value1">
+		///   The first <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="value2">
+		///   The second <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="runs">
+		///   The number of <see cref="T:System.TimeSpan" /> values to return.
+		/// </param>
+		/// <param name="loopsPerRun">
+		///   The number of times to execute <paramref name="self" /> for each 
+		///   <see cref="T:System.TimeSpan" /> value returned.
+		/// </param>
+		/// <summary>
+		///   Get timing information for delegate invocations.
+		/// </summary>
+		/// <returns>
+		///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+		///   which will return the timing information for <paramref name="self" />.
+		/// </returns>
+		/// <remarks>
+		///   <para>
+		///    Generates <paramref name="runs" /> <see cref="T:System.TimeSpan" />
+		///    instances, in which each <c>TimeSpan</c> instance is the amount of time
+		///    required to execute <paramref name="self" /> for
+		///    <paramref name="loopsPerRun" /> times.
+		///   </para>
+		/// </remarks>
+		/// <exception cref="T:System.ArgumentException">
+		///   <para>
+		///    <paramref name="runs" /> is negative.
+		///   </para>
+		///   <para>-or-</para>
+		///    <paramref name="loopsPerRun" /> is negative.
+		///   <para>
+		///   </para>
+		/// </exception>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static IEnumerable<TimeSpan> Timings<T1, T2> (this Action<T1, T2> self, T1 value1, T2 value2, int runs, int loopsPerRun)
 		{
 			Check.Self (self);
@@ -1842,12 +2073,18 @@ namespace Mono.Rocks {
 				throw new ArgumentException ("negative values aren't supported", "runs");
 			if (loopsPerRun < 0)
 				throw new ArgumentException ("negative values aren't supported", "loopsPerRun");
-			self (value1, value2);
-			return CreateTimingsIterator (self, value1, value2, runs, loopsPerRun, new Stopwatch ());
+
+			return CreateTimingsIterator (self, value1, value2, runs, loopsPerRun);
 		}
 
-		private static IEnumerable<TimeSpan> CreateTimingsIterator<T1, T2> (this Action<T1, T2> self, T1 value1, T2 value2, int runs, int loopsPerRun, Stopwatch watch)
+		private static IEnumerable<TimeSpan> CreateTimingsIterator<T1, T2> (this Action<T1, T2> self, T1 value1, T2 value2, int runs, int loopsPerRun)
 		{
+			// Ensure that required methods are already JITed
+			Stopwatch watch = Stopwatch.StartNew ();
+			self (value1, value2);
+			watch.Stop ();
+			watch.Reset ();
+
 			for (int i = 0; i < runs; ++i) {
 				watch.Start ();
 				for (int j = 0; j < loopsPerRun; ++j)
@@ -2055,18 +2292,114 @@ namespace Mono.Rocks {
 			return value1 => value2 => value3 => self (value1, value2, value3);
 		}
 
-		public static IEnumerable<TimeSpan> Timings<T1, T2, T3> (this Action<T1, T2, T3> self, T1 value1, T2 value2, T3 value3)
+		/// <typeparam name="T1">
+		///   A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+		/// </typeparam>
+		/// <typeparam name="T2">
+		///   A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+		/// </typeparam>
+		/// <typeparam name="T3">
+		///   A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+		/// </typeparam>
+		/// <param name="self">
+		///   The <see cref="T:System.Action{T1,T2,T3}" /> to generate timings for.
+		/// </param>
+		/// <param name="value1">
+		///   The first <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="value2">
+		///   The second <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="value3">
+		///   The third <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="runs">
+		///   The number of <see cref="T:System.TimeSpan" /> values to return.
+		/// </param>
+		/// <summary>
+		///   Get timing information for delegate invocations.
+		/// </summary>
+		/// <returns>
+		///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+		///   which will return the timing information for <paramref name="self" />.
+		/// </returns>
+		/// <remarks>
+		///   <para>
+		///    This is equivalent to calling
+		///    <see cref="M:Mono.Rocks.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)"/>
+		///    with a <paramref name="loopsPerRun" /> value of <c>1</c>,
+		///    e.g. as if by calling <c>self.Timing (value1, value2, value3, runs, 1)</c>.
+		///   </para>
+		/// </remarks>
+		/// <seealso cref="M:Mono.Rocks.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
+		/// <exception cref="T:System.ArgumentException">
+		///   <para>
+		///    <paramref name="runs" /> is negative.
+		///   </para>
+		/// </exception>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
+		public static IEnumerable<TimeSpan> Timings<T1, T2, T3> (this Action<T1, T2, T3> self, T1 value1, T2 value2, T3 value3, int runs)
 		{
-			Check.Self (self);
-
-			Stopwatch watch = Stopwatch.StartNew ();
-			self (value1, value2, value3);
-			watch.Stop ();
-			long ms = watch.ElapsedMilliseconds;
-			watch.Reset ();
-			return CreateTimingsIterator (self, value1, value2, value3, 5, (int) (ms > 1000 ? 2 : 1000 / (ms+1)), watch);
+			return Timings (self, value1, value2, value3, runs, 1);
 		}
 
+		/// <typeparam name="T1">
+		///   A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+		/// </typeparam>
+		/// <typeparam name="T2">
+		///   A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+		/// </typeparam>
+		/// <typeparam name="T3">
+		///   A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+		/// </typeparam>
+		/// <param name="self">
+		///   The <see cref="T:System.Action{T1,T2,T3}" /> to generate timings for.
+		/// </param>
+		/// <param name="value1">
+		///   The first <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="value2">
+		///   The second <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="value3">
+		///   The third <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="runs">
+		///   The number of <see cref="T:System.TimeSpan" /> values to return.
+		/// </param>
+		/// <param name="loopsPerRun">
+		///   The number of times to execute <paramref name="self" /> for each 
+		///   <see cref="T:System.TimeSpan" /> value returned.
+		/// </param>
+		/// <summary>
+		///   Get timing information for delegate invocations.
+		/// </summary>
+		/// <returns>
+		///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+		///   which will return the timing information for <paramref name="self" />.
+		/// </returns>
+		/// <remarks>
+		///   <para>
+		///    Generates <paramref name="runs" /> <see cref="T:System.TimeSpan" />
+		///    instances, in which each <c>TimeSpan</c> instance is the amount of time
+		///    required to execute <paramref name="self" /> for
+		///    <paramref name="loopsPerRun" /> times.
+		///   </para>
+		/// </remarks>
+		/// <exception cref="T:System.ArgumentException">
+		///   <para>
+		///    <paramref name="runs" /> is negative.
+		///   </para>
+		///   <para>-or-</para>
+		///    <paramref name="loopsPerRun" /> is negative.
+		///   <para>
+		///   </para>
+		/// </exception>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static IEnumerable<TimeSpan> Timings<T1, T2, T3> (this Action<T1, T2, T3> self, T1 value1, T2 value2, T3 value3, int runs, int loopsPerRun)
 		{
 			Check.Self (self);
@@ -2075,12 +2408,18 @@ namespace Mono.Rocks {
 				throw new ArgumentException ("negative values aren't supported", "runs");
 			if (loopsPerRun < 0)
 				throw new ArgumentException ("negative values aren't supported", "loopsPerRun");
-			self (value1, value2, value3);
-			return CreateTimingsIterator (self, value1, value2, value3, runs, loopsPerRun, new Stopwatch ());
+
+			return CreateTimingsIterator (self, value1, value2, value3, runs, loopsPerRun);
 		}
 
-		private static IEnumerable<TimeSpan> CreateTimingsIterator<T1, T2, T3> (this Action<T1, T2, T3> self, T1 value1, T2 value2, T3 value3, int runs, int loopsPerRun, Stopwatch watch)
+		private static IEnumerable<TimeSpan> CreateTimingsIterator<T1, T2, T3> (this Action<T1, T2, T3> self, T1 value1, T2 value2, T3 value3, int runs, int loopsPerRun)
 		{
+			// Ensure that required methods are already JITed
+			Stopwatch watch = Stopwatch.StartNew ();
+			self (value1, value2, value3);
+			watch.Stop ();
+			watch.Reset ();
+
 			for (int i = 0; i < runs; ++i) {
 				watch.Start ();
 				for (int j = 0; j < loopsPerRun; ++j)
@@ -2302,18 +2641,126 @@ namespace Mono.Rocks {
 			return value1 => value2 => value3 => value4 => self (value1, value2, value3, value4);
 		}
 
-		public static IEnumerable<TimeSpan> Timings<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, T1 value1, T2 value2, T3 value3, T4 value4)
+		/// <typeparam name="T1">
+		///   A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+		/// </typeparam>
+		/// <typeparam name="T2">
+		///   A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+		/// </typeparam>
+		/// <typeparam name="T3">
+		///   A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+		/// </typeparam>
+		/// <typeparam name="T4">
+		///   A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+		/// </typeparam>
+		/// <param name="self">
+		///   The <see cref="T:System.Action{T1,T2,T3,T4}" /> to generate timings for.
+		/// </param>
+		/// <param name="value1">
+		///   The first <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="value2">
+		///   The second <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="value3">
+		///   The third <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="value4">
+		///   The fourth <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="runs">
+		///   The number of <see cref="T:System.TimeSpan" /> values to return.
+		/// </param>
+		/// <summary>
+		///   Get timing information for delegate invocations.
+		/// </summary>
+		/// <returns>
+		///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+		///   which will return the timing information for <paramref name="self" />.
+		/// </returns>
+		/// <remarks>
+		///   <para>
+		///    This is equivalent to calling
+		///    <see cref="M:Mono.Rocks.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)"/>
+		///    with a <paramref name="loopsPerRun" /> value of <c>1</c>,
+		///    e.g. as if by calling <c>self.Timing (value1, value2, value3, value4, runs, 1)</c>.
+		///   </para>
+		/// </remarks>
+		/// <seealso cref="M:Mono.Rocks.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
+		/// <exception cref="T:System.ArgumentException">
+		///   <para>
+		///    <paramref name="runs" /> is negative.
+		///   </para>
+		/// </exception>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
+		public static IEnumerable<TimeSpan> Timings<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, T1 value1, T2 value2, T3 value3, T4 value4, int runs)
 		{
-			Check.Self (self);
-
-			Stopwatch watch = Stopwatch.StartNew ();
-			self (value1, value2, value3, value4);
-			watch.Stop ();
-			long ms = watch.ElapsedMilliseconds;
-			watch.Reset ();
-			return CreateTimingsIterator (self, value1, value2, value3, value4, 5, (int) (ms > 1000 ? 2 : 1000 / (ms+1)), watch);
+			return Timings (self, value1, value2, value3, value4, runs, 1);
 		}
 
+		/// <typeparam name="T1">
+		///   A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+		/// </typeparam>
+		/// <typeparam name="T2">
+		///   A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+		/// </typeparam>
+		/// <typeparam name="T3">
+		///   A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+		/// </typeparam>
+		/// <typeparam name="T4">
+		///   A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+		/// </typeparam>
+		/// <param name="self">
+		///   The <see cref="T:System.Action{T1,T2,T3,T4}" /> to generate timings for.
+		/// </param>
+		/// <param name="value1">
+		///   The first <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="value2">
+		///   The second <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="value3">
+		///   The third <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="value4">
+		///   The fourth <paramref name="self"/> parameter value.
+		/// </param>
+		/// <param name="runs">
+		///   The number of <see cref="T:System.TimeSpan" /> values to return.
+		/// </param>
+		/// <param name="loopsPerRun">
+		///   The number of times to execute <paramref name="self" /> for each 
+		///   <see cref="T:System.TimeSpan" /> value returned.
+		/// </param>
+		/// <summary>
+		///   Get timing information for delegate invocations.
+		/// </summary>
+		/// <returns>
+		///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+		///   which will return the timing information for <paramref name="self" />.
+		/// </returns>
+		/// <remarks>
+		///   <para>
+		///    Generates <paramref name="runs" /> <see cref="T:System.TimeSpan" />
+		///    instances, in which each <c>TimeSpan</c> instance is the amount of time
+		///    required to execute <paramref name="self" /> for
+		///    <paramref name="loopsPerRun" /> times.
+		///   </para>
+		/// </remarks>
+		/// <exception cref="T:System.ArgumentException">
+		///   <para>
+		///    <paramref name="runs" /> is negative.
+		///   </para>
+		///   <para>-or-</para>
+		///    <paramref name="loopsPerRun" /> is negative.
+		///   <para>
+		///   </para>
+		/// </exception>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static IEnumerable<TimeSpan> Timings<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, T1 value1, T2 value2, T3 value3, T4 value4, int runs, int loopsPerRun)
 		{
 			Check.Self (self);
@@ -2322,12 +2769,18 @@ namespace Mono.Rocks {
 				throw new ArgumentException ("negative values aren't supported", "runs");
 			if (loopsPerRun < 0)
 				throw new ArgumentException ("negative values aren't supported", "loopsPerRun");
-			self (value1, value2, value3, value4);
-			return CreateTimingsIterator (self, value1, value2, value3, value4, runs, loopsPerRun, new Stopwatch ());
+
+			return CreateTimingsIterator (self, value1, value2, value3, value4, runs, loopsPerRun);
 		}
 
-		private static IEnumerable<TimeSpan> CreateTimingsIterator<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, T1 value1, T2 value2, T3 value3, T4 value4, int runs, int loopsPerRun, Stopwatch watch)
+		private static IEnumerable<TimeSpan> CreateTimingsIterator<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, T1 value1, T2 value2, T3 value3, T4 value4, int runs, int loopsPerRun)
 		{
+			// Ensure that required methods are already JITed
+			Stopwatch watch = Stopwatch.StartNew ();
+			self (value1, value2, value3, value4);
+			watch.Stop ();
+			watch.Reset ();
+
 			for (int i = 0; i < runs; ++i) {
 				watch.Start ();
 				for (int j = 0; j < loopsPerRun; ++j)

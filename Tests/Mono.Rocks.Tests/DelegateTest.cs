@@ -392,7 +392,7 @@ namespace Mono.Rocks.Tests {
 		public void Timings_A0_SelfNull ()
 		{
 			Action                s = null;
-			IEnumerable<TimeSpan> r = s.Timings ();
+			IEnumerable<TimeSpan> r = s.Timings (0);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -420,7 +420,7 @@ namespace Mono.Rocks.Tests {
 		public void Timings_A1_SelfNull ()
 		{
 			Action<byte>          s = null;
-			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b');
+			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b', 0);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -448,7 +448,7 @@ namespace Mono.Rocks.Tests {
 		public void Timings_A2_SelfNull ()
 		{
 			Action<byte, char>    s = null;
-			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b', 'c');
+			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b', 'c', 0);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -476,7 +476,7 @@ namespace Mono.Rocks.Tests {
 		public void Timings_A3_SelfNull ()
 		{
 			Action<byte, char, short> s = null;
-			IEnumerable<TimeSpan>     r = s.Timings ((byte) 'b', 'c', (short) 16);
+			IEnumerable<TimeSpan>     r = s.Timings ((byte) 'b', 'c', (short) 16, 0);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -504,7 +504,7 @@ namespace Mono.Rocks.Tests {
 		public void Timings_A4_SelfNull ()
 		{
 			Action<byte, char, short, int>  s = null;
-			IEnumerable<TimeSpan>           r = s.Timings ((byte) 'b', 'c', (short) 16, 32);
+			IEnumerable<TimeSpan>           r = s.Timings ((byte) 'b', 'c', (short) 16, 32, 0);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]

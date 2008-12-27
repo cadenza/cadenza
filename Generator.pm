@@ -220,6 +220,20 @@ sub GetValue {
 	return "value$i";
 }
 
+sub GetValueList {
+	my ($max, $start, $end) = @_;
+	$start ||= 1;
+	$end   ||= $max;
+
+	return "" if $max == 0;
+
+	my $r = GetValue ($max, $start);
+	for (my $i = $start + 1; $i <= $end; ++$i) {
+		$r .= ", " . GetValue ($max, $i);
+	}
+	return $r;
+}
+
 sub Value {
 	my ($self, $max, $i) = @_;
 
