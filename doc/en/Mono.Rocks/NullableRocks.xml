@@ -8,11 +8,6 @@
     <BaseTypeName>System.Object</BaseTypeName>
   </Base>
   <Interfaces />
-  <Attributes>
-    <Attribute>
-      <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-    </Attribute>
-  </Attributes>
   <Docs>
     <summary>
       Extension and utility methods for <see cref="T:System.Nullable{T}" />.
@@ -27,11 +22,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>Mono.Rocks.Maybe&lt;T&gt;</ReturnType>
       </ReturnValue>
@@ -90,11 +80,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>Mono.Rocks.Maybe&lt;T&gt;</ReturnType>
       </ReturnValue>

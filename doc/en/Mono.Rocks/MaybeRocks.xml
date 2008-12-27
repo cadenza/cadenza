@@ -11,11 +11,6 @@
     <BaseTypeName>System.Object</BaseTypeName>
   </Base>
   <Interfaces />
-  <Attributes>
-    <Attribute>
-      <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-    </Attribute>
-  </Attributes>
   <Docs>
     <summary>
       Extension methods for <see cref="T:Mono.Rocks.Maybe{T}" />.
@@ -43,11 +38,6 @@ Assert.AreEqual (9.ToMaybe (),
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>Mono.Rocks.Maybe&lt;TResult&gt;</ReturnType>
       </ReturnValue>
@@ -123,11 +113,6 @@ Assert.AreEqual (2.Just (),
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>Mono.Rocks.Maybe&lt;TResult&gt;</ReturnType>
       </ReturnValue>

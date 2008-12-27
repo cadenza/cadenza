@@ -8,11 +8,6 @@
     <BaseTypeName>System.Object</BaseTypeName>
   </Base>
   <Interfaces />
-  <Attributes>
-    <Attribute>
-      <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-    </Attribute>
-  </Attributes>
   <Docs>
     <summary>
             Provides extension methods on <see cref="T:System.Action{T}" />,
@@ -31,6 +26,11 @@
         <item>
           <term>
             Delegate composition (<see cref="M:Mono.Rocks.DelegateRocks.Compose" />)
+            </term>
+        </item>
+        <item>
+          <term>
+            Timing generation (<see cref="M:Mono.Rocks.DelegateRocks.Timings" />)
             </term>
         </item>
       </list>
@@ -83,11 +83,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T1&gt;</ReturnType>
       </ReturnValue>
@@ -144,11 +139,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T1,T2&gt;</ReturnType>
       </ReturnValue>
@@ -209,11 +199,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T1,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -274,11 +259,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T1,T2,T3&gt;</ReturnType>
       </ReturnValue>
@@ -343,11 +323,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T1,T2,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -412,11 +387,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T1,T2,T3,T4&gt;</ReturnType>
       </ReturnValue>
@@ -485,11 +455,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T1,T2,T3,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -558,11 +523,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T1,T2,T3,T4,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -635,11 +595,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T&gt;</ReturnType>
       </ReturnValue>
@@ -684,11 +639,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action</ReturnType>
       </ReturnValue>
@@ -725,11 +675,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action</ReturnType>
       </ReturnValue>
@@ -766,11 +711,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -820,11 +760,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
       </ReturnValue>
@@ -865,11 +800,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
       </ReturnValue>
@@ -910,11 +840,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T1,System.Action&lt;T2&gt;&gt;</ReturnType>
       </ReturnValue>
@@ -966,11 +891,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action</ReturnType>
       </ReturnValue>
@@ -1011,11 +931,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T2&gt;</ReturnType>
       </ReturnValue>
@@ -1056,11 +971,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T2&gt;</ReturnType>
       </ReturnValue>
@@ -1101,11 +1011,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action</ReturnType>
       </ReturnValue>
@@ -1150,11 +1055,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T1,System.Func&lt;T2,System.Action&lt;T3&gt;&gt;&gt;</ReturnType>
       </ReturnValue>
@@ -1211,11 +1111,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action</ReturnType>
       </ReturnValue>
@@ -1260,11 +1155,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T3&gt;</ReturnType>
       </ReturnValue>
@@ -1309,11 +1199,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T2,T3&gt;</ReturnType>
       </ReturnValue>
@@ -1358,11 +1243,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T2,T3&gt;</ReturnType>
       </ReturnValue>
@@ -1407,11 +1287,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T3&gt;</ReturnType>
       </ReturnValue>
@@ -1460,11 +1335,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action</ReturnType>
       </ReturnValue>
@@ -1517,11 +1387,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T1,System.Func&lt;T2,TResult&gt;&gt;</ReturnType>
       </ReturnValue>
@@ -1578,11 +1443,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
       </ReturnValue>
@@ -1627,11 +1487,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T2,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -1676,11 +1531,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T2,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -1725,11 +1575,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
       </ReturnValue>
@@ -1778,11 +1623,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T1,System.Func&lt;T2,System.Func&lt;T3,System.Action&lt;T4&gt;&gt;&gt;&gt;</ReturnType>
       </ReturnValue>
@@ -1844,11 +1684,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action</ReturnType>
       </ReturnValue>
@@ -1897,11 +1732,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T4&gt;</ReturnType>
       </ReturnValue>
@@ -1950,11 +1780,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T3,T4&gt;</ReturnType>
       </ReturnValue>
@@ -2003,11 +1828,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T2,T3,T4&gt;</ReturnType>
       </ReturnValue>
@@ -2056,11 +1876,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T2,T3,T4&gt;</ReturnType>
       </ReturnValue>
@@ -2109,11 +1924,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T3,T4&gt;</ReturnType>
       </ReturnValue>
@@ -2166,11 +1976,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action&lt;T4&gt;</ReturnType>
       </ReturnValue>
@@ -2227,11 +2032,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Action</ReturnType>
       </ReturnValue>
@@ -2292,11 +2092,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T1,System.Func&lt;T2,System.Func&lt;T3,TResult&gt;&gt;&gt;</ReturnType>
       </ReturnValue>
@@ -2358,11 +2153,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
       </ReturnValue>
@@ -2411,11 +2201,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T3,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -2464,11 +2249,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T2,T3,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -2517,11 +2297,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T2,T3,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -2570,11 +2345,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T3,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -2627,11 +2397,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
       </ReturnValue>
@@ -2688,11 +2453,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T1,System.Func&lt;T2,System.Func&lt;T3,System.Func&lt;T4,TResult&gt;&gt;&gt;&gt;</ReturnType>
       </ReturnValue>
@@ -2759,11 +2519,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
       </ReturnValue>
@@ -2816,11 +2571,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T4,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -2873,11 +2623,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T3,T4,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -2930,11 +2675,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T2,T3,T4,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -2987,11 +2727,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T2,T3,T4,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -3044,11 +2779,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T3,T4,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -3105,11 +2835,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;T4,TResult&gt;</ReturnType>
       </ReturnValue>
@@ -3170,11 +2895,6 @@
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
         <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
       </ReturnValue>
@@ -3231,6 +2951,672 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Timings">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings (this Action self, int runs);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.Action" RefType="this" />
+        <Parameter Name="runs" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+            The <see cref="T:System.Action" /> to generate timings for.
+            </param>
+        <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+        <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+            which will return the timing information for <paramref name="self" />.
+            </returns>
+        <remarks>
+          <para>
+            This is equivalent to calling
+            <see cref="M:Mono.Rocks.DelegateRocks.Timings(System.Action,System.Int32,System.Int32)" />
+            with a <paramref name="loopsPerRun" /> value of <c>1</c>,
+            e.g. as if by calling <c>self.Timing (runs, 1)</c>.
+            </para>
+        </remarks>
+        <altmember cref="M:Mono.Rocks.DelegateRocks.Timings(System.Action,System.Int32,System.Int32)" />
+        <exception cref="T:System.ArgumentException">
+          <para>
+            <paramref name="runs" /> is negative.
+            </para>
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Timings">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings (this Action self, int runs, int loopsPerRun);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.Action" RefType="this" />
+        <Parameter Name="runs" Type="System.Int32" />
+        <Parameter Name="loopsPerRun" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+            The <see cref="T:System.Action" /> to generate timings for.
+            </param>
+        <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+        <param name="loopsPerRun">
+            The number of times to execute <paramref name="self" /> for each
+            <see cref="T:System.TimeSpan" /> value returned.
+            </param>
+        <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+            which will return the timing information for <paramref name="self" />.
+            </returns>
+        <remarks>
+          <para>
+            Generates <paramref name="runs" /><see cref="T:System.TimeSpan" />
+            instances, in which each <c>TimeSpan</c> instance is the amount of time
+            required to execute <paramref name="self" /> for
+            <paramref name="loopsPerRun" /> times.
+            </para>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          <para>
+            <paramref name="runs" /> is negative.
+            </para>
+          <para>-or-</para>
+          <paramref name="loopsPerRun" /> is negative.
+            <para></para></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Timings&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T&gt; (this Action&lt;T&gt; self, T value, int runs);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Action&lt;T&gt;" RefType="this" />
+        <Parameter Name="value" Type="T" />
+        <Parameter Name="runs" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+            A <see cref="T:System.Action{T}" /> parameter type.
+            </typeparam>
+        <param name="self">
+            The <see cref="T:System.Action{T}" /> to generate timings for.
+            </param>
+        <param name="value">
+            The first <paramref name="self" /> parameter value.
+            </param>
+        <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+        <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+            which will return the timing information for <paramref name="self" />.
+            </returns>
+        <remarks>
+          <para>
+            This is equivalent to calling
+            <see cref="M:Mono.Rocks.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
+            with a <paramref name="loopsPerRun" /> value of <c>1</c>,
+            e.g. as if by calling <c>self.Timing (value, runs, 1)</c>.
+            </para>
+        </remarks>
+        <altmember cref="M:Mono.Rocks.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
+        <exception cref="T:System.ArgumentException">
+          <para>
+            <paramref name="runs" /> is negative.
+            </para>
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Timings&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T&gt; (this Action&lt;T&gt; self, T value, int runs, int loopsPerRun);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Action&lt;T&gt;" RefType="this" />
+        <Parameter Name="value" Type="T" />
+        <Parameter Name="runs" Type="System.Int32" />
+        <Parameter Name="loopsPerRun" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+            A <see cref="T:System.Action{T}" /> parameter type.
+            </typeparam>
+        <param name="self">
+            The <see cref="T:System.Action{T}" /> to generate timings for.
+            </param>
+        <param name="value">
+            The first <paramref name="self" /> parameter value.
+            </param>
+        <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+        <param name="loopsPerRun">
+            The number of times to execute <paramref name="self" /> for each
+            <see cref="T:System.TimeSpan" /> value returned.
+            </param>
+        <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+            which will return the timing information for <paramref name="self" />.
+            </returns>
+        <remarks>
+          <para>
+            Generates <paramref name="runs" /><see cref="T:System.TimeSpan" />
+            instances, in which each <c>TimeSpan</c> instance is the amount of time
+            required to execute <paramref name="self" /> for
+            <paramref name="loopsPerRun" /> times.
+            </para>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          <para>
+            <paramref name="runs" /> is negative.
+            </para>
+          <para>-or-</para>
+          <paramref name="loopsPerRun" /> is negative.
+            <para></para></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Timings&lt;T1,T2&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, T1 value1, T2 value2, int runs);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Action&lt;T1,T2&gt;" RefType="this" />
+        <Parameter Name="value1" Type="T1" />
+        <Parameter Name="value2" Type="T2" />
+        <Parameter Name="runs" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            A <see cref="T:System.Action{T1,T2}" /> parameter type.
+            </typeparam>
+        <typeparam name="T2">
+            A <see cref="T:System.Action{T1,T2}" /> parameter type.
+            </typeparam>
+        <param name="self">
+            The <see cref="T:System.Action{T1,T2}" /> to generate timings for.
+            </param>
+        <param name="value1">
+            The first <paramref name="self" /> parameter value.
+            </param>
+        <param name="value2">
+            The second <paramref name="self" /> parameter value.
+            </param>
+        <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+        <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+            which will return the timing information for <paramref name="self" />.
+            </returns>
+        <remarks>
+          <para>
+            This is equivalent to calling
+            <see cref="M:Mono.Rocks.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
+            with a <paramref name="loopsPerRun" /> value of <c>1</c>,
+            e.g. as if by calling <c>self.Timing (value1, value2, runs, 1)</c>.
+            </para>
+        </remarks>
+        <altmember cref="M:Mono.Rocks.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
+        <exception cref="T:System.ArgumentException">
+          <para>
+            <paramref name="runs" /> is negative.
+            </para>
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Timings&lt;T1,T2&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, T1 value1, T2 value2, int runs, int loopsPerRun);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Action&lt;T1,T2&gt;" RefType="this" />
+        <Parameter Name="value1" Type="T1" />
+        <Parameter Name="value2" Type="T2" />
+        <Parameter Name="runs" Type="System.Int32" />
+        <Parameter Name="loopsPerRun" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            A <see cref="T:System.Action{T1,T2}" /> parameter type.
+            </typeparam>
+        <typeparam name="T2">
+            A <see cref="T:System.Action{T1,T2}" /> parameter type.
+            </typeparam>
+        <param name="self">
+            The <see cref="T:System.Action{T1,T2}" /> to generate timings for.
+            </param>
+        <param name="value1">
+            The first <paramref name="self" /> parameter value.
+            </param>
+        <param name="value2">
+            The second <paramref name="self" /> parameter value.
+            </param>
+        <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+        <param name="loopsPerRun">
+            The number of times to execute <paramref name="self" /> for each
+            <see cref="T:System.TimeSpan" /> value returned.
+            </param>
+        <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+            which will return the timing information for <paramref name="self" />.
+            </returns>
+        <remarks>
+          <para>
+            Generates <paramref name="runs" /><see cref="T:System.TimeSpan" />
+            instances, in which each <c>TimeSpan</c> instance is the amount of time
+            required to execute <paramref name="self" /> for
+            <paramref name="loopsPerRun" /> times.
+            </para>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          <para>
+            <paramref name="runs" /> is negative.
+            </para>
+          <para>-or-</para>
+          <paramref name="loopsPerRun" /> is negative.
+            <para></para></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Timings&lt;T1,T2,T3&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, T1 value1, T2 value2, T3 value3, int runs);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="T3" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Action&lt;T1,T2,T3&gt;" RefType="this" />
+        <Parameter Name="value1" Type="T1" />
+        <Parameter Name="value2" Type="T2" />
+        <Parameter Name="value3" Type="T3" />
+        <Parameter Name="runs" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+            </typeparam>
+        <typeparam name="T2">
+            A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+            </typeparam>
+        <typeparam name="T3">
+            A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+            </typeparam>
+        <param name="self">
+            The <see cref="T:System.Action{T1,T2,T3}" /> to generate timings for.
+            </param>
+        <param name="value1">
+            The first <paramref name="self" /> parameter value.
+            </param>
+        <param name="value2">
+            The second <paramref name="self" /> parameter value.
+            </param>
+        <param name="value3">
+            The third <paramref name="self" /> parameter value.
+            </param>
+        <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+        <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+            which will return the timing information for <paramref name="self" />.
+            </returns>
+        <remarks>
+          <para>
+            This is equivalent to calling
+            <see cref="M:Mono.Rocks.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
+            with a <paramref name="loopsPerRun" /> value of <c>1</c>,
+            e.g. as if by calling <c>self.Timing (value1, value2, value3, runs, 1)</c>.
+            </para>
+        </remarks>
+        <altmember cref="M:Mono.Rocks.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
+        <exception cref="T:System.ArgumentException">
+          <para>
+            <paramref name="runs" /> is negative.
+            </para>
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Timings&lt;T1,T2,T3&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, T1 value1, T2 value2, T3 value3, int runs, int loopsPerRun);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="T3" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Action&lt;T1,T2,T3&gt;" RefType="this" />
+        <Parameter Name="value1" Type="T1" />
+        <Parameter Name="value2" Type="T2" />
+        <Parameter Name="value3" Type="T3" />
+        <Parameter Name="runs" Type="System.Int32" />
+        <Parameter Name="loopsPerRun" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+            </typeparam>
+        <typeparam name="T2">
+            A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+            </typeparam>
+        <typeparam name="T3">
+            A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+            </typeparam>
+        <param name="self">
+            The <see cref="T:System.Action{T1,T2,T3}" /> to generate timings for.
+            </param>
+        <param name="value1">
+            The first <paramref name="self" /> parameter value.
+            </param>
+        <param name="value2">
+            The second <paramref name="self" /> parameter value.
+            </param>
+        <param name="value3">
+            The third <paramref name="self" /> parameter value.
+            </param>
+        <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+        <param name="loopsPerRun">
+            The number of times to execute <paramref name="self" /> for each
+            <see cref="T:System.TimeSpan" /> value returned.
+            </param>
+        <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+            which will return the timing information for <paramref name="self" />.
+            </returns>
+        <remarks>
+          <para>
+            Generates <paramref name="runs" /><see cref="T:System.TimeSpan" />
+            instances, in which each <c>TimeSpan</c> instance is the amount of time
+            required to execute <paramref name="self" /> for
+            <paramref name="loopsPerRun" /> times.
+            </para>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          <para>
+            <paramref name="runs" /> is negative.
+            </para>
+          <para>-or-</para>
+          <paramref name="loopsPerRun" /> is negative.
+            <para></para></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Timings&lt;T1,T2,T3,T4&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, T1 value1, T2 value2, T3 value3, T4 value4, int runs);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="T3" />
+        <TypeParameter Name="T4" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Action&lt;T1,T2,T3,T4&gt;" RefType="this" />
+        <Parameter Name="value1" Type="T1" />
+        <Parameter Name="value2" Type="T2" />
+        <Parameter Name="value3" Type="T3" />
+        <Parameter Name="value4" Type="T4" />
+        <Parameter Name="runs" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+        <typeparam name="T2">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+        <typeparam name="T3">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+        <typeparam name="T4">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+        <param name="self">
+            The <see cref="T:System.Action{T1,T2,T3,T4}" /> to generate timings for.
+            </param>
+        <param name="value1">
+            The first <paramref name="self" /> parameter value.
+            </param>
+        <param name="value2">
+            The second <paramref name="self" /> parameter value.
+            </param>
+        <param name="value3">
+            The third <paramref name="self" /> parameter value.
+            </param>
+        <param name="value4">
+            The fourth <paramref name="self" /> parameter value.
+            </param>
+        <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+        <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+            which will return the timing information for <paramref name="self" />.
+            </returns>
+        <remarks>
+          <para>
+            This is equivalent to calling
+            <see cref="M:Mono.Rocks.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
+            with a <paramref name="loopsPerRun" /> value of <c>1</c>,
+            e.g. as if by calling <c>self.Timing (value1, value2, value3, value4, runs, 1)</c>.
+            </para>
+        </remarks>
+        <altmember cref="M:Mono.Rocks.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
+        <exception cref="T:System.ArgumentException">
+          <para>
+            <paramref name="runs" /> is negative.
+            </para>
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Timings&lt;T1,T2,T3,T4&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, T1 value1, T2 value2, T3 value3, T4 value4, int runs, int loopsPerRun);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T1" />
+        <TypeParameter Name="T2" />
+        <TypeParameter Name="T3" />
+        <TypeParameter Name="T4" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Action&lt;T1,T2,T3,T4&gt;" RefType="this" />
+        <Parameter Name="value1" Type="T1" />
+        <Parameter Name="value2" Type="T2" />
+        <Parameter Name="value3" Type="T3" />
+        <Parameter Name="value4" Type="T4" />
+        <Parameter Name="runs" Type="System.Int32" />
+        <Parameter Name="loopsPerRun" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T1">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+        <typeparam name="T2">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+        <typeparam name="T3">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+        <typeparam name="T4">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+        <param name="self">
+            The <see cref="T:System.Action{T1,T2,T3,T4}" /> to generate timings for.
+            </param>
+        <param name="value1">
+            The first <paramref name="self" /> parameter value.
+            </param>
+        <param name="value2">
+            The second <paramref name="self" /> parameter value.
+            </param>
+        <param name="value3">
+            The third <paramref name="self" /> parameter value.
+            </param>
+        <param name="value4">
+            The fourth <paramref name="self" /> parameter value.
+            </param>
+        <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+        <param name="loopsPerRun">
+            The number of times to execute <paramref name="self" /> for each
+            <see cref="T:System.TimeSpan" /> value returned.
+            </param>
+        <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        <returns>
+            An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
+            which will return the timing information for <paramref name="self" />.
+            </returns>
+        <remarks>
+          <para>
+            Generates <paramref name="runs" /><see cref="T:System.TimeSpan" />
+            instances, in which each <c>TimeSpan</c> instance is the amount of time
+            required to execute <paramref name="self" /> for
+            <paramref name="loopsPerRun" /> times.
+            </para>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          <para>
+            <paramref name="runs" /> is negative.
+            </para>
+          <para>-or-</para>
+          <paramref name="loopsPerRun" /> is negative.
+            <para></para></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
   </Members>

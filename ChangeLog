@@ -1,5 +1,11 @@
 2008-12-26  Jonathan Pryor  <jpryor@novell.com>
 
+	* doc/en/**: Flush; changes due to mdoc changes (e.g. removal of
+	  Extension and other compiler-generated attributes), class library 
+	  changes (mkdelegates changes, etc.).
+
+2008-12-26  Jonathan Pryor  <jpryor@novell.com>
+
 	* mkdelegates: Alter .Timings():
 	  - Remove "all defaults" .Timings() overload, as it has no utility --
 	    it would "automagically" determine the "appropriate" runs &

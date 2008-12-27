@@ -212,11 +212,6 @@ Assert.AreEqual ("1,2,3,4,5",
 </code>
         </remarks>
       </Docs>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Diagnostics.DebuggerHidden</AttributeName>
-        </Attribute>
-      </Attributes>
     </Member>
   </Members>
 </Type>

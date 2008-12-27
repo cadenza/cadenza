@@ -3,31 +3,7 @@
     <Assembly Name="Mono.Rocks" Version="0.1.0.0">
       <Attributes>
         <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.Extension</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.Reflection.AssemblyFileVersion("0.1.0.0")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.Runtime.InteropServices.Guid("098c331b-2893-4367-8d3a-4a350ef2e9bb")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.Runtime.InteropServices.ComVisible(false)</AttributeName>
-        </Attribute>
-        <Attribute>
           <AttributeName>System.CLSCompliant(true)</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.Reflection.AssemblyTrademark("")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.Reflection.AssemblyCopyright("Copyright © 2007 Novell, Inc. and contributors")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.Reflection.AssemblyProduct("Mono")</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Reflection.AssemblyCompany("Novell, Inc.")</AttributeName>
@@ -36,10 +12,31 @@
           <AttributeName>System.Reflection.AssemblyConfiguration("")</AttributeName>
         </Attribute>
         <Attribute>
+          <AttributeName>System.Reflection.AssemblyCopyright("Copyright © 2007 Novell, Inc. and contributors")</AttributeName>
+        </Attribute>
+        <Attribute>
           <AttributeName>System.Reflection.AssemblyDescription("A useful extension methods collection")</AttributeName>
         </Attribute>
         <Attribute>
+          <AttributeName>System.Reflection.AssemblyFileVersion("0.1.0.0")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyProduct("Mono")</AttributeName>
+        </Attribute>
+        <Attribute>
           <AttributeName>System.Reflection.AssemblyTitle("Mono.Rocks")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyTrademark("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.ComVisible(false)</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.InteropServices.Guid("098c331b-2893-4367-8d3a-4a350ef2e9bb")</AttributeName>
         </Attribute>
       </Attributes>
     </Assembly>
@@ -2610,6 +2607,487 @@
     </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
+        <Target Type="T:System.Action" />
+      </Targets>
+      <Member MemberName="Timings">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings (this Action self, int runs);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.Action" RefType="this" />
+          <Parameter Name="runs" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <param name="self">
+            The <see cref="T:System.Action" /> to generate timings for.
+            </param>
+          <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+          <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        </Docs>
+        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings(System.Action,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Action" />
+      </Targets>
+      <Member MemberName="Timings">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings (this Action self, int runs, int loopsPerRun);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.Action" RefType="this" />
+          <Parameter Name="runs" Type="System.Int32" />
+          <Parameter Name="loopsPerRun" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <param name="self">
+            The <see cref="T:System.Action" /> to generate timings for.
+            </param>
+          <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+          <param name="loopsPerRun">
+            The number of times to execute <paramref name="self" /> for each
+            <see cref="T:System.TimeSpan" /> value returned.
+            </param>
+          <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        </Docs>
+        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings(System.Action,System.Int32,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Action`1" />
+      </Targets>
+      <Member MemberName="Timings&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T&gt; (this Action&lt;T&gt; self, T value, int runs);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Action&lt;T&gt;" RefType="this" />
+          <Parameter Name="value" Type="T" />
+          <Parameter Name="runs" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">
+            A <see cref="T:System.Action{T}" /> parameter type.
+            </typeparam>
+          <param name="self">
+            The <see cref="T:System.Action{T}" /> to generate timings for.
+            </param>
+          <param name="value">
+            The first <paramref name="self" /> parameter value.
+            </param>
+          <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+          <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        </Docs>
+        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Action`1" />
+      </Targets>
+      <Member MemberName="Timings&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T&gt; (this Action&lt;T&gt; self, T value, int runs, int loopsPerRun);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Action&lt;T&gt;" RefType="this" />
+          <Parameter Name="value" Type="T" />
+          <Parameter Name="runs" Type="System.Int32" />
+          <Parameter Name="loopsPerRun" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">
+            A <see cref="T:System.Action{T}" /> parameter type.
+            </typeparam>
+          <param name="self">
+            The <see cref="T:System.Action{T}" /> to generate timings for.
+            </param>
+          <param name="value">
+            The first <paramref name="self" /> parameter value.
+            </param>
+          <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+          <param name="loopsPerRun">
+            The number of times to execute <paramref name="self" /> for each
+            <see cref="T:System.TimeSpan" /> value returned.
+            </param>
+          <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        </Docs>
+        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Action`2" />
+      </Targets>
+      <Member MemberName="Timings&lt;T1,T2&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, T1 value1, T2 value2, int runs);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Action&lt;T1,T2&gt;" RefType="this" />
+          <Parameter Name="value1" Type="T1" />
+          <Parameter Name="value2" Type="T2" />
+          <Parameter Name="runs" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">
+            A <see cref="T:System.Action{T1,T2}" /> parameter type.
+            </typeparam>
+          <typeparam name="T2">
+            A <see cref="T:System.Action{T1,T2}" /> parameter type.
+            </typeparam>
+          <param name="self">
+            The <see cref="T:System.Action{T1,T2}" /> to generate timings for.
+            </param>
+          <param name="value1">
+            The first <paramref name="self" /> parameter value.
+            </param>
+          <param name="value2">
+            The second <paramref name="self" /> parameter value.
+            </param>
+          <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+          <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        </Docs>
+        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Action`2" />
+      </Targets>
+      <Member MemberName="Timings&lt;T1,T2&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, T1 value1, T2 value2, int runs, int loopsPerRun);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Action&lt;T1,T2&gt;" RefType="this" />
+          <Parameter Name="value1" Type="T1" />
+          <Parameter Name="value2" Type="T2" />
+          <Parameter Name="runs" Type="System.Int32" />
+          <Parameter Name="loopsPerRun" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">
+            A <see cref="T:System.Action{T1,T2}" /> parameter type.
+            </typeparam>
+          <typeparam name="T2">
+            A <see cref="T:System.Action{T1,T2}" /> parameter type.
+            </typeparam>
+          <param name="self">
+            The <see cref="T:System.Action{T1,T2}" /> to generate timings for.
+            </param>
+          <param name="value1">
+            The first <paramref name="self" /> parameter value.
+            </param>
+          <param name="value2">
+            The second <paramref name="self" /> parameter value.
+            </param>
+          <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+          <param name="loopsPerRun">
+            The number of times to execute <paramref name="self" /> for each
+            <see cref="T:System.TimeSpan" /> value returned.
+            </param>
+          <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        </Docs>
+        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Action`3" />
+      </Targets>
+      <Member MemberName="Timings&lt;T1,T2,T3&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, T1 value1, T2 value2, T3 value3, int runs);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+          <TypeParameter Name="T3" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Action&lt;T1,T2,T3&gt;" RefType="this" />
+          <Parameter Name="value1" Type="T1" />
+          <Parameter Name="value2" Type="T2" />
+          <Parameter Name="value3" Type="T3" />
+          <Parameter Name="runs" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">
+            A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+            </typeparam>
+          <typeparam name="T2">
+            A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+            </typeparam>
+          <typeparam name="T3">
+            A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+            </typeparam>
+          <param name="self">
+            The <see cref="T:System.Action{T1,T2,T3}" /> to generate timings for.
+            </param>
+          <param name="value1">
+            The first <paramref name="self" /> parameter value.
+            </param>
+          <param name="value2">
+            The second <paramref name="self" /> parameter value.
+            </param>
+          <param name="value3">
+            The third <paramref name="self" /> parameter value.
+            </param>
+          <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+          <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        </Docs>
+        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Action`3" />
+      </Targets>
+      <Member MemberName="Timings&lt;T1,T2,T3&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, T1 value1, T2 value2, T3 value3, int runs, int loopsPerRun);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+          <TypeParameter Name="T3" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Action&lt;T1,T2,T3&gt;" RefType="this" />
+          <Parameter Name="value1" Type="T1" />
+          <Parameter Name="value2" Type="T2" />
+          <Parameter Name="value3" Type="T3" />
+          <Parameter Name="runs" Type="System.Int32" />
+          <Parameter Name="loopsPerRun" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">
+            A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+            </typeparam>
+          <typeparam name="T2">
+            A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+            </typeparam>
+          <typeparam name="T3">
+            A <see cref="T:System.Action{T1,T2,T3}" /> parameter type.
+            </typeparam>
+          <param name="self">
+            The <see cref="T:System.Action{T1,T2,T3}" /> to generate timings for.
+            </param>
+          <param name="value1">
+            The first <paramref name="self" /> parameter value.
+            </param>
+          <param name="value2">
+            The second <paramref name="self" /> parameter value.
+            </param>
+          <param name="value3">
+            The third <paramref name="self" /> parameter value.
+            </param>
+          <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+          <param name="loopsPerRun">
+            The number of times to execute <paramref name="self" /> for each
+            <see cref="T:System.TimeSpan" /> value returned.
+            </param>
+          <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        </Docs>
+        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Action`4" />
+      </Targets>
+      <Member MemberName="Timings&lt;T1,T2,T3,T4&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, T1 value1, T2 value2, T3 value3, T4 value4, int runs);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+          <TypeParameter Name="T3" />
+          <TypeParameter Name="T4" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Action&lt;T1,T2,T3,T4&gt;" RefType="this" />
+          <Parameter Name="value1" Type="T1" />
+          <Parameter Name="value2" Type="T2" />
+          <Parameter Name="value3" Type="T3" />
+          <Parameter Name="value4" Type="T4" />
+          <Parameter Name="runs" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+          <typeparam name="T2">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+          <typeparam name="T3">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+          <typeparam name="T4">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+          <param name="self">
+            The <see cref="T:System.Action{T1,T2,T3,T4}" /> to generate timings for.
+            </param>
+          <param name="value1">
+            The first <paramref name="self" /> parameter value.
+            </param>
+          <param name="value2">
+            The second <paramref name="self" /> parameter value.
+            </param>
+          <param name="value3">
+            The third <paramref name="self" /> parameter value.
+            </param>
+          <param name="value4">
+            The fourth <paramref name="self" /> parameter value.
+            </param>
+          <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+          <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        </Docs>
+        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Action`4" />
+      </Targets>
+      <Member MemberName="Timings&lt;T1,T2,T3,T4&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, T1 value1, T2 value2, T3 value3, T4 value4, int runs, int loopsPerRun);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+          <TypeParameter Name="T3" />
+          <TypeParameter Name="T4" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Action&lt;T1,T2,T3,T4&gt;" RefType="this" />
+          <Parameter Name="value1" Type="T1" />
+          <Parameter Name="value2" Type="T2" />
+          <Parameter Name="value3" Type="T3" />
+          <Parameter Name="value4" Type="T4" />
+          <Parameter Name="runs" Type="System.Int32" />
+          <Parameter Name="loopsPerRun" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+          <typeparam name="T2">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+          <typeparam name="T3">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+          <typeparam name="T4">
+            A <see cref="T:System.Action{T1,T2,T3,T4}" /> parameter type.
+            </typeparam>
+          <param name="self">
+            The <see cref="T:System.Action{T1,T2,T3,T4}" /> to generate timings for.
+            </param>
+          <param name="value1">
+            The first <paramref name="self" /> parameter value.
+            </param>
+          <param name="value2">
+            The second <paramref name="self" /> parameter value.
+            </param>
+          <param name="value3">
+            The third <paramref name="self" /> parameter value.
+            </param>
+          <param name="value4">
+            The fourth <paramref name="self" /> parameter value.
+            </param>
+          <param name="runs">
+            The number of <see cref="T:System.TimeSpan" /> values to return.
+            </param>
+          <param name="loopsPerRun">
+            The number of times to execute <paramref name="self" /> for each
+            <see cref="T:System.TimeSpan" /> value returned.
+            </param>
+          <summary>
+            Get timing information for delegate invocations.
+            </summary>
+        </Docs>
+        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
         <Target Type="T:Mono.Rocks.EnumerableValueReader`1" />
       </Targets>
       <Member MemberName="Read&lt;TSource,TValue&gt;">
@@ -3024,32 +3502,6 @@
       <Targets>
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
-      <Member MemberName="Apply&lt;TSource&gt;">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Apply&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource&gt; action);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
-        </ReturnValue>
-        <TypeParameters>
-          <TypeParameter Name="TSource" />
-        </TypeParameters>
-        <Parameters>
-          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
-          <Parameter Name="action" Type="System.Action&lt;TSource&gt;" />
-        </Parameters>
-        <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="action">To be added.</param>
-          <summary>To be added.</summary>
-        </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Apply``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
-      </Targets>
       <Member MemberName="ApplyPairs&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; ApplyPairs&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource&gt;[] actions);" />
         <MemberType>ExtensionMethod</MemberType>
@@ -3190,6 +3642,58 @@
       <Targets>
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
+      <Member MemberName="Each&lt;TSource&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Each&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource,int&gt; action);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="action" Type="System.Action&lt;TSource,System.Int32&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="action">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
+      <Member MemberName="Each&lt;TSource&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Each&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource&gt; action);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="action" Type="System.Action&lt;TSource&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="action">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
       <Member MemberName="ExceptLast&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; ExceptLast&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
         <MemberType>ExtensionMethod</MemberType>
@@ -3286,6 +3790,58 @@
           <summary>To be added.</summary>
         </Docs>
         <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.FindIndices``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
+      <Member MemberName="ForEach&lt;TSource&gt;">
+        <MemberSignature Language="C#" Value="public static void ForEach&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource,int&gt; action);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="action" Type="System.Action&lt;TSource,System.Int32&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="action">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
+      <Member MemberName="ForEach&lt;TSource&gt;">
+        <MemberSignature Language="C#" Value="public static void ForEach&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource&gt; action);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="action" Type="System.Action&lt;TSource&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="action">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>

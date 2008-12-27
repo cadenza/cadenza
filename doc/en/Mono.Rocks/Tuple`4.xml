@@ -1,5 +1,5 @@
 <Type Name="Tuple&lt;T1,T2,T3,T4&gt;" FullName="Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt;">
-  <TypeSignature Language="C#" Value="public struct Tuple&lt;T1,T2,T3,T4&gt; : IEquatable&lt;Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt;&gt;, System.Collections.Generic.IList&lt;object&gt;, System.Collections.IList" />
+  <TypeSignature Language="C#" Value="public struct Tuple&lt;T1,T2,T3,T4&gt; : IEquatable&lt;Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt;&gt;, System.Collections.Generic.ICollection&lt;object&gt;, System.Collections.Generic.IEnumerable&lt;object&gt;, System.Collections.Generic.IList&lt;object&gt;, System.Collections.IList" />
   <AssemblyInfo>
     <AssemblyName>Mono.Rocks</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -15,6 +15,12 @@
   </Base>
   <Interfaces>
     <Interface>
+      <InterfaceName>System.Collections.Generic.ICollection&lt;System.Object&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.Collections.Generic.IEnumerable&lt;System.Object&gt;</InterfaceName>
+    </Interface>
+    <Interface>
       <InterfaceName>System.Collections.Generic.IList&lt;System.Object&gt;</InterfaceName>
     </Interface>
     <Interface>
@@ -24,11 +30,6 @@
       <InterfaceName>System.IEquatable&lt;Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt;&gt;</InterfaceName>
     </Interface>
   </Interfaces>
-  <Attributes>
-    <Attribute>
-      <AttributeName>System.Reflection.DefaultMember("Item")</AttributeName>
-    </Attribute>
-  </Attributes>
   <Docs>
     <typeparam name="T1">
             The first value type.
@@ -356,11 +357,6 @@
             </para>
         </remarks>
       </Docs>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.Diagnostics.DebuggerHidden</AttributeName>
-        </Attribute>
-      </Attributes>
     </Member>
     <Member MemberName="GetHashCode">
       <MemberSignature Language="C#" Value="public override int GetHashCode ();" />
@@ -573,8 +569,8 @@
         <altmember cref="M:Mono.Rocks.Tuple`4.Equals(Mono.Rocks.Tuple{`0,`1,`2,`3})" />
       </Docs>
     </Member>
-    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.Clear">
-      <MemberSignature Language="C#" Value="void ICollection&lt;object&gt;.Clear ();" />
+    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.Add">
+      <MemberSignature Language="C#" Value="void ICollection&lt;object&gt;.Add (object item);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -582,8 +578,11 @@
       <ReturnValue>
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters />
+      <Parameters>
+        <Parameter Name="item" Type="System.Object" />
+      </Parameters>
       <Docs>
+        <param name="item">To be added.</param>
         <summary>
             Throws <see cref="T:System.NotSupportedException" />.
             </summary>
@@ -600,24 +599,20 @@
             </exception>
       </Docs>
     </Member>
-    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.Remove">
-      <MemberSignature Language="C#" Value="bool ICollection&lt;object&gt;.Remove (object item);" />
+    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.Clear">
+      <MemberSignature Language="C#" Value="void ICollection&lt;object&gt;.Clear ();" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
+        <ReturnType>System.Void</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="item" Type="System.Object" />
-      </Parameters>
+      <Parameters />
       <Docs>
-        <param name="item">To be added.</param>
         <summary>
             Throws <see cref="T:System.NotSupportedException" />.
             </summary>
-        <returns>To be added.</returns>
         <remarks>
           <para>
             Throws <see cref="T:System.NotSupportedException" />.
@@ -664,36 +659,6 @@
             </block>
           </para>
         </remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.Add">
-      <MemberSignature Language="C#" Value="void ICollection&lt;object&gt;.Add (object item);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="item" Type="System.Object" />
-      </Parameters>
-      <Docs>
-        <param name="item">To be added.</param>
-        <summary>
-            Throws <see cref="T:System.NotSupportedException" />.
-            </summary>
-        <remarks>
-          <para>
-            Throws <see cref="T:System.NotSupportedException" />.
-            </para>
-          <para>
-            <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> is immutable; modification is not supported.
-            </para>
-        </remarks>
-        <exception cref="T:System.NotSupportedException">
-            This member is not supported.
-            </exception>
       </Docs>
     </Member>
     <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.CopyTo">
@@ -746,27 +711,6 @@
             </exception>
       </Docs>
     </Member>
-    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.IsReadOnly">
-      <MemberSignature Language="C#" Value="bool System.Collections.Generic.ICollection&lt;System.Object&gt;.IsReadOnly { get; }" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            Gets a value indicating whether the current instance is read-only
-            </summary>
-        <value>
-          <see langword="true" />.
-            </value>
-        <remarks>
-            This property always returns <see langword="true" />.
-            </remarks>
-      </Docs>
-    </Member>
     <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.Count">
       <MemberSignature Language="C#" Value="int System.Collections.Generic.ICollection&lt;System.Object&gt;.Count { get; }" />
       <MemberType>Property</MemberType>
@@ -789,23 +733,45 @@
             </remarks>
       </Docs>
     </Member>
-    <Member MemberName="System.Collections.Generic.IList&lt;System.Object&gt;.RemoveAt">
-      <MemberSignature Language="C#" Value="void IList&lt;object&gt;.RemoveAt (int index);" />
+    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.IsReadOnly">
+      <MemberSignature Language="C#" Value="bool System.Collections.Generic.ICollection&lt;System.Object&gt;.IsReadOnly { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets a value indicating whether the current instance is read-only
+            </summary>
+        <value>
+          <see langword="true" />.
+            </value>
+        <remarks>
+            This property always returns <see langword="true" />.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Object&gt;.Remove">
+      <MemberSignature Language="C#" Value="bool ICollection&lt;object&gt;.Remove (object item);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="index" Type="System.Int32" />
+        <Parameter Name="item" Type="System.Object" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
+        <param name="item">To be added.</param>
         <summary>
             Throws <see cref="T:System.NotSupportedException" />.
             </summary>
+        <returns>To be added.</returns>
         <remarks>
           <para>
             Throws <see cref="T:System.NotSupportedException" />.
@@ -867,6 +833,36 @@
       <Docs>
         <param name="index">To be added.</param>
         <param name="item">To be added.</param>
+        <summary>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </summary>
+        <remarks>
+          <para>
+            Throws <see cref="T:System.NotSupportedException" />.
+            </para>
+          <para>
+            <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> is immutable; modification is not supported.
+            </para>
+        </remarks>
+        <exception cref="T:System.NotSupportedException">
+            This member is not supported.
+            </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.Generic.IList&lt;System.Object&gt;.RemoveAt">
+      <MemberSignature Language="C#" Value="void IList&lt;object&gt;.RemoveAt (int index);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="index">To be added.</param>
         <summary>
             Throws <see cref="T:System.NotSupportedException" />.
             </summary>

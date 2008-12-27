@@ -201,7 +201,7 @@
       </Docs>
     </Member>
     <Member MemberName="MaxValues">
-      <MemberSignature Language="C#" Value="public static readonly int MaxValues = 4;" />
+      <MemberSignature Language="C#" Value="public static readonly int MaxValues;" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
