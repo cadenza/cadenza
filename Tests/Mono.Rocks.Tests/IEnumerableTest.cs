@@ -870,14 +870,12 @@ namespace Mono.Rocks.Tests {
 		{
 			Assert.AreEqual ("1929394", new[]{1,2,3,4}.Intersperse (9).Implode ());
 			Assert.AreEqual ("a.z",     new[]{'a','z'}.Intersperse ('.').Implode ());
-#if BNC_400716
 			IEnumerable<IEnumerable<char>> e = new char[][]{ 
 				new char[]{'b', 'c', 'd'}, 
 				new char[]{'e', 'f', 'g'},
 			};
 			IEnumerable<char> x = new char[]{'a', 'a'};
 			Assert.AreEqual ("bcdaaefg", e.Intersperse (x).Implode ());
-#endif
 		}
 
 		[Test]
@@ -933,7 +931,6 @@ namespace Mono.Rocks.Tests {
 		[Test]
 		public void ToList ()
 		{
-#if BNC_400716
 			#region ToList
 			int[][] a = new int[][]{
 				new int[]{1, 2, 3},
@@ -951,7 +948,6 @@ namespace Mono.Rocks.Tests {
 			Assert.AreEqual (a [1][1], c [1][1]);
 			Assert.AreEqual (a [1][2], c [1][2]);
 			#endregion
-#endif
 		}
 
 		[Test]
@@ -1093,14 +1089,12 @@ namespace Mono.Rocks.Tests {
 			IEnumerable<int> s = new[]{1};
 			Assert.AreEqual ("1234567",
 					s.Concat (new[]{2, 3}, new[]{4, 5}, new[]{6, 7}).Implode ());
-#if BNC_400716
 			IEnumerable<IEnumerable<int>> ss = new []{
 				new[]{2,3},
 				new[]{4,5},
 				new[]{6,7},
 			};
 			Assert.AreEqual ("1234567", s.Concat (ss).Implode ());
-#endif
 		}
 
 		[Test]
