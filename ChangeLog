@@ -1,3 +1,8 @@
+2009-01-09  Jonathan Pryor  <jpryor@novell.com>
+
+	* MIT.X11: Added; the library license.  This really should have been
+	  added ages ago...
+
 2008-12-26  Jonathan Pryor  <jpryor@novell.com>
 
 	* doc/en/**: Flush; changes due to mdoc changes (e.g. removal of
