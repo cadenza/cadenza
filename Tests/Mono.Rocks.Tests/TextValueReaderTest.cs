@@ -108,6 +108,7 @@ namespace Mono.Rocks.Tests {
 			new TextValueReader (null);
 		}
 
+#if BNC_485377
 		[Test, ExpectedException (typeof (NotSupportedException))]
 		public void Read_UnsupportedT ()
 		{
@@ -116,6 +117,7 @@ namespace Mono.Rocks.Tests {
 			TvrOp op;
 			r.Read<TvrOp> (out op);
 		}
+#endif
 
 		[Test, ExpectedException (typeof (InvalidOperationException))]
 		public void Read_PastEnd ()

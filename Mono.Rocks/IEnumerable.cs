@@ -5,7 +5,7 @@
 //   Jb Evain (jbevain@novell.com)
 //   Jonathan Pryor  <jpryor@novell.com>
 //
-// Copyright (c) 2007, 2008 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2007-2009 Novell, Inc. (http://www.novell.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -421,6 +421,30 @@ namespace Mono.Rocks {
 			Check.Self (self);
 
 			return new EnumerableValueReader<TSource> (self);
+		}
+
+		public static IEnumerable<TResult> SelectBreadthFirst<TSource, TResult> (
+				this IEnumerable<TSource> self, 
+				Func<TSource, TResult> valueSelector,
+				Func<TSource, IEnumerable<TSource>> childrenSelector)
+		{
+			Check.Self (self);
+			Check.ValueSelector (valueSelector);
+			Check.ChildrenSelector (childrenSelector);
+
+			return self.SelectMany (e => e.TraverseBreadthFirst (valueSelector, childrenSelector));
+		}
+
+		public static IEnumerable<TResult> SelectDepthFirst<TSource, TResult> (
+				this IEnumerable<TSource> self, 
+				Func<TSource, TResult> valueSelector,
+				Func<TSource, IEnumerable<TSource>> childrenSelector)
+		{
+			Check.Self (self);
+			Check.ValueSelector (valueSelector);
+			Check.ChildrenSelector (childrenSelector);
+
+			return self.SelectMany (e => e.TraverseDepthFirst (valueSelector, childrenSelector));
 		}
 
 		// Haskell: zipWith

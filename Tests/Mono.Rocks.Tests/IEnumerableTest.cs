@@ -685,6 +685,100 @@ namespace Mono.Rocks.Tests {
 			Assert.IsFalse (r.Contains (6));
 		}
 
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void SelectBreadthFirst_SelfNull ()
+		{
+			TreeNode<int>[] root = null;
+			root.SelectBreadthFirst (e => e.Value, e => e.Children);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void SelectBreadthFirst_ValueSelectorNull ()
+		{
+			var root = new TreeNode<int>[0];
+			Func<TreeNode<int>, int> valueSelector = null;
+			root.SelectBreadthFirst (valueSelector, x => x.Children);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void SelectBreadthFirst_ChildrenSelectorNull ()
+		{
+			var root = new TreeNode<int>[0];
+			Func<TreeNode<int>, IEnumerable<TreeNode<int>>> childrenSelector = null;
+			root.SelectBreadthFirst (x => x.Value, childrenSelector);
+		}
+
+		[Test]
+		public void SelectBreadthFirst ()
+		{
+			#region SelectBreadthFirst
+			TreeNode<int>[] root = new TreeNode<int>[] {
+				new TreeNode<int> {
+					Value = 1, Children = new [] {
+						new TreeNode<int> { Value = 2 },
+						new TreeNode<int> {
+							Value = 3, Children = new [] {
+								new TreeNode<int> { Value = 5 },
+							}
+						},
+						new TreeNode<int> { Value = 4 },
+					}
+				},
+				new TreeNode<int> { Value = -1 },
+			};
+			IEnumerable<int> values = root
+				.SelectBreadthFirst (x => x.Value, x => x.Children);
+			AssertAreSame (new[]{ 1, 2, 3, 4, 5, -1 }, values);
+			#endregion
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void SelectDepthFirst_SelfNull ()
+		{
+			TreeNode<int>[] root = null;
+			root.SelectDepthFirst (x => x.Value, x => x.Children);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void SelectDepthFirst_ValueSelectorNull ()
+		{
+			var root = new TreeNode<int>[0];
+			Func<TreeNode<int>, int> valueSelector = null;
+			root.SelectDepthFirst (valueSelector, x => x.Children);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void SelectDepthFirst_ChildrenSelectorNull ()
+		{
+			var root = new TreeNode<int>[0];
+			Func<TreeNode<int>, IEnumerable<TreeNode<int>>> childrenSelector = null;
+			root.SelectDepthFirst (x => x.Value, childrenSelector);
+		}
+
+		[Test]
+		public void SelectDepthFirst ()
+		{
+			#region SelectDepthFirst
+			TreeNode<int>[] root = new TreeNode<int>[] {
+				new TreeNode<int> {
+					Value = 1, Children = new [] {
+						new TreeNode<int> { Value = 2 },
+						new TreeNode<int> {
+							Value = 3, Children = new [] {
+								new TreeNode<int> { Value = 5 },
+							}
+						},
+						new TreeNode<int> { Value = 4 },
+					}
+				},
+				new TreeNode<int> { Value = -1 },
+			};
+			IEnumerable<int> values = root
+				.SelectDepthFirst (x => x.Value, x => x.Children);
+			AssertAreSame (new[]{ 1, 2, 3, 5, 4, -1 }, values);
+			#endregion
+		}
+
 		[Test]
 		[ExpectedException (typeof (ArgumentNullException))]
 		public void SelectFromEach2_Source1Null ()

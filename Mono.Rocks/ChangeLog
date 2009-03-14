@@ -1,3 +1,13 @@
+2009-03-14  Jonathan Pryor  <jpryor@novell.com>
+
+	* Check.cs: Add ChildrenSelector(), ValueSelector().
+	* IEnumerable.cs: Add SelectBreadthFirst(), SelectDepthFirst(), for
+	  dealing with tree structures.
+	* Object.cs: Add TraverseBreadthFirst(),
+	  TraverseBreadthFirstWithParent(), TraverseDepthFirst(),
+	  TraverseDepthFirstWithParent().  Idea and most code courtesy of
+	  leppie: http://xacc.wordpress.com/2009/03/05/tree-traversal-extension-methods
+
 2008-12-26  Jonathan Pryor  <jpryor@novell.com>
 
 	* Delegates.cs: Flush (update .Timings() methods).

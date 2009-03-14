@@ -44,6 +44,12 @@ namespace Mono.Rocks {
 				throw new ArgumentNullException ("categories");
 		}
 
+		public static void ChildrenSelector (object childrenSelector)
+		{
+			if (childrenSelector == null)
+				throw new ArgumentNullException ("childrenSelector");
+		}
+
 		public static void Comparer (object comparer)
 		{
 			if (comparer == null)
@@ -120,6 +126,12 @@ namespace Mono.Rocks {
 		{
 			if (values == null)
 				throw new ArgumentNullException ("values");
+		}
+
+		public static void ValueSelector (object valueSelector)
+		{
+			if (valueSelector == null)
+				throw new ArgumentNullException ("valueSelector");
 		}
 	}
 }

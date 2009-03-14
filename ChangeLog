@@ -1,3 +1,12 @@
+2009-03-14  Jonathan Pryor  <jpryor@novell.com>
+
+	* Makefile: Allow $NUNIT_OPTIONS to be passed to nunit-console2 in the
+	  check and check-all targets.
+	* doc/Makefile.include: Use mdoc, not monodocer; Allow MDOC_OPTIONS to 
+	  be specified to mdoc-update.
+	* doc/**: Flush (Tree-related extension methods).
+	* Tests/Mono.Rocks.Tests.csproj: Flush (specify target framework).
+
 2009-01-09  Jonathan Pryor  <jpryor@novell.com>
 
 	* MIT.X11: Added; the library license.  This really should have been

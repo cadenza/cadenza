@@ -2,8 +2,6 @@ sourcesdir = lib/monodoc/sources
 
 ASSEMBLIES = $(mrdir)/Mono.Rocks.dll
 
-UPDATER = $(MONODOCER) -overrides -pretty -path:doc/en
-
 .PHONY: assemble clean doc doc-install edit html update update-delete
 
 doc: assemble html $(mrdir)/Mono.Rocks.xml
@@ -49,7 +47,8 @@ $(sourcesdir)/mono-rocks-docs.zip $(sourcesdir)/mono-rocks-docs.tree: $(DOCUMENT
 doc-update: $(addprefix $(srcdir)/, $(ASSEMBLIES)) $(DOC_EXAMPLES_SRC) $(DOC_EXAMPLES_OUTPUT)
 	sed -i -f $(srcdir)/doc/fixup.sed doc/mono-rocks.xml
 	for a in $(ASSEMBLIES) ; do \
-		$(UPDATER) -importslashdoc:$(srcdir)/doc/mono-rocks.xml -assembly:$(srcdir)/$$a ; \
+		mdoc update $(MDOC_OPTIONS) -i $(srcdir)/doc/mono-rocks.xml \
+			-o doc/en $(srcdir)/$$a ; \
 	done
 
 doc-update-delete: $(addprefix $(srcdir)/, $(ASSEMBLIES)) $(DOC_EXAMPLES_SRC) $(DOC_EXAMPLES_OUTPUT)

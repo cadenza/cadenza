@@ -27,6 +27,7 @@
 //
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using NUnit.Framework;
@@ -34,6 +35,17 @@ using NUnit.Framework;
 using Mono.Rocks;
 
 namespace Mono.Rocks.Tests {
+
+	class TreeNode<T>
+	{
+		public TreeNode ()
+		{
+			Children = new TreeNode<T> [0];
+		}
+
+		public T Value;
+		public IEnumerable<TreeNode<T>> Children;
+	}
 
 	[TestFixture]
 	public class ObjectTest : BaseRocksFixture {
@@ -116,6 +128,94 @@ namespace Mono.Rocks.Tests {
 			string                s = "foo";
 			Func<string, string>  f = null;
 			s.With (f);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void TraverseBreadthFirstWithParent_SelfNull ()
+		{
+			TreeNode<int> root = null;
+			root.TraverseBreadthFirstWithParent (x => x.Value, x => x.Children);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void TraverseBreadthFirstWithParent_ValueSelectorNull ()
+		{
+			var root = new TreeNode<int> ();
+			Func<TreeNode<int>, int> valueSelector = null;
+			root.TraverseBreadthFirstWithParent (valueSelector, x => x.Children);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void TraverseBreadthFirstWithParent_ChildrenSelectorNull ()
+		{
+			var root = new TreeNode<int> ();
+			Func<TreeNode<int>, IEnumerable<TreeNode<int>>> childrenSelector = null;
+			root.TraverseBreadthFirstWithParent (x => x.Value, childrenSelector);
+		}
+
+		[Test]
+		public void TraverseBreadthFirst ()
+		{
+			#region TraverseBreadthFirst
+			TreeNode<int> root = new TreeNode<int> {
+				Value = 1, Children = new [] {
+					new TreeNode<int> { Value = 2 },
+					new TreeNode<int> {
+						Value = 3, Children = new [] {
+							new TreeNode<int> { Value = 5 },
+						}
+					},
+					new TreeNode<int> { Value = 4 },
+				}
+			};
+			IEnumerable<int> values = root
+				.TraverseBreadthFirst (x => x.Value, x => x.Children);
+			AssertAreSame (new[]{ 1, 2, 3, 4, 5 }, values);
+			#endregion
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void TraverseDepthFirstWithParent_SelfNull ()
+		{
+			TreeNode<int> root = null;
+			root.TraverseDepthFirstWithParent (x => x.Value, x => x.Children);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void TraverseDepthFirstWithParentWithParent_ValueSelectorNull ()
+		{
+			var root = new TreeNode<int> ();
+			Func<TreeNode<int>, int> valueSelector = null;
+			root.TraverseDepthFirstWithParent (valueSelector, x => x.Children);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void TraverseDepthFirstWithParentWithParent_ChildrenSelectorNull ()
+		{
+			var root = new TreeNode<int> ();
+			Func<TreeNode<int>, IEnumerable<TreeNode<int>>> childrenSelector = null;
+			root.TraverseDepthFirstWithParent (x => x.Value, childrenSelector);
+		}
+
+		[Test]
+		public void TraverseDepthFirst ()
+		{
+			#region TraverseDepthFirst
+			TreeNode<int> root = new TreeNode<int> {
+				Value = 1, Children = new [] {
+					new TreeNode<int> { Value = 2 },
+					new TreeNode<int> {
+						Value = 3, Children = new [] {
+							new TreeNode<int> { Value = 5 },
+						}
+					},
+					new TreeNode<int> { Value = 4 },
+				}
+			};
+			IEnumerable<int> values = root
+				.TraverseDepthFirst (x => x.Value, x => x.Children);
+			AssertAreSame (new[]{ 1, 2, 3, 5, 4 }, values);
+			#endregion
 		}
 
 		[Test]

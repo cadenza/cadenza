@@ -4488,6 +4488,66 @@
       <Targets>
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
+      <Member MemberName="SelectBreadthFirst&lt;TSource,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; SelectBreadthFirst&lt;TSource,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="valueSelector" Type="System.Func&lt;TSource,TResult&gt;" />
+          <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <typeparam name="TResult">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="valueSelector">To be added.</param>
+          <param name="childrenSelector">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SelectBreadthFirst``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
+      <Member MemberName="SelectDepthFirst&lt;TSource,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; SelectDepthFirst&lt;TSource,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="valueSelector" Type="System.Func&lt;TSource,TResult&gt;" />
+          <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <typeparam name="TResult">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="valueSelector">To be added.</param>
+          <param name="childrenSelector">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SelectDepthFirst``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
       <Member MemberName="SelectFromEach&lt;T1,T2,TResult&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; SelectFromEach&lt;T1,T2,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, Func&lt;T1,T2,TResult&gt; selector);" />
         <MemberType>ExtensionMethod</MemberType>
@@ -6171,6 +6231,126 @@
         </summary>
         </Docs>
         <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.ToMaybe``1(``0)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="System.Object" />
+      </Targets>
+      <Member MemberName="TraverseBreadthFirst&lt;TSource,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; TraverseBreadthFirst&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="TSource" RefType="this" />
+          <Parameter Name="valueSelector" Type="System.Func&lt;TSource,TResult&gt;" />
+          <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <typeparam name="TResult">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="valueSelector">To be added.</param>
+          <param name="childrenSelector">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.TraverseBreadthFirst``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="System.Object" />
+      </Targets>
+      <Member MemberName="TraverseBreadthFirstWithParent&lt;TSource,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt; TraverseBreadthFirstWithParent&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="TSource" RefType="this" />
+          <Parameter Name="valueSelector" Type="System.Func&lt;TSource,TResult&gt;" />
+          <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <typeparam name="TResult">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="valueSelector">To be added.</param>
+          <param name="childrenSelector">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.TraverseBreadthFirstWithParent``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="System.Object" />
+      </Targets>
+      <Member MemberName="TraverseDepthFirst&lt;TSource,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; TraverseDepthFirst&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="TSource" RefType="this" />
+          <Parameter Name="valueSelector" Type="System.Func&lt;TSource,TResult&gt;" />
+          <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <typeparam name="TResult">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="valueSelector">To be added.</param>
+          <param name="childrenSelector">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.TraverseDepthFirst``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="System.Object" />
+      </Targets>
+      <Member MemberName="TraverseDepthFirstWithParent&lt;TSource,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt; TraverseDepthFirstWithParent&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="TSource" RefType="this" />
+          <Parameter Name="valueSelector" Type="System.Func&lt;TSource,TResult&gt;" />
+          <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <typeparam name="TResult">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="valueSelector">To be added.</param>
+          <param name="childrenSelector">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.TraverseDepthFirstWithParent``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>

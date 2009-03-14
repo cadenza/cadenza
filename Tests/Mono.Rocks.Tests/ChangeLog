@@ -1,3 +1,13 @@
+2009-03-14  Jonathan Pryor  <jpryor@novell.com>
+
+	* IEnumerableTest.cs: Add tests for .SelectBreadthFirst(),
+	  .SelectDepthFirst().
+	* TextValueReaderTest.cs: Disable Read_UnsupportedT, as it currently
+	  crashes mono; see bnc#485377.
+	* ObjectTest.cs: Add tests for TraverseBreadthFirst(),
+	  TraverseBreadthFirstWithParent(), TraverseDepthFirst(),
+	  TraverseDepthFirstWithParent().
+
 2009-01-04  Jonathan Pryor  <jpryor@novell.com>
 
 	* IEnumerableTest.cs: bnc#400716 has been fixed in r122358, so enable 

@@ -3,8 +3,10 @@
 //
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
+//   leppie  (http://xacc.wordpress.com/)
 //
-// Copyright (c) 2008 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2008-2009 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2009 leppie (http://xacc.wordpress.com/)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -26,6 +28,8 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace Mono.Rocks {
@@ -60,6 +64,111 @@ namespace Mono.Rocks {
 				return Maybe<T>.Nothing;
 			return new Maybe<T> (self);
 		}
+
+		#region Tree Traversal Methods
+
+		/*
+		 * Tree Traversal Methods courtesy of:
+		 * http://xacc.wordpress.com/2009/03/05/tree-traversal-extension-methods/
+		 */
+
+		public static IEnumerable<TResult> TraverseBreadthFirst<TSource, TResult>(
+				this TSource self,
+				Func<TSource, TResult> valueSelector,
+				Func<TSource, IEnumerable<TSource>> childrenSelector)
+		{
+			return self.TraverseBreadthFirstWithParent (valueSelector, childrenSelector)
+				.Select(x => x.Value);
+		}
+
+		public static IEnumerable<KeyValuePair<TSource, TResult>> TraverseBreadthFirstWithParent<TSource, TResult>(
+				this TSource self,
+				Func<TSource, TResult> valueSelector,
+				Func<TSource, IEnumerable<TSource>> childrenSelector)
+		{
+			Check.Self (self);
+			Check.ValueSelector (valueSelector);
+			Check.ChildrenSelector (childrenSelector);
+			
+			return CreateTraverseBreadthFirstWithParentIterator (self, valueSelector, childrenSelector);
+		}
+
+		static IEnumerable<KeyValuePair<TSource, TResult>> CreateTraverseBreadthFirstWithParentIterator<TSource, TResult>(
+				this TSource self,
+				Func<TSource, TResult> valueSelector,
+				Func<TSource, IEnumerable<TSource>> childrenSelector)
+		{
+			yield return new KeyValuePair<TSource, TResult> (default (TSource), valueSelector (self));
+
+			var children = new List<TSource>();
+
+			foreach (var c in childrenSelector (self))
+			{
+				children.Add (c);
+				yield return new KeyValuePair<TSource, TResult>(self, valueSelector (c));
+			}
+
+			while (children.Count > 0)
+			{
+				foreach (var e in new List<TSource>(children))
+				{
+					children.Remove (e);
+					foreach (var c in childrenSelector (e))
+					{
+						children.Add (c);
+						yield return new KeyValuePair<TSource, TResult>(e, valueSelector (c));
+					}
+				}
+			}
+		}
+
+		public static IEnumerable<TResult> TraverseDepthFirst<TSource, TResult>(
+				this TSource self,
+				Func<TSource, TResult> valueSelector,
+				Func<TSource, IEnumerable<TSource>> childrenSelector)
+		{
+			return self.TraverseDepthFirstWithParent (valueSelector, childrenSelector)
+				.Select(x => x.Value);
+		}
+
+		public static IEnumerable<KeyValuePair<TSource, TResult>> TraverseDepthFirstWithParent<TSource, TResult>(
+				this TSource self,
+				Func<TSource, TResult> valueSelector,
+				Func<TSource, IEnumerable<TSource>> childrenSelector)
+		{
+			return self.TraverseDepthFirstWithParent (default (TSource), valueSelector, childrenSelector);
+		}
+
+		static IEnumerable<KeyValuePair<TSource, TResult>> TraverseDepthFirstWithParent<TSource, TResult>(
+				this TSource self,
+				TSource parent,
+				Func<TSource, TResult> valueSelector,
+				Func<TSource, IEnumerable<TSource>> childrenSelector)
+		{
+			Check.Self (self);
+			Check.ValueSelector (valueSelector);
+			Check.ChildrenSelector (childrenSelector);
+
+			return CreateTraverseDepthFirstWithParentIterator (self, parent, valueSelector, childrenSelector);
+		}
+
+		static IEnumerable<KeyValuePair<TSource, TResult>> CreateTraverseDepthFirstWithParentIterator<TSource, TResult>(
+				this TSource self,
+				TSource parent,
+				Func<TSource, TResult> valueSelector,
+				Func<TSource, IEnumerable<TSource>> childrenSelector)
+		{
+			yield return new KeyValuePair<TSource, TResult>(parent, valueSelector (self));
+
+			foreach (var c in childrenSelector (self))
+			{
+				foreach (var item in c.TraverseDepthFirstWithParent(c, valueSelector, childrenSelector))
+				{
+					yield return item;
+				}
+			}
+		}
+		#endregion
 
 		public static TResult With<TSource, TResult> (this TSource self, Func<TSource, TResult> selector)
 		{
