@@ -30,6 +30,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="WriteTo">
@@ -50,6 +51,7 @@
         <param name="destination">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Destination(System.Object)" /></exception>
       </Docs>
     </Member>
   </Members>

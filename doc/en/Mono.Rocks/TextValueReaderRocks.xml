@@ -36,6 +36,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
   </Members>

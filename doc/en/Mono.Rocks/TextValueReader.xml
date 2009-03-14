@@ -33,6 +33,7 @@
         <param name="values">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.#ctor(System.Collections.Generic.IEnumerable{System.String})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -67,6 +68,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -86,6 +88,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -105,6 +108,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -124,6 +128,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -143,6 +148,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -162,6 +168,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -181,6 +188,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -200,6 +208,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -219,6 +228,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -243,6 +253,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -262,6 +273,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -281,6 +293,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -305,6 +318,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -329,6 +343,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -353,6 +368,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -374,6 +390,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -395,6 +412,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -416,6 +434,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -437,6 +456,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -458,6 +478,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -479,6 +500,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -500,6 +522,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -526,6 +549,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -547,6 +571,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -573,6 +598,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -599,6 +625,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -625,6 +652,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
   </Members>

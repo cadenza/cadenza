@@ -56,6 +56,7 @@
             <see cref="M:System.IO.TextReader.ReadLine" />.
           </block>
         </remarks>
+        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" /></exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.
         </exception>
@@ -114,6 +115,7 @@
             <see cref="M:System.IO.TextReader.ReadLine" />.
           </block>
         </remarks>
+        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" /></exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.
         </exception>
@@ -387,6 +389,7 @@ Assert.AreEqual ("3", r.Words ().First ());
 Assert.AreEqual ("4", r.Words ().First ());
 </code>
         </remarks>
+        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Categories(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Categories(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" /></exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />, or
           <paramref name="categories" /> is <see langword="null" />.

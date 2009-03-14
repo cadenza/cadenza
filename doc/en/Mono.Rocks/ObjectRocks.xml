@@ -248,6 +248,7 @@ Assert.AreEqual (-1, "*default*".Match (m));
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.ValueSelector(System.Object)" />, <see cref="M:Mono.Rocks.Check.ChildrenSelector(System.Object)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="TraverseBreadthFirstWithParent&lt;TSource,TResult&gt;">
@@ -277,6 +278,7 @@ Assert.AreEqual (-1, "*default*".Match (m));
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.ValueSelector(System.Object)" />, <see cref="M:Mono.Rocks.Check.ChildrenSelector(System.Object)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="TraverseDepthFirst&lt;TSource,TResult&gt;">
@@ -306,6 +308,7 @@ Assert.AreEqual (-1, "*default*".Match (m));
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.ValueSelector(System.Object)" />, <see cref="M:Mono.Rocks.Check.ChildrenSelector(System.Object)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="TraverseDepthFirstWithParent&lt;TSource,TResult&gt;">
@@ -335,6 +338,7 @@ Assert.AreEqual (-1, "*default*".Match (m));
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.ValueSelector(System.Object)" />, <see cref="M:Mono.Rocks.Check.ChildrenSelector(System.Object)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="With&lt;TSource,TResult&gt;">

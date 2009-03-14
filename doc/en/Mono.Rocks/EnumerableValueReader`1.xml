@@ -37,6 +37,7 @@
         <param name="values">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.#ctor(System.Collections.Generic.IEnumerable{`0})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -71,6 +72,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -90,6 +94,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -109,6 +116,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -128,6 +138,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -147,6 +160,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -166,6 +182,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -185,6 +204,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -204,6 +226,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -223,6 +248,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -247,6 +275,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -266,6 +297,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -285,6 +319,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -309,6 +346,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -333,6 +373,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -357,6 +400,9 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.EnumerableValueReader`1.Item``1" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
   </Members>

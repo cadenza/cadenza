@@ -98,6 +98,8 @@ Assert.AreEqual (42, n.Value);
         </remarks>
         <altmember cref="M:System.ComponentModel.TypeConverter.CanConvertFrom(System.Type)" />
         <altmember cref="M:System.ComponentModel.TypeConverter.ConvertFromString(System.String)" />
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="TryParse&lt;TSource,TResult&gt;">
@@ -123,6 +125,8 @@ Assert.AreEqual (42, n.Value);
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="When&lt;T&gt;">

@@ -87,6 +87,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Value(System.Object)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
@@ -457,6 +458,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Value(System.Object)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Write">

@@ -112,6 +112,7 @@
             for conversions.
             </para>
         </remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Either`3.A(`0)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="B">
@@ -151,6 +152,7 @@
             for conversions.
             </para>
         </remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Either`3.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="C">
@@ -190,6 +192,7 @@
             for conversions.
             </para>
         </remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Either`3.C(`2)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Equals">

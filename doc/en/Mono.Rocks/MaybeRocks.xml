@@ -105,6 +105,8 @@ Assert.AreEqual (2.Just (),
 </code>
         </remarks>
         <altmember cref="M:Mono.Rocks.ObjectRocks.ToMaybe``1(``0)" />
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Selector(System.Object)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.Maybe`1.get_Value" /></exception>
       </Docs>
     </Member>
     <Member MemberName="SelectMany&lt;TSource,TCollection,TResult&gt;">
@@ -218,6 +220,8 @@ Assert.AreEqual (9.Just (),
 </code>
         </remarks>
         <altmember cref="M:Mono.Rocks.ObjectRocks.ToMaybe``1(``0)" />
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Selector(System.Object)" />, <see cref="M:Mono.Rocks.Check.ResultSelector(System.Object)" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Mono.Rocks.Maybe`1.get_Value" />, <see cref="M:Mono.Rocks.Maybe`1.get_Value" />, <see cref="M:Mono.Rocks.Maybe`1.get_Value" /></exception>
       </Docs>
     </Member>
   </Members>
