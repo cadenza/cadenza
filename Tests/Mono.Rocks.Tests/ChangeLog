@@ -1,3 +1,8 @@
+2009-03-21  Jonathan Pryor  <jpryor@novell.com>
+
+	* TextValueReaderTest.cs: Enable Read_UnsupportedT(), as bnc#485377
+	  has been fixed.
+
 2009-03-14  Jonathan Pryor  <jpryor@novell.com>
 
 	* IEnumerableTest.cs: Add tests for .SelectBreadthFirst(),
