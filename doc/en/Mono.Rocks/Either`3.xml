@@ -112,7 +112,9 @@
             for conversions.
             </para>
         </remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Either`3.A(`0)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="value" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="B">
@@ -152,7 +154,9 @@
             for conversions.
             </para>
         </remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Either`3.B(`1)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="value" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="C">
@@ -192,7 +196,9 @@
             for conversions.
             </para>
         </remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Either`3.C(`2)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="value" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Equals">
@@ -334,6 +340,23 @@
             <typeparamref name="TResult" />.
             </para>
         </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="a" /> is <see langword="null" />.
+            </para>
+          <para>
+            -or-
+            </para>
+          <para>
+            <paramref name="b" /> is <see langword="null" />.
+            </para>
+          <para>
+            -or-
+            </para>
+          <para>
+            <paramref name="c" /> is <see langword="null" />.
+            </para>
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="GetHashCode">

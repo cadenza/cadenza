@@ -104,6 +104,9 @@ namespace Mono.Rocks {
 		///    for conversions.
 		///   </para>
 		/// </remarks>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="value" /> is <see langword="null" />.
+		/// </exception>
 		public static Either<T1, T2> A (T1 value)
 		{
 			if (value == null)
@@ -135,6 +138,9 @@ namespace Mono.Rocks {
 		///    for conversions.
 		///   </para>
 		/// </remarks>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="value" /> is <see langword="null" />.
+		/// </exception>
 		public static Either<T1, T2> B (T2 value)
 		{
 			if (value == null)
@@ -179,6 +185,17 @@ namespace Mono.Rocks {
 		///    <typeparamref name="TResult" />.
 		///   </para>
 		/// </remarks>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <para>
+		///    <paramref name="a" /> is <see langword="null" />.
+		///   </para>
+		///   <para>
+		///    -or-
+		///   </para>
+		///   <para>
+		///    <paramref name="b" /> is <see langword="null" />.
+		///   </para>
+		/// </exception>
 		public abstract TResult Fold<TResult> (Func<T1, TResult> a, Func<T2, TResult> b);
 
 		private static void CheckFolders<TResult> (Func<T1, TResult> a, Func<T2, TResult> b)
@@ -408,6 +425,9 @@ namespace Mono.Rocks {
 		///    for conversions.
 		///   </para>
 		/// </remarks>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="value" /> is <see langword="null" />.
+		/// </exception>
 		public static Either<T1, T2, T3> A (T1 value)
 		{
 			if (value == null)
@@ -439,6 +459,9 @@ namespace Mono.Rocks {
 		///    for conversions.
 		///   </para>
 		/// </remarks>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="value" /> is <see langword="null" />.
+		/// </exception>
 		public static Either<T1, T2, T3> B (T2 value)
 		{
 			if (value == null)
@@ -470,6 +493,9 @@ namespace Mono.Rocks {
 		///    for conversions.
 		///   </para>
 		/// </remarks>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="value" /> is <see langword="null" />.
+		/// </exception>
 		public static Either<T1, T2, T3> C (T3 value)
 		{
 			if (value == null)
@@ -520,6 +546,22 @@ namespace Mono.Rocks {
 		///    <typeparamref name="TResult" />.
 		///   </para>
 		/// </remarks>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <para>
+		///    <paramref name="a" /> is <see langword="null" />.
+		///   </para>
+		///   <para>
+		///    -or-
+		///   </para>
+		///   <para>
+		///    <paramref name="b" /> is <see langword="null" />.
+		///   </para><para>
+		///    -or-
+		///   </para>
+		///   <para>
+		///    <paramref name="c" /> is <see langword="null" />.
+		///   </para>
+		/// </exception>
 		public abstract TResult Fold<TResult> (Func<T1, TResult> a, Func<T2, TResult> b, Func<T3, TResult> c);
 
 		private static void CheckFolders<TResult> (Func<T1, TResult> a, Func<T2, TResult> b, Func<T3, TResult> c)
@@ -792,6 +834,9 @@ namespace Mono.Rocks {
 		///    for conversions.
 		///   </para>
 		/// </remarks>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="value" /> is <see langword="null" />.
+		/// </exception>
 		public static Either<T1, T2, T3, T4> A (T1 value)
 		{
 			if (value == null)
@@ -823,6 +868,9 @@ namespace Mono.Rocks {
 		///    for conversions.
 		///   </para>
 		/// </remarks>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="value" /> is <see langword="null" />.
+		/// </exception>
 		public static Either<T1, T2, T3, T4> B (T2 value)
 		{
 			if (value == null)
@@ -854,6 +902,9 @@ namespace Mono.Rocks {
 		///    for conversions.
 		///   </para>
 		/// </remarks>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="value" /> is <see langword="null" />.
+		/// </exception>
 		public static Either<T1, T2, T3, T4> C (T3 value)
 		{
 			if (value == null)
@@ -885,6 +936,9 @@ namespace Mono.Rocks {
 		///    for conversions.
 		///   </para>
 		/// </remarks>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="value" /> is <see langword="null" />.
+		/// </exception>
 		public static Either<T1, T2, T3, T4> D (T4 value)
 		{
 			if (value == null)
@@ -941,6 +995,27 @@ namespace Mono.Rocks {
 		///    <typeparamref name="TResult" />.
 		///   </para>
 		/// </remarks>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <para>
+		///    <paramref name="a" /> is <see langword="null" />.
+		///   </para>
+		///   <para>
+		///    -or-
+		///   </para>
+		///   <para>
+		///    <paramref name="b" /> is <see langword="null" />.
+		///   </para><para>
+		///    -or-
+		///   </para>
+		///   <para>
+		///    <paramref name="c" /> is <see langword="null" />.
+		///   </para><para>
+		///    -or-
+		///   </para>
+		///   <para>
+		///    <paramref name="d" /> is <see langword="null" />.
+		///   </para>
+		/// </exception>
 		public abstract TResult Fold<TResult> (Func<T1, TResult> a, Func<T2, TResult> b, Func<T3, TResult> c, Func<T4, TResult> d);
 
 		private static void CheckFolders<TResult> (Func<T1, TResult> a, Func<T2, TResult> b, Func<T3, TResult> c, Func<T4, TResult> d)

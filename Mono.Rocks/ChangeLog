@@ -1,5 +1,9 @@
 2009-03-14  Jonathan Pryor  <jpryor@novell.com>
 
+	* Eithers.cs: Flush (updates <exception/> XML comments).
+
+2009-03-14  Jonathan Pryor  <jpryor@novell.com>
+
 	* Check.cs: Add ChildrenSelector(), ValueSelector().
 	* IEnumerable.cs: Add SelectBreadthFirst(), SelectDepthFirst(), for
 	  dealing with tree structures.

@@ -135,6 +135,8 @@ holds a <typeparamref name="@{[ Generator::GetTypeParameter ($n, $i+1) ]}" /> va
  will invoke the @{[ Generator::Nth ($i+1) ]} delegate
  for conversions.
 </para>));
+				$g->XmlException("System.ArgumentNullException",
+					"<paramref name=\"value\" /> is <see langword=\"null\" />.");
 				$g->Method (
 					sub {
 						$g->Write ("public static Either<")
@@ -179,6 +181,16 @@ of the conversion delegate parameters.));
  convert the <typeparamref name="T1" /> into a 
  <typeparamref name="TResult" />.
 </para>));
+			my $ane_docs = "<para>\n" . 
+				" <paramref name=\"a\" /> is <see langword=\"null\" />.\n" . 
+				"</para>\n";
+			for (my $i = 1; $i < $n; ++$i) {
+				$ane_docs .= "<para>\n -or-\n</para>\n<para>\n " .
+					"<paramref name=\"" . get_creator ($i, 'a') . 
+					"\" /> is <see langword=\"null\" />.\n" . 
+					"</para>";
+			}
+			$g->XmlException ("System.ArgumentNullException", $ane_docs);
 			$g->Write ("public abstract TResult Fold<TResult> (");
 			$g->Write ("Func<")->TypeParameter ($n, 1)->Write (", TResult> ")
 				->Write (get_creator (0, 'a'));
