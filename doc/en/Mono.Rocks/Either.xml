@@ -17,6 +17,9 @@
       <see cref="T:Mono.Rocks.Either{TValue,Exception}" /> instances.
     </summary>
     <remarks>
+      Use the <see cref="M:Mono.Rocks.Either.TryParse" /> methods if it is
+      necessary to know why the value couldn't be parsed.  Otherwise, use the
+      <see cref="M:Mono.Rocks.Maybe.TryParse" /> methods.
     </remarks>
   </Docs>
   <Members>
@@ -54,6 +57,12 @@
           of type <typeparamref name="T" />.
         </returns>
         <remarks>
+          <para>
+            This method calls
+            <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, with
+            <see cref="T:System.String" /> as the 
+            <typeparamref name="TSource" /> type.
+          </para>
           <code lang="C#" src="../../Tests/Mono.Rocks.Tests/EitherTest.cs#TryParse">var v = Either.TryParse&lt;int&gt; ("3.14159");
 var e = v.Fold (i =&gt; null, i =&gt; i);
 Assert.IsNotNull (e);
@@ -113,6 +122,35 @@ Assert.AreEqual (42, n);
           of type <typeparamref name="TResult" />.
         </returns>
         <remarks>
+          <para>
+            <c>TryParse</c> attempts to use a variety of mechanisms to convert
+            <paramref name="value" /> into a <typeparamref name="TResult" />,
+            attempting, in order:
+          </para>
+          <list type="number">
+            <item>
+              <term>
+                <c>TypeDescriptor.GetConverter(typeof(TResult)).ConvertFrom(value)</c>
+              </term>
+            </item>
+            <item>
+              <term>
+                <c>TypeDescriptor.GetConverter(typeof(TSource)).ConvertTo(value, typeof(TResult))</c>
+              </term>
+            </item>
+            <item>
+              <term>
+                <c>Convert.ChangeType(value, typeof(TResult))</c>
+              </term>
+            </item>
+          </list>
+          <para>
+            If none of these methods are able to convert the value, then the returned
+            <see cref="T:Mono.Rocks.Either{TSource,System.Exception}" /> will contain
+            a <see cref="T:System.NotSupportedException" />, and
+            <see cref="P:System.Exception.InnerException" /> will contain the original
+            exception.
+          </para>
           <code lang="C#" src="../../Tests/Mono.Rocks.Tests/EitherTest.cs#TryParse2">Either&lt;DateTime, Exception&gt; a = Either.TryParse&lt;int, DateTime&gt; (42);
 e = a.Fold (i =&gt; null, i =&gt; i);
 Assert.IsNotNull (e);
@@ -128,6 +166,10 @@ var n3 = c.Fold (i =&gt; i, i =&gt; -1);
 Assert.AreEqual (CustomConvertible.Int32, n3);
 </code>
         </remarks>
+        <altmember cref="M:System.Convert.ChangeType(System.Object,System.Type)" />
+        <altmember cref="M:System.ComponentModel.TypeConverter.ConvertFrom(System.Object)" />
+        <altmember cref="M:System.ComponentModel.TypeConverter.ConvertTo(System.Object,System.Type)" />
+        <altmember cref="M:System.ComponentModel.TypeDescriptor.GetConverter(System.Type)" />
       </Docs>
     </Member>
   </Members>

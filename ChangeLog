@@ -1,5 +1,9 @@
 2009-03-20  Jonathan Pryor  <jpryor@novell.com>
 
+	* doc/en/**: Flush (Either.TryParse & Maybe.TryParse docs).
+
+2009-03-20  Jonathan Pryor  <jpryor@novell.com>
+
 	* doc/en/Mono.Rocks/Either.xml: Flush.
 
 2009-03-20  Jonathan Pryor  <jpryor@novell.com>

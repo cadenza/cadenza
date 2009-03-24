@@ -17,6 +17,9 @@
       <see cref="T:Mono.Rocks.Maybe{T}" /> instances.
     </summary>
     <remarks>
+      Use the <see cref="M:Mono.Rocks.Maybe.TryParse" /> methods if it is
+      not necessary to know why the value couldn't be parsed.  Otherwise, use the
+      <see cref="M:Mono.Rocks.Either.TryParse" /> methods.
     </remarks>
   </Docs>
   <Members>
@@ -45,7 +48,7 @@
           an instance of type <typeparamref name="T" />.
         </param>
         <summary>
-          Converts the <see cref="T:System.String" /><paramref name="value" />
+          Converts a <see cref="T:System.String" />
           into an instance of type <typeparamref name="T" />.
         </summary>
         <returns>
@@ -60,22 +63,10 @@
         </returns>
         <remarks>
           <para>
-            <c>TryParse</c> uses 
-            <see cref="M:System.ComponentModel.TypeConverter.ConvertFromString(System.String)" />
-            to convert <paramref name="value" /> into a value of type 
-            <typeparamref name="T" />.  If <paramref name="value" /> could not
-            be converted (e.g.
-            <see cref="M:System.ComponentModel.TypeConverter.CanConvertFrom(System.Type)" />
-            returned <see langword="false" /> or
-            <see cref="M:System.ComponentModel.TypeConverter.ConvertFromString(System.String)" />
-            threw an exception), then 
-            <see cref="F:Mono.Rocks.Maybe{T}.Nothing" /> is returned;
-            otherwise, a new <see cref="T:Mono.Rocks.Maybe{T}" /> will be
-            created, 
-            <see cref="P:Mono.Rocks.Maybe{T}.HasValue" /> will be 
-            <see langword="true" />, and 
-            <see cref="P:Mono.Rocks.Maybe{T}.Value" /> will contain the
-            converted value.
+            <c>TryParse</c> uses
+            <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" /> to convert
+            the string <paramref name="value" /> into an instance of type
+            <typeparamref name="T" />.
           </para>
           <code lang="C#" src="../../Tests/Mono.Rocks.Tests/MaybeTest.cs#TryParse">Maybe&lt;int&gt; n;
 
@@ -96,10 +87,6 @@ Assert.IsTrue (n.HasValue);
 Assert.AreEqual (42, n.Value);
 </code>
         </remarks>
-        <altmember cref="M:System.ComponentModel.TypeConverter.CanConvertFrom(System.Type)" />
-        <altmember cref="M:System.ComponentModel.TypeConverter.ConvertFromString(System.String)" />
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
-        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" />, <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="TryParse&lt;TSource,TResult&gt;">
@@ -119,14 +106,46 @@ Assert.AreEqual (42, n.Value);
         <Parameter Name="value" Type="TSource" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <typeparam name="TResult">To be added.</typeparam>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
-        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" />, <see cref="M:Mono.Rocks.Either`2.B(`1)" /></exception>
+        <typeparam name="TSource">
+          The type to convert from.
+        </typeparam>
+        <typeparam name="TResult">
+          The type to convert to.
+        </typeparam>
+        <param name="value">
+          A <typeparamref name="TSource" /> containing the value to parse into
+          an instance of type <typeparamref name="TResult" />.
+        </param>
+        <summary>
+          Converts the <paramref name="value" /> of type
+          <typeparamref name="TSource" /> into an instance of type 
+          <typeparamref name="TResult" />.
+        </summary>
+        <returns>
+          A <see cref="T:Mono.Rocks.Maybe{TResult}" />.  If <paramref name="value" />
+          could be converted into a value of type <typeparamref name="TResult" />,
+          then <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" /> will be
+          <see langword="true" /> and 
+          <see cref="P:Mono.Rocks.Maybe{TResult}.Value" /> will contain the
+          converted value; otherwise, 
+          <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" /> will be
+          <see langword="false" />.
+        </returns>
+        <remarks>
+          <para>
+            <c>TryParse</c> uses
+            <see cref="M:Mono.Rocks.Either.TryParse``2(``0)" /> to convert
+            <paramref name="value" /> into an instance of type
+            <typeparamref name="TResult" />.
+          </para>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/MaybeTest.cs#TryParse2">Maybe&lt;string&gt; a = Maybe.TryParse&lt;int, string&gt; (42);
+Assert.IsTrue (a.HasValue);
+Assert.AreEqual ("42", a.Value);
+
+Maybe&lt;DateTime&gt; b = Maybe.TryParse&lt;int, DateTime&gt; (42);
+Assert.IsFalse (b.HasValue);
+</code>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="When&lt;T&gt;">
