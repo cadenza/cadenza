@@ -424,6 +424,8 @@ sub create_curry_doc {
 	$g->XmlReturns (
 qq(Returns a <see cref="T:$tret"/> which, when invoked, will
 invoke <paramref name="self"/> along with the provided fixed parameters.));
+	$g->XmlException ("System.ArgumentNullException",
+		qq(<paramref name="self" /> is <see langword="null" />.));
 	# $g->XmlRemarks ("");
 }
 
@@ -557,7 +559,7 @@ sub create_tcurry_doc {
 	my ($g, $ntypes, $tself, @trets) = @_;
 
 	for (my $i = 1; $i <= $ntypes; ++$i) {
-		$g->XmlTypeparam (Generator::GetTypeParameter ($ntypes+1, $i), 
+		$g->XmlTypeparam (Generator::GetTypeParameter ($ntypes, $i), 
 			"A <see cref=\"T:$tself\" /> parameter type.");
 	}
 	if ($tself =~ m/Func/) {

@@ -667,7 +667,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T&gt;">
@@ -704,7 +706,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T,TResult&gt;">
@@ -794,7 +798,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T,TResult&gt;">
@@ -835,7 +841,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2&gt;">
@@ -927,7 +935,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2&gt;">
@@ -968,7 +978,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2&gt;">
@@ -1009,7 +1021,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2&gt;">
@@ -1054,7 +1068,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3&gt;">
@@ -1155,7 +1171,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3&gt;">
@@ -1200,7 +1218,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3&gt;">
@@ -1245,7 +1265,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3&gt;">
@@ -1290,7 +1312,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3&gt;">
@@ -1339,7 +1363,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3&gt;">
@@ -1392,7 +1418,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
@@ -1493,7 +1521,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
@@ -1538,7 +1568,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
@@ -1583,7 +1615,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
@@ -1632,7 +1666,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
@@ -1742,7 +1778,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
@@ -1791,7 +1829,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
@@ -1840,7 +1880,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
@@ -1889,7 +1931,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
@@ -1938,7 +1982,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
@@ -1991,7 +2037,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
@@ -2048,7 +2096,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
@@ -2109,7 +2159,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
@@ -2219,7 +2271,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
@@ -2268,7 +2322,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
@@ -2317,7 +2373,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
@@ -2366,7 +2424,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
@@ -2419,7 +2479,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
@@ -2476,7 +2538,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
@@ -2595,7 +2659,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
@@ -2648,7 +2714,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
@@ -2701,7 +2769,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
@@ -2754,7 +2824,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
@@ -2807,7 +2879,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
@@ -2864,7 +2938,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
@@ -2925,7 +3001,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
@@ -2990,7 +3068,9 @@
             invoke <paramref name="self" /> along with the provided fixed parameters.
             </returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+            </exception>
       </Docs>
     </Member>
     <Member MemberName="Timings">

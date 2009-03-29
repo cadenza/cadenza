@@ -111,6 +111,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action
 			Curry<T> (this Action<T> self, T value)
 		{
@@ -135,6 +138,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action
 			Curry<T> (this Action<T> self, Tuple<T> values)
 		{
@@ -161,6 +167,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<TResult>
 			Curry<T, TResult> (this Func<T, TResult> self, T value)
 		{
@@ -188,6 +197,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<TResult>
 			Curry<T, TResult> (this Func<T, TResult> self, Tuple<T> values)
 		{
@@ -217,6 +229,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action
 			Curry<T1, T2> (this Action<T1, T2> self, T1 value1, T2 value2)
 		{
@@ -244,6 +259,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action
 			Curry<T1, T2> (this Action<T1, T2> self, Tuple<T1, T2> values)
 		{
@@ -276,6 +294,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<TResult>
 			Curry<T1, T2, TResult> (this Func<T1, T2, TResult> self, T1 value1, T2 value2)
 		{
@@ -306,6 +327,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<TResult>
 			Curry<T1, T2, TResult> (this Func<T1, T2, TResult> self, Tuple<T1, T2> values)
 		{
@@ -332,6 +356,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action{T2}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action<T2>
 			Curry<T1, T2> (this Action<T1, T2> self, T1 value1)
 		{
@@ -359,6 +386,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action{T2}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action<T2>
 			Curry<T1, T2> (this Action<T1, T2> self, Tuple<T1> values)
 		{
@@ -388,6 +418,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{T2, TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<T2, TResult>
 			Curry<T1, T2, TResult> (this Func<T1, T2, TResult> self, T1 value1)
 		{
@@ -418,6 +451,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{T2, TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<T2, TResult>
 			Curry<T1, T2, TResult> (this Func<T1, T2, TResult> self, Tuple<T1> values)
 		{
@@ -453,6 +489,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action
 			Curry<T1, T2, T3> (this Action<T1, T2, T3> self, T1 value1, T2 value2, T3 value3)
 		{
@@ -483,6 +522,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action
 			Curry<T1, T2, T3> (this Action<T1, T2, T3> self, Tuple<T1, T2, T3> values)
 		{
@@ -521,6 +563,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<TResult>
 			Curry<T1, T2, T3, TResult> (this Func<T1, T2, T3, TResult> self, T1 value1, T2 value2, T3 value3)
 		{
@@ -554,6 +599,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<TResult>
 			Curry<T1, T2, T3, TResult> (this Func<T1, T2, T3, TResult> self, Tuple<T1, T2, T3> values)
 		{
@@ -586,6 +634,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action{T3}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action<T3>
 			Curry<T1, T2, T3> (this Action<T1, T2, T3> self, T1 value1, T2 value2)
 		{
@@ -616,6 +667,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action{T3}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action<T3>
 			Curry<T1, T2, T3> (this Action<T1, T2, T3> self, Tuple<T1, T2> values)
 		{
@@ -651,6 +705,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{T3, TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<T3, TResult>
 			Curry<T1, T2, T3, TResult> (this Func<T1, T2, T3, TResult> self, T1 value1, T2 value2)
 		{
@@ -684,6 +741,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{T3, TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<T3, TResult>
 			Curry<T1, T2, T3, TResult> (this Func<T1, T2, T3, TResult> self, Tuple<T1, T2> values)
 		{
@@ -713,6 +773,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action{T2, T3}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action<T2, T3>
 			Curry<T1, T2, T3> (this Action<T1, T2, T3> self, T1 value1)
 		{
@@ -743,6 +806,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action{T2, T3}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action<T2, T3>
 			Curry<T1, T2, T3> (this Action<T1, T2, T3> self, Tuple<T1> values)
 		{
@@ -775,6 +841,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{T2, T3, TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<T2, T3, TResult>
 			Curry<T1, T2, T3, TResult> (this Func<T1, T2, T3, TResult> self, T1 value1)
 		{
@@ -808,6 +877,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{T2, T3, TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<T2, T3, TResult>
 			Curry<T1, T2, T3, TResult> (this Func<T1, T2, T3, TResult> self, Tuple<T1> values)
 		{
@@ -849,6 +921,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action
 			Curry<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, T1 value1, T2 value2, T3 value3, T4 value4)
 		{
@@ -882,6 +957,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action
 			Curry<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, Tuple<T1, T2, T3, T4> values)
 		{
@@ -926,6 +1004,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<TResult>
 			Curry<T1, T2, T3, T4, TResult> (this Func<T1, T2, T3, T4, TResult> self, T1 value1, T2 value2, T3 value3, T4 value4)
 		{
@@ -962,6 +1043,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<TResult>
 			Curry<T1, T2, T3, T4, TResult> (this Func<T1, T2, T3, T4, TResult> self, Tuple<T1, T2, T3, T4> values)
 		{
@@ -1000,6 +1084,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action{T4}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action<T4>
 			Curry<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, T1 value1, T2 value2, T3 value3)
 		{
@@ -1033,6 +1120,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action{T4}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action<T4>
 			Curry<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, Tuple<T1, T2, T3> values)
 		{
@@ -1074,6 +1164,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{T4, TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<T4, TResult>
 			Curry<T1, T2, T3, T4, TResult> (this Func<T1, T2, T3, T4, TResult> self, T1 value1, T2 value2, T3 value3)
 		{
@@ -1110,6 +1203,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{T4, TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<T4, TResult>
 			Curry<T1, T2, T3, T4, TResult> (this Func<T1, T2, T3, T4, TResult> self, Tuple<T1, T2, T3> values)
 		{
@@ -1145,6 +1241,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action{T3, T4}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action<T3, T4>
 			Curry<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, T1 value1, T2 value2)
 		{
@@ -1178,6 +1277,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action{T3, T4}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action<T3, T4>
 			Curry<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, Tuple<T1, T2> values)
 		{
@@ -1216,6 +1318,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{T3, T4, TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<T3, T4, TResult>
 			Curry<T1, T2, T3, T4, TResult> (this Func<T1, T2, T3, T4, TResult> self, T1 value1, T2 value2)
 		{
@@ -1252,6 +1357,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{T3, T4, TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<T3, T4, TResult>
 			Curry<T1, T2, T3, T4, TResult> (this Func<T1, T2, T3, T4, TResult> self, Tuple<T1, T2> values)
 		{
@@ -1284,6 +1392,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action{T2, T3, T4}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action<T2, T3, T4>
 			Curry<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, T1 value1)
 		{
@@ -1317,6 +1428,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Action{T2, T3, T4}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Action<T2, T3, T4>
 			Curry<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, Tuple<T1> values)
 		{
@@ -1352,6 +1466,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{T2, T3, T4, TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<T2, T3, T4, TResult>
 			Curry<T1, T2, T3, T4, TResult> (this Func<T1, T2, T3, T4, TResult> self, T1 value1)
 		{
@@ -1388,6 +1505,9 @@ namespace Mono.Rocks {
 		///   Returns a <see cref="T:System.Func{T2, T3, T4, TResult}"/> which, when invoked, will
 		///   invoke <paramref name="self"/> along with the provided fixed parameters.
 		/// </returns>
+		/// <exception cref="T:System.ArgumentNullException">
+		///   <paramref name="self" /> is <see langword="null" />.
+		/// </exception>
 		public static Func<T2, T3, T4, TResult>
 			Curry<T1, T2, T3, T4, TResult> (this Func<T1, T2, T3, T4, TResult> self, Tuple<T1> values)
 		{
@@ -1596,7 +1716,7 @@ namespace Mono.Rocks {
 			return (value) => self (composer (value));
 		}
 
-		/// <typeparam name="T1">
+		/// <typeparam name="T">
 		///   A <see cref="T:System.Action{T}" /> parameter type.
 		/// </typeparam>
 		/// <param name="self">
@@ -1632,7 +1752,7 @@ namespace Mono.Rocks {
 			return self;
 		}
 
-		/// <typeparam name="T1">
+		/// <typeparam name="T">
 		///   A <see cref="T:System.Func{T,TResult}" /> parameter type.
 		/// </typeparam>
 		/// <typeparam name="TResult">
