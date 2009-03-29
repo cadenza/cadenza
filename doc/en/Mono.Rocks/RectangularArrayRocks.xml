@@ -9,8 +9,10 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Extension methods on rectangular arrays.</summary>
+    <remarks>
+      A rectangular array is a type like <c>double[,]</c>.
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="Rows&lt;TSource&gt;">
@@ -29,12 +31,40 @@
         <Parameter Name="self" Type="TSource[,]" RefType="this" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <typeparam name="TSource">The array element type.</typeparam>
+        <param name="self">
+          A rectangular array of <typeparamref name="TSource" /> elements.
+        </param>
+        <summary>
+          Converts a rectangular array into an 
+          <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />.
+        </summary>
+        <returns>
+          An <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />
+          of each element within <paramref name="self" /> in row-major order.
+        </returns>
+        <remarks>
+          <para>
+            This is particularly useful for transposing rectangular arrays, as
+            it can be used with
+            <see cref="M:Mono.Rocks.IEnumerableRocks.Transpose``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />.
+          </para>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/RectangularArrayTest.cs#Rows">int[,] s = new int[,] {
+	{1, 2, 3},
+	{4, 5, 6},
+	{7, 8, 9},
+};
+IEnumerable&lt;IEnumerable&lt;int&gt;&gt; r = s.Rows();
+Assert.AreEqual (3, r.Count ());
+
+Assert.IsTrue (new[]{1,2,3}.SequenceEqual (r.ElementAt (0)));
+Assert.IsTrue (new[]{4,5,6}.SequenceEqual (r.ElementAt (1)));
+Assert.IsTrue (new[]{7,8,9}.SequenceEqual (r.ElementAt (2)));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
   </Members>

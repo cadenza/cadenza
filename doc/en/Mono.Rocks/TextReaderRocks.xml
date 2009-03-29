@@ -56,7 +56,6 @@
             <see cref="M:System.IO.TextReader.ReadLine" />.
           </block>
         </remarks>
-        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" /></exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.
         </exception>
@@ -107,7 +106,7 @@
             <see cref="M:System.IO.TextReader.Close" />ed once all lines have
             been returned; if 
             <see cref="F:Mono.Rocks.TextReaderRocksOptions.CloseReader" />
-						is not specified, then the 
+            is not specified, then the 
             <see cref="T:System.IO.TextReader" /> will not be disposed.
           </para>
           <block subset="none" type="note">
@@ -115,7 +114,9 @@
             <see cref="M:System.IO.TextReader.ReadLine" />.
           </block>
         </remarks>
-        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" /></exception>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="options" /> has an unsupported value.
+        </exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.
         </exception>
@@ -389,7 +390,6 @@ Assert.AreEqual ("3", r.Words ().First ());
 Assert.AreEqual ("4", r.Words ().First ());
 </code>
         </remarks>
-        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Categories(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Categories(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" /></exception>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />, or
           <paramref name="categories" /> is <see langword="null" />.

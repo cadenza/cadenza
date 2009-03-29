@@ -69,7 +69,6 @@ KeyValuePair&lt;string, int&gt; kvp   = tuple.ToKeyValuePair ();
     // kvp.Key == "s", kvp.Value == 1</code>
         </remarks>
         <altmember cref="M:Mono.Rocks.TupleRocks.ToKeyValuePair``2(Mono.Rocks.Tuple{``0,``1})" />
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
       </Docs>
     </Member>
   </Members>

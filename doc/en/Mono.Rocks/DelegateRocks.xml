@@ -605,7 +605,9 @@
         <Parameter Name="self" Type="System.Action&lt;T&gt;" RefType="this" />
       </Parameters>
       <Docs>
-        <typeparam name="T">To be added.</typeparam>
+        <typeparam name="T">
+            A <see cref="T:System.Action{T}" /> parameter type.
+            </typeparam>
         <param name="self">
             The <see cref="T:System.Action{T}" /> to curry.
             </param>
@@ -728,7 +730,9 @@
         <Parameter Name="self" Type="System.Func&lt;T,TResult&gt;" RefType="this" />
       </Parameters>
       <Docs>
-        <typeparam name="T">To be added.</typeparam>
+        <typeparam name="T">
+            A <see cref="T:System.Func{T,TResult}" /> parameter type.
+            </typeparam>
         <typeparam name="TResult">
             The <see cref="T:System.Func{T,TResult}" /> return type.
             </typeparam>

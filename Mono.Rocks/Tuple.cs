@@ -43,7 +43,6 @@ namespace Mono.Rocks {
 		public static KeyValuePair<TKey, TValue>
 			ToKeyValuePair<TKey, TValue> (this Tuple<TKey, TValue> self)
 		{
-			Check.Self (self);
 			return new KeyValuePair<TKey, TValue> (self._1, self._2);
 		}
 	}

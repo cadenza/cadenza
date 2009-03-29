@@ -9,8 +9,12 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      Extension methods for jagged arrays.
+    </summary>
+    <remarks>
+      A jagged array is a type like <c>int[][]</c>.
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="Rows&lt;TSource&gt;">
@@ -29,12 +33,31 @@
         <Parameter Name="self" Type="TSource[][]" RefType="this" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of elements within the jagged array.
+        </typeparam>
+        <param name="self">
+          A jagged array of <typeparamref name="TSource" /> elements.
+        </param>
+        <summary>
+          Converts a jagged array into an 
+          <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />.
+        </summary>
+        <returns>
+          An <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />
+          of each element within <paramref name="self" /> in row-major order.
+        </returns>
+        <remarks>
+          <para>
+            This is particularly useful for transposing jagged arrays, as
+            it can be used with
+            <see cref="M:Mono.Rocks.IEnumerableRocks.Transpose``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />.
+          </para>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/JaggedArrayTest.cs#Rows"  />        
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
   </Members>

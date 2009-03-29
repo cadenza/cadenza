@@ -482,7 +482,9 @@
           <Parameter Name="self" Type="System.Action&lt;T&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <typeparam name="T">To be added.</typeparam>
+          <typeparam name="T">
+            A <see cref="T:System.Action{T}" /> parameter type.
+            </typeparam>
           <param name="self">
             The <see cref="T:System.Action{T}" /> to curry.
             </param>
@@ -769,7 +771,9 @@
           <Parameter Name="self" Type="System.Func&lt;T,TResult&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <typeparam name="T">To be added.</typeparam>
+          <typeparam name="T">
+            A <see cref="T:System.Func{T,TResult}" /> parameter type.
+            </typeparam>
           <typeparam name="TResult">
             The <see cref="T:System.Func{T,TResult}" /> return type.
             </typeparam>
@@ -3886,10 +3890,21 @@
           <Parameter Name="func" Type="System.Func&lt;TSource,TSource,System.Boolean&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="func">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the elements to turn into groups.
+        </param>
+          <param name="func">
+          A <see cref="T:System.Func{TSource,TSource,System.Boolean}" /> which is
+          used to determine whether the <typeparamref name="TSource" /> 
+          elements belong to the same group.
+        </param>
+          <summary>
+          Split <paramref name="self" /> into a sequence of groups.
+        </summary>
         </Docs>
         <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.HaskellGroupBy``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,System.Boolean})" />
       </Member>
@@ -5861,9 +5876,16 @@
           <Parameter Name="self" Type="TSource[][]" RefType="this" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of elements within the jagged array.
+        </typeparam>
+          <param name="self">
+          A jagged array of <typeparamref name="TSource" /> elements.
+        </param>
+          <summary>
+          Converts a jagged array into an 
+          <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />.
+        </summary>
         </Docs>
         <Link Type="Mono.Rocks.JaggedArrayRocks" Member="M:Mono.Rocks.JaggedArrayRocks.Rows``1(``0[][])" />
       </Member>
@@ -6407,9 +6429,14 @@
           <Parameter Name="self" Type="TSource[,]" RefType="this" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">The array element type.</typeparam>
+          <param name="self">
+          A rectangular array of <typeparamref name="TSource" /> elements.
+        </param>
+          <summary>
+          Converts a rectangular array into an 
+          <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />.
+        </summary>
         </Docs>
         <Link Type="Mono.Rocks.RectangularArrayRocks" Member="M:Mono.Rocks.RectangularArrayRocks.Rows``1(``0[,])" />
       </Member>
@@ -7246,8 +7273,12 @@
           <Parameter Name="self" Type="System.Type" RefType="this" />
         </Parameters>
         <Docs>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="self">
+          A <see cref="T:System.Type" /> containing the type to check.
+        </param>
+          <summary>
+          Gets a value indicating whether the type is a nullable type.
+        </summary>
         </Docs>
         <Link Type="Mono.Rocks.TypeRocks" Member="M:Mono.Rocks.TypeRocks.IsNullable(System.Type)" />
       </Member>

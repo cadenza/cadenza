@@ -1,5 +1,10 @@
 2009-03-29  Jonathan Pryor  <jpryor@novell.com>
 
+	* JaggedArrayTest.cs, IEnumerableTest.cs, RectangularArrayTest.cs: Add
+	  #region blocks for docs.
+
+2009-03-29  Jonathan Pryor  <jpryor@novell.com>
+
 	* TypeTest.cs: Add #region for IsNullable() (for docs).
 
 2009-03-21  Jonathan Pryor  <jpryor@novell.com>

@@ -717,13 +717,57 @@
         <Parameter Name="func" Type="System.Func&lt;TSource,TSource,System.Boolean&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="func">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Func(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the elements to turn into groups.
+        </param>
+        <param name="func">
+          A <see cref="T:System.Func{TSource,TSource,System.Boolean}" /> which is
+          used to determine whether the <typeparamref name="TSource" /> 
+          elements belong to the same group.
+        </param>
+        <summary>
+          Split <paramref name="self" /> into a sequence of groups.
+        </summary>
+        <returns>
+          An <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />
+          of groups.
+        </returns>
+        <remarks>
+          <para>
+            A group is a continguence sequence of elements from 
+            <paramref name="self" /> for which
+            <c><paramref name="func" />(firstItemInTheGroup, currentItemInTheGroup)</c>
+            returns <see langword="true" />.  Once <paramref name="func" /> 
+            returns <see langword="false" />, a new group is created (and the 
+            next element within <paramref name="self" /> is the first element
+            of the new group).
+          </para>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/IEnumerableTest.cs#HaskellGroupBy">// Split a string into pairs
+string s = "123456789";
+int c = 0;
+List&lt;List&lt;char&gt;&gt; pairs = s.HaskellGroupBy(delegate {
+	++c;
+	if (c &lt; 2)
+		return true;
+	c = 0;
+	return false;
+}).ToList();
+Assert.AreEqual(5, pairs.Count);
+Assert.IsTrue(new[]{'1', '2'}.SequenceEqual (pairs [0]));
+Assert.IsTrue(new[]{'3', '4'}.SequenceEqual (pairs [1]));
+Assert.IsTrue(new[]{'5', '6'}.SequenceEqual (pairs [2]));
+Assert.IsTrue(new[]{'7', '8'}.SequenceEqual (pairs [3]));
+Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> or <paramref name="func" /> is 
+          <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Implode&lt;TSource&gt;">

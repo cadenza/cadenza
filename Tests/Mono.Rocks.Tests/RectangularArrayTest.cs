@@ -49,6 +49,7 @@ namespace Mono.Rocks.Tests {
 		[Test]
 		public void Rows ()
 		{
+			#region Rows
 			int[,] s = new int[,] {
 				{1, 2, 3},
 				{4, 5, 6},
@@ -60,6 +61,7 @@ namespace Mono.Rocks.Tests {
 			Assert.IsTrue (new[]{1,2,3}.SequenceEqual (r.ElementAt (0)));
 			Assert.IsTrue (new[]{4,5,6}.SequenceEqual (r.ElementAt (1)));
 			Assert.IsTrue (new[]{7,8,9}.SequenceEqual (r.ElementAt (2)));
+			#endregion
 		}
 	}
 }

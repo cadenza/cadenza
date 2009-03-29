@@ -281,8 +281,9 @@
 </code>
         </remarks>
         <altmember cref="M:Mono.Rocks.TextReaderRocks.Lines(System.IO.TextReader)" />
-        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" /></exception>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Matches">
@@ -584,8 +585,12 @@ AssertAreSame (expected, actual);
             parameter in <c>Substring</c> is not an index.
           </para>
           <para>
-            This is equivalent to
-			      <c>self.Substring (start, end - start)</c>.
+            If <paramref name="end" /> is negative, then it is taken as a 
+            value from the end of the string.
+          </para>
+          <para>
+            When <paramref name="end" /> is positive, this is equivalent to
+            <c>self.Substring (start, end - start)</c>.
           </para>
           <code lang="C#" src="../../Tests/Mono.Rocks.Tests/StringTest.cs#Slice">var data = "0123456789";
 
@@ -598,7 +603,21 @@ Assert.AreEqual ("8",       data.Slice (8, -2));
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.
         </exception>
-        <exception cref="T:System.ArgumentOutOfRangeException">To be added; from: <see cref="M:Mono.Rocks.StringRocks.Slice(System.String,System.Int32,System.Int32)" />, <see cref="M:Mono.Rocks.StringRocks.Slice(System.String,System.Int32,System.Int32)" /></exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <para>
+            <paramref name="start" /> is negative
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="start" /> is greater than or equal to 
+            <c><paramref name="self" />.Length</c>.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="end" /> is greater than or equal to 
+            <c><paramref name="self" />.Length</c>.
+          </para>
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="ToEnum&lt;TEnum&gt;">
@@ -771,8 +790,9 @@ AssertAreSame (expected, actual);
 </code>
         </remarks>
         <altmember cref="M:Mono.Rocks.TextReaderRocks.Words(System.IO.TextReader)" />
-        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Categories(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Categories(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Categories(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Categories(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" /></exception>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Categories(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Categories(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Categories(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.Categories(System.Object)" />, <see cref="M:Mono.Rocks.TextReaderRocks.CheckOptions(Mono.Rocks.TextReaderRocksOptions)" />, <see cref="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
   </Members>

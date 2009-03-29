@@ -12,7 +12,8 @@
     <summary>
       Extension methods for <see cref="T:System.Type" />.
     </summary>
-    <remarks></remarks>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="IsNullable">
@@ -44,15 +45,23 @@
             <paramref name="self" /> is considered to a nullable type if:
           </para>
           <list type="bullet">
-            <item><term>
-              <paramref name="self" /> is not <c>typeof(Nullable&lt;&gt;).</c>
-            </term></item>
-            <item><term>
-              <c><paramref name="self" />.GetGenericTypeDefinition()</c> is
+            <item>
+              <term>
+                <paramref name="self" /> is not <c>typeof(Nullable&lt;&gt;).</c></term>
+            </item>
+            <item>
+              <term>
+                <c>
+                  <paramref name="self" />.GetGenericTypeDefinition()</c> is
               <c>typeof(Nullable&lt;&gt;)</c>.
-            </term></item>
-          </list>         
-          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/TypeTest.cs#IsNullable" />
+            </term>
+            </item>
+          </list>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/TypeTest.cs#IsNullable">Assert.IsTrue (typeof (int?).IsNullable ());
+Assert.IsFalse (typeof (int).IsNullable ());
+Assert.IsFalse (typeof (string).IsNullable ());
+Assert.IsFalse (typeof (Nullable&lt;&gt;).IsNullable ());
+</code>
         </remarks>
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.

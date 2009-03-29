@@ -2178,6 +2178,29 @@ namespace Mono.Rocks.Tests {
 		}
 
 		[Test]
+		public void HaskellGroupBy()
+		{
+			#region HaskellGroupBy
+			// Split a string into pairs
+			string s = "123456789";
+			int c = 0;
+			List<List<char>> pairs = s.HaskellGroupBy(delegate {
+				++c;
+				if (c < 2)
+					return true;
+				c = 0;
+				return false;
+			}).ToList();
+			Assert.AreEqual(5, pairs.Count);
+			Assert.IsTrue(new[]{'1', '2'}.SequenceEqual (pairs [0]));
+			Assert.IsTrue(new[]{'3', '4'}.SequenceEqual (pairs [1]));
+			Assert.IsTrue(new[]{'5', '6'}.SequenceEqual (pairs [2]));
+			Assert.IsTrue(new[]{'7', '8'}.SequenceEqual (pairs [3]));
+			Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
+			#endregion
+		}
+
+		[Test]
 		[ExpectedException (typeof (ArgumentNullException))]
 		public void Insert_FuncNull ()
 		{
