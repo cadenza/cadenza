@@ -1,5 +1,9 @@
 2009-03-29  Jonathan Pryor  <jpryor@novell.com>
 
+	* doc/en/**: Flush TypeRocks documentation.
+
+2009-03-29  Jonathan Pryor  <jpryor@novell.com>
+
 	* mkdelegates: Generate <exception/> docs for ArgumentNullException;
 	  fix <typeparam/> generation.
 	* Mono.Rocks/Delegates.cs, doc/en/Mono.Rocks/DelegateRocks.xml: Flush.

@@ -9,8 +9,10 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      Extension methods for <see cref="T:System.Type" />.
+    </summary>
+    <remarks></remarks>
   </Docs>
   <Members>
     <Member MemberName="IsNullable">
@@ -26,11 +28,35 @@
         <Parameter Name="self" Type="System.Type" RefType="this" />
       </Parameters>
       <Docs>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" /></exception>
+        <param name="self">
+          A <see cref="T:System.Type" /> containing the type to check.
+        </param>
+        <summary>
+          Gets a value indicating whether the type is a nullable type.
+        </summary>
+        <returns>
+          <see langword="true" /> if <paramref name="self" /> is a
+          <see cref="T:System.Nullable{T}" /> type; otherwise,
+          <see langword="false" />.
+        </returns>
+        <remarks>
+          <para>
+            <paramref name="self" /> is considered to a nullable type if:
+          </para>
+          <list type="bullet">
+            <item><term>
+              <paramref name="self" /> is not <c>typeof(Nullable&lt;&gt;).</c>
+            </term></item>
+            <item><term>
+              <c><paramref name="self" />.GetGenericTypeDefinition()</c> is
+              <c>typeof(Nullable&lt;&gt;)</c>.
+            </term></item>
+          </list>         
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/TypeTest.cs#IsNullable" />
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
   </Members>

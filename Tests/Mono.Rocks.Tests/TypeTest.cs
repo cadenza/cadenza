@@ -47,10 +47,12 @@ namespace Mono.Rocks.Tests {
 		[Test]
 		public void IsNullable ()
 		{
+			#region IsNullable
 			Assert.IsTrue (typeof (int?).IsNullable ());
 			Assert.IsFalse (typeof (int).IsNullable ());
 			Assert.IsFalse (typeof (string).IsNullable ());
 			Assert.IsFalse (typeof (Nullable<>).IsNullable ());
+			#endregion
 		}
 	}
 }
