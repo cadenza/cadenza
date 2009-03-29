@@ -1,3 +1,7 @@
+2009-03-29  Jonathan Pryor  <jpryor@novell.com>
+
+	* TypeTest.cs: Add #region for IsNullable() (for docs).
+
 2009-03-21  Jonathan Pryor  <jpryor@novell.com>
 
 	* TextValueReaderTest.cs: Enable Read_UnsupportedT(), as bnc#485377
