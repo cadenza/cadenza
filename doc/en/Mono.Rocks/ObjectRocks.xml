@@ -56,7 +56,7 @@
           <para>
             Use this method when you want to ensure that 
             <see cref="T:Mono.Rocks.Maybe{T}" /> instance is created in which
-						<see cref="P:Mono.Rocks.Maybe{T}.Value" /> will not throw.
+            <see cref="P:Mono.Rocks.Maybe{T}.Value" /> will not throw.
           </para>
         </remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -240,15 +240,76 @@ Assert.AreEqual (-1, "*default*".Match (m));
         <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <typeparam name="TResult">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="valueSelector">To be added.</param>
-        <param name="childrenSelector">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.ValueSelector(System.Object)" />, <see cref="M:Mono.Rocks.Check.ChildrenSelector(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of the root node and intermediate nodes of the tree.
+        </typeparam>
+        <typeparam name="TResult">
+          The type of the object to return.
+        </typeparam>
+        <param name="self">
+          The root of a tree to traverse.
+        </param>
+        <param name="valueSelector">
+          A <see cref="T:System.Func{TSource,TResult}" /> which is used to 
+          convert tree nodes into <typeparamref name="TResult" /> instances.
+        </param>
+        <param name="childrenSelector">
+          A <see cref="T:System.Func{TSource,System.Collections.Generic.IEnumerable{TSource}}" />
+          which returns the child nodes of <paramref name="root" />
+          and all intermediate non-leaf nodes.
+        </param>
+        <summary>
+          Traverse a tree in a breadth-first fashion, converting each 
+          encountered node.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TResult}" />
+          containing the result of applying <paramref name="valueSelector" />
+          to all nodes encountered while traversing the tree 
+          <paramref name="self" /> in a breadth-first fashion.
+        </returns>
+        <remarks>
+          <para>
+            <paramref name="self" /> is the root node of a tree, wherein each 
+            node is a data structure containing a value and child nodes.
+            The value is retrieved via <paramref name="valueSelector" />,
+            and the children are obtained via 
+            <paramref name="childrenSelector" />.
+          </para>
+          <para>
+            The tree is traversed in a breadth-first fashion, each encountered
+            node is provided to <paramref name="valueSelector" />, and the
+            values are returned.
+          </para>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/ObjectTest.cs#TraverseBreadthFirst">TreeNode&lt;int&gt; root = new TreeNode&lt;int&gt; {
+	Value = 1, Children = new [] {
+		new TreeNode&lt;int&gt; { Value = 2 },
+		new TreeNode&lt;int&gt; {
+			Value = 3, Children = new [] {
+				new TreeNode&lt;int&gt; { Value = 5 },
+			}
+		},
+		new TreeNode&lt;int&gt; { Value = 4 },
+	}
+};
+IEnumerable&lt;int&gt; values = root
+	.TraverseBreadthFirst (x =&gt; x.Value, x =&gt; x.Children);
+AssertAreSame (new[]{ 1, 2, 3, 4, 5 }, values);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="childrenSelector" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="valueSelector" /> is <see langword="null" />.
+          </para>
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="TraverseBreadthFirstWithParent&lt;TSource,TResult&gt;">
@@ -270,15 +331,75 @@ Assert.AreEqual (-1, "*default*".Match (m));
         <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <typeparam name="TResult">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="valueSelector">To be added.</param>
-        <param name="childrenSelector">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.ValueSelector(System.Object)" />, <see cref="M:Mono.Rocks.Check.ChildrenSelector(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of the root node and intermediate nodes of the tree.
+        </typeparam>
+        <typeparam name="TResult">
+          The type of the object to return.
+        </typeparam>
+        <param name="self">
+          The root of a tree to traverse.
+        </param>
+        <param name="valueSelector">
+          A <see cref="T:System.Func{TSource,TResult}" /> which is used to 
+          convert tree nodes into <typeparamref name="TResult" /> instances.
+        </param>
+        <param name="childrenSelector">
+          A <see cref="T:System.Func{TSource,System.Collections.Generic.IEnumerable{TSource}}" />
+          which returns the child nodes of <paramref name="root" />
+          and all intermediate non-leaf nodes.
+        </param>
+        <summary>
+          Traverse a tree in a breadth-first fashion, converting each 
+          encountered node.
+        </summary>
+        <returns>
+          <para>
+            A <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{TSource,TResult}}" />
+            in which each returned
+            <see cref="P:System.Collections.Generic.KeyValuePair{TSource,TResult}.Value" />
+            is the result of applying <paramref name="valueSelector" /> to a
+            node, and
+            <see cref="P:System.Collections.Generic.KeyValuePair{TSource,TResult}.Key" />
+            holds the parent of that node.  If the node has no parent (e.g. for
+            <paramref name="self" />), then 
+            <see cref="P:System.Collections.Generic.KeyValuePair{TSource,TResult}.Key" />
+            will contain <c>default(TSource)</c>.
+          </para>
+          <para>
+            Returned 
+            <see cref="T:System.Collections.Generic.KeyValuePair{TSource,TResult}" />
+            values come from traversing <paramref name="self" /> in a
+            breadth-first order.
+          </para>
+        </returns>
+        <remarks>
+          <para>
+            <paramref name="self" /> is the root node of a tree, wherein each 
+            node is a data structure containing a value and child nodes.
+            The value is retrieved via <paramref name="valueSelector" />,
+            and the children are obtained via 
+            <paramref name="childrenSelector" />.
+          </para>
+          <para>
+            The tree is traversed in a breadth-first fashion, each encountered
+            node is provided to <paramref name="valueSelector" />, and the
+            values are returned.
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="childrenSelector" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="valueSelector" /> is <see langword="null" />.
+          </para>
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="TraverseDepthFirst&lt;TSource,TResult&gt;">
@@ -300,15 +421,76 @@ Assert.AreEqual (-1, "*default*".Match (m));
         <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <typeparam name="TResult">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="valueSelector">To be added.</param>
-        <param name="childrenSelector">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.ValueSelector(System.Object)" />, <see cref="M:Mono.Rocks.Check.ChildrenSelector(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of the root node and intermediate nodes of the tree.
+        </typeparam>
+        <typeparam name="TResult">
+          The type of the object to return.
+        </typeparam>
+        <param name="self">
+          The root of a tree to traverse.
+        </param>
+        <param name="valueSelector">
+          A <see cref="T:System.Func{TSource,TResult}" /> which is used to 
+          convert tree nodes into <typeparamref name="TResult" /> instances.
+        </param>
+        <param name="childrenSelector">
+          A <see cref="T:System.Func{TSource,System.Collections.Generic.IEnumerable{TSource}}" />
+          which returns the child nodes of <paramref name="root" />
+          and all intermediate non-leaf nodes.
+        </param>
+        <summary>
+          Traverse a tree in a depth-first fashion, converting each 
+          encountered node.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TResult}" />
+          containing the result of applying <paramref name="valueSelector" />
+          to all nodes encountered while traversing the tree 
+          <paramref name="self" /> in a depth-first fashion.
+        </returns>
+        <remarks>
+          <para>
+            <paramref name="self" /> is the root node of a tree, wherein each 
+            node is a data structure containing a value and child nodes.
+            The value is retrieved via <paramref name="valueSelector" />,
+            and the children are obtained via 
+            <paramref name="childrenSelector" />.
+          </para>
+          <para>
+            The tree is traversed in a depth-first fashion, each encountered
+            node is provided to <paramref name="valueSelector" />, and the
+            values are returned.
+          </para>
+          <code lang="C#" src="../../Tests/Mono.Rocks.Tests/ObjectTest.cs#TraverseDepthFirst">TreeNode&lt;int&gt; root = new TreeNode&lt;int&gt; {
+	Value = 1, Children = new [] {
+		new TreeNode&lt;int&gt; { Value = 2 },
+		new TreeNode&lt;int&gt; {
+			Value = 3, Children = new [] {
+				new TreeNode&lt;int&gt; { Value = 5 },
+			}
+		},
+		new TreeNode&lt;int&gt; { Value = 4 },
+	}
+};
+IEnumerable&lt;int&gt; values = root
+	.TraverseDepthFirst (x =&gt; x.Value, x =&gt; x.Children);
+AssertAreSame (new[]{ 1, 2, 3, 5, 4 }, values);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="childrenSelector" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="valueSelector" /> is <see langword="null" />.
+          </para>
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="TraverseDepthFirstWithParent&lt;TSource,TResult&gt;">
@@ -330,15 +512,75 @@ Assert.AreEqual (-1, "*default*".Match (m));
         <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <typeparam name="TResult">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="valueSelector">To be added.</param>
-        <param name="childrenSelector">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Mono.Rocks.Check.Self(System.Object)" />, <see cref="M:Mono.Rocks.Check.ValueSelector(System.Object)" />, <see cref="M:Mono.Rocks.Check.ChildrenSelector(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of the root node and intermediate nodes of the tree.
+        </typeparam>
+        <typeparam name="TResult">
+          The type of the object to return.
+        </typeparam>
+        <param name="self">
+          The root of a tree to traverse.
+        </param>
+        <param name="valueSelector">
+          A <see cref="T:System.Func{TSource,TResult}" /> which is used to 
+          convert tree nodes into <typeparamref name="TResult" /> instances.
+        </param>
+        <param name="childrenSelector">
+          A <see cref="T:System.Func{TSource,System.Collections.Generic.IEnumerable{TSource}}" />
+          which returns the child nodes of <paramref name="root" />
+          and all intermediate non-leaf nodes.
+        </param>
+        <summary>
+          Traverse a tree in a depth-first fashion, converting each 
+          encountered node.
+        </summary>
+        <returns>
+          <para>
+            A <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{TSource,TResult}}" />
+            in which each returned
+            <see cref="P:System.Collections.Generic.KeyValuePair{TSource,TResult}.Value" />
+            is the result of applying <paramref name="valueSelector" /> to a
+            node, and
+            <see cref="P:System.Collections.Generic.KeyValuePair{TSource,TResult}.Key" />
+            holds the parent of that node.  If the node has no parent (e.g. for
+            <paramref name="self" />), then 
+            <see cref="P:System.Collections.Generic.KeyValuePair{TSource,TResult}.Key" />
+            will contain <c>default(TSource)</c>.
+          </para>
+          <para>
+            Returned 
+            <see cref="T:System.Collections.Generic.KeyValuePair{TSource,TResult}" />
+            values come from traversing <paramref name="self" /> in a
+            breadth-first order.
+          </para>
+        </returns>
+        <remarks>
+          <para>
+            <paramref name="self" /> is the root node of a tree, wherein each 
+            node is a data structure containing a value and child nodes.
+            The value is retrieved via <paramref name="valueSelector" />,
+            and the children are obtained via 
+            <paramref name="childrenSelector" />.
+          </para>
+          <para>
+            The tree is traversed in a depth-first fashion, each encountered
+            node is provided to <paramref name="valueSelector" />, and the
+            values are returned.
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="childrenSelector" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="valueSelector" /> is <see langword="null" />.
+          </para>
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="With&lt;TSource,TResult&gt;">

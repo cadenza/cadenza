@@ -31,7 +31,9 @@
         <Parameter Name="self" Type="TSource[,]" RefType="this" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">The array element type.</typeparam>
+        <typeparam name="TSource">
+          The array element type.
+        </typeparam>
         <param name="self">
           A rectangular array of <typeparamref name="TSource" /> elements.
         </param>

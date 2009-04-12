@@ -6275,12 +6275,28 @@
           <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <typeparam name="TResult">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="valueSelector">To be added.</param>
-          <param name="childrenSelector">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the root node and intermediate nodes of the tree.
+        </typeparam>
+          <typeparam name="TResult">
+          The type of the object to return.
+        </typeparam>
+          <param name="self">
+          The root of a tree to traverse.
+        </param>
+          <param name="valueSelector">
+          A <see cref="T:System.Func{TSource,TResult}" /> which is used to 
+          convert tree nodes into <typeparamref name="TResult" /> instances.
+        </param>
+          <param name="childrenSelector">
+          A <see cref="T:System.Func{TSource,System.Collections.Generic.IEnumerable{TSource}}" />
+          which returns the child nodes of <paramref name="root" />
+          and all intermediate non-leaf nodes.
+        </param>
+          <summary>
+          Traverse a tree in a breadth-first fashion, converting each 
+          encountered node.
+        </summary>
         </Docs>
         <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.TraverseBreadthFirst``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
@@ -6335,12 +6351,28 @@
           <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <typeparam name="TResult">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="valueSelector">To be added.</param>
-          <param name="childrenSelector">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the root node and intermediate nodes of the tree.
+        </typeparam>
+          <typeparam name="TResult">
+          The type of the object to return.
+        </typeparam>
+          <param name="self">
+          The root of a tree to traverse.
+        </param>
+          <param name="valueSelector">
+          A <see cref="T:System.Func{TSource,TResult}" /> which is used to 
+          convert tree nodes into <typeparamref name="TResult" /> instances.
+        </param>
+          <param name="childrenSelector">
+          A <see cref="T:System.Func{TSource,System.Collections.Generic.IEnumerable{TSource}}" />
+          which returns the child nodes of <paramref name="root" />
+          and all intermediate non-leaf nodes.
+        </param>
+          <summary>
+          Traverse a tree in a depth-first fashion, converting each 
+          encountered node.
+        </summary>
         </Docs>
         <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.TraverseDepthFirst``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
@@ -6429,7 +6461,9 @@
           <Parameter Name="self" Type="TSource[,]" RefType="this" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">The array element type.</typeparam>
+          <typeparam name="TSource">
+          The array element type.
+        </typeparam>
           <param name="self">
           A rectangular array of <typeparamref name="TSource" /> elements.
         </param>
