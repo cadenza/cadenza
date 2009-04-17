@@ -411,11 +411,13 @@ namespace Mono.Rocks {
 				yield return resultSelector (seed)._1;
 		}
 
+		[CLSCompliant (false)]
 		public static TextValueReader ToValueReader (this IEnumerable<string> self)
 		{
 			return new TextValueReader (self);
 		}
 
+		[CLSCompliant (false)]
 		public static EnumerableValueReader<TSource> ToValueReader<TSource> (this IEnumerable<TSource> self)
 		{
 			Check.Self (self);

@@ -36,6 +36,7 @@ namespace Mono.Rocks {
 
 	public static class StreamRocks {
 
+		[CLSCompliant (false)]
 		public static StreamConverter WithSystemConverter (this Stream self)
 		{
 			Check.Self (self);

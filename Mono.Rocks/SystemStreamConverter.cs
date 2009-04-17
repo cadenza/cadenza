@@ -83,7 +83,7 @@ namespace Mono.Rocks {
 			return buff;
 		}
 
-		public override StreamConverter Read (out bool value)
+		public override IValueReader Read (out bool value)
 		{
 			AssertRead ();
 
@@ -92,7 +92,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out byte value)
+		public override IValueReader Read (out byte value)
 		{
 			AssertRead ();
 
@@ -105,7 +105,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out char value)
+		public override IValueReader Read (out char value)
 		{
 			AssertRead ();
 
@@ -114,7 +114,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out DateTime value)
+		public override IValueReader Read (out DateTime value)
 		{
 			AssertRead ();
 
@@ -125,7 +125,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out decimal value)
+		public override IValueReader Read (out decimal value)
 		{
 			AssertRead ();
 
@@ -137,7 +137,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out double value)
+		public override IValueReader Read (out double value)
 		{
 			AssertRead ();
 
@@ -146,7 +146,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out short value)
+		public override IValueReader Read (out short value)
 		{
 			AssertRead ();
 
@@ -155,7 +155,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out int value)
+		public override IValueReader Read (out int value)
 		{
 			AssertRead ();
 
@@ -164,7 +164,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out long value)
+		public override IValueReader Read (out long value)
 		{
 			AssertRead ();
 
@@ -173,7 +173,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out float value)
+		public override IValueReader Read (out float value)
 		{
 			AssertRead ();
 
@@ -182,7 +182,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out string value)
+		public override IValueReader Read (out string value)
 		{
 			int len;
 			this.Read (out len);
@@ -197,7 +197,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out sbyte value)
+		public override IValueReader Read (out sbyte value)
 		{
 			byte b;
 			this.Read (out b);
@@ -205,7 +205,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (byte[] value, int offset, int count)
+		public override IValueReader Read (byte[] value, int offset, int count)
 		{
 			AssertRead ();
 
@@ -214,7 +214,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out ushort value)
+		public override IValueReader Read (out ushort value)
 		{
 			AssertRead ();
 
@@ -223,7 +223,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out uint value)
+		public override IValueReader Read (out uint value)
 		{
 			AssertRead ();
 
@@ -232,7 +232,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (out ulong value)
+		public override IValueReader Read (out ulong value)
 		{
 			AssertRead ();
 
@@ -241,7 +241,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Read (int size, Encoding encoding, out string value)
+		public override IValueReader Read (int size, Encoding encoding, out string value)
 		{
 			AssertRead ();
 
@@ -250,14 +250,14 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Write (bool value)
+		public override IValueWriter Write (bool value)
 		{
 			AssertWrite ();
 
 			return Write (BitConverter.GetBytes (value));
 		}
 
-		public override StreamConverter Write (byte value)
+		public override IValueWriter Write (byte value)
 		{
 			AssertWrite ();
 
@@ -266,21 +266,21 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Write (char value)
+		public override IValueWriter Write (char value)
 		{
 			AssertWrite ();
 
 			return Write (BitConverter.GetBytes (value));
 		}
 
-		public override StreamConverter Write (DateTime value)
+		public override IValueWriter Write (DateTime value)
 		{
 			AssertWrite ();
 
 			return Write (value.Ticks);
 		}
 
-		public override StreamConverter Write (decimal value)
+		public override IValueWriter Write (decimal value)
 		{
 			AssertWrite ();
 
@@ -293,55 +293,56 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Write (double value)
+		public override IValueWriter Write (double value)
 		{
 			AssertWrite ();
 
 			return Write (BitConverter.GetBytes (value));
 		}
 
-		public override StreamConverter Write (short value)
+		public override IValueWriter Write (short value)
 		{
 			AssertWrite ();
 
 			return Write (BitConverter.GetBytes (value));
 		}
 
-		public override StreamConverter Write (int value)
+		public override IValueWriter Write (int value)
 		{
 			AssertWrite ();
 
 			return Write (BitConverter.GetBytes (value));
 		}
 
-		public override StreamConverter Write (long value)
+		public override IValueWriter Write (long value)
 		{
 			AssertWrite ();
 
 			return Write (BitConverter.GetBytes (value));
 		}
 
-		public override StreamConverter Write (float value)
+		public override IValueWriter Write (float value)
 		{
 			AssertWrite ();
 
 			return Write (BitConverter.GetBytes (value));
 		}
 
-		public override StreamConverter Write (sbyte value)
+		public override IValueWriter Write (sbyte value)
 		{
 			AssertWrite ();
 
 			return Write ((byte) value);
 		}
 
-		public override StreamConverter Write (string value)
+		public override IValueWriter Write (string value)
 		{
 			AssertWrite ();
 
 			byte[] data = Encoding.UTF8.GetBytes (value);
 
-			return Write (data.Length).Write (data);
+			Write (data.Length);
+			return Write (data);
 		}
 
 		public override StreamConverter Write (byte[] value, int offset, int count)
@@ -354,21 +355,21 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		public override StreamConverter Write (ushort value)
+		public override IValueWriter Write (ushort value)
 		{
 			AssertWrite ();
 
 			return Write (BitConverter.GetBytes (value));
 		}
 
-		public override StreamConverter Write (uint value)
+		public override IValueWriter Write (uint value)
 		{
 			AssertWrite ();
 
 			return Write (BitConverter.GetBytes (value));
 		}
 
-		public override StreamConverter Write (ulong value)
+		public override IValueWriter Write (ulong value)
 		{
 			AssertWrite ();
 

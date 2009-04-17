@@ -1,3 +1,8 @@
+2009-04-16  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add 
+	  Mono.Rocks/ValueReader.cs to the build.
+
 2009-04-12  Jonathan Pryor  <jpryor@novell.com>
 
 	* doc/en/**: Flush ObjectRocks documentation.

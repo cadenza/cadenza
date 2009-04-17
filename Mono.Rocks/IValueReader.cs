@@ -30,24 +30,23 @@ using System;
 namespace Mono.Rocks {
 
 	[CLSCompliant (false)]
-	public interface IValueReader<TSelf>
-		where TSelf : IValueReader<TSelf>
+	public interface IValueReader
 	{
-		TSelf Read (out bool value);
-		TSelf Read (out byte value);
-		TSelf Read (out char value);
-		TSelf Read (out DateTime value);
-		TSelf Read (out decimal value);
-		TSelf Read (out double value);
-		TSelf Read (out short value);
-		TSelf Read (out int value);
-		TSelf Read (out long value);
-		TSelf Read (out sbyte value);
-		TSelf Read (out float value);
-		TSelf Read (out string value);
-		TSelf Read (out ushort value);
-		TSelf Read (out uint value);
-		TSelf Read (out ulong value);
+		IValueReader Read (out bool value);
+		IValueReader Read (out byte value);
+		IValueReader Read (out char value);
+		IValueReader Read (out DateTime value);
+		IValueReader Read (out decimal value);
+		IValueReader Read (out double value);
+		IValueReader Read (out short value);
+		IValueReader Read (out int value);
+		IValueReader Read (out long value);
+		IValueReader Read (out sbyte value);
+		IValueReader Read (out float value);
+		IValueReader Read (out string value);
+		IValueReader Read (out ushort value);
+		IValueReader Read (out uint value);
+		IValueReader Read (out ulong value);
 	}
 }
 

@@ -4,7 +4,7 @@
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
 //
-// Copyright (c) 2008 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2008-2009 Novell, Inc. (http://www.novell.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -31,213 +31,162 @@ using System.ComponentModel;
 
 namespace Mono.Rocks {
 
-	public sealed class TextValueReader : IValueReader<TextValueReader>, IDisposable
+	[CLSCompliant (false)]
+	public sealed class TextValueReader : ValueReader<string>
 	{
-		IEnumerator<string> items;
-
 		public TextValueReader (IEnumerable<string> values)
+			: base (values)
 		{
-			if (values == null)
-				throw new ArgumentNullException ("values");
-			this.items = values.GetEnumerator ();
 		}
 
-		private string Word ()
+		protected override bool ToBoolean (string value)
 		{
-			if (!items.MoveNext ())
-				throw new InvalidOperationException ("no more elements");
-			return items.Current;
+			return bool.Parse (value);
 		}
 
-		public void Dispose ()
+		protected override byte ToByte (string value)
 		{
-			items.Dispose ();
+			return byte.Parse (value);
 		}
 
-		public TextValueReader Read (out bool value)
+		protected override char ToChar (string value)
 		{
-			value = bool.Parse (Word ());
-			return this;
+			return char.Parse (value);
 		}
 
-		public TextValueReader Read (out byte value)
+		protected override DateTime ToDateTime (string value)
 		{
-			value = byte.Parse (Word ());
-			return this;
+			return DateTime.Parse (value);
 		}
 
+		protected override decimal ToDecimal (string value)
+		{
+			return decimal.Parse (value);
+		}
+
+		protected override double ToDouble (string value)
+		{
+			return double.Parse (value);
+		}
+
+		protected override short ToInt16 (string value)
+		{
+			return short.Parse (value);
+		}
+
+		protected override int ToInt32 (string value)
+		{
+			return int.Parse (value);
+		}
+
+		protected override long ToInt64 (string value)
+		{
+			return long.Parse (value);
+		}
+
+		protected override sbyte ToSByte (string value)
+		{
+			return sbyte.Parse (value);
+		}
+
+		protected override float ToSingle (string value)
+		{
+			return float.Parse (value);
+		}
+
+		protected override string ToString (string value)
+		{
+			return value;
+		}
+
+		protected override ushort ToUInt16 (string value)
+		{
+			return ushort.Parse (value);
+		}
+
+		protected override uint ToUInt32 (string value)
+		{
+			return uint.Parse (value);
+		}
+
+		protected override ulong ToUInt64 (string value)
+		{
+			return ulong.Parse (value);
+		}
+
+		//
+		// Extensions
+		//
 		public TextValueReader Read (IFormatProvider provider, out byte value)
 		{
-			value = byte.Parse (Word (), provider);
-			return this;
-		}
-
-		public TextValueReader Read (out char value)
-		{
-			value = char.Parse (Word ());
-			return this;
-		}
-
-		public TextValueReader Read (out DateTime value)
-		{
-			value = DateTime.Parse (Word ());
+			value = byte.Parse (GetNextItem (), provider);
 			return this;
 		}
 
 		public TextValueReader Read (IFormatProvider provider, out DateTime value)
 		{
-			value = DateTime.Parse (Word (), provider);
-			return this;
-		}
-
-		public TextValueReader Read (out decimal value)
-		{
-			value = decimal.Parse (Word ());
+			value = DateTime.Parse (GetNextItem (), provider);
 			return this;
 		}
 
 		public TextValueReader Read (IFormatProvider provider, out decimal value)
 		{
-			value = decimal.Parse (Word (), provider);
-			return this;
-		}
-
-		public TextValueReader Read (out double value)
-		{
-			value = double.Parse (Word ());
+			value = decimal.Parse (GetNextItem (), provider);
 			return this;
 		}
 
 		public TextValueReader Read (IFormatProvider provider, out double value)
 		{
-			value = double.Parse (Word (), provider);
-			return this;
-		}
-
-		public TextValueReader Read (out short value)
-		{
-			value = short.Parse (Word ());
+			value = double.Parse (GetNextItem (), provider);
 			return this;
 		}
 
 		public TextValueReader Read (IFormatProvider provider, out short value)
 		{
-			value = short.Parse (Word (), provider);
-			return this;
-		}
-
-		public TextValueReader Read (out int value)
-		{
-			value = int.Parse (Word ());
+			value = short.Parse (GetNextItem (), provider);
 			return this;
 		}
 
 		public TextValueReader Read (IFormatProvider provider, out int value)
 		{
-			value = int.Parse (Word (), provider);
-			return this;
-		}
-
-		public TextValueReader Read (out long value)
-		{
-			value = long.Parse (Word ());
+			value = int.Parse (GetNextItem (), provider);
 			return this;
 		}
 
 		public TextValueReader Read (IFormatProvider provider, out long value)
 		{
-			value = long.Parse (Word (), provider);
+			value = long.Parse (GetNextItem (), provider);
 			return this;
 		}
 
-		[CLSCompliant (false)]
-		public TextValueReader Read (out sbyte value)
-		{
-			value = sbyte.Parse (Word ());
-			return this;
-		}
-
-		[CLSCompliant (false)]
 		public TextValueReader Read (IFormatProvider provider, out sbyte value)
 		{
-			value = sbyte.Parse (Word (), provider);
-			return this;
-		}
-
-		public TextValueReader Read (out float value)
-		{
-			value = float.Parse (Word ());
+			value = sbyte.Parse (GetNextItem (), provider);
 			return this;
 		}
 
 		public TextValueReader Read (IFormatProvider provider, out float value)
 		{
-			value = float.Parse (Word (), provider);
+			value = float.Parse (GetNextItem (), provider);
 			return this;
 		}
 
-		public TextValueReader Read (out string value)
-		{
-			value = Word ();
-			return this;
-		}
-
-		[CLSCompliant (false)]
-		public TextValueReader Read (out ushort value)
-		{
-			value = ushort.Parse (Word ());
-			return this;
-		}
-
-		[CLSCompliant (false)]
 		public TextValueReader Read (IFormatProvider provider, out ushort value)
 		{
-			value = ushort.Parse (Word (), provider);
+			value = ushort.Parse (GetNextItem (), provider);
 			return this;
 		}
 
-		[CLSCompliant (false)]
-		public TextValueReader Read (out uint value)
-		{
-			value = uint.Parse (Word ());
-			return this;
-		}
-
-		[CLSCompliant (false)]
 		public TextValueReader Read (IFormatProvider provider, out uint value)
 		{
-			value = uint.Parse (Word (), provider);
+			value = uint.Parse (GetNextItem (), provider);
 			return this;
 		}
 
-		[CLSCompliant (false)]
-		public TextValueReader Read (out ulong value)
-		{
-			value = ulong.Parse (Word ());
-			return this;
-		}
-
-		[CLSCompliant (false)]
 		public TextValueReader Read (IFormatProvider provider, out ulong value)
 		{
-			value = ulong.Parse (Word (), provider);
+			value = ulong.Parse (GetNextItem (), provider);
 			return this;
-		}
-	}
-
-	public static class TextValueReaderRocks
-	{
-		public static TextValueReader Read<TValue> (this TextValueReader self, out TValue value)
-		{
-			Check.Self (self);
-
-			string s;
-			self.Read (out s);
-
-			value = Either.TryParse<TValue> (s)
-				.Fold<TValue> (v => v, v => {throw v;});
-
-			return self;
 		}
 	}
 }

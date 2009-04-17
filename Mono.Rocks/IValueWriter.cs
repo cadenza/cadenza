@@ -30,24 +30,23 @@ using System;
 namespace Mono.Rocks {
 
 	[CLSCompliant (false)]
-	public interface IValueWriter<TSelf>
-		where TSelf : IValueWriter<TSelf>
+	public interface IValueWriter
 	{
-		TSelf Write (bool value);
-		TSelf Write (byte value);
-		TSelf Write (char value);
-		TSelf Write (DateTime value);
-		TSelf Write (decimal value);
-		TSelf Write (double value);
-		TSelf Write (short value);
-		TSelf Write (int value);
-		TSelf Write (long value);
-		TSelf Write (sbyte value);
-		TSelf Write (float value);
-		TSelf Write (string value);
-		TSelf Write (ushort value);
-		TSelf Write (uint value);
-		TSelf Write (ulong value);
+		IValueWriter Write (bool value);
+		IValueWriter Write (byte value);
+		IValueWriter Write (char value);
+		IValueWriter Write (DateTime value);
+		IValueWriter Write (decimal value);
+		IValueWriter Write (double value);
+		IValueWriter Write (short value);
+		IValueWriter Write (int value);
+		IValueWriter Write (long value);
+		IValueWriter Write (sbyte value);
+		IValueWriter Write (float value);
+		IValueWriter Write (string value);
+		IValueWriter Write (ushort value);
+		IValueWriter Write (uint value);
+		IValueWriter Write (ulong value);
 	}
 }
 

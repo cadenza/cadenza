@@ -1,3 +1,21 @@
+2009-04-16  Jonathan Pryor  <jpryor@novell.com>
+
+	* EnumerableValueReader.cs, TextValueReader.cs: Use ValueReader<T> as 
+	  the implementation helper.  Mark types [CLSCompliant(false)].
+	* IEnumerable.cs: Mark ToValueReader() [CLSCompliant(false)].
+	* IValueReader.cs, IValueWriter.cs: Simplify (KISS!).  Don't make them
+	  generic (and return the generic type), as this complicates calling
+	  the methods.  (It also means you can't have type-specific methods
+	  which are accessible after an IValueReader/IValueWriter method
+	  invocation, but as soon as you introduce actual types you hit the
+	  same issue...)  It also complicates writing additional Read/Write
+	  extension methods.  Read() methods now return IValueReader, and
+	  Write() methods now return IValueWriter.
+	* Stream.cs: Mark .WithSystemConverter() [CLSCompliant(false)].
+	* StreamConverter.cs, System.StreamConverter.cs: Support new 
+	  IValueReader and IValueWriter.  Mark types [CLSCompliant(false)].
+	* ValueReader.cs: Added; helper class to implement IValueReader.
+
 2009-03-29  Jonathan Pryor  <jpryor@novell.com>
 
 	* Tuple.cs: Don't check for null Tuple<T1,T2>, as Tuples are structs

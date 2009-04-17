@@ -1,3 +1,8 @@
+2009-04-16  Jonathan Pryor  <jpryor@novell.com>
+
+	* SystemStreamConverterTest.cs, TextValueReaderTest.cs: Update to
+	  support new IValueReader/IValueWriter semantics.
+
 2009-03-29  Jonathan Pryor  <jpryor@novell.com>
 
 	* JaggedArrayTest.cs, IEnumerableTest.cs, RectangularArrayTest.cs: Add

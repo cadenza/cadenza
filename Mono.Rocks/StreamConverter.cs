@@ -35,28 +35,38 @@ using System.Text;
 
 namespace Mono.Rocks {
 
-	public abstract class StreamConverter : IValueReader<StreamConverter>, IValueWriter<StreamConverter>
+	[CLSCompliant (false)]
+	public abstract class StreamConverter : IValueReader, IValueWriter, IDisposable
 	{
 		protected StreamConverter ()
 		{
 		}
 
-		public abstract StreamConverter Read (out bool value);
-		public abstract StreamConverter Read (out byte value);
-		public abstract StreamConverter Read (byte[] value, int offset, int count);
-		public abstract StreamConverter Read (out char value);
-		public abstract StreamConverter Read (out DateTime value);
-		public abstract StreamConverter Read (out decimal value);
-		public abstract StreamConverter Read (out double value);
-		public abstract StreamConverter Read (out short value);
-		public abstract StreamConverter Read (out int value);
-		public abstract StreamConverter Read (out long value);
-		public abstract StreamConverter Read (out float value);
-		public abstract StreamConverter Read (out string value);
-		public abstract StreamConverter Read (int size, Encoding encoding, out string value);
+		public void Dispose ()
+		{
+			Dispose (true);
+			GC.SuppressFinalize (this);
+		}
 
-		[CLSCompliant (false)]
-		public virtual StreamConverter Read (out sbyte value)
+		protected virtual void Dispose (bool disposing)
+		{
+		}
+
+		public abstract IValueReader Read (out bool value);
+		public abstract IValueReader Read (out byte value);
+		public abstract IValueReader Read (byte[] value, int offset, int count);
+		public abstract IValueReader Read (out char value);
+		public abstract IValueReader Read (out DateTime value);
+		public abstract IValueReader Read (out decimal value);
+		public abstract IValueReader Read (out double value);
+		public abstract IValueReader Read (out short value);
+		public abstract IValueReader Read (out int value);
+		public abstract IValueReader Read (out long value);
+		public abstract IValueReader Read (out float value);
+		public abstract IValueReader Read (out string value);
+		public abstract IValueReader Read (int size, Encoding encoding, out string value);
+
+		public virtual IValueReader Read (out sbyte value)
 		{
 			byte v;
 			Read (out v);
@@ -64,8 +74,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		[CLSCompliant (false)]
-		public virtual StreamConverter Read (out ushort value)
+		public virtual IValueReader Read (out ushort value)
 		{
 			short v;
 			Read (out v);
@@ -73,8 +82,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		[CLSCompliant (false)]
-		public virtual StreamConverter Read (out uint value)
+		public virtual IValueReader Read (out uint value)
 		{
 			int v;
 			Read (out v);
@@ -82,8 +90,7 @@ namespace Mono.Rocks {
 			return this;
 		}
 
-		[CLSCompliant (false)]
-		public virtual StreamConverter Read (out ulong value)
+		public virtual IValueReader Read (out ulong value)
 		{
 			long v;
 			Read (out v);
@@ -95,42 +102,40 @@ namespace Mono.Rocks {
 		{
 			Check.Value (value);
 
-			return Read (value, 0, value.Length);
+			Read (value, 0, value.Length);
+			return this;
 		}
 
-		public abstract StreamConverter Write (bool value);
-		public abstract StreamConverter Write (byte value);
-		public abstract StreamConverter Write (char value);
-		public abstract StreamConverter Write (DateTime value);
-		public abstract StreamConverter Write (decimal value);
-		public abstract StreamConverter Write (double value);
-		public abstract StreamConverter Write (short value);
-		public abstract StreamConverter Write (int value);
-		public abstract StreamConverter Write (long value);
-		public abstract StreamConverter Write (float value);
-		public abstract StreamConverter Write (string value);
+		public abstract IValueWriter Write (bool value);
+		public abstract IValueWriter Write (byte value);
+		public abstract IValueWriter Write (char value);
+		public abstract IValueWriter Write (DateTime value);
+		public abstract IValueWriter Write (decimal value);
+		public abstract IValueWriter Write (double value);
+		public abstract IValueWriter Write (short value);
+		public abstract IValueWriter Write (int value);
+		public abstract IValueWriter Write (long value);
+		public abstract IValueWriter Write (float value);
+		public abstract IValueWriter Write (string value);
+
 		public abstract StreamConverter Write (byte[] value, int offset, int count);
 
-		[CLSCompliant (false)]
-		public virtual StreamConverter Write (sbyte value)
+		public virtual IValueWriter Write (sbyte value)
 		{
 			return Write ((byte) value);
 		}
 
-		[CLSCompliant (false)]
-		public virtual StreamConverter Write (ushort value)
+		public virtual IValueWriter Write (ushort value)
 		{
 			return Write ((short) value);
 		}
 
-		[CLSCompliant (false)]
-		public virtual StreamConverter Write (uint value)
+		public virtual IValueWriter Write (uint value)
 		{
 			return Write ((int) value);
 		}
 
-		[CLSCompliant (false)]
-		public virtual StreamConverter Write (ulong value)
+		public virtual IValueWriter Write (ulong value)
 		{
 			return Write ((long) value);
 		}
@@ -143,6 +148,7 @@ namespace Mono.Rocks {
 		}
 	}
 
+	[CLSCompliant (false)]
 	public static class StreamConverterRocks
 	{
 		public static StreamConverter Read<TValue> (this StreamConverter self, out TValue value)

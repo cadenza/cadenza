@@ -75,7 +75,8 @@ namespace Mono.Rocks.Tests {
 			string str;
 
 			ms.Position = 0;
-			ms.WithSystemConverter()
+			var conv = ms.WithSystemConverter ();
+			conv
 				.Read (out us)
 				.Read (out ui)
 				.Read (out ul)
@@ -85,9 +86,9 @@ namespace Mono.Rocks.Tests {
 				.Read (out c)
 				.Read (out b)
 				.Read (out d)
-				.Read (out f)
-				.Read (out og)
-				.Read (5, Encoding.UTF8, out str);
+				.Read (out f);
+			conv.Read (out og);
+			conv.Read (5, Encoding.UTF8, out str);
 
 			Assert.AreEqual ((ushort) 2124, us);
 			Assert.AreEqual (150291U, ui);
@@ -123,7 +124,8 @@ namespace Mono.Rocks.Tests {
 			};
 
 			MemoryStream ms = new MemoryStream ();
-			ms.WithSystemConverter()
+			var conv = ms.WithSystemConverter ();
+			conv
 				.Write (true)
 				.Write ((byte) 1)
 				.Write ('a')
@@ -134,9 +136,9 @@ namespace Mono.Rocks.Tests {
 				.Write (2.17F)
 				.Write ((ushort) 40)
 				.Write (50U)
-				.Write (60UL)
-				.Write (Encoding.UTF8.GetBytes ("Hello"))
-				.Write (new Guid ());
+				.Write (60UL);
+			conv.Write (Encoding.UTF8.GetBytes ("Hello"));
+			conv.Write (new Guid ());
 			byte[] b = ms.ToArray();
 			AssertAreSame (expected, ms.ToArray ());
 		}

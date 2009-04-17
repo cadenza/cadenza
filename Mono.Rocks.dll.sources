@@ -33,3 +33,4 @@
 ./Mono.Rocks/UInt16.cs
 ./Mono.Rocks/UInt32.cs
 ./Mono.Rocks/UInt64.cs
+./Mono.Rocks/ValueReader.cs

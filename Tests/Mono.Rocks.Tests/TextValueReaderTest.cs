@@ -58,8 +58,7 @@ namespace Mono.Rocks.Tests {
 	}
 
 	static class TvrDataReaders {
-		public static T Read<T> (this IValueReader<T> reader, out TvrData1 d)
-			where T : IValueReader<T>
+		public static IValueReader Read (this IValueReader reader, out TvrData1 d)
 		{
 			d = new TvrData1 ();
 			char paren;
@@ -70,7 +69,7 @@ namespace Mono.Rocks.Tests {
 				.Read (out paren);
 		}
 
-		public static TextValueReader Read (this TextValueReader reader, out TvrOp o)
+		public static IValueReader Read (this IValueReader reader, out TvrOp o)
 		{
 			o = new TvrOp ();
 			char paren;
@@ -83,7 +82,7 @@ namespace Mono.Rocks.Tests {
 			return reader;
 		}
 
-		public static TextValueReader Read (this TextValueReader reader, out TvrData2 d)
+		public static IValueReader Read (this IValueReader reader, out TvrData2 d)
 		{
 			d = new TvrData2 ();
 			char paren;
@@ -114,7 +113,7 @@ namespace Mono.Rocks.Tests {
 			TextValueReader r = new[]{"component-model-doesn't-support-TvrOp"}
 				.ToValueReader ();
 			TvrOp op;
-			r.Read<TvrOp> (out op);
+			ValueReaderRocks.Read (r, out op);
 		}
 
 		[Test, ExpectedException (typeof (InvalidOperationException))]

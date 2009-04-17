@@ -32,132 +32,96 @@ using System.Linq;
 
 namespace Mono.Rocks {
 
-	public sealed class EnumerableValueReader<T> : IValueReader<EnumerableValueReader<T>>, IDisposable
+	[CLSCompliant (false)]
+	public sealed class EnumerableValueReader<T> : ValueReader<T>
 	{
-		IEnumerator<T> items;
-
 		public EnumerableValueReader (IEnumerable<T> values)
+			: base (values)
 		{
-			if (values == null)
-				throw new ArgumentNullException ("values");
-			this.items = values.GetEnumerator ();
 		}
 
-		internal R Item<R> ()
+		private R Convert<R> (T value)
 		{
-			if (!items.MoveNext ())
-				throw new InvalidOperationException ("no more elements");
-
-			return Either.TryParse<T, R> (items.Current)
+			return Either.TryParse<T, R> (value)
 				.Fold<R> (v => v, v => {throw v;});
 		}
 
-		public void Dispose ()
+		protected override bool ToBoolean (T value)
 		{
-			items.Dispose ();
+			return Convert<bool> (value);
 		}
 
-		public EnumerableValueReader<T> Read (out bool value)
+		protected override byte ToByte (T value)
 		{
-			value = Item<bool> ();
-			return this;
+			return Convert<byte> (value);
 		}
 
-		public EnumerableValueReader<T> Read (out byte value)
+		protected override char ToChar (T value)
 		{
-			value = Item<byte> ();
-			return this;
+			return Convert<char> (value);
 		}
 
-		public EnumerableValueReader<T> Read (out char value)
+		protected override DateTime ToDateTime (T value)
 		{
-			value = Item<char> ();
-			return this;
+			return Convert<DateTime> (value);
 		}
 
-		public EnumerableValueReader<T> Read (out DateTime value)
+		protected override decimal ToDecimal (T value)
 		{
-			value = Item<DateTime> ();
-			return this;
+			return Convert<decimal> (value);
 		}
 
-		public EnumerableValueReader<T> Read (out decimal value)
+		protected override double ToDouble (T value)
 		{
-			value = Item<decimal> ();
-			return this;
+			return Convert<double> (value);
 		}
 
-		public EnumerableValueReader<T> Read (out double value)
+		protected override short ToInt16 (T value)
 		{
-			value = Item<double> ();
-			return this;
+			return Convert<short> (value);
 		}
 
-		public EnumerableValueReader<T> Read (out short value)
+		protected override int ToInt32 (T value)
 		{
-			value = Item<short> ();
-			return this;
+			return Convert<int> (value);
 		}
 
-		public EnumerableValueReader<T> Read (out int value)
+		protected override long ToInt64 (T value)
 		{
-			value = Item<int> ();
-			return this;
+			return Convert<long> (value);
 		}
 
-		public EnumerableValueReader<T> Read (out long value)
+		protected override sbyte ToSByte (T value)
 		{
-			value = Item<long> ();
-			return this;
+			return Convert<sbyte> (value);
 		}
 
-		[CLSCompliant (false)]
-		public EnumerableValueReader<T> Read (out sbyte value)
+		protected override float ToSingle (T value)
 		{
-			value = Item<sbyte> ();
-			return this;
+			return Convert<float> (value);
 		}
 
-		public EnumerableValueReader<T> Read (out float value)
+		protected override string ToString (T value)
 		{
-			value = Item<float> ();
-			return this;
-		}
-
-		public EnumerableValueReader<T> Read (out string value)
-		{
-			value = Item<string> ();
-			return this;
+			return Convert<string> (value);
 		}
 
 		[CLSCompliant (false)]
-		public EnumerableValueReader<T> Read (out ushort value)
+		protected override ushort ToUInt16 (T value)
 		{
-			value = Item<ushort> ();
-			return this;
+			return Convert<ushort> (value);
 		}
 
 		[CLSCompliant (false)]
-		public EnumerableValueReader<T> Read (out uint value)
+		protected override uint ToUInt32 (T value)
 		{
-			value = Item<uint> ();
-			return this;
+			return Convert<uint> (value);
 		}
 
 		[CLSCompliant (false)]
-		public EnumerableValueReader<T> Read (out ulong value)
+		protected override ulong ToUInt64 (T value)
 		{
-			value = Item<ulong> ();
-			return this;
-		}
-	}
-
-	public static class EnumerableValueReaderRocks {
-
-		public static EnumerableValueReader<TSource> Read<TSource, TValue> (this EnumerableValueReader<TSource> self, out TValue value)
-		{
-			value = self.Item<TValue> ();
-			return self;
+			return Convert<ulong> (value);
 		}
 	}
 }

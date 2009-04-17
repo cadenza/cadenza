@@ -62,8 +62,8 @@
     <Compile Include="Mono.Rocks\Sequence.cs" />
     <Compile Include="Mono.Rocks\Stream.cs" />
     <Compile Include="Mono.Rocks\StreamConverter.cs" />
-    <Compile Include="Mono.Rocks\SystemStreamConverter.cs" />
     <Compile Include="Mono.Rocks\String.cs" />
+    <Compile Include="Mono.Rocks\SystemStreamConverter.cs" />
     <Compile Include="Mono.Rocks\TextReader.cs" />
     <Compile Include="Mono.Rocks\TextValueReader.cs" />
     <Compile Include="Mono.Rocks\Tuple.cs" />
@@ -72,6 +72,7 @@
     <Compile Include="Mono.Rocks\UInt16.cs" />
     <Compile Include="Mono.Rocks\UInt32.cs" />
     <Compile Include="Mono.Rocks\UInt64.cs" />
+    <Compile Include="Mono.Rocks\ValueReader.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
@@ -81,11 +82,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ProjectExtensions>
-    <MonoDevelop>
-      <Properties>
-        <GtkDesignInfo gtkVersion="2.12.1" />
-      </Properties>
-    </MonoDevelop>
-  </ProjectExtensions>
 </Project>
