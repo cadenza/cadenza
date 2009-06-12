@@ -19,6 +19,7 @@
 ./Mono.Rocks/NaturalStringComparer.cs
 ./Mono.Rocks/Nullable.cs
 ./Mono.Rocks/Object.cs
+./Mono.Rocks/ReadOnlyDictionary.cs
 ./Mono.Rocks/RectangularArray.cs
 ./Mono.Rocks/Sequence.cs
 ./Mono.Rocks/Stream.cs

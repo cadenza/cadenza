@@ -1,3 +1,10 @@
+2009-06-11  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add 
+	  Mono.Rocks/ReadOnlyDictionary.cs to the build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj: Add
+	  Tests/Mono.Rocks.Tests/ReadOnlyDictionaryTest.cs to the build.
+
 2009-04-16  Jonathan Pryor  <jpryor@novell.com>
 
 	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add 

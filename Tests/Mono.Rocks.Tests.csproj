@@ -55,6 +55,7 @@
     <Compile Include="Mono.Rocks.Tests\NaturalStringComparerTest.cs" />
     <Compile Include="Mono.Rocks.Tests\NullableTest.cs" />
     <Compile Include="Mono.Rocks.Tests\ObjectTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\ReadOnlyDictionaryTest.cs" />
     <Compile Include="Mono.Rocks.Tests\RectangularArrayTest.cs" />
     <Compile Include="Mono.Rocks.Tests\SequenceTest.cs" />
     <Compile Include="Mono.Rocks.Tests\StreamTest.cs" />

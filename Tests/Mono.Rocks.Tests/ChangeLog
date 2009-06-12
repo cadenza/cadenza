@@ -1,3 +1,8 @@
+2009-06-11  Jonathan Pryor  <jpryor@novell.com>
+
+	* ReadOnlyDictionaryTest.cs: Added; implementation thanks to 
+	  Eric Maupin  <me@ermau.com>.
+
 2009-04-16  Jonathan Pryor  <jpryor@novell.com>
 
 	* SystemStreamConverterTest.cs, TextValueReaderTest.cs: Update to

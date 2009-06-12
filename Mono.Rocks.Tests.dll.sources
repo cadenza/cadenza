@@ -13,6 +13,7 @@
 ./Tests/Mono.Rocks.Tests/NaturalStringComparerTest.cs
 ./Tests/Mono.Rocks.Tests/NullableTest.cs
 ./Tests/Mono.Rocks.Tests/ObjectTest.cs
+./Tests/Mono.Rocks.Tests/ReadOnlyDictionaryTest.cs
 ./Tests/Mono.Rocks.Tests/RectangularArrayTest.cs
 ./Tests/Mono.Rocks.Tests/SequenceTest.cs
 ./Tests/Mono.Rocks.Tests/SystemStreamConverterTest.cs

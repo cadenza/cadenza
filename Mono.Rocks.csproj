@@ -58,6 +58,7 @@
     <Compile Include="Mono.Rocks\NaturalStringComparer.cs" />
     <Compile Include="Mono.Rocks\Nullable.cs" />
     <Compile Include="Mono.Rocks\Object.cs" />
+    <Compile Include="Mono.Rocks\ReadOnlyDictionary.cs" />
     <Compile Include="Mono.Rocks\RectangularArray.cs" />
     <Compile Include="Mono.Rocks\Sequence.cs" />
     <Compile Include="Mono.Rocks\Stream.cs" />
