@@ -375,6 +375,64 @@ namespace Mono.Rocks.Tests {
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void ToReadOnlyDictionary_SelfNull_KeySelector ()
+		{
+			IEnumerable<string>   s  = null;
+			Func<string, string>  ks = e => e;
+			s.ToReadOnlyDictionary (ks);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void ToReadOnlyDictionary_KeySelectorNull ()
+		{
+			IEnumerable<string>   s  = new[]{"a"};
+			Func<string, string>  ks = null;
+			s.ToReadOnlyDictionary (ks);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void ToReadOnlyDictionary_SelfNull_KeySelectorAndValueSelector ()
+		{
+			IEnumerable<string>   s  = null;
+			Func<string, string>  ks = e => e;
+			Func<string, string>  vs = e => e;
+			s.ToReadOnlyDictionary (ks, vs);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void ToReadOnlyDictionary_KeySelectorNull_WithValueSelector ()
+		{
+			IEnumerable<string>   s  = new[]{"a"};
+			Func<string, string>  ks = null;
+			Func<string, string>  vs = e => e;
+			s.ToReadOnlyDictionary (ks, vs);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void ToReadOnlyDictionary_ValueSelectorNull ()
+		{
+			IEnumerable<string>   s  = new[]{"a"};
+			Func<string, string>  ks = e => e;
+			Func<string, string>  vs = null;
+			s.ToReadOnlyDictionary (ks, vs);
+		}
+
+		[Test]
+		public void ToReadOnlyDictionary ()
+		{
+			var c = new[]{
+				new DateTime (2009, 1, 1), 
+				new DateTime (2008, 1, 1),
+				new DateTime (2007, 1, 1),
+			}.ToReadOnlyDictionary (d => d.Year);
+
+			Assert.AreEqual (3, c.Count);
+			Assert.IsTrue (c.ContainsKey (2009));
+			Assert.IsTrue (c.ContainsKey (2008));
+			Assert.IsTrue (c.ContainsKey (2007));
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
 		public void ToValueReader_SelfNull ()
 		{
 			IEnumerable<string> s = null;

@@ -411,6 +411,18 @@ namespace Mono.Rocks {
 				yield return resultSelector (seed)._1;
 		}
 
+		public static ReadOnlyDictionary<TKey,TValue> ToReadOnlyDictionary<TKey,TValue> (this IEnumerable<TValue> self, Func<TValue, TKey> keySelector)
+		{
+			Check.Self (self);
+			return new ReadOnlyDictionary<TKey, TValue> (self.ToDictionary (keySelector));
+		}
+
+		public static ReadOnlyDictionary<TKey,TValue> ToReadOnlyDictionary<TSource,TKey,TValue> (this IEnumerable<TSource> self, Func<TSource, TKey> keySelector, Func<TSource, TValue> valueSelector)
+		{
+			Check.Self (self);
+			return new ReadOnlyDictionary<TKey, TValue> (self.ToDictionary (keySelector, valueSelector));
+		}
+
 		[CLSCompliant (false)]
 		public static TextValueReader ToValueReader (this IEnumerable<string> self)
 		{

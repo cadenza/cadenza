@@ -1,5 +1,9 @@
 2009-06-11  Jonathan Pryor  <jpryor@novell.com>
 
+	* IEnumerableTest.cs: Add tests for .ToReadOnlyDictionary().
+
+2009-06-11  Jonathan Pryor  <jpryor@novell.com>
+
 	* ReadOnlyDictionaryTest.cs: Added; implementation thanks to 
 	  Eric Maupin  <me@ermau.com>.
 

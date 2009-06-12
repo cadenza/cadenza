@@ -1,5 +1,10 @@
 2009-06-11  Jonathan Pryor  <jpryor@novell.com>
 
+	* IEnumerable.cs: Add .ToReadOnlyDictionary() extension methods.
+	  Contributed by Eric Maupin  <me@ermau.com>.
+
+2009-06-11  Jonathan Pryor  <jpryor@novell.com>
+
 	* ReadOnlyDictionary.cs: Added; implementation thanks to 
 	  Eric Maupin  <me@ermau.com>.
 
