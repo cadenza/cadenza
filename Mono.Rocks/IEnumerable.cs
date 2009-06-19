@@ -357,7 +357,7 @@ namespace Mono.Rocks {
 			Check.ResultSelector (resultSelector);
 			Check.Categories (categories);
 			if (categories.Length == 0)
-				throw new ArgumentException ("categories", "must have one or more elements");
+				throw new ArgumentException ("must have one or more elements", "categories");
 
 			return CreateTokensIterator (self, seed, accumulate, resultSelector, categories);
 		}
