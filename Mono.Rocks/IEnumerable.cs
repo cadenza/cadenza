@@ -4,6 +4,7 @@
 // Author:
 //   Jb Evain (jbevain@novell.com)
 //   Jonathan Pryor  <jpryor@novell.com>
+//   Distilled Brilliance <contact@dispatcher.distilledb.com>
 //
 // Copyright (c) 2007-2009 Novell, Inc. (http://www.novell.com)
 //
@@ -459,6 +460,42 @@ namespace Mono.Rocks {
 			Check.ChildrenSelector (childrenSelector);
 
 			return self.SelectMany (e => e.TraverseDepthFirst (valueSelector, childrenSelector));
+		}
+
+		/*
+		 * ContiguousSubsequences courtesy of Distilled Brilliance / John Feminella:
+		 * http://distilledb.com/blog/archives/date/2009/03/12/enumerable-extension-method-for-contiguous-subsequences.page
+		 */
+		public static IEnumerable<IEnumerable<TSource>> ContiguousSubsequences<TSource>(this IEnumerable<TSource> self, int windowSize)
+		{
+			Check.Self (self);
+			if (windowSize < 1)
+				throw new ArgumentOutOfRangeException("windowSize", "must be >= 1");
+
+			return CreateContiguousSubsequencesIterator (self, windowSize);
+		}
+
+		private static IEnumerable<IEnumerable<T>> CreateContiguousSubsequencesIterator<T>(this IEnumerable<T> input, int windowSize)
+		{
+			int index = 0;
+			var window = new List<T>(windowSize);
+			window.AddRange (new T[windowSize]);
+			foreach (var item in input) {
+				bool initializing = index < windowSize;
+
+				if (!initializing) {
+					window = window.Skip (1).ToList ();
+					window.Add (default (T));
+				}
+
+				int itemIndex = initializing ? index : windowSize - 1;
+				window [itemIndex] = item;
+
+				index++;
+				bool initialized = index >= windowSize;
+				if (initialized)
+					yield return new List<T>(window);
+			}
 		}
 
 		// Haskell: zipWith

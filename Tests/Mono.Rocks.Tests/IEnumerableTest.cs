@@ -837,6 +837,34 @@ namespace Mono.Rocks.Tests {
 			#endregion
 		}
 
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void ContiguousSubsequences_SelfNull ()
+		{
+			IEnumerable<int> s = null;
+			s.ContiguousSubsequences (1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentOutOfRangeException))]
+		public void ContiguousSubsequences_WindowSizeIsInvalid ()
+		{
+			IEnumerable<int> s = new[]{1};
+			s.ContiguousSubsequences (0);
+		}
+
+		[Test]
+		public void ContiguousSubsequences ()
+		{
+			#region ContiguousSubsequences
+			IEnumerable<IEnumerable<char>> results = "12345678".ContiguousSubsequences (4);
+			Assert.AreEqual (5, results.Count());
+			Assert.AreEqual ("1234", results.ElementAt (0).Implode());
+			Assert.AreEqual ("2345", results.ElementAt (1).Implode());
+			Assert.AreEqual ("3456", results.ElementAt (2).Implode());
+			Assert.AreEqual ("4567", results.ElementAt (3).Implode());
+			Assert.AreEqual ("5678", results.ElementAt (4).Implode());
+			#endregion
+		}
+
 		[Test]
 		[ExpectedException (typeof (ArgumentNullException))]
 		public void SelectFromEach2_Source1Null ()

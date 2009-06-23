@@ -1,3 +1,8 @@
+2009-06-23  Jonathan Pryor  <jpryor@novell.com>
+
+	* IEnumerable.cs: Add .ContiguousSubsequences().  Extension method
+	  courtesy of Distilled Brilliance / John Feminella.
+
 2009-06-11  Jonathan Pryor  <jpryor@novell.com>
 
 	* IEnumerable.cs: Add .ToReadOnlyDictionary() extension methods.
