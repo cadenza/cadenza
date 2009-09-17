@@ -1,4 +1,9 @@
-2009-06-23  Jonathan Pryor  <jpryor@novell.com>
+2009-09-17	Eric Maupin  <me@ermau.com>
+
+	* StringTest.cs: Add tests for .Slice()
+	* DelegateTest.cs: Fixed test for Timings()
+
+2009-09-17  Jonathan Pryor  <jpryor@novell.com>
 
 	* StringTest.cs: Add tests for .Remove(string[]) extension method.  
 	  Patch thanks to Eric Maupin <me@ermau.com>.

@@ -143,6 +143,42 @@ namespace Mono.Rocks.Tests {
 		}
 
 		[Test]
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void Slice_SelfNull()
+		{
+			string s = null;
+			s.Slice (0, 1);
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentOutOfRangeException))]
+		public void Slice_StartOutOfRangeStartLower()
+		{
+			"bar".Slice (-1, 2);
+		}
+
+		[Test]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void Slice_StartOutOfRangeStartUpper()
+		{
+			"bar".Slice (3, 2);
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentOutOfRangeException))]
+		public void Slice_StartOutOfRangeEndUpper()
+		{
+			"bar".Slice (0, 4);
+		}
+
+		[Test]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void Slice_StartOutOfRangeEndLower()
+		{
+			"bar".Slice (2, 1);
+		}
+
+		[Test]
 		public void Slice ()
 		{
 			#region Slice
