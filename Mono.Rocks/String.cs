@@ -32,6 +32,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Mono.Rocks {
@@ -64,6 +65,20 @@ namespace Mono.Rocks {
 			Check.Self (self);
 
 			return new StringReader (self).Words ();
+		}
+
+		public static string Remove (this string self, params string[] targets)
+		{
+			Check.Self (self);
+			if (targets == null)
+				throw new ArgumentNullException ("targets");
+
+			StringBuilder builder = new StringBuilder (self);
+
+			for (int i = 0; i < targets.Length; ++i)
+				builder.Replace (targets[i], String.Empty);
+
+			return builder.ToString();
 		}
 
 		public static IEnumerable<Match> Matches (this string self, string regex)

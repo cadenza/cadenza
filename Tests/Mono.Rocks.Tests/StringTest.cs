@@ -121,6 +121,28 @@ namespace Mono.Rocks.Tests {
 		}
 
 		[Test]
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void Remove_SelfNull()
+		{
+			string s = null;
+			s.Remove (String.Empty);
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void Remove_ParamsNull()
+		{
+			String.Empty.Remove (null);
+		}
+
+		[Test]
+		public void Remove()
+		{
+			Assert.AreEqual (" Bar ", "Foo Bar Monkeys".Remove ("Foo", "Monkeys"));
+			Assert.AreEqual (" Bar ", "Foo Bar Foo".Remove ("Foo"));
+		}
+
+		[Test]
 		public void Slice ()
 		{
 			#region Slice

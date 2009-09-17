@@ -1,5 +1,10 @@
 2009-06-23  Jonathan Pryor  <jpryor@novell.com>
 
+	* StringTest.cs: Add tests for .Remove(string[]) extension method.  
+	  Patch thanks to Eric Maupin <me@ermau.com>.
+
+2009-06-23  Jonathan Pryor  <jpryor@novell.com>
+
 	* IEnumerableTest.cs: Add tests for .ContiguousSubsequences().
 
 2009-06-11  Jonathan Pryor  <jpryor@novell.com>
