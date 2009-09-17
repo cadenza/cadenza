@@ -1,3 +1,8 @@
+2009-09-17  Jonathan Pryor  <jpryor@novell.com>
+
+	* lib/monodoc/sources/mono-rocks-docs.source: Place documentation into
+	  the correct node (for more recent versions of monodoc).
+
 2009-06-11  Jonathan Pryor  <jpryor@novell.com>
 
 	* Mono.Rocks.dll.sources, Mono.Rocks.csproj: Add 
