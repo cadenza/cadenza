@@ -19,13 +19,14 @@
 ./Mono.Rocks/NaturalStringComparer.cs
 ./Mono.Rocks/Nullable.cs
 ./Mono.Rocks/Object.cs
+./Mono.Rocks/OrderedDictionary.cs
 ./Mono.Rocks/ReadOnlyDictionary.cs
 ./Mono.Rocks/RectangularArray.cs
 ./Mono.Rocks/Sequence.cs
 ./Mono.Rocks/Stream.cs
 ./Mono.Rocks/StreamConverter.cs
-./Mono.Rocks/SystemStreamConverter.cs
 ./Mono.Rocks/String.cs
+./Mono.Rocks/SystemStreamConverter.cs
 ./Mono.Rocks/TextReader.cs
 ./Mono.Rocks/TextValueReader.cs
 ./Mono.Rocks/Tuple.cs

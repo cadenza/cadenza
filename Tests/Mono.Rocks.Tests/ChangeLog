@@ -1,3 +1,7 @@
+2009-09-23	Eric Maupin  <me@ermau.com>
+	
+	* OrderedDictionaryTest.cs: Add tests for OrderedDictionary<>
+
 2009-09-17	Eric Maupin  <me@ermau.com>
 
 	* StringTest.cs: Add tests for .Slice()
