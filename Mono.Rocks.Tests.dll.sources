@@ -1,5 +1,6 @@
 ./Tests/Mono.Rocks.Tests/AssemblyInfo.cs
 ./Tests/Mono.Rocks.Tests/BaseRocksFixture.cs
+./Tests/Mono.Rocks.Tests/CachedSequenceTest.cs
 ./Tests/Mono.Rocks.Tests/DelegateTest.cs
 ./Tests/Mono.Rocks.Tests/EitherTest.cs
 ./Tests/Mono.Rocks.Tests/EnumerableValueReaderTest.cs

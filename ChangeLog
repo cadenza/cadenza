@@ -1,3 +1,10 @@
+2009-10-27  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.dll.sources, Mono.Rocks.csproj:
+	  Add Mono.Rocks/CachedSequence.cs to the build.
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj:
+	  Add Mono.Rocks.Tests/CachedSequenceTest.cs to the build.
+
 2009-09-23	Eric Maupin	<me@ermau.com>
 
 	* Mono.Rocks.dll.sources, Mono.Rocks.csproj:

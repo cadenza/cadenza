@@ -1,3 +1,10 @@
+2009-10-27  Jonathan Pryor  <jpryor@novell.com>
+
+	* IEnumerableTest.cs: Add tests for .Cache().
+	* CachedSequenceTest.cs: Resuscitated from
+	  rocks-playground/Tests/Mono.Rocks.Tests/ConsTest.cs@r112950.  Tests
+	  for CachedSequence<T>.
+
 2009-09-23	Eric Maupin  <me@ermau.com>
 	
 	* OrderedDictionaryTest.cs: Add tests for OrderedDictionary<>

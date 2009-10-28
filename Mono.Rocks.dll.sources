@@ -1,4 +1,5 @@
 ./Mono.Rocks/AssemblyInfo.cs
+./Mono.Rocks/CachedSequence.cs
 ./Mono.Rocks/Check.cs
 ./Mono.Rocks/Delegates.cs
 ./Mono.Rocks/Either.cs

@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mono.Rocks\AssemblyInfo.cs" />
+    <Compile Include="Mono.Rocks\CachedSequence.cs" />
     <Compile Include="Mono.Rocks\Check.cs" />
     <Compile Include="Mono.Rocks\Delegates.cs" />
     <Compile Include="Mono.Rocks\Either.cs" />

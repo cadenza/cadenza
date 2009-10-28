@@ -255,6 +255,13 @@ namespace Mono.Rocks {
 			return Sort (self, NaturalStringComparer.Default);
 		}
 
+		public static CachedSequence<T> Cache<T> (this IEnumerable<T> self)
+		{
+			Check.Self (self);
+
+			return new CachedSequence<T> (self);
+		}
+
 		public static IList<object> ToTuple (this IEnumerable self)
 		{
 			Check.Self (self);

@@ -1,3 +1,13 @@
+2009-09-17  Jonathan Pryor  <jpryor@novell.com>
+
+	* IEnumerable.cs: Add .Cache() extension method.
+	* CachedSequence.cs: Resuscitated from
+	  rocks-playground/Mono.Rocks/Cons.cs@r112950; an immutable, 
+	  thread-safe, singly-linked list.  Improvements include less 
+	  memory overhead (down to one pointer from two), a better name, and a
+	  reason to exist (to sanely cope with potentially infinite sequences
+	  which change each time you call .GetEnumerator() on them).
+
 2009-09-23	Eric Maupin  <me@ermau.com>
 
 	* OrderedDictionary.cs: Added a dictionary that maintains insertion

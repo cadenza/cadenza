@@ -650,6 +650,79 @@ namespace Mono.Rocks.Tests {
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void Cache_SelfNull ()
+		{
+			IEnumerable<object> s = null;
+			s.Cache ();
+		}
+
+		private static IEnumerable<int> RandomValues (Random r, int max)
+		{
+			while (true)
+				yield return r.Next (max);
+		}
+
+		// Test idea from: http://bartdesmet.net/blogs/bart/archive/2009/09/12/taming-your-sequence-s-side-effects-through-ienumerable-let.aspx
+		[Test]
+		public void Cache ()
+		{
+			var randSeq = RandomValues (new Random (), 100);
+			// this could pass, but that's highly improbable
+			Assert.IsFalse (randSeq.Take (10).SelectFromEach (randSeq.Take (10), (l, r) => l + r).All (x => x % 2 == 0));
+
+			// We can make the above sane by memoizing the sequence:
+			Assert.IsTrue (randSeq.Take (10).Cache ().With (c => c.SelectFromEach (c, (l, r) => l + r)).All (x => x % 2 == 0));
+		}
+
+		class CacheIterDisposed {
+			public int Disposed;
+			public IEnumerable<int> GetValues ()
+			{
+				try {
+					yield return 1;
+					yield return 2;
+					yield return 3;
+					yield return 4;
+					yield return 5;
+				}
+				finally {
+					// Console.WriteLine (new System.Diagnostics.StackTrace().ToString ());
+					Disposed++;
+				}
+			}
+		}
+
+		[Test]
+		public void Cache_Leaf_IteratorIsDisposed ()
+		{
+			var r = new CacheIterDisposed ();
+			int c = 0;
+			foreach (var e in r.GetValues ().Take(2).Cache ())
+				++c;
+			Assert.AreEqual (2, c);
+			Assert.AreEqual (1, r.Disposed);
+		}
+
+		[Test]
+		public void Cache_Intermediate_IteratorIsDisposed ()
+		{
+			var r = new CacheIterDisposed ();
+			int c = 0;
+			foreach (var e in r.GetValues ().Cache ().Take (2))
+				++c;
+			Assert.AreEqual (2, c);
+			Assert.AreEqual (1, r.Disposed);
+
+			r.Disposed=0;
+			r.GetValues ().Where (v => v%2==0).Select (v => v*2).Apply ();
+			Assert.AreEqual (1, r.Disposed);
+
+			r.Disposed=0;
+			r.GetValues().Cache ().Where(v => v%2==0).Select(v => v*2).Apply ();
+			Assert.AreEqual (1, r.Disposed);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
 		public void ToTuple_SelfNull ()
 		{
 			IEnumerable<object> s = null;
