@@ -45,6 +45,7 @@
     <Compile Include="Mono.Rocks.Tests\EitherTest.cs" />
     <Compile Include="Mono.Rocks.Tests\EnumerableValueReaderTest.cs" />
     <Compile Include="Mono.Rocks.Tests\ICustomAttributeProviderTest.cs" />
+    <Compile Include="Mono.Rocks.Tests\IEnumerableContract.cs" />
     <Compile Include="Mono.Rocks.Tests\IEnumerableTest.cs" />
     <Compile Include="Mono.Rocks.Tests\Int16Test.cs" />
     <Compile Include="Mono.Rocks.Tests\Int32Test.cs" />

@@ -5,6 +5,7 @@
 ./Tests/Mono.Rocks.Tests/EitherTest.cs
 ./Tests/Mono.Rocks.Tests/EnumerableValueReaderTest.cs
 ./Tests/Mono.Rocks.Tests/ICustomAttributeProviderTest.cs
+./Tests/Mono.Rocks.Tests/IEnumerableContract.cs
 ./Tests/Mono.Rocks.Tests/IEnumerableTest.cs
 ./Tests/Mono.Rocks.Tests/Int16Test.cs
 ./Tests/Mono.Rocks.Tests/Int32Test.cs

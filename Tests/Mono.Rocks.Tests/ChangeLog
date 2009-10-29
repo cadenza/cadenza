@@ -1,3 +1,9 @@
+2009-10-28  Jonathan Pryor  <jpryor@novell.com>
+
+	* IEnumerableContract.cs: Added; base-level IEnumerable<T> sanity tests,
+	  refactored out from CachedSequenceTest.cs.
+	* CachedSequenceTest.cs: Inherit from IEnumerableContract.cs.
+
 2009-10-27  Jonathan Pryor  <jpryor@novell.com>
 
 	* IEnumerableTest.cs: Add tests for .Cache().

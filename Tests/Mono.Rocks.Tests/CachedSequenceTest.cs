@@ -37,7 +37,12 @@ using Mono.Rocks;
 namespace Mono.Rocks.Tests {
 
 	[TestFixture]
-	public class CachedSequenceTest : BaseRocksFixture {
+	public class CachedSequenceTest : IEnumerableContract {
+
+		protected override IEnumerable<T> CreateSequence<T>(IEnumerable<T> source)
+		{
+			return new CachedSequence<T>(source);
+		}
 
 		[Test]
 		public void Ctor_Head ()
@@ -90,21 +95,6 @@ namespace Mono.Rocks.Tests {
 			Assert.AreEqual (null, s.Tail);
 		}
 
-		class DisposedCounter {
-			public int Disposed;
-			public IEnumerable<int> Values (int max)
-			{
-				int v = 0;
-				try {
-					for (int i = 0; i < max; ++i)
-						yield return v++;
-				}
-				finally {
-					Disposed++;
-				}
-			}
-		}
-
 		[Test]
 		public void Ctor_Collection_Single_CheckDisposed ()
 		{
@@ -113,16 +103,6 @@ namespace Mono.Rocks.Tests {
 			Assert.AreEqual (1, d.Disposed);
 			Assert.AreEqual (0, s.Head);
 			Assert.AreEqual (null, s.Tail);
-		}
-
-		[Test]
-		public void Ctor_Collection_SequencEqual ()
-		{
-			var a = new List<int> ();
-			for (int i = 0; i < 10; ++i) {
-				a.Add (i);
-				Assert.IsTrue (new CachedSequence<int> (a).SequenceEqual (a), "Count=" + (i+1));
-			}
 		}
 
 		[Test]
@@ -193,17 +173,6 @@ namespace Mono.Rocks.Tests {
 		{
 			CachedSequence<int> c = new CachedSequence<int> (42);
 			c.ElementAt (-1);
-		}
-
-		[Test]
-		public void GetEnumerator_DisposeDisposesIterator ()
-		{
-			var d = new DisposedCounter ();
-			var s = new CachedSequence<int> (d.Values (2));
-			var i = s.GetEnumerator ();
-			Assert.IsTrue (i.MoveNext ());
-			i.Dispose ();
-			Assert.AreEqual (1, d.Disposed);
 		}
 
 		[Test]

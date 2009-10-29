@@ -1,3 +1,8 @@
+2009-10-28  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj:
+	  Add Mono.Rocks.Tests/IEnumerableContract.cs to the build.
+
 2009-10-27  Jonathan Pryor  <jpryor@novell.com>
 
 	* Mono.Rocks.dll.sources, Mono.Rocks.csproj:
