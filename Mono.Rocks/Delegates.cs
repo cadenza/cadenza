@@ -3,7 +3,7 @@
 // 
 // GENERATED CODE: DO NOT EDIT.
 //
-// To regenerate this code, execute: ./mkdelegates -n 4 -o Delegates.cs
+// To regenerate this code, execute: mkdelegates -n 4 -o Delegates.cs
 //
 // Copyright (c) 2008 Novell, Inc. (http://www.novell.com)
 //

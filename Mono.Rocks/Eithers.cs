@@ -3,7 +3,7 @@
 //
 // GENERATED CODE: DO NOT EDIT.
 //
-// To regenerate this code, execute: ./mkeithers -n 4 -o Eithers.cs
+// To regenerate this code, execute: mkeithers -n 4 -o Eithers.cs
 //
 // Copyright (c) 2008 Novell, Inc. (http://www.novell.com)
 //

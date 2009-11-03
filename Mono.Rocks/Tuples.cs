@@ -3,7 +3,7 @@
 //
 // GENERATED CODE: DO NOT EDIT.
 //
-// To regenerate this code, execute: ./mktuples -n 4 -o Tuples.cs
+// To regenerate this code, execute: mktuples -n 4 -o Tuples.cs
 //
 // Copyright (c) 2008 Novell, Inc. (http://www.novell.com)
 //

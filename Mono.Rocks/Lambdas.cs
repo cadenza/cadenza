@@ -3,7 +3,7 @@
 //
 // GENERATED CODE: DO NOT EDIT.
 //
-// To regenerate this code, execute: ./mklambda -n 4 -o Lambdas.cs
+// To regenerate this code, execute: mklambda -n 4 -o Lambdas.cs
 //
 // Copyright (c) 2008 Novell, Inc. (http://www.novell.com)
 //

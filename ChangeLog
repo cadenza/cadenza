@@ -1,3 +1,12 @@
+2009-11-03  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.csproj: Makefile functionality import: If the mk* files
+	  are newer than the files they generate, re-run the mk* programs to
+	  generate their output files before building.  Add a 'shell' target;
+	  note that the 'shell' target doesn't work, as stdout/stderr isn't
+	  visible interactively.
+	* Mono.Rocks.sln: Flush.
+
 2009-10-28  Jonathan Pryor  <jpryor@novell.com>
 
 	* Mono.Rocks.Tests.dll.sources, Tests/Mono.Rocks.Tests.csproj:
