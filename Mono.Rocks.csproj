@@ -85,24 +85,26 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Target Name="Update-Delegates" Inputs="mkdelegates" Outputs="Mono.Rocks\Delegates.cs">
-    <Exec Command="perl mkdelegates -n 4 &gt; Mono.Rocks\Delegates.cs" />
-  </Target>
-  <Target Name="Update-Eithers" Inputs="mkeithers" Outputs="Mono.Rocks\Eithers.cs">
-    <Exec Command="perl mkeithers -n 4 &gt; Mono.Rocks\Eithers.cs" />
-  </Target>
-  <Target Name="Update-Lambdas" Inputs="mklambda" Outputs="Mono.Rocks\Lambdas.cs">
-    <Exec Command="perl mklambda -n 4 &gt; Mono.Rocks\Lambdas.cs" />
-  </Target>
-  <Target Name="Update-Tuples" Inputs="mktuples" Outputs="Mono.Rocks\Tuples.cs">
-    <Exec Command="perl mktuples -n 4 &gt; Mono.Rocks\Tuples.cs" />
+  <ItemGroup>
+    <Scripts Include="mkdelegates">
+      <TargetFileName>Mono.Rocks\Delegates.cs</TargetFileName>
+    </Scripts>
+    <Scripts Include="mkeithers">
+      <TargetFileName>Mono.Rocks\Eithers.cs</TargetFileName>
+    </Scripts>
+    <Scripts Include="mklambda">
+      <TargetFileName>Mono.Rocks\Lambdas.cs</TargetFileName>
+    </Scripts>
+    <Scripts Include="mktuples">
+      <TargetFileName>Mono.Rocks\Tuples.cs</TargetFileName>
+    </Scripts>
+  </ItemGroup>
+  <Target Name="Update" Inputs="@(Scripts)" Outputs="%(Scripts.TargetFileName)">
+    <Exec Command="perl @(Scripts) -n 4 &gt; %(Scripts.TargetFileName)" />
   </Target>
   <PropertyGroup>
     <BeforeBuildDependsOnTargets>
-      Update-Delegates;
-      Update-Eithers;
-      Update-Lambdas;
-      Update-Tuples;
+      Update;
     </BeforeBuildDependsOnTargets>
   </PropertyGroup>
   <Target Name="BeforeBuild" DependsOnTargets="$(BeforeBuildDependsOnTargets)">

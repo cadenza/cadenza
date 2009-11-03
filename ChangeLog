@@ -1,5 +1,9 @@
 2009-11-03  Jonathan Pryor  <jpryor@novell.com>
 
+	* Mono.Rocks.csproj: Use a saner file generation process.
+
+2009-11-03  Jonathan Pryor  <jpryor@novell.com>
+
 	* Mono.Rocks.csproj: Makefile functionality import: If the mk* files
 	  are newer than the files they generate, re-run the mk* programs to
 	  generate their output files before building.  Add a 'shell' target;
