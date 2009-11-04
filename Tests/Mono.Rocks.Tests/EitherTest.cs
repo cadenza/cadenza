@@ -35,6 +35,63 @@ using Mono.Rocks;
 namespace Mono.Rocks.Tests {
 
 	[TestFixture]
+	public class Either2EquatableContract : EquatableContract<Either<Action, object>>
+	{
+		protected override Either<Action, object> CreateValueX ()
+		{
+			return Either<Action, object>.A (() => {});
+		}
+
+		protected override Either<Action, object> CreateValueY ()
+		{
+			return Either<Action, object>.B ("y");
+		}
+
+		protected override Either<Action, object> CreateValueZ ()
+		{
+			return Either<Action, object>.B ("z");
+		}
+	}
+
+	[TestFixture]
+	public class Either3EquatableContract : EquatableContract<Either<Action, object, string>>
+	{
+		protected override Either<Action, object, string> CreateValueX ()
+		{
+			return Either<Action, object, string>.A (() => {});
+		}
+
+		protected override Either<Action, object, string> CreateValueY ()
+		{
+			return Either<Action, object, string>.B ("y");
+		}
+
+		protected override Either<Action, object, string> CreateValueZ ()
+		{
+			return Either<Action, object, string>.C ("z");
+		}
+	}
+
+	[TestFixture]
+	public class Either4EquatableContract : EquatableContract<Either<Action, object, string, Type>>
+	{
+		protected override Either<Action, object, string, Type> CreateValueX ()
+		{
+			return Either<Action, object, string, Type>.B ("x");
+		}
+
+		protected override Either<Action, object, string, Type> CreateValueY ()
+		{
+			return Either<Action, object, string, Type>.C ("y");
+		}
+
+		protected override Either<Action, object, string, Type> CreateValueZ ()
+		{
+			return Either<Action, object, string, Type>.D (typeof (string));
+		}
+	}
+
+	[TestFixture]
 	public class EitherTest : BaseRocksFixture {
 
 		struct CustomConvertible : IConvertible {
@@ -144,18 +201,6 @@ namespace Mono.Rocks.Tests {
 		}
 
 		[Test]
-		public void Either2_Equals ()
-		{
-			Either<Action, object> e = Either<Action, object>.A (() => {});
-			Assert.IsFalse (e.Equals ((object) null));
-			Assert.IsFalse (e.Equals ((Either<Action, object>) null));
-			Assert.IsFalse (e.Equals (Either<Action, object>.B (new object())));
-			Assert.IsTrue (e.Equals (e));
-			Assert.IsTrue (Either<Action, object>.B ("foo").Equals (
-					Either<Action, object>.B ("foo")));
-		}
-
-		[Test]
 		public void Either2_Fold_a_Null ()
 		{
 			Func<Action, int> a = null;
@@ -208,18 +253,6 @@ namespace Mono.Rocks.Tests {
 		public void Either3_C_ValueNull ()
 		{
 			Either<Action, object, string>.C (null);
-		}
-
-		[Test]
-		public void Either3_Equals ()
-		{
-			Either<Action, object, string> e = Either<Action, object, string>.A (() => {});
-			Assert.IsFalse (e.Equals ((object) null));
-			Assert.IsFalse (e.Equals ((Either<Action, object, string>) null));
-			Assert.IsFalse (e.Equals (Either<Action, object, string>.C ("foo")));
-			Assert.IsTrue (e.Equals (e));
-			Assert.IsTrue (Either<Action, object, string>.C ("foo").Equals (
-					Either<Action, object, string>.C ("foo")));
 		}
 
 		[Test]
@@ -306,18 +339,6 @@ namespace Mono.Rocks.Tests {
 		public void Either4_D_ValueNull ()
 		{
 			Either<Action, object, string, Type>.D (null);
-		}
-
-		[Test]
-		public void Either4_Equals ()
-		{
-			Either<Action, object, string, Type> e = Either<Action, object, string, Type>.D (typeof (object));
-			Assert.IsFalse (e.Equals ((object) null));
-			Assert.IsFalse (e.Equals ((Either<Action, object, string, Type>) null));
-			Assert.IsFalse (e.Equals (Either<Action, object, string, Type>.C ("foo")));
-			Assert.IsTrue (e.Equals (e));
-			Assert.IsTrue (Either<Action, object, string, Type>.C ("foo").Equals (
-					Either<Action, object, string, Type>.C ("foo")));
 		}
 
 		[Test]

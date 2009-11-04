@@ -1,3 +1,16 @@
+2009-11-04  Jonathan Pryor  <jpryor@novell.com>
+
+	* EquatableContract.cs: Added; contract for the IEquatable<T>
+	  interface.
+
+	* TuplesTest.cs: Add IEquatable<Tuple<char, int>> contract
+	  tests.
+
+	* EitherTest.cs: Add IEquatable<Either<Action, object>>, etc.
+	  contract tests.
+
+	* MaybeTest.cs: Add IEquatable<Maybe<int>> contract tests.
+
 2009-10-28  Jonathan Pryor  <jpryor@novell.com>
 
 	* IEnumerableContract.cs: Added; base-level IEnumerable<T> sanity tests,

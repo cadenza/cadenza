@@ -4,6 +4,7 @@
 ./Tests/Mono.Rocks.Tests/DelegateTest.cs
 ./Tests/Mono.Rocks.Tests/EitherTest.cs
 ./Tests/Mono.Rocks.Tests/EnumerableValueReaderTest.cs
+./Tests/Mono.Rocks.Tests/EquatableContract.cs
 ./Tests/Mono.Rocks.Tests/ICustomAttributeProviderTest.cs
 ./Tests/Mono.Rocks.Tests/IEnumerableContract.cs
 ./Tests/Mono.Rocks.Tests/IEnumerableTest.cs

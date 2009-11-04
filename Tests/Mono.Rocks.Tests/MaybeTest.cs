@@ -40,6 +40,25 @@ using Mono.Rocks;
 namespace Mono.Rocks.Tests {
 
 	[TestFixture]
+	public class MaybeEquatableContract : EquatableContract<Maybe<int>>
+	{
+		protected override Maybe<int> CreateValueX ()
+		{
+			return 1.ToMaybe ();
+		}
+
+		protected override Maybe<int> CreateValueY ()
+		{
+			return 2.ToMaybe ();
+		}
+
+		protected override Maybe<int> CreateValueZ ()
+		{
+			return Maybe<int>.Nothing;
+		}
+	}
+
+	[TestFixture]
 	public class MaybeTest : BaseRocksFixture {
 
 		[Test, ExpectedException (typeof (InvalidOperationException))]
