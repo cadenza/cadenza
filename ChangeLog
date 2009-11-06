@@ -1,3 +1,9 @@
+2009-11-06  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.csproj: Remove the BeforeBuild requirement.  This breaks
+	  VS usage when Perl isn't installed.  We'll need to remove the Perl
+	  dependency if we want to have BeforeBuild work.
+
 2009-11-04  Jonathan Pryor  <jpryor@novell.com>
 
 	* Mono.Rocks.Tests.dll.sources: Add EquatableContract.cs to

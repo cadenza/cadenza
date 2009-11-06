@@ -102,6 +102,7 @@
   <Target Name="Update" Inputs="@(Scripts)" Outputs="%(Scripts.TargetFileName)">
     <Exec Command="perl @(Scripts) -n 4 &gt; %(Scripts.TargetFileName)" />
   </Target>
+  <!--
   <PropertyGroup>
     <BeforeBuildDependsOnTargets>
       Update;
@@ -109,6 +110,7 @@
   </PropertyGroup>
   <Target Name="BeforeBuild" DependsOnTargets="$(BeforeBuildDependsOnTargets)">
   </Target>
+    -->
   <Target Name="shell">
     <Exec Command="csharp -r:$(OutputPath)$(TargetFileName)" />
   </Target>
