@@ -17,6 +17,7 @@
 ./Mono.Rocks/Lambda.cs
 ./Mono.Rocks/Lambdas.cs
 ./Mono.Rocks/Maybe.cs
+./Mono.Rocks/MutableLookup.cs
 ./Mono.Rocks/NaturalStringComparer.cs
 ./Mono.Rocks/Nullable.cs
 ./Mono.Rocks/Object.cs

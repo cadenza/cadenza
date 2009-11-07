@@ -15,6 +15,7 @@
 ./Tests/Mono.Rocks.Tests/KeyValuePairTest.cs
 ./Tests/Mono.Rocks.Tests/LambdaTest.cs
 ./Tests/Mono.Rocks.Tests/MaybeTest.cs
+./Tests/Mono.Rocks.Tests/MutableLookupTest.cs
 ./Tests/Mono.Rocks.Tests/NaturalStringComparerTest.cs
 ./Tests/Mono.Rocks.Tests/NullableTest.cs
 ./Tests/Mono.Rocks.Tests/ObjectTest.cs
