@@ -1,0 +1,11 @@
+2009-11-10  Jonathan Pryor  <jpryor@novell.com>
+
+	* ChangeLog: started.
+	* CodeDomRocks.cs: Added; extension methods for System.CodeDom.
+	* FileGenerator.cs: Added; helper type for CodeDom-based C# generators.
+	* Lambdas.cs: Added; C#-based replacement for ../mklambdas.
+	* Lambdas.csproj: Added; Profile file for Lambdas.exe.
+	* Options.cs: Added; Mono.Options option parser.
+	* Types.cs: Added; Utility class for CodeDom types.
+	* XmlDocs.cs: Added; Utility class for CodeDom comments.
+
