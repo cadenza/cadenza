@@ -1,3 +1,7 @@
+2009-11-11  Eric Maupin  <me@ermau.com>
+
+	* MutableLookupTest.cs: Added tests for .Clear()
+
 2009-11-06  Eric Maupin  <me@ermau.com>
 
 	* MutableLookupTest.cs : Added; Tests for MutableLookup<TKey,TElement>

@@ -166,6 +166,51 @@ namespace Mono.Rocks.Tests
 		}
 
 		[Test]
+		public void ClearWithNull()
+		{
+			var lookup = new MutableLookup<string, string>();
+			lookup.Add (null, "blah");
+			lookup.Add ("F", "Foo");
+
+			lookup.Clear();
+
+			Assert.AreEqual (0, lookup.Count);
+			Assert.IsFalse (lookup.Contains (null));
+			Assert.IsFalse (lookup.Contains ("F"));
+		}
+
+		[Test]
+		public void ClearWithoutNull()
+		{
+			var lookup = new MutableLookup<string, string>();
+			lookup.Add("F", "Foo");
+			lookup.Add("F", "Foobar");
+			lookup.Add("B", "Bar");
+
+			lookup.Clear();
+			Assert.AreEqual (0, lookup.Count);
+			Assert.IsFalse (lookup.Contains ("F"));
+			Assert.IsFalse (lookup.Contains ("B"));
+		}
+
+		[Test]
+		public void ClearValueType()
+		{
+			var lookup = new MutableLookup<int, int>();
+			lookup.Add (1, 10);
+			lookup.Add (1, 12);
+			lookup.Add (1, 13);
+			lookup.Add (2, 21);
+			lookup.Add (2, 22);
+			lookup.Add (2, 23);
+
+			lookup.Clear();
+			Assert.AreEqual (0, lookup.Count);
+			Assert.IsFalse (lookup.Contains (1));
+			Assert.IsFalse (lookup.Contains (2));
+		}
+
+		[Test]
 		public void Contains()
 		{
 			var lookup = new MutableLookup<string, string>();

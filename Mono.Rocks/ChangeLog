@@ -1,3 +1,7 @@
+2009-11-11  Eric Maupin  <me@ermau.com>
+
+	* MutableLookup.cs: Added .Clear()
+
 2009-11-06  Eric Maupin  <me@ermau.com>
 
 	* MutableLookup.cs: Mutable implementation of ILookup<TKey,TElement>

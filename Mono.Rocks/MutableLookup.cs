@@ -123,6 +123,14 @@ namespace Mono.Rocks
 			return this.groupings.Remove (key);
 		}
 
+		public void Clear ()
+		{
+			if (nullGrouping != null)
+				this.nullGrouping.Clear ();
+
+			this.groupings.Clear();
+		}
+
 		#region ILookup Members
 		/// <summary>
 		/// Gets the number of groupings.
