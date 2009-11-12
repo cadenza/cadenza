@@ -388,5 +388,29 @@ namespace Mono.Rocks.Tests {
 		{
 			"Bar".ToEnum<string> ();
 		}
+
+		[Test]
+		public void IsNullOrWhitespaceNull()
+		{
+			Assert.IsTrue (((string)null).IsNullOrWhitespace());
+		}
+
+		[Test]
+		public void IsNullOrWhitespaceNot()
+		{
+			Assert.IsFalse ("foo".IsNullOrWhitespace());
+		}
+
+		[Test]
+		public void IsNullOrWhitespaceEmpty()
+		{
+			Assert.IsTrue ("".IsNullOrWhitespace());
+		}
+
+		[Test]
+		public void IsNullOrWhitespaceWhitespace()
+		{
+			Assert.IsTrue ("    ".IsNullOrWhitespace());
+		}
 	}
 }

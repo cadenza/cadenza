@@ -165,5 +165,10 @@ namespace Mono.Rocks {
 
 			return self.Substring (start, end - start);
 		}
+
+		public static bool IsNullOrWhitespace (this string self)
+		{
+			return (self == null || self.Trim() == String.Empty);
+		}
 	}
 }

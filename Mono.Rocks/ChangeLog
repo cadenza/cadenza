@@ -1,3 +1,7 @@
+2009-11-12  Eric Maupin  <me@ermau.com>
+
+	* String.cs: Added IsNullorWhitespace
+
 2009-11-11  Eric Maupin  <me@ermau.com>
 
 	* MutableLookup.cs: Added .Clear()
