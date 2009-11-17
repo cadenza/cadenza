@@ -1,3 +1,11 @@
+2009-11-17  Jonathan Pryor  <jpryor@novell.com>
+
+	* String.cs: Add .WrappedLines() extension method, a 
+	  generalized version of Options.GetLines() (from Mono.Options).  In 
+	  short, given a long string, it'll break it into "line-sized" chunks 
+	  of a given width so that you can have e.g. nicely line-wrapped help 
+	  text.  Only really suitable for console/fixed-width-font output.
+
 2009-11-12  Eric Maupin  <me@ermau.com>
 
 	* String.cs: Added IsNullorWhitespace

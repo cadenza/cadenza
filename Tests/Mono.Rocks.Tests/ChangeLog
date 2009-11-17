@@ -1,3 +1,7 @@
+2009-11-17  Jonathan Pryor  <jpryor@novell.com>
+
+	* StringTest.cs: Add tests for .WrappedLines() extension method.
+
 2009-11-12  Eric Maupin  <me@ermau.com>
 
 	* StringTest.cs: Added tests for IsNullOrWhitespace

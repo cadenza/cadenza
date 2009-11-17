@@ -79,6 +79,109 @@ namespace Mono.Rocks.Tests {
 			#endregion
 		}
 
+		[Test]
+		public void WrappedLines_SelfNull ()
+		{
+			string s = null;
+			var e = s.WrappedLines (80);
+			Assert.AreEqual (1, e.Count ());
+			Assert.AreEqual ("", e.ElementAt (0));
+
+			s = "";
+			e = s.WrappedLines (80);
+			Assert.AreEqual (1, e.Count ());
+			Assert.AreEqual ("", e.ElementAt (0));
+		}
+
+		[Test, ExpectedException (typeof (ArgumentOutOfRangeException))]
+		public void WrappedLines_Widths_Zero()
+		{
+			// arguments are checked lazily
+			"foo".WrappedLines (0).Apply ();
+		}
+
+		[Test, ExpectedException (typeof (ArgumentOutOfRangeException))]
+		public void WrappedLines_Widths_MaxInvalid ()
+		{
+			"foo".WrappedLines (1).Apply ();
+		}
+
+		[Test]
+		public void WrappedLines_Widths_MinValid ()
+		{
+			Assert.AreEqual (
+					"f-\n" +
+					"oo",
+					"foo".WrappedLines (2).Implode ("\n"));
+		}
+
+		[Test]
+		public void WrappedLines ()
+		{
+			var e =
+					("This has a really\n" +
+					 "long, multi-line description that also\n" +
+					 "tests\n" +
+					 "the-builtin-supercalifragilisticexpialidicious-break-on-hyphen.  " +
+					 "Also, a list:\n" +
+					 "  item 1\n" +
+					 "  item 2")
+					.WrappedLines (50, 48);
+			Assert.AreEqual (
+					"This has a really\n" +
+					"long, multi-line description that also\n" +
+					"tests\n" +
+					"the-builtin-supercalifragilisticexpialidicious-\n" +
+					"break-on-hyphen.  Also, a list:\n" +
+					"  item 1\n" +
+					"  item 2",
+					e.Implode ("\n"));
+
+			e = "IWantThisDescriptionToBreakInsideAWordGeneratingAutoWordHyphenation."
+					.WrappedLines (50, 48);
+			Assert.AreEqual (
+					"IWantThisDescriptionToBreakInsideAWordGeneratingA-\n" +
+					"utoWordHyphenation.",
+					e.Implode ("\n"));
+
+			e = "OnlyOnePeriod.AndNoWhitespaceShouldBeSupportedEvenWithLongDescriptions"
+					.WrappedLines (50, 48);
+			Assert.AreEqual (
+					"OnlyOnePeriod.\n" +
+					"AndNoWhitespaceShouldBeSupportedEvenWithLongDes-\n" +
+					"criptions",
+					e.Implode ("\n"));
+
+			e = "Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 and more until the end."
+					.WrappedLines (50, 48);
+			Assert.AreEqual (
+					"Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0\n" +
+					"1 2 3 4 5 and more until the end.",
+					e.Implode ("\n"));
+
+			e = "Lots of spaces in the middle - . - . - . - . - . - . - . - and more until the end."
+					.WrappedLines (50, 48);
+			Assert.AreEqual (
+					"Lots of spaces in the middle - . - . - . - . - . -\n" +
+					" . - . - and more until the end.",
+					e.Implode ("\n"));
+
+			e = "1121231234123451234561234567123456781234567891234567890"
+					.WrappedLines (Sequence.Iterate(2, v => v + 1));
+			Assert.AreEqual (
+					"1-\n" +
+					"12-\n" +
+					"123-\n" +
+					"1234-\n" +
+					"12345-\n" +
+					"123456-\n" +
+					"1234567-\n" +
+					"12345678-\n" +
+					"123456789-\n" +
+					"1234567890",
+					e.Implode ("\n"));
+		}
+
 		[Test, ExpectedException (typeof (ArgumentNullException))]
 		public void Tokens_SelfNull ()
 		{
