@@ -1,3 +1,7 @@
+2009-11-19  Jonathan Pryor  <jpryor@novell.com>
+
+	* Mono.Rocks.sln: Add tools/Eithers.csproj project.
+
 2009-11-10  Jonathan Pryor  <jpryor@novell.com>
 
 	* Mono.Rocks.sln: Remove the 'doc' project (it gives VS fits), and add

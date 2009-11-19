@@ -30,6 +30,7 @@ using System;
 using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Mono.Rocks.Tools
 {
@@ -73,6 +74,26 @@ namespace Mono.Rocks.Tools
 		{
 			foreach (var comment in Seq.Expand (comments))
 				self.Add (new CodeCommentStatement (comment.ToString (), true));
+		}
+
+		public static IEnumerable<CodeMemberMethod> GetMethods (this CodeTypeDeclaration self, string name)
+		{
+			return self.Members.OfType<CodeMemberMethod>().Where(m => m.Name == name);
+		}
+
+		public static void ThrowWhenArgumentIsNull (this CodeStatementCollection self, string argument)
+		{
+			self.Add (
+					new CodeConditionStatement (
+						new CodeBinaryOperatorExpression (
+							new CodeVariableReferenceExpression (argument),
+							CodeBinaryOperatorType.ValueEquality,
+							new CodePrimitiveExpression (null)
+						),
+						new CodeThrowExceptionStatement (
+							new CodeObjectCreateExpression (
+								new CodeTypeReference ("System.ArgumentNullException"),
+								new CodePrimitiveExpression (argument)))));
 		}
 	}
 }

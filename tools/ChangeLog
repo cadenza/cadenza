@@ -1,10 +1,20 @@
 2009-11-10  Jonathan Pryor  <jpryor@novell.com>
 
+	* . (svn:ignore): Ignore generated files.
+	* CodeDomRocks.cs: Add .GetMethods(), .ThrowWhenArgumentIsNull().
+	* Eithers.cs: Added; C#-based replacement for ../mkeithers.
+	* Eithers.csproj: Added; Project file for Eithers.exe.
+	* FileGenerator.cs: Don't hardcode the namespace name.
+	* Lambdas.cs: Refactor to use ThrowWhenArgumentIsNull().
+	* XmlDocs.cs: Add additional XML documentation helpers.
+
+2009-11-10  Jonathan Pryor  <jpryor@novell.com>
+
 	* ChangeLog: started.
 	* CodeDomRocks.cs: Added; extension methods for System.CodeDom.
 	* FileGenerator.cs: Added; helper type for CodeDom-based C# generators.
 	* Lambdas.cs: Added; C#-based replacement for ../mklambdas.
-	* Lambdas.csproj: Added; Profile file for Lambdas.exe.
+	* Lambdas.csproj: Added; Project file for Lambdas.exe.
 	* Options.cs: Added; Mono.Options option parser.
 	* Types.cs: Added; Utility class for CodeDom types.
 	* XmlDocs.cs: Added; Utility class for CodeDom comments.

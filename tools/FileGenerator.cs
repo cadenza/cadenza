@@ -97,9 +97,13 @@ namespace Mono.Rocks.Tools {
 			get {return string.Format ("{0} -n {1}", Program, TypeParameterCount);}
 		}
 
+		protected virtual string DefaultNamespace {
+			get {return "Mono.Rocks";}
+		}
+
 		protected virtual IEnumerable<CodeNamespace> GetCodeNamespaces ()
 		{
-			var nsRocks = new CodeNamespace ("Mono.Rocks");
+			var nsRocks = new CodeNamespace (DefaultNamespace);
 			nsRocks.Comments.AddRange (
 					"",
 					Header,

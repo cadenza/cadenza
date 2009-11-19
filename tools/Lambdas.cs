@@ -230,17 +230,7 @@ namespace Mono.Rocks.Tools {
 			m.TypeParameters.AddRange (Types.GetTypeParameters (args, true).ToArray ());
 			var a = "lambda";
 			m.Parameters.Add (new CodeParameterDeclarationExpression (new CodeTypeReference ("Func", t, t), a));
-			m.Statements.Add (
-					new CodeConditionStatement (
-						new CodeBinaryOperatorExpression (
-							new CodeVariableReferenceExpression (a),
-							CodeBinaryOperatorType.ValueEquality,
-							new CodePrimitiveExpression (null)
-						),
-						new CodeThrowExceptionStatement (
-							new CodeObjectCreateExpression (
-								new CodeTypeReference ("ArgumentNullException"),
-								new CodePrimitiveExpression ("lambda")))));
+			m.Statements.ThrowWhenArgumentIsNull (a);
 			var expr = AppendArgs (new StringBuilder (), args);
 			expr.Append (" => lambda (RecFunc (lambda))");
 			AppendArgs (expr, args);
