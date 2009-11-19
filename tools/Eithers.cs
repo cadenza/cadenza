@@ -182,8 +182,7 @@ namespace Mono.Rocks.Tools {
 					"   the returned " + XmlDocs.See (DefaultNamespace, type) + " instance",
 					"   will invoke the " + idx + " delegate",
 					"   for conversions.",
-					"  </para>",
-					"</remarks>"
+					"  </para>"
 					),
 					XmlDocs.ArgumentNullException ("value")
 			);

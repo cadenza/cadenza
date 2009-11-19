@@ -1,3 +1,7 @@
+2009-11-19  Jonathan Pryor  <jpryor@novell.com>
+
+	* Eithers.cs: Generate valid XML.
+
 2009-11-10  Jonathan Pryor  <jpryor@novell.com>
 
 	* . (svn:ignore): Ignore generated files.
