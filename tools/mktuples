@@ -1,5 +1,9 @@
 #!/usr/bin/perl
 use strict;
+
+use File::Basename;
+use lib dirname ($0);
+
 use Generator;
 use Getopt::Long;
 

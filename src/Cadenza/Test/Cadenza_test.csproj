@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.20706</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{37880451-3753-44B1-81DE-03C21E5D603B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cadenza.Tests</RootNamespace>
+    <AssemblyName>Cadenza_test</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\lib\cadenza\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\lib\cadenza\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cadenza\AssemblyInfo.cs" />
+    <Compile Include="Cadenza\BaseRocksFixture.cs" />
+    <Compile Include="Cadenza\CachedSequenceTest.cs" />
+    <Compile Include="Cadenza\DelegateTest.cs" />
+    <Compile Include="Cadenza\EitherTest.cs" />
+    <Compile Include="Cadenza\EnumerableValueReaderTest.cs" />
+    <Compile Include="Cadenza\EquatableContract.cs" />
+    <Compile Include="Cadenza\ICustomAttributeProviderTest.cs" />
+    <Compile Include="Cadenza\IEnumerableContract.cs" />
+    <Compile Include="Cadenza\IEnumerableTest.cs" />
+    <Compile Include="Cadenza\Int16Test.cs" />
+    <Compile Include="Cadenza\Int32Test.cs" />
+    <Compile Include="Cadenza\Int64Test.cs" />
+    <Compile Include="Cadenza\JaggedArrayTest.cs" />
+    <Compile Include="Cadenza\KeyValuePairTest.cs" />
+    <Compile Include="Cadenza\LambdaTest.cs" />
+    <Compile Include="Cadenza\MaybeTest.cs" />
+    <Compile Include="Cadenza\NaturalStringComparerTest.cs" />
+    <Compile Include="Cadenza\NullableTest.cs" />
+    <Compile Include="Cadenza\ObjectTest.cs" />
+    <Compile Include="Cadenza\OrderedDictionaryTest.cs" />
+    <Compile Include="Cadenza\ReadOnlyDictionaryTest.cs" />
+    <Compile Include="Cadenza\RectangularArrayTest.cs" />
+    <Compile Include="Cadenza\SequenceTest.cs" />
+    <Compile Include="Cadenza\StreamTest.cs" />
+    <Compile Include="Cadenza\SystemStreamConverterTest.cs" />
+    <Compile Include="Cadenza\StringTest.cs" />
+    <Compile Include="Cadenza\TextReaderTest.cs" />
+    <Compile Include="Cadenza\TextValueReaderTest.cs" />
+    <Compile Include="Cadenza\TuplesTest.cs" />
+    <Compile Include="Cadenza\TypeTest.cs" />
+    <Compile Include="Cadenza\UInt16Test.cs" />
+    <Compile Include="Cadenza\UInt32Test.cs" />
+    <Compile Include="Cadenza\UInt64Test.cs" />
+    <Compile Include="Cadenza\MutableLookupTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cadenza.csproj">
+      <Project>{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}</Project>
+      <Name>Cadenza</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

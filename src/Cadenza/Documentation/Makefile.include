@@ -1,0 +1,84 @@
+sourcesdir = lib/monodoc/sources
+
+ASSEMBLIES = $(mrdir)/Cadenza.dll
+
+.PHONY: assemble clean doc doc-install edit html update update-delete
+
+doc: assemble html $(mrdir)/Cadenza.xml
+
+doc-install:
+	-mkdir -p $(libdir)/cadenza $(libdir)/monodoc/sources
+	cp $(sourcesdir)/cadenza-docs.* $(libdir)/monodoc/sources
+	cp $(mrdir)/Cadenza.xml $(libdir)/cadenza
+
+$(mrdir)/Cadenza.xml:
+	mdoc-export-msxdoc -o $@ src/Cadenza/Documentation/en
+
+assemble: $(sourcesdir)/cadenza-docs.zip $(sourcesdir)/cadenza-docs.tree
+
+$(srcdir)/src/Cadenza/Documentation/en/examples/Cadenza.dll: $(mrdir)/Cadenza.dll
+	cp $^ $@
+	-cp $^.mdb $@.mdb
+
+%.exe: %.cs $(srcdir)/src/Cadenza/Documentation/en/examples/Mono.Rocks.dll
+	gmcs -debug+ -r:Mono.Posix.dll -r:System.Core.dll -lib:doc/en/examples -r:NDesk.Options.dll -out:$@ $<
+
+DOCUMENTATION = $(shell find $(srcdir)/src/Cadenza/Documentation/en -type f -name \*.xml)
+
+DOC_EXAMPLES_SRC =
+DOC_EXAMPLES_OUTPUT =
+
+%.txt: %.in %.exe
+	-rm $@
+	exec 3<$< ; \
+	while read line 0<&3 ; do \
+		if test -n "$$line" ; then \
+			echo "$$ $$line" | sed 's#doc/en/examples/##' >> $@ ; \
+			sh -c "$$line" >> $@ ; \
+		else \
+			echo "" >> $@ ; \
+		fi ; \
+	done ; \
+	exec 3>&-;
+
+$(sourcesdir)/cadenza-docs.zip $(sourcesdir)/cadenza-docs.tree: $(DOCUMENTATION)
+	mdoc-assemble -o $(sourcesdir)/cadenza-docs $(srcdir)/src/Cadenza/Documentation/en 
+
+doc-update: $(addprefix $(srcdir)/, $(ASSEMBLIES)) $(DOC_EXAMPLES_SRC) $(DOC_EXAMPLES_OUTPUT)
+	sed -i -f $(srcdir)/src/Cadenza/Documentation/fixup.sed $(srcdir)/src/Cadenza/Documentation/Cadenza.xml
+	for a in $(ASSEMBLIES) ; do \
+		mdoc update $(MDOC_OPTIONS) -i $(srcdir)/src/Cadenza/Documentation/Cadenza.xml \
+			-o doc/en $(srcdir)/$$a ; \
+	done
+
+doc-update-delete: $(addprefix $(srcdir)/, $(ASSEMBLIES)) $(DOC_EXAMPLES_SRC) $(DOC_EXAMPLES_OUTPUT)
+	sed -i -f $(srcdir)/src/Cadenza/Documentation/fixup.sed $(srcdir)/src/Cadenza/Documentation/Cadenza.xml
+	for a in $(ASSEMBLIES) ; do \
+		$(UPDATER) --delete -importslashdoc:$(srcdir)/src/Cadenza/Documentation/mono-rocks.xml -assembly:$(srcdir)/$$a ; \
+	done
+
+DOC_EXTRA_DIST = \
+	$(srcdir)/src/Cadenza/Documentation/doc-template.xsl \
+	$(srcdir)/src/Cadenza/Documentation/cadenza-docs.source \
+	$(DOCUMENTATION) \
+	$(DOC_EXAMPLES_OUTPUT)
+
+DOC_CLEANFILES = \
+	$(sourcesdir)/cadenza-docs.zip \
+	$(sourcesdir)/cadenza-docs.tree \
+	doc/en/examples/Cadenza.dll* \
+	doc/en/examples/*.exe \
+	$(DOC_EXAMPLES_OUTPUT)
+
+edit:
+	monodoc --edit $(srcdir)/src/Cadenza/Documentation/en
+
+html: $(DOCUMENTATION)
+	mdoc export-html --default-template > src/Cadenza/Documentation/doc-def-template.xsl
+	mdoc export-html --template=src/Cadenza/Documentation/doc-template.xsl --ext=html -o doc/$(PACKAGE) doc/en
+	cp doc/prettyprint.js doc/$(PACKAGE)
+	(cd doc && zip -q -r ../archive/$(PACKAGE)-$(VERSION)-docs.zip $(PACKAGE))
+
+doc-clean:
+	-rm $(DOC_CLEANFILES)
+
