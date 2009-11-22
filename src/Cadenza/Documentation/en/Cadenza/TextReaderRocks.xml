@@ -1,0 +1,487 @@
+<Type Name="TextReaderRocks" FullName="Cadenza.TextReaderRocks">
+  <TypeSignature Language="C#" Value="public static class TextReaderRocks" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+      Extension methods for <see cref="T:System.IO.TextReader" />.
+    </summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Lines">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.IO.TextReader" /> to read lines from.
+        </param>
+        <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all lines of text from <paramref name="self" /> 
+          while <see cref="M:System.IO.TextReader.Close" />ing 
+          <paramref name="self" />.
+        </summary>
+        <returns>
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all lines of text from <paramref name="self" />.
+        </returns>
+        <remarks>
+          <para>
+            This method is implemented by using deferred execution.
+          </para>
+          <para>
+            <paramref name="self" /> is disposed.  
+          </para>
+          <block subset="none" type="note">
+            A "line of text" is the same as that used by 
+            <see cref="M:System.IO.TextReader.ReadLine" />.
+          </block>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:System.IO.TextReader.ReadLine" />
+      </Docs>
+    </Member>
+    <Member MemberName="Lines">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self, Cadenza.TextReaderRocksOptions options);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
+        <Parameter Name="options" Type="Cadenza.TextReaderRocksOptions" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.IO.TextReader" /> to read lines from.
+        </param>
+        <param name="options">
+          A <see cref="T:Cadenza.TextReaderRocksOptions" /> controlling
+          method execution.
+        </param>
+        <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all lines of text from <paramref name="self" />
+          while optionally <see cref="M:System.IO.TextReader.Close" />ing 
+          <paramref name="self" />.
+        </summary>
+        <returns>
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all lines of text from <paramref name="self" />.
+        </returns>
+        <remarks>
+          <para>
+            This method is implemented by using deferred execution.
+          </para>
+          <para>
+            If <paramref name="options" /> contains
+            <see cref="F:Cadenza.TextReaderRocksOptions.CloseReader" />,
+            then <paramref name="self" /> will be 
+            <see cref="M:System.IO.TextReader.Close" />ed once all lines have
+            been returned; if 
+            <see cref="F:Cadenza.TextReaderRocksOptions.CloseReader" />
+            is not specified, then the 
+            <see cref="T:System.IO.TextReader" /> will not be disposed.
+          </para>
+          <block subset="none" type="note">
+            A "line of text" is the same as that used by 
+            <see cref="M:System.IO.TextReader.ReadLine" />.
+          </block>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="options" /> has an unsupported value.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:System.IO.TextReader.ReadLine" />
+      </Docs>
+    </Member>
+    <Member MemberName="Tokens">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
+        <Parameter Name="categories" Type="System.Func&lt;System.Nullable&lt;System.Char&gt;,System.Char,System.Boolean&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.IO.TextReader" /> to extract tokens from.
+        </param>
+        <param name="categories">
+          A
+          <see cref="T:System.Func{System.Nullable{System.Char},System.Char,System.Boolean}" />
+          array containing the different categories of characters that 
+          determines what makes up a "token."  If the 
+          <see cref="T:System.Nullable{System.Char}" /> parameter is 
+          <see langword="null" />, then the <see cref="T:System.Char" /> is
+          the first character within the token; otherwise, the
+          <see cref="T:System.Nullable{System.Char}" /> parameter contains the
+          character preceding the <see cref="T:System.Char" />.
+          The delegate should return <see langword="true" /> if the
+          <see cref="T:System.Char" /> is a supported character; otherwise,
+          <see langword="false" /> should be returned.
+        </param>
+        <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />
+          while optionally <see cref="M:System.IO.TextReader.Close" />ing 
+          <paramref name="self" />.
+        </summary>
+        <returns>
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all tokens from <paramref name="self" />.
+        </returns>
+        <remarks>
+          <para>
+            This method is implemented by using deferred execution.
+          </para>
+          <para>
+            If <paramref name="options" /> contains
+            <see cref="F:Cadenza.TextReaderRocksOptions.CloseReader" />,
+            then <paramref name="self" /> will be 
+            <see cref="M:System.IO.TextReader.Close" />ed once all lines have
+            been returned.
+          </para>
+          <block subset="none" type="note">
+            <para>
+              A "token" is determined by <paramref name="categories" />, and
+              is any contiguous sequence of characters for which the
+              same <paramref name="categories" /> index returns 
+              <see langword="true" />, starting from the first delegate.  This
+              allows a "some characters are more important than others"
+              philosphy, allowing e.g. parenthesis to be returned separately
+              from alphanumeric characters, even if no whitespace separates
+              them.
+            </para>
+          </block>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/TextReaderTest.cs#Tokens">var r = new MyStringReader ("(append 3.5 \"hello, world!\")");
+var words = r.Tokens (
+	(p, c) =&gt; char.IsLetterOrDigit (c) || c == '.',
+	(p, c) =&gt; !char.IsWhiteSpace (c))
+	.ToArray ();
+Assert.IsTrue (r.WasDisposed);
+Assert.IsTrue (
+		new[]{"(", "append", "3.5", "\"", "hello", ",", "world", "!\")"}
+		.SequenceEqual (words));
+
+r = new MyStringReader ("Hello, world!");
+Assert.AreEqual (false, 
+	r.Tokens (TextReaderRocksOptions.None,
+		(p, c) =&gt; false).Any ());
+Assert.IsFalse (r.WasDisposed);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="categories" /> is empty.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />, or
+          <paramref name="categories" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Tokens">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Cadenza.TextReaderRocksOptions options, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
+        <Parameter Name="options" Type="Cadenza.TextReaderRocksOptions" />
+        <Parameter Name="categories" Type="System.Func&lt;System.Nullable&lt;System.Char&gt;,System.Char,System.Boolean&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.IO.TextReader" /> to extract tokens from.
+        </param>
+        <param name="options">
+          A <see cref="T:Cadenza.TextReaderRocksOptions" /> controlling
+          method execution.
+        </param>
+        <param name="categories">
+          A
+          <see cref="T:System.Func{System.Nullable{System.Char},System.Char,System.Boolean}" />
+          array containing the different categories of characters that 
+          determines what makes up a "token."  If the 
+          <see cref="T:System.Nullable{System.Char}" /> parameter is 
+          <see langword="null" />, then the <see cref="T:System.Char" /> is
+          the first character within the token; otherwise, the
+          <see cref="T:System.Nullable{System.Char}" /> parameter contains the
+          character preceding the <see cref="T:System.Char" />.
+          The delegate should return <see langword="true" /> if the
+          <see cref="T:System.Char" /> is a supported character; otherwise,
+          <see langword="false" /> should be returned.
+        </param>
+        <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />
+          while optionally <see cref="M:System.IO.TextReader.Close" />ing 
+          <paramref name="self" />.
+        </summary>
+        <returns>
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all tokens from <paramref name="self" />.
+        </returns>
+        <remarks>
+          <para>
+            This method is implemented by using deferred execution.
+          </para>
+          <para>
+            If <paramref name="options" /> contains
+            <see cref="F:Cadenza.TextReaderRocksOptions.CloseReader" />,
+            then <paramref name="self" /> will be 
+            <see cref="M:System.IO.TextReader.Close" />ed once all lines have
+            been returned.
+          </para>
+          <block subset="none" type="note">
+            <para>
+              A "token" is determined by <paramref name="categories" />, and
+              is any contiguous sequence of characters for which the
+              same <paramref name="categories" /> index returns 
+              <see langword="true" />, starting from the first delegate.  This
+              allows a "some characters are more important than others"
+              philosphy, allowing e.g. parenthesis to be returned separately
+              from alphanumeric characters, even if no whitespace separates
+              them.
+            </para>
+          </block>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/TextReaderTest.cs#Tokens">var r = new MyStringReader ("(append 3.5 \"hello, world!\")");
+var words = r.Tokens (
+	(p, c) =&gt; char.IsLetterOrDigit (c) || c == '.',
+	(p, c) =&gt; !char.IsWhiteSpace (c))
+	.ToArray ();
+Assert.IsTrue (r.WasDisposed);
+Assert.IsTrue (
+		new[]{"(", "append", "3.5", "\"", "hello", ",", "world", "!\")"}
+		.SequenceEqual (words));
+
+r = new MyStringReader ("Hello, world!");
+Assert.AreEqual (false, 
+	r.Tokens (TextReaderRocksOptions.None,
+		(p, c) =&gt; false).Any ());
+Assert.IsFalse (r.WasDisposed);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="options" /> contains an invalid value, or
+          <paramref name="categories" /> is empty.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />, or
+          <paramref name="categories" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Words">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.IO.TextReader" /> to extract words from.
+        </param>
+        <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />
+          while <see cref="M:System.IO.TextReader.Close" />ing 
+          <paramref name="self" />.
+        </summary>
+        <returns>
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />.
+        </returns>
+        <remarks>
+          <para>
+            This method is implemented by using deferred execution.
+          </para>
+          <para>
+            <paramref name="self" /> is disposed.  
+          </para>
+          <block subset="none" type="note">
+            <para>
+              A "word" is any contiguous sequence of characters for which
+              <see cref="M:System.Char.IsWhiteSpace(System.Char)" />
+              returns <see langword="false" />.
+            </para>
+          </block>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/TextReaderTest.cs#Words">MyStringReader r = new MyStringReader ("   (skip  leading,\r\n\tand trailing\vwhitespace)   ");
+string[] words = r.Words ().ToArray ();
+Assert.IsTrue (r.WasDisposed);
+Assert.AreEqual (5, words.Length);
+Assert.AreEqual ("(skip",       words [0]);
+Assert.AreEqual ("leading,",    words [1]);
+Assert.AreEqual ("and",         words [2]);
+Assert.AreEqual ("trailing",    words [3]);
+Assert.AreEqual ("whitespace)", words [4]);
+
+r = new MyStringReader ("notext");
+words = r.Words (TextReaderRocksOptions.None).ToArray ();
+Assert.IsFalse (r.WasDisposed);
+Assert.AreEqual (1, words.Length);
+Assert.AreEqual ("notext", words [0]);
+
+r = new MyStringReader ("1 2 3 4");
+Assert.AreEqual ("1", r.Words ().First ());
+Assert.AreEqual ("2", r.Words ().First ());
+Assert.AreEqual ("3", r.Words ().First ());
+Assert.AreEqual ("4", r.Words ().First ());
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />, or
+          <paramref name="categories" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:System.Char.IsWhiteSpace(System.Char)" />
+      </Docs>
+    </Member>
+    <Member MemberName="Words">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self, Cadenza.TextReaderRocksOptions options);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
+        <Parameter Name="options" Type="Cadenza.TextReaderRocksOptions" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.IO.TextReader" /> to extract words from.
+        </param>
+        <param name="options">
+          A <see cref="T:Cadenza.TextReaderRocksOptions" /> controlling
+          method execution.
+        </param>
+        <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />
+          while optionally <see cref="M:System.IO.TextReader.Close" />ing 
+          <paramref name="self" />.
+        </summary>
+        <returns>
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />.
+        </returns>
+        <remarks>
+          <para>
+            This method is implemented by using deferred execution.
+          </para>
+          <para>
+            If <paramref name="options" /> contains
+            <see cref="F:Cadenza.TextReaderRocksOptions.CloseReader" />,
+            then <paramref name="self" /> will be 
+            <see cref="M:System.IO.TextReader.Close" />ed once all lines have
+            been returned; if 
+            <see cref="F:Cadenza.TextReaderRocksOptions.CloseReader" />
+            is not specified, then the 
+            <see cref="T:System.IO.TextReader" /> will not be disposed.
+          </para>
+          <block subset="none" type="note">
+            <para>
+              A "word" is any contiguous sequence of characters for which
+              <see cref="M:System.Char.IsWhiteSpace(System.Char)" />
+              returns <see langword="false" />.
+            </para>
+          </block>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/TextReaderTest.cs#Words">MyStringReader r = new MyStringReader ("   (skip  leading,\r\n\tand trailing\vwhitespace)   ");
+string[] words = r.Words ().ToArray ();
+Assert.IsTrue (r.WasDisposed);
+Assert.AreEqual (5, words.Length);
+Assert.AreEqual ("(skip",       words [0]);
+Assert.AreEqual ("leading,",    words [1]);
+Assert.AreEqual ("and",         words [2]);
+Assert.AreEqual ("trailing",    words [3]);
+Assert.AreEqual ("whitespace)", words [4]);
+
+r = new MyStringReader ("notext");
+words = r.Words (TextReaderRocksOptions.None).ToArray ();
+Assert.IsFalse (r.WasDisposed);
+Assert.AreEqual (1, words.Length);
+Assert.AreEqual ("notext", words [0]);
+
+r = new MyStringReader ("1 2 3 4");
+Assert.AreEqual ("1", r.Words ().First ());
+Assert.AreEqual ("2", r.Words ().First ());
+Assert.AreEqual ("3", r.Words ().First ());
+Assert.AreEqual ("4", r.Words ().First ());
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="options" /> contains an invalid value.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:System.Char.IsWhiteSpace(System.Char)" />
+      </Docs>
+    </Member>
+  </Members>
+</Type>

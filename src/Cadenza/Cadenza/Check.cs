@@ -28,7 +28,7 @@
 
 using System;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	static class Check {
 

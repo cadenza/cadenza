@@ -29,7 +29,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	public static class Sequence {
 

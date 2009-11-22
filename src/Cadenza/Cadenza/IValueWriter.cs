@@ -27,7 +27,7 @@
 //
 using System;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	[CLSCompliant (false)]
 	public interface IValueWriter

@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-[assembly: AssemblyTitle ("Mono.Rocks.Tests")]
-[assembly: AssemblyDescription ("Unit tests for the Mono.Rocks library")]
+[assembly: AssemblyTitle ("Cadenza_test")]
+[assembly: AssemblyDescription ("Unit tests for the Cadenza library")]
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("Novell, Inc.")]
 [assembly: AssemblyProduct ("Mono")]

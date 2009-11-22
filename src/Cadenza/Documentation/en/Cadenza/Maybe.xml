@@ -1,0 +1,303 @@
+<Type Name="Maybe" FullName="Cadenza.Maybe">
+  <TypeSignature Language="C#" Value="public static class Maybe" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <ThreadingSafetyStatement>
+    This type is thread safe.
+  </ThreadingSafetyStatement>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+      Static utility methods for creating 
+      <see cref="T:Cadenza.Maybe{T}" /> instances.
+    </summary>
+    <remarks>
+      Use the <see cref="M:Cadenza.Maybe.TryParse" /> methods if it is
+      not necessary to know why the value couldn't be parsed.  Otherwise, use the
+      <see cref="M:Cadenza.Either.TryParse" /> methods.
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="TryParse&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; TryParse&lt;T&gt; (string value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+          The type of object to attempt to parse out of 
+          <paramref name="value" />.
+        </typeparam>
+        <param name="value">
+          A <see cref="T:System.String" /> containing the value to parse into
+          an instance of type <typeparamref name="T" />.
+        </param>
+        <summary>
+          Converts a <see cref="T:System.String" />
+          into an instance of type <typeparamref name="T" />.
+        </summary>
+        <returns>
+          A <see cref="T:Cadenza.Maybe{T}" />.  If <paramref name="value" />
+          could be converted into a value of type <typeparamref name="T" />,
+          then <see cref="P:Cadenza.Maybe{T}.HasValue" /> will be
+          <see langword="true" /> and 
+          <see cref="P:Cadenza.Maybe{T}.Value" /> will contain the
+          converted value; otherwise, 
+          <see cref="P:Cadenza.Maybe{T}.HasValue" /> will be
+          <see langword="false" />.
+        </returns>
+        <remarks>
+          <para>
+            <c>TryParse</c> uses
+            <see cref="M:Cadenza.Either.TryParse``2(``0)" /> to convert
+            the string <paramref name="value" /> into an instance of type
+            <typeparamref name="T" />.
+          </para>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/MaybeTest.cs#TryParse">Maybe&lt;int&gt; n;
+
+n = Maybe.TryParse&lt;int&gt; (null);
+Assert.IsFalse (n.HasValue);
+
+n = Maybe.TryParse&lt;int&gt; ("");
+Assert.IsFalse (n.HasValue);
+
+n = Maybe.TryParse&lt;int&gt; ("foo");
+Assert.IsFalse (n.HasValue);
+
+n = Maybe.TryParse&lt;int&gt; ("42.01");
+Assert.IsFalse (n.HasValue);
+
+n = Maybe.TryParse&lt;int&gt; ("42");
+Assert.IsTrue (n.HasValue);
+Assert.AreEqual (42, n.Value);
+</code>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TryParse&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;TResult&gt; TryParse&lt;TSource,TResult&gt; (TSource value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Maybe&lt;TResult&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="TSource" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type to convert from.
+        </typeparam>
+        <typeparam name="TResult">
+          The type to convert to.
+        </typeparam>
+        <param name="value">
+          A <typeparamref name="TSource" /> containing the value to parse into
+          an instance of type <typeparamref name="TResult" />.
+        </param>
+        <summary>
+          Converts the <paramref name="value" /> of type
+          <typeparamref name="TSource" /> into an instance of type 
+          <typeparamref name="TResult" />.
+        </summary>
+        <returns>
+          A <see cref="T:Cadenza.Maybe{TResult}" />.  If <paramref name="value" />
+          could be converted into a value of type <typeparamref name="TResult" />,
+          then <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> will be
+          <see langword="true" /> and 
+          <see cref="P:Cadenza.Maybe{TResult}.Value" /> will contain the
+          converted value; otherwise, 
+          <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> will be
+          <see langword="false" />.
+        </returns>
+        <remarks>
+          <para>
+            <c>TryParse</c> uses
+            <see cref="M:Cadenza.Either.TryParse``2(``0)" /> to convert
+            <paramref name="value" /> into an instance of type
+            <typeparamref name="TResult" />.
+          </para>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/MaybeTest.cs#TryParse2">Maybe&lt;string&gt; a = Maybe.TryParse&lt;int, string&gt; (42);
+Assert.IsTrue (a.HasValue);
+Assert.AreEqual ("42", a.Value);
+
+Maybe&lt;DateTime&gt; b = Maybe.TryParse&lt;int, DateTime&gt; (42);
+Assert.IsFalse (b.HasValue);
+</code>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="When&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; When&lt;T&gt; (bool condition, Func&lt;T&gt; creator);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="condition" Type="System.Boolean" />
+        <Parameter Name="creator" Type="System.Func&lt;T&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+          The type of value that <see cref="T:Cadenza.Maybe{T}" /> should
+          contain.
+        </typeparam>
+        <param name="condition">
+          If <see langword="true" />, <c>When</c> returns
+          <c><paramref name="creator" />().Just()</c>.
+          Otherwise, <c>When</c> returns 
+          <see cref="F:Cadenza.Maybe{T}.Nothing" />.
+        </param>
+        <param name="creator">
+          A <see cref="T:System.Func{T}" /> which is used to create the value
+          returned when <paramref name="condition" /> is 
+          <see langword="true" />.
+        </param>
+        <summary>
+          Returns a value-containing <see cref="T:Cadenza.Maybe{T}" />
+          instance or <see cref="F:Cadenza.Maybe{T}.Nothing" />, depending
+          on <paramref name="condition" />.
+        </summary>
+        <returns>
+          A <see cref="T:Cadenza.Maybe{T}" />.  If 
+          <paramref name="condition" /> is <see langword="true" />,
+          then <paramref name="creator" /> is evaluated and a 
+          <see cref="T:Cadenza.Maybe{T}" /> instance containing the value
+          returned by <paramref name="creator" /> is returned; otherwise,
+          <see cref="F:Cadenza.Maybe{T}.Nothing" /> is returned.
+        </returns>
+        <remarks>
+          <para>
+            Use this method instead of 
+            <see cref="M:Cadenza.Maybe.When``1(System.Boolean,``0)" />
+            when the value you need to return can only be created when
+            <paramref name="condition" /> is <see langword="true" />.
+          </para>
+          <code lang="C#">string s = GetSomeString();
+int length;
+
+// BAD:
+length = s.Match (
+    v =&gt; Maybe.When (s != null, s.Length),  // may throw, if s == null
+    v =&gt; Maybe.When (s == null, 0));
+
+// GOOD:
+length = s.Match (
+    v =&gt; Maybe.When (s != null, () =&gt; s.Length),  // delays evaluation.
+    v =&gt; Maybe.When (s == null, 0));
+          </code>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/MaybeTest.cs#When_Creator">bool invoked = false;
+r = Maybe.When (false, () =&gt; {invoked = true; return 42;});
+Assert.IsFalse (invoked);
+Assert.IsFalse (r.HasValue);
+
+r = Maybe.When (true, () =&gt; {invoked = true; return 42;});
+Assert.IsTrue (invoked);
+Assert.IsTrue (r.HasValue);
+Assert.AreEqual (42, r.Value);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="condition" /> is <see langword="true" /> and
+          <paramref name="creator" /> returned <see langword="null" />.
+        </exception>
+        <altmember cref="M:Cadenza.Maybe.When``1(System.Boolean,``0)" />
+        <altmember cref="M:Cadenza.ObjectRocks.Match``2(``0,System.Func{``0,Cadenza.Maybe{``1}}[])" />
+      </Docs>
+    </Member>
+    <Member MemberName="When&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; When&lt;T&gt; (bool condition, T value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="condition" Type="System.Boolean" />
+        <Parameter Name="value" Type="T" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+          The type of value that <see cref="T:Cadenza.Maybe{T}" /> should
+          contain.
+        </typeparam>
+        <param name="condition">
+          If <see langword="true" />, <c>When</c> returns
+          <c><paramref name="value" />.Just()</c>.
+          Otherwise, <c>When</c> returns 
+          <see cref="F:Cadenza.Maybe{T}.Nothing" />.
+        </param>
+        <param name="value">
+          A <typeparamref name="T" /> containing the value to return when
+          <paramref name="condition" /> is <see langword="true" />.
+        </param>
+        <summary>
+          Returns a value-containing <see cref="T:Cadenza.Maybe{T}" />
+          instance or <see cref="F:Cadenza.Maybe{T}.Nothing" />, depending
+          on <paramref name="condition" />.
+        </summary>
+        <returns>
+          A <see cref="T:Cadenza.Maybe{T}" />.  If 
+          <paramref name="condition" /> is <see langword="true" />,
+          then a 
+          <see cref="T:Cadenza.Maybe{T}" /> instance containing the value
+          <paramref name="value" /> is returned; otherwise,
+          <see cref="F:Cadenza.Maybe{T}.Nothing" /> is returned.
+        </returns>
+        <remarks>
+          <para>
+            Use this method instead of 
+            <see cref="M:Cadenza.Maybe.When``1(System.Boolean,System.Func{``0})" />
+            when it doesn't matter of <paramref name="value" /> is
+            immediately evaluated.
+          </para>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/MaybeTest.cs#When">var r = Maybe.When (true, 42);
+Assert.IsTrue (r.HasValue);
+Assert.AreEqual (42, r.Value);
+
+r = Maybe.When (false, 42);
+Assert.IsFalse (r.HasValue);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="condition" /> is <see langword="true" /> and
+          <paramref name="value" /> returned <see langword="null" />.
+        </exception>
+        <altmember cref="M:Cadenza.Maybe.When``1(System.Boolean,``0)" />
+        <altmember cref="M:Cadenza.ObjectRocks.Match``2(``0,System.Func{``0,Cadenza.Maybe{``1}}[])" />
+      </Docs>
+    </Member>
+  </Members>
+</Type>

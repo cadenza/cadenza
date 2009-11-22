@@ -1,0 +1,69 @@
+<Type Name="StreamConverterRocks" FullName="Cadenza.StreamConverterRocks">
+  <TypeSignature Language="C#" Value="public static class StreamConverterRocks" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Read&lt;TValue&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.StreamConverter Read&lt;TValue&gt; (this Cadenza.StreamConverter self, out TValue value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.StreamConverter</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.StreamConverter" RefType="this" />
+        <Parameter Name="value" Type="TValue&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Value(System.Object)" /></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Write&lt;TValue&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.StreamConverter Write&lt;TValue&gt; (this Cadenza.StreamConverter self, TValue value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.StreamConverter</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="Cadenza.StreamConverter" RefType="this" />
+        <Parameter Name="value" Type="TValue" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Value(System.Object)" /></exception>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

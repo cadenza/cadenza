@@ -8,7 +8,7 @@ use Generator;
 use Getopt::Long;
 
 my $n = 1;
-my $namespace = "Mono.Rocks";
+my $namespace = "Cadenza";
 my $output = "Tuples.cs";
 my $help = undef;
 
@@ -28,7 +28,7 @@ Options:
   -n, --count=N       The number of types to generate.  Defaults is 1.
   -o, --output=FILE   The file to create.  Default is `Tuples.cs'.
       --namespace=NS  Place the types within the namespace NS.
-                        Default is `Mono.Rocks'.
+                        Default is `Cadenza'.
   -h, -?, --help      Show this message and exit.
 EOF
 	exit 0;
@@ -79,7 +79,7 @@ sub create_tuple {
 	$g->XmlSummary ("Utility methods to create Tuple instances.");
 	$g->XmlRemarks (
 qq(<para>
- Provides a set of <see cref="M:Mono.Rocks.Tuple.Create"/> methods so that
+ Provides a set of <see cref="M:Cadenza.Tuple.Create"/> methods so that
  C# type inferencing can easily be used with tuples.  For example,
  instead of:
 </para>
@@ -102,7 +102,7 @@ qq(<para>
  likely ever be).
 </para>
 <para>
- <see cref="P:Mono.Rocks.Tuple.MaxValues" /> is the maximum number of
+ <see cref="P:Cadenza.Tuple.MaxValues" /> is the maximum number of
  values that the Tuple types support.  If you need to support
  more values, then you need to either live with potential boxing
  and use a e.g. <see cref="T:System.Collections.Generic.List{System.Object}" />
@@ -142,7 +142,7 @@ sub create_tuple_method {
 
 	$g->Write ("\n");
 
-	my $t = "Mono.Rocks.Tuple{" . Generator::GetTypeParameterList ($n) . "}";
+	my $t = "Cadenza.Tuple{" . Generator::GetTypeParameterList ($n) . "}";
 	for (my $i = 1; $i <= $n; ++$i) {
 		$g->XmlTypeparam (Generator::GetTypeParameter ($n, $i), 
 			"The " . Generator::Nth ($i) . " <see cref=\"T:$t\"/> value type.");
@@ -172,8 +172,8 @@ sub create_tuple_method {
 sub create_type {
 	my ($g, $n) = @_;
 
-	my $type  = "Mono.Rocks.Tuple{" . Generator::GetTypeParameterList ($n) . "}";
-	my $typeN = "Mono.Rocks.Tuple`$n";
+	my $type  = "Cadenza.Tuple{" . Generator::GetTypeParameterList ($n) . "}";
+	my $typeN = "Cadenza.Tuple`$n";
 
 	$g->Write ("\n");
 	for (my $i = 1; $i <= $n; ++$i) {
@@ -651,7 +651,7 @@ returning the value returned by <paramref name="func"/>.));
 				}
 			);
 
-			$f = Generator::GetDocFunc ($n, 1, $n, "Mono.Rocks.Maybe{TResult}");
+			$f = Generator::GetDocFunc ($n, 1, $n, "Cadenza.Maybe{TResult}");
 			$g->Write ("\n");
 			$g->XmlTypeparam ("TResult", "The return type.");
 			$g->XmlParam ("matchers", 
@@ -671,18 +671,18 @@ the current <see cref="T:$type" /> instance into a
   </para>
   <para>
    This method returns 
-   <see cref="P:Mono.Rocks.Maybe{TResult}.Value" /> 
+   <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
    for the first delegate to return a
-   <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
-   where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+   <see cref="T:Cadenza.Maybe{TResult}" /> instance
+   where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
    is <see langword="true" />.
   </para>
   <para>
    If no 
-   <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+   <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
    returns a 
-   <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
-   where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+   <see cref="T:Cadenza.Maybe{TResult}" /> instance
+   where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
    is <see langword="true" />, then an
    <see cref="T:System.InvalidOperationException" /> is thrown.
   </para>
@@ -698,10 +698,10 @@ Console.WriteLine (b);  // prints "foo!"</code>
 				qq(<paramref name="matchers"/> is <see langword="null"/>.));
 			$g->XmlException ("System.InvalidOperationException", 
 qq(None of the 
-<see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+<see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
 delegates within <paramref name="matchers" /> returned a 
-<see cref="T:Mono.Rocks.Maybe{TResult}" /> instance where
-<see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" /> was
+<see cref="T:Cadenza.Maybe{TResult}" /> instance where
+<see cref="P:Cadenza.Maybe{TResult}.HasValue" /> was
 <see langword="true" />.));
 			$g->Method ("public TResult ", "Match<TResult>", 
 				sub { 
@@ -750,7 +750,7 @@ delegates within <paramref name="matchers" /> returned a
 indicating whether the two specified values are equal to each other.));
 			$g->XmlReturns (qq(<see langword="true"/> if <paramref name="a"/> and
 <paramref name="b"/> represent the same value; otherwise, <see langword="false"/>.));
-			$g->Write ("/// <seealso cref=\"M:$typeN.Equals(Mono.Rocks.Tuple{@{[ create_xmldoc_list ($n) ]}})\"/>\n");
+			$g->Write ("/// <seealso cref=\"M:$typeN.Equals(Cadenza.Tuple{@{[ create_xmldoc_list ($n) ]}})\"/>\n");
 			$g->Method ("public static bool ", "operator== ", 
 				sub {
 					$g->Write ("Tuple<")->TypeParameterList ($n)->Write ("> a, "); 
@@ -765,7 +765,7 @@ indicating whether the two specified values are equal to each other.));
 indicating whether the two specified values are not equal to each other.));
 			$g->XmlReturns (qq(<see langword="true"/> if <paramref name="a"/> and
 <paramref name="b"/> do not represent the same value; otherwise, <see langword="false"/>.));
-			$g->Write ("/// <seealso cref=\"M:$typeN.Equals(Mono.Rocks.Tuple{@{[ create_xmldoc_list ($n) ]}})\"/>\n");
+			$g->Write ("/// <seealso cref=\"M:$typeN.Equals(Cadenza.Tuple{@{[ create_xmldoc_list ($n) ]}})\"/>\n");
 			$g->Method ("public static bool ", "operator!=", 
 				sub {
 					$g->Write ("Tuple<")->TypeParameterList ($n)->Write ("> a, "); 

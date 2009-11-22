@@ -1,0 +1,73 @@
+<Type Name="RectangularArrayRocks" FullName="Cadenza.RectangularArrayRocks">
+  <TypeSignature Language="C#" Value="public static class RectangularArrayRocks" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>Extension methods on rectangular arrays.</summary>
+    <remarks>
+      A rectangular array is a type like <c>double[,]</c>.
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Rows&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Rows&lt;TSource&gt; (this TSource[,] self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="TSource[,]" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The array element type.
+        </typeparam>
+        <param name="self">
+          A rectangular array of <typeparamref name="TSource" /> elements.
+        </param>
+        <summary>
+          Converts a rectangular array into an 
+          <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />.
+        </summary>
+        <returns>
+          An <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />
+          of each element within <paramref name="self" /> in row-major order.
+        </returns>
+        <remarks>
+          <para>
+            This is particularly useful for transposing rectangular arrays, as
+            it can be used with
+            <see cref="M:Cadenza.IEnumerableRocks.Transpose``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />.
+          </para>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/RectangularArrayTest.cs#Rows">int[,] s = new int[,] {
+	{1, 2, 3},
+	{4, 5, 6},
+	{7, 8, 9},
+};
+IEnumerable&lt;IEnumerable&lt;int&gt;&gt; r = s.Rows();
+Assert.AreEqual (3, r.Count ());
+
+Assert.IsTrue (new[]{1,2,3}.SequenceEqual (r.ElementAt (0)));
+Assert.IsTrue (new[]{4,5,6}.SequenceEqual (r.ElementAt (1)));
+Assert.IsTrue (new[]{7,8,9}.SequenceEqual (r.ElementAt (2)));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

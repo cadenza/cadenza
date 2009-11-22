@@ -15,7 +15,7 @@ use Getopt::Long;
 #     { return x => self (x._...);
 
 my $n = 1;
-my $namespace = "Mono.Rocks";
+my $namespace = "Cadenza";
 my $output = "Delegates.cs";
 my $help = undef;
 
@@ -35,7 +35,7 @@ Options:
   -n, --count=N       The number of types to generate.  Default is 1.
   -o, --output=FILE   The file to create.  Default is `Curry.cs'.
       --namespace=NS  Place the types within the namespace NS.
-                        Default is `Mono.Rocks'.
+                        Default is `Cadenza'.
   -h, -?, --help      Show this message and exit.
 EOF
 	exit 0;
@@ -74,17 +74,17 @@ qq(Provides extension methods on <see cref="T:System.Action{T}"/>,
 <see cref="T:System.Func{T,TResult}"/>, and related delegates.));
 	$g->XmlRemarks (
 qq(<para>
- <see cref="T:Mono.Rocks.DelegateRocks" /> provides methods methods for:
+ <see cref="T:Cadenza.DelegateRocks" /> provides methods methods for:
 </para>
 <list type="bullet">
  <item><term>
-  Delegate currying and partial application (<see cref="M:Mono.Rocks.DelegateRocks.Curry" />)
+  Delegate currying and partial application (<see cref="M:Cadenza.DelegateRocks.Curry" />)
  </term></item>
  <item><term>
-  Delegate composition (<see cref="M:Mono.Rocks.DelegateRocks.Compose" />)
+  Delegate composition (<see cref="M:Cadenza.DelegateRocks.Compose" />)
  </term></item>
  <item><term>
-  Timing generation (<see cref="M:Mono.Rocks.DelegateRocks.Timings" />)
+  Timing generation (<see cref="M:Cadenza.DelegateRocks.Timings" />)
  </term></item>
 </list>
 <para>
@@ -450,7 +450,7 @@ sub create_tuple_doc {
 
 	create_curry_doc ($g, $nret, $ntypes, $tself, $tret, sub {
 		$g->XmlParam ("values",
-			"A value of type <see cref=\"T:Mono.Rocks.Tuple{" . 
+			"A value of type <see cref=\"T:Cadenza.Tuple{" . 
 			Generator::GetTypeParameterList ($ntypes, 1, $ntypes - $nret) . 
 			"}\"/> which contains the values to fix.");
 	});
@@ -757,7 +757,7 @@ qq(<para>
  <paramref name="loopsPerRun" /> times.
 </para>));
 	} else {
-		my $alt = "Mono.Rocks.DelegateRocks.Timings"
+		my $alt = "Cadenza.DelegateRocks.Timings"
 			. ($nargs == 0 ? "" : "``$nargs")
 			. "(" . action_cref ($nargs);
 		for (my $i = 0; $i < $nargs; ++$i) {

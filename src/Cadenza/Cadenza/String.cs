@@ -35,7 +35,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	public static class StringRocks {
 

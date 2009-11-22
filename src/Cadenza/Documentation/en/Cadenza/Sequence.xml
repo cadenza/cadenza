@@ -1,0 +1,217 @@
+<Type Name="Sequence" FullName="Cadenza.Sequence">
+  <TypeSignature Language="C#" Value="public static class Sequence" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <ThreadingSafetyStatement>
+    This type is thread safe.
+  </ThreadingSafetyStatement>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+      Provides a set of static methods for creating sequences.
+    </summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="GenerateReverse&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; GenerateReverse&lt;TSource,TResult&gt; (TSource value, Func&lt;TSource,Cadenza.Maybe&lt;Cadenza.Tuple&lt;TResult,TSource&gt;&gt;&gt; selector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="TSource" />
+        <Parameter Name="selector" Type="System.Func&lt;TSource,Cadenza.Maybe&lt;Cadenza.Tuple&lt;TResult,TSource&gt;&gt;&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of the seed value.
+        </typeparam>
+        <typeparam name="TResult">
+          The type to create a sequence of.
+        </typeparam>
+        <param name="value">
+          A <typeparamref name="TSource" /> containing the initial value to
+          pass to <paramref name="selector" />.
+        </param>
+        <param name="selector">
+          A <see cref="T:System.Func{TSource,Cadenza.Maybe{Cadenza.Tuple{TResult,TSource}}}" />
+          which is invoked to generate the sequence.
+        </param>
+        <summary>
+          Creates a <see cref="T:System.Collections.Generic.IEnumerable{TResult}" />
+          containing the values returned by <paramref name="selector" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TResult}" />
+          containing the values returned by <paramref name="selector" />.
+        </returns>
+        <remarks>
+          <para>
+            <c>GenerateReverse</c> acts as a "dual" to 
+            <see cref="M:Cadenza.IEnumerableRocks.AggregateReverse``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />:
+            while <c>AggregateReverse</c> reduces a list to a summary value
+            (evaluating the list starting from the end),
+            <c>GenerateReverse</c> builds a list from a seed value.
+          </para>
+          <block subset="none" type="behaviors">
+            <para>
+              <paramref name="selector" /> is first invoked with 
+              <paramref name="value" />, and returns a
+              <see cref="T:Cadenza.Maybe{Cadenza.Tuple{TResult,TSource}}" />.
+              If the returned 
+              <see cref="T:Cadenza.Maybe{Cadenza.Tuple{TResult,TSource}}" />.
+              contains a value 
+              (<see cref="M:Cadenza.Maybe{Cadenza.Tuple{TResult,TSource}}.HasValue" />
+              is <see langword="true" />),
+              then <see cref="P:Cadenza.Tuple{TResult,TSource}._1" /> will
+              be returned from the generator, and 
+              <see cref="P:Cadenza.Tuple{TResult,TSource}._2" /> will be
+              used as the value for subsequent <paramref name="selector" />
+              invocations.
+            </para>
+            <para>
+              When <paramref name="selector" /> returns 
+              <see cref="F:Cadenza.Maybe{Cadenza.Tuple{TResult,TSource}}.Nothing" />,
+              the sequence is terminated.
+            </para>
+          </block>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/SequenceTest.cs#GenerateReverse">Assert.AreEqual ("10,9,8,7,6,5,4,3,2,1",
+	Sequence.GenerateReverse (10, 
+		b =&gt; Maybe.When (b &gt; 0, Tuple.Create (b, b-1)))
+	.Implode (","));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="selector" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:Cadenza.IEnumerableRocks.AggregateReverse``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
+        <altmember cref="M:Cadenza.Maybe.When``1(System.Boolean,``0)" />
+        <altmember cref="M:Cadenza.Maybe.When``1(System.Boolean,System.Func{``0})" />
+        <altmember cref="T:Cadenza.Tuple{TResult,TSource}" />
+      </Docs>
+    </Member>
+    <Member MemberName="Iterate&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Iterate&lt;TSource&gt; (TSource value, Func&lt;TSource,TSource&gt; selector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="TSource" />
+        <Parameter Name="selector" Type="System.Func&lt;TSource,TSource&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of the seed value <paramref name="value" /> and 
+          the element type of the generated sequence.
+        </typeparam>
+        <param name="value">
+          The initial value to provide to <paramref name="selector" />.
+        </param>
+        <param name="selector">
+          A <see cref="T:System.Func{TSource,TSource}" /> which is used to
+          generate the next value in the sequence.
+        </param>
+        <summary>
+          Creates an infinite 
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          sequence determined by <paramref name="value" />
+          and <paramref name="selector" />.
+        </summary>
+        <returns>
+          An infinite 
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          sequence determined by <paramref name="value" />
+          and <paramref name="selector" />.
+        </returns>
+        <remarks>
+          <block subset="none" type="behaviors">
+            <para>
+              On the first <paramref name="selector" /> invocation, 
+              <paramref name="value" /> is provided as the parameter value.
+            </para>
+            <para>
+              For all subsequent <paramref name="selector" /> invocations, the
+              parameter value is the result of the previous 
+              <paramref name="selector" /> invocation.
+            </para>
+            <para>
+              Thus, the generated sequence is equivalent to:
+              <c>new[]{ <paramref name="selector" />(<paramref name="value" />),
+              <paramref name="selector" />(<paramref name="selector" />(<paramref name="value" />)),
+              <paramref name="selector" />(<paramref name="selector" />(<paramref name="selector" />(<paramref name="value" />))),
+              ... }</c>.
+            </para>
+          </block>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/SequenceTest.cs#Iterate">Assert.AreEqual ("16,8,4,2,1",
+		Sequence.Iterate (16, v =&gt; v / 2).Take (5).Implode (","));
+Assert.AreEqual ("1,2,3,4,5",
+		Sequence.Iterate (1, v =&gt; v+1).Take (5).Implode (","));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="selector" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Repeat&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Repeat&lt;TSource&gt; (TSource value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="TSource" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of the value to repeat.
+        </typeparam>
+        <param name="value">
+          A <typeparamref name="TSource" /> containing the value to repeat.
+        </param>
+        <summary>
+          Creates an infinite 
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          seqeuence where each element value is <paramref name="value" />.
+        </summary>
+        <returns>
+          An infinite 
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          seqeuence where each element value is <paramref name="value" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/SequenceTest.cs#Repeat">Assert.AreEqual ("1,1,1,1,1",
+		Sequence.Repeat (1).Take (5).Implode (","));
+</code>
+        </remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

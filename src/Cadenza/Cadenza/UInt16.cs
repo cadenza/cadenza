@@ -30,7 +30,7 @@
 
 using System;
 
-namespace Mono.Rocks
+namespace Cadenza
 {
 	[CLSCompliant (false)]
 	public static class UInt16Rocks

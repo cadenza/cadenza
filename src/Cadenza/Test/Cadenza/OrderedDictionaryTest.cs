@@ -31,7 +31,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
-namespace Mono.Rocks.Tests
+namespace Cadenza.Tests
 {
 	[TestFixture]
 	public class OrderedDictionaryTest

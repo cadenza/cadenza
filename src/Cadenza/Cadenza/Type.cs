@@ -29,7 +29,7 @@
 
 using System;
 
-namespace Mono.Rocks
+namespace Cadenza
 {
 	public static class TypeRocks
 	{

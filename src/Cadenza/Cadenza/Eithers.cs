@@ -29,7 +29,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	/// <typeparam name="T1">
 	///   The first value type.
@@ -48,9 +48,9 @@ namespace Mono.Rocks {
 	///    value from a set of types (as determined by the type parameter list).
 	///   </para>
 	///   <para>
-	///    The value held by a <see cref="T:Mono.Rocks.Either{T1, T2}" /> instance
+	///    The value held by a <see cref="T:Cadenza.Either{T1, T2}" /> instance
 	///    can be converted into a value by using the 
-	///    <see cref="M:Mono.Rocks.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" /> method.
+	///    <see cref="M:Cadenza.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" /> method.
 	///    <c>Fold</c> takes a list of delegates to perform the conversion; the
 	///    delegate used to perform the conversion is based upon the internal 
 	///    position of the value stored.
@@ -60,8 +60,8 @@ namespace Mono.Rocks {
 	///    creation methods:
 	///   </para>
 	///   <list type="bullet">
-	///     <item><term><see cref="M:Mono.Rocks.Either{T1, T2}.A(`0)" /></term></item>
-	///    <item><term><see cref="M:Mono.Rocks.Either{T1, T2}.B(`1)" /></term></item>
+	///     <item><term><see cref="M:Cadenza.Either{T1, T2}.A(`0)" /></term></item>
+	///    <item><term><see cref="M:Cadenza.Either{T1, T2}.B(`1)" /></term></item>
 	///   
 	///   </list>
 	///   <code lang="C#">
@@ -83,23 +83,23 @@ namespace Mono.Rocks {
 		/// <param name="value">
 		///   A <typeparamref name="T1" /> containing the value 
 		///   to provide to the first 
-		///   <see cref="M:Mono.Rocks.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
+		///   <see cref="M:Cadenza.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
 		///   delegate.
 		/// </param>
 		/// <summary>
-		///   Creates a <see cref="T:Mono.Rocks.Either{T1, T2}" /> instance which
+		///   Creates a <see cref="T:Cadenza.Either{T1, T2}" /> instance which
 		///   holds a <typeparamref name="T1" /> value.
 		/// </summary>
 		/// <returns>
-		///   A <see cref="T:Mono.Rocks.Either{T1, T2}" /> instance which holds a 
+		///   A <see cref="T:Cadenza.Either{T1, T2}" /> instance which holds a 
 		///   holds a <typeparamref name="T1" /> value.
 		/// </returns>
 		/// <remarks>
 		///   <para>
 		///    When
-		///    <see cref="M:Mono.Rocks.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
+		///    <see cref="M:Cadenza.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
 		///    is invoked,
-		///    the returned <see cref="T:Mono.Rocks.Either{T1, T2}" /> instance
+		///    the returned <see cref="T:Cadenza.Either{T1, T2}" /> instance
 		///    will invoke the first delegate
 		///    for conversions.
 		///   </para>
@@ -117,23 +117,23 @@ namespace Mono.Rocks {
 		/// <param name="value">
 		///   A <typeparamref name="T2" /> containing the value 
 		///   to provide to the second 
-		///   <see cref="M:Mono.Rocks.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
+		///   <see cref="M:Cadenza.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
 		///   delegate.
 		/// </param>
 		/// <summary>
-		///   Creates a <see cref="T:Mono.Rocks.Either{T1, T2}" /> instance which
+		///   Creates a <see cref="T:Cadenza.Either{T1, T2}" /> instance which
 		///   holds a <typeparamref name="T2" /> value.
 		/// </summary>
 		/// <returns>
-		///   A <see cref="T:Mono.Rocks.Either{T1, T2}" /> instance which holds a 
+		///   A <see cref="T:Cadenza.Either{T1, T2}" /> instance which holds a 
 		///   holds a <typeparamref name="T2" /> value.
 		/// </returns>
 		/// <remarks>
 		///   <para>
 		///    When
-		///    <see cref="M:Mono.Rocks.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
+		///    <see cref="M:Cadenza.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
 		///    is invoked,
-		///    the returned <see cref="T:Mono.Rocks.Either{T1, T2}" /> instance
+		///    the returned <see cref="T:Cadenza.Either{T1, T2}" /> instance
 		///    will invoke the second delegate
 		///    for conversions.
 		///   </para>
@@ -149,22 +149,22 @@ namespace Mono.Rocks {
 		}
 
 		/// <typeparam name="TResult">
-		///   The type to convert the <see cref="T:Mono.Rocks.Either{T1, T2}" /> to.
+		///   The type to convert the <see cref="T:Cadenza.Either{T1, T2}" /> to.
 		/// </typeparam>
 		/// <param name="a">
 		///   A <see cref="T:System.Func{T1,TResult}" /> 
-		///   used if the <see cref="T:Mono.Rocks.Either{T1, T2}" /> stores a 
+		///   used if the <see cref="T:Cadenza.Either{T1, T2}" /> stores a 
 		///   <typeparamref name="T1" /> value into a 
 		///   <typeparamref name="TResult" /> value.
 		/// </param>
 		/// <param name="b">
 		///   A <see cref="T:System.Func{T2,TResult}" /> 
-		///   used if the <see cref="T:Mono.Rocks.Either{T1, T2}" /> stores a 
+		///   used if the <see cref="T:Cadenza.Either{T1, T2}" /> stores a 
 		///   <typeparamref name="T2" /> value into a 
 		///   <typeparamref name="TResult" /> value.
 		/// </param>
 		/// <summary>
-		///   Converts a <see cref="T:Mono.Rocks.Either{T1, T2}" /> into a <typeparamref name="TResult" /> value.
+		///   Converts a <see cref="T:Cadenza.Either{T1, T2}" /> into a <typeparamref name="TResult" /> value.
 		/// </summary>
 		/// <returns>
 		///   A <typeparamref name="TResult" /> as generated by one
@@ -172,14 +172,14 @@ namespace Mono.Rocks {
 		/// </returns>
 		/// <remarks>
 		///   <para>
-		///    Converts a <see cref="T:Mono.Rocks.Either{T1, T2}" /> into a <typeparamref name="TResult" />
+		///    Converts a <see cref="T:Cadenza.Either{T1, T2}" /> into a <typeparamref name="TResult" />
 		///    by invoking one of the provided delegate parameters.
 		///   </para>
 		///   <para>
 		///    The parameter which is invoked is predicated upon the internal position of
 		///    the value held.  For example, if the internal value is in the first position 
-		///    (i.e.  <see cref="M:Mono.Rocks.Either{T1, T2}.A(`0)" />
-		///    was used to create the <see cref="T:Mono.Rocks.Either{T1, T2}" /> instance), then 
+		///    (i.e.  <see cref="M:Cadenza.Either{T1, T2}.A(`0)" />
+		///    was used to create the <see cref="T:Cadenza.Either{T1, T2}" /> instance), then 
 		///    <paramref name="a" /> (the first delegate parameter) will be invoked to
 		///    convert the <typeparamref name="T1" /> into a 
 		///    <typeparamref name="TResult" />.
@@ -215,7 +215,7 @@ namespace Mono.Rocks {
 		/// <returns>
 		///   <para>
 		///    <see langword="true"/> if <paramref name="obj"/> is a 
-		///    <see cref="T:Mono.Rocks.Either{T1, T2}"/> and each member of <paramref name="obj"/>
+		///    <see cref="T:Cadenza.Either{T1, T2}"/> and each member of <paramref name="obj"/>
 		///    and the current instance have the same value (according to
 		///    <see cref="M:System.Object.Equals(System.Object)"/>); otherwise
 		///    <see langword="false"/> is returned.
@@ -236,10 +236,10 @@ namespace Mono.Rocks {
 		public override abstract bool Equals (object obj);
 
 		/// <param name="obj">
-		///   A <see cref="T:Mono.Rocks.Either{T1, T2}"/> to compare this instance against.
+		///   A <see cref="T:Cadenza.Either{T1, T2}"/> to compare this instance against.
 		/// </param>
 		/// <summary>
-		///   Determines whether the current instance and the specified <see cref="T:Mono.Rocks.Either{T1, T2}"/> have the same value.
+		///   Determines whether the current instance and the specified <see cref="T:Cadenza.Either{T1, T2}"/> have the same value.
 		/// </summary>
 		/// <returns>
 		///   <para>
@@ -368,9 +368,9 @@ namespace Mono.Rocks {
 	///    value from a set of types (as determined by the type parameter list).
 	///   </para>
 	///   <para>
-	///    The value held by a <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> instance
+	///    The value held by a <see cref="T:Cadenza.Either{T1, T2, T3}" /> instance
 	///    can be converted into a value by using the 
-	///    <see cref="M:Mono.Rocks.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" /> method.
+	///    <see cref="M:Cadenza.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" /> method.
 	///    <c>Fold</c> takes a list of delegates to perform the conversion; the
 	///    delegate used to perform the conversion is based upon the internal 
 	///    position of the value stored.
@@ -380,9 +380,9 @@ namespace Mono.Rocks {
 	///    creation methods:
 	///   </para>
 	///   <list type="bullet">
-	///     <item><term><see cref="M:Mono.Rocks.Either{T1, T2, T3}.A(`0)" /></term></item>
-	///    <item><term><see cref="M:Mono.Rocks.Either{T1, T2, T3}.B(`1)" /></term></item>
-	///    <item><term><see cref="M:Mono.Rocks.Either{T1, T2, T3}.C(`2)" /></term></item>
+	///     <item><term><see cref="M:Cadenza.Either{T1, T2, T3}.A(`0)" /></term></item>
+	///    <item><term><see cref="M:Cadenza.Either{T1, T2, T3}.B(`1)" /></term></item>
+	///    <item><term><see cref="M:Cadenza.Either{T1, T2, T3}.C(`2)" /></term></item>
 	///   
 	///   </list>
 	///   <code lang="C#">
@@ -404,23 +404,23 @@ namespace Mono.Rocks {
 		/// <param name="value">
 		///   A <typeparamref name="T1" /> containing the value 
 		///   to provide to the first 
-		///   <see cref="M:Mono.Rocks.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" />
+		///   <see cref="M:Cadenza.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" />
 		///   delegate.
 		/// </param>
 		/// <summary>
-		///   Creates a <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> instance which
+		///   Creates a <see cref="T:Cadenza.Either{T1, T2, T3}" /> instance which
 		///   holds a <typeparamref name="T1" /> value.
 		/// </summary>
 		/// <returns>
-		///   A <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> instance which holds a 
+		///   A <see cref="T:Cadenza.Either{T1, T2, T3}" /> instance which holds a 
 		///   holds a <typeparamref name="T1" /> value.
 		/// </returns>
 		/// <remarks>
 		///   <para>
 		///    When
-		///    <see cref="M:Mono.Rocks.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" />
+		///    <see cref="M:Cadenza.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" />
 		///    is invoked,
-		///    the returned <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> instance
+		///    the returned <see cref="T:Cadenza.Either{T1, T2, T3}" /> instance
 		///    will invoke the first delegate
 		///    for conversions.
 		///   </para>
@@ -438,23 +438,23 @@ namespace Mono.Rocks {
 		/// <param name="value">
 		///   A <typeparamref name="T2" /> containing the value 
 		///   to provide to the second 
-		///   <see cref="M:Mono.Rocks.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" />
+		///   <see cref="M:Cadenza.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" />
 		///   delegate.
 		/// </param>
 		/// <summary>
-		///   Creates a <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> instance which
+		///   Creates a <see cref="T:Cadenza.Either{T1, T2, T3}" /> instance which
 		///   holds a <typeparamref name="T2" /> value.
 		/// </summary>
 		/// <returns>
-		///   A <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> instance which holds a 
+		///   A <see cref="T:Cadenza.Either{T1, T2, T3}" /> instance which holds a 
 		///   holds a <typeparamref name="T2" /> value.
 		/// </returns>
 		/// <remarks>
 		///   <para>
 		///    When
-		///    <see cref="M:Mono.Rocks.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" />
+		///    <see cref="M:Cadenza.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" />
 		///    is invoked,
-		///    the returned <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> instance
+		///    the returned <see cref="T:Cadenza.Either{T1, T2, T3}" /> instance
 		///    will invoke the second delegate
 		///    for conversions.
 		///   </para>
@@ -472,23 +472,23 @@ namespace Mono.Rocks {
 		/// <param name="value">
 		///   A <typeparamref name="T3" /> containing the value 
 		///   to provide to the third 
-		///   <see cref="M:Mono.Rocks.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" />
+		///   <see cref="M:Cadenza.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" />
 		///   delegate.
 		/// </param>
 		/// <summary>
-		///   Creates a <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> instance which
+		///   Creates a <see cref="T:Cadenza.Either{T1, T2, T3}" /> instance which
 		///   holds a <typeparamref name="T3" /> value.
 		/// </summary>
 		/// <returns>
-		///   A <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> instance which holds a 
+		///   A <see cref="T:Cadenza.Either{T1, T2, T3}" /> instance which holds a 
 		///   holds a <typeparamref name="T3" /> value.
 		/// </returns>
 		/// <remarks>
 		///   <para>
 		///    When
-		///    <see cref="M:Mono.Rocks.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" />
+		///    <see cref="M:Cadenza.Either{T1, T2, T3}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0})" />
 		///    is invoked,
-		///    the returned <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> instance
+		///    the returned <see cref="T:Cadenza.Either{T1, T2, T3}" /> instance
 		///    will invoke the third delegate
 		///    for conversions.
 		///   </para>
@@ -504,28 +504,28 @@ namespace Mono.Rocks {
 		}
 
 		/// <typeparam name="TResult">
-		///   The type to convert the <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> to.
+		///   The type to convert the <see cref="T:Cadenza.Either{T1, T2, T3}" /> to.
 		/// </typeparam>
 		/// <param name="a">
 		///   A <see cref="T:System.Func{T1,TResult}" /> 
-		///   used if the <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> stores a 
+		///   used if the <see cref="T:Cadenza.Either{T1, T2, T3}" /> stores a 
 		///   <typeparamref name="T1" /> value into a 
 		///   <typeparamref name="TResult" /> value.
 		/// </param>
 		/// <param name="b">
 		///   A <see cref="T:System.Func{T2,TResult}" /> 
-		///   used if the <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> stores a 
+		///   used if the <see cref="T:Cadenza.Either{T1, T2, T3}" /> stores a 
 		///   <typeparamref name="T2" /> value into a 
 		///   <typeparamref name="TResult" /> value.
 		/// </param>
 		/// <param name="c">
 		///   A <see cref="T:System.Func{T3,TResult}" /> 
-		///   used if the <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> stores a 
+		///   used if the <see cref="T:Cadenza.Either{T1, T2, T3}" /> stores a 
 		///   <typeparamref name="T3" /> value into a 
 		///   <typeparamref name="TResult" /> value.
 		/// </param>
 		/// <summary>
-		///   Converts a <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> into a <typeparamref name="TResult" /> value.
+		///   Converts a <see cref="T:Cadenza.Either{T1, T2, T3}" /> into a <typeparamref name="TResult" /> value.
 		/// </summary>
 		/// <returns>
 		///   A <typeparamref name="TResult" /> as generated by one
@@ -533,14 +533,14 @@ namespace Mono.Rocks {
 		/// </returns>
 		/// <remarks>
 		///   <para>
-		///    Converts a <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> into a <typeparamref name="TResult" />
+		///    Converts a <see cref="T:Cadenza.Either{T1, T2, T3}" /> into a <typeparamref name="TResult" />
 		///    by invoking one of the provided delegate parameters.
 		///   </para>
 		///   <para>
 		///    The parameter which is invoked is predicated upon the internal position of
 		///    the value held.  For example, if the internal value is in the first position 
-		///    (i.e.  <see cref="M:Mono.Rocks.Either{T1, T2, T3}.A(`0)" />
-		///    was used to create the <see cref="T:Mono.Rocks.Either{T1, T2, T3}" /> instance), then 
+		///    (i.e.  <see cref="M:Cadenza.Either{T1, T2, T3}.A(`0)" />
+		///    was used to create the <see cref="T:Cadenza.Either{T1, T2, T3}" /> instance), then 
 		///    <paramref name="a" /> (the first delegate parameter) will be invoked to
 		///    convert the <typeparamref name="T1" /> into a 
 		///    <typeparamref name="TResult" />.
@@ -583,7 +583,7 @@ namespace Mono.Rocks {
 		/// <returns>
 		///   <para>
 		///    <see langword="true"/> if <paramref name="obj"/> is a 
-		///    <see cref="T:Mono.Rocks.Either{T1, T2, T3}"/> and each member of <paramref name="obj"/>
+		///    <see cref="T:Cadenza.Either{T1, T2, T3}"/> and each member of <paramref name="obj"/>
 		///    and the current instance have the same value (according to
 		///    <see cref="M:System.Object.Equals(System.Object)"/>); otherwise
 		///    <see langword="false"/> is returned.
@@ -604,10 +604,10 @@ namespace Mono.Rocks {
 		public override abstract bool Equals (object obj);
 
 		/// <param name="obj">
-		///   A <see cref="T:Mono.Rocks.Either{T1, T2, T3}"/> to compare this instance against.
+		///   A <see cref="T:Cadenza.Either{T1, T2, T3}"/> to compare this instance against.
 		/// </param>
 		/// <summary>
-		///   Determines whether the current instance and the specified <see cref="T:Mono.Rocks.Either{T1, T2, T3}"/> have the same value.
+		///   Determines whether the current instance and the specified <see cref="T:Cadenza.Either{T1, T2, T3}"/> have the same value.
 		/// </summary>
 		/// <returns>
 		///   <para>
@@ -776,9 +776,9 @@ namespace Mono.Rocks {
 	///    value from a set of types (as determined by the type parameter list).
 	///   </para>
 	///   <para>
-	///    The value held by a <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance
+	///    The value held by a <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance
 	///    can be converted into a value by using the 
-	///    <see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" /> method.
+	///    <see cref="M:Cadenza.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" /> method.
 	///    <c>Fold</c> takes a list of delegates to perform the conversion; the
 	///    delegate used to perform the conversion is based upon the internal 
 	///    position of the value stored.
@@ -788,10 +788,10 @@ namespace Mono.Rocks {
 	///    creation methods:
 	///   </para>
 	///   <list type="bullet">
-	///     <item><term><see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.A(`0)" /></term></item>
-	///    <item><term><see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.B(`1)" /></term></item>
-	///    <item><term><see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.C(`2)" /></term></item>
-	///    <item><term><see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.D(`3)" /></term></item>
+	///     <item><term><see cref="M:Cadenza.Either{T1, T2, T3, T4}.A(`0)" /></term></item>
+	///    <item><term><see cref="M:Cadenza.Either{T1, T2, T3, T4}.B(`1)" /></term></item>
+	///    <item><term><see cref="M:Cadenza.Either{T1, T2, T3, T4}.C(`2)" /></term></item>
+	///    <item><term><see cref="M:Cadenza.Either{T1, T2, T3, T4}.D(`3)" /></term></item>
 	///   
 	///   </list>
 	///   <code lang="C#">
@@ -813,23 +813,23 @@ namespace Mono.Rocks {
 		/// <param name="value">
 		///   A <typeparamref name="T1" /> containing the value 
 		///   to provide to the first 
-		///   <see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
+		///   <see cref="M:Cadenza.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
 		///   delegate.
 		/// </param>
 		/// <summary>
-		///   Creates a <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance which
+		///   Creates a <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance which
 		///   holds a <typeparamref name="T1" /> value.
 		/// </summary>
 		/// <returns>
-		///   A <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance which holds a 
+		///   A <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance which holds a 
 		///   holds a <typeparamref name="T1" /> value.
 		/// </returns>
 		/// <remarks>
 		///   <para>
 		///    When
-		///    <see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
+		///    <see cref="M:Cadenza.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
 		///    is invoked,
-		///    the returned <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance
+		///    the returned <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance
 		///    will invoke the first delegate
 		///    for conversions.
 		///   </para>
@@ -847,23 +847,23 @@ namespace Mono.Rocks {
 		/// <param name="value">
 		///   A <typeparamref name="T2" /> containing the value 
 		///   to provide to the second 
-		///   <see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
+		///   <see cref="M:Cadenza.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
 		///   delegate.
 		/// </param>
 		/// <summary>
-		///   Creates a <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance which
+		///   Creates a <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance which
 		///   holds a <typeparamref name="T2" /> value.
 		/// </summary>
 		/// <returns>
-		///   A <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance which holds a 
+		///   A <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance which holds a 
 		///   holds a <typeparamref name="T2" /> value.
 		/// </returns>
 		/// <remarks>
 		///   <para>
 		///    When
-		///    <see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
+		///    <see cref="M:Cadenza.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
 		///    is invoked,
-		///    the returned <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance
+		///    the returned <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance
 		///    will invoke the second delegate
 		///    for conversions.
 		///   </para>
@@ -881,23 +881,23 @@ namespace Mono.Rocks {
 		/// <param name="value">
 		///   A <typeparamref name="T3" /> containing the value 
 		///   to provide to the third 
-		///   <see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
+		///   <see cref="M:Cadenza.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
 		///   delegate.
 		/// </param>
 		/// <summary>
-		///   Creates a <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance which
+		///   Creates a <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance which
 		///   holds a <typeparamref name="T3" /> value.
 		/// </summary>
 		/// <returns>
-		///   A <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance which holds a 
+		///   A <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance which holds a 
 		///   holds a <typeparamref name="T3" /> value.
 		/// </returns>
 		/// <remarks>
 		///   <para>
 		///    When
-		///    <see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
+		///    <see cref="M:Cadenza.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
 		///    is invoked,
-		///    the returned <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance
+		///    the returned <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance
 		///    will invoke the third delegate
 		///    for conversions.
 		///   </para>
@@ -915,23 +915,23 @@ namespace Mono.Rocks {
 		/// <param name="value">
 		///   A <typeparamref name="T4" /> containing the value 
 		///   to provide to the fourth 
-		///   <see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
+		///   <see cref="M:Cadenza.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
 		///   delegate.
 		/// </param>
 		/// <summary>
-		///   Creates a <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance which
+		///   Creates a <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance which
 		///   holds a <typeparamref name="T4" /> value.
 		/// </summary>
 		/// <returns>
-		///   A <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance which holds a 
+		///   A <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance which holds a 
 		///   holds a <typeparamref name="T4" /> value.
 		/// </returns>
 		/// <remarks>
 		///   <para>
 		///    When
-		///    <see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
+		///    <see cref="M:Cadenza.Either{T1, T2, T3, T4}.Fold``1(System.Func{`0,``0},System.Func{`1,``0},System.Func{`2,``0},System.Func{`3,``0})" />
 		///    is invoked,
-		///    the returned <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance
+		///    the returned <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance
 		///    will invoke the fourth delegate
 		///    for conversions.
 		///   </para>
@@ -947,34 +947,34 @@ namespace Mono.Rocks {
 		}
 
 		/// <typeparam name="TResult">
-		///   The type to convert the <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> to.
+		///   The type to convert the <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> to.
 		/// </typeparam>
 		/// <param name="a">
 		///   A <see cref="T:System.Func{T1,TResult}" /> 
-		///   used if the <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> stores a 
+		///   used if the <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> stores a 
 		///   <typeparamref name="T1" /> value into a 
 		///   <typeparamref name="TResult" /> value.
 		/// </param>
 		/// <param name="b">
 		///   A <see cref="T:System.Func{T2,TResult}" /> 
-		///   used if the <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> stores a 
+		///   used if the <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> stores a 
 		///   <typeparamref name="T2" /> value into a 
 		///   <typeparamref name="TResult" /> value.
 		/// </param>
 		/// <param name="c">
 		///   A <see cref="T:System.Func{T3,TResult}" /> 
-		///   used if the <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> stores a 
+		///   used if the <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> stores a 
 		///   <typeparamref name="T3" /> value into a 
 		///   <typeparamref name="TResult" /> value.
 		/// </param>
 		/// <param name="d">
 		///   A <see cref="T:System.Func{T4,TResult}" /> 
-		///   used if the <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> stores a 
+		///   used if the <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> stores a 
 		///   <typeparamref name="T4" /> value into a 
 		///   <typeparamref name="TResult" /> value.
 		/// </param>
 		/// <summary>
-		///   Converts a <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> into a <typeparamref name="TResult" /> value.
+		///   Converts a <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> into a <typeparamref name="TResult" /> value.
 		/// </summary>
 		/// <returns>
 		///   A <typeparamref name="TResult" /> as generated by one
@@ -982,14 +982,14 @@ namespace Mono.Rocks {
 		/// </returns>
 		/// <remarks>
 		///   <para>
-		///    Converts a <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> into a <typeparamref name="TResult" />
+		///    Converts a <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> into a <typeparamref name="TResult" />
 		///    by invoking one of the provided delegate parameters.
 		///   </para>
 		///   <para>
 		///    The parameter which is invoked is predicated upon the internal position of
 		///    the value held.  For example, if the internal value is in the first position 
-		///    (i.e.  <see cref="M:Mono.Rocks.Either{T1, T2, T3, T4}.A(`0)" />
-		///    was used to create the <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}" /> instance), then 
+		///    (i.e.  <see cref="M:Cadenza.Either{T1, T2, T3, T4}.A(`0)" />
+		///    was used to create the <see cref="T:Cadenza.Either{T1, T2, T3, T4}" /> instance), then 
 		///    <paramref name="a" /> (the first delegate parameter) will be invoked to
 		///    convert the <typeparamref name="T1" /> into a 
 		///    <typeparamref name="TResult" />.
@@ -1039,7 +1039,7 @@ namespace Mono.Rocks {
 		/// <returns>
 		///   <para>
 		///    <see langword="true"/> if <paramref name="obj"/> is a 
-		///    <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}"/> and each member of <paramref name="obj"/>
+		///    <see cref="T:Cadenza.Either{T1, T2, T3, T4}"/> and each member of <paramref name="obj"/>
 		///    and the current instance have the same value (according to
 		///    <see cref="M:System.Object.Equals(System.Object)"/>); otherwise
 		///    <see langword="false"/> is returned.
@@ -1060,10 +1060,10 @@ namespace Mono.Rocks {
 		public override abstract bool Equals (object obj);
 
 		/// <param name="obj">
-		///   A <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}"/> to compare this instance against.
+		///   A <see cref="T:Cadenza.Either{T1, T2, T3, T4}"/> to compare this instance against.
 		/// </param>
 		/// <summary>
-		///   Determines whether the current instance and the specified <see cref="T:Mono.Rocks.Either{T1, T2, T3, T4}"/> have the same value.
+		///   Determines whether the current instance and the specified <see cref="T:Cadenza.Either{T1, T2, T3, T4}"/> have the same value.
 		/// </summary>
 		/// <returns>
 		///   <para>

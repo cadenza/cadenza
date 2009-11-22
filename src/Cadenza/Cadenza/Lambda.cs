@@ -28,7 +28,7 @@
 using System;
 using System.Linq.Expressions;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	public static partial class Lambda {
 	}

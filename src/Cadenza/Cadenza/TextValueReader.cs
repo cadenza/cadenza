@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	[CLSCompliant (false)]
 	public sealed class TextValueReader : ValueReader<string>

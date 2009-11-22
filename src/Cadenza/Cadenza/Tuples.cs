@@ -32,14 +32,14 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	/// <summary>
 	///   Utility methods to create Tuple instances.
 	/// </summary>
 	/// <remarks>
 	///   <para>
-	///    Provides a set of <see cref="M:Mono.Rocks.Tuple.Create"/> methods so that
+	///    Provides a set of <see cref="M:Cadenza.Tuple.Create"/> methods so that
 	///    C# type inferencing can easily be used with tuples.  For example,
 	///    instead of:
 	///   </para>
@@ -66,7 +66,7 @@ namespace Mono.Rocks {
 		///    likely ever be).
 		///   </para>
 		///   <para>
-		///    <see cref="P:Mono.Rocks.Tuple.MaxValues" /> is the maximum number of
+		///    <see cref="P:Cadenza.Tuple.MaxValues" /> is the maximum number of
 		///    values that the Tuple types support.  If you need to support
 		///    more values, then you need to either live with potential boxing
 		///    and use a e.g. <see cref="T:System.Collections.Generic.List{System.Object}" />
@@ -80,16 +80,16 @@ namespace Mono.Rocks {
 		public static readonly int MaxValues = 4;
 
 		/// <typeparam name="T">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T}"/> value type.
+		///   The first <see cref="T:Cadenza.Tuple{T}"/> value type.
 		/// </typeparam>
 		/// <param name="value">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T}"/> value.
+		///   The first <see cref="T:Cadenza.Tuple{T}"/> value.
 		/// </param>
 		/// <summary>
-		///   Creates a <see cref="T:Mono.Rocks.Tuple{T}"/>.
+		///   Creates a <see cref="T:Cadenza.Tuple{T}"/>.
 		/// </summary>
 		/// <returns>
-		///   A <see cref="T:Mono.Rocks.Tuple{T}"/> initialized with the parameter values.
+		///   A <see cref="T:Cadenza.Tuple{T}"/> initialized with the parameter values.
 		/// </returns>
 		public static Tuple<T>
 			Create<T> (T value)
@@ -98,22 +98,22 @@ namespace Mono.Rocks {
 		}
 
 		/// <typeparam name="T1">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> value type.
+		///   The first <see cref="T:Cadenza.Tuple{T1, T2}"/> value type.
 		/// </typeparam>
 		/// <typeparam name="T2">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> value type.
+		///   The second <see cref="T:Cadenza.Tuple{T1, T2}"/> value type.
 		/// </typeparam>
 		/// <param name="value1">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> value.
+		///   The first <see cref="T:Cadenza.Tuple{T1, T2}"/> value.
 		/// </param>
 		/// <param name="value2">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> value.
+		///   The second <see cref="T:Cadenza.Tuple{T1, T2}"/> value.
 		/// </param>
 		/// <summary>
-		///   Creates a <see cref="T:Mono.Rocks.Tuple{T1, T2}"/>.
+		///   Creates a <see cref="T:Cadenza.Tuple{T1, T2}"/>.
 		/// </summary>
 		/// <returns>
-		///   A <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> initialized with the parameter values.
+		///   A <see cref="T:Cadenza.Tuple{T1, T2}"/> initialized with the parameter values.
 		/// </returns>
 		public static Tuple<T1, T2>
 			Create<T1, T2> (T1 value1, T2 value2)
@@ -122,28 +122,28 @@ namespace Mono.Rocks {
 		}
 
 		/// <typeparam name="T1">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> value type.
+		///   The first <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> value type.
 		/// </typeparam>
 		/// <typeparam name="T2">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> value type.
+		///   The second <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> value type.
 		/// </typeparam>
 		/// <typeparam name="T3">
-		///   The third <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> value type.
+		///   The third <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> value type.
 		/// </typeparam>
 		/// <param name="value1">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> value.
+		///   The first <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> value.
 		/// </param>
 		/// <param name="value2">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> value.
+		///   The second <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> value.
 		/// </param>
 		/// <param name="value3">
-		///   The third <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> value.
+		///   The third <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> value.
 		/// </param>
 		/// <summary>
-		///   Creates a <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/>.
+		///   Creates a <see cref="T:Cadenza.Tuple{T1, T2, T3}"/>.
 		/// </summary>
 		/// <returns>
-		///   A <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> initialized with the parameter values.
+		///   A <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> initialized with the parameter values.
 		/// </returns>
 		public static Tuple<T1, T2, T3>
 			Create<T1, T2, T3> (T1 value1, T2 value2, T3 value3)
@@ -152,34 +152,34 @@ namespace Mono.Rocks {
 		}
 
 		/// <typeparam name="T1">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> value type.
+		///   The first <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> value type.
 		/// </typeparam>
 		/// <typeparam name="T2">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> value type.
+		///   The second <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> value type.
 		/// </typeparam>
 		/// <typeparam name="T3">
-		///   The third <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> value type.
+		///   The third <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> value type.
 		/// </typeparam>
 		/// <typeparam name="T4">
-		///   The fourth <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> value type.
+		///   The fourth <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> value type.
 		/// </typeparam>
 		/// <param name="value1">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> value.
+		///   The first <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> value.
 		/// </param>
 		/// <param name="value2">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> value.
+		///   The second <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> value.
 		/// </param>
 		/// <param name="value3">
-		///   The third <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> value.
+		///   The third <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> value.
 		/// </param>
 		/// <param name="value4">
-		///   The fourth <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> value.
+		///   The fourth <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> value.
 		/// </param>
 		/// <summary>
-		///   Creates a <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/>.
+		///   Creates a <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/>.
 		/// </summary>
 		/// <returns>
-		///   A <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> initialized with the parameter values.
+		///   A <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> initialized with the parameter values.
 		/// </returns>
 		public static Tuple<T1, T2, T3, T4>
 			Create<T1, T2, T3, T4> (T1 value1, T2 value2, T3 value3, T4 value4)
@@ -206,8 +206,8 @@ namespace Mono.Rocks {
 	///    by-index in a strongly typed manner.  Strongly typed properties use
 	///    the pattern <c>_N</c>, where <c>N</c> is the ones-based value position.
 	///    The indexer, as always, uses 0-based positions.  Thus the value
-	///    <see cref="P:Mono.Rocks.Tuple`1._1"/> and <c>tuple[0]</c> refer to the same value,
-	///    except <see cref="P:Mono.Rocks.Tuple`1._1"/> is strongly typed, while
+	///    <see cref="P:Cadenza.Tuple`1._1"/> and <c>tuple[0]</c> refer to the same value,
+	///    except <see cref="P:Cadenza.Tuple`1._1"/> is strongly typed, while
 	///    <c>tuple[0]</c> is typed as a <see cref="T:System.Object"/> (and thus
 	///    potentially boxed).
 	///   </para>
@@ -226,14 +226,14 @@ namespace Mono.Rocks {
 		private T value;
 
 		/// <param name="value">
-		///   A <typeparamref name="T"/> which is used to initialize the <see cref="P:Mono.Rocks.Tuple{T}.1"/> property.
+		///   A <typeparamref name="T"/> which is used to initialize the <see cref="P:Cadenza.Tuple{T}.1"/> property.
 		/// </param>
 		/// <summary>
-		///   Constructs and initializes a new <see cref="T:Mono.Rocks.Tuple{T}"/> instance.
+		///   Constructs and initializes a new <see cref="T:Cadenza.Tuple{T}"/> instance.
 		/// </summary>
 		/// <remarks>
 		///   <para>
-		///    Constructs and initializes a new <see cref="T:Mono.Rocks.Tuple{T}"/> instance.
+		///    Constructs and initializes a new <see cref="T:Cadenza.Tuple{T}"/> instance.
 		///   </para>
 		/// </remarks>
 		public Tuple (T value)
@@ -282,7 +282,7 @@ namespace Mono.Rocks {
 		/// <returns>
 		///   <para>
 		///    <see langword="true"/> if <paramref name="obj"/> is a 
-		///    <see cref="T:Mono.Rocks.Tuple{T}"/> and each member of <paramref name="obj"/>
+		///    <see cref="T:Cadenza.Tuple{T}"/> and each member of <paramref name="obj"/>
 		///    and the current instance have the same value (according to
 		///    <see cref="M:System.Object.Equals(System.Object)"/>); otherwise
 		///    <see langword="false"/> is returned.
@@ -308,10 +308,10 @@ namespace Mono.Rocks {
 		}
 
 		/// <param name="obj">
-		///   A <see cref="T:Mono.Rocks.Tuple{T}"/> to compare this instance against.
+		///   A <see cref="T:Cadenza.Tuple{T}"/> to compare this instance against.
 		/// </param>
 		/// <summary>
-		///   Determines whether the current instance and the specified <see cref="T:Mono.Rocks.Tuple{T}"/> have the same value.
+		///   Determines whether the current instance and the specified <see cref="T:Cadenza.Tuple{T}"/> have the same value.
 		/// </summary>
 		/// <returns>
 		///   <para>
@@ -343,11 +343,11 @@ namespace Mono.Rocks {
 		/// <param name="index">
 		///   A <see cref="T:System.Int32"/> that specifies
 		///   the first index of <paramref name="array"/> to which the elements of the
-		///   current <see cref="T:Mono.Rocks.Tuple{T}"/> are copied.
+		///   current <see cref="T:Cadenza.Tuple{T}"/> are copied.
 		/// </param>
 		/// <summary>
 		///   Copies the values of the current 
-		///   <see cref="T:Mono.Rocks.Tuple{T}"/> to the specified <see cref="T:System.Array"/>,
+		///   <see cref="T:Cadenza.Tuple{T}"/> to the specified <see cref="T:System.Array"/>,
 		///   starting at the <paramref name="index"/> index of the array.
 		/// </summary>
 		/// <exception cref="T:System.ArgumentException">
@@ -385,11 +385,11 @@ namespace Mono.Rocks {
 		}
 
 		/// <summary>
-		///   The number of values in the <see cref="T:Mono.Rocks.Tuple{T}"/>.
+		///   The number of values in the <see cref="T:Cadenza.Tuple{T}"/>.
 		/// </summary>
 		/// <value>
 		///   A <see cref="T:System.Int32"/> containing the number 
-		///   of values in this <see cref="T:Mono.Rocks.Tuple{T}"/>.
+		///   of values in this <see cref="T:Cadenza.Tuple{T}"/>.
 		/// </value>
 		/// <remarks>
 		///   This values is always equal to 1.
@@ -407,7 +407,7 @@ namespace Mono.Rocks {
 		/// </value>
 		/// <remarks>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T}"/> instance are immutable, and thus the instances
+		///    <see cref="T:Cadenza.Tuple{T}"/> instance are immutable, and thus the instances
 		///    themselves are always thread-safe.  However, this does not mean that 
 		///    the values exposed by the tuple are thread safe, so care should be 
 		///    taken if necessary.
@@ -425,11 +425,11 @@ namespace Mono.Rocks {
 		/// </value>
 		/// <remarks>
 		///   <para>
-		///    This property shouldn't be used, as <see cref="T:Mono.Rocks.Tuple{T}"/> instances
+		///    This property shouldn't be used, as <see cref="T:Cadenza.Tuple{T}"/> instances
 		///    are immutable, and thus require no locking.
 		///   </para>
 		///   <para>
-		///    The object returned is shared by all <see cref="T:Mono.Rocks.Tuple{T}"/> instances.
+		///    The object returned is shared by all <see cref="T:Cadenza.Tuple{T}"/> instances.
 		///   </para>
 		/// </remarks>
 		object ICollection.SyncRoot {get {return syncRoot;}}
@@ -445,7 +445,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -464,7 +464,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -483,7 +483,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -511,7 +511,7 @@ namespace Mono.Rocks {
 		/// <summary>
 		///   Determines whether <paramref name="value"/>
 		///   <see cref="M:System.Object.Equals(System.Object)"/> any value within this
-		///   <see cref="T:Mono.Rocks.Tuple{T}"/> instance.
+		///   <see cref="T:Cadenza.Tuple{T}"/> instance.
 		/// </summary>
 		/// <returns>
 		///   <see langword="true"/> if <paramref name="value"/> is
@@ -532,11 +532,11 @@ namespace Mono.Rocks {
 		}
 
 		/// <summary>
-		///   The number of values in the <see cref="T:Mono.Rocks.Tuple{T}"/>.
+		///   The number of values in the <see cref="T:Cadenza.Tuple{T}"/>.
 		/// </summary>
 		/// <value>
 		///   A <see cref="T:System.Int32"/> containing the number 
-		///   of values in this <see cref="T:Mono.Rocks.Tuple{T}"/>.
+		///   of values in this <see cref="T:Cadenza.Tuple{T}"/>.
 		/// </value>
 		/// <remarks>
 		///   This values is always equal to 1.
@@ -553,11 +553,11 @@ namespace Mono.Rocks {
 		/// <param name="arrayIndex">
 		///   A <see cref="T:System.Int32"/> that specifies
 		///   the first index of <paramref name="array"/> to which the elements of the
-		///   current <see cref="T:Mono.Rocks.Tuple{T}"/> are copied.
+		///   current <see cref="T:Cadenza.Tuple{T}"/> are copied.
 		/// </param>
 		/// <summary>
 		///   Copies the values of the current 
-		///   <see cref="T:Mono.Rocks.Tuple{T}"/> to the specified <see cref="T:System.Array"/>,
+		///   <see cref="T:Cadenza.Tuple{T}"/> to the specified <see cref="T:System.Array"/>,
 		///   starting at the <paramref name="arrayIndex"/> index of the array.
 		/// </summary>
 		/// <exception cref="T:System.ArgumentException">
@@ -600,9 +600,9 @@ namespace Mono.Rocks {
 		/// </returns>
 		/// <remarks>
 		///   <para>
-		///    Returns each value in the <see cref="T:Mono.Rocks.Tuple{T}"/> as an
+		///    Returns each value in the <see cref="T:Cadenza.Tuple{T}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Mono.Rocks.Tuple`1._1"/>.
+		///    <see cref="P:Cadenza.Tuple`1._1"/>.
 		///   </para>
 		/// </remarks>
 		IEnumerator IEnumerable.GetEnumerator ()
@@ -621,9 +621,9 @@ namespace Mono.Rocks {
 		/// </returns>
 		/// <remarks>
 		///   <para>
-		///    Returns each value in the <see cref="T:Mono.Rocks.Tuple{T}"/> as an
+		///    Returns each value in the <see cref="T:Cadenza.Tuple{T}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Mono.Rocks.Tuple`1._1"/>.
+		///    <see cref="P:Cadenza.Tuple`1._1"/>.
 		///   </para>
 		/// </remarks>
 		public IEnumerator<object> GetEnumerator ()
@@ -642,7 +642,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -661,7 +661,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -678,7 +678,7 @@ namespace Mono.Rocks {
 		/// <summary>
 		///   Determines whether <paramref name="value"/>
 		///   <see cref="M:System.Object.Equals(System.Object)"/> any value within this
-		///   <see cref="T:Mono.Rocks.Tuple{T}"/> instance.
+		///   <see cref="T:Cadenza.Tuple{T}"/> instance.
 		/// </summary>
 		/// <returns>
 		///   <see langword="true"/> if <paramref name="value"/> is
@@ -729,7 +729,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -748,7 +748,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -767,7 +767,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -780,14 +780,14 @@ namespace Mono.Rocks {
 
 		/// <summary>
 		///   Gets a <see cref="T:System.Boolean"/> indicating
-		///   whether the <see cref="P:Mono.Rocks.Tuple`1.System#Collections#ICollection#Count"/>
+		///   whether the <see cref="P:Cadenza.Tuple`1.System#Collections#ICollection#Count"/>
 		///   cannot be changed.
 		/// </summary>
 		/// <value>
 		///   <see langword="true"/>
 		/// </value>
 		/// <returns>
-		///   <see cref="T:Mono.Rocks.Tuple{T}"/> is immutable; its size cannot be changed.
+		///   <see cref="T:Cadenza.Tuple{T}"/> is immutable; its size cannot be changed.
 		/// </returns>
 		bool IList.IsFixedSize {get {return true;}}
 
@@ -813,7 +813,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -855,7 +855,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -868,7 +868,7 @@ namespace Mono.Rocks {
 		/// <param name="index">
 		///   An <see cref="T:System.Int32"/> that specifies the zero-based index
 		///   of the value in the current instance to get.  This value is >= 0, and 
-		///   less than <see cref="P:Mono.Rocks.Tuple`1.System#Collections#Generic#ICollection{System#Object}#Count"/>.
+		///   less than <see cref="P:Cadenza.Tuple`1.System#Collections#Generic#ICollection{System#Object}#Count"/>.
 		/// </param>
 		/// <summary>
 		///   Gets the value at the specified index in the current instance.
@@ -878,13 +878,13 @@ namespace Mono.Rocks {
 		/// </value>
 		/// <exception cref="T:System.ArgumentOutOfRangeException">
 		///   <paramref name="index"/> is less than 0 or greater than or equal to 
-		///   <see cref="P:Mono.Rocks.Tuple`1.System#Collections#Generic#ICollection{System#Object}#Count"/>.
+		///   <see cref="P:Cadenza.Tuple`1.System#Collections#Generic#ICollection{System#Object}#Count"/>.
 		/// </exception>
 		/// <exception cref="T:System.NotSupportedException">
 		///   The setter was called.
 		/// </exception>
 		/// <remarks>
-		///   <see cref="T:Mono.Rocks.Tuple{T}"/> is immutable; the setter cannot be invoked.
+		///   <see cref="T:Cadenza.Tuple{T}"/> is immutable; the setter cannot be invoked.
 		/// </remarks>
 
 		public object this [int index] {
@@ -904,11 +904,11 @@ namespace Mono.Rocks {
 		/// </typeparam>
 		/// <param name="func">
 		///   A <see cref="T:System.Func{T,TResult}"/> which will be invoked, providing the values
-		///   <see cref="P:Mono.Rocks.Tuple`1._1"/> to <paramref name="func"/> and
+		///   <see cref="P:Cadenza.Tuple`1._1"/> to <paramref name="func"/> and
 		///   returning the value returned by <paramref name="func"/>.
 		/// </param>
 		/// <summary>
-		///   Converts the <see cref="T:Mono.Rocks.Tuple{T}"/> into a <typeparamref name="TResult"/>.
+		///   Converts the <see cref="T:Cadenza.Tuple{T}"/> into a <typeparamref name="TResult"/>.
 		/// </summary>
 		/// <returns>
 		///   The <typeparamref name="TResult"/> returned by <paramref name="func"/>.
@@ -916,7 +916,7 @@ namespace Mono.Rocks {
 		/// <remarks>
 		///   <para>
 		///    <block subset="none" type="behaviors">
-		///     Passes the values <see cref="P:Mono.Rocks.Tuple`1._1"/> to 
+		///     Passes the values <see cref="P:Cadenza.Tuple`1._1"/> to 
 		///     <paramref name="func"/>, returning the value produced by 
 		///   	<paramref name="func"/>.
 		///    </block>
@@ -936,13 +936,13 @@ namespace Mono.Rocks {
 		///   The return type.
 		/// </typeparam>
 		/// <param name="matchers">
-		///   A <see cref="T:System.Func{T,Mono.Rocks.Maybe{TResult}}" /> 
+		///   A <see cref="T:System.Func{T,Cadenza.Maybe{TResult}}" /> 
 		///   array containing the conversion routines to use to convert 
-		///   the current <see cref="T:Mono.Rocks.Tuple{T}" /> instance into a 
+		///   the current <see cref="T:Cadenza.Tuple{T}" /> instance into a 
 		///   <typeparamref name="TResult" /> value.
 		/// </param>
 		/// <summary>
-		///   Converts the current <see cref="T:Mono.Rocks.Tuple{T}"/> instance into a <typeparamref name="TResult"/>.
+		///   Converts the current <see cref="T:Cadenza.Tuple{T}"/> instance into a <typeparamref name="TResult"/>.
 		/// </summary>
 		/// <returns>
 		///   The <typeparamref name="TResult"/> returned by one of the <paramref name="matchers"/>.
@@ -951,25 +951,25 @@ namespace Mono.Rocks {
 		///   <para>
 		///    <block subset="none" type="behaviors">
 		///     <para>
-		///      The current <see cref="T:Mono.Rocks.Tuple{T}" /> instance is converted into a 
+		///      The current <see cref="T:Cadenza.Tuple{T}" /> instance is converted into a 
 		///      <typeparamref name="TResult" /> instance by trying each
-		///      <see cref="T:System.Func{T,Mono.Rocks.Maybe{TResult}}" />
+		///      <see cref="T:System.Func{T,Cadenza.Maybe{TResult}}" />
 		///      within <paramref name="matchers" />.
 		///     </para>
 		///     <para>
 		///      This method returns 
-		///      <see cref="P:Mono.Rocks.Maybe{TResult}.Value" /> 
+		///      <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
 		///      for the first delegate to return a
-		///      <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
-		///      where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+		///      <see cref="T:Cadenza.Maybe{TResult}" /> instance
+		///      where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
 		///      is <see langword="true" />.
 		///     </para>
 		///     <para>
 		///      If no 
-		///      <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+		///      <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
 		///      returns a 
-		///      <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
-		///      where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+		///      <see cref="T:Cadenza.Maybe{TResult}" /> instance
+		///      where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
 		///      is <see langword="true" />, then an
 		///      <see cref="T:System.InvalidOperationException" /> is thrown.
 		///     </para>
@@ -987,10 +987,10 @@ namespace Mono.Rocks {
 		/// </exception>
 		/// <exception cref="T:System.InvalidOperationException">
 		///   None of the 
-		///   <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+		///   <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
 		///   delegates within <paramref name="matchers" /> returned a 
-		///   <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance where
-		///   <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" /> was
+		///   <see cref="T:Cadenza.Maybe{TResult}" /> instance where
+		///   <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> was
 		///   <see langword="true" />.
 		/// </exception>
 		public TResult Match<TResult> (params Func<T, Maybe<TResult>>[] matchers)
@@ -1016,7 +1016,7 @@ namespace Mono.Rocks {
 		///    <block subset="none" type="behaviors">
 		///     Returns <c>(</c>, followed by a comma-separated list of the result of
 		///     calling <see cref="M:System.Object.ToString"/> on 
-		///     <see cref="P:Mono.Rocks.Tuple`1._1"/>, followed by <c>)</c>.
+		///     <see cref="P:Cadenza.Tuple`1._1"/>, followed by <c>)</c>.
 		///    </block>
 		///   </para>
 		/// </remarks>
@@ -1030,10 +1030,10 @@ namespace Mono.Rocks {
 		}
 
 		/// <param name="a">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T}"/> to compare.
+		///   The first <see cref="T:Cadenza.Tuple{T}"/> to compare.
 		/// </param>
 		/// <param name="b">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T}"/> to compare.
+		///   The second <see cref="T:Cadenza.Tuple{T}"/> to compare.
 		/// </param>
 		/// <summary>
 		///   Returns a <see cref="T:System.Boolean"/> value
@@ -1043,17 +1043,17 @@ namespace Mono.Rocks {
 		///   <see langword="true"/> if <paramref name="a"/> and
 		///   <paramref name="b"/> represent the same value; otherwise, <see langword="false"/>.
 		/// </returns>
-		/// <seealso cref="M:Mono.Rocks.Tuple`1.Equals(Mono.Rocks.Tuple{`0})"/>
+		/// <seealso cref="M:Cadenza.Tuple`1.Equals(Cadenza.Tuple{`0})"/>
 		public static bool operator==  (Tuple<T> a, Tuple<T> b)
 		{
 			return a.Equals (b);
 		}
 
 		/// <param name="a">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T}"/> to compare.
+		///   The first <see cref="T:Cadenza.Tuple{T}"/> to compare.
 		/// </param>
 		/// <param name="b">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T}"/> to compare.
+		///   The second <see cref="T:Cadenza.Tuple{T}"/> to compare.
 		/// </param>
 		/// <summary>
 		///   Returns a <see cref="T:System.Boolean"/> value
@@ -1063,7 +1063,7 @@ namespace Mono.Rocks {
 		///   <see langword="true"/> if <paramref name="a"/> and
 		///   <paramref name="b"/> do not represent the same value; otherwise, <see langword="false"/>.
 		/// </returns>
-		/// <seealso cref="M:Mono.Rocks.Tuple`1.Equals(Mono.Rocks.Tuple{`0})"/>
+		/// <seealso cref="M:Cadenza.Tuple`1.Equals(Cadenza.Tuple{`0})"/>
 		public static bool operator!= (Tuple<T> a, Tuple<T> b)
 		{
 			return !a.Equals (b);
@@ -1091,8 +1091,8 @@ namespace Mono.Rocks {
 	///    by-index in a strongly typed manner.  Strongly typed properties use
 	///    the pattern <c>_N</c>, where <c>N</c> is the ones-based value position.
 	///    The indexer, as always, uses 0-based positions.  Thus the value
-	///    <see cref="P:Mono.Rocks.Tuple`2._1"/> and <c>tuple[0]</c> refer to the same value,
-	///    except <see cref="P:Mono.Rocks.Tuple`2._1"/> is strongly typed, while
+	///    <see cref="P:Cadenza.Tuple`2._1"/> and <c>tuple[0]</c> refer to the same value,
+	///    except <see cref="P:Cadenza.Tuple`2._1"/> is strongly typed, while
 	///    <c>tuple[0]</c> is typed as a <see cref="T:System.Object"/> (and thus
 	///    potentially boxed).
 	///   </para>
@@ -1112,17 +1112,17 @@ namespace Mono.Rocks {
 		private T2 value2;
 
 		/// <param name="value1">
-		///   A <typeparamref name="T1"/> which is used to initialize the <see cref="P:Mono.Rocks.Tuple{T1, T2}.1"/> property.
+		///   A <typeparamref name="T1"/> which is used to initialize the <see cref="P:Cadenza.Tuple{T1, T2}.1"/> property.
 		/// </param>
 		/// <param name="value2">
-		///   A <typeparamref name="T2"/> which is used to initialize the <see cref="P:Mono.Rocks.Tuple{T1, T2}.2"/> property.
+		///   A <typeparamref name="T2"/> which is used to initialize the <see cref="P:Cadenza.Tuple{T1, T2}.2"/> property.
 		/// </param>
 		/// <summary>
-		///   Constructs and initializes a new <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> instance.
+		///   Constructs and initializes a new <see cref="T:Cadenza.Tuple{T1, T2}"/> instance.
 		/// </summary>
 		/// <remarks>
 		///   <para>
-		///    Constructs and initializes a new <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> instance.
+		///    Constructs and initializes a new <see cref="T:Cadenza.Tuple{T1, T2}"/> instance.
 		///   </para>
 		/// </remarks>
 		public Tuple (T1 value1, T2 value2)
@@ -1185,7 +1185,7 @@ namespace Mono.Rocks {
 		/// <returns>
 		///   <para>
 		///    <see langword="true"/> if <paramref name="obj"/> is a 
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> and each member of <paramref name="obj"/>
+		///    <see cref="T:Cadenza.Tuple{T1, T2}"/> and each member of <paramref name="obj"/>
 		///    and the current instance have the same value (according to
 		///    <see cref="M:System.Object.Equals(System.Object)"/>); otherwise
 		///    <see langword="false"/> is returned.
@@ -1211,10 +1211,10 @@ namespace Mono.Rocks {
 		}
 
 		/// <param name="obj">
-		///   A <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> to compare this instance against.
+		///   A <see cref="T:Cadenza.Tuple{T1, T2}"/> to compare this instance against.
 		/// </param>
 		/// <summary>
-		///   Determines whether the current instance and the specified <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> have the same value.
+		///   Determines whether the current instance and the specified <see cref="T:Cadenza.Tuple{T1, T2}"/> have the same value.
 		/// </summary>
 		/// <returns>
 		///   <para>
@@ -1247,11 +1247,11 @@ namespace Mono.Rocks {
 		/// <param name="index">
 		///   A <see cref="T:System.Int32"/> that specifies
 		///   the first index of <paramref name="array"/> to which the elements of the
-		///   current <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> are copied.
+		///   current <see cref="T:Cadenza.Tuple{T1, T2}"/> are copied.
 		/// </param>
 		/// <summary>
 		///   Copies the values of the current 
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> to the specified <see cref="T:System.Array"/>,
+		///   <see cref="T:Cadenza.Tuple{T1, T2}"/> to the specified <see cref="T:System.Array"/>,
 		///   starting at the <paramref name="index"/> index of the array.
 		/// </summary>
 		/// <exception cref="T:System.ArgumentException">
@@ -1290,11 +1290,11 @@ namespace Mono.Rocks {
 		}
 
 		/// <summary>
-		///   The number of values in the <see cref="T:Mono.Rocks.Tuple{T1, T2}"/>.
+		///   The number of values in the <see cref="T:Cadenza.Tuple{T1, T2}"/>.
 		/// </summary>
 		/// <value>
 		///   A <see cref="T:System.Int32"/> containing the number 
-		///   of values in this <see cref="T:Mono.Rocks.Tuple{T1, T2}"/>.
+		///   of values in this <see cref="T:Cadenza.Tuple{T1, T2}"/>.
 		/// </value>
 		/// <remarks>
 		///   This values is always equal to 2.
@@ -1312,7 +1312,7 @@ namespace Mono.Rocks {
 		/// </value>
 		/// <remarks>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> instance are immutable, and thus the instances
+		///    <see cref="T:Cadenza.Tuple{T1, T2}"/> instance are immutable, and thus the instances
 		///    themselves are always thread-safe.  However, this does not mean that 
 		///    the values exposed by the tuple are thread safe, so care should be 
 		///    taken if necessary.
@@ -1330,11 +1330,11 @@ namespace Mono.Rocks {
 		/// </value>
 		/// <remarks>
 		///   <para>
-		///    This property shouldn't be used, as <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> instances
+		///    This property shouldn't be used, as <see cref="T:Cadenza.Tuple{T1, T2}"/> instances
 		///    are immutable, and thus require no locking.
 		///   </para>
 		///   <para>
-		///    The object returned is shared by all <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> instances.
+		///    The object returned is shared by all <see cref="T:Cadenza.Tuple{T1, T2}"/> instances.
 		///   </para>
 		/// </remarks>
 		object ICollection.SyncRoot {get {return syncRoot;}}
@@ -1350,7 +1350,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -1369,7 +1369,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -1388,7 +1388,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -1416,7 +1416,7 @@ namespace Mono.Rocks {
 		/// <summary>
 		///   Determines whether <paramref name="value"/>
 		///   <see cref="M:System.Object.Equals(System.Object)"/> any value within this
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> instance.
+		///   <see cref="T:Cadenza.Tuple{T1, T2}"/> instance.
 		/// </summary>
 		/// <returns>
 		///   <see langword="true"/> if <paramref name="value"/> is
@@ -1437,11 +1437,11 @@ namespace Mono.Rocks {
 		}
 
 		/// <summary>
-		///   The number of values in the <see cref="T:Mono.Rocks.Tuple{T1, T2}"/>.
+		///   The number of values in the <see cref="T:Cadenza.Tuple{T1, T2}"/>.
 		/// </summary>
 		/// <value>
 		///   A <see cref="T:System.Int32"/> containing the number 
-		///   of values in this <see cref="T:Mono.Rocks.Tuple{T1, T2}"/>.
+		///   of values in this <see cref="T:Cadenza.Tuple{T1, T2}"/>.
 		/// </value>
 		/// <remarks>
 		///   This values is always equal to 2.
@@ -1458,11 +1458,11 @@ namespace Mono.Rocks {
 		/// <param name="arrayIndex">
 		///   A <see cref="T:System.Int32"/> that specifies
 		///   the first index of <paramref name="array"/> to which the elements of the
-		///   current <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> are copied.
+		///   current <see cref="T:Cadenza.Tuple{T1, T2}"/> are copied.
 		/// </param>
 		/// <summary>
 		///   Copies the values of the current 
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> to the specified <see cref="T:System.Array"/>,
+		///   <see cref="T:Cadenza.Tuple{T1, T2}"/> to the specified <see cref="T:System.Array"/>,
 		///   starting at the <paramref name="arrayIndex"/> index of the array.
 		/// </summary>
 		/// <exception cref="T:System.ArgumentException">
@@ -1506,9 +1506,9 @@ namespace Mono.Rocks {
 		/// </returns>
 		/// <remarks>
 		///   <para>
-		///    Returns each value in the <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> as an
+		///    Returns each value in the <see cref="T:Cadenza.Tuple{T1, T2}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Mono.Rocks.Tuple`2._1"/>, <see cref="P:Mono.Rocks.Tuple`2._2"/>.
+		///    <see cref="P:Cadenza.Tuple`2._1"/>, <see cref="P:Cadenza.Tuple`2._2"/>.
 		///   </para>
 		/// </remarks>
 		IEnumerator IEnumerable.GetEnumerator ()
@@ -1527,9 +1527,9 @@ namespace Mono.Rocks {
 		/// </returns>
 		/// <remarks>
 		///   <para>
-		///    Returns each value in the <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> as an
+		///    Returns each value in the <see cref="T:Cadenza.Tuple{T1, T2}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Mono.Rocks.Tuple`2._1"/>, <see cref="P:Mono.Rocks.Tuple`2._2"/>.
+		///    <see cref="P:Cadenza.Tuple`2._1"/>, <see cref="P:Cadenza.Tuple`2._2"/>.
 		///   </para>
 		/// </remarks>
 		public IEnumerator<object> GetEnumerator ()
@@ -1549,7 +1549,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -1568,7 +1568,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -1585,7 +1585,7 @@ namespace Mono.Rocks {
 		/// <summary>
 		///   Determines whether <paramref name="value"/>
 		///   <see cref="M:System.Object.Equals(System.Object)"/> any value within this
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> instance.
+		///   <see cref="T:Cadenza.Tuple{T1, T2}"/> instance.
 		/// </summary>
 		/// <returns>
 		///   <see langword="true"/> if <paramref name="value"/> is
@@ -1637,7 +1637,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -1656,7 +1656,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -1675,7 +1675,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -1688,14 +1688,14 @@ namespace Mono.Rocks {
 
 		/// <summary>
 		///   Gets a <see cref="T:System.Boolean"/> indicating
-		///   whether the <see cref="P:Mono.Rocks.Tuple`2.System#Collections#ICollection#Count"/>
+		///   whether the <see cref="P:Cadenza.Tuple`2.System#Collections#ICollection#Count"/>
 		///   cannot be changed.
 		/// </summary>
 		/// <value>
 		///   <see langword="true"/>
 		/// </value>
 		/// <returns>
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> is immutable; its size cannot be changed.
+		///   <see cref="T:Cadenza.Tuple{T1, T2}"/> is immutable; its size cannot be changed.
 		/// </returns>
 		bool IList.IsFixedSize {get {return true;}}
 
@@ -1721,7 +1721,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -1764,7 +1764,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -1777,7 +1777,7 @@ namespace Mono.Rocks {
 		/// <param name="index">
 		///   An <see cref="T:System.Int32"/> that specifies the zero-based index
 		///   of the value in the current instance to get.  This value is >= 0, and 
-		///   less than <see cref="P:Mono.Rocks.Tuple`2.System#Collections#Generic#ICollection{System#Object}#Count"/>.
+		///   less than <see cref="P:Cadenza.Tuple`2.System#Collections#Generic#ICollection{System#Object}#Count"/>.
 		/// </param>
 		/// <summary>
 		///   Gets the value at the specified index in the current instance.
@@ -1787,13 +1787,13 @@ namespace Mono.Rocks {
 		/// </value>
 		/// <exception cref="T:System.ArgumentOutOfRangeException">
 		///   <paramref name="index"/> is less than 0 or greater than or equal to 
-		///   <see cref="P:Mono.Rocks.Tuple`2.System#Collections#Generic#ICollection{System#Object}#Count"/>.
+		///   <see cref="P:Cadenza.Tuple`2.System#Collections#Generic#ICollection{System#Object}#Count"/>.
 		/// </exception>
 		/// <exception cref="T:System.NotSupportedException">
 		///   The setter was called.
 		/// </exception>
 		/// <remarks>
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> is immutable; the setter cannot be invoked.
+		///   <see cref="T:Cadenza.Tuple{T1, T2}"/> is immutable; the setter cannot be invoked.
 		/// </remarks>
 
 		public object this [int index] {
@@ -1814,11 +1814,11 @@ namespace Mono.Rocks {
 		/// </typeparam>
 		/// <param name="func">
 		///   A <see cref="T:System.Func{T1,T2,TResult}"/> which will be invoked, providing the values
-		///   <see cref="P:Mono.Rocks.Tuple`2._1"/>, <see cref="P:Mono.Rocks.Tuple`2._2"/> to <paramref name="func"/> and
+		///   <see cref="P:Cadenza.Tuple`2._1"/>, <see cref="P:Cadenza.Tuple`2._2"/> to <paramref name="func"/> and
 		///   returning the value returned by <paramref name="func"/>.
 		/// </param>
 		/// <summary>
-		///   Converts the <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> into a <typeparamref name="TResult"/>.
+		///   Converts the <see cref="T:Cadenza.Tuple{T1, T2}"/> into a <typeparamref name="TResult"/>.
 		/// </summary>
 		/// <returns>
 		///   The <typeparamref name="TResult"/> returned by <paramref name="func"/>.
@@ -1826,7 +1826,7 @@ namespace Mono.Rocks {
 		/// <remarks>
 		///   <para>
 		///    <block subset="none" type="behaviors">
-		///     Passes the values <see cref="P:Mono.Rocks.Tuple`2._1"/>, <see cref="P:Mono.Rocks.Tuple`2._2"/> to 
+		///     Passes the values <see cref="P:Cadenza.Tuple`2._1"/>, <see cref="P:Cadenza.Tuple`2._2"/> to 
 		///     <paramref name="func"/>, returning the value produced by 
 		///   	<paramref name="func"/>.
 		///    </block>
@@ -1846,13 +1846,13 @@ namespace Mono.Rocks {
 		///   The return type.
 		/// </typeparam>
 		/// <param name="matchers">
-		///   A <see cref="T:System.Func{T1,T2,Mono.Rocks.Maybe{TResult}}" /> 
+		///   A <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" /> 
 		///   array containing the conversion routines to use to convert 
-		///   the current <see cref="T:Mono.Rocks.Tuple{T1, T2}" /> instance into a 
+		///   the current <see cref="T:Cadenza.Tuple{T1, T2}" /> instance into a 
 		///   <typeparamref name="TResult" /> value.
 		/// </param>
 		/// <summary>
-		///   Converts the current <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> instance into a <typeparamref name="TResult"/>.
+		///   Converts the current <see cref="T:Cadenza.Tuple{T1, T2}"/> instance into a <typeparamref name="TResult"/>.
 		/// </summary>
 		/// <returns>
 		///   The <typeparamref name="TResult"/> returned by one of the <paramref name="matchers"/>.
@@ -1861,25 +1861,25 @@ namespace Mono.Rocks {
 		///   <para>
 		///    <block subset="none" type="behaviors">
 		///     <para>
-		///      The current <see cref="T:Mono.Rocks.Tuple{T1, T2}" /> instance is converted into a 
+		///      The current <see cref="T:Cadenza.Tuple{T1, T2}" /> instance is converted into a 
 		///      <typeparamref name="TResult" /> instance by trying each
-		///      <see cref="T:System.Func{T1,T2,Mono.Rocks.Maybe{TResult}}" />
+		///      <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
 		///      within <paramref name="matchers" />.
 		///     </para>
 		///     <para>
 		///      This method returns 
-		///      <see cref="P:Mono.Rocks.Maybe{TResult}.Value" /> 
+		///      <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
 		///      for the first delegate to return a
-		///      <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
-		///      where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+		///      <see cref="T:Cadenza.Maybe{TResult}" /> instance
+		///      where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
 		///      is <see langword="true" />.
 		///     </para>
 		///     <para>
 		///      If no 
-		///      <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+		///      <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
 		///      returns a 
-		///      <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
-		///      where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+		///      <see cref="T:Cadenza.Maybe{TResult}" /> instance
+		///      where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
 		///      is <see langword="true" />, then an
 		///      <see cref="T:System.InvalidOperationException" /> is thrown.
 		///     </para>
@@ -1897,10 +1897,10 @@ namespace Mono.Rocks {
 		/// </exception>
 		/// <exception cref="T:System.InvalidOperationException">
 		///   None of the 
-		///   <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+		///   <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
 		///   delegates within <paramref name="matchers" /> returned a 
-		///   <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance where
-		///   <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" /> was
+		///   <see cref="T:Cadenza.Maybe{TResult}" /> instance where
+		///   <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> was
 		///   <see langword="true" />.
 		/// </exception>
 		public TResult Match<TResult> (params Func<T1, T2, Maybe<TResult>>[] matchers)
@@ -1926,7 +1926,7 @@ namespace Mono.Rocks {
 		///    <block subset="none" type="behaviors">
 		///     Returns <c>(</c>, followed by a comma-separated list of the result of
 		///     calling <see cref="M:System.Object.ToString"/> on 
-		///     <see cref="P:Mono.Rocks.Tuple`2._1"/>, <see cref="P:Mono.Rocks.Tuple`2._2"/>, followed by <c>)</c>.
+		///     <see cref="P:Cadenza.Tuple`2._1"/>, <see cref="P:Cadenza.Tuple`2._2"/>, followed by <c>)</c>.
 		///    </block>
 		///   </para>
 		/// </remarks>
@@ -1942,10 +1942,10 @@ namespace Mono.Rocks {
 		}
 
 		/// <param name="a">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> to compare.
+		///   The first <see cref="T:Cadenza.Tuple{T1, T2}"/> to compare.
 		/// </param>
 		/// <param name="b">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> to compare.
+		///   The second <see cref="T:Cadenza.Tuple{T1, T2}"/> to compare.
 		/// </param>
 		/// <summary>
 		///   Returns a <see cref="T:System.Boolean"/> value
@@ -1955,17 +1955,17 @@ namespace Mono.Rocks {
 		///   <see langword="true"/> if <paramref name="a"/> and
 		///   <paramref name="b"/> represent the same value; otherwise, <see langword="false"/>.
 		/// </returns>
-		/// <seealso cref="M:Mono.Rocks.Tuple`2.Equals(Mono.Rocks.Tuple{`0,`1})"/>
+		/// <seealso cref="M:Cadenza.Tuple`2.Equals(Cadenza.Tuple{`0,`1})"/>
 		public static bool operator==  (Tuple<T1, T2> a, Tuple<T1, T2> b)
 		{
 			return a.Equals (b);
 		}
 
 		/// <param name="a">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> to compare.
+		///   The first <see cref="T:Cadenza.Tuple{T1, T2}"/> to compare.
 		/// </param>
 		/// <param name="b">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> to compare.
+		///   The second <see cref="T:Cadenza.Tuple{T1, T2}"/> to compare.
 		/// </param>
 		/// <summary>
 		///   Returns a <see cref="T:System.Boolean"/> value
@@ -1975,7 +1975,7 @@ namespace Mono.Rocks {
 		///   <see langword="true"/> if <paramref name="a"/> and
 		///   <paramref name="b"/> do not represent the same value; otherwise, <see langword="false"/>.
 		/// </returns>
-		/// <seealso cref="M:Mono.Rocks.Tuple`2.Equals(Mono.Rocks.Tuple{`0,`1})"/>
+		/// <seealso cref="M:Cadenza.Tuple`2.Equals(Cadenza.Tuple{`0,`1})"/>
 		public static bool operator!= (Tuple<T1, T2> a, Tuple<T1, T2> b)
 		{
 			return !a.Equals (b);
@@ -2006,8 +2006,8 @@ namespace Mono.Rocks {
 	///    by-index in a strongly typed manner.  Strongly typed properties use
 	///    the pattern <c>_N</c>, where <c>N</c> is the ones-based value position.
 	///    The indexer, as always, uses 0-based positions.  Thus the value
-	///    <see cref="P:Mono.Rocks.Tuple`3._1"/> and <c>tuple[0]</c> refer to the same value,
-	///    except <see cref="P:Mono.Rocks.Tuple`3._1"/> is strongly typed, while
+	///    <see cref="P:Cadenza.Tuple`3._1"/> and <c>tuple[0]</c> refer to the same value,
+	///    except <see cref="P:Cadenza.Tuple`3._1"/> is strongly typed, while
 	///    <c>tuple[0]</c> is typed as a <see cref="T:System.Object"/> (and thus
 	///    potentially boxed).
 	///   </para>
@@ -2028,20 +2028,20 @@ namespace Mono.Rocks {
 		private T3 value3;
 
 		/// <param name="value1">
-		///   A <typeparamref name="T1"/> which is used to initialize the <see cref="P:Mono.Rocks.Tuple{T1, T2, T3}.1"/> property.
+		///   A <typeparamref name="T1"/> which is used to initialize the <see cref="P:Cadenza.Tuple{T1, T2, T3}.1"/> property.
 		/// </param>
 		/// <param name="value2">
-		///   A <typeparamref name="T2"/> which is used to initialize the <see cref="P:Mono.Rocks.Tuple{T1, T2, T3}.2"/> property.
+		///   A <typeparamref name="T2"/> which is used to initialize the <see cref="P:Cadenza.Tuple{T1, T2, T3}.2"/> property.
 		/// </param>
 		/// <param name="value3">
-		///   A <typeparamref name="T3"/> which is used to initialize the <see cref="P:Mono.Rocks.Tuple{T1, T2, T3}.3"/> property.
+		///   A <typeparamref name="T3"/> which is used to initialize the <see cref="P:Cadenza.Tuple{T1, T2, T3}.3"/> property.
 		/// </param>
 		/// <summary>
-		///   Constructs and initializes a new <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> instance.
+		///   Constructs and initializes a new <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> instance.
 		/// </summary>
 		/// <remarks>
 		///   <para>
-		///    Constructs and initializes a new <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> instance.
+		///    Constructs and initializes a new <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> instance.
 		///   </para>
 		/// </remarks>
 		public Tuple (T1 value1, T2 value2, T3 value3)
@@ -2118,7 +2118,7 @@ namespace Mono.Rocks {
 		/// <returns>
 		///   <para>
 		///    <see langword="true"/> if <paramref name="obj"/> is a 
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> and each member of <paramref name="obj"/>
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> and each member of <paramref name="obj"/>
 		///    and the current instance have the same value (according to
 		///    <see cref="M:System.Object.Equals(System.Object)"/>); otherwise
 		///    <see langword="false"/> is returned.
@@ -2144,10 +2144,10 @@ namespace Mono.Rocks {
 		}
 
 		/// <param name="obj">
-		///   A <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> to compare this instance against.
+		///   A <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> to compare this instance against.
 		/// </param>
 		/// <summary>
-		///   Determines whether the current instance and the specified <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> have the same value.
+		///   Determines whether the current instance and the specified <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> have the same value.
 		/// </summary>
 		/// <returns>
 		///   <para>
@@ -2181,11 +2181,11 @@ namespace Mono.Rocks {
 		/// <param name="index">
 		///   A <see cref="T:System.Int32"/> that specifies
 		///   the first index of <paramref name="array"/> to which the elements of the
-		///   current <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> are copied.
+		///   current <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> are copied.
 		/// </param>
 		/// <summary>
 		///   Copies the values of the current 
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> to the specified <see cref="T:System.Array"/>,
+		///   <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> to the specified <see cref="T:System.Array"/>,
 		///   starting at the <paramref name="index"/> index of the array.
 		/// </summary>
 		/// <exception cref="T:System.ArgumentException">
@@ -2225,11 +2225,11 @@ namespace Mono.Rocks {
 		}
 
 		/// <summary>
-		///   The number of values in the <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/>.
+		///   The number of values in the <see cref="T:Cadenza.Tuple{T1, T2, T3}"/>.
 		/// </summary>
 		/// <value>
 		///   A <see cref="T:System.Int32"/> containing the number 
-		///   of values in this <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/>.
+		///   of values in this <see cref="T:Cadenza.Tuple{T1, T2, T3}"/>.
 		/// </value>
 		/// <remarks>
 		///   This values is always equal to 3.
@@ -2247,7 +2247,7 @@ namespace Mono.Rocks {
 		/// </value>
 		/// <remarks>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> instance are immutable, and thus the instances
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> instance are immutable, and thus the instances
 		///    themselves are always thread-safe.  However, this does not mean that 
 		///    the values exposed by the tuple are thread safe, so care should be 
 		///    taken if necessary.
@@ -2265,11 +2265,11 @@ namespace Mono.Rocks {
 		/// </value>
 		/// <remarks>
 		///   <para>
-		///    This property shouldn't be used, as <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> instances
+		///    This property shouldn't be used, as <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> instances
 		///    are immutable, and thus require no locking.
 		///   </para>
 		///   <para>
-		///    The object returned is shared by all <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> instances.
+		///    The object returned is shared by all <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> instances.
 		///   </para>
 		/// </remarks>
 		object ICollection.SyncRoot {get {return syncRoot;}}
@@ -2285,7 +2285,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -2304,7 +2304,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -2323,7 +2323,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -2351,7 +2351,7 @@ namespace Mono.Rocks {
 		/// <summary>
 		///   Determines whether <paramref name="value"/>
 		///   <see cref="M:System.Object.Equals(System.Object)"/> any value within this
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> instance.
+		///   <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> instance.
 		/// </summary>
 		/// <returns>
 		///   <see langword="true"/> if <paramref name="value"/> is
@@ -2372,11 +2372,11 @@ namespace Mono.Rocks {
 		}
 
 		/// <summary>
-		///   The number of values in the <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/>.
+		///   The number of values in the <see cref="T:Cadenza.Tuple{T1, T2, T3}"/>.
 		/// </summary>
 		/// <value>
 		///   A <see cref="T:System.Int32"/> containing the number 
-		///   of values in this <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/>.
+		///   of values in this <see cref="T:Cadenza.Tuple{T1, T2, T3}"/>.
 		/// </value>
 		/// <remarks>
 		///   This values is always equal to 3.
@@ -2393,11 +2393,11 @@ namespace Mono.Rocks {
 		/// <param name="arrayIndex">
 		///   A <see cref="T:System.Int32"/> that specifies
 		///   the first index of <paramref name="array"/> to which the elements of the
-		///   current <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> are copied.
+		///   current <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> are copied.
 		/// </param>
 		/// <summary>
 		///   Copies the values of the current 
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> to the specified <see cref="T:System.Array"/>,
+		///   <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> to the specified <see cref="T:System.Array"/>,
 		///   starting at the <paramref name="arrayIndex"/> index of the array.
 		/// </summary>
 		/// <exception cref="T:System.ArgumentException">
@@ -2442,9 +2442,9 @@ namespace Mono.Rocks {
 		/// </returns>
 		/// <remarks>
 		///   <para>
-		///    Returns each value in the <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> as an
+		///    Returns each value in the <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Mono.Rocks.Tuple`3._1"/>, <see cref="P:Mono.Rocks.Tuple`3._2"/>, <see cref="P:Mono.Rocks.Tuple`3._3"/>.
+		///    <see cref="P:Cadenza.Tuple`3._1"/>, <see cref="P:Cadenza.Tuple`3._2"/>, <see cref="P:Cadenza.Tuple`3._3"/>.
 		///   </para>
 		/// </remarks>
 		IEnumerator IEnumerable.GetEnumerator ()
@@ -2463,9 +2463,9 @@ namespace Mono.Rocks {
 		/// </returns>
 		/// <remarks>
 		///   <para>
-		///    Returns each value in the <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> as an
+		///    Returns each value in the <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Mono.Rocks.Tuple`3._1"/>, <see cref="P:Mono.Rocks.Tuple`3._2"/>, <see cref="P:Mono.Rocks.Tuple`3._3"/>.
+		///    <see cref="P:Cadenza.Tuple`3._1"/>, <see cref="P:Cadenza.Tuple`3._2"/>, <see cref="P:Cadenza.Tuple`3._3"/>.
 		///   </para>
 		/// </remarks>
 		public IEnumerator<object> GetEnumerator ()
@@ -2486,7 +2486,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -2505,7 +2505,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -2522,7 +2522,7 @@ namespace Mono.Rocks {
 		/// <summary>
 		///   Determines whether <paramref name="value"/>
 		///   <see cref="M:System.Object.Equals(System.Object)"/> any value within this
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> instance.
+		///   <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> instance.
 		/// </summary>
 		/// <returns>
 		///   <see langword="true"/> if <paramref name="value"/> is
@@ -2575,7 +2575,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -2594,7 +2594,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -2613,7 +2613,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -2626,14 +2626,14 @@ namespace Mono.Rocks {
 
 		/// <summary>
 		///   Gets a <see cref="T:System.Boolean"/> indicating
-		///   whether the <see cref="P:Mono.Rocks.Tuple`3.System#Collections#ICollection#Count"/>
+		///   whether the <see cref="P:Cadenza.Tuple`3.System#Collections#ICollection#Count"/>
 		///   cannot be changed.
 		/// </summary>
 		/// <value>
 		///   <see langword="true"/>
 		/// </value>
 		/// <returns>
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> is immutable; its size cannot be changed.
+		///   <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> is immutable; its size cannot be changed.
 		/// </returns>
 		bool IList.IsFixedSize {get {return true;}}
 
@@ -2659,7 +2659,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -2703,7 +2703,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -2716,7 +2716,7 @@ namespace Mono.Rocks {
 		/// <param name="index">
 		///   An <see cref="T:System.Int32"/> that specifies the zero-based index
 		///   of the value in the current instance to get.  This value is >= 0, and 
-		///   less than <see cref="P:Mono.Rocks.Tuple`3.System#Collections#Generic#ICollection{System#Object}#Count"/>.
+		///   less than <see cref="P:Cadenza.Tuple`3.System#Collections#Generic#ICollection{System#Object}#Count"/>.
 		/// </param>
 		/// <summary>
 		///   Gets the value at the specified index in the current instance.
@@ -2726,13 +2726,13 @@ namespace Mono.Rocks {
 		/// </value>
 		/// <exception cref="T:System.ArgumentOutOfRangeException">
 		///   <paramref name="index"/> is less than 0 or greater than or equal to 
-		///   <see cref="P:Mono.Rocks.Tuple`3.System#Collections#Generic#ICollection{System#Object}#Count"/>.
+		///   <see cref="P:Cadenza.Tuple`3.System#Collections#Generic#ICollection{System#Object}#Count"/>.
 		/// </exception>
 		/// <exception cref="T:System.NotSupportedException">
 		///   The setter was called.
 		/// </exception>
 		/// <remarks>
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> is immutable; the setter cannot be invoked.
+		///   <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> is immutable; the setter cannot be invoked.
 		/// </remarks>
 
 		public object this [int index] {
@@ -2754,11 +2754,11 @@ namespace Mono.Rocks {
 		/// </typeparam>
 		/// <param name="func">
 		///   A <see cref="T:System.Func{T1,T2,T3,TResult}"/> which will be invoked, providing the values
-		///   <see cref="P:Mono.Rocks.Tuple`3._1"/>, <see cref="P:Mono.Rocks.Tuple`3._2"/>, <see cref="P:Mono.Rocks.Tuple`3._3"/> to <paramref name="func"/> and
+		///   <see cref="P:Cadenza.Tuple`3._1"/>, <see cref="P:Cadenza.Tuple`3._2"/>, <see cref="P:Cadenza.Tuple`3._3"/> to <paramref name="func"/> and
 		///   returning the value returned by <paramref name="func"/>.
 		/// </param>
 		/// <summary>
-		///   Converts the <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> into a <typeparamref name="TResult"/>.
+		///   Converts the <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> into a <typeparamref name="TResult"/>.
 		/// </summary>
 		/// <returns>
 		///   The <typeparamref name="TResult"/> returned by <paramref name="func"/>.
@@ -2766,7 +2766,7 @@ namespace Mono.Rocks {
 		/// <remarks>
 		///   <para>
 		///    <block subset="none" type="behaviors">
-		///     Passes the values <see cref="P:Mono.Rocks.Tuple`3._1"/>, <see cref="P:Mono.Rocks.Tuple`3._2"/>, <see cref="P:Mono.Rocks.Tuple`3._3"/> to 
+		///     Passes the values <see cref="P:Cadenza.Tuple`3._1"/>, <see cref="P:Cadenza.Tuple`3._2"/>, <see cref="P:Cadenza.Tuple`3._3"/> to 
 		///     <paramref name="func"/>, returning the value produced by 
 		///   	<paramref name="func"/>.
 		///    </block>
@@ -2786,13 +2786,13 @@ namespace Mono.Rocks {
 		///   The return type.
 		/// </typeparam>
 		/// <param name="matchers">
-		///   A <see cref="T:System.Func{T1,T2,T3,Mono.Rocks.Maybe{TResult}}" /> 
+		///   A <see cref="T:System.Func{T1,T2,T3,Cadenza.Maybe{TResult}}" /> 
 		///   array containing the conversion routines to use to convert 
-		///   the current <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" /> instance into a 
+		///   the current <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> instance into a 
 		///   <typeparamref name="TResult" /> value.
 		/// </param>
 		/// <summary>
-		///   Converts the current <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> instance into a <typeparamref name="TResult"/>.
+		///   Converts the current <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> instance into a <typeparamref name="TResult"/>.
 		/// </summary>
 		/// <returns>
 		///   The <typeparamref name="TResult"/> returned by one of the <paramref name="matchers"/>.
@@ -2801,25 +2801,25 @@ namespace Mono.Rocks {
 		///   <para>
 		///    <block subset="none" type="behaviors">
 		///     <para>
-		///      The current <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" /> instance is converted into a 
+		///      The current <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> instance is converted into a 
 		///      <typeparamref name="TResult" /> instance by trying each
-		///      <see cref="T:System.Func{T1,T2,T3,Mono.Rocks.Maybe{TResult}}" />
+		///      <see cref="T:System.Func{T1,T2,T3,Cadenza.Maybe{TResult}}" />
 		///      within <paramref name="matchers" />.
 		///     </para>
 		///     <para>
 		///      This method returns 
-		///      <see cref="P:Mono.Rocks.Maybe{TResult}.Value" /> 
+		///      <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
 		///      for the first delegate to return a
-		///      <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
-		///      where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+		///      <see cref="T:Cadenza.Maybe{TResult}" /> instance
+		///      where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
 		///      is <see langword="true" />.
 		///     </para>
 		///     <para>
 		///      If no 
-		///      <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+		///      <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
 		///      returns a 
-		///      <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
-		///      where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+		///      <see cref="T:Cadenza.Maybe{TResult}" /> instance
+		///      where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
 		///      is <see langword="true" />, then an
 		///      <see cref="T:System.InvalidOperationException" /> is thrown.
 		///     </para>
@@ -2837,10 +2837,10 @@ namespace Mono.Rocks {
 		/// </exception>
 		/// <exception cref="T:System.InvalidOperationException">
 		///   None of the 
-		///   <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+		///   <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
 		///   delegates within <paramref name="matchers" /> returned a 
-		///   <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance where
-		///   <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" /> was
+		///   <see cref="T:Cadenza.Maybe{TResult}" /> instance where
+		///   <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> was
 		///   <see langword="true" />.
 		/// </exception>
 		public TResult Match<TResult> (params Func<T1, T2, T3, Maybe<TResult>>[] matchers)
@@ -2866,7 +2866,7 @@ namespace Mono.Rocks {
 		///    <block subset="none" type="behaviors">
 		///     Returns <c>(</c>, followed by a comma-separated list of the result of
 		///     calling <see cref="M:System.Object.ToString"/> on 
-		///     <see cref="P:Mono.Rocks.Tuple`3._1"/>, <see cref="P:Mono.Rocks.Tuple`3._2"/>, <see cref="P:Mono.Rocks.Tuple`3._3"/>, followed by <c>)</c>.
+		///     <see cref="P:Cadenza.Tuple`3._1"/>, <see cref="P:Cadenza.Tuple`3._2"/>, <see cref="P:Cadenza.Tuple`3._3"/>, followed by <c>)</c>.
 		///    </block>
 		///   </para>
 		/// </remarks>
@@ -2884,10 +2884,10 @@ namespace Mono.Rocks {
 		}
 
 		/// <param name="a">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> to compare.
+		///   The first <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> to compare.
 		/// </param>
 		/// <param name="b">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> to compare.
+		///   The second <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> to compare.
 		/// </param>
 		/// <summary>
 		///   Returns a <see cref="T:System.Boolean"/> value
@@ -2897,17 +2897,17 @@ namespace Mono.Rocks {
 		///   <see langword="true"/> if <paramref name="a"/> and
 		///   <paramref name="b"/> represent the same value; otherwise, <see langword="false"/>.
 		/// </returns>
-		/// <seealso cref="M:Mono.Rocks.Tuple`3.Equals(Mono.Rocks.Tuple{`0,`1,`2})"/>
+		/// <seealso cref="M:Cadenza.Tuple`3.Equals(Cadenza.Tuple{`0,`1,`2})"/>
 		public static bool operator==  (Tuple<T1, T2, T3> a, Tuple<T1, T2, T3> b)
 		{
 			return a.Equals (b);
 		}
 
 		/// <param name="a">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> to compare.
+		///   The first <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> to compare.
 		/// </param>
 		/// <param name="b">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> to compare.
+		///   The second <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> to compare.
 		/// </param>
 		/// <summary>
 		///   Returns a <see cref="T:System.Boolean"/> value
@@ -2917,7 +2917,7 @@ namespace Mono.Rocks {
 		///   <see langword="true"/> if <paramref name="a"/> and
 		///   <paramref name="b"/> do not represent the same value; otherwise, <see langword="false"/>.
 		/// </returns>
-		/// <seealso cref="M:Mono.Rocks.Tuple`3.Equals(Mono.Rocks.Tuple{`0,`1,`2})"/>
+		/// <seealso cref="M:Cadenza.Tuple`3.Equals(Cadenza.Tuple{`0,`1,`2})"/>
 		public static bool operator!= (Tuple<T1, T2, T3> a, Tuple<T1, T2, T3> b)
 		{
 			return !a.Equals (b);
@@ -2951,8 +2951,8 @@ namespace Mono.Rocks {
 	///    by-index in a strongly typed manner.  Strongly typed properties use
 	///    the pattern <c>_N</c>, where <c>N</c> is the ones-based value position.
 	///    The indexer, as always, uses 0-based positions.  Thus the value
-	///    <see cref="P:Mono.Rocks.Tuple`4._1"/> and <c>tuple[0]</c> refer to the same value,
-	///    except <see cref="P:Mono.Rocks.Tuple`4._1"/> is strongly typed, while
+	///    <see cref="P:Cadenza.Tuple`4._1"/> and <c>tuple[0]</c> refer to the same value,
+	///    except <see cref="P:Cadenza.Tuple`4._1"/> is strongly typed, while
 	///    <c>tuple[0]</c> is typed as a <see cref="T:System.Object"/> (and thus
 	///    potentially boxed).
 	///   </para>
@@ -2974,23 +2974,23 @@ namespace Mono.Rocks {
 		private T4 value4;
 
 		/// <param name="value1">
-		///   A <typeparamref name="T1"/> which is used to initialize the <see cref="P:Mono.Rocks.Tuple{T1, T2, T3, T4}.1"/> property.
+		///   A <typeparamref name="T1"/> which is used to initialize the <see cref="P:Cadenza.Tuple{T1, T2, T3, T4}.1"/> property.
 		/// </param>
 		/// <param name="value2">
-		///   A <typeparamref name="T2"/> which is used to initialize the <see cref="P:Mono.Rocks.Tuple{T1, T2, T3, T4}.2"/> property.
+		///   A <typeparamref name="T2"/> which is used to initialize the <see cref="P:Cadenza.Tuple{T1, T2, T3, T4}.2"/> property.
 		/// </param>
 		/// <param name="value3">
-		///   A <typeparamref name="T3"/> which is used to initialize the <see cref="P:Mono.Rocks.Tuple{T1, T2, T3, T4}.3"/> property.
+		///   A <typeparamref name="T3"/> which is used to initialize the <see cref="P:Cadenza.Tuple{T1, T2, T3, T4}.3"/> property.
 		/// </param>
 		/// <param name="value4">
-		///   A <typeparamref name="T4"/> which is used to initialize the <see cref="P:Mono.Rocks.Tuple{T1, T2, T3, T4}.4"/> property.
+		///   A <typeparamref name="T4"/> which is used to initialize the <see cref="P:Cadenza.Tuple{T1, T2, T3, T4}.4"/> property.
 		/// </param>
 		/// <summary>
-		///   Constructs and initializes a new <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> instance.
+		///   Constructs and initializes a new <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> instance.
 		/// </summary>
 		/// <remarks>
 		///   <para>
-		///    Constructs and initializes a new <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> instance.
+		///    Constructs and initializes a new <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> instance.
 		///   </para>
 		/// </remarks>
 		public Tuple (T1 value1, T2 value2, T3 value3, T4 value4)
@@ -3081,7 +3081,7 @@ namespace Mono.Rocks {
 		/// <returns>
 		///   <para>
 		///    <see langword="true"/> if <paramref name="obj"/> is a 
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> and each member of <paramref name="obj"/>
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> and each member of <paramref name="obj"/>
 		///    and the current instance have the same value (according to
 		///    <see cref="M:System.Object.Equals(System.Object)"/>); otherwise
 		///    <see langword="false"/> is returned.
@@ -3107,10 +3107,10 @@ namespace Mono.Rocks {
 		}
 
 		/// <param name="obj">
-		///   A <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> to compare this instance against.
+		///   A <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> to compare this instance against.
 		/// </param>
 		/// <summary>
-		///   Determines whether the current instance and the specified <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> have the same value.
+		///   Determines whether the current instance and the specified <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> have the same value.
 		/// </summary>
 		/// <returns>
 		///   <para>
@@ -3145,11 +3145,11 @@ namespace Mono.Rocks {
 		/// <param name="index">
 		///   A <see cref="T:System.Int32"/> that specifies
 		///   the first index of <paramref name="array"/> to which the elements of the
-		///   current <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> are copied.
+		///   current <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> are copied.
 		/// </param>
 		/// <summary>
 		///   Copies the values of the current 
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> to the specified <see cref="T:System.Array"/>,
+		///   <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> to the specified <see cref="T:System.Array"/>,
 		///   starting at the <paramref name="index"/> index of the array.
 		/// </summary>
 		/// <exception cref="T:System.ArgumentException">
@@ -3190,11 +3190,11 @@ namespace Mono.Rocks {
 		}
 
 		/// <summary>
-		///   The number of values in the <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/>.
+		///   The number of values in the <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/>.
 		/// </summary>
 		/// <value>
 		///   A <see cref="T:System.Int32"/> containing the number 
-		///   of values in this <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/>.
+		///   of values in this <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/>.
 		/// </value>
 		/// <remarks>
 		///   This values is always equal to 4.
@@ -3212,7 +3212,7 @@ namespace Mono.Rocks {
 		/// </value>
 		/// <remarks>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> instance are immutable, and thus the instances
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> instance are immutable, and thus the instances
 		///    themselves are always thread-safe.  However, this does not mean that 
 		///    the values exposed by the tuple are thread safe, so care should be 
 		///    taken if necessary.
@@ -3230,11 +3230,11 @@ namespace Mono.Rocks {
 		/// </value>
 		/// <remarks>
 		///   <para>
-		///    This property shouldn't be used, as <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> instances
+		///    This property shouldn't be used, as <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> instances
 		///    are immutable, and thus require no locking.
 		///   </para>
 		///   <para>
-		///    The object returned is shared by all <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> instances.
+		///    The object returned is shared by all <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> instances.
 		///   </para>
 		/// </remarks>
 		object ICollection.SyncRoot {get {return syncRoot;}}
@@ -3250,7 +3250,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -3269,7 +3269,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -3288,7 +3288,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -3316,7 +3316,7 @@ namespace Mono.Rocks {
 		/// <summary>
 		///   Determines whether <paramref name="value"/>
 		///   <see cref="M:System.Object.Equals(System.Object)"/> any value within this
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> instance.
+		///   <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> instance.
 		/// </summary>
 		/// <returns>
 		///   <see langword="true"/> if <paramref name="value"/> is
@@ -3337,11 +3337,11 @@ namespace Mono.Rocks {
 		}
 
 		/// <summary>
-		///   The number of values in the <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/>.
+		///   The number of values in the <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/>.
 		/// </summary>
 		/// <value>
 		///   A <see cref="T:System.Int32"/> containing the number 
-		///   of values in this <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/>.
+		///   of values in this <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/>.
 		/// </value>
 		/// <remarks>
 		///   This values is always equal to 4.
@@ -3358,11 +3358,11 @@ namespace Mono.Rocks {
 		/// <param name="arrayIndex">
 		///   A <see cref="T:System.Int32"/> that specifies
 		///   the first index of <paramref name="array"/> to which the elements of the
-		///   current <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> are copied.
+		///   current <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> are copied.
 		/// </param>
 		/// <summary>
 		///   Copies the values of the current 
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> to the specified <see cref="T:System.Array"/>,
+		///   <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> to the specified <see cref="T:System.Array"/>,
 		///   starting at the <paramref name="arrayIndex"/> index of the array.
 		/// </summary>
 		/// <exception cref="T:System.ArgumentException">
@@ -3408,9 +3408,9 @@ namespace Mono.Rocks {
 		/// </returns>
 		/// <remarks>
 		///   <para>
-		///    Returns each value in the <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> as an
+		///    Returns each value in the <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Mono.Rocks.Tuple`4._1"/>, <see cref="P:Mono.Rocks.Tuple`4._2"/>, <see cref="P:Mono.Rocks.Tuple`4._3"/>, <see cref="P:Mono.Rocks.Tuple`4._4"/>.
+		///    <see cref="P:Cadenza.Tuple`4._1"/>, <see cref="P:Cadenza.Tuple`4._2"/>, <see cref="P:Cadenza.Tuple`4._3"/>, <see cref="P:Cadenza.Tuple`4._4"/>.
 		///   </para>
 		/// </remarks>
 		IEnumerator IEnumerable.GetEnumerator ()
@@ -3429,9 +3429,9 @@ namespace Mono.Rocks {
 		/// </returns>
 		/// <remarks>
 		///   <para>
-		///    Returns each value in the <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> as an
+		///    Returns each value in the <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Mono.Rocks.Tuple`4._1"/>, <see cref="P:Mono.Rocks.Tuple`4._2"/>, <see cref="P:Mono.Rocks.Tuple`4._3"/>, <see cref="P:Mono.Rocks.Tuple`4._4"/>.
+		///    <see cref="P:Cadenza.Tuple`4._1"/>, <see cref="P:Cadenza.Tuple`4._2"/>, <see cref="P:Cadenza.Tuple`4._3"/>, <see cref="P:Cadenza.Tuple`4._4"/>.
 		///   </para>
 		/// </remarks>
 		public IEnumerator<object> GetEnumerator ()
@@ -3453,7 +3453,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -3472,7 +3472,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -3489,7 +3489,7 @@ namespace Mono.Rocks {
 		/// <summary>
 		///   Determines whether <paramref name="value"/>
 		///   <see cref="M:System.Object.Equals(System.Object)"/> any value within this
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> instance.
+		///   <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> instance.
 		/// </summary>
 		/// <returns>
 		///   <see langword="true"/> if <paramref name="value"/> is
@@ -3543,7 +3543,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -3562,7 +3562,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -3581,7 +3581,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -3594,14 +3594,14 @@ namespace Mono.Rocks {
 
 		/// <summary>
 		///   Gets a <see cref="T:System.Boolean"/> indicating
-		///   whether the <see cref="P:Mono.Rocks.Tuple`4.System#Collections#ICollection#Count"/>
+		///   whether the <see cref="P:Cadenza.Tuple`4.System#Collections#ICollection#Count"/>
 		///   cannot be changed.
 		/// </summary>
 		/// <value>
 		///   <see langword="true"/>
 		/// </value>
 		/// <returns>
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> is immutable; its size cannot be changed.
+		///   <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> is immutable; its size cannot be changed.
 		/// </returns>
 		bool IList.IsFixedSize {get {return true;}}
 
@@ -3627,7 +3627,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -3672,7 +3672,7 @@ namespace Mono.Rocks {
 		///    Throws <see cref="T:System.NotSupportedException"/>.
 		///   </para>
 		///   <para>
-		///    <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
+		///    <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> is immutable; modification is not supported.
 		///   </para>
 		/// </remarks>
 		/// <exception cref="T:System.NotSupportedException">
@@ -3685,7 +3685,7 @@ namespace Mono.Rocks {
 		/// <param name="index">
 		///   An <see cref="T:System.Int32"/> that specifies the zero-based index
 		///   of the value in the current instance to get.  This value is >= 0, and 
-		///   less than <see cref="P:Mono.Rocks.Tuple`4.System#Collections#Generic#ICollection{System#Object}#Count"/>.
+		///   less than <see cref="P:Cadenza.Tuple`4.System#Collections#Generic#ICollection{System#Object}#Count"/>.
 		/// </param>
 		/// <summary>
 		///   Gets the value at the specified index in the current instance.
@@ -3695,13 +3695,13 @@ namespace Mono.Rocks {
 		/// </value>
 		/// <exception cref="T:System.ArgumentOutOfRangeException">
 		///   <paramref name="index"/> is less than 0 or greater than or equal to 
-		///   <see cref="P:Mono.Rocks.Tuple`4.System#Collections#Generic#ICollection{System#Object}#Count"/>.
+		///   <see cref="P:Cadenza.Tuple`4.System#Collections#Generic#ICollection{System#Object}#Count"/>.
 		/// </exception>
 		/// <exception cref="T:System.NotSupportedException">
 		///   The setter was called.
 		/// </exception>
 		/// <remarks>
-		///   <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> is immutable; the setter cannot be invoked.
+		///   <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> is immutable; the setter cannot be invoked.
 		/// </remarks>
 
 		public object this [int index] {
@@ -3724,11 +3724,11 @@ namespace Mono.Rocks {
 		/// </typeparam>
 		/// <param name="func">
 		///   A <see cref="T:System.Func{T1,T2,T3,T4,TResult}"/> which will be invoked, providing the values
-		///   <see cref="P:Mono.Rocks.Tuple`4._1"/>, <see cref="P:Mono.Rocks.Tuple`4._2"/>, <see cref="P:Mono.Rocks.Tuple`4._3"/>, <see cref="P:Mono.Rocks.Tuple`4._4"/> to <paramref name="func"/> and
+		///   <see cref="P:Cadenza.Tuple`4._1"/>, <see cref="P:Cadenza.Tuple`4._2"/>, <see cref="P:Cadenza.Tuple`4._3"/>, <see cref="P:Cadenza.Tuple`4._4"/> to <paramref name="func"/> and
 		///   returning the value returned by <paramref name="func"/>.
 		/// </param>
 		/// <summary>
-		///   Converts the <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> into a <typeparamref name="TResult"/>.
+		///   Converts the <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> into a <typeparamref name="TResult"/>.
 		/// </summary>
 		/// <returns>
 		///   The <typeparamref name="TResult"/> returned by <paramref name="func"/>.
@@ -3736,7 +3736,7 @@ namespace Mono.Rocks {
 		/// <remarks>
 		///   <para>
 		///    <block subset="none" type="behaviors">
-		///     Passes the values <see cref="P:Mono.Rocks.Tuple`4._1"/>, <see cref="P:Mono.Rocks.Tuple`4._2"/>, <see cref="P:Mono.Rocks.Tuple`4._3"/>, <see cref="P:Mono.Rocks.Tuple`4._4"/> to 
+		///     Passes the values <see cref="P:Cadenza.Tuple`4._1"/>, <see cref="P:Cadenza.Tuple`4._2"/>, <see cref="P:Cadenza.Tuple`4._3"/>, <see cref="P:Cadenza.Tuple`4._4"/> to 
 		///     <paramref name="func"/>, returning the value produced by 
 		///   	<paramref name="func"/>.
 		///    </block>
@@ -3756,13 +3756,13 @@ namespace Mono.Rocks {
 		///   The return type.
 		/// </typeparam>
 		/// <param name="matchers">
-		///   A <see cref="T:System.Func{T1,T2,T3,T4,Mono.Rocks.Maybe{TResult}}" /> 
+		///   A <see cref="T:System.Func{T1,T2,T3,T4,Cadenza.Maybe{TResult}}" /> 
 		///   array containing the conversion routines to use to convert 
-		///   the current <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> instance into a 
+		///   the current <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> instance into a 
 		///   <typeparamref name="TResult" /> value.
 		/// </param>
 		/// <summary>
-		///   Converts the current <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> instance into a <typeparamref name="TResult"/>.
+		///   Converts the current <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> instance into a <typeparamref name="TResult"/>.
 		/// </summary>
 		/// <returns>
 		///   The <typeparamref name="TResult"/> returned by one of the <paramref name="matchers"/>.
@@ -3771,25 +3771,25 @@ namespace Mono.Rocks {
 		///   <para>
 		///    <block subset="none" type="behaviors">
 		///     <para>
-		///      The current <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> instance is converted into a 
+		///      The current <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> instance is converted into a 
 		///      <typeparamref name="TResult" /> instance by trying each
-		///      <see cref="T:System.Func{T1,T2,T3,T4,Mono.Rocks.Maybe{TResult}}" />
+		///      <see cref="T:System.Func{T1,T2,T3,T4,Cadenza.Maybe{TResult}}" />
 		///      within <paramref name="matchers" />.
 		///     </para>
 		///     <para>
 		///      This method returns 
-		///      <see cref="P:Mono.Rocks.Maybe{TResult}.Value" /> 
+		///      <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
 		///      for the first delegate to return a
-		///      <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
-		///      where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+		///      <see cref="T:Cadenza.Maybe{TResult}" /> instance
+		///      where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
 		///      is <see langword="true" />.
 		///     </para>
 		///     <para>
 		///      If no 
-		///      <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+		///      <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
 		///      returns a 
-		///      <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance
-		///      where <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" />
+		///      <see cref="T:Cadenza.Maybe{TResult}" /> instance
+		///      where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
 		///      is <see langword="true" />, then an
 		///      <see cref="T:System.InvalidOperationException" /> is thrown.
 		///     </para>
@@ -3807,10 +3807,10 @@ namespace Mono.Rocks {
 		/// </exception>
 		/// <exception cref="T:System.InvalidOperationException">
 		///   None of the 
-		///   <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+		///   <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
 		///   delegates within <paramref name="matchers" /> returned a 
-		///   <see cref="T:Mono.Rocks.Maybe{TResult}" /> instance where
-		///   <see cref="P:Mono.Rocks.Maybe{TResult}.HasValue" /> was
+		///   <see cref="T:Cadenza.Maybe{TResult}" /> instance where
+		///   <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> was
 		///   <see langword="true" />.
 		/// </exception>
 		public TResult Match<TResult> (params Func<T1, T2, T3, T4, Maybe<TResult>>[] matchers)
@@ -3836,7 +3836,7 @@ namespace Mono.Rocks {
 		///    <block subset="none" type="behaviors">
 		///     Returns <c>(</c>, followed by a comma-separated list of the result of
 		///     calling <see cref="M:System.Object.ToString"/> on 
-		///     <see cref="P:Mono.Rocks.Tuple`4._1"/>, <see cref="P:Mono.Rocks.Tuple`4._2"/>, <see cref="P:Mono.Rocks.Tuple`4._3"/>, <see cref="P:Mono.Rocks.Tuple`4._4"/>, followed by <c>)</c>.
+		///     <see cref="P:Cadenza.Tuple`4._1"/>, <see cref="P:Cadenza.Tuple`4._2"/>, <see cref="P:Cadenza.Tuple`4._3"/>, <see cref="P:Cadenza.Tuple`4._4"/>, followed by <c>)</c>.
 		///    </block>
 		///   </para>
 		/// </remarks>
@@ -3856,10 +3856,10 @@ namespace Mono.Rocks {
 		}
 
 		/// <param name="a">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> to compare.
+		///   The first <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> to compare.
 		/// </param>
 		/// <param name="b">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> to compare.
+		///   The second <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> to compare.
 		/// </param>
 		/// <summary>
 		///   Returns a <see cref="T:System.Boolean"/> value
@@ -3869,17 +3869,17 @@ namespace Mono.Rocks {
 		///   <see langword="true"/> if <paramref name="a"/> and
 		///   <paramref name="b"/> represent the same value; otherwise, <see langword="false"/>.
 		/// </returns>
-		/// <seealso cref="M:Mono.Rocks.Tuple`4.Equals(Mono.Rocks.Tuple{`0,`1,`2,`3})"/>
+		/// <seealso cref="M:Cadenza.Tuple`4.Equals(Cadenza.Tuple{`0,`1,`2,`3})"/>
 		public static bool operator==  (Tuple<T1, T2, T3, T4> a, Tuple<T1, T2, T3, T4> b)
 		{
 			return a.Equals (b);
 		}
 
 		/// <param name="a">
-		///   The first <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> to compare.
+		///   The first <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> to compare.
 		/// </param>
 		/// <param name="b">
-		///   The second <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> to compare.
+		///   The second <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> to compare.
 		/// </param>
 		/// <summary>
 		///   Returns a <see cref="T:System.Boolean"/> value
@@ -3889,7 +3889,7 @@ namespace Mono.Rocks {
 		///   <see langword="true"/> if <paramref name="a"/> and
 		///   <paramref name="b"/> do not represent the same value; otherwise, <see langword="false"/>.
 		/// </returns>
-		/// <seealso cref="M:Mono.Rocks.Tuple`4.Equals(Mono.Rocks.Tuple{`0,`1,`2,`3})"/>
+		/// <seealso cref="M:Cadenza.Tuple`4.Equals(Cadenza.Tuple{`0,`1,`2,`3})"/>
 		public static bool operator!= (Tuple<T1, T2, T3, T4> a, Tuple<T1, T2, T3, T4> b)
 		{
 			return !a.Equals (b);

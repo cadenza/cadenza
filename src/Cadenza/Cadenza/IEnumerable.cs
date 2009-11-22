@@ -37,7 +37,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	public static class IEnumerableRocks {
 
@@ -282,7 +282,7 @@ namespace Mono.Rocks {
 				args.Add (val);
 			}
 			Type tuple = Assembly.GetExecutingAssembly().GetType (
-				"Mono.Rocks.Tuple`" + types.Count, 
+				"Cadenza.Tuple`" + types.Count, 
 				false
 			);
 			if (tuple == null)

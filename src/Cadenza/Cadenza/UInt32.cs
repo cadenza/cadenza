@@ -32,7 +32,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	[CLSCompliant (false)]
 	public static class UInt32Rocks {

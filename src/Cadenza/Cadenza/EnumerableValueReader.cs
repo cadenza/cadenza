@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	[CLSCompliant (false)]
 	public sealed class EnumerableValueReader<T> : ValueReader<T>

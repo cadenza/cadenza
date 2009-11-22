@@ -35,7 +35,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	public static class Either {
 

@@ -31,9 +31,9 @@ using System.IO;
 
 using NUnit.Framework;
 
-using Mono.Rocks;
+using Cadenza;
 
-namespace Mono.Rocks.Tests {
+namespace Cadenza.Tests {
 
 	struct TvrOp {
 		public char op;

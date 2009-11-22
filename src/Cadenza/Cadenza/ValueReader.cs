@@ -29,7 +29,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Mono.Rocks
+namespace Cadenza
 {
 	[CLSCompliant (false)]
 	public abstract class ValueReader<T> : IValueReader, IDisposable

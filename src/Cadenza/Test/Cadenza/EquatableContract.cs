@@ -29,7 +29,7 @@
 using System;
 using NUnit.Framework;
 
-namespace Mono.Rocks.Tests {
+namespace Cadenza.Tests {
 
 	public abstract class EquatableContract<T> : BaseRocksFixture
 		where T : IEquatable<T>

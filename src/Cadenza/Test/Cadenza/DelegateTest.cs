@@ -33,14 +33,14 @@ using System.Threading;
 
 using NUnit.Framework;
 
-using Mono.Rocks;
+using Cadenza;
 
 // "The variable `r' is assigned but it's value is never used."
 // It's value isn't supposed to be used; it's purpose is as a manual check the
 // the generated .Curry() methods generate the correct return type.
 #pragma warning disable 0219
 
-namespace Mono.Rocks.Tests {
+namespace Cadenza.Tests {
 
 	[TestFixture]
 	public class DelegateTest : BaseRocksFixture {

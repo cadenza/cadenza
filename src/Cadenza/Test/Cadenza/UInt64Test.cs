@@ -30,9 +30,9 @@ using System;
 
 using NUnit.Framework;
 
-using Mono.Rocks;
+using Cadenza;
 
-namespace Mono.Rocks.Tests {
+namespace Cadenza.Tests {
 
 	[TestFixture]
 	public class UInt64Test : BaseRocksFixture {

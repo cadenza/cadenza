@@ -33,7 +33,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	[CLSCompliant (false)]
 	public abstract class StreamConverter : IValueReader, IValueWriter, IDisposable

@@ -31,7 +31,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	public static class ICustomAttributeProviderRocks {
 

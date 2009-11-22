@@ -35,9 +35,9 @@ using System.Text;
 
 using NUnit.Framework;
 
-using Mono.Rocks;
+using Cadenza;
 
-namespace Mono.Rocks.Tests {
+namespace Cadenza.Tests {
 
 	[TestFixture]
 	public class StreamTest : BaseRocksFixture {

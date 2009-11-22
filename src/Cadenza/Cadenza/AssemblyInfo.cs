@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle ("Mono.Rocks")]
+[assembly: AssemblyTitle ("Cadenza")]
 [assembly: AssemblyDescription ("A useful extension methods collection")]
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("Novell, Inc.")]

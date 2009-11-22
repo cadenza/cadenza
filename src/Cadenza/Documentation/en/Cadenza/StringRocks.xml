@@ -1,0 +1,799 @@
+<Type Name="StringRocks" FullName="Cadenza.StringRocks">
+  <TypeSignature Language="C#" Value="public static class StringRocks" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+      Extension methods for <see cref="T:System.String" />.
+    </summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="CaptureNamedGroups">
+      <MemberSignature Language="C#" Value="public static System.Linq.ILookup&lt;string,string&gt; CaptureNamedGroups (this string self, string regex);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Linq.ILookup&lt;System.String,System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Linq.ILookup{System.String,System.String}" />
+          containing all named groups within <paramref name="regex" /> and
+          the associated captured values within <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Linq.ILookup{System.String,System.String}" />
+          containing all named groups within <paramref name="regex" /> and
+          the associated captured values within <paramref name="self" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#CaptureNamedGroups">Assert.AreEqual ("flag=--; name=foo; value=bar",
+		"--foo=bar"
+		.CaptureNamedGroups (@"^(?&lt;flag&gt;--|-|/)(?&lt;name&gt;[^:=]+)((?&lt;sep&gt;[:=])(?&lt;value&gt;.*))?$")
+		.With (r =&gt; "flag=" + r ["flag"].Implode () + 
+			"; name=" + r ["name"].Implode () +
+			"; value=" + r ["value"].Implode ()));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CaptureNamedGroups">
+      <MemberSignature Language="C#" Value="public static System.Linq.ILookup&lt;string,string&gt; CaptureNamedGroups (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Linq.ILookup&lt;System.String,System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+        <Parameter Name="options" Type="System.Text.RegularExpressions.RegexOptions" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <param name="options">
+          A <see cref="T:System.Text.RegularExpressions.RegexOptions" />
+          containing options to control the regular expression.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Linq.ILookup{System.String,System.String}" />
+          containing all named groups within <paramref name="regex" /> and
+          the associated captured values within <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Linq.ILookup{System.String,System.String}" />
+          containing all named groups within <paramref name="regex" /> and
+          the associated captured values within <paramref name="self" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#CaptureNamedGroups">Assert.AreEqual ("flag=--; name=foo; value=bar",
+		"--foo=bar"
+		.CaptureNamedGroups (@"^(?&lt;flag&gt;--|-|/)(?&lt;name&gt;[^:=]+)((?&lt;sep&gt;[:=])(?&lt;value&gt;.*))?$")
+		.With (r =&gt; "flag=" + r ["flag"].Implode () + 
+			"; name=" + r ["name"].Implode () +
+			"; value=" + r ["value"].Implode ()));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="options" /> contains an invalid flag.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Captures">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Captures (this string self, string regex);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all captured values within <paramref name="self" /> that 
+          match the regular expression <paramref name="regex" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all captured values within <paramref name="self" /> that 
+          match the regular expression <paramref name="regex" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Captures">Assert.IsTrue (
+		new[]{"a", "b", "c", "d"}.SequenceEqual (
+			"a - b - c - d".Captures (@"(\w+)")));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Captures">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Captures (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+        <Parameter Name="options" Type="System.Text.RegularExpressions.RegexOptions" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <param name="options">
+          A <see cref="T:System.Text.RegularExpressions.RegexOptions" />
+          containing options to control the regular expression.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all captured values within <paramref name="self" /> that 
+          match the regular expression <paramref name="regex" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all captured values within <paramref name="self" /> that 
+          match the regular expression <paramref name="regex" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Captures">Assert.IsTrue (
+		new[]{"a", "b", "c", "d"}.SequenceEqual (
+			"a - b - c - d".Captures (@"(\w+)")));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="options" /> contains an invalid flag.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Lines">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this string self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to read lines from.
+        </param>
+        <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all lines of text from <paramref name="self" />.
+        </summary>
+        <returns>
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all lines of text from <paramref name="self" />.
+        </returns>
+        <remarks>
+          <para>
+            This method is implemented by using deferred execution.
+          </para>
+          <block subset="none" type="note">
+            A "line of text" is the same as that used by 
+            <see cref="M:Cadenza.TextReaderRocks.Lines(System.IO.TextReader)" />.
+          </block>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Lines">Assert.IsTrue (new[]{"one", "two", "three"}
+		.SequenceEqual ("one\ntwo\nthree".Lines ()));
+</code>
+        </remarks>
+        <altmember cref="M:Cadenza.TextReaderRocks.Lines(System.IO.TextReader)" />
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Matches">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt; Matches (this string self, string regex);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Collections.Generic.IEnumerable{System.Text.RegularExpressions.Match}" />
+          containing all <see cref="T:System.Text.RegularExpressions.Match" />ed
+          text within <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.Text.RegularExpressions.Match}" />
+          containing all <see cref="T:System.Text.RegularExpressions.Match" />ed
+          text within <paramref name="self" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Matches">string match = @"a - b
+c - d
+e - f";
+
+Match[] matches = match.Matches (@"\w+ - \w+").ToArray();
+Assert.AreEqual (3, matches.Length);
+Assert.AreEqual ("a - b", matches [0].Value);
+Assert.AreEqual ("c - d", matches [1].Value);
+Assert.AreEqual ("e - f", matches [2].Value);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Matches">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt; Matches (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+        <Parameter Name="options" Type="System.Text.RegularExpressions.RegexOptions" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <param name="options">
+          A <see cref="T:System.Text.RegularExpressions.RegexOptions" />
+          containing options to control the regular expression.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Collections.Generic.IEnumerable{System.Text.RegularExpressions.Match}" />
+          containing all <see cref="T:System.Text.RegularExpressions.Match" />ed
+          text within <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.Text.RegularExpressions.Match}" />
+          containing all <see cref="T:System.Text.RegularExpressions.Match" />ed
+          text within <paramref name="self" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Matches">string match = @"a - b
+c - d
+e - f";
+
+Match[] matches = match.Matches (@"\w+ - \w+").ToArray();
+Assert.AreEqual (3, matches.Length);
+Assert.AreEqual ("a - b", matches [0].Value);
+Assert.AreEqual ("c - d", matches [1].Value);
+Assert.AreEqual ("e - f", matches [2].Value);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="options" /> contains an invalid flag.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="MatchValues">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; MatchValues (this string self, string regex);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all text within <paramref name="self" /> that matches
+          <paramref name="regex" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all text within <paramref name="self" /> that matches
+          <paramref name="regex" />.
+        </returns>
+        <remarks>
+          <para>
+            This differs from
+            <see cref="M:Cadenza.StringRocks.Captures(System.String,System.String)" />
+            in that no captures (parenthesis) are required within 
+            <paramref name="regex" />.
+          </para>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#MatchValues">string match = @"a - b
+c - d
+e - f";
+
+string[] expected = {"a - b", "c - d", "e - f"};
+string[] actual = match.MatchValues(@"\w+ - \w+").ToArray();
+
+AssertAreSame (expected, actual);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="MatchValues">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; MatchValues (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="regex" Type="System.String" />
+        <Parameter Name="options" Type="System.Text.RegularExpressions.RegexOptions" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to apply a regular expression to.
+        </param>
+        <param name="regex">
+          A <see cref="T:System.String" /> containing the regular expression
+          to match <paramref name="self" /> against.
+        </param>
+        <param name="options">
+          A <see cref="T:System.Text.RegularExpressions.RegexOptions" />
+          containing options to control the regular expression.
+        </param>
+        <summary>
+          Create a <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all text within <paramref name="self" /> that matches
+          <paramref name="regex" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing all text within <paramref name="self" /> that matches
+          <paramref name="regex" />.
+        </returns>
+        <remarks>
+          <para>
+            This differs from
+            <see cref="M:Cadenza.StringRocks.Captures(System.String,System.String)" />
+            in that no captures (parenthesis) are required within 
+            <paramref name="regex" />.
+          </para>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#MatchValues">string match = @"a - b
+c - d
+e - f";
+
+string[] expected = {"a - b", "c - d", "e - f"};
+string[] actual = match.MatchValues(@"\w+ - \w+").ToArray();
+
+AssertAreSame (expected, actual);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          Regular expression parsing error.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" /></para>
+          <para>
+            -or-
+          </para>
+          <para>
+            <paramref name="regex" /> is <see langword="null" /></para>
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="options" /> contains an invalid flag.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Slice">
+      <MemberSignature Language="C#" Value="public static string Slice (this string self, int start, int end);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="start" Type="System.Int32" />
+        <Parameter Name="end" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> containing the string to 
+          substring.
+        </param>
+        <param name="start">
+          A <see cref="T:System.Int32" /> containing the start index of the
+          new <see cref="T:System.String" /> to create.
+        </param>
+        <param name="end">
+          A <see cref="T:System.Int32" /> containing the end index of the
+          new <see cref="T:System.String" /> to create.
+        </param>
+        <summary>
+          Creates a new <see cref="T:System.String" /> of 
+          <paramref name="self" /> using indexes of the start and end
+          position.
+        </summary>
+        <returns>
+          A new <see cref="T:System.String" /> of <paramref name="self" /> 
+          using indexes of the start and end position.
+        </returns>
+        <remarks>
+          <para>
+            This differs from 
+            <see cref="T:System.String.Substring(System.Int32,System.Int32)" />
+            in that <paramref name="start" /> and <paramref name="end" /> are
+            both string indexes, while the <paramref name="length" />
+            parameter in <c>Substring</c> is not an index.
+          </para>
+          <para>
+            If <paramref name="end" /> is negative, then it is taken as a 
+            value from the end of the string.
+          </para>
+          <para>
+            When <paramref name="end" /> is positive, this is equivalent to
+            <c>self.Substring (start, end - start)</c>.
+          </para>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Slice">var data = "0123456789";
+
+Assert.AreEqual ("0",       data.Slice (0, 1));
+Assert.AreEqual ("89",      data.Slice (8, 10));
+Assert.AreEqual ("456789",  data.Slice (4, -1));
+Assert.AreEqual ("8",       data.Slice (8, -2));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <para>
+            <paramref name="start" /> is negative
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="start" /> is greater than or equal to 
+            <c><paramref name="self" />.Length</c>.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="end" /> is greater than or equal to 
+            <c><paramref name="self" />.Length</c>.
+          </para>
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="ToEnum&lt;TEnum&gt;">
+      <MemberSignature Language="C#" Value="public static TEnum ToEnum&lt;TEnum&gt; (this string self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TEnum</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TEnum" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TEnum">
+          An enumeration type containing the member stored in 
+          <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.String" /> containing an enumeration value to
+          convert into that enumeration value.
+        </param>
+        <summary>
+          Converts a <see cref="T:System.String" /> into an enumeration value
+          of type <typeparamref name="TEnum" />.
+        </summary>
+        <returns>
+          A <typeparamref name="TEnum" /> value containing the value named by
+          <paramref name="self" />.
+        </returns>
+        <remarks>
+          <block subset="none" type="note">
+            This probabably doesn't properly support
+            <see cref="T:System.FlagsAttribute" /> enums...
+          </block>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#ToEnum">Assert.AreEqual (Foo.Gazonk, "Gazonk".ToEnum&lt;Foo&gt; ());
+Assert.AreEqual (Foo.Bar,    "Bar".ToEnum&lt;Foo&gt; ());
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Tokens">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this string self, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="categories" Type="System.Func&lt;System.Nullable&lt;System.Char&gt;,System.Char,System.Boolean&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to extract tokens from.
+        </param>
+        <param name="categories">
+          A
+					<see cref="T:System.Func{System.Nullable{System.Char},System.Char,System.Boolean}" />
+					array containing the different categories of characters that 
+					determines what makes up a "token."  If the 
+					<see cref="T:System.Nullable{System.Char}" /> parameter is 
+					<see langword="null" />, then the <see cref="T:System.Char" /> is
+					the first character within the token; otherwise, the
+					<see cref="T:System.Nullable{System.Char}" /> parameter contains the
+					character preceding the <see cref="T:System.Char" />.
+					The delegate should return <see langword="true" /> if the
+					<see cref="T:System.Char" /> is a supported character; otherwise,
+					<see langword="false" /> should be returned.
+        </param>
+        <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all tokens from <paramref name="self" />.
+        </summary>
+        <returns>
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all tokens from <paramref name="self" />.
+        </returns>
+        <remarks>
+          <para>
+            This method is implemented by using deferred execution.
+          </para>
+          <block subset="none" type="note">
+            <para>
+              A "token" is determined by <paramref name="categories" />, and
+							is any contiguous sequence of characters for which the
+              same <paramref name="categories" /> index returns 
+              <see langword="true" />, starting from the first delegate.  This
+              allows a "some characters are more important than others"
+              philosphy, allowing e.g. parenthesis to be returned separately
+              from alphanumeric characters, even if no whitespace separates
+              them.
+            </para>
+          </block>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Tokens">string[] expected = {"(", "hello", ",", "world", "!)"};
+string[] actual = "(hello, world!)"
+	.Tokens (
+			(p, c) =&gt; char.IsLetterOrDigit (c), // words
+			(p, c) =&gt; !char.IsWhiteSpace (c)    // non-space
+	).ToArray ();
+AssertAreSame (expected, actual);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="categories" /> is empty.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />, or
+          <paramref name="categories" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Words">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this string self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="self">
+          A <see cref="T:System.String" /> to extract words from.
+        </param>
+        <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />.
+        </summary>
+        <returns>
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />.
+        </returns>
+        <remarks>
+          <para>
+            This method is implemented by using deferred execution.
+          </para>
+          <block subset="none" type="note">
+            A "word" any contiguous series of characters for which
+            <see cref="M:System.Char.IsWhiteSpace(System.Char)" />
+            returns <see langword="false" />.
+          </block>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Words">string[] expected = {"skip", "leading", "and", "trailing", "whitespace"};
+string[] actual = 
+	"   skip  leading\r\n\tand trailing\vwhitespace   "
+	.Words ().ToArray ();
+AssertAreSame (expected, actual);
+</code>
+        </remarks>
+        <altmember cref="M:Cadenza.TextReaderRocks.Words(System.IO.TextReader)" />
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

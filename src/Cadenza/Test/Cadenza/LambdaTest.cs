@@ -32,9 +32,9 @@ using System.Linq.Expressions;
 
 using NUnit.Framework;
 
-using Mono.Rocks;
+using Cadenza;
 
-namespace Mono.Rocks.Tests {
+namespace Cadenza.Tests {
 
 	[TestFixture]
 	public class LambdaTest : BaseRocksFixture {

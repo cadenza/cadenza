@@ -31,7 +31,7 @@ using System.Linq;
 using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace Mono.Rocks.Tests
+namespace Cadenza.Tests
 {
 	[TestFixture]
 	public class MutableLookupTest

@@ -32,7 +32,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	public static partial class Tuple {
 

@@ -8,7 +8,7 @@ use Generator;
 use Getopt::Long;
 
 my $n = 2;
-my $namespace = "Mono.Rocks";
+my $namespace = "Cadenza";
 my $output = "Eithers.cs";
 my $help = undef;
 
@@ -28,7 +28,7 @@ Options:
   -n, --count=N       The number of types to generate.  Defaults is 1.
   -o, --output=FILE   The file to create.  Default is `Tuples.cs'.
       --namespace=NS  Place the types within the namespace NS.
-                        Default is `Mono.Rocks'.
+                        Default is `Cadenza'.
   -h, -?, --help      Show this message and exit.
 EOF
 	exit 0;
@@ -69,8 +69,8 @@ $g->Namespace ($namespace, sub {
 sub create_either {
 	my ($g, $n) = @_;
 
-	my $type  = "Mono.Rocks.Either{" . Generator::GetTypeParameterList ($n) . "}";
-	my $typeN = "Mono.Rocks.Either`$n";
+	my $type  = "Cadenza.Either{" . Generator::GetTypeParameterList ($n) . "}";
+	my $typeN = "Cadenza.Either`$n";
 	my $fold  = "$type.Fold``1(" . create_xmldoc_fold_args ($n) . ")";
 
 	$g->Write ("\n");

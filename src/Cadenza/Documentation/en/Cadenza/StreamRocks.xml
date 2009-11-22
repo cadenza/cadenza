@@ -1,0 +1,58 @@
+<Type Name="StreamRocks" FullName="Cadenza.StreamRocks">
+  <TypeSignature Language="C#" Value="public static class StreamRocks" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="WithSystemConverter">
+      <MemberSignature Language="C#" Value="public static Cadenza.StreamConverter WithSystemConverter (this System.IO.Stream self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.StreamConverter</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.IO.Stream" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="self">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="WriteTo">
+      <MemberSignature Language="C#" Value="public static void WriteTo (this System.IO.Stream self, System.IO.Stream destination);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.IO.Stream" RefType="this" />
+        <Parameter Name="destination" Type="System.IO.Stream" />
+      </Parameters>
+      <Docs>
+        <param name="self">To be added.</param>
+        <param name="destination">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Destination(System.Object)" /></exception>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

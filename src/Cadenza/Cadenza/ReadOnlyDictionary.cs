@@ -30,7 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Mono.Rocks
+namespace Cadenza
 {
 	public class ReadOnlyDictionary<TKey, TValue>
 		: IDictionary<TKey, TValue>

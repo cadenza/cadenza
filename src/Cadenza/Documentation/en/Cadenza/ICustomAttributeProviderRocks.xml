@@ -1,0 +1,111 @@
+<Type Name="ICustomAttributeProviderRocks" FullName="Cadenza.ICustomAttributeProviderRocks">
+  <TypeSignature Language="C#" Value="public static class ICustomAttributeProviderRocks" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+      Extension methods for 
+      <see cref="T:System.Reflection.ICustomAttributeProvider" />.
+    </summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="GetCustomAttribute&lt;TAttribute&gt;">
+      <MemberSignature Language="C#" Value="public static TAttribute GetCustomAttribute&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TAttribute</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TAttribute">
+          <Constraints>
+            <BaseTypeName>System.Attribute</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Reflection.ICustomAttributeProvider" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TAttribute">The type of the custom attribute to return.</typeparam>
+        <param name="self">
+          A <see cref="T:System.Reflection.ICustomAttributeProvider" />
+          from which to retrieve a custom attribute of type 
+          <typeparamref name="TAttribute" />.
+        </param>
+        <summary>
+          Retrieves a custom attribute of type 
+          <typeparamref name="TAttribute" />.
+        </summary>
+        <returns>
+          Returns the first custom attribute of type 
+          <typeparamref name="TAttribute" /> or <see langword="null" /> if
+          no type parameters of type <typeparamref name="TAttribute" /> are
+          available.
+        </returns>
+        <remarks>
+          <code lang="C#">
+FooAttribute foo = typeof (Bar).GetCustomAttribute&lt;FooAttribute&gt; ();</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="GetCustomAttributes&lt;TAttribute&gt;">
+      <MemberSignature Language="C#" Value="public static TAttribute[] GetCustomAttributes&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TAttribute[]</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TAttribute">
+          <Constraints>
+            <BaseTypeName>System.Attribute</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Reflection.ICustomAttributeProvider" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TAttribute">The type of the custom attribute to return.</typeparam>
+        <param name="self">
+          A <see cref="T:System.Reflection.ICustomAttributeProvider" />
+          from which to retrieve custom attributes of type 
+          <typeparamref name="TAttribute" />.
+        </param>
+        <summary>
+          Retrieves all custom attributes of type 
+          <typeparamref name="TAttribute" />.
+        </summary>
+        <returns>
+          Returns all custom attributes of type 
+          <typeparamref name="TAttribute" /> or an empty array if 
+          no type parameters of type <typeparamref name="TAttribute" /> are
+          available.
+        </returns>
+        <remarks>
+          <code lang="C#">
+var attributes = typeof (Bar).GetCustomAttributes&lt;FooAttribute&gt; ();</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

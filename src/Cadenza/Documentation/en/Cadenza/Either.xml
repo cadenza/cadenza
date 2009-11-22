@@ -1,0 +1,176 @@
+<Type Name="Either" FullName="Cadenza.Either">
+  <TypeSignature Language="C#" Value="public static class Either" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <ThreadingSafetyStatement>
+    This type is thread safe.
+  </ThreadingSafetyStatement>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+      Provides static utility methods to create
+      <see cref="T:Cadenza.Either{TValue,Exception}" /> instances.
+    </summary>
+    <remarks>
+      Use the <see cref="M:Cadenza.Either.TryParse" /> methods if it is
+      necessary to know why the value couldn't be parsed.  Otherwise, use the
+      <see cref="M:Cadenza.Maybe.TryParse" /> methods.
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="TryParse&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.Either&lt;T,Exception&gt; TryParse&lt;T&gt; (string value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Either&lt;T,System.Exception&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+          The type to convert <paramref name="value" /> to.
+        </typeparam>
+        <param name="value">
+          A <see cref="T:System.String" /> containing the value to convert
+          into a <typeparamref name="T" />.
+        </param>
+        <summary>
+          Attempt to convert the value within a <see cref="T:System.String" />
+          into an instance of type <typeparamref name="T" />.
+        </summary>
+        <returns>
+          A <see cref="T:Cadenza.Either{``0,System.Exception}" />
+          containing either the parsed value or the error that results from
+          attempting to convert <paramref name="value" /> into an instance
+          of type <typeparamref name="T" />.
+        </returns>
+        <remarks>
+          <para>
+            This method calls
+            <see cref="M:Cadenza.Either.TryParse``2(``0)" />, with
+            <see cref="T:System.String" /> as the 
+            <typeparamref name="TSource" /> type.
+          </para>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/EitherTest.cs#TryParse">var v = Either.TryParse&lt;int&gt; ("3.14159");
+var e = v.Fold (i =&gt; null, i =&gt; i);
+Assert.IsNotNull (e);
+Assert.IsTrue (typeof(Exception).IsAssignableFrom (e.GetType()));
+
+v = Either.TryParse&lt;int&gt; ("42");
+var n = v.Fold (i =&gt; i, i =&gt; -1);
+Assert.AreEqual (42, n);
+
+var v2 = Either.TryParse&lt;int?&gt; ("3.14159");
+e = v2.Fold (i =&gt; null, i =&gt; i);
+Assert.IsNotNull (e);
+Assert.IsTrue (typeof(Exception).IsAssignableFrom (e.GetType()));
+
+v2 = Either.TryParse&lt;int?&gt; ("42");
+n = v2.Fold (i =&gt; i.Value, i =&gt; -1);
+Assert.AreEqual (42, n);
+</code>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TryParse&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.Either&lt;TResult,Exception&gt; TryParse&lt;TSource,TResult&gt; (TSource value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Either&lt;TResult,System.Exception&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="TSource" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type to convert from.
+        </typeparam>
+        <typeparam name="TResult">
+          The type to convert to.
+        </typeparam>
+        <param name="value">
+          An instance of type <typeparamref name="TSource" /> containing the
+          value to convert into a <typeparamref name="TResult" /> instance.
+        </param>
+        <summary>
+          Attempt to convert the value within a <typeparamref name="TSource" />
+          into an instance of type <typeparamref name="TResult" />.
+        </summary>
+        <returns>
+          A <see cref="T:Cadenza.Either{``1,System.Exception}" />
+          containing either the parsed value or the error that results from
+          attempting to convert <paramref name="value" /> into an instance
+          of type <typeparamref name="TResult" />.
+        </returns>
+        <remarks>
+          <para>
+            <c>TryParse</c> attempts to use a variety of mechanisms to convert
+            <paramref name="value" /> into a <typeparamref name="TResult" />,
+            attempting, in order:
+          </para>
+          <list type="number">
+            <item>
+              <term>
+                <c>TypeDescriptor.GetConverter(typeof(TResult)).ConvertFrom(value)</c>
+              </term>
+            </item>
+            <item>
+              <term>
+                <c>TypeDescriptor.GetConverter(typeof(TSource)).ConvertTo(value, typeof(TResult))</c>
+              </term>
+            </item>
+            <item>
+              <term>
+                <c>Convert.ChangeType(value, typeof(TResult))</c>
+              </term>
+            </item>
+          </list>
+          <para>
+            If none of these methods are able to convert the value, then the returned
+            <see cref="T:Cadenza.Either{TSource,System.Exception}" /> will contain
+            a <see cref="T:System.NotSupportedException" />, and
+            <see cref="P:System.Exception.InnerException" /> will contain the original
+            exception.
+          </para>
+          <code lang="C#" src="../../Tests/Cadenza.Tests/EitherTest.cs#TryParse2">Either&lt;DateTime, Exception&gt; a = Either.TryParse&lt;int, DateTime&gt; (42);
+e = a.Fold (i =&gt; null, i =&gt; i);
+Assert.IsNotNull (e);
+Assert.IsTrue (typeof (Exception).IsAssignableFrom (e.GetType()));
+
+Either&lt;string, Exception&gt; b = Either.TryParse&lt;int, string&gt; (42);
+var n2 = b.Fold (i =&gt; i, i =&gt; null);
+Assert.AreEqual ("42", n2);
+
+Either&lt;int, Exception&gt; c = 
+	Either.TryParse&lt;CustomConvertible, int&gt; (new CustomConvertible ());
+var n3 = c.Fold (i =&gt; i, i =&gt; -1);
+Assert.AreEqual (CustomConvertible.Int32, n3);
+</code>
+        </remarks>
+        <altmember cref="M:System.Convert.ChangeType(System.Object,System.Type)" />
+        <altmember cref="M:System.ComponentModel.TypeConverter.ConvertFrom(System.Object)" />
+        <altmember cref="M:System.ComponentModel.TypeConverter.ConvertTo(System.Object,System.Type)" />
+        <altmember cref="M:System.ComponentModel.TypeDescriptor.GetConverter(System.Type)" />
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -31,7 +31,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq.Expressions;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	/// <summary>
 	///   Provides extension methods on <see cref="T:System.Action{T}"/>,

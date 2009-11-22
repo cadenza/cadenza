@@ -29,7 +29,7 @@
 using System;
 using System.Linq.Expressions;
 
-namespace Mono.Rocks {
+namespace Cadenza {
 
 	/// <summary>
 	///   Provides static utility methods to generate anonymous delegates 
@@ -58,9 +58,9 @@ namespace Mono.Rocks {
 	///    delegate type, or insert a cast.
 	///   </para>
 	///   <para>
-	///    <see cref="M:Mono.Rocks.Lambda.A" /> allows you to
+	///    <see cref="M:Cadenza.Lambda.A" /> allows you to
 	///    provide a lambda body for the <see cref="T:System.Action"/> 
-	///    builtin delegate type, and <see cref="M:Mono.Rocks.Lambda.F" />
+	///    builtin delegate type, and <see cref="M:Cadenza.Lambda.F" />
 	///    allows you to provide a lambda body for the 
 	///    <see cref="T:System.Func{TResult}"/> delegate type, 
 	///    thus removing the need for a cast or an extra variable:
@@ -68,43 +68,43 @@ namespace Mono.Rocks {
 	///   <code lang="C#">
 	///   Lambda.F ((int x) => Console.WriteLine (x)) (5);</code>
 	///   <para>
-	///    <see cref="T:Mono.Rocks.Lambda"/> provides the following sets of
+	///    <see cref="T:Cadenza.Lambda"/> provides the following sets of
 	///    functionality:
 	///   </para>
 	///   <list type="bullet">
 	///    <item><term>Delegate creation methods, which return 
 	///     <see cref="T:System.Action"/>-like delegates:
-	///     <see cref="M:Mono.Rocks.Lambda.A(System.Action)"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.A``1(System.Action{``0})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.A``2(System.Action{``0,``1})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.A``3(System.Action{``0,``1,``2})"/>, and
-	///     <see cref="M:Mono.Rocks.Lambda.A``4(System.Action{``0,``1,``2,``3})"/>.
+	///     <see cref="M:Cadenza.Lambda.A(System.Action)"/>,
+	///     <see cref="M:Cadenza.Lambda.A``1(System.Action{``0})"/>,
+	///     <see cref="M:Cadenza.Lambda.A``2(System.Action{``0,``1})"/>,
+	///     <see cref="M:Cadenza.Lambda.A``3(System.Action{``0,``1,``2})"/>, and
+	///     <see cref="M:Cadenza.Lambda.A``4(System.Action{``0,``1,``2,``3})"/>.
 	///    </term></item>
 	///    <item><term>Delegate creation methods which return 
 	///     return <see cref="T:System.Func{TResult}"/>-like delegates
-	///     <see cref="M:Mono.Rocks.Lambda.F``1(System.Func{``0})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.F``2(System.Func{``0,``1})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.F``3(System.Func{``0,``1,``2})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.F``4(System.Func{``0,``1,``2,``3})"/>, and
-	///     <see cref="M:Mono.Rocks.Lambda.F``5(System.Func{``0,``1,``2,``3,``4})"/>.
+	///     <see cref="M:Cadenza.Lambda.F``1(System.Func{``0})"/>,
+	///     <see cref="M:Cadenza.Lambda.F``2(System.Func{``0,``1})"/>,
+	///     <see cref="M:Cadenza.Lambda.F``3(System.Func{``0,``1,``2})"/>,
+	///     <see cref="M:Cadenza.Lambda.F``4(System.Func{``0,``1,``2,``3})"/>, and
+	///     <see cref="M:Cadenza.Lambda.F``5(System.Func{``0,``1,``2,``3,``4})"/>.
 	///    </term></item>
 	///    <item><term><see cref="T:System.Linq.Expressions.Expression"/>-creating methods:
-	///     <see cref="M:Mono.Rocks.Lambda.XA(System.Linq.Expressions.Expression{System.Action})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.XA``1(System.Linq.Expressions.Expression{System.Action{``0}})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.XA``2(System.Linq.Expressions.Expression{System.Action{``0,``1}})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.XA``3(System.Linq.Expressions.Expression{System.Action{``0,``1,``2}})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.XA``4(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3}})"/>, and
-	///     <see cref="M:Mono.Rocks.Lambda.XF``1(System.Linq.Expressions.Expression{System.Func{``0}})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.XF``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.XF``3(System.Linq.Expressions.Expression{System.Func{``0,``1,``2}})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.XF``4(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3}})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.XF``5(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4}})"/>.
+	///     <see cref="M:Cadenza.Lambda.XA(System.Linq.Expressions.Expression{System.Action})"/>,
+	///     <see cref="M:Cadenza.Lambda.XA``1(System.Linq.Expressions.Expression{System.Action{``0}})"/>,
+	///     <see cref="M:Cadenza.Lambda.XA``2(System.Linq.Expressions.Expression{System.Action{``0,``1}})"/>,
+	///     <see cref="M:Cadenza.Lambda.XA``3(System.Linq.Expressions.Expression{System.Action{``0,``1,``2}})"/>,
+	///     <see cref="M:Cadenza.Lambda.XA``4(System.Linq.Expressions.Expression{System.Action{``0,``1,``2,``3}})"/>, and
+	///     <see cref="M:Cadenza.Lambda.XF``1(System.Linq.Expressions.Expression{System.Func{``0}})"/>,
+	///     <see cref="M:Cadenza.Lambda.XF``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})"/>,
+	///     <see cref="M:Cadenza.Lambda.XF``3(System.Linq.Expressions.Expression{System.Func{``0,``1,``2}})"/>,
+	///     <see cref="M:Cadenza.Lambda.XF``4(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3}})"/>,
+	///     <see cref="M:Cadenza.Lambda.XF``5(System.Linq.Expressions.Expression{System.Func{``0,``1,``2,``3,``4}})"/>.
 	///    </term></item>
 	///    <item><term>Y-Combinators, which permit writing recursive lambdas:
-	///     <see cref="M:Mono.Rocks.Lambda.RecFunc``2(System.Func{System.Func{``0,``1},System.Func{``0,``1}})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.RecFunc``3(System.Func{System.Func{``0,``1,``2},System.Func{``0,``1,``2}})"/>,
-	///     <see cref="M:Mono.Rocks.Lambda.RecFunc``4(System.Func{System.Func{``0,``1,``2,``3},System.Func{``0,``1,``2,``3}})"/>, and
-	///     <see cref="M:Mono.Rocks.Lambda.RecFunc``5(System.Func{System.Func{``0,``1,``2,``3,``4},System.Func{``0,``1,``2,``3,``4}})"/>.
+	///     <see cref="M:Cadenza.Lambda.RecFunc``2(System.Func{System.Func{``0,``1},System.Func{``0,``1}})"/>,
+	///     <see cref="M:Cadenza.Lambda.RecFunc``3(System.Func{System.Func{``0,``1,``2},System.Func{``0,``1,``2}})"/>,
+	///     <see cref="M:Cadenza.Lambda.RecFunc``4(System.Func{System.Func{``0,``1,``2,``3},System.Func{``0,``1,``2,``3}})"/>, and
+	///     <see cref="M:Cadenza.Lambda.RecFunc``5(System.Func{System.Func{``0,``1,``2,``3,``4},System.Func{``0,``1,``2,``3,``4}})"/>.
 	///    </term></item>
 	///   </list>
 	/// </remarks>
