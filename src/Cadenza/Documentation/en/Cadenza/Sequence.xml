@@ -89,7 +89,7 @@
               the sequence is terminated.
             </para>
           </block>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/SequenceTest.cs#GenerateReverse">Assert.AreEqual ("10,9,8,7,6,5,4,3,2,1",
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#GenerateReverse">Assert.AreEqual ("10,9,8,7,6,5,4,3,2,1",
 	Sequence.GenerateReverse (10, 
 		b =&gt; Maybe.When (b &gt; 0, Tuple.Create (b, b-1)))
 	.Implode (","));
@@ -163,7 +163,7 @@
               ... }</c>.
             </para>
           </block>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/SequenceTest.cs#Iterate">Assert.AreEqual ("16,8,4,2,1",
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#Iterate">Assert.AreEqual ("16,8,4,2,1",
 		Sequence.Iterate (16, v =&gt; v / 2).Take (5).Implode (","));
 Assert.AreEqual ("1,2,3,4,5",
 		Sequence.Iterate (1, v =&gt; v+1).Take (5).Implode (","));
@@ -207,7 +207,7 @@ Assert.AreEqual ("1,2,3,4,5",
           seqeuence where each element value is <paramref name="value" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/SequenceTest.cs#Repeat">Assert.AreEqual ("1,1,1,1,1",
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#Repeat">Assert.AreEqual ("1,1,1,1,1",
 		Sequence.Repeat (1).Take (5).Implode (","));
 </code>
         </remarks>

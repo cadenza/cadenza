@@ -63,7 +63,7 @@
             <see cref="T:System.String" /> as the 
             <typeparamref name="TSource" /> type.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/EitherTest.cs#TryParse">var v = Either.TryParse&lt;int&gt; ("3.14159");
+          <code lang="C#" src="../../Test/Cadenza/EitherTest.cs#TryParse">var v = Either.TryParse&lt;int&gt; ("3.14159");
 var e = v.Fold (i =&gt; null, i =&gt; i);
 Assert.IsNotNull (e);
 Assert.IsTrue (typeof(Exception).IsAssignableFrom (e.GetType()));
@@ -151,7 +151,7 @@ Assert.AreEqual (42, n);
             <see cref="P:System.Exception.InnerException" /> will contain the original
             exception.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/EitherTest.cs#TryParse2">Either&lt;DateTime, Exception&gt; a = Either.TryParse&lt;int, DateTime&gt; (42);
+          <code lang="C#" src="../../Test/Cadenza/EitherTest.cs#TryParse2">Either&lt;DateTime, Exception&gt; a = Either.TryParse&lt;int, DateTime&gt; (42);
 e = a.Fold (i =&gt; null, i =&gt; i);
 Assert.IsNotNull (e);
 Assert.IsTrue (typeof (Exception).IsAssignableFrom (e.GetType()));

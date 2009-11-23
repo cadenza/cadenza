@@ -32,6 +32,11 @@
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
       </Docs>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
     </Member>
     <Member MemberName="WriteTo">
       <MemberSignature Language="C#" Value="public static void WriteTo (this System.IO.Stream self, System.IO.Stream destination);" />

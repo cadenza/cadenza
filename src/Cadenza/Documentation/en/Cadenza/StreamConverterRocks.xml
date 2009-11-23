@@ -66,4 +66,9 @@
       </Docs>
     </Member>
   </Members>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.CLSCompliant(false)</AttributeName>
+    </Attribute>
+  </Attributes>
 </Type>

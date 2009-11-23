@@ -57,7 +57,7 @@
             </term>
             </item>
           </list>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/TypeTest.cs#IsNullable">Assert.IsTrue (typeof (int?).IsNullable ());
+          <code lang="C#" src="../../Test/Cadenza/TypeTest.cs#IsNullable">Assert.IsTrue (typeof (int?).IsNullable ());
 Assert.IsFalse (typeof (int).IsNullable ());
 Assert.IsFalse (typeof (string).IsNullable ());
 Assert.IsFalse (typeof (Nullable&lt;&gt;).IsNullable ());

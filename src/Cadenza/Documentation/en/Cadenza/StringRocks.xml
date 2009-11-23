@@ -48,7 +48,7 @@
           the associated captured values within <paramref name="self" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#CaptureNamedGroups">Assert.AreEqual ("flag=--; name=foo; value=bar",
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#CaptureNamedGroups">Assert.AreEqual ("flag=--; name=foo; value=bar",
 		"--foo=bar"
 		.CaptureNamedGroups (@"^(?&lt;flag&gt;--|-|/)(?&lt;name&gt;[^:=]+)((?&lt;sep&gt;[:=])(?&lt;value&gt;.*))?$")
 		.With (r =&gt; "flag=" + r ["flag"].Implode () + 
@@ -107,7 +107,7 @@
           the associated captured values within <paramref name="self" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#CaptureNamedGroups">Assert.AreEqual ("flag=--; name=foo; value=bar",
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#CaptureNamedGroups">Assert.AreEqual ("flag=--; name=foo; value=bar",
 		"--foo=bar"
 		.CaptureNamedGroups (@"^(?&lt;flag&gt;--|-|/)(?&lt;name&gt;[^:=]+)((?&lt;sep&gt;[:=])(?&lt;value&gt;.*))?$")
 		.With (r =&gt; "flag=" + r ["flag"].Implode () + 
@@ -164,7 +164,7 @@
           match the regular expression <paramref name="regex" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Captures">Assert.IsTrue (
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Captures">Assert.IsTrue (
 		new[]{"a", "b", "c", "d"}.SequenceEqual (
 			"a - b - c - d".Captures (@"(\w+)")));
 </code>
@@ -220,7 +220,7 @@
           match the regular expression <paramref name="regex" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Captures">Assert.IsTrue (
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Captures">Assert.IsTrue (
 		new[]{"a", "b", "c", "d"}.SequenceEqual (
 			"a - b - c - d".Captures (@"(\w+)")));
 </code>
@@ -240,6 +240,25 @@
         <exception cref="T:System.ArgumentOutOfRangeException">
           <paramref name="options" /> contains an invalid flag.
         </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="IsNullOrWhitespace">
+      <MemberSignature Language="C#" Value="public static bool IsNullOrWhitespace (this string self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="self">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Lines">
@@ -276,7 +295,7 @@
             A "line of text" is the same as that used by 
             <see cref="M:Cadenza.TextReaderRocks.Lines(System.IO.TextReader)" />.
           </block>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Lines">Assert.IsTrue (new[]{"one", "two", "three"}
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Lines">Assert.IsTrue (new[]{"one", "two", "three"}
 		.SequenceEqual ("one\ntwo\nthree".Lines ()));
 </code>
         </remarks>
@@ -318,7 +337,7 @@
           text within <paramref name="self" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Matches">string match = @"a - b
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Matches">string match = @"a - b
 c - d
 e - f";
 
@@ -380,7 +399,7 @@ Assert.AreEqual ("e - f", matches [2].Value);
           text within <paramref name="self" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Matches">string match = @"a - b
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Matches">string match = @"a - b
 c - d
 e - f";
 
@@ -446,7 +465,7 @@ Assert.AreEqual ("e - f", matches [2].Value);
             in that no captures (parenthesis) are required within 
             <paramref name="regex" />.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#MatchValues">string match = @"a - b
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#MatchValues">string match = @"a - b
 c - d
 e - f";
 
@@ -513,7 +532,7 @@ AssertAreSame (expected, actual);
             in that no captures (parenthesis) are required within 
             <paramref name="regex" />.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#MatchValues">string match = @"a - b
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#MatchValues">string match = @"a - b
 c - d
 e - f";
 
@@ -538,6 +557,33 @@ AssertAreSame (expected, actual);
         <exception cref="T:System.ArgumentOutOfRangeException">
           <paramref name="options" /> contains an invalid flag.
         </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Remove">
+      <MemberSignature Language="C#" Value="public static string Remove (this string self, string[] targets);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.String</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="targets" Type="System.String[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="self">To be added.</param>
+        <param name="targets">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Slice">
@@ -592,7 +638,7 @@ AssertAreSame (expected, actual);
             When <paramref name="end" /> is positive, this is equivalent to
             <c>self.Substring (start, end - start)</c>.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Slice">var data = "0123456789";
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Slice">var data = "0123456789";
 
 Assert.AreEqual ("0",       data.Slice (0, 1));
 Assert.AreEqual ("89",      data.Slice (8, 10));
@@ -657,7 +703,7 @@ Assert.AreEqual ("8",       data.Slice (8, -2));
             This probabably doesn't properly support
             <see cref="T:System.FlagsAttribute" /> enums...
           </block>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#ToEnum">Assert.AreEqual (Foo.Gazonk, "Gazonk".ToEnum&lt;Foo&gt; ());
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#ToEnum">Assert.AreEqual (Foo.Gazonk, "Gazonk".ToEnum&lt;Foo&gt; ());
 Assert.AreEqual (Foo.Bar,    "Bar".ToEnum&lt;Foo&gt; ());
 </code>
         </remarks>
@@ -729,7 +775,7 @@ Assert.AreEqual (Foo.Bar,    "Bar".ToEnum&lt;Foo&gt; ());
               them.
             </para>
           </block>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Tokens">string[] expected = {"(", "hello", ",", "world", "!)"};
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Tokens">string[] expected = {"(", "hello", ",", "world", "!)"};
 string[] actual = "(hello, world!)"
 	.Tokens (
 			(p, c) =&gt; char.IsLetterOrDigit (c), // words
@@ -782,7 +828,7 @@ AssertAreSame (expected, actual);
             <see cref="M:System.Char.IsWhiteSpace(System.Char)" />
             returns <see langword="false" />.
           </block>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/StringTest.cs#Words">string[] expected = {"skip", "leading", "and", "trailing", "whitespace"};
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Words">string[] expected = {"skip", "leading", "and", "trailing", "whitespace"};
 string[] actual = 
 	"   skip  leading\r\n\tand trailing\vwhitespace   "
 	.Words ().ToArray ();
@@ -793,6 +839,54 @@ AssertAreSame (expected, actual);
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.
         </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="WrappedLines">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; WrappedLines (this string self, System.Collections.Generic.IEnumerable&lt;int&gt; widths);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="widths" Type="System.Collections.Generic.IEnumerable&lt;System.Int32&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="self">To be added.</param>
+        <param name="widths">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="WrappedLines">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; WrappedLines (this string self, int[] widths);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.String" RefType="this" />
+        <Parameter Name="widths" Type="System.Int32[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <param name="self">To be added.</param>
+        <param name="widths">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
   </Members>

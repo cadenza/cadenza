@@ -136,7 +136,7 @@
               <see cref="T:System.InvalidOperationException" /> is thrown.
             </para>
           </block>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/ObjectTest.cs#Match">Assert.AreEqual ("foo",
+          <code lang="C#" src="../../Test/Cadenza/ObjectTest.cs#Match">Assert.AreEqual ("foo",
 	"foo".Match (
 		s =&gt; Maybe.When (s.Length != 3, "bar!"),
 		s =&gt; s.Just ()));
@@ -281,7 +281,7 @@ Assert.AreEqual (-1, "*default*".Match (m));
             node is provided to <paramref name="valueSelector" />, and the
             values are returned.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/ObjectTest.cs#TraverseBreadthFirst">TreeNode&lt;int&gt; root = new TreeNode&lt;int&gt; {
+          <code lang="C#" src="../../Test/Cadenza/ObjectTest.cs#TraverseBreadthFirst">TreeNode&lt;int&gt; root = new TreeNode&lt;int&gt; {
 	Value = 1, Children = new [] {
 		new TreeNode&lt;int&gt; { Value = 2 },
 		new TreeNode&lt;int&gt; {
@@ -462,7 +462,7 @@ AssertAreSame (new[]{ 1, 2, 3, 4, 5 }, values);
             node is provided to <paramref name="valueSelector" />, and the
             values are returned.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/ObjectTest.cs#TraverseDepthFirst">TreeNode&lt;int&gt; root = new TreeNode&lt;int&gt; {
+          <code lang="C#" src="../../Test/Cadenza/ObjectTest.cs#TraverseDepthFirst">TreeNode&lt;int&gt; root = new TreeNode&lt;int&gt; {
 	Value = 1, Children = new [] {
 		new TreeNode&lt;int&gt; { Value = 2 },
 		new TreeNode&lt;int&gt; {
@@ -626,7 +626,7 @@ AssertAreSame (new[]{ 1, 2, 3, 5, 4 }, values);
             declaration (which is useful for reducing in-scope variables, as no
             variable is explicitly declared).
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/ObjectTest.cs#With">// sorts the array, then returns the 
+          <code lang="C#" src="../../Test/Cadenza/ObjectTest.cs#With">// sorts the array, then returns the 
 // element in the middle of the array.
 Assert.AreEqual (3,
 	new[]{5, 4, 3, 2, 1}.Sort ()

@@ -1,5 +1,5 @@
 <Type Name="StreamConverter" FullName="Cadenza.StreamConverter">
-  <TypeSignature Language="C#" Value="public abstract class StreamConverter : Cadenza.IValueReader&lt;Cadenza.StreamConverter&gt;, Cadenza.IValueWriter&lt;Cadenza.StreamConverter&gt;" />
+  <TypeSignature Language="C#" Value="public abstract class StreamConverter : Cadenza.IValueReader, Cadenza.IValueWriter, IDisposable" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -9,10 +9,13 @@
   </Base>
   <Interfaces>
     <Interface>
-      <InterfaceName>Cadenza.IValueReader&lt;Cadenza.StreamConverter&gt;</InterfaceName>
+      <InterfaceName>Cadenza.IValueReader</InterfaceName>
     </Interface>
     <Interface>
-      <InterfaceName>Cadenza.IValueWriter&lt;Cadenza.StreamConverter&gt;</InterfaceName>
+      <InterfaceName>Cadenza.IValueWriter</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.IDisposable</InterfaceName>
     </Interface>
   </Interfaces>
   <Docs>
@@ -32,14 +35,47 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Read (out bool value);" />
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="public void Dispose ();" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Dispose">
+      <MemberSignature Language="C#" Value="protected virtual void Dispose (bool disposing);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="disposing" Type="System.Boolean" />
+      </Parameters>
+      <Docs>
+        <param name="disposing">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Read">
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueReader Read (out bool value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Boolean&amp;" RefType="out" />
@@ -52,13 +88,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Read (out byte value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueReader Read (out byte value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Byte&amp;" RefType="out" />
@@ -91,13 +127,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Read (out char value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueReader Read (out char value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Char&amp;" RefType="out" />
@@ -110,13 +146,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Read (out DateTime value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueReader Read (out DateTime value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.DateTime&amp;" RefType="out" />
@@ -129,13 +165,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Read (out decimal value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueReader Read (out decimal value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Decimal&amp;" RefType="out" />
@@ -148,13 +184,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Read (out double value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueReader Read (out double value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Double&amp;" RefType="out" />
@@ -167,13 +203,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Read (out short value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueReader Read (out short value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Int16&amp;" RefType="out" />
@@ -186,13 +222,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Read (out int value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueReader Read (out int value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Int32&amp;" RefType="out" />
@@ -205,13 +241,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Read (out long value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueReader Read (out long value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Int64&amp;" RefType="out" />
@@ -224,18 +260,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public virtual Cadenza.StreamConverter Read (out sbyte value);" />
+      <MemberSignature Language="C#" Value="public virtual Cadenza.IValueReader Read (out sbyte value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.SByte&amp;" RefType="out" />
@@ -248,13 +279,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Read (out float value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueReader Read (out float value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Single&amp;" RefType="out" />
@@ -267,13 +298,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Read (out string value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueReader Read (out string value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.String&amp;" RefType="out" />
@@ -286,18 +317,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public virtual Cadenza.StreamConverter Read (out ushort value);" />
+      <MemberSignature Language="C#" Value="public virtual Cadenza.IValueReader Read (out ushort value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.UInt16&amp;" RefType="out" />
@@ -310,18 +336,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public virtual Cadenza.StreamConverter Read (out uint value);" />
+      <MemberSignature Language="C#" Value="public virtual Cadenza.IValueReader Read (out uint value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.UInt32&amp;" RefType="out" />
@@ -334,18 +355,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public virtual Cadenza.StreamConverter Read (out ulong value);" />
+      <MemberSignature Language="C#" Value="public virtual Cadenza.IValueReader Read (out ulong value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.UInt64&amp;" RefType="out" />
@@ -358,13 +374,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Read (byte[] value, int offset, int count);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueReader Read (byte[] value, int offset, int count);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Byte[]" />
@@ -381,13 +397,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Read (int size, System.Text.Encoding encoding, out string value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueReader Read (int size, System.Text.Encoding encoding, out string value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="size" Type="System.Int32" />
@@ -404,13 +420,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Write (bool value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueWriter Write (bool value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Boolean" />
@@ -423,13 +439,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Write (byte value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueWriter Write (byte value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Byte" />
@@ -462,13 +478,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Write (char value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueWriter Write (char value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Char" />
@@ -481,13 +497,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Write (DateTime value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueWriter Write (DateTime value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.DateTime" />
@@ -500,13 +516,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Write (decimal value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueWriter Write (decimal value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Decimal" />
@@ -519,13 +535,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Write (double value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueWriter Write (double value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Double" />
@@ -538,13 +554,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Write (short value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueWriter Write (short value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Int16" />
@@ -557,13 +573,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Write (int value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueWriter Write (int value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Int32" />
@@ -576,13 +592,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Write (long value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueWriter Write (long value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Int64" />
@@ -595,18 +611,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public virtual Cadenza.StreamConverter Write (sbyte value);" />
+      <MemberSignature Language="C#" Value="public virtual Cadenza.IValueWriter Write (sbyte value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.SByte" />
@@ -619,13 +630,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Write (float value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueWriter Write (float value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Single" />
@@ -638,13 +649,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.StreamConverter Write (string value);" />
+      <MemberSignature Language="C#" Value="public abstract Cadenza.IValueWriter Write (string value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.String" />
@@ -657,18 +668,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public virtual Cadenza.StreamConverter Write (ushort value);" />
+      <MemberSignature Language="C#" Value="public virtual Cadenza.IValueWriter Write (ushort value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.UInt16" />
@@ -681,18 +687,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public virtual Cadenza.StreamConverter Write (uint value);" />
+      <MemberSignature Language="C#" Value="public virtual Cadenza.IValueWriter Write (uint value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.UInt32" />
@@ -705,18 +706,13 @@
       </Docs>
     </Member>
     <Member MemberName="Write">
-      <MemberSignature Language="C#" Value="public virtual Cadenza.StreamConverter Write (ulong value);" />
+      <MemberSignature Language="C#" Value="public virtual Cadenza.IValueWriter Write (ulong value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IValueWriter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.UInt64" />
@@ -752,4 +748,9 @@
       </Docs>
     </Member>
   </Members>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.CLSCompliant(false)</AttributeName>
+    </Attribute>
+  </Attributes>
 </Type>

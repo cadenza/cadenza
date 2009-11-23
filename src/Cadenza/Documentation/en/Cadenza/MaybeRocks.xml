@@ -20,7 +20,7 @@
         These methods provide C# query comprehension support for 
         <see cref="T:Cadenza.Maybe{T}" /> instances:
       </para>
-      <code lang="C#" src="../../Tests/Cadenza.Tests/MaybeTest.cs#SelectMany_QueryComprehension">Assert.AreEqual (Maybe&lt;int&gt;.Nothing,
+      <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#SelectMany_QueryComprehension">Assert.AreEqual (Maybe&lt;int&gt;.Nothing,
 		from x in 5.ToMaybe ()
 		from y in Maybe&lt;int&gt;.Nothing
 		select x + y);
@@ -97,7 +97,7 @@ Assert.AreEqual (9.ToMaybe (),
               is returned.
             </para>
           </block>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/MaybeTest.cs#Select">Assert.AreEqual (2.Just (),
+          <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#Select">Assert.AreEqual (2.Just (),
 	1.Just ().Select (x =&gt; x + 1));
 Assert.AreEqual (2.Just (),
 	from x in 1.Just ()
@@ -201,7 +201,7 @@ Assert.AreEqual (2.Just (),
               returned.)
             </para>
           </block>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/MaybeTest.cs#SelectMany_TCollection">Assert.AreEqual (Maybe&lt;int&gt;.Nothing, 
+          <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#SelectMany_TCollection">Assert.AreEqual (Maybe&lt;int&gt;.Nothing, 
 		5.Just().SelectMany(
 			x =&gt; Maybe&lt;int&gt;.Nothing,
 			(x, y) =&gt; x + y));

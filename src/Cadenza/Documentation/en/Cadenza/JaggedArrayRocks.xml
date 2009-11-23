@@ -53,7 +53,7 @@
             it can be used with
             <see cref="M:Cadenza.IEnumerableRocks.Transpose``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/JaggedArrayTest.cs#Rows">int[][] s = new []{
+          <code lang="C#" src="../../Test/Cadenza/JaggedArrayTest.cs#Rows">int[][] s = new []{
 	new[]{1, 2, 3},
 	new[]{4, 5, 6},
 	new[]{7, 8, 9},

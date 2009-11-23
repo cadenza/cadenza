@@ -1107,9 +1107,9 @@
             whether the <see cref="P:Cadenza.Tuple`1.System#Collections#ICollection#Count" />
             cannot be changed.
             </summary>
-        <returns>
+        <value>
           <see cref="T:Cadenza.Tuple{T}" /> is immutable; its size cannot be changed.
-            </returns>
+            </value>
         <value>
           <see langword="true" />
         </value>

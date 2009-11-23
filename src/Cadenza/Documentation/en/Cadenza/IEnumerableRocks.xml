@@ -388,6 +388,29 @@
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Func(System.Object)" /></exception>
       </Docs>
     </Member>
+    <Member MemberName="Cache&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.CachedSequence&lt;T&gt; Cache&lt;T&gt; (this System.Collections.Generic.IEnumerable&lt;T&gt; self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.CachedSequence&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;T&gt;" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Concat&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Concat&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; selfs);" />
       <MemberType>Method</MemberType>
@@ -444,6 +467,31 @@
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" /></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="ContiguousSubsequences&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; ContiguousSubsequences&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, int windowSize);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="windowSize" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="windowSize">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Cycle&lt;TSource&gt;">
@@ -746,7 +794,7 @@
             next element within <paramref name="self" /> is the first element
             of the new group).
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#HaskellGroupBy">// Split a string into pairs
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#HaskellGroupBy">// Split a string into pairs
 string s = "123456789";
 int c = 0;
 List&lt;List&lt;char&gt;&gt; pairs = s.HaskellGroupBy(delegate {
@@ -1058,7 +1106,7 @@ Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
             starts at the start of <paramref name="self" /> and increments
             until the end of <paramref name="self" />.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#InitialSegments">IEnumerable&lt;IEnumerable&lt;char&gt;&gt; e = "abc".InitialSegments ();
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#InitialSegments">IEnumerable&lt;IEnumerable&lt;char&gt;&gt; e = "abc".InitialSegments ();
 var l = e.ToList ();
 Assert.AreEqual (4, l.Count);
 AssertAreSame (new char[]{},          l [0]);
@@ -1512,7 +1560,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
             The number of items in the list returned is equal to the shorter of
             <paramref name="self" /> and <paramref name="source2" />.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#SelectFromEach2">List&lt;int&gt;  a = new List&lt;int&gt; {1, 2, 3, 4};
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#SelectFromEach2">List&lt;int&gt;  a = new List&lt;int&gt; {1, 2, 3, 4};
 List&lt;char&gt; b = new List&lt;char&gt; {'a', 'b', 'c', 'd', 'e'};
 var c = a.SelectFromEach (b, (x, y) =&gt; new { First = x, Second = y }).ToList ();
 Assert.AreEqual (4, c.Count);
@@ -1609,7 +1657,7 @@ Assert.AreEqual ('d', c [3].Second);
             The number of items in the list returned is equal to the shorter of
             <paramref name="self" />, <paramref name="source2" />, and <paramref name="source3" />.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#SelectFromEach3">Assert.AreEqual ("123",
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#SelectFromEach3">Assert.AreEqual ("123",
 		new[]{1}.SelectFromEach (new[]{2}, new[]{3}, 
 			(x,y,z) =&gt; x.ToString () + y.ToString () + z.ToString ()).Implode ());
 </code>
@@ -1706,7 +1754,7 @@ Assert.AreEqual ('d', c [3].Second);
             The number of items in the list returned is equal to the shorter of
             <paramref name="self" />, <paramref name="source2" />, <paramref name="source3" />, and <paramref name="source4" />.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#SelectFromEach4">Assert.AreEqual ("1234",
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#SelectFromEach4">Assert.AreEqual ("1234",
 		new[]{1}.SelectFromEach (new[]{2}, new[]{3}, new[]{4},
 			(w,x,y,z) =&gt; w.ToString () + x.ToString () + y.ToString () + z.ToString ()).Implode ());
 </code>
@@ -2048,7 +2096,7 @@ Assert.AreEqual ('d', c [3].Second);
             <c>Tuple.Create (self.TakeWhile (predicate), 
             self.SkipWhile (predicate));</c>.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#Span">Assert.AreEqual ("12|341234",
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Span">Assert.AreEqual ("12|341234",
 		new[]{1,2,3,4,1,2,3,4}.Span (e =&gt; e &lt; 3)
 		.Aggregate ((x, y) =&gt; x.Implode () + "|" + y.Implode ()));
 Assert.AreEqual ("123|",
@@ -2110,7 +2158,7 @@ Assert.AreEqual ("|123",
             <c>Tuple.Create (self.Take (firstLength), 
             self.Skip (firstLength));</c>.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#SplitAt">Assert.AreEqual ("Hello |World!",
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#SplitAt">Assert.AreEqual ("Hello |World!",
 		"Hello World!".SplitAt (6)
 		.Aggregate ((x,y) =&gt; x.Implode () + "|" + y.Implode ()));
 Assert.AreEqual ("123|45",
@@ -2216,7 +2264,7 @@ Assert.AreEqual ("|123",
           with the same ordering and values as <paramref name="self" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#ToList">int[][] a = new int[][]{
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#ToList">int[][] a = new int[][]{
 	new int[]{1, 2, 3},
 	new int[]{4, 5, 6},
 };
@@ -2234,6 +2282,64 @@ Assert.AreEqual (a [1][2], c [1][2]);
 </code>
         </remarks>
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="ToReadOnlyDictionary&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.ReadOnlyDictionary&lt;TKey,TValue&gt; ToReadOnlyDictionary&lt;TKey,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TValue&gt; self, Func&lt;TValue,TKey&gt; keySelector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.ReadOnlyDictionary&lt;TKey,TValue&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TValue&gt;" RefType="this" />
+        <Parameter Name="keySelector" Type="System.Func&lt;TValue,TKey&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="keySelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToReadOnlyDictionary&lt;TSource,TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.ReadOnlyDictionary&lt;TKey,TValue&gt; ToReadOnlyDictionary&lt;TSource,TKey,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TKey&gt; keySelector, Func&lt;TSource,TValue&gt; valueSelector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.ReadOnlyDictionary&lt;TKey,TValue&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="keySelector" Type="System.Func&lt;TSource,TKey&gt;" />
+        <Parameter Name="valueSelector" Type="System.Func&lt;TSource,TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="keySelector">To be added.</param>
+        <param name="valueSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="ToTuple">
@@ -2278,7 +2384,7 @@ Assert.AreEqual (a [1][2], c [1][2]);
             otherwise a <see cref="T:System.NotSupportedException" /> is
             thrown.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#ToTuple">IEnumerable&lt;object&gt; s = new object[]{1, '2', 3L, "4"};
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#ToTuple">IEnumerable&lt;object&gt; s = new object[]{1, '2', 3L, "4"};
 IList&lt;object&gt; tl = s.ToTuple ();
 Assert.AreEqual (typeof(Tuple&lt;int, char, long, string&gt;), tl.GetType());
 Assert.AreEqual (4,   tl.Count);
@@ -2322,6 +2428,11 @@ Assert.AreEqual ("4", t._4);
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
     </Member>
     <Member MemberName="ToValueReader&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.EnumerableValueReader&lt;TSource&gt; ToValueReader&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
@@ -2346,6 +2457,11 @@ Assert.AreEqual ("4", t._4);
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
       </Docs>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
     </Member>
     <Member MemberName="TrailingSegments&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; TrailingSegments&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
@@ -2389,7 +2505,7 @@ Assert.AreEqual ("4", t._4);
             starts at the start of <paramref name="self" /> and increments
             until the end of <paramref name="self" />.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#TrailingSegments">IEnumerable&lt;IEnumerable&lt;char&gt;&gt; e = "abc".TrailingSegments ();
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#TrailingSegments">IEnumerable&lt;IEnumerable&lt;char&gt;&gt; e = "abc".TrailingSegments ();
 var l = e.ToList ();
 Assert.AreEqual (4, l.Count);
 AssertAreSame (new[]{'a', 'b', 'c'},  l [0]);
@@ -2447,7 +2563,7 @@ AssertAreSame (new char[]{},          l [3]);
             maximum number of input columns are "skipped" when an input column
             index exceeds the length of that row.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#Transpose">IEnumerable&lt;IEnumerable&lt;int&gt;&gt; a = new int[][]{
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Transpose">IEnumerable&lt;IEnumerable&lt;int&gt;&gt; a = new int[][]{
 	new int[]{1, 2, 3},
 	new int[]{4, 5, 6},
 };
@@ -2526,7 +2642,7 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
           <para>
             This is analogous to undoing a <c>Zip</c> operation.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#Unzip2">Assert.AreEqual ("1,2|3,4",
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Unzip2">Assert.AreEqual ("1,2|3,4",
 		new[]{1,2}.Zip (new[]{3,4,5}).Unzip ()
 		.Aggregate ((a, b) =&gt; a.Implode (",") + "|" + b.Implode (",")));
 </code>
@@ -2586,7 +2702,7 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
           <para>
             This is analogous to undoing a <c>Zip</c> operation.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#Unzip3">Assert.AreEqual ("1,2|3,4|5,6",
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Unzip3">Assert.AreEqual ("1,2|3,4|5,6",
 		new[]{1,2}.Zip (new[]{3,4,5}, new[]{5,6}).Unzip ()
 		.Aggregate ((a, b, c) =&gt; a.Implode (",") + "|" + b.Implode (",") + "|" + c.Implode (",")));
 </code>
@@ -2650,7 +2766,7 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
           <para>
             This is analogous to undoing a <c>Zip</c> operation.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#Unzip4">Assert.AreEqual ("1,2|3,4|5,6|7,8",
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Unzip4">Assert.AreEqual ("1,2|3,4|5,6|7,8",
 		new[]{1,2}.Zip (new[]{3,4,5,6}, new[]{5,6,7}, new[]{7,8}).Unzip ()
 		.Aggregate ((a, b, c, d) =&gt; a.Implode (",") + "|" + b.Implode (",") + "|" + c.Implode (",") + "|" + d.Implode (",")));
 </code>
@@ -2717,7 +2833,7 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
             The number of items in the list returned is equal to the shorter
             of <paramref name="self" /> and <paramref name="source2" />.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#Zip2">Assert.AreEqual ("1,5|2,4|",
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Zip2">Assert.AreEqual ("1,5|2,4|",
 		new[]{1,2}.Zip (new[]{5,4,3})
 		.Aggregate (new StringBuilder(), 
 			(b, e) =&gt; b.AppendFormat ("{0},{1}|", e._1, e._2)).ToString ());
@@ -2801,7 +2917,7 @@ Assert.AreEqual ("",
             The number of items in the list returned is equal to the shorter of
             <paramref name="self" />, <paramref name="source2" />, and <paramref name="source3" />.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#Zip3">Assert.AreEqual ("1,3,5|2,4,6|",
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Zip3">Assert.AreEqual ("1,3,5|2,4,6|",
 		new[]{1,2}.Zip (new[]{3,4,5,6}, new[]{5,6,7})
 		.Aggregate (new StringBuilder(), 
 			(b, e) =&gt; b.AppendFormat ("{0},{1},{2}|", e._1, e._2, e._3)).ToString ());
@@ -2894,7 +3010,7 @@ Assert.AreEqual ("",
             The number of items in the list returned is equal to the shorter of
             <paramref name="self" />, <paramref name="source2" />, <paramref name="source3" />, and <paramref name="source4" />.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/IEnumerableTest.cs#Zip4">Assert.AreEqual ("1,3,5,7|2,4,6,8|",
+          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Zip4">Assert.AreEqual ("1,3,5,7|2,4,6,8|",
 		new[]{1,2}.Zip (new[]{3,4,5,6}, new[]{5,6,7}, new[]{7,8})
 		.Aggregate (new StringBuilder(), 
 			(b, e) =&gt; b.AppendFormat ("{0},{1},{2},{3}|", e._1, e._2, e._3, e._4)).ToString ());

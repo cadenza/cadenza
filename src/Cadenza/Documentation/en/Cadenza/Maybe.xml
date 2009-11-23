@@ -68,7 +68,7 @@
             the string <paramref name="value" /> into an instance of type
             <typeparamref name="T" />.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/MaybeTest.cs#TryParse">Maybe&lt;int&gt; n;
+          <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#TryParse">Maybe&lt;int&gt; n;
 
 n = Maybe.TryParse&lt;int&gt; (null);
 Assert.IsFalse (n.HasValue);
@@ -138,7 +138,7 @@ Assert.AreEqual (42, n.Value);
             <paramref name="value" /> into an instance of type
             <typeparamref name="TResult" />.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/MaybeTest.cs#TryParse2">Maybe&lt;string&gt; a = Maybe.TryParse&lt;int, string&gt; (42);
+          <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#TryParse2">Maybe&lt;string&gt; a = Maybe.TryParse&lt;int, string&gt; (42);
 Assert.IsTrue (a.HasValue);
 Assert.AreEqual ("42", a.Value);
 
@@ -213,7 +213,7 @@ length = s.Match (
     v =&gt; Maybe.When (s != null, () =&gt; s.Length),  // delays evaluation.
     v =&gt; Maybe.When (s == null, 0));
           </code>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/MaybeTest.cs#When_Creator">bool invoked = false;
+          <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#When_Creator">bool invoked = false;
 r = Maybe.When (false, () =&gt; {invoked = true; return 42;});
 Assert.IsFalse (invoked);
 Assert.IsFalse (r.HasValue);
@@ -283,7 +283,7 @@ Assert.AreEqual (42, r.Value);
             when it doesn't matter of <paramref name="value" /> is
             immediately evaluated.
           </para>
-          <code lang="C#" src="../../Tests/Cadenza.Tests/MaybeTest.cs#When">var r = Maybe.When (true, 42);
+          <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#When">var r = Maybe.When (true, 42);
 Assert.IsTrue (r.HasValue);
 Assert.AreEqual (42, r.Value);
 

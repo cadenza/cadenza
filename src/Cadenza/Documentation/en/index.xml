@@ -6,6 +6,9 @@
           <AttributeName>System.CLSCompliant(true)</AttributeName>
         </Attribute>
         <Attribute>
+          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.Default | System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints | System.Diagnostics.DebuggableAttribute+DebuggingModes.EnableEditAndContinue | System.Diagnostics.DebuggableAttribute+DebuggingModes.DisableOptimizations)</AttributeName>
+        </Attribute>
+        <Attribute>
           <AttributeName>System.Reflection.AssemblyCompany("Novell, Inc.")</AttributeName>
         </Attribute>
         <Attribute>
@@ -30,6 +33,9 @@
           <AttributeName>System.Reflection.AssemblyTrademark("")</AttributeName>
         </Attribute>
         <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.CompilationRelaxations(8)</AttributeName>
+        </Attribute>
+        <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
         </Attribute>
         <Attribute>
@@ -50,29 +56,32 @@
   </Copyright>
   <Types>
     <Namespace Name="Cadenza">
+      <Type Name="CachedSequence`1" DisplayName="CachedSequence&lt;T&gt;" Kind="Class" />
       <Type Name="DelegateRocks" Kind="Class" />
       <Type Name="Either" Kind="Class" />
       <Type Name="Either`2" DisplayName="Either&lt;T1,T2&gt;" Kind="Class" />
       <Type Name="Either`3" DisplayName="Either&lt;T1,T2,T3&gt;" Kind="Class" />
       <Type Name="Either`4" DisplayName="Either&lt;T1,T2,T3,T4&gt;" Kind="Class" />
       <Type Name="EnumerableValueReader`1" DisplayName="EnumerableValueReader&lt;T&gt;" Kind="Class" />
-      <Type Name="EnumerableValueReaderRocks" Kind="Class" />
       <Type Name="ICustomAttributeProviderRocks" Kind="Class" />
       <Type Name="IEnumerableRocks" Kind="Class" />
       <Type Name="Int16Rocks" Kind="Class" />
       <Type Name="Int32Rocks" Kind="Class" />
       <Type Name="Int64Rocks" Kind="Class" />
-      <Type Name="IValueReader`1" DisplayName="IValueReader&lt;TSelf&gt;" Kind="Interface" />
-      <Type Name="IValueWriter`1" DisplayName="IValueWriter&lt;TSelf&gt;" Kind="Interface" />
+      <Type Name="IValueReader" Kind="Interface" />
+      <Type Name="IValueWriter" Kind="Interface" />
       <Type Name="JaggedArrayRocks" Kind="Class" />
       <Type Name="KeyValuePairRocks" Kind="Class" />
       <Type Name="Lambda" Kind="Class" />
       <Type Name="Maybe" Kind="Class" />
       <Type Name="Maybe`1" DisplayName="Maybe&lt;T&gt;" Kind="Structure" />
       <Type Name="MaybeRocks" Kind="Class" />
+      <Type Name="MutableLookup`2" DisplayName="MutableLookup&lt;TKey,TElement&gt;" Kind="Class" />
       <Type Name="NaturalStringComparer" Kind="Class" />
       <Type Name="NullableRocks" Kind="Class" />
       <Type Name="ObjectRocks" Kind="Class" />
+      <Type Name="OrderedDictionary`2" DisplayName="OrderedDictionary&lt;TKey,TValue&gt;" Kind="Class" />
+      <Type Name="ReadOnlyDictionary`2" DisplayName="ReadOnlyDictionary&lt;TKey,TValue&gt;" Kind="Class" />
       <Type Name="RectangularArrayRocks" Kind="Class" />
       <Type Name="Sequence" Kind="Class" />
       <Type Name="StreamConverter" Kind="Class" />
@@ -82,7 +91,6 @@
       <Type Name="TextReaderRocks" Kind="Class" />
       <Type Name="TextReaderRocksOptions" Kind="Enumeration" />
       <Type Name="TextValueReader" Kind="Class" />
-      <Type Name="TextValueReaderRocks" Kind="Class" />
       <Type Name="Tuple" Kind="Class" />
       <Type Name="Tuple`1" DisplayName="Tuple&lt;T&gt;" Kind="Structure" />
       <Type Name="Tuple`2" DisplayName="Tuple&lt;T1,T2&gt;" Kind="Structure" />
@@ -93,6 +101,8 @@
       <Type Name="UInt16Rocks" Kind="Class" />
       <Type Name="UInt32Rocks" Kind="Class" />
       <Type Name="UInt64Rocks" Kind="Class" />
+      <Type Name="ValueReader`1" DisplayName="ValueReader&lt;T&gt;" Kind="Class" />
+      <Type Name="ValueReaderRocks" Kind="Class" />
     </Namespace>
   </Types>
   <Title>Cadenza</Title>
@@ -3092,34 +3102,6 @@
     </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
-        <Target Type="T:Cadenza.EnumerableValueReader`1" />
-      </Targets>
-      <Member MemberName="Read&lt;TSource,TValue&gt;">
-        <MemberSignature Language="C#" Value="public static Cadenza.EnumerableValueReader&lt;TSource&gt; Read&lt;TSource,TValue&gt; (this Cadenza.EnumerableValueReader&lt;TSource&gt; self, out TValue value);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>Cadenza.EnumerableValueReader&lt;TSource&gt;</ReturnType>
-        </ReturnValue>
-        <TypeParameters>
-          <TypeParameter Name="TSource" />
-          <TypeParameter Name="TValue" />
-        </TypeParameters>
-        <Parameters>
-          <Parameter Name="self" Type="Cadenza.EnumerableValueReader&lt;TSource&gt;" RefType="this" />
-          <Parameter Name="value" Type="TValue&amp;" RefType="out" />
-        </Parameters>
-        <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <typeparam name="TValue">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="value">To be added.</param>
-          <summary>To be added.</summary>
-        </Docs>
-        <Link Type="Cadenza.EnumerableValueReaderRocks" Member="M:Cadenza.EnumerableValueReaderRocks.Read``2(Cadenza.EnumerableValueReader{``0},``1@)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
         <Target Type="T:System.Reflection.ICustomAttributeProvider" />
       </Targets>
       <Member MemberName="GetCustomAttribute&lt;TAttribute&gt;">
@@ -3564,6 +3546,30 @@
       <Targets>
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
+      <Member MemberName="Cache&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static Cadenza.CachedSequence&lt;T&gt; Cache&lt;T&gt; (this System.Collections.Generic.IEnumerable&lt;T&gt; self);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>Cadenza.CachedSequence&lt;T&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;T&gt;" RefType="this" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Cache``1(System.Collections.Generic.IEnumerable{``0})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
       <Member MemberName="Concat&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Concat&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt;[] selfs);" />
         <MemberType>ExtensionMethod</MemberType>
@@ -3616,6 +3622,32 @@
           <summary>To be added.</summary>
         </Docs>
         <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
+      <Member MemberName="ContiguousSubsequences&lt;TSource&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; ContiguousSubsequences&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, int windowSize);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="windowSize" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="windowSize">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.ContiguousSubsequences``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5166,6 +5198,66 @@
     </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
+      <Member MemberName="ToReadOnlyDictionary&lt;TKey,TValue&gt;">
+        <MemberSignature Language="C#" Value="public static Cadenza.ReadOnlyDictionary&lt;TKey,TValue&gt; ToReadOnlyDictionary&lt;TKey,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TValue&gt; self, Func&lt;TValue,TKey&gt; keySelector);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>Cadenza.ReadOnlyDictionary&lt;TKey,TValue&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TKey" />
+          <TypeParameter Name="TValue" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TValue&gt;" RefType="this" />
+          <Parameter Name="keySelector" Type="System.Func&lt;TValue,TKey&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TKey">To be added.</typeparam>
+          <typeparam name="TValue">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="keySelector">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.ToReadOnlyDictionary``2(System.Collections.Generic.IEnumerable{``1},System.Func{``1,``0})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
+      <Member MemberName="ToReadOnlyDictionary&lt;TSource,TKey,TValue&gt;">
+        <MemberSignature Language="C#" Value="public static Cadenza.ReadOnlyDictionary&lt;TKey,TValue&gt; ToReadOnlyDictionary&lt;TSource,TKey,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TKey&gt; keySelector, Func&lt;TSource,TValue&gt; valueSelector);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>Cadenza.ReadOnlyDictionary&lt;TKey,TValue&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TKey" />
+          <TypeParameter Name="TValue" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="keySelector" Type="System.Func&lt;TSource,TKey&gt;" />
+          <Parameter Name="valueSelector" Type="System.Func&lt;TSource,TValue&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <typeparam name="TKey">To be added.</typeparam>
+          <typeparam name="TValue">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="keySelector">To be added.</param>
+          <param name="valueSelector">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.ToReadOnlyDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
         <Target Type="T:System.Collections.IEnumerable" />
       </Targets>
       <Member MemberName="ToTuple">
@@ -6321,12 +6413,28 @@
           <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <typeparam name="TResult">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="valueSelector">To be added.</param>
-          <param name="childrenSelector">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the root node and intermediate nodes of the tree.
+        </typeparam>
+          <typeparam name="TResult">
+          The type of the object to return.
+        </typeparam>
+          <param name="self">
+          The root of a tree to traverse.
+        </param>
+          <param name="valueSelector">
+          A <see cref="T:System.Func{TSource,TResult}" /> which is used to 
+          convert tree nodes into <typeparamref name="TResult" /> instances.
+        </param>
+          <param name="childrenSelector">
+          A <see cref="T:System.Func{TSource,System.Collections.Generic.IEnumerable{TSource}}" />
+          which returns the child nodes of <paramref name="root" />
+          and all intermediate non-leaf nodes.
+        </param>
+          <summary>
+          Traverse a tree in a breadth-first fashion, converting each 
+          encountered node.
+        </summary>
         </Docs>
         <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.TraverseBreadthFirstWithParent``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
@@ -6397,12 +6505,28 @@
           <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <typeparam name="TResult">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="valueSelector">To be added.</param>
-          <param name="childrenSelector">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the root node and intermediate nodes of the tree.
+        </typeparam>
+          <typeparam name="TResult">
+          The type of the object to return.
+        </typeparam>
+          <param name="self">
+          The root of a tree to traverse.
+        </param>
+          <param name="valueSelector">
+          A <see cref="T:System.Func{TSource,TResult}" /> which is used to 
+          convert tree nodes into <typeparamref name="TResult" /> instances.
+        </param>
+          <param name="childrenSelector">
+          A <see cref="T:System.Func{TSource,System.Collections.Generic.IEnumerable{TSource}}" />
+          which returns the child nodes of <paramref name="root" />
+          and all intermediate non-leaf nodes.
+        </param>
+          <summary>
+          Traverse a tree in a depth-first fashion, converting each 
+          encountered node.
+        </summary>
         </Docs>
         <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.TraverseDepthFirstWithParent``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
@@ -6707,6 +6831,26 @@
       <Targets>
         <Target Type="T:System.String" />
       </Targets>
+      <Member MemberName="IsNullOrWhitespace">
+        <MemberSignature Language="C#" Value="public static bool IsNullOrWhitespace (this string self);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.String" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="self">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.IsNullOrWhitespace(System.String)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.String" />
+      </Targets>
       <Member MemberName="Lines">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this string self);" />
         <MemberType>ExtensionMethod</MemberType>
@@ -6867,6 +7011,34 @@
       <Targets>
         <Target Type="T:System.String" />
       </Targets>
+      <Member MemberName="Remove">
+        <MemberSignature Language="C#" Value="public static string Remove (this string self, string[] targets);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.String</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.String" RefType="this" />
+          <Parameter Name="targets" Type="System.String[]">
+            <Attributes>
+              <Attribute>
+                <AttributeName>System.ParamArray</AttributeName>
+              </Attribute>
+            </Attributes>
+          </Parameter>
+        </Parameters>
+        <Docs>
+          <param name="self">To be added.</param>
+          <param name="targets">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Remove(System.String,System.String[])" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.String" />
+      </Targets>
       <Member MemberName="Slice">
         <MemberSignature Language="C#" Value="public static string Slice (this string self, int start, int end);" />
         <MemberType>ExtensionMethod</MemberType>
@@ -7004,6 +7176,56 @@
         </summary>
         </Docs>
         <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Words(System.String)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.String" />
+      </Targets>
+      <Member MemberName="WrappedLines">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; WrappedLines (this string self, System.Collections.Generic.IEnumerable&lt;int&gt; widths);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.String" RefType="this" />
+          <Parameter Name="widths" Type="System.Collections.Generic.IEnumerable&lt;System.Int32&gt;" />
+        </Parameters>
+        <Docs>
+          <param name="self">To be added.</param>
+          <param name="widths">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.WrappedLines(System.String,System.Collections.Generic.IEnumerable{System.Int32})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.String" />
+      </Targets>
+      <Member MemberName="WrappedLines">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; WrappedLines (this string self, int[] widths);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.String" RefType="this" />
+          <Parameter Name="widths" Type="System.Int32[]">
+            <Attributes>
+              <Attribute>
+                <AttributeName>System.ParamArray</AttributeName>
+              </Attribute>
+            </Attributes>
+          </Parameter>
+        </Parameters>
+        <Docs>
+          <param name="self">To be added.</param>
+          <param name="widths">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.WrappedLines(System.String,System.Int32[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7233,32 +7455,6 @@
     </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
-        <Target Type="T:Cadenza.TextValueReader" />
-      </Targets>
-      <Member MemberName="Read&lt;TValue&gt;">
-        <MemberSignature Language="C#" Value="public static Cadenza.TextValueReader Read&lt;TValue&gt; (this Cadenza.TextValueReader self, out TValue value);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>Cadenza.TextValueReader</ReturnType>
-        </ReturnValue>
-        <TypeParameters>
-          <TypeParameter Name="TValue" />
-        </TypeParameters>
-        <Parameters>
-          <Parameter Name="self" Type="Cadenza.TextValueReader" RefType="this" />
-          <Parameter Name="value" Type="TValue&amp;" RefType="out" />
-        </Parameters>
-        <Docs>
-          <typeparam name="TValue">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="value">To be added.</param>
-          <summary>To be added.</summary>
-        </Docs>
-        <Link Type="Cadenza.TextValueReaderRocks" Member="M:Cadenza.TextValueReaderRocks.Read``1(Cadenza.TextValueReader,``0@)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
         <Target Type="T:Cadenza.Tuple`2" />
       </Targets>
       <Member MemberName="ToKeyValuePair&lt;TKey,TValue&gt;">
@@ -7459,6 +7655,34 @@
         </summary>
         </Docs>
         <Link Type="Cadenza.UInt64Rocks" Member="M:Cadenza.UInt64Rocks.IsOdd(System.UInt64)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.ValueReader`1" />
+      </Targets>
+      <Member MemberName="Read&lt;TSource,TValue&gt;">
+        <MemberSignature Language="C#" Value="public static Cadenza.ValueReader&lt;TSource&gt; Read&lt;TSource,TValue&gt; (this Cadenza.ValueReader&lt;TSource&gt; self, out TValue value);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>Cadenza.ValueReader&lt;TSource&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TValue" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.ValueReader&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="value" Type="TValue&amp;" RefType="out" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <typeparam name="TValue">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="value">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.ValueReaderRocks" Member="M:Cadenza.ValueReaderRocks.Read``2(Cadenza.ValueReader{``0},``1@)" />
       </Member>
     </ExtensionMethod>
   </ExtensionMethods>
