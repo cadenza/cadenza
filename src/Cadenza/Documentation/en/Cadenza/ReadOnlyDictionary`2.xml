@@ -1,0 +1,376 @@
+<Type Name="ReadOnlyDictionary&lt;TKey,TValue&gt;" FullName="Cadenza.ReadOnlyDictionary&lt;TKey,TValue&gt;">
+  <TypeSignature Language="C#" Value="public class ReadOnlyDictionary&lt;TKey,TValue&gt; : System.Collections.Generic.ICollection&lt;System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;&gt;, System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;, System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;&gt;" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <TypeParameters>
+    <TypeParameter Name="TKey" />
+    <TypeParameter Name="TValue" />
+  </TypeParameters>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>System.Collections.Generic.ICollection&lt;System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;&gt;</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <typeparam name="TKey">To be added.</typeparam>
+    <typeparam name="TValue">To be added.</typeparam>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ReadOnlyDictionary (System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; dict);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="dict" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="dict">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public void Add (System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; item);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="item" Type="System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="item">To be added.</param>
+        <summary>
+            Not supported.
+            </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.NotSupportedException">Always.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public void Add (TKey key, TValue value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="TKey" />
+        <Parameter Name="value" Type="TValue" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <param name="value">To be added.</param>
+        <summary>
+            Not supported.
+            </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.NotSupportedException">Always.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Clear">
+      <MemberSignature Language="C#" Value="public void Clear ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>
+            Not supported.
+            </summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.NotSupportedException">Always.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Contains">
+      <MemberSignature Language="C#" Value="public bool Contains (System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; item);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="item" Type="System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="item">The <c>KeyValuePair</c> to check for.</param>
+        <summary>
+            Gets whether <paramref name="item" /> is in the collection.
+            </summary>
+        <returns>
+          <c>true</c> if <paramref name="item" /> exists.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ContainsKey">
+      <MemberSignature Language="C#" Value="public bool ContainsKey (TKey key);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="TKey" />
+      </Parameters>
+      <Docs>
+        <param name="key">The key to check for.</param>
+        <summary>
+            Gets whether <paramref name="key" /> exists in the dictionary.
+            </summary>
+        <returns>
+          <c>true</c> if the key was found, <c>false</c> otherwise.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="key" /> is null.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CopyTo">
+      <MemberSignature Language="C#" Value="public void CopyTo (System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;[] array, int arrayIndex);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="array" Type="System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;[]" />
+        <Parameter Name="arrayIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="array">The array to copy the collection to.</param>
+        <param name="arrayIndex">The offset in <paramref name="array" /> to start copying to.</param>
+        <summary>
+            Copies the collection to <paramref name="array" /> starting at <paramref name="arrayIndex" />.
+            </summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Count">
+      <MemberSignature Language="C#" Value="public int Count { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets the size of the collection.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEnumerator">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IEnumerator&lt;System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;&gt; GetEnumerator ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerator&lt;System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Item">
+      <MemberSignature Language="C#" Value="public TValue this[TKey key] { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TValue</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="TKey" />
+      </Parameters>
+      <Docs>
+        <param name="key">The key to get the value for.</param>
+        <summary>
+            Gets the value associated with <paramref name="key" />.
+            </summary>
+        <returns>The value of <paramref name="key" />.</returns>
+        <value>The value of <paramref name="key" />.</value>
+        <value>The value of <paramref name="key" />.</value>
+        <value>The value of <paramref name="key" />.</value>
+        <value>The value of <paramref name="key" />.</value>
+        <value>The value of <paramref name="key" />.</value>
+        <value>The value of <paramref name="key" />.</value>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="key" /> is <c>null</c>.</exception>
+        <exception cref="T:System.Collections.Generic.KeyNotFoundException">
+          <paramref name="key" /> is not found.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Keys">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.ICollection&lt;TKey&gt; Keys { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.ICollection&lt;TKey&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets a collection of this dictionary's keys.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Remove">
+      <MemberSignature Language="C#" Value="public bool Remove (System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; item);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="item" Type="System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="item">To be added.</param>
+        <summary>
+            Not supported.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.NotSupportedException">Always.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Remove">
+      <MemberSignature Language="C#" Value="public bool Remove (TKey key);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="TKey" />
+      </Parameters>
+      <Docs>
+        <param name="key">To be added.</param>
+        <summary>
+            Not supported.
+            </summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.NotSupportedException">Always.</exception>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.Generic.ICollection&lt;System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;&gt;.IsReadOnly">
+      <MemberSignature Language="C#" Value="bool System.Collections.Generic.ICollection&lt;System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;&gt;.IsReadOnly { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="System.Collections.IEnumerable.GetEnumerator">
+      <MemberSignature Language="C#" Value="System.Collections.IEnumerator IEnumerable.GetEnumerator ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.IEnumerator</ReturnType>
+      </ReturnValue>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TryGetValue">
+      <MemberSignature Language="C#" Value="public bool TryGetValue (TKey key, out TValue value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="key" Type="TKey" />
+        <Parameter Name="value" Type="TValue&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <param name="key">The key to attempt to get <paramref name="value" /> for.</param>
+        <param name="value">
+        </param>
+        <summary>
+            Attempts to get the <paramref name="value" /> for <paramref name="key" />.
+            </summary>
+        <returns />
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Values">
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.ICollection&lt;TValue&gt; Values { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.ICollection&lt;TValue&gt;</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            Gets a collection of the values in this dictionary.
+            </summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
