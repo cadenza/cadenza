@@ -1,4 +1,4 @@
-<Namespace Name="Mono.Rocks">
+<Namespace Name="Cadenza">
   <Docs>
     <summary>
       The Mono.Rocks namespace provides types and extension methods to assist
@@ -6,7 +6,7 @@
     </summary>
     <remarks>
       <para>
-        <see cref="N:Mono.Rocks" /> provides utility types and extension
+        <see cref="N:Cadenza" /> provides utility types and extension
         methods to assist a wide domain of areas, including improved C#
         support for functional programming.
       </para>
