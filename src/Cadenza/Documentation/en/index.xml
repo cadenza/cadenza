@@ -1,6 +1,6 @@
 <Overview>
   <Assemblies>
-    <Assembly Name="Mono.Rocks" Version="0.1.0.0">
+    <Assembly Name="Cadenza" Version="0.1.0.0">
       <Attributes>
         <Attribute>
           <AttributeName>System.CLSCompliant(true)</AttributeName>
@@ -24,7 +24,7 @@
           <AttributeName>System.Reflection.AssemblyProduct("Mono")</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>System.Reflection.AssemblyTitle("Mono.Rocks")</AttributeName>
+          <AttributeName>System.Reflection.AssemblyTitle("Cadenza")</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Reflection.AssemblyTrademark("")</AttributeName>
@@ -42,14 +42,14 @@
     </Assembly>
   </Assemblies>
   <Remarks>
-    <see cref="N:Mono.Rocks" /> is a collection of types and extension methods
+    <see cref="N:Cadenza" /> is a collection of types and extension methods
     to make your life easier.
   </Remarks>
   <Copyright>
     2008 Novell, Inc. and contributors.
   </Copyright>
   <Types>
-    <Namespace Name="Mono.Rocks">
+    <Namespace Name="Cadenza">
       <Type Name="DelegateRocks" Kind="Class" />
       <Type Name="Either" Kind="Class" />
       <Type Name="Either`2" DisplayName="Either&lt;T1,T2&gt;" Kind="Class" />
@@ -95,7 +95,7 @@
       <Type Name="UInt64Rocks" Kind="Class" />
     </Namespace>
   </Types>
-  <Title>Mono.Rocks</Title>
+  <Title>Cadenza</Title>
   <ExtensionMethods>
     <ExtensionMethod>
       <Targets>
@@ -132,7 +132,7 @@
             Creates a <see cref="T:System.Action{T1}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Compose``2(System.Action{``1},System.Func{``0,``1})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``2(System.Action{``1},System.Func{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -174,7 +174,7 @@
             Creates a <see cref="T:System.Action{T1,T2}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Compose``3(System.Action{``2},System.Func{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``3(System.Action{``2},System.Func{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -216,7 +216,7 @@
             Creates a <see cref="T:System.Func{T1,TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Compose``3(System.Func{``1,``2},System.Func{``0,``1})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``3(System.Func{``1,``2},System.Func{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -262,7 +262,7 @@
             Creates a <see cref="T:System.Action{T1,T2,T3}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Compose``4(System.Action{``3},System.Func{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``4(System.Action{``3},System.Func{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -308,7 +308,7 @@
             Creates a <see cref="T:System.Func{T1,T2,TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Compose``4(System.Func{``2,``3},System.Func{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``4(System.Func{``2,``3},System.Func{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -358,7 +358,7 @@
             Creates a <see cref="T:System.Action{T1,T2,T3,T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Compose``5(System.Action{``4},System.Func{``0,``1,``2,``3,``4})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``5(System.Action{``4},System.Func{``0,``1,``2,``3,``4})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -408,7 +408,7 @@
             Creates a <see cref="T:System.Func{T1,T2,T3,TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Compose``5(System.Func{``3,``4},System.Func{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``5(System.Func{``3,``4},System.Func{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -462,7 +462,7 @@
             Creates a <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Compose``6(System.Func{``4,``5},System.Func{``0,``1,``2,``3,``4})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``6(System.Func{``4,``5},System.Func{``0,``1,``2,``3,``4})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -492,7 +492,7 @@
             Creates a <see cref="T:System.Action{T}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``1(System.Action{``0})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``1(System.Action{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -526,7 +526,7 @@
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``1(System.Action{``0},``0)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``1(System.Action{``0},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -534,7 +534,7 @@
         <Target Type="T:System.Action`1" />
       </Targets>
       <Member MemberName="Curry&lt;T&gt;">
-        <MemberSignature Language="C#" Value="public static Action Curry&lt;T&gt; (this Action&lt;T&gt; self, Mono.Rocks.Tuple&lt;T&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Action Curry&lt;T&gt; (this Action&lt;T&gt; self, Cadenza.Tuple&lt;T&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action</ReturnType>
@@ -544,7 +544,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Action&lt;T&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T">
@@ -554,13 +554,13 @@
             The <see cref="T:System.Action{T}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``1(System.Action{``0},Mono.Rocks.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``1(System.Action{``0},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -594,7 +594,7 @@
             Creates a <see cref="T:System.Func{T1,System.Action{T2}}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``2(System.Action{``0,``1})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Action{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -632,7 +632,7 @@
             Creates a <see cref="T:System.Action{T2}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``2(System.Action{``0,``1},``0)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Action{``0,``1},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -674,7 +674,7 @@
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``2(System.Action{``0,``1},``0,``1)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Action{``0,``1},``0,``1)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -682,7 +682,7 @@
         <Target Type="T:System.Action`2" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2&gt;">
-        <MemberSignature Language="C#" Value="public static Action Curry&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, Mono.Rocks.Tuple&lt;T1,T2&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Action Curry&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action</ReturnType>
@@ -693,7 +693,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Action&lt;T1,T2&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1,T2&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1,T2&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -706,13 +706,13 @@
             The <see cref="T:System.Action{T1,T2}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1, T2}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``2(System.Action{``0,``1},Mono.Rocks.Tuple{``0,``1})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Action{``0,``1},Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -720,7 +720,7 @@
         <Target Type="T:System.Action`2" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2&gt;">
-        <MemberSignature Language="C#" Value="public static Action&lt;T2&gt; Curry&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, Mono.Rocks.Tuple&lt;T1&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Action&lt;T2&gt; Curry&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T2&gt;</ReturnType>
@@ -731,7 +731,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Action&lt;T1,T2&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -744,13 +744,13 @@
             The <see cref="T:System.Action{T1,T2}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action{T2}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``2(System.Action{``0,``1},Mono.Rocks.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Action{``0,``1},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -784,7 +784,7 @@
             Creates a <see cref="T:System.Func{T,TResult}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``2(System.Func{``0,``1})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Func{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -822,7 +822,7 @@
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``2(System.Func{``0,``1},``0)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Func{``0,``1},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -830,7 +830,7 @@
         <Target Type="T:System.Func`2" />
       </Targets>
       <Member MemberName="Curry&lt;T,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T,TResult&gt; (this Func&lt;T,TResult&gt; self, Mono.Rocks.Tuple&lt;T&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T,TResult&gt; (this Func&lt;T,TResult&gt; self, Cadenza.Tuple&lt;T&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
@@ -841,7 +841,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Func&lt;T,TResult&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T">
@@ -854,13 +854,13 @@
             The <see cref="T:System.Func{T,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``2(System.Func{``0,``1},Mono.Rocks.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Func{``0,``1},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -898,7 +898,7 @@
             Creates a <see cref="T:System.Func{T1,System.Func{T2,System.Action{T3}}}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``3(System.Action{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -940,7 +940,7 @@
             Creates a <see cref="T:System.Action{T2, T3}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``3(System.Action{``0,``1,``2},``0)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -986,7 +986,7 @@
             Creates a <see cref="T:System.Action{T3}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``3(System.Action{``0,``1,``2},``0,``1)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2},``0,``1)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1036,7 +1036,7 @@
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``3(System.Action{``0,``1,``2},``0,``1,``2)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2},``0,``1,``2)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1044,7 +1044,7 @@
         <Target Type="T:System.Action`3" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3&gt;">
-        <MemberSignature Language="C#" Value="public static Action Curry&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, Mono.Rocks.Tuple&lt;T1,T2,T3&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Action Curry&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, Cadenza.Tuple&lt;T1,T2,T3&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action</ReturnType>
@@ -1056,7 +1056,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Action&lt;T1,T2,T3&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1,T2,T3&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1,T2,T3&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -1072,13 +1072,13 @@
             The <see cref="T:System.Action{T1,T2,T3}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``3(System.Action{``0,``1,``2},Mono.Rocks.Tuple{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2},Cadenza.Tuple{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1086,7 +1086,7 @@
         <Target Type="T:System.Action`3" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3&gt;">
-        <MemberSignature Language="C#" Value="public static Action&lt;T3&gt; Curry&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, Mono.Rocks.Tuple&lt;T1,T2&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Action&lt;T3&gt; Curry&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T3&gt;</ReturnType>
@@ -1098,7 +1098,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Action&lt;T1,T2,T3&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1,T2&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1,T2&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -1114,13 +1114,13 @@
             The <see cref="T:System.Action{T1,T2,T3}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1, T2}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action{T3}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``3(System.Action{``0,``1,``2},Mono.Rocks.Tuple{``0,``1})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2},Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1128,7 +1128,7 @@
         <Target Type="T:System.Action`3" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3&gt;">
-        <MemberSignature Language="C#" Value="public static Action&lt;T2,T3&gt; Curry&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, Mono.Rocks.Tuple&lt;T1&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Action&lt;T2,T3&gt; Curry&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T2,T3&gt;</ReturnType>
@@ -1140,7 +1140,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Action&lt;T1,T2,T3&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -1156,13 +1156,13 @@
             The <see cref="T:System.Action{T1,T2,T3}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action{T2, T3}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``3(System.Action{``0,``1,``2},Mono.Rocks.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1200,7 +1200,7 @@
             Creates a <see cref="T:System.Func{T1,System.Func{T2,TResult}}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``3(System.Func{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Func{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1242,7 +1242,7 @@
             Creates a <see cref="T:System.Func{T2, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``3(System.Func{``0,``1,``2},``0)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Func{``0,``1,``2},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1288,7 +1288,7 @@
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``3(System.Func{``0,``1,``2},``0,``1)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Func{``0,``1,``2},``0,``1)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1296,7 +1296,7 @@
         <Target Type="T:System.Func`3" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self, Mono.Rocks.Tuple&lt;T1,T2&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
@@ -1308,7 +1308,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Func&lt;T1,T2,TResult&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1,T2&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1,T2&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -1324,13 +1324,13 @@
             The <see cref="T:System.Func{T1,T2,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1, T2}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``3(System.Func{``0,``1,``2},Mono.Rocks.Tuple{``0,``1})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Func{``0,``1,``2},Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1338,7 +1338,7 @@
         <Target Type="T:System.Func`3" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Func&lt;T2,TResult&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self, Mono.Rocks.Tuple&lt;T1&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Func&lt;T2,TResult&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T2,TResult&gt;</ReturnType>
@@ -1350,7 +1350,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Func&lt;T1,T2,TResult&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -1366,13 +1366,13 @@
             The <see cref="T:System.Func{T1,T2,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{T2, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``3(System.Func{``0,``1,``2},Mono.Rocks.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Func{``0,``1,``2},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1414,7 +1414,7 @@
             Creates a <see cref="T:System.Func{T1,System.Func{T2,System.Func{T3,System.Action{T4}}}}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1460,7 +1460,7 @@
             Creates a <see cref="T:System.Action{T2, T3, T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},``0)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1510,7 +1510,7 @@
             Creates a <see cref="T:System.Action{T3, T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},``0,``1)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},``0,``1)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1564,7 +1564,7 @@
             Creates a <see cref="T:System.Action{T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},``0,``1,``2)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},``0,``1,``2)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1622,7 +1622,7 @@
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1630,7 +1630,7 @@
         <Target Type="T:System.Action`4" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
-        <MemberSignature Language="C#" Value="public static Action Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Action Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, Cadenza.Tuple&lt;T1,T2,T3,T4&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action</ReturnType>
@@ -1643,7 +1643,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Action&lt;T1,T2,T3,T4&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1,T2,T3,T4&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -1662,13 +1662,13 @@
             The <see cref="T:System.Action{T1,T2,T3,T4}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},Mono.Rocks.Tuple{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1676,7 +1676,7 @@
         <Target Type="T:System.Action`4" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
-        <MemberSignature Language="C#" Value="public static Action&lt;T4&gt; Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, Mono.Rocks.Tuple&lt;T1,T2,T3&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Action&lt;T4&gt; Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, Cadenza.Tuple&lt;T1,T2,T3&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T4&gt;</ReturnType>
@@ -1689,7 +1689,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Action&lt;T1,T2,T3,T4&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1,T2,T3&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1,T2,T3&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -1708,13 +1708,13 @@
             The <see cref="T:System.Action{T1,T2,T3,T4}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action{T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},Mono.Rocks.Tuple{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1722,7 +1722,7 @@
         <Target Type="T:System.Action`4" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
-        <MemberSignature Language="C#" Value="public static Action&lt;T3,T4&gt; Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, Mono.Rocks.Tuple&lt;T1,T2&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Action&lt;T3,T4&gt; Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T3,T4&gt;</ReturnType>
@@ -1735,7 +1735,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Action&lt;T1,T2,T3,T4&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1,T2&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1,T2&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -1754,13 +1754,13 @@
             The <see cref="T:System.Action{T1,T2,T3,T4}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1, T2}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action{T3, T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},Mono.Rocks.Tuple{``0,``1})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1768,7 +1768,7 @@
         <Target Type="T:System.Action`4" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
-        <MemberSignature Language="C#" Value="public static Action&lt;T2,T3,T4&gt; Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, Mono.Rocks.Tuple&lt;T1&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Action&lt;T2,T3,T4&gt; Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T2,T3,T4&gt;</ReturnType>
@@ -1781,7 +1781,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Action&lt;T1,T2,T3,T4&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -1800,13 +1800,13 @@
             The <see cref="T:System.Action{T1,T2,T3,T4}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action{T2, T3, T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},Mono.Rocks.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1848,7 +1848,7 @@
             Creates a <see cref="T:System.Func{T1,System.Func{T2,System.Func{T3,TResult}}}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1894,7 +1894,7 @@
             Creates a <see cref="T:System.Func{T2, T3, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},``0)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1944,7 +1944,7 @@
             Creates a <see cref="T:System.Func{T3, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},``0,``1)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},``0,``1)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1998,7 +1998,7 @@
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},``0,``1,``2)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},``0,``1,``2)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2006,7 +2006,7 @@
         <Target Type="T:System.Func`4" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, Mono.Rocks.Tuple&lt;T1,T2,T3&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, Cadenza.Tuple&lt;T1,T2,T3&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
@@ -2019,7 +2019,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Func&lt;T1,T2,T3,TResult&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1,T2,T3&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1,T2,T3&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -2038,13 +2038,13 @@
             The <see cref="T:System.Func{T1,T2,T3,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},Mono.Rocks.Tuple{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},Cadenza.Tuple{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2052,7 +2052,7 @@
         <Target Type="T:System.Func`4" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Func&lt;T3,TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, Mono.Rocks.Tuple&lt;T1,T2&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Func&lt;T3,TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T3,TResult&gt;</ReturnType>
@@ -2065,7 +2065,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Func&lt;T1,T2,T3,TResult&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1,T2&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1,T2&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -2084,13 +2084,13 @@
             The <see cref="T:System.Func{T1,T2,T3,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1, T2}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{T3, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},Mono.Rocks.Tuple{``0,``1})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2098,7 +2098,7 @@
         <Target Type="T:System.Func`4" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Func&lt;T2,T3,TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, Mono.Rocks.Tuple&lt;T1&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Func&lt;T2,T3,TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T2,T3,TResult&gt;</ReturnType>
@@ -2111,7 +2111,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Func&lt;T1,T2,T3,TResult&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -2130,13 +2130,13 @@
             The <see cref="T:System.Func{T1,T2,T3,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{T2, T3, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},Mono.Rocks.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2182,7 +2182,7 @@
             Creates a <see cref="T:System.Func{T1,System.Func{T2,System.Func{T3,System.Func{T4,TResult}}}}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2232,7 +2232,7 @@
             Creates a <see cref="T:System.Func{T2, T3, T4, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},``0)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2286,7 +2286,7 @@
             Creates a <see cref="T:System.Func{T3, T4, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2344,7 +2344,7 @@
             Creates a <see cref="T:System.Func{T4, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2406,7 +2406,7 @@
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2,``3)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2,``3)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2414,7 +2414,7 @@
         <Target Type="T:System.Func`5" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Cadenza.Tuple&lt;T1,T2,T3,T4&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
@@ -2428,7 +2428,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Func&lt;T1,T2,T3,T4,TResult&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1,T2,T3,T4&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -2450,13 +2450,13 @@
             The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},Mono.Rocks.Tuple{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2464,7 +2464,7 @@
         <Target Type="T:System.Func`5" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Func&lt;T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Mono.Rocks.Tuple&lt;T1,T2,T3&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Func&lt;T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Cadenza.Tuple&lt;T1,T2,T3&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T4,TResult&gt;</ReturnType>
@@ -2478,7 +2478,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Func&lt;T1,T2,T3,T4,TResult&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1,T2,T3&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1,T2,T3&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -2500,13 +2500,13 @@
             The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{T4, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},Mono.Rocks.Tuple{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2514,7 +2514,7 @@
         <Target Type="T:System.Func`5" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Func&lt;T3,T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Mono.Rocks.Tuple&lt;T1,T2&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Func&lt;T3,T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T3,T4,TResult&gt;</ReturnType>
@@ -2528,7 +2528,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Func&lt;T1,T2,T3,T4,TResult&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1,T2&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1,T2&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -2550,13 +2550,13 @@
             The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1, T2}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{T3, T4, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},Mono.Rocks.Tuple{``0,``1})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2564,7 +2564,7 @@
         <Target Type="T:System.Func`5" />
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Func&lt;T2,T3,T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Mono.Rocks.Tuple&lt;T1&gt; values);" />
+        <MemberSignature Language="C#" Value="public static Func&lt;T2,T3,T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T2,T3,T4,TResult&gt;</ReturnType>
@@ -2578,7 +2578,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="System.Func&lt;T1,T2,T3,T4,TResult&gt;" RefType="this" />
-          <Parameter Name="values" Type="Mono.Rocks.Tuple&lt;T1&gt;" />
+          <Parameter Name="values" Type="Cadenza.Tuple&lt;T1&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -2600,13 +2600,13 @@
             The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Mono.Rocks.Tuple{T1}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{T2, T3, T4, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},Mono.Rocks.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2634,7 +2634,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings(System.Action,System.Int32)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings(System.Action,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2667,7 +2667,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings(System.Action,System.Int32,System.Int32)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings(System.Action,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2705,7 +2705,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2748,7 +2748,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2794,7 +2794,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2845,7 +2845,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2899,7 +2899,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2958,7 +2958,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3020,7 +3020,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3087,25 +3087,25 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Mono.Rocks.DelegateRocks" Member="M:Mono.Rocks.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
+        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
-        <Target Type="T:Mono.Rocks.EnumerableValueReader`1" />
+        <Target Type="T:Cadenza.EnumerableValueReader`1" />
       </Targets>
       <Member MemberName="Read&lt;TSource,TValue&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.EnumerableValueReader&lt;TSource&gt; Read&lt;TSource,TValue&gt; (this Mono.Rocks.EnumerableValueReader&lt;TSource&gt; self, out TValue value);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.EnumerableValueReader&lt;TSource&gt; Read&lt;TSource,TValue&gt; (this Cadenza.EnumerableValueReader&lt;TSource&gt; self, out TValue value);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.EnumerableValueReader&lt;TSource&gt;</ReturnType>
+          <ReturnType>Cadenza.EnumerableValueReader&lt;TSource&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TSource" />
           <TypeParameter Name="TValue" />
         </TypeParameters>
         <Parameters>
-          <Parameter Name="self" Type="Mono.Rocks.EnumerableValueReader&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="self" Type="Cadenza.EnumerableValueReader&lt;TSource&gt;" RefType="this" />
           <Parameter Name="value" Type="TValue&amp;" RefType="out" />
         </Parameters>
         <Docs>
@@ -3115,7 +3115,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.EnumerableValueReaderRocks" Member="M:Mono.Rocks.EnumerableValueReaderRocks.Read``2(Mono.Rocks.EnumerableValueReader{``0},``1@)" />
+        <Link Type="Cadenza.EnumerableValueReaderRocks" Member="M:Cadenza.EnumerableValueReaderRocks.Read``2(Cadenza.EnumerableValueReader{``0},``1@)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3150,7 +3150,7 @@
           <typeparamref name="TAttribute" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.ICustomAttributeProviderRocks" Member="M:Mono.Rocks.ICustomAttributeProviderRocks.GetCustomAttribute``1(System.Reflection.ICustomAttributeProvider)" />
+        <Link Type="Cadenza.ICustomAttributeProviderRocks" Member="M:Cadenza.ICustomAttributeProviderRocks.GetCustomAttribute``1(System.Reflection.ICustomAttributeProvider)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3185,7 +3185,7 @@
           <typeparamref name="TAttribute" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.ICustomAttributeProviderRocks" Member="M:Mono.Rocks.ICustomAttributeProviderRocks.GetCustomAttributes``1(System.Reflection.ICustomAttributeProvider)" />
+        <Link Type="Cadenza.ICustomAttributeProviderRocks" Member="M:Cadenza.ICustomAttributeProviderRocks.GetCustomAttributes``1(System.Reflection.ICustomAttributeProvider)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3211,7 +3211,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.AggregateHistory``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.AggregateHistory``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3241,7 +3241,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.AggregateHistory``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.AggregateHistory``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3275,7 +3275,7 @@
           <param name="resultSelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.AggregateHistory``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.AggregateHistory``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3301,7 +3301,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.AggregateReverse``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.AggregateReverse``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3331,7 +3331,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.AggregateReverse``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.AggregateReverse``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3365,7 +3365,7 @@
           <param name="resultSelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.AggregateReverse``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.AggregateReverse``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3391,7 +3391,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.AggregateReverseHistory``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.AggregateReverseHistory``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3421,7 +3421,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.AggregateReverseHistory``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.AggregateReverseHistory``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3455,7 +3455,7 @@
           <param name="resultSelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.AggregateReverseHistory``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.AggregateReverseHistory``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3475,7 +3475,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.And(System.Collections.Generic.IEnumerable{System.Boolean})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.And(System.Collections.Generic.IEnumerable{System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3499,7 +3499,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Apply``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Apply``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3531,7 +3531,7 @@
           <param name="actions">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.ApplyPairs``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}[])" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.ApplyPairs``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3539,10 +3539,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="Break&lt;TSource&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Break&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; func);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Break&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; func);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
+          <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TSource" />
@@ -3557,7 +3557,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Break``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Break``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3589,7 +3589,7 @@
           <param name="selfs">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}[])" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3615,7 +3615,7 @@
           <param name="selfs">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3639,7 +3639,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Cycle``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Cycle``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3665,7 +3665,7 @@
           <param name="action">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3691,7 +3691,7 @@
           <param name="action">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3715,7 +3715,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.ExceptLast``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.ExceptLast``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3741,7 +3741,7 @@
           <param name="count">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.ExceptLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.ExceptLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3767,7 +3767,7 @@
           <param name="predicate">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.FindIndex``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.FindIndex``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3793,7 +3793,7 @@
           <param name="predicate">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.FindIndices``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.FindIndices``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3819,7 +3819,7 @@
           <param name="action">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3845,7 +3845,7 @@
           <param name="action">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3869,7 +3869,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.HaskellGroup``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.HaskellGroup``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3906,7 +3906,7 @@
           Split <paramref name="self" /> into a sequence of groups.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.HaskellGroupBy``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,System.Boolean})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.HaskellGroupBy``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3930,7 +3930,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Implode``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Implode``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3956,7 +3956,7 @@
           <param name="separator">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Implode``1(System.Collections.Generic.IEnumerable{``0},System.String)" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Implode``1(System.Collections.Generic.IEnumerable{``0},System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3984,7 +3984,7 @@
           <param name="selector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Implode``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.String})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Implode``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.String})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4010,7 +4010,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.IndexOf``1(System.Collections.Generic.IEnumerable{``0},``0)" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.IndexOf``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4042,7 +4042,7 @@
           <param name="values">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.IndexOfAny``1(System.Collections.Generic.IEnumerable{``0},``0[])" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.IndexOfAny``1(System.Collections.Generic.IEnumerable{``0},``0[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4068,7 +4068,7 @@
           <param name="values">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.IndexOfAny``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.IndexOfAny``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4094,7 +4094,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.IndicesOf``1(System.Collections.Generic.IEnumerable{``0},``0)" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.IndicesOf``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4126,7 +4126,7 @@
           <param name="values">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.IndicesOfAny``1(System.Collections.Generic.IEnumerable{``0},``0[])" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.IndicesOfAny``1(System.Collections.Generic.IEnumerable{``0},``0[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4152,7 +4152,7 @@
           <param name="values">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.IndicesOfAny``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.IndicesOfAny``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4186,7 +4186,7 @@
           shortest first.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.InitialSegments``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.InitialSegments``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4212,7 +4212,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Insert``1(System.Collections.Generic.IEnumerable{``0},``0)" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Insert``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4240,7 +4240,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Insert``1(System.Collections.Generic.IEnumerable{``0},``0,System.Func{``0,``0,System.Int32})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Insert``1(System.Collections.Generic.IEnumerable{``0},``0,System.Func{``0,``0,System.Int32})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4266,7 +4266,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Intersperse``1(System.Collections.Generic.IEnumerable{``0},``0)" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Intersperse``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4292,7 +4292,7 @@
           <param name="between">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Intersperse``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}},System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Intersperse``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}},System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4312,7 +4312,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Or(System.Collections.Generic.IEnumerable{System.Boolean})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Or(System.Collections.Generic.IEnumerable{System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4338,7 +4338,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.OrderByNatural``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.OrderByNatural``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4346,10 +4346,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="Partition&lt;TSource&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Partition&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Partition&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
+          <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TSource" />
@@ -4364,7 +4364,7 @@
           <param name="predicate">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4384,7 +4384,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.PathCombine(System.Collections.Generic.IEnumerable{System.String})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.PathCombine(System.Collections.Generic.IEnumerable{System.String})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4410,7 +4410,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.RemoveFirstOccurrence``1(System.Collections.Generic.IEnumerable{``0},``0)" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.RemoveFirstOccurrence``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4438,7 +4438,7 @@
           <param name="count">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4464,7 +4464,7 @@
           <param name="number">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Repeat``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Repeat``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4472,10 +4472,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="SelectAggregated&lt;TSource,TAccumulate,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt; SelectAggregated&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,Mono.Rocks.Tuple&lt;TAccumulate,TResult&gt;&gt; func);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt; SelectAggregated&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,Cadenza.Tuple&lt;TAccumulate,TResult&gt;&gt; func);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt;</ReturnType>
+          <ReturnType>Cadenza.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TSource" />
@@ -4485,7 +4485,7 @@
         <Parameters>
           <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
           <Parameter Name="seed" Type="TAccumulate" />
-          <Parameter Name="func" Type="System.Func&lt;TAccumulate,TSource,Mono.Rocks.Tuple&lt;TAccumulate,TResult&gt;&gt;" />
+          <Parameter Name="func" Type="System.Func&lt;TAccumulate,TSource,Cadenza.Tuple&lt;TAccumulate,TResult&gt;&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="TSource">To be added.</typeparam>
@@ -4496,7 +4496,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SelectAggregated``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,Mono.Rocks.Tuple{``1,``2}})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.SelectAggregated``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,Cadenza.Tuple{``1,``2}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4526,7 +4526,7 @@
           <param name="childrenSelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SelectBreadthFirst``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.SelectBreadthFirst``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4556,7 +4556,7 @@
           <param name="childrenSelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SelectDepthFirst``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.SelectDepthFirst``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4608,7 +4608,7 @@
           new form.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SelectFromEach``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.SelectFromEach``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4669,7 +4669,7 @@
           new form.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SelectFromEach``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Func{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.SelectFromEach``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Func{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4739,7 +4739,7 @@
           new form.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SelectFromEach``5(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3},System.Func{``0,``1,``2,``3,``4})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.SelectFromEach``5(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3},System.Func{``0,``1,``2,``3,``4})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4747,10 +4747,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="SelectReverseAggregated&lt;TSource,TAccumulate,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt; SelectReverseAggregated&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,Mono.Rocks.Tuple&lt;TAccumulate,TResult&gt;&gt; func);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt; SelectReverseAggregated&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,Cadenza.Tuple&lt;TAccumulate,TResult&gt;&gt; func);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt;</ReturnType>
+          <ReturnType>Cadenza.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TSource" />
@@ -4760,7 +4760,7 @@
         <Parameters>
           <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
           <Parameter Name="seed" Type="TAccumulate" />
-          <Parameter Name="func" Type="System.Func&lt;TAccumulate,TSource,Mono.Rocks.Tuple&lt;TAccumulate,TResult&gt;&gt;" />
+          <Parameter Name="func" Type="System.Func&lt;TAccumulate,TSource,Cadenza.Tuple&lt;TAccumulate,TResult&gt;&gt;" />
         </Parameters>
         <Docs>
           <typeparam name="TSource">To be added.</typeparam>
@@ -4771,7 +4771,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SelectReverseAggregated``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,Mono.Rocks.Tuple{``1,``2}})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.SelectReverseAggregated``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,Cadenza.Tuple{``1,``2}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4797,7 +4797,7 @@
           <param name="list">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SequenceCompare``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.SequenceCompare``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4825,7 +4825,7 @@
           <param name="comparer">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SequenceCompare``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.SequenceCompare``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4849,7 +4849,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Shuffle``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Shuffle``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4875,7 +4875,7 @@
           <param name="random">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Shuffle``1(System.Collections.Generic.IEnumerable{``0},System.Random)" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Shuffle``1(System.Collections.Generic.IEnumerable{``0},System.Random)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4901,7 +4901,7 @@
           <param name="prefix">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SkipPrefix``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.SkipPrefix``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4925,7 +4925,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4951,7 +4951,7 @@
           <param name="comparer">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4977,7 +4977,7 @@
           <param name="comparison">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Comparison{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Comparison{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5003,10 +5003,10 @@
           <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
           which contains the elements within <paramref name="self" /> sorted 
           using the
-          <see cref="F:Mono.Rocks.NaturalStringComparer.Default" /> comparer.
+          <see cref="F:Cadenza.NaturalStringComparer.Default" /> comparer.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SortNatural(System.Collections.Generic.IEnumerable{System.String})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.SortNatural(System.Collections.Generic.IEnumerable{System.String})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5014,10 +5014,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="Span&lt;TSource&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Span&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Span&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
+          <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TSource" />
@@ -5038,17 +5038,17 @@
           A <see cref="T:System.Func{TSource,System.Boolean}" /> which
           controls which elements from <paramref name="self" /> are present
           within the returned 
-          <see cref="P:Mono.Rocks.Tuple{System.Collections.Generic.IEnumerable{TSource},System.Collections.Generic.IEnumerable{TSource}}._1" />.
+          <see cref="P:Cadenza.Tuple{System.Collections.Generic.IEnumerable{TSource},System.Collections.Generic.IEnumerable{TSource}}._1" />.
           sequence.
         </param>
           <summary>
           Creates a 
-          <see cref="T:Mono.Rocks.Tuple{System.Collections.Generic.IEnumerable{TSource},System.Collections.Generic.IEnumerable{TSource}}" />
+          <see cref="T:Cadenza.Tuple{System.Collections.Generic.IEnumerable{TSource},System.Collections.Generic.IEnumerable{TSource}}" />
           of the contiguous elements at the start of <paramref name="self" /> 
           which satisfy <paramref name="predicate" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Span``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Span``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5056,10 +5056,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="SplitAt&lt;TSource&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; SplitAt&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, int firstLength);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; SplitAt&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, int firstLength);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
+          <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TSource" />
@@ -5082,10 +5082,10 @@
           <summary>
           Splits <paramref name="self" /> at <paramref name="firstLength" />,
           creating a 
-          <see cref="T:Mono.Rocks.Tuple{System.Collections.Generic.IEnumerable{TSource},System.Collections.Generic.IEnumerable{TSource}}" />.
+          <see cref="T:Cadenza.Tuple{System.Collections.Generic.IEnumerable{TSource},System.Collections.Generic.IEnumerable{TSource}}" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.SplitAt``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.SplitAt``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5093,7 +5093,7 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="Tokens&lt;TSource,TAccumulate,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; Tokens&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; accumulate, Func&lt;TAccumulate,Mono.Rocks.Tuple&lt;TResult,TAccumulate&gt;&gt; resultSelector, Func&lt;TAccumulate,TSource,bool&gt;[] categories);" />
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; Tokens&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; accumulate, Func&lt;TAccumulate,Cadenza.Tuple&lt;TResult,TAccumulate&gt;&gt; resultSelector, Func&lt;TAccumulate,TSource,bool&gt;[] categories);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
@@ -5107,7 +5107,7 @@
           <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
           <Parameter Name="seed" Type="TAccumulate" />
           <Parameter Name="accumulate" Type="System.Func&lt;TAccumulate,TSource,TAccumulate&gt;" />
-          <Parameter Name="resultSelector" Type="System.Func&lt;TAccumulate,Mono.Rocks.Tuple&lt;TResult,TAccumulate&gt;&gt;" />
+          <Parameter Name="resultSelector" Type="System.Func&lt;TAccumulate,Cadenza.Tuple&lt;TResult,TAccumulate&gt;&gt;" />
           <Parameter Name="categories" Type="System.Func&lt;TAccumulate,TSource,System.Boolean&gt;[]">
             <Attributes>
               <Attribute>
@@ -5127,7 +5127,7 @@
           <param name="categories">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Tokens``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,Mono.Rocks.Tuple{``2,``1}},System.Func{``1,``0,System.Boolean}[])" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Tokens``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,Cadenza.Tuple{``2,``1}},System.Func{``1,``0,System.Boolean}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5161,7 +5161,7 @@
           with the same ordering and values as <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.ToList``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.ToList``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5186,7 +5186,7 @@
           Creates a <c>Tuple</c> from a sequence.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.ToTuple(System.Collections.IEnumerable)" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.ToTuple(System.Collections.IEnumerable)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5194,10 +5194,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="ToValueReader">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.TextValueReader ToValueReader (this System.Collections.Generic.IEnumerable&lt;string&gt; self);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.TextValueReader ToValueReader (this System.Collections.Generic.IEnumerable&lt;string&gt; self);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.TextValueReader</ReturnType>
+          <ReturnType>Cadenza.TextValueReader</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" RefType="this" />
@@ -5206,7 +5206,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.ToValueReader(System.Collections.Generic.IEnumerable{System.String})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.ToValueReader(System.Collections.Generic.IEnumerable{System.String})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5214,10 +5214,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="ToValueReader&lt;TSource&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.EnumerableValueReader&lt;TSource&gt; ToValueReader&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.EnumerableValueReader&lt;TSource&gt; ToValueReader&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.EnumerableValueReader&lt;TSource&gt;</ReturnType>
+          <ReturnType>Cadenza.EnumerableValueReader&lt;TSource&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TSource" />
@@ -5230,7 +5230,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.ToValueReader``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.ToValueReader``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5264,7 +5264,7 @@
           longest first.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.TrailingSegments``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.TrailingSegments``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5298,7 +5298,7 @@
           <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Transpose``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Transpose``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5306,17 +5306,17 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="Unzip&lt;T1,T2&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;&gt; Unzip&lt;T1,T2&gt; (this System.Collections.Generic.IEnumerable&lt;Mono.Rocks.Tuple&lt;T1,T2&gt;&gt; self);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;&gt; Unzip&lt;T1,T2&gt; (this System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2&gt;&gt; self);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;&gt;</ReturnType>
+          <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="T1" />
           <TypeParameter Name="T2" />
         </TypeParameters>
         <Parameters>
-          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;Mono.Rocks.Tuple&lt;T1,T2&gt;&gt;" RefType="this" />
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2&gt;&gt;" RefType="this" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -5327,18 +5327,18 @@
         </typeparam>
           <param name="self">
           A
-          <see cref="T:System.Collections.Generic.IEnumerable{Mono.Rocks.Tuple{T1,T2}}" />
+          <see cref="T:System.Collections.Generic.IEnumerable{Cadenza.Tuple{T1,T2}}" />
           to split up into separate lists.
         </param>
           <summary>
           Converts an 
-          <see cref="T:System.Collections.Generic.IEnumerable{Mono.Rocks.Tuple{T1,T2}}" />
+          <see cref="T:System.Collections.Generic.IEnumerable{Cadenza.Tuple{T1,T2}}" />
           into a tuple of lists, one for each 
-          <see cref="T:Mono.Rocks.Tuple{T1,T2}" />
+          <see cref="T:Cadenza.Tuple{T1,T2}" />
           element.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Unzip``2(System.Collections.Generic.IEnumerable{Mono.Rocks.Tuple{``0,``1}})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Unzip``2(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5346,10 +5346,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="Unzip&lt;T1,T2,T3&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;&gt; Unzip&lt;T1,T2,T3&gt; (this System.Collections.Generic.IEnumerable&lt;Mono.Rocks.Tuple&lt;T1,T2,T3&gt;&gt; self);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;&gt; Unzip&lt;T1,T2,T3&gt; (this System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3&gt;&gt; self);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;&gt;</ReturnType>
+          <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="T1" />
@@ -5357,7 +5357,7 @@
           <TypeParameter Name="T3" />
         </TypeParameters>
         <Parameters>
-          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;Mono.Rocks.Tuple&lt;T1,T2,T3&gt;&gt;" RefType="this" />
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3&gt;&gt;" RefType="this" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -5371,18 +5371,18 @@
         </typeparam>
           <param name="self">
           A
-          <see cref="T:System.Collections.Generic.IEnumerable{Mono.Rocks.Tuple{T1,T2,T3}}" />
+          <see cref="T:System.Collections.Generic.IEnumerable{Cadenza.Tuple{T1,T2,T3}}" />
           to split up into separate lists.
         </param>
           <summary>
           Converts an 
-          <see cref="T:System.Collections.Generic.IEnumerable{Mono.Rocks.Tuple{T1,T2,T3}}" />
+          <see cref="T:System.Collections.Generic.IEnumerable{Cadenza.Tuple{T1,T2,T3}}" />
           into a tuple of lists, one for each 
-          <see cref="T:Mono.Rocks.Tuple{T1,T2,T3}" />
+          <see cref="T:Cadenza.Tuple{T1,T2,T3}" />
           element.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Unzip``3(System.Collections.Generic.IEnumerable{Mono.Rocks.Tuple{``0,``1,``2}})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Unzip``3(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1,``2}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5390,10 +5390,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="Unzip&lt;T1,T2,T3,T4&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;,System.Collections.Generic.IEnumerable&lt;T4&gt;&gt; Unzip&lt;T1,T2,T3,T4&gt; (this System.Collections.Generic.IEnumerable&lt;Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt;&gt; self);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;,System.Collections.Generic.IEnumerable&lt;T4&gt;&gt; Unzip&lt;T1,T2,T3,T4&gt; (this System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3,T4&gt;&gt; self);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;,System.Collections.Generic.IEnumerable&lt;T4&gt;&gt;</ReturnType>
+          <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;,System.Collections.Generic.IEnumerable&lt;T4&gt;&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="T1" />
@@ -5402,7 +5402,7 @@
           <TypeParameter Name="T4" />
         </TypeParameters>
         <Parameters>
-          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt;&gt;" RefType="this" />
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3,T4&gt;&gt;" RefType="this" />
         </Parameters>
         <Docs>
           <typeparam name="T1">
@@ -5419,18 +5419,18 @@
         </typeparam>
           <param name="self">
           A
-          <see cref="T:System.Collections.Generic.IEnumerable{Mono.Rocks.Tuple{T1,T2,T3,T4}}" />
+          <see cref="T:System.Collections.Generic.IEnumerable{Cadenza.Tuple{T1,T2,T3,T4}}" />
           to split up into separate lists.
         </param>
           <summary>
           Converts an 
-          <see cref="T:System.Collections.Generic.IEnumerable{Mono.Rocks.Tuple{T1,T2,T3,T4}}" />
+          <see cref="T:System.Collections.Generic.IEnumerable{Cadenza.Tuple{T1,T2,T3,T4}}" />
           into a tuple of lists, one for each 
-          <see cref="T:Mono.Rocks.Tuple{T1,T2,T3,T4}" />
+          <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" />
           element.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Unzip``4(System.Collections.Generic.IEnumerable{Mono.Rocks.Tuple{``0,``1,``2,``3}})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Unzip``4(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1,``2,``3}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5438,10 +5438,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="Zip&lt;T1,T2&gt;">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;Mono.Rocks.Tuple&lt;T1,T2&gt;&gt; Zip&lt;T1,T2&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2);" />
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2&gt;&gt; Zip&lt;T1,T2&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>System.Collections.Generic.IEnumerable&lt;Mono.Rocks.Tuple&lt;T1,T2&gt;&gt;</ReturnType>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2&gt;&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="T1" />
@@ -5468,12 +5468,12 @@
         </param>
           <summary>
           Creates and returns an 
-          <see cref="T:System.Collections.Generic.IEnumerable{Mono.Rocks.Tuple{T1,T2}}" />
+          <see cref="T:System.Collections.Generic.IEnumerable{Cadenza.Tuple{T1,T2}}" />
           containing the corresponding items from 
           <paramref name="self" /> and <paramref name="source2" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Zip``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Zip``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5481,10 +5481,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="Zip&lt;T1,T2,T3&gt;">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;Mono.Rocks.Tuple&lt;T1,T2,T3&gt;&gt; Zip&lt;T1,T2,T3&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, System.Collections.Generic.IEnumerable&lt;T3&gt; source3);" />
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3&gt;&gt; Zip&lt;T1,T2,T3&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, System.Collections.Generic.IEnumerable&lt;T3&gt; source3);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>System.Collections.Generic.IEnumerable&lt;Mono.Rocks.Tuple&lt;T1,T2,T3&gt;&gt;</ReturnType>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3&gt;&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="T1" />
@@ -5520,12 +5520,12 @@
         </param>
           <summary>
           Creates and returns an 
-          <see cref="T:System.Collections.Generic.IEnumerable{Mono.Rocks.Tuple{T1,T2,T3}}" />
+          <see cref="T:System.Collections.Generic.IEnumerable{Cadenza.Tuple{T1,T2,T3}}" />
           containing the corresponding items from 
           <paramref name="self" />, <paramref name="source2" />, and <paramref name="source3" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Zip``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Zip``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5533,10 +5533,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="Zip&lt;T1,T2,T3,T4&gt;">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt;&gt; Zip&lt;T1,T2,T3,T4&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, System.Collections.Generic.IEnumerable&lt;T3&gt; source3, System.Collections.Generic.IEnumerable&lt;T4&gt; source4);" />
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3,T4&gt;&gt; Zip&lt;T1,T2,T3,T4&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, System.Collections.Generic.IEnumerable&lt;T3&gt; source3, System.Collections.Generic.IEnumerable&lt;T4&gt; source4);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>System.Collections.Generic.IEnumerable&lt;Mono.Rocks.Tuple&lt;T1,T2,T3,T4&gt;&gt;</ReturnType>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3,T4&gt;&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="T1" />
@@ -5581,12 +5581,12 @@
         </param>
           <summary>
           Creates and returns an 
-          <see cref="T:System.Collections.Generic.IEnumerable{Mono.Rocks.Tuple{T1,T2,T3,T4}}" />
+          <see cref="T:System.Collections.Generic.IEnumerable{Cadenza.Tuple{T1,T2,T3,T4}}" />
           containing the corresponding items from 
           <paramref name="self" />, <paramref name="source2" />, <paramref name="source3" />, and <paramref name="source4" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.IEnumerableRocks" Member="M:Mono.Rocks.IEnumerableRocks.Zip``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3})" />
+        <Link Type="Cadenza.IEnumerableRocks" Member="M:Cadenza.IEnumerableRocks.Zip``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5610,7 +5610,7 @@
           Gets a value indicating whether <paramref name="value" /> is an even number.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.Int16Rocks" Member="M:Mono.Rocks.Int16Rocks.IsEven(System.Int16)" />
+        <Link Type="Cadenza.Int16Rocks" Member="M:Cadenza.Int16Rocks.IsEven(System.Int16)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5634,7 +5634,7 @@
           Gets a value indicating whether <paramref name="value" /> is an odd number.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.Int16Rocks" Member="M:Mono.Rocks.Int16Rocks.IsOdd(System.Int16)" />
+        <Link Type="Cadenza.Int16Rocks" Member="M:Cadenza.Int16Rocks.IsOdd(System.Int16)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5665,7 +5665,7 @@
           <paramref name="limit" />, inclusive.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.Int32Rocks" Member="M:Mono.Rocks.Int32Rocks.DownTo(System.Int32,System.Int32)" />
+        <Link Type="Cadenza.Int32Rocks" Member="M:Cadenza.Int32Rocks.DownTo(System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5689,7 +5689,7 @@
           Gets a value indicating whether <paramref name="value" /> is an even number.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.Int32Rocks" Member="M:Mono.Rocks.Int32Rocks.IsEven(System.Int32)" />
+        <Link Type="Cadenza.Int32Rocks" Member="M:Cadenza.Int32Rocks.IsEven(System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5713,7 +5713,7 @@
           Gets a value indicating whether <paramref name="value" /> is an odd number.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.Int32Rocks" Member="M:Mono.Rocks.Int32Rocks.IsOdd(System.Int32)" />
+        <Link Type="Cadenza.Int32Rocks" Member="M:Cadenza.Int32Rocks.IsOdd(System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5750,7 +5750,7 @@
           <paramref name="step" /> between each value.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.Int32Rocks" Member="M:Mono.Rocks.Int32Rocks.Step(System.Int32,System.Int32,System.Int32)" />
+        <Link Type="Cadenza.Int32Rocks" Member="M:Cadenza.Int32Rocks.Step(System.Int32,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5777,7 +5777,7 @@
           <paramref name="self" />, exclusive.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.Int32Rocks" Member="M:Mono.Rocks.Int32Rocks.Times(System.Int32)" />
+        <Link Type="Cadenza.Int32Rocks" Member="M:Cadenza.Int32Rocks.Times(System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5808,7 +5808,7 @@
           <paramref name="limit" />, inclusive.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.Int32Rocks" Member="M:Mono.Rocks.Int32Rocks.UpTo(System.Int32,System.Int32)" />
+        <Link Type="Cadenza.Int32Rocks" Member="M:Cadenza.Int32Rocks.UpTo(System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5832,7 +5832,7 @@
           Gets a value indicating whether <paramref name="value" /> is an even number.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.Int64Rocks" Member="M:Mono.Rocks.Int64Rocks.IsEven(System.Int64)" />
+        <Link Type="Cadenza.Int64Rocks" Member="M:Cadenza.Int64Rocks.IsEven(System.Int64)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5856,7 +5856,7 @@
           Gets a value indicating whether <paramref name="value" /> is an odd number.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.Int64Rocks" Member="M:Mono.Rocks.Int64Rocks.IsOdd(System.Int64)" />
+        <Link Type="Cadenza.Int64Rocks" Member="M:Cadenza.Int64Rocks.IsOdd(System.Int64)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5887,7 +5887,7 @@
           <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.JaggedArrayRocks" Member="M:Mono.Rocks.JaggedArrayRocks.Rows``1(``0[][])" />
+        <Link Type="Cadenza.JaggedArrayRocks" Member="M:Cadenza.JaggedArrayRocks.Rows``1(``0[][])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5931,7 +5931,7 @@
           into a different value.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.KeyValuePairRocks" Member="M:Mono.Rocks.KeyValuePairRocks.Aggregate``3(System.Collections.Generic.KeyValuePair{``0,``1},System.Func{``0,``1,``2})" />
+        <Link Type="Cadenza.KeyValuePairRocks" Member="M:Cadenza.KeyValuePairRocks.Aggregate``3(System.Collections.Generic.KeyValuePair{``0,``1},System.Func{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5939,10 +5939,10 @@
         <Target Type="T:System.Collections.Generic.KeyValuePair`2" />
       </Targets>
       <Member MemberName="ToTuple&lt;TKey,TValue&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Tuple&lt;TKey,TValue&gt; ToTuple&lt;TKey,TValue&gt; (this System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; self);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;TKey,TValue&gt; ToTuple&lt;TKey,TValue&gt; (this System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; self);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Tuple&lt;TKey,TValue&gt;</ReturnType>
+          <ReturnType>Cadenza.Tuple&lt;TKey,TValue&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TKey" />
@@ -5958,34 +5958,34 @@
           A 
           <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />.
           to convert into a
-          <see cref="T:Mono.Rocks.Tuple{TKey,TValue}" />.
+          <see cref="T:Cadenza.Tuple{TKey,TValue}" />.
         </param>
           <summary>
           Converts a 
           <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />
           into a
-          <see cref="T:Mono.Rocks.Tuple{TKey,TValue}" />.
+          <see cref="T:Cadenza.Tuple{TKey,TValue}" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.KeyValuePairRocks" Member="M:Mono.Rocks.KeyValuePairRocks.ToTuple``2(System.Collections.Generic.KeyValuePair{``0,``1})" />
+        <Link Type="Cadenza.KeyValuePairRocks" Member="M:Cadenza.KeyValuePairRocks.ToTuple``2(System.Collections.Generic.KeyValuePair{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
-        <Target Type="T:Mono.Rocks.Maybe`1" />
+        <Target Type="T:Cadenza.Maybe`1" />
       </Targets>
       <Member MemberName="Select&lt;TSource,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;TResult&gt; Select&lt;TSource,TResult&gt; (this Mono.Rocks.Maybe&lt;TSource&gt; self, Func&lt;TSource,TResult&gt; selector);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;TResult&gt; Select&lt;TSource,TResult&gt; (this Cadenza.Maybe&lt;TSource&gt; self, Func&lt;TSource,TResult&gt; selector);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Maybe&lt;TResult&gt;</ReturnType>
+          <ReturnType>Cadenza.Maybe&lt;TResult&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TSource" />
           <TypeParameter Name="TResult" />
         </TypeParameters>
         <Parameters>
-          <Parameter Name="self" Type="Mono.Rocks.Maybe&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="self" Type="Cadenza.Maybe&lt;TSource&gt;" RefType="this" />
           <Parameter Name="selector" Type="System.Func&lt;TSource,TResult&gt;" />
         </Parameters>
         <Docs>
@@ -5996,7 +5996,7 @@
           The type of the resulting value.
         </typeparam>
           <param name="self">
-          A <see cref="T:Mono.Rocks.Maybe{TSource}" /> containing a value to
+          A <see cref="T:Cadenza.Maybe{TSource}" /> containing a value to
           project.
         </param>
           <param name="selector">
@@ -6005,22 +6005,22 @@
           into the value returned.
         </param>
           <summary>
-          Projects a <see cref="T:Mono.Rocks.Maybe{TSoruce}" /> into a
-          <see cref="T:Mono.Rocks.Maybe{TResult}" />.
+          Projects a <see cref="T:Cadenza.Maybe{TSoruce}" /> into a
+          <see cref="T:Cadenza.Maybe{TResult}" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.MaybeRocks" Member="M:Mono.Rocks.MaybeRocks.Select``2(Mono.Rocks.Maybe{``0},System.Func{``0,``1})" />
+        <Link Type="Cadenza.MaybeRocks" Member="M:Cadenza.MaybeRocks.Select``2(Cadenza.Maybe{``0},System.Func{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
-        <Target Type="T:Mono.Rocks.Maybe`1" />
+        <Target Type="T:Cadenza.Maybe`1" />
       </Targets>
       <Member MemberName="SelectMany&lt;TSource,TCollection,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;TResult&gt; SelectMany&lt;TSource,TCollection,TResult&gt; (this Mono.Rocks.Maybe&lt;TSource&gt; self, Func&lt;TSource,Mono.Rocks.Maybe&lt;TCollection&gt;&gt; selector, Func&lt;TSource,TCollection,TResult&gt; resultSelector);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;TResult&gt; SelectMany&lt;TSource,TCollection,TResult&gt; (this Cadenza.Maybe&lt;TSource&gt; self, Func&lt;TSource,Cadenza.Maybe&lt;TCollection&gt;&gt; selector, Func&lt;TSource,TCollection,TResult&gt; resultSelector);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Maybe&lt;TResult&gt;</ReturnType>
+          <ReturnType>Cadenza.Maybe&lt;TResult&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TSource" />
@@ -6028,8 +6028,8 @@
           <TypeParameter Name="TResult" />
         </TypeParameters>
         <Parameters>
-          <Parameter Name="self" Type="Mono.Rocks.Maybe&lt;TSource&gt;" RefType="this" />
-          <Parameter Name="selector" Type="System.Func&lt;TSource,Mono.Rocks.Maybe&lt;TCollection&gt;&gt;" />
+          <Parameter Name="self" Type="Cadenza.Maybe&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="selector" Type="System.Func&lt;TSource,Cadenza.Maybe&lt;TCollection&gt;&gt;" />
           <Parameter Name="resultSelector" Type="System.Func&lt;TSource,TCollection,TResult&gt;" />
         </Parameters>
         <Docs>
@@ -6044,11 +6044,11 @@
           The type of the resulting value.
         </typeparam>
           <param name="self">
-          A <see cref="T:Mono.Rocks.Maybe{TSource}" /> containing a value to
+          A <see cref="T:Cadenza.Maybe{TSource}" /> containing a value to
           project.
         </param>
           <param name="selector">
-          A <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TCollection}}" />
+          A <see cref="T:System.Func{TSource,Cadenza.Maybe{TCollection}}" />
           used to generate an intermediate value.
         </param>
           <param name="resultSelector">
@@ -6058,12 +6058,12 @@
           into the value returned.
         </param>
           <summary>
-          Projects a <see cref="T:Mono.Rocks.Maybe{TSoruce}" /> and
-          <see cref="T:Mono.Rocks.Maybe{TCollection}" /> into a 
-          <see cref="T:Mono.Rocks.Maybe{TResult}" />.
+          Projects a <see cref="T:Cadenza.Maybe{TSoruce}" /> and
+          <see cref="T:Cadenza.Maybe{TCollection}" /> into a 
+          <see cref="T:Cadenza.Maybe{TResult}" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.MaybeRocks" Member="M:Mono.Rocks.MaybeRocks.SelectMany``3(Mono.Rocks.Maybe{``0},System.Func{``0,Mono.Rocks.Maybe{``1}},System.Func{``0,``1,``2})" />
+        <Link Type="Cadenza.MaybeRocks" Member="M:Cadenza.MaybeRocks.SelectMany``3(Cadenza.Maybe{``0},System.Func{``0,Cadenza.Maybe{``1}},System.Func{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6071,10 +6071,10 @@
         <Target Type="T:System.Nullable`1" />
       </Targets>
       <Member MemberName="Just&lt;T&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;T&gt; Just&lt;T&gt; (this Nullable&lt;T&gt; self) where T : struct;" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; Just&lt;T&gt; (this Nullable&lt;T&gt; self) where T : struct;" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Maybe&lt;T&gt;</ReturnType>
+          <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="T">
@@ -6090,19 +6090,19 @@
         </Parameters>
         <Docs>
           <typeparam name="T">
-          The type to convert into a <see cref="T:Mono.Rocks.Maybe{T}" />.
+          The type to convert into a <see cref="T:Cadenza.Maybe{T}" />.
         </typeparam>
           <param name="self">
           A value of type <see cref="T:System.Nullable{T}" /> to convert into a 
-          <see cref="T:Mono.Rocks.Maybe{T}" />.
+          <see cref="T:Cadenza.Maybe{T}" />.
         </param>
           <summary>
-          Create a new <see cref="T:Mono.Rocks.Maybe{T}" /> instance
+          Create a new <see cref="T:Cadenza.Maybe{T}" /> instance
           initialized to a specified value.  The returned value will not be 
-          <see cref="F:Mono.Rocks.Maybe{T}.Nothing" />.
+          <see cref="F:Cadenza.Maybe{T}.Nothing" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.NullableRocks" Member="M:Mono.Rocks.NullableRocks.Just``1(System.Nullable{``0})" />
+        <Link Type="Cadenza.NullableRocks" Member="M:Cadenza.NullableRocks.Just``1(System.Nullable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6110,10 +6110,10 @@
         <Target Type="T:System.Nullable`1" />
       </Targets>
       <Member MemberName="ToMaybe&lt;T&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;T&gt; ToMaybe&lt;T&gt; (this Nullable&lt;T&gt; self) where T : struct;" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; ToMaybe&lt;T&gt; (this Nullable&lt;T&gt; self) where T : struct;" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Maybe&lt;T&gt;</ReturnType>
+          <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="T">
@@ -6129,19 +6129,19 @@
         </Parameters>
         <Docs>
           <typeparam name="T">
-          The type to convert into a <see cref="T:Mono.Rocks.Maybe{T}" />.
+          The type to convert into a <see cref="T:Cadenza.Maybe{T}" />.
         </typeparam>
           <param name="self">
           A value of type <see cref="T:System.Nullable{T}" /> to convert into a 
-          <see cref="T:Mono.Rocks.Maybe{T}" />.
+          <see cref="T:Cadenza.Maybe{T}" />.
         </param>
           <summary>
-          Create a new <see cref="T:Mono.Rocks.Maybe{T}" /> instance
+          Create a new <see cref="T:Cadenza.Maybe{T}" /> instance
           initialized to a specified value.  The returned value may be 
-          <see cref="F:Mono.Rocks.Maybe{T}.Nothing" />.
+          <see cref="F:Cadenza.Maybe{T}.Nothing" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.NullableRocks" Member="M:Mono.Rocks.NullableRocks.ToMaybe``1(System.Nullable{``0})" />
+        <Link Type="Cadenza.NullableRocks" Member="M:Cadenza.NullableRocks.ToMaybe``1(System.Nullable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6149,10 +6149,10 @@
         <Target Type="System.Object" />
       </Targets>
       <Member MemberName="Just&lt;T&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;T&gt; Just&lt;T&gt; (this T self);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; Just&lt;T&gt; (this T self);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Maybe&lt;T&gt;</ReturnType>
+          <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="T" />
@@ -6162,19 +6162,19 @@
         </Parameters>
         <Docs>
           <typeparam name="T">
-          The type to convert into a <see cref="T:Mono.Rocks.Maybe{T}" />.
+          The type to convert into a <see cref="T:Cadenza.Maybe{T}" />.
         </typeparam>
           <param name="self">
           A value of type <typeparamref name="T" /> to convert into a 
-          <see cref="T:Mono.Rocks.Maybe{T}" />.
+          <see cref="T:Cadenza.Maybe{T}" />.
         </param>
           <summary>
-          Create a new <see cref="T:Mono.Rocks.Maybe{T}" /> instance
+          Create a new <see cref="T:Cadenza.Maybe{T}" /> instance
           initialized to a specified value.  The returned value will not be 
-          <see cref="F:Mono.Rocks.Maybe{T}.Nothing" />.
+          <see cref="F:Cadenza.Maybe{T}.Nothing" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.Just``1(``0)" />
+        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.Just``1(``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6182,7 +6182,7 @@
         <Target Type="System.Object" />
       </Targets>
       <Member MemberName="Match&lt;TSource,TResult&gt;">
-        <MemberSignature Language="C#" Value="public static TResult Match&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,Mono.Rocks.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+        <MemberSignature Language="C#" Value="public static TResult Match&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TResult</ReturnType>
@@ -6193,7 +6193,7 @@
         </TypeParameters>
         <Parameters>
           <Parameter Name="self" Type="TSource" RefType="this" />
-          <Parameter Name="matchers" Type="System.Func&lt;TSource,Mono.Rocks.Maybe&lt;TResult&gt;&gt;[]">
+          <Parameter Name="matchers" Type="System.Func&lt;TSource,Cadenza.Maybe&lt;TResult&gt;&gt;[]">
             <Attributes>
               <Attribute>
                 <AttributeName>System.ParamArray</AttributeName>
@@ -6209,7 +6209,7 @@
           <typeparamref name="TResult" />.
         </param>
           <param name="matchers">
-          A <see cref="T:System.Func{TSource,Mono.Rocks.Maybe{TResult}}" />
+          A <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
           array containing the conversion routines to try, in order, to
           convert <paramref name="self" /> into a 
           <typeparamref name="TResult" />.
@@ -6219,7 +6219,7 @@
           <paramref name="self" /> into a <typeparamref name="TResult" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.Match``2(``0,System.Func{``0,Mono.Rocks.Maybe{``1}}[])" />
+        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.Match``2(``0,System.Func{``0,Cadenza.Maybe{``1}}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6227,10 +6227,10 @@
         <Target Type="System.Object" />
       </Targets>
       <Member MemberName="ToMaybe&lt;T&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.Maybe&lt;T&gt; ToMaybe&lt;T&gt; (this T self);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; ToMaybe&lt;T&gt; (this T self);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.Maybe&lt;T&gt;</ReturnType>
+          <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="T" />
@@ -6240,19 +6240,19 @@
         </Parameters>
         <Docs>
           <typeparam name="T">
-          The type to convert into a <see cref="T:Mono.Rocks.Maybe{T}" />.
+          The type to convert into a <see cref="T:Cadenza.Maybe{T}" />.
         </typeparam>
           <param name="self">
           A value of type <typeparamref name="T" /> to convert into a 
-          <see cref="T:Mono.Rocks.Maybe{T}" />.
+          <see cref="T:Cadenza.Maybe{T}" />.
         </param>
           <summary>
-          Create a new <see cref="T:Mono.Rocks.Maybe{T}" /> instance
+          Create a new <see cref="T:Cadenza.Maybe{T}" /> instance
           initialized to a specified value.  The returned value may be 
-          <see cref="F:Mono.Rocks.Maybe{T}.Nothing" />.
+          <see cref="F:Cadenza.Maybe{T}.Nothing" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.ToMaybe``1(``0)" />
+        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.ToMaybe``1(``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6298,7 +6298,7 @@
           encountered node.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.TraverseBreadthFirst``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.TraverseBreadthFirst``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6328,7 +6328,7 @@
           <param name="childrenSelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.TraverseBreadthFirstWithParent``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.TraverseBreadthFirstWithParent``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6374,7 +6374,7 @@
           encountered node.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.TraverseDepthFirst``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.TraverseDepthFirst``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6404,7 +6404,7 @@
           <param name="childrenSelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.TraverseDepthFirstWithParent``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.TraverseDepthFirstWithParent``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6441,7 +6441,7 @@
           Supports chaining otherwise temporary values.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.ObjectRocks" Member="M:Mono.Rocks.ObjectRocks.With``2(``0,System.Func{``0,``1})" />
+        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.With``2(``0,System.Func{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6472,24 +6472,24 @@
           <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.RectangularArrayRocks" Member="M:Mono.Rocks.RectangularArrayRocks.Rows``1(``0[,])" />
+        <Link Type="Cadenza.RectangularArrayRocks" Member="M:Cadenza.RectangularArrayRocks.Rows``1(``0[,])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
-        <Target Type="T:Mono.Rocks.StreamConverter" />
+        <Target Type="T:Cadenza.StreamConverter" />
       </Targets>
       <Member MemberName="Read&lt;TValue&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.StreamConverter Read&lt;TValue&gt; (this Mono.Rocks.StreamConverter self, out TValue value);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.StreamConverter Read&lt;TValue&gt; (this Cadenza.StreamConverter self, out TValue value);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.StreamConverter</ReturnType>
+          <ReturnType>Cadenza.StreamConverter</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TValue" />
         </TypeParameters>
         <Parameters>
-          <Parameter Name="self" Type="Mono.Rocks.StreamConverter" RefType="this" />
+          <Parameter Name="self" Type="Cadenza.StreamConverter" RefType="this" />
           <Parameter Name="value" Type="TValue&amp;" RefType="out" />
         </Parameters>
         <Docs>
@@ -6498,24 +6498,24 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.StreamConverterRocks" Member="M:Mono.Rocks.StreamConverterRocks.Read``1(Mono.Rocks.StreamConverter,``0@)" />
+        <Link Type="Cadenza.StreamConverterRocks" Member="M:Cadenza.StreamConverterRocks.Read``1(Cadenza.StreamConverter,``0@)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
-        <Target Type="T:Mono.Rocks.StreamConverter" />
+        <Target Type="T:Cadenza.StreamConverter" />
       </Targets>
       <Member MemberName="Write&lt;TValue&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.StreamConverter Write&lt;TValue&gt; (this Mono.Rocks.StreamConverter self, TValue value);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.StreamConverter Write&lt;TValue&gt; (this Cadenza.StreamConverter self, TValue value);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.StreamConverter</ReturnType>
+          <ReturnType>Cadenza.StreamConverter</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TValue" />
         </TypeParameters>
         <Parameters>
-          <Parameter Name="self" Type="Mono.Rocks.StreamConverter" RefType="this" />
+          <Parameter Name="self" Type="Cadenza.StreamConverter" RefType="this" />
           <Parameter Name="value" Type="TValue" />
         </Parameters>
         <Docs>
@@ -6524,7 +6524,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.StreamConverterRocks" Member="M:Mono.Rocks.StreamConverterRocks.Write``1(Mono.Rocks.StreamConverter,``0)" />
+        <Link Type="Cadenza.StreamConverterRocks" Member="M:Cadenza.StreamConverterRocks.Write``1(Cadenza.StreamConverter,``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6532,10 +6532,10 @@
         <Target Type="T:System.IO.Stream" />
       </Targets>
       <Member MemberName="WithSystemConverter">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.StreamConverter WithSystemConverter (this System.IO.Stream self);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.StreamConverter WithSystemConverter (this System.IO.Stream self);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.StreamConverter</ReturnType>
+          <ReturnType>Cadenza.StreamConverter</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="self" Type="System.IO.Stream" RefType="this" />
@@ -6544,7 +6544,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.StreamRocks" Member="M:Mono.Rocks.StreamRocks.WithSystemConverter(System.IO.Stream)" />
+        <Link Type="Cadenza.StreamRocks" Member="M:Cadenza.StreamRocks.WithSystemConverter(System.IO.Stream)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6566,7 +6566,7 @@
           <param name="destination">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.StreamRocks" Member="M:Mono.Rocks.StreamRocks.WriteTo(System.IO.Stream,System.IO.Stream)" />
+        <Link Type="Cadenza.StreamRocks" Member="M:Cadenza.StreamRocks.WriteTo(System.IO.Stream,System.IO.Stream)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6597,7 +6597,7 @@
           the associated captured values within <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.StringRocks" Member="M:Mono.Rocks.StringRocks.CaptureNamedGroups(System.String,System.String)" />
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.CaptureNamedGroups(System.String,System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6633,7 +6633,7 @@
           the associated captured values within <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.StringRocks" Member="M:Mono.Rocks.StringRocks.CaptureNamedGroups(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.CaptureNamedGroups(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6664,7 +6664,7 @@
           match the regular expression <paramref name="regex" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.StringRocks" Member="M:Mono.Rocks.StringRocks.Captures(System.String,System.String)" />
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Captures(System.String,System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6700,7 +6700,7 @@
           match the regular expression <paramref name="regex" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.StringRocks" Member="M:Mono.Rocks.StringRocks.Captures(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Captures(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6726,7 +6726,7 @@
           which will return all lines of text from <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.StringRocks" Member="M:Mono.Rocks.StringRocks.Lines(System.String)" />
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Lines(System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6757,7 +6757,7 @@
           text within <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.StringRocks" Member="M:Mono.Rocks.StringRocks.Matches(System.String,System.String)" />
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Matches(System.String,System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6793,7 +6793,7 @@
           text within <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.StringRocks" Member="M:Mono.Rocks.StringRocks.Matches(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Matches(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6824,7 +6824,7 @@
           <paramref name="regex" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.StringRocks" Member="M:Mono.Rocks.StringRocks.MatchValues(System.String,System.String)" />
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.MatchValues(System.String,System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6860,7 +6860,7 @@
           <paramref name="regex" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.StringRocks" Member="M:Mono.Rocks.StringRocks.MatchValues(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.MatchValues(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6897,7 +6897,7 @@
           position.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.StringRocks" Member="M:Mono.Rocks.StringRocks.Slice(System.String,System.Int32,System.Int32)" />
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Slice(System.String,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6930,7 +6930,7 @@
           of type <typeparamref name="TEnum" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.StringRocks" Member="M:Mono.Rocks.StringRocks.ToEnum``1(System.String)" />
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.ToEnum``1(System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6977,7 +6977,7 @@
           which will return all tokens from <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.StringRocks" Member="M:Mono.Rocks.StringRocks.Tokens(System.String,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Tokens(System.String,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7003,7 +7003,7 @@
           which will return all words from <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.StringRocks" Member="M:Mono.Rocks.StringRocks.Words(System.String)" />
+        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Words(System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7031,7 +7031,7 @@
           <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.TextReaderRocks" Member="M:Mono.Rocks.TextReaderRocks.Lines(System.IO.TextReader)" />
+        <Link Type="Cadenza.TextReaderRocks" Member="M:Cadenza.TextReaderRocks.Lines(System.IO.TextReader)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7039,21 +7039,21 @@
         <Target Type="T:System.IO.TextReader" />
       </Targets>
       <Member MemberName="Lines">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self, Mono.Rocks.TextReaderRocksOptions options);" />
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self, Cadenza.TextReaderRocksOptions options);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-          <Parameter Name="options" Type="Mono.Rocks.TextReaderRocksOptions" />
+          <Parameter Name="options" Type="Cadenza.TextReaderRocksOptions" />
         </Parameters>
         <Docs>
           <param name="self">
           A <see cref="T:System.IO.TextReader" /> to read lines from.
         </param>
           <param name="options">
-          A <see cref="T:Mono.Rocks.TextReaderRocksOptions" /> controlling
+          A <see cref="T:Cadenza.TextReaderRocksOptions" /> controlling
           method execution.
         </param>
           <summary>
@@ -7064,7 +7064,7 @@
           <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.TextReaderRocks" Member="M:Mono.Rocks.TextReaderRocks.Lines(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions)" />
+        <Link Type="Cadenza.TextReaderRocks" Member="M:Cadenza.TextReaderRocks.Lines(System.IO.TextReader,Cadenza.TextReaderRocksOptions)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7072,14 +7072,14 @@
         <Target Type="T:System.IO.TextReader" />
       </Targets>
       <Member MemberName="Tokens">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Mono.Rocks.TextReaderRocksOptions options, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Cadenza.TextReaderRocksOptions options, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-          <Parameter Name="options" Type="Mono.Rocks.TextReaderRocksOptions" />
+          <Parameter Name="options" Type="Cadenza.TextReaderRocksOptions" />
           <Parameter Name="categories" Type="System.Func&lt;System.Nullable&lt;System.Char&gt;,System.Char,System.Boolean&gt;[]">
             <Attributes>
               <Attribute>
@@ -7093,7 +7093,7 @@
           A <see cref="T:System.IO.TextReader" /> to extract tokens from.
         </param>
           <param name="options">
-          A <see cref="T:Mono.Rocks.TextReaderRocksOptions" /> controlling
+          A <see cref="T:Cadenza.TextReaderRocksOptions" /> controlling
           method execution.
         </param>
           <param name="categories">
@@ -7118,7 +7118,7 @@
           <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.TextReaderRocks" Member="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
+        <Link Type="Cadenza.TextReaderRocks" Member="M:Cadenza.TextReaderRocks.Tokens(System.IO.TextReader,Cadenza.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7167,7 +7167,7 @@
           <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.TextReaderRocks" Member="M:Mono.Rocks.TextReaderRocks.Tokens(System.IO.TextReader,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
+        <Link Type="Cadenza.TextReaderRocks" Member="M:Cadenza.TextReaderRocks.Tokens(System.IO.TextReader,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7195,7 +7195,7 @@
           <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.TextReaderRocks" Member="M:Mono.Rocks.TextReaderRocks.Words(System.IO.TextReader)" />
+        <Link Type="Cadenza.TextReaderRocks" Member="M:Cadenza.TextReaderRocks.Words(System.IO.TextReader)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7203,21 +7203,21 @@
         <Target Type="T:System.IO.TextReader" />
       </Targets>
       <Member MemberName="Words">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self, Mono.Rocks.TextReaderRocksOptions options);" />
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self, Cadenza.TextReaderRocksOptions options);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-          <Parameter Name="options" Type="Mono.Rocks.TextReaderRocksOptions" />
+          <Parameter Name="options" Type="Cadenza.TextReaderRocksOptions" />
         </Parameters>
         <Docs>
           <param name="self">
           A <see cref="T:System.IO.TextReader" /> to extract words from.
         </param>
           <param name="options">
-          A <see cref="T:Mono.Rocks.TextReaderRocksOptions" /> controlling
+          A <see cref="T:Cadenza.TextReaderRocksOptions" /> controlling
           method execution.
         </param>
           <summary>
@@ -7228,24 +7228,24 @@
           <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.TextReaderRocks" Member="M:Mono.Rocks.TextReaderRocks.Words(System.IO.TextReader,Mono.Rocks.TextReaderRocksOptions)" />
+        <Link Type="Cadenza.TextReaderRocks" Member="M:Cadenza.TextReaderRocks.Words(System.IO.TextReader,Cadenza.TextReaderRocksOptions)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
-        <Target Type="T:Mono.Rocks.TextValueReader" />
+        <Target Type="T:Cadenza.TextValueReader" />
       </Targets>
       <Member MemberName="Read&lt;TValue&gt;">
-        <MemberSignature Language="C#" Value="public static Mono.Rocks.TextValueReader Read&lt;TValue&gt; (this Mono.Rocks.TextValueReader self, out TValue value);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.TextValueReader Read&lt;TValue&gt; (this Cadenza.TextValueReader self, out TValue value);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Mono.Rocks.TextValueReader</ReturnType>
+          <ReturnType>Cadenza.TextValueReader</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TValue" />
         </TypeParameters>
         <Parameters>
-          <Parameter Name="self" Type="Mono.Rocks.TextValueReader" RefType="this" />
+          <Parameter Name="self" Type="Cadenza.TextValueReader" RefType="this" />
           <Parameter Name="value" Type="TValue&amp;" RefType="out" />
         </Parameters>
         <Docs>
@@ -7254,15 +7254,15 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Mono.Rocks.TextValueReaderRocks" Member="M:Mono.Rocks.TextValueReaderRocks.Read``1(Mono.Rocks.TextValueReader,``0@)" />
+        <Link Type="Cadenza.TextValueReaderRocks" Member="M:Cadenza.TextValueReaderRocks.Read``1(Cadenza.TextValueReader,``0@)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
-        <Target Type="T:Mono.Rocks.Tuple`2" />
+        <Target Type="T:Cadenza.Tuple`2" />
       </Targets>
       <Member MemberName="ToKeyValuePair&lt;TKey,TValue&gt;">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; ToKeyValuePair&lt;TKey,TValue&gt; (this Mono.Rocks.Tuple&lt;TKey,TValue&gt; self);" />
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; ToKeyValuePair&lt;TKey,TValue&gt; (this Cadenza.Tuple&lt;TKey,TValue&gt; self);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;</ReturnType>
@@ -7272,25 +7272,25 @@
           <TypeParameter Name="TValue" />
         </TypeParameters>
         <Parameters>
-          <Parameter Name="self" Type="Mono.Rocks.Tuple&lt;TKey,TValue&gt;" RefType="this" />
+          <Parameter Name="self" Type="Cadenza.Tuple&lt;TKey,TValue&gt;" RefType="this" />
         </Parameters>
         <Docs>
           <typeparam name="TKey">The type of the key.</typeparam>
           <typeparam name="TValue">The type of the value.</typeparam>
           <param name="self">
           A 
-          <see cref="T:Mono.Rocks.Tuple{TKey,TValue}" />
+          <see cref="T:Cadenza.Tuple{TKey,TValue}" />
           to convert into a
           <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />.
         </param>
           <summary>
           Converts a 
-          <see cref="T:Mono.Rocks.Tuple{TKey,TValue}" />
+          <see cref="T:Cadenza.Tuple{TKey,TValue}" />
           into a
           <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.TupleRocks" Member="M:Mono.Rocks.TupleRocks.ToKeyValuePair``2(Mono.Rocks.Tuple{``0,``1})" />
+        <Link Type="Cadenza.TupleRocks" Member="M:Cadenza.TupleRocks.ToKeyValuePair``2(Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7314,7 +7314,7 @@
           Gets a value indicating whether the type is a nullable type.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.TypeRocks" Member="M:Mono.Rocks.TypeRocks.IsNullable(System.Type)" />
+        <Link Type="Cadenza.TypeRocks" Member="M:Cadenza.TypeRocks.IsNullable(System.Type)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7338,7 +7338,7 @@
           Gets a value indicating whether <paramref name="value" /> is an even number.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.UInt16Rocks" Member="M:Mono.Rocks.UInt16Rocks.IsEven(System.UInt16)" />
+        <Link Type="Cadenza.UInt16Rocks" Member="M:Cadenza.UInt16Rocks.IsEven(System.UInt16)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7362,7 +7362,7 @@
           Gets a value indicating whether <paramref name="value" /> is an odd number.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.UInt16Rocks" Member="M:Mono.Rocks.UInt16Rocks.IsOdd(System.UInt16)" />
+        <Link Type="Cadenza.UInt16Rocks" Member="M:Cadenza.UInt16Rocks.IsOdd(System.UInt16)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7386,7 +7386,7 @@
           Gets a value indicating whether <paramref name="value" /> is an even number.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.UInt32Rocks" Member="M:Mono.Rocks.UInt32Rocks.IsEven(System.UInt32)" />
+        <Link Type="Cadenza.UInt32Rocks" Member="M:Cadenza.UInt32Rocks.IsEven(System.UInt32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7410,7 +7410,7 @@
           Gets a value indicating whether <paramref name="value" /> is an odd number.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.UInt32Rocks" Member="M:Mono.Rocks.UInt32Rocks.IsOdd(System.UInt32)" />
+        <Link Type="Cadenza.UInt32Rocks" Member="M:Cadenza.UInt32Rocks.IsOdd(System.UInt32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7434,7 +7434,7 @@
           Gets a value indicating whether <paramref name="value" /> is an even number.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.UInt64Rocks" Member="M:Mono.Rocks.UInt64Rocks.IsEven(System.UInt64)" />
+        <Link Type="Cadenza.UInt64Rocks" Member="M:Cadenza.UInt64Rocks.IsEven(System.UInt64)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7458,7 +7458,7 @@
           Gets a value indicating whether <paramref name="value" /> is an odd number.
         </summary>
         </Docs>
-        <Link Type="Mono.Rocks.UInt64Rocks" Member="M:Mono.Rocks.UInt64Rocks.IsOdd(System.UInt64)" />
+        <Link Type="Cadenza.UInt64Rocks" Member="M:Cadenza.UInt64Rocks.IsOdd(System.UInt64)" />
       </Member>
     </ExtensionMethod>
   </ExtensionMethods>

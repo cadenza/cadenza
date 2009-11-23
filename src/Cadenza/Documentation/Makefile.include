@@ -20,7 +20,7 @@ $(srcdir)/src/Cadenza/Documentation/en/examples/Cadenza.dll: $(mrdir)/Cadenza.dl
 	cp $^ $@
 	-cp $^.mdb $@.mdb
 
-%.exe: %.cs $(srcdir)/src/Cadenza/Documentation/en/examples/Mono.Rocks.dll
+%.exe: %.cs $(srcdir)/src/Cadenza/Documentation/en/examples/Cadenza.dll
 	gmcs -debug+ -r:Mono.Posix.dll -r:System.Core.dll -lib:doc/en/examples -r:NDesk.Options.dll -out:$@ $<
 
 DOCUMENTATION = $(shell find $(srcdir)/src/Cadenza/Documentation/en -type f -name \*.xml)
@@ -54,7 +54,7 @@ doc-update: $(addprefix $(srcdir)/, $(ASSEMBLIES)) $(DOC_EXAMPLES_SRC) $(DOC_EXA
 doc-update-delete: $(addprefix $(srcdir)/, $(ASSEMBLIES)) $(DOC_EXAMPLES_SRC) $(DOC_EXAMPLES_OUTPUT)
 	sed -i -f $(srcdir)/src/Cadenza/Documentation/fixup.sed $(srcdir)/src/Cadenza/Documentation/Cadenza.xml
 	for a in $(ASSEMBLIES) ; do \
-		$(UPDATER) --delete -importslashdoc:$(srcdir)/src/Cadenza/Documentation/mono-rocks.xml -assembly:$(srcdir)/$$a ; \
+		$(UPDATER) --delete -importslashdoc:$(srcdir)/src/Cadenza/Documentation/cadenza.xml -assembly:$(srcdir)/$$a ; \
 	done
 
 DOC_EXTRA_DIST = \

@@ -36,7 +36,7 @@
         <xsl:call-template name="create-default-collection-title" />
         <xsl:call-template name="create-index" />
         <div class="information">
-          <p><a href="http://mono-project.com/Rocks">Mono.Rocks</a></p>
+          <p><a href="http://mono-project.com/Rocks">Cadenza</a></p>
           <p><a href="http://anonsvn.mono-project.com/source/branches/rocks-playground/"
             >Subversion Repository</a></p>
         </div>

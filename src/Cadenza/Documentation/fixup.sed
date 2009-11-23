@@ -29,7 +29,7 @@
 	s/T3/`2/g
 	s/T4/`3/g
 	# `T' is used in Tuple<T>
-	s/\[Mono.Rocks.Maybe.*=null\]\]/Mono.Rocks.Maybe{``0}}/
+	s/\[Cadenza.Maybe.*=null\]\]/Cadenza.Maybe{``0}}/
 	s/System.Func{T,/System.Func{`0,/g
 	p
 	d

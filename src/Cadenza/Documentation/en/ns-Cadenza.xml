@@ -1,7 +1,7 @@
 <Namespace Name="Cadenza">
   <Docs>
     <summary>
-      The Mono.Rocks namespace provides types and extension methods to assist
+      The Cadenza namespace provides types and extension methods to assist
       a wide domain of problems.
     </summary>
     <remarks>
