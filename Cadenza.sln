@@ -9,19 +9,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambdas", "tools\Lambdas.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eithers", "tools\Eithers.csproj", "{06905AC7-3D4C-4F8F-8321-8B6FC227B990}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{B0006991-25C5-4A27-A4B0-0C048BF7784F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
 		Default|Any CPU = Default|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{06905AC7-3D4C-4F8F-8321-8B6FC227B990}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06905AC7-3D4C-4F8F-8321-8B6FC227B990}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06905AC7-3D4C-4F8F-8321-8B6FC227B990}.Default|Any CPU.ActiveCfg = Debug|Any CPU
-		{06905AC7-3D4C-4F8F-8321-8B6FC227B990}.Default|Any CPU.Build.0 = Debug|Any CPU
-		{06905AC7-3D4C-4F8F-8321-8B6FC227B990}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06905AC7-3D4C-4F8F-8321-8B6FC227B990}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{37880451-3753-44B1-81DE-03C21E5D603B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{37880451-3753-44B1-81DE-03C21E5D603B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37880451-3753-44B1-81DE-03C21E5D603B}.Default|Any CPU.ActiveCfg = Debug|Any CPU
@@ -34,12 +36,19 @@ Global
 		{7E42A1FF-7E63-4F80-A184-49A214C4A978}.Default|Any CPU.Build.0 = Debug|Any CPU
 		{7E42A1FF-7E63-4F80-A184-49A214C4A978}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E42A1FF-7E63-4F80-A184-49A214C4A978}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}.Default|Any CPU.ActiveCfg = Debug|Any CPU
-		{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}.Default|Any CPU.Build.0 = Debug|Any CPU
-		{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06905AC7-3D4C-4F8F-8321-8B6FC227B990}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06905AC7-3D4C-4F8F-8321-8B6FC227B990}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06905AC7-3D4C-4F8F-8321-8B6FC227B990}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{06905AC7-3D4C-4F8F-8321-8B6FC227B990}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{06905AC7-3D4C-4F8F-8321-8B6FC227B990}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06905AC7-3D4C-4F8F-8321-8B6FC227B990}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{06905AC7-3D4C-4F8F-8321-8B6FC227B990} = {B0006991-25C5-4A27-A4B0-0C048BF7784F}
+		{7E42A1FF-7E63-4F80-A184-49A214C4A978} = {B0006991-25C5-4A27-A4B0-0C048BF7784F}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Mono.Rocks.csproj
@@ -62,8 +71,5 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 		name = Mono.Rocks
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
