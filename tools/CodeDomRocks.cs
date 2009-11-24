@@ -52,10 +52,24 @@ namespace Mono.Rocks.Tools
 
 	public static class CodeDomRocks
 	{
+		public static void AddCheck (this CodeStatementCollection self, string method, string argument)
+		{
+			self.Add (
+					new CodeExpressionStatement (
+						new CodeMethodInvokeExpression (
+							new CodeTypeReferenceExpression ("Check"), method, new CodeVariableReferenceExpression (argument))));
+		}
+
 		public static void AddRange (this CodeCommentStatementCollection self, IEnumerable<CodeCommentStatement> comments)
 		{
 			foreach (var c in comments)
 				self.Add (c);
+		}
+
+		public static void AddRange (this CodeTypeMemberCollection self, IEnumerable<CodeTypeMember> ps)
+		{
+			foreach (var p in ps)
+				self.Add (p);
 		}
 
 		public static void AddRange (this CodeTypeParameterCollection self, IEnumerable<CodeTypeParameter> ps)

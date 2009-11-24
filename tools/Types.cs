@@ -46,20 +46,42 @@ namespace Mono.Rocks.Tools {
 
 		public static CodeTypeReference Action (int args)
 		{
-			return new CodeTypeReference (
-					args <= MaxFuncArgs ? "System.Action" : "Mono.Rocks.RocksAction",
-					GetTypeParameterReferences (args, false).ToArray ());
+			return Action (args, 0);
 		}
 
-		public static IEnumerable<CodeTypeReference> GetTypeParameterReferences (int args, bool ret)
+		public static CodeTypeReference Action (int args, int start)
 		{
-			return GetTypeParameters (args, ret)
+			return new CodeTypeReference (
+					(args - start) <= MaxFuncArgs ? "System.Action" : "Mono.Rocks.RocksAction",
+					GetTypeParameterReferences (args, start, false).ToArray ());
+		}
+
+		public static CodeTypeReference ThisAction (int args, int start)
+		{
+			return new CodeTypeReference (
+					(args - start) <= MaxFuncArgs ? "this System.Action" : "this Mono.Rocks.RocksAction",
+					GetTypeParameterReferences (args, start, false).ToArray ());
+		}
+
+        public static IEnumerable<CodeTypeReference> GetTypeParameterReferences (int args, bool ret)
+        {
+            return GetTypeParameterReferences (args, 0, ret);
+        }
+
+		public static IEnumerable<CodeTypeReference> GetTypeParameterReferences (int args, int start, bool ret)
+		{
+			return GetTypeParameters (args, start, ret)
 				.Select (p => new CodeTypeReference (p));
 		}
 
-		public static IEnumerable<CodeTypeParameter> GetTypeParameters (int args, bool ret)
+        public static IEnumerable<CodeTypeParameter> GetTypeParameters (int args, bool ret)
+        {
+            return GetTypeParameters (args, 0, ret);
+        }
+
+		public static IEnumerable<CodeTypeParameter> GetTypeParameters (int args, int start, bool ret)
 		{
-			return Enumerable.Range (0, args)
+			return Enumerable.Range (start, args - start)
 				.Select (
 					v => new CodeTypeParameter (GetTypeParameter (v, args)))
 				.Concat (ret ? new[]{new CodeTypeParameter ("TResult")} : new CodeTypeParameter [0]);
@@ -67,9 +89,21 @@ namespace Mono.Rocks.Tools {
 
 		public static CodeTypeReference Func (int args)
 		{
+			return Func (args, 0);
+		}
+
+		public static CodeTypeReference Func (int args, int start)
+		{
 			return new CodeTypeReference (
-					args <= MaxFuncArgs ? "System.Func" : "Mono.Rocks.RocksFunc",
-					GetTypeParameterReferences (args, true).ToArray ());
+					(args - start) <= MaxFuncArgs ? "System.Func" : "Mono.Rocks.RocksFunc",
+					GetTypeParameterReferences (args, start, true).ToArray ());
+		}
+
+		public static CodeTypeReference ThisFunc (int args, int start)
+		{
+			return new CodeTypeReference (
+					(args - start) <= MaxFuncArgs ? "this System.Func" : "this Mono.Rocks.RocksFunc",
+					GetTypeParameterReferences (args, start, true).ToArray ());
 		}
 
 		public static string GetTypeParameter (int index, int total)
