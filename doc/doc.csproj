@@ -21,7 +21,7 @@
     <WarningLevel>4</WarningLevel>
     <CustomCommands>
       <CustomCommands>
-        <Command type="Build" command="$(SolutionDir)lib\mdoc\mdoc.exe export-html -o $(ProjectDir)cadenza $(SolutionDir)src\Cadenza\Documentation\en" />
+        <Command type="Build" command="$(SolutionDir)lib\mdoc-net\mdoc-net.exe export-html -o $(ProjectDir)cadenza $(SolutionDir)src\Cadenza\Documentation\en" />
       </CustomCommands>
     </CustomCommands>
   </PropertyGroup>
@@ -33,12 +33,12 @@
     <WarningLevel>4</WarningLevel>
     <CustomCommands>
       <CustomCommands>
-        <Command type="Build" command="$(SolutionDir)lib\mdoc\mdoc.exe export-html -o $(ProjectDir)cadenza $(SolutionDir)src\Cadenza\Documentation\en" />
+        <Command type="Build" command="$(SolutionDir)lib\mdoc-net\mdoc-net.exe export-html -o $(ProjectDir)cadenza $(SolutionDir)src\Cadenza\Documentation\en" />
       </CustomCommands>
     </CustomCommands>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>$(SolutionDir)lib\mdoc\mdoc.exe export-html -o $(ProjectDir)cadenza $(SolutionDir)src\Cadenza\Documentation\en</PreBuildEvent>
+    <PreBuildEvent>$(SolutionDir)lib\mdoc-net\mdoc-net.exe export-html -o $(ProjectDir)cadenza $(SolutionDir)src\Cadenza\Documentation\en</PreBuildEvent>
   </PropertyGroup>
 </Project>

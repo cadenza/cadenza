@@ -117,7 +117,7 @@
     <Exec Command="csharp -r:$(OutputPath)$(TargetFileName)" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>rem $(SolutionDir)lib\mdoc\mdoc.exe update --exceptions=added -i $(TargetDir)$(TargetName)-in.xml -o $(ProjectDir)Documentation\en $(TargetPath)
-$(SolutionDir)lib\mdoc\mdoc.exe export-msxdoc -o $(TargetDir)$(TargetName).xml $(ProjectDir)Documentation\en</PostBuildEvent>
+    <PostBuildEvent>rem $(SolutionDir)lib\mdoc-net\mdoc-net.exe update --exceptions=added -i $(TargetDir)$(TargetName)-in.xml -o $(ProjectDir)Documentation\en $(TargetPath)
+$(SolutionDir)lib\mdoc-net\mdoc-net.exe export-msxdoc -o $(TargetDir)$(TargetName).xml $(ProjectDir)Documentation\en</PostBuildEvent>
   </PropertyGroup>
 </Project>
