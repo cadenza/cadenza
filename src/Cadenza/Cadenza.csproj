@@ -118,7 +118,7 @@
     <Exec Command="csharp -r:$(OutputPath)$(TargetFileName)" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>rem $(Mdoc> update --exceptions=added -i $(TargetDir)$(TargetName)-in.xml -o $(ProjectDir)Documentation\en $(TargetPath)
+    <PostBuildEvent>$(Mdoc) update --exceptions=added -o $(ProjectDir)Documentation\en $(TargetPath)
 $(Mdoc) export-msxdoc -o $(TargetDir)$(TargetName).xml $(ProjectDir)Documentation\en</PostBuildEvent>
   </PropertyGroup>
 </Project>
