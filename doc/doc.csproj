@@ -37,8 +37,9 @@
       </CustomCommands>
     </CustomCommands>
   </PropertyGroup>
+  <Import Project="..\lib\mdoc-net\mdoc.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>$(SolutionDir)lib\mdoc-net\mdoc-net.exe export-html -o $(ProjectDir)cadenza $(SolutionDir)src\Cadenza\Documentation\en</PreBuildEvent>
+    <PreBuildEvent>$(Mdoc) export-html -o $(ProjectDir)cadenza $(SolutionDir)src\Cadenza\Documentation\en</PreBuildEvent>
   </PropertyGroup>
 </Project>

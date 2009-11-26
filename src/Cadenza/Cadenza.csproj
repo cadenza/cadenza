@@ -79,6 +79,7 @@
     <Compile Include="Cadenza\UInt64.cs" />
     <Compile Include="Cadenza\ValueReader.cs" />
   </ItemGroup>
+  <Import Project="..\..\lib\mdoc-net\mdoc.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -117,7 +118,7 @@
     <Exec Command="csharp -r:$(OutputPath)$(TargetFileName)" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>rem $(SolutionDir)lib\mdoc-net\mdoc-net.exe update --exceptions=added -i $(TargetDir)$(TargetName)-in.xml -o $(ProjectDir)Documentation\en $(TargetPath)
-$(SolutionDir)lib\mdoc-net\mdoc-net.exe export-msxdoc -o $(TargetDir)$(TargetName).xml $(ProjectDir)Documentation\en</PostBuildEvent>
+    <PostBuildEvent>rem $(Mdoc> update --exceptions=added -i $(TargetDir)$(TargetName)-in.xml -o $(ProjectDir)Documentation\en $(TargetPath)
+$(Mdoc) export-msxdoc -o $(TargetDir)$(TargetName).xml $(ProjectDir)Documentation\en</PostBuildEvent>
   </PropertyGroup>
 </Project>
