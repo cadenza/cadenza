@@ -44,6 +44,13 @@ namespace Cadenza
 				? false
 				: self.GetGenericTypeDefinition () == typeof (Nullable<>);
 		}
+
+		public static bool IsAssignableTo (this Type self, Type type)
+		{
+			Check.Self (self);
+
+			return type.IsAssignableFrom (self);
+		}
 	}
 }
 

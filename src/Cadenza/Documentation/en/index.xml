@@ -6,9 +6,6 @@
           <AttributeName>System.CLSCompliant(true)</AttributeName>
         </Attribute>
         <Attribute>
-          <AttributeName>System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute+DebuggingModes.Default | System.Diagnostics.DebuggableAttribute+DebuggingModes.IgnoreSymbolStoreSequencePoints | System.Diagnostics.DebuggableAttribute+DebuggingModes.EnableEditAndContinue | System.Diagnostics.DebuggableAttribute+DebuggingModes.DisableOptimizations)</AttributeName>
-        </Attribute>
-        <Attribute>
           <AttributeName>System.Reflection.AssemblyCompany("Novell, Inc.")</AttributeName>
         </Attribute>
         <Attribute>
@@ -31,9 +28,6 @@
         </Attribute>
         <Attribute>
           <AttributeName>System.Reflection.AssemblyTrademark("")</AttributeName>
-        </Attribute>
-        <Attribute>
-          <AttributeName>System.Runtime.CompilerServices.CompilationRelaxations(8)</AttributeName>
         </Attribute>
         <Attribute>
           <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
@@ -7487,6 +7481,28 @@
         </summary>
         </Docs>
         <Link Type="Cadenza.TupleRocks" Member="M:Cadenza.TupleRocks.ToKeyValuePair``2(Cadenza.Tuple{``0,``1})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Type" />
+      </Targets>
+      <Member MemberName="IsAssignableTo">
+        <MemberSignature Language="C#" Value="public static bool IsAssignableTo (this Type self, Type type);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.Type" RefType="this" />
+          <Parameter Name="type" Type="System.Type" />
+        </Parameters>
+        <Docs>
+          <param name="self">To be added.</param>
+          <param name="type">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.TypeRocks" Member="M:Cadenza.TypeRocks.IsAssignableTo(System.Type,System.Type)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>

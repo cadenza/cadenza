@@ -38,6 +38,22 @@ namespace Cadenza.Tests {
 	public class TypeTest : BaseRocksFixture {
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void IsAssignableTo_SelfNull ()
+		{
+			Type s = null;
+			s.IsAssignableTo (typeof (int));
+		}
+
+		[Test]
+		public void IsAssignableTo ()
+		{
+			#region IsAssignableTo
+			Assert.IsTrue (typeof(string).IsAssignableTo (typeof (object)));
+			Assert.IsFalse (typeof(object).IsAssignableTo (typeof (string)));
+			#endregion
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
 		public void IsNullable_SelfNull ()
 		{
 			Type s = null;
