@@ -163,14 +163,7 @@
         <summary>
             Gets the elements for <paramref name="key" />.
             </summary>
-        <returns>The elements under <paramref name="key" />.</returns>
         <value>The elements under <paramref name="key" />.</value>
-        <value>The elements under <paramref name="key" />.</value>
-        <value>The elements under <paramref name="key" />.</value>
-        <value>The elements under <paramref name="key" />.</value>
-        <value>The elements under <paramref name="key" />.</value>
-        <value>The elements under <paramref name="key" />.</value>
-        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

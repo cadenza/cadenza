@@ -385,14 +385,7 @@
         <summary>
             Gets the value at the specified index.
             </summary>
-        <returns>The value at the specified index.</returns>
         <value>The value at the specified index.</value>
-        <value>The value at the specified index.</value>
-        <value>The value at the specified index.</value>
-        <value>The value at the specified index.</value>
-        <value>The value at the specified index.</value>
-        <value>The value at the specified index.</value>
-        <value>To be added.</value>
         <remarks>To be added.</remarks>
         <exception cref="T:System.IndexOutOfRangeException">
           <paramref name="index" /> is less than 0 or greater than <see cref="P:Cadenza.OrderedDictionary`2.Count" />.</exception>
@@ -415,14 +408,7 @@
         <summary>
             Gets or sets the value associated with <paramref name="key" />.
             </summary>
-        <returns>The value associated with the key.</returns>
         <value>The value associated with the key.</value>
-        <value>The value associated with the key.</value>
-        <value>The value associated with the key.</value>
-        <value>The value associated with the key.</value>
-        <value>The value associated with the key.</value>
-        <value>The value associated with the key.</value>
-        <value>To be added.</value>
         <remarks>To be added.</remarks>
         <exception cref="T:System.Collections.Generic.KeyNotFoundException">
           <paramref name="key" /> was not found attempting to get.</exception>
