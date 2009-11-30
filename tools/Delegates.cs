@@ -69,8 +69,10 @@ namespace Mono.Rocks.Tools {
 			for (int i = 1; i <= n; ++i) {
 				dr.Members.AddRange (CreateCurryActions (i));
 				// dr.Members.AddRange (CreateCurryTupleActions (i));
+				dr.Members.AddRange (CreateTraditionalCurryActions (i));
 				dr.Members.AddRange (CreateCurryFuncs (i));
 				// dr.Members.AddRange (CreateCurryTupleFuncs (i));
+				dr.Members.AddRange (CreateTraditionalCurryFuncs (i));
 			}
 			return dr;
 		}
@@ -129,7 +131,48 @@ namespace Mono.Rocks.Tools {
 		IEnumerable<CodeTypeMember> CreateCurryFuncs (int n)
 		{
 			for (int i = 1; i <= n; ++i)
-				yield return CreateCurryMethod (Types.ThisFunc, Types.Func, n, i, false);
+				yield return CreateCurryMethod (Types.ThisFunc, Types.Func, n, i, true);
+		}
+
+		static CodeMemberMethod CreateTraditionalCurryMethod (Func<int, int, CodeTypeReference> getSelfType, Func<int, int, CodeTypeReference> getRetType, int n, bool tret)
+		{
+			var selfType = getSelfType (n, 0);
+			var retType  = getRetType (n, n - 1);
+			for (int i = n - 2; i >= 0; --i)
+				retType = new CodeTypeReference ("System.Func", new CodeTypeReference (Types.GetTypeParameter (i, n)), retType);
+			var m = new CodeMemberMethod () {
+				Attributes = MemberAttributes.Public | MemberAttributes.Static,
+				Name = "Curry",
+				ReturnType = retType,
+			};
+			for (int i = 0; i < n; ++i)
+				m.TypeParameters.Add (Types.GetTypeParameter (i, n));
+			if (tret)
+				m.TypeParameters.Add ("TResult");
+			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));
+			m.Statements.AddCheck ("Self", "self");
+			var expr = new StringBuilder ();
+			for (int i = 0; i < n; ++i)
+				expr.Append (Value (n, i)).Append (" => ");
+			expr.Append ("self (");
+			Values (expr, n, 0, n);
+			expr.Append (")");
+			m.Statements.Add (new CodeMethodReturnStatement (new CodeSnippetExpression (expr.ToString ())));
+			return m;
+		}
+
+		IEnumerable<CodeTypeMember> CreateTraditionalCurryActions (int n)
+		{
+			if (n <= 1)
+				yield break;
+			yield return CreateTraditionalCurryMethod (Types.ThisAction, Types.Action, n, false);
+		}
+
+		IEnumerable<CodeTypeMember> CreateTraditionalCurryFuncs (int n)
+		{
+			if (n <= 1)
+				yield break;
+			yield return CreateTraditionalCurryMethod (Types.ThisFunc, Types.Func, n, true);
 		}
 	}
 }
