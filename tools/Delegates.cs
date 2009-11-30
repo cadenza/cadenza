@@ -1,5 +1,5 @@
 //
-// Lambdas.cs
+// Delegates.cs
 //
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
