@@ -63,25 +63,35 @@ namespace Mono.Rocks.Tools {
 					GetTypeParameterReferences (args, start, false).ToArray ());
 		}
 
-        public static IEnumerable<CodeTypeReference> GetTypeParameterReferences (int args, bool ret)
-        {
-            return GetTypeParameterReferences (args, 0, ret);
-        }
+		public static IEnumerable<CodeTypeReference> GetTypeParameterReferences (int args, bool ret)
+		{
+			return GetTypeParameterReferences (args, 0, ret);
+		}
 
 		public static IEnumerable<CodeTypeReference> GetTypeParameterReferences (int args, int start, bool ret)
 		{
-			return GetTypeParameters (args, start, ret)
+			return GetTypeParameterReferences (args, start, args - start, ret);
+		}
+
+		public static IEnumerable<CodeTypeReference> GetTypeParameterReferences (int args, int start, int end, bool ret)
+		{
+			return GetTypeParameters (args, start, end, ret)
 				.Select (p => new CodeTypeReference (p));
 		}
 
-        public static IEnumerable<CodeTypeParameter> GetTypeParameters (int args, bool ret)
-        {
-            return GetTypeParameters (args, 0, ret);
-        }
+		public static IEnumerable<CodeTypeParameter> GetTypeParameters (int args, bool ret)
+		{
+			return GetTypeParameters (args, 0, ret);
+		}
 
 		public static IEnumerable<CodeTypeParameter> GetTypeParameters (int args, int start, bool ret)
 		{
-			return Enumerable.Range (start, args - start)
+			return GetTypeParameters (args, start, args - start, ret);
+		}
+
+		public static IEnumerable<CodeTypeParameter> GetTypeParameters (int args, int start, int end, bool ret)
+		{
+			return Enumerable.Range (start, end)
 				.Select (
 					v => new CodeTypeParameter (GetTypeParameter (v, args)))
 				.Concat (ret ? new[]{new CodeTypeParameter ("TResult")} : new CodeTypeParameter [0]);

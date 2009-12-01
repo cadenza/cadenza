@@ -68,10 +68,10 @@ namespace Mono.Rocks.Tools {
 			};
 			for (int i = 1; i <= n; ++i) {
 				dr.Members.AddRange (CreateCurryActions (i));
-				// dr.Members.AddRange (CreateCurryTupleActions (i));
+				dr.Members.AddRange (CreateCurryTupleActions (i));
 				dr.Members.AddRange (CreateTraditionalCurryActions (i));
 				dr.Members.AddRange (CreateCurryFuncs (i));
-				// dr.Members.AddRange (CreateCurryTupleFuncs (i));
+				dr.Members.AddRange (CreateCurryTupleFuncs (i));
 				dr.Members.AddRange (CreateTraditionalCurryFuncs (i));
 			}
 			return dr;
@@ -132,6 +132,50 @@ namespace Mono.Rocks.Tools {
 		{
 			for (int i = 1; i <= n; ++i)
 				yield return CreateCurryMethod (Types.ThisFunc, Types.Func, n, i, true);
+		}
+
+		static CodeMemberMethod CreateCurryTupleMethod (Func<int, int, CodeTypeReference> getSelfType, Func<int, int, CodeTypeReference> getRetType, int n, int a, bool tret)
+		{
+			var selfType = getSelfType (n, 0);
+			var retType  = getRetType (n, a);
+			var m = new CodeMemberMethod () {
+				Attributes = MemberAttributes.Public | MemberAttributes.Static,
+				Name = "Curry",
+				ReturnType = retType,
+			};
+			for (int i = 0; i < n; ++i)
+				m.TypeParameters.Add (Types.GetTypeParameter (i, n));
+			if (tret)
+				m.TypeParameters.Add ("TResult");
+			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));
+			m.Parameters.Add (new CodeParameterDeclarationExpression (
+					new CodeTypeReference ("Cadenza.Tuple", Types.GetTypeParameterReferences (n, 0, a, false).ToArray ()),
+					"values"));
+			m.Statements.AddCheck ("Self", "self");
+			var expr = new StringBuilder ().Append ("(");
+			Values (expr, n, a, n);
+			expr.Append (") => self (values._1");
+			for (int i = 1; i < a; ++i)
+				expr.Append (", ").Append ("values._" + (i+1));
+			if (a < n) {
+				expr.Append (", ");
+				Values (expr, n, a, n);
+			}
+			expr.Append (")");
+			m.Statements.Add (new CodeMethodReturnStatement (new CodeSnippetExpression (expr.ToString ())));
+			return m;
+		}
+
+		IEnumerable<CodeTypeMember> CreateCurryTupleActions (int n)
+		{
+			for (int i = 1; i <= n; ++i)
+				yield return CreateCurryTupleMethod (Types.ThisAction, Types.Action, n, i, false);
+		}
+
+		IEnumerable<CodeTypeMember> CreateCurryTupleFuncs (int n)
+		{
+			for (int i = 1; i <= n; ++i)
+				yield return CreateCurryTupleMethod (Types.ThisFunc, Types.Func, n, i, true);
 		}
 
 		static CodeMemberMethod CreateTraditionalCurryMethod (Func<int, int, CodeTypeReference> getSelfType, Func<int, int, CodeTypeReference> getRetType, int n, bool tret)
