@@ -1,7 +1,8 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <Mdoc>$(SolutionDir)lib\mdoc-net\mdoc.exe</Mdoc>
+    <Mdoc Condition=" '$(OS)' == 'Windows_NT' ">$(SolutionDir)lib\mdoc-net\mdoc.exe</Mdoc>
+    <Mdoc Condition=" '$(OS)' != 'Windows_NT' ">mdoc</Mdoc>
   </PropertyGroup>
 
 </Project>
