@@ -2411,13 +2411,13 @@ Assert.AreEqual ("4", t._4);
       </Docs>
     </Member>
     <Member MemberName="ToValueReader">
-      <MemberSignature Language="C#" Value="public static Cadenza.TextValueReader ToValueReader (this System.Collections.Generic.IEnumerable&lt;string&gt; self);" />
+      <MemberSignature Language="C#" Value="public static Cadenza.IO.TextValueReader ToValueReader (this System.Collections.Generic.IEnumerable&lt;string&gt; self);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.TextValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" RefType="this" />
@@ -2435,13 +2435,13 @@ Assert.AreEqual ("4", t._4);
       </Attributes>
     </Member>
     <Member MemberName="ToValueReader&lt;TSource&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.EnumerableValueReader&lt;TSource&gt; ToValueReader&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="C#" Value="public static Cadenza.IO.EnumerableValueReader&lt;TSource&gt; ToValueReader&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.EnumerableValueReader&lt;TSource&gt;</ReturnType>
+        <ReturnType>Cadenza.IO.EnumerableValueReader&lt;TSource&gt;</ReturnType>
       </ReturnValue>
       <TypeParameters>
         <TypeParameter Name="TSource" />

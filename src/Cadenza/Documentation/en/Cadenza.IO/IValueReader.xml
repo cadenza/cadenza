@@ -1,4 +1,4 @@
-<Type Name="IValueReader" FullName="Cadenza.IValueReader">
+<Type Name="IValueReader" FullName="Cadenza.IO.IValueReader">
   <TypeSignature Language="C#" Value="public interface IValueReader" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
@@ -16,13 +16,13 @@
   </Docs>
   <Members>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out bool value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out bool value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Boolean&amp;" RefType="out" />
@@ -35,13 +35,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out byte value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out byte value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Byte&amp;" RefType="out" />
@@ -54,13 +54,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out char value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out char value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Char&amp;" RefType="out" />
@@ -73,13 +73,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out DateTime value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out DateTime value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.DateTime&amp;" RefType="out" />
@@ -92,13 +92,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out decimal value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out decimal value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Decimal&amp;" RefType="out" />
@@ -111,13 +111,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out double value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out double value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Double&amp;" RefType="out" />
@@ -130,13 +130,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out short value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out short value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Int16&amp;" RefType="out" />
@@ -149,13 +149,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out int value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out int value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Int32&amp;" RefType="out" />
@@ -168,13 +168,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out long value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out long value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Int64&amp;" RefType="out" />
@@ -187,13 +187,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out sbyte value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out sbyte value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.SByte&amp;" RefType="out" />
@@ -206,13 +206,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out float value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out float value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.Single&amp;" RefType="out" />
@@ -225,13 +225,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out string value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out string value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.String&amp;" RefType="out" />
@@ -244,13 +244,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out ushort value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out ushort value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.UInt16&amp;" RefType="out" />
@@ -263,13 +263,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out uint value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out uint value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.UInt32&amp;" RefType="out" />
@@ -282,13 +282,13 @@
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.IValueReader Read (out ulong value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.IValueReader Read (out ulong value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.IValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="System.UInt64&amp;" RefType="out" />

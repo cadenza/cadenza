@@ -31,9 +31,10 @@ using System.IO;
 
 using NUnit.Framework;
 
-using Cadenza;
+using Cadenza.IO;
+using Cadenza.Tests;
 
-namespace Cadenza.Tests {
+namespace Cadenza.IO.Tests {
 
 	struct TvrOp {
 		public char op;

@@ -56,14 +56,11 @@
       <Type Name="Either`2" DisplayName="Either&lt;T1,T2&gt;" Kind="Class" />
       <Type Name="Either`3" DisplayName="Either&lt;T1,T2,T3&gt;" Kind="Class" />
       <Type Name="Either`4" DisplayName="Either&lt;T1,T2,T3,T4&gt;" Kind="Class" />
-      <Type Name="EnumerableValueReader`1" DisplayName="EnumerableValueReader&lt;T&gt;" Kind="Class" />
       <Type Name="ICustomAttributeProviderRocks" Kind="Class" />
       <Type Name="IEnumerableRocks" Kind="Class" />
       <Type Name="Int16Rocks" Kind="Class" />
       <Type Name="Int32Rocks" Kind="Class" />
       <Type Name="Int64Rocks" Kind="Class" />
-      <Type Name="IValueReader" Kind="Interface" />
-      <Type Name="IValueWriter" Kind="Interface" />
       <Type Name="JaggedArrayRocks" Kind="Class" />
       <Type Name="KeyValuePairRocks" Kind="Class" />
       <Type Name="Lambda" Kind="Class" />
@@ -78,13 +75,7 @@
       <Type Name="ReadOnlyDictionary`2" DisplayName="ReadOnlyDictionary&lt;TKey,TValue&gt;" Kind="Class" />
       <Type Name="RectangularArrayRocks" Kind="Class" />
       <Type Name="Sequence" Kind="Class" />
-      <Type Name="StreamConverter" Kind="Class" />
-      <Type Name="StreamConverterRocks" Kind="Class" />
-      <Type Name="StreamRocks" Kind="Class" />
       <Type Name="StringRocks" Kind="Class" />
-      <Type Name="TextReaderRocks" Kind="Class" />
-      <Type Name="TextReaderRocksOptions" Kind="Enumeration" />
-      <Type Name="TextValueReader" Kind="Class" />
       <Type Name="Tuple" Kind="Class" />
       <Type Name="Tuple`1" DisplayName="Tuple&lt;T&gt;" Kind="Structure" />
       <Type Name="Tuple`2" DisplayName="Tuple&lt;T1,T2&gt;" Kind="Structure" />
@@ -95,6 +86,17 @@
       <Type Name="UInt16Rocks" Kind="Class" />
       <Type Name="UInt32Rocks" Kind="Class" />
       <Type Name="UInt64Rocks" Kind="Class" />
+    </Namespace>
+    <Namespace Name="Cadenza.IO">
+      <Type Name="EnumerableValueReader`1" DisplayName="EnumerableValueReader&lt;T&gt;" Kind="Class" />
+      <Type Name="IValueReader" Kind="Interface" />
+      <Type Name="IValueWriter" Kind="Interface" />
+      <Type Name="StreamConverter" Kind="Class" />
+      <Type Name="StreamConverterRocks" Kind="Class" />
+      <Type Name="StreamRocks" Kind="Class" />
+      <Type Name="TextReaderRocks" Kind="Class" />
+      <Type Name="TextReaderRocksOptions" Kind="Enumeration" />
+      <Type Name="TextValueReader" Kind="Class" />
       <Type Name="ValueReader`1" DisplayName="ValueReader&lt;T&gt;" Kind="Class" />
       <Type Name="ValueReaderRocks" Kind="Class" />
     </Namespace>
@@ -5280,10 +5282,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="ToValueReader">
-        <MemberSignature Language="C#" Value="public static Cadenza.TextValueReader ToValueReader (this System.Collections.Generic.IEnumerable&lt;string&gt; self);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.IO.TextValueReader ToValueReader (this System.Collections.Generic.IEnumerable&lt;string&gt; self);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Cadenza.TextValueReader</ReturnType>
+          <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" RefType="this" />
@@ -5300,10 +5302,10 @@
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
       <Member MemberName="ToValueReader&lt;TSource&gt;">
-        <MemberSignature Language="C#" Value="public static Cadenza.EnumerableValueReader&lt;TSource&gt; ToValueReader&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="C#" Value="public static Cadenza.IO.EnumerableValueReader&lt;TSource&gt; ToValueReader&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Cadenza.EnumerableValueReader&lt;TSource&gt;</ReturnType>
+          <ReturnType>Cadenza.IO.EnumerableValueReader&lt;TSource&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TSource" />
@@ -5943,6 +5945,353 @@
         </summary>
         </Docs>
         <Link Type="Cadenza.Int64Rocks" Member="M:Cadenza.Int64Rocks.IsOdd(System.Int64)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.IO.StreamConverter" />
+      </Targets>
+      <Member MemberName="Read&lt;TValue&gt;">
+        <MemberSignature Language="C#" Value="public static Cadenza.IO.StreamConverter Read&lt;TValue&gt; (this Cadenza.IO.StreamConverter self, out TValue value);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>Cadenza.IO.StreamConverter</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TValue" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.IO.StreamConverter" RefType="this" />
+          <Parameter Name="value" Type="TValue&amp;" RefType="out" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TValue">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="value">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.IO.StreamConverterRocks" Member="M:Cadenza.IO.StreamConverterRocks.Read``1(Cadenza.IO.StreamConverter,``0@)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.IO.StreamConverter" />
+      </Targets>
+      <Member MemberName="Write&lt;TValue&gt;">
+        <MemberSignature Language="C#" Value="public static Cadenza.IO.StreamConverter Write&lt;TValue&gt; (this Cadenza.IO.StreamConverter self, TValue value);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>Cadenza.IO.StreamConverter</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TValue" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.IO.StreamConverter" RefType="this" />
+          <Parameter Name="value" Type="TValue" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TValue">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="value">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.IO.StreamConverterRocks" Member="M:Cadenza.IO.StreamConverterRocks.Write``1(Cadenza.IO.StreamConverter,``0)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IO.Stream" />
+      </Targets>
+      <Member MemberName="WithSystemConverter">
+        <MemberSignature Language="C#" Value="public static Cadenza.IO.StreamConverter WithSystemConverter (this System.IO.Stream self);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>Cadenza.IO.StreamConverter</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.IO.Stream" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="self">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.IO.StreamRocks" Member="M:Cadenza.IO.StreamRocks.WithSystemConverter(System.IO.Stream)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IO.Stream" />
+      </Targets>
+      <Member MemberName="WriteTo">
+        <MemberSignature Language="C#" Value="public static void WriteTo (this System.IO.Stream self, System.IO.Stream destination);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.IO.Stream" RefType="this" />
+          <Parameter Name="destination" Type="System.IO.Stream" />
+        </Parameters>
+        <Docs>
+          <param name="self">To be added.</param>
+          <param name="destination">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.IO.StreamRocks" Member="M:Cadenza.IO.StreamRocks.WriteTo(System.IO.Stream,System.IO.Stream)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IO.TextReader" />
+      </Targets>
+      <Member MemberName="Lines">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="self">
+          A <see cref="T:System.IO.TextReader" /> to read lines from.
+        </param>
+          <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all lines of text from <paramref name="self" /> 
+          while <see cref="M:System.IO.TextReader.Close" />ing 
+          <paramref name="self" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.IO.TextReaderRocks" Member="M:Cadenza.IO.TextReaderRocks.Lines(System.IO.TextReader)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IO.TextReader" />
+      </Targets>
+      <Member MemberName="Lines">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self, Cadenza.IO.TextReaderRocksOptions options);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
+          <Parameter Name="options" Type="Cadenza.IO.TextReaderRocksOptions" />
+        </Parameters>
+        <Docs>
+          <param name="self">
+          A <see cref="T:System.IO.TextReader" /> to read lines from.
+        </param>
+          <param name="options">
+          A <see cref="T:Cadenza.IO.TextReaderRocksOptions" /> controlling
+          method execution.
+        </param>
+          <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all lines of text from <paramref name="self" />
+          while optionally <see cref="M:System.IO.TextReader.Close" />ing 
+          <paramref name="self" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.IO.TextReaderRocks" Member="M:Cadenza.IO.TextReaderRocks.Lines(System.IO.TextReader,Cadenza.IO.TextReaderRocksOptions)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IO.TextReader" />
+      </Targets>
+      <Member MemberName="Tokens">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Cadenza.IO.TextReaderRocksOptions options, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
+          <Parameter Name="options" Type="Cadenza.IO.TextReaderRocksOptions" />
+          <Parameter Name="categories" Type="System.Func&lt;System.Nullable&lt;System.Char&gt;,System.Char,System.Boolean&gt;[]">
+            <Attributes>
+              <Attribute>
+                <AttributeName>System.ParamArray</AttributeName>
+              </Attribute>
+            </Attributes>
+          </Parameter>
+        </Parameters>
+        <Docs>
+          <param name="self">
+          A <see cref="T:System.IO.TextReader" /> to extract tokens from.
+        </param>
+          <param name="options">
+          A <see cref="T:Cadenza.IO.TextReaderRocksOptions" /> controlling
+          method execution.
+        </param>
+          <param name="categories">
+          A
+          <see cref="T:System.Func{System.Nullable{System.Char},System.Char,System.Boolean}" />
+          array containing the different categories of characters that 
+          determines what makes up a "token."  If the 
+          <see cref="T:System.Nullable{System.Char}" /> parameter is 
+          <see langword="null" />, then the <see cref="T:System.Char" /> is
+          the first character within the token; otherwise, the
+          <see cref="T:System.Nullable{System.Char}" /> parameter contains the
+          character preceding the <see cref="T:System.Char" />.
+          The delegate should return <see langword="true" /> if the
+          <see cref="T:System.Char" /> is a supported character; otherwise,
+          <see langword="false" /> should be returned.
+        </param>
+          <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />
+          while optionally <see cref="M:System.IO.TextReader.Close" />ing 
+          <paramref name="self" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.IO.TextReaderRocks" Member="M:Cadenza.IO.TextReaderRocks.Tokens(System.IO.TextReader,Cadenza.IO.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IO.TextReader" />
+      </Targets>
+      <Member MemberName="Tokens">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
+          <Parameter Name="categories" Type="System.Func&lt;System.Nullable&lt;System.Char&gt;,System.Char,System.Boolean&gt;[]">
+            <Attributes>
+              <Attribute>
+                <AttributeName>System.ParamArray</AttributeName>
+              </Attribute>
+            </Attributes>
+          </Parameter>
+        </Parameters>
+        <Docs>
+          <param name="self">
+          A <see cref="T:System.IO.TextReader" /> to extract tokens from.
+        </param>
+          <param name="categories">
+          A
+          <see cref="T:System.Func{System.Nullable{System.Char},System.Char,System.Boolean}" />
+          array containing the different categories of characters that 
+          determines what makes up a "token."  If the 
+          <see cref="T:System.Nullable{System.Char}" /> parameter is 
+          <see langword="null" />, then the <see cref="T:System.Char" /> is
+          the first character within the token; otherwise, the
+          <see cref="T:System.Nullable{System.Char}" /> parameter contains the
+          character preceding the <see cref="T:System.Char" />.
+          The delegate should return <see langword="true" /> if the
+          <see cref="T:System.Char" /> is a supported character; otherwise,
+          <see langword="false" /> should be returned.
+        </param>
+          <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />
+          while optionally <see cref="M:System.IO.TextReader.Close" />ing 
+          <paramref name="self" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.IO.TextReaderRocks" Member="M:Cadenza.IO.TextReaderRocks.Tokens(System.IO.TextReader,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IO.TextReader" />
+      </Targets>
+      <Member MemberName="Words">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="self">
+          A <see cref="T:System.IO.TextReader" /> to extract words from.
+        </param>
+          <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />
+          while <see cref="M:System.IO.TextReader.Close" />ing 
+          <paramref name="self" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.IO.TextReaderRocks" Member="M:Cadenza.IO.TextReaderRocks.Words(System.IO.TextReader)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IO.TextReader" />
+      </Targets>
+      <Member MemberName="Words">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self, Cadenza.IO.TextReaderRocksOptions options);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
+          <Parameter Name="options" Type="Cadenza.IO.TextReaderRocksOptions" />
+        </Parameters>
+        <Docs>
+          <param name="self">
+          A <see cref="T:System.IO.TextReader" /> to extract words from.
+        </param>
+          <param name="options">
+          A <see cref="T:Cadenza.IO.TextReaderRocksOptions" /> controlling
+          method execution.
+        </param>
+          <summary>
+          Creates an
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          which will return all words from <paramref name="self" />
+          while optionally <see cref="M:System.IO.TextReader.Close" />ing 
+          <paramref name="self" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.IO.TextReaderRocks" Member="M:Cadenza.IO.TextReaderRocks.Words(System.IO.TextReader,Cadenza.IO.TextReaderRocksOptions)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.IO.ValueReader`1" />
+      </Targets>
+      <Member MemberName="Read&lt;TSource,TValue&gt;">
+        <MemberSignature Language="C#" Value="public static Cadenza.IO.ValueReader&lt;TSource&gt; Read&lt;TSource,TValue&gt; (this Cadenza.IO.ValueReader&lt;TSource&gt; self, out TValue value);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>Cadenza.IO.ValueReader&lt;TSource&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TValue" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.IO.ValueReader&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="value" Type="TValue&amp;" RefType="out" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">To be added.</typeparam>
+          <typeparam name="TValue">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="value">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.IO.ValueReaderRocks" Member="M:Cadenza.IO.ValueReaderRocks.Read``2(Cadenza.IO.ValueReader{``0},``1@)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6595,100 +6944,6 @@
     </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
-        <Target Type="T:Cadenza.StreamConverter" />
-      </Targets>
-      <Member MemberName="Read&lt;TValue&gt;">
-        <MemberSignature Language="C#" Value="public static Cadenza.StreamConverter Read&lt;TValue&gt; (this Cadenza.StreamConverter self, out TValue value);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>Cadenza.StreamConverter</ReturnType>
-        </ReturnValue>
-        <TypeParameters>
-          <TypeParameter Name="TValue" />
-        </TypeParameters>
-        <Parameters>
-          <Parameter Name="self" Type="Cadenza.StreamConverter" RefType="this" />
-          <Parameter Name="value" Type="TValue&amp;" RefType="out" />
-        </Parameters>
-        <Docs>
-          <typeparam name="TValue">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="value">To be added.</param>
-          <summary>To be added.</summary>
-        </Docs>
-        <Link Type="Cadenza.StreamConverterRocks" Member="M:Cadenza.StreamConverterRocks.Read``1(Cadenza.StreamConverter,``0@)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:Cadenza.StreamConverter" />
-      </Targets>
-      <Member MemberName="Write&lt;TValue&gt;">
-        <MemberSignature Language="C#" Value="public static Cadenza.StreamConverter Write&lt;TValue&gt; (this Cadenza.StreamConverter self, TValue value);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>Cadenza.StreamConverter</ReturnType>
-        </ReturnValue>
-        <TypeParameters>
-          <TypeParameter Name="TValue" />
-        </TypeParameters>
-        <Parameters>
-          <Parameter Name="self" Type="Cadenza.StreamConverter" RefType="this" />
-          <Parameter Name="value" Type="TValue" />
-        </Parameters>
-        <Docs>
-          <typeparam name="TValue">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="value">To be added.</param>
-          <summary>To be added.</summary>
-        </Docs>
-        <Link Type="Cadenza.StreamConverterRocks" Member="M:Cadenza.StreamConverterRocks.Write``1(Cadenza.StreamConverter,``0)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.IO.Stream" />
-      </Targets>
-      <Member MemberName="WithSystemConverter">
-        <MemberSignature Language="C#" Value="public static Cadenza.StreamConverter WithSystemConverter (this System.IO.Stream self);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>Cadenza.StreamConverter</ReturnType>
-        </ReturnValue>
-        <Parameters>
-          <Parameter Name="self" Type="System.IO.Stream" RefType="this" />
-        </Parameters>
-        <Docs>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
-        </Docs>
-        <Link Type="Cadenza.StreamRocks" Member="M:Cadenza.StreamRocks.WithSystemConverter(System.IO.Stream)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.IO.Stream" />
-      </Targets>
-      <Member MemberName="WriteTo">
-        <MemberSignature Language="C#" Value="public static void WriteTo (this System.IO.Stream self, System.IO.Stream destination);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>System.Void</ReturnType>
-        </ReturnValue>
-        <Parameters>
-          <Parameter Name="self" Type="System.IO.Stream" RefType="this" />
-          <Parameter Name="destination" Type="System.IO.Stream" />
-        </Parameters>
-        <Docs>
-          <param name="self">To be added.</param>
-          <param name="destination">To be added.</param>
-          <summary>To be added.</summary>
-        </Docs>
-        <Link Type="Cadenza.StreamRocks" Member="M:Cadenza.StreamRocks.WriteTo(System.IO.Stream,System.IO.Stream)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
         <Target Type="T:System.String" />
       </Targets>
       <Member MemberName="CaptureNamedGroups">
@@ -7224,231 +7479,6 @@
     </ExtensionMethod>
     <ExtensionMethod>
       <Targets>
-        <Target Type="T:System.IO.TextReader" />
-      </Targets>
-      <Member MemberName="Lines">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
-        </ReturnValue>
-        <Parameters>
-          <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-        </Parameters>
-        <Docs>
-          <param name="self">
-          A <see cref="T:System.IO.TextReader" /> to read lines from.
-        </param>
-          <summary>
-          Creates an
-          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
-          which will return all lines of text from <paramref name="self" /> 
-          while <see cref="M:System.IO.TextReader.Close" />ing 
-          <paramref name="self" />.
-        </summary>
-        </Docs>
-        <Link Type="Cadenza.TextReaderRocks" Member="M:Cadenza.TextReaderRocks.Lines(System.IO.TextReader)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.IO.TextReader" />
-      </Targets>
-      <Member MemberName="Lines">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self, Cadenza.TextReaderRocksOptions options);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
-        </ReturnValue>
-        <Parameters>
-          <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-          <Parameter Name="options" Type="Cadenza.TextReaderRocksOptions" />
-        </Parameters>
-        <Docs>
-          <param name="self">
-          A <see cref="T:System.IO.TextReader" /> to read lines from.
-        </param>
-          <param name="options">
-          A <see cref="T:Cadenza.TextReaderRocksOptions" /> controlling
-          method execution.
-        </param>
-          <summary>
-          Creates an
-          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
-          which will return all lines of text from <paramref name="self" />
-          while optionally <see cref="M:System.IO.TextReader.Close" />ing 
-          <paramref name="self" />.
-        </summary>
-        </Docs>
-        <Link Type="Cadenza.TextReaderRocks" Member="M:Cadenza.TextReaderRocks.Lines(System.IO.TextReader,Cadenza.TextReaderRocksOptions)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.IO.TextReader" />
-      </Targets>
-      <Member MemberName="Tokens">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Cadenza.TextReaderRocksOptions options, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
-        </ReturnValue>
-        <Parameters>
-          <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-          <Parameter Name="options" Type="Cadenza.TextReaderRocksOptions" />
-          <Parameter Name="categories" Type="System.Func&lt;System.Nullable&lt;System.Char&gt;,System.Char,System.Boolean&gt;[]">
-            <Attributes>
-              <Attribute>
-                <AttributeName>System.ParamArray</AttributeName>
-              </Attribute>
-            </Attributes>
-          </Parameter>
-        </Parameters>
-        <Docs>
-          <param name="self">
-          A <see cref="T:System.IO.TextReader" /> to extract tokens from.
-        </param>
-          <param name="options">
-          A <see cref="T:Cadenza.TextReaderRocksOptions" /> controlling
-          method execution.
-        </param>
-          <param name="categories">
-          A
-          <see cref="T:System.Func{System.Nullable{System.Char},System.Char,System.Boolean}" />
-          array containing the different categories of characters that 
-          determines what makes up a "token."  If the 
-          <see cref="T:System.Nullable{System.Char}" /> parameter is 
-          <see langword="null" />, then the <see cref="T:System.Char" /> is
-          the first character within the token; otherwise, the
-          <see cref="T:System.Nullable{System.Char}" /> parameter contains the
-          character preceding the <see cref="T:System.Char" />.
-          The delegate should return <see langword="true" /> if the
-          <see cref="T:System.Char" /> is a supported character; otherwise,
-          <see langword="false" /> should be returned.
-        </param>
-          <summary>
-          Creates an
-          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
-          which will return all words from <paramref name="self" />
-          while optionally <see cref="M:System.IO.TextReader.Close" />ing 
-          <paramref name="self" />.
-        </summary>
-        </Docs>
-        <Link Type="Cadenza.TextReaderRocks" Member="M:Cadenza.TextReaderRocks.Tokens(System.IO.TextReader,Cadenza.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.IO.TextReader" />
-      </Targets>
-      <Member MemberName="Tokens">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
-        </ReturnValue>
-        <Parameters>
-          <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-          <Parameter Name="categories" Type="System.Func&lt;System.Nullable&lt;System.Char&gt;,System.Char,System.Boolean&gt;[]">
-            <Attributes>
-              <Attribute>
-                <AttributeName>System.ParamArray</AttributeName>
-              </Attribute>
-            </Attributes>
-          </Parameter>
-        </Parameters>
-        <Docs>
-          <param name="self">
-          A <see cref="T:System.IO.TextReader" /> to extract tokens from.
-        </param>
-          <param name="categories">
-          A
-          <see cref="T:System.Func{System.Nullable{System.Char},System.Char,System.Boolean}" />
-          array containing the different categories of characters that 
-          determines what makes up a "token."  If the 
-          <see cref="T:System.Nullable{System.Char}" /> parameter is 
-          <see langword="null" />, then the <see cref="T:System.Char" /> is
-          the first character within the token; otherwise, the
-          <see cref="T:System.Nullable{System.Char}" /> parameter contains the
-          character preceding the <see cref="T:System.Char" />.
-          The delegate should return <see langword="true" /> if the
-          <see cref="T:System.Char" /> is a supported character; otherwise,
-          <see langword="false" /> should be returned.
-        </param>
-          <summary>
-          Creates an
-          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
-          which will return all words from <paramref name="self" />
-          while optionally <see cref="M:System.IO.TextReader.Close" />ing 
-          <paramref name="self" />.
-        </summary>
-        </Docs>
-        <Link Type="Cadenza.TextReaderRocks" Member="M:Cadenza.TextReaderRocks.Tokens(System.IO.TextReader,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.IO.TextReader" />
-      </Targets>
-      <Member MemberName="Words">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
-        </ReturnValue>
-        <Parameters>
-          <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-        </Parameters>
-        <Docs>
-          <param name="self">
-          A <see cref="T:System.IO.TextReader" /> to extract words from.
-        </param>
-          <summary>
-          Creates an
-          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
-          which will return all words from <paramref name="self" />
-          while <see cref="M:System.IO.TextReader.Close" />ing 
-          <paramref name="self" />.
-        </summary>
-        </Docs>
-        <Link Type="Cadenza.TextReaderRocks" Member="M:Cadenza.TextReaderRocks.Words(System.IO.TextReader)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.IO.TextReader" />
-      </Targets>
-      <Member MemberName="Words">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self, Cadenza.TextReaderRocksOptions options);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
-        </ReturnValue>
-        <Parameters>
-          <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-          <Parameter Name="options" Type="Cadenza.TextReaderRocksOptions" />
-        </Parameters>
-        <Docs>
-          <param name="self">
-          A <see cref="T:System.IO.TextReader" /> to extract words from.
-        </param>
-          <param name="options">
-          A <see cref="T:Cadenza.TextReaderRocksOptions" /> controlling
-          method execution.
-        </param>
-          <summary>
-          Creates an
-          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
-          which will return all words from <paramref name="self" />
-          while optionally <see cref="M:System.IO.TextReader.Close" />ing 
-          <paramref name="self" />.
-        </summary>
-        </Docs>
-        <Link Type="Cadenza.TextReaderRocks" Member="M:Cadenza.TextReaderRocks.Words(System.IO.TextReader,Cadenza.TextReaderRocksOptions)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
         <Target Type="T:Cadenza.Tuple`2" />
       </Targets>
       <Member MemberName="ToKeyValuePair&lt;TKey,TValue&gt;">
@@ -7671,34 +7701,6 @@
         </summary>
         </Docs>
         <Link Type="Cadenza.UInt64Rocks" Member="M:Cadenza.UInt64Rocks.IsOdd(System.UInt64)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:Cadenza.ValueReader`1" />
-      </Targets>
-      <Member MemberName="Read&lt;TSource,TValue&gt;">
-        <MemberSignature Language="C#" Value="public static Cadenza.ValueReader&lt;TSource&gt; Read&lt;TSource,TValue&gt; (this Cadenza.ValueReader&lt;TSource&gt; self, out TValue value);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>Cadenza.ValueReader&lt;TSource&gt;</ReturnType>
-        </ReturnValue>
-        <TypeParameters>
-          <TypeParameter Name="TSource" />
-          <TypeParameter Name="TValue" />
-        </TypeParameters>
-        <Parameters>
-          <Parameter Name="self" Type="Cadenza.ValueReader&lt;TSource&gt;" RefType="this" />
-          <Parameter Name="value" Type="TValue&amp;" RefType="out" />
-        </Parameters>
-        <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <typeparam name="TValue">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="value">To be added.</param>
-          <summary>To be added.</summary>
-        </Docs>
-        <Link Type="Cadenza.ValueReaderRocks" Member="M:Cadenza.ValueReaderRocks.Read``2(Cadenza.ValueReader{``0},``1@)" />
       </Member>
     </ExtensionMethod>
   </ExtensionMethods>

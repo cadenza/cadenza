@@ -32,7 +32,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Cadenza {
+namespace Cadenza.IO {
 
 	public static class StreamRocks {
 

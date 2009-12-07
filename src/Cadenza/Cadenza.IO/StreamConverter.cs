@@ -33,7 +33,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Cadenza {
+namespace Cadenza.IO {
 
 	[CLSCompliant (false)]
 	public abstract class StreamConverter : IValueReader, IValueWriter, IDisposable

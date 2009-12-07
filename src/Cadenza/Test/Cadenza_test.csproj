@@ -38,12 +38,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cadenza.IO\EnumerableValueReaderTest.cs" />
+    <Compile Include="Cadenza.IO\StreamTest.cs" />
+    <Compile Include="Cadenza.IO\SystemStreamConverterTest.cs" />
+    <Compile Include="Cadenza.IO\TextReaderTest.cs" />
+    <Compile Include="Cadenza.IO\TextValueReaderTest.cs" />
     <Compile Include="Cadenza\AssemblyInfo.cs" />
     <Compile Include="Cadenza\BaseRocksFixture.cs" />
     <Compile Include="Cadenza\CachedSequenceTest.cs" />
     <Compile Include="Cadenza\DelegateTest.cs" />
     <Compile Include="Cadenza\EitherTest.cs" />
-    <Compile Include="Cadenza\EnumerableValueReaderTest.cs" />
     <Compile Include="Cadenza\EquatableContract.cs" />
     <Compile Include="Cadenza\ICustomAttributeProviderTest.cs" />
     <Compile Include="Cadenza\IEnumerableContract.cs" />
@@ -62,11 +66,7 @@
     <Compile Include="Cadenza\ReadOnlyDictionaryTest.cs" />
     <Compile Include="Cadenza\RectangularArrayTest.cs" />
     <Compile Include="Cadenza\SequenceTest.cs" />
-    <Compile Include="Cadenza\StreamTest.cs" />
-    <Compile Include="Cadenza\SystemStreamConverterTest.cs" />
     <Compile Include="Cadenza\StringTest.cs" />
-    <Compile Include="Cadenza\TextReaderTest.cs" />
-    <Compile Include="Cadenza\TextValueReaderTest.cs" />
     <Compile Include="Cadenza\TuplesTest.cs" />
     <Compile Include="Cadenza\TypeTest.cs" />
     <Compile Include="Cadenza\UInt16Test.cs" />

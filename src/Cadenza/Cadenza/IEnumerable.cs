@@ -37,6 +37,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
+using Cadenza.IO;
+
 namespace Cadenza {
 
 	public static class IEnumerableRocks {

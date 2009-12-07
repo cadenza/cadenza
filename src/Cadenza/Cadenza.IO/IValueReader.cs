@@ -1,5 +1,5 @@
 //
-// IValueWriter.cs
+// IValuReader.cs
 //
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
@@ -27,26 +27,26 @@
 //
 using System;
 
-namespace Cadenza {
+namespace Cadenza.IO {
 
 	[CLSCompliant (false)]
-	public interface IValueWriter
+	public interface IValueReader
 	{
-		IValueWriter Write (bool value);
-		IValueWriter Write (byte value);
-		IValueWriter Write (char value);
-		IValueWriter Write (DateTime value);
-		IValueWriter Write (decimal value);
-		IValueWriter Write (double value);
-		IValueWriter Write (short value);
-		IValueWriter Write (int value);
-		IValueWriter Write (long value);
-		IValueWriter Write (sbyte value);
-		IValueWriter Write (float value);
-		IValueWriter Write (string value);
-		IValueWriter Write (ushort value);
-		IValueWriter Write (uint value);
-		IValueWriter Write (ulong value);
+		IValueReader Read (out bool value);
+		IValueReader Read (out byte value);
+		IValueReader Read (out char value);
+		IValueReader Read (out DateTime value);
+		IValueReader Read (out decimal value);
+		IValueReader Read (out double value);
+		IValueReader Read (out short value);
+		IValueReader Read (out int value);
+		IValueReader Read (out long value);
+		IValueReader Read (out sbyte value);
+		IValueReader Read (out float value);
+		IValueReader Read (out string value);
+		IValueReader Read (out ushort value);
+		IValueReader Read (out uint value);
+		IValueReader Read (out ulong value);
 	}
 }
 

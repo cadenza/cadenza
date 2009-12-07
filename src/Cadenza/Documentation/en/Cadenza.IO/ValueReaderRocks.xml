@@ -1,4 +1,4 @@
-<Type Name="ValueReaderRocks" FullName="Cadenza.ValueReaderRocks">
+<Type Name="ValueReaderRocks" FullName="Cadenza.IO.ValueReaderRocks">
   <TypeSignature Language="C#" Value="public static class ValueReaderRocks" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
@@ -19,20 +19,20 @@
   </Docs>
   <Members>
     <Member MemberName="Read&lt;TSource,TValue&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.ValueReader&lt;TSource&gt; Read&lt;TSource,TValue&gt; (this Cadenza.ValueReader&lt;TSource&gt; self, out TValue value);" />
+      <MemberSignature Language="C#" Value="public static Cadenza.IO.ValueReader&lt;TSource&gt; Read&lt;TSource,TValue&gt; (this Cadenza.IO.ValueReader&lt;TSource&gt; self, out TValue value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.ValueReader&lt;TSource&gt;</ReturnType>
+        <ReturnType>Cadenza.IO.ValueReader&lt;TSource&gt;</ReturnType>
       </ReturnValue>
       <TypeParameters>
         <TypeParameter Name="TSource" />
         <TypeParameter Name="TValue" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="self" Type="Cadenza.ValueReader&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="self" Type="Cadenza.IO.ValueReader&lt;TSource&gt;" RefType="this" />
         <Parameter Name="value" Type="TValue&amp;" RefType="out" />
       </Parameters>
       <Docs>

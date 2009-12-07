@@ -30,7 +30,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace Cadenza {
+namespace Cadenza.IO {
 
 	[CLSCompliant (false)]
 	public sealed class EnumerableValueReader<T> : ValueReader<T>

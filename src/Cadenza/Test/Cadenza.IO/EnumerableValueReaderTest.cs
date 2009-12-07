@@ -33,9 +33,10 @@ using System.IO;
 
 using NUnit.Framework;
 
-using Cadenza;
+using Cadenza.IO;
+using Cadenza.Tests;
 
-namespace Cadenza.Tests {
+namespace Cadenza.IO.Tests {
 
 	[TestFixture]
 	public class EnumerableValueReaderTest : BaseRocksFixture {

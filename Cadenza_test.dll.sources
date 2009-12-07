@@ -1,9 +1,13 @@
+./src/Cadenza/Test/Cadenza.IO/EnumerableValueReaderTest.cs
+./src/Cadenza/Test/Cadenza.IO/StreamTest.cs
+./src/Cadenza/Test/Cadenza.IO/SystemStreamConverterTest.cs
+./src/Cadenza/Test/Cadenza.IO/TextReaderTest.cs
+./src/Cadenza/Test/Cadenza.IO/TextValueReaderTest.cs
 ./src/Cadenza/Test/Cadenza/AssemblyInfo.cs
 ./src/Cadenza/Test/Cadenza/BaseRocksFixture.cs
 ./src/Cadenza/Test/Cadenza/CachedSequenceTest.cs
 ./src/Cadenza/Test/Cadenza/DelegateTest.cs
 ./src/Cadenza/Test/Cadenza/EitherTest.cs
-./src/Cadenza/Test/Cadenza/EnumerableValueReaderTest.cs
 ./src/Cadenza/Test/Cadenza/EquatableContract.cs
 ./src/Cadenza/Test/Cadenza/ICustomAttributeProviderTest.cs
 ./src/Cadenza/Test/Cadenza/IEnumerableContract.cs
@@ -23,11 +27,7 @@
 ./src/Cadenza/Test/Cadenza/ReadOnlyDictionaryTest.cs
 ./src/Cadenza/Test/Cadenza/RectangularArrayTest.cs
 ./src/Cadenza/Test/Cadenza/SequenceTest.cs
-./src/Cadenza/Test/Cadenza/StreamTest.cs
 ./src/Cadenza/Test/Cadenza/StringTest.cs
-./src/Cadenza/Test/Cadenza/SystemStreamConverterTest.cs
-./src/Cadenza/Test/Cadenza/TextReaderTest.cs
-./src/Cadenza/Test/Cadenza/TextValueReaderTest.cs
 ./src/Cadenza/Test/Cadenza/TuplesTest.cs
 ./src/Cadenza/Test/Cadenza/TypeTest.cs
 ./src/Cadenza/Test/Cadenza/UInt16Test.cs

@@ -29,7 +29,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace Cadenza {
+namespace Cadenza.IO {
 
 	[CLSCompliant (false)]
 	public sealed class TextValueReader : ValueReader<string>

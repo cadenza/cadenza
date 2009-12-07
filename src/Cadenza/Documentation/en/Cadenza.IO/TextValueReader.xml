@@ -1,11 +1,11 @@
-<Type Name="TextValueReader" FullName="Cadenza.TextValueReader">
-  <TypeSignature Language="C#" Value="public sealed class TextValueReader : Cadenza.ValueReader&lt;string&gt;" />
+<Type Name="TextValueReader" FullName="Cadenza.IO.TextValueReader">
+  <TypeSignature Language="C#" Value="public sealed class TextValueReader : Cadenza.IO.ValueReader&lt;string&gt;" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>Cadenza.ValueReader&lt;System.String&gt;</BaseTypeName>
+    <BaseTypeName>Cadenza.IO.ValueReader&lt;System.String&gt;</BaseTypeName>
     <BaseTypeArguments>
       <BaseTypeArgument TypeParamName="T">System.String</BaseTypeArgument>
     </BaseTypeArguments>
@@ -30,17 +30,17 @@
         <param name="values">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.TextValueReader.#ctor(System.Collections.Generic.IEnumerable{System.String})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.IO.TextValueReader.#ctor(System.Collections.Generic.IEnumerable{System.String})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.TextValueReader Read (IFormatProvider provider, out byte value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out byte value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.TextValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="provider" Type="System.IFormatProvider" />
@@ -52,17 +52,17 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.TextValueReader.Word" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.IO.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.TextValueReader Read (IFormatProvider provider, out DateTime value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out DateTime value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.TextValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="provider" Type="System.IFormatProvider" />
@@ -74,17 +74,17 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.TextValueReader.Word" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.IO.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.TextValueReader Read (IFormatProvider provider, out decimal value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out decimal value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.TextValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="provider" Type="System.IFormatProvider" />
@@ -96,17 +96,17 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.TextValueReader.Word" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.IO.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.TextValueReader Read (IFormatProvider provider, out double value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out double value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.TextValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="provider" Type="System.IFormatProvider" />
@@ -118,17 +118,17 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.TextValueReader.Word" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.IO.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.TextValueReader Read (IFormatProvider provider, out short value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out short value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.TextValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="provider" Type="System.IFormatProvider" />
@@ -140,17 +140,17 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.TextValueReader.Word" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.IO.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.TextValueReader Read (IFormatProvider provider, out int value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out int value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.TextValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="provider" Type="System.IFormatProvider" />
@@ -162,17 +162,17 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.TextValueReader.Word" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.IO.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.TextValueReader Read (IFormatProvider provider, out long value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out long value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.TextValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="provider" Type="System.IFormatProvider" />
@@ -184,17 +184,17 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.TextValueReader.Word" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.IO.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.TextValueReader Read (IFormatProvider provider, out sbyte value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out sbyte value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.TextValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="provider" Type="System.IFormatProvider" />
@@ -206,17 +206,17 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.TextValueReader.Word" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.IO.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.TextValueReader Read (IFormatProvider provider, out float value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out float value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.TextValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="provider" Type="System.IFormatProvider" />
@@ -228,17 +228,17 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.TextValueReader.Word" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.IO.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.TextValueReader Read (IFormatProvider provider, out ushort value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out ushort value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.TextValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="provider" Type="System.IFormatProvider" />
@@ -250,17 +250,17 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.TextValueReader.Word" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.IO.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.TextValueReader Read (IFormatProvider provider, out uint value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out uint value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.TextValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="provider" Type="System.IFormatProvider" />
@@ -272,17 +272,17 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.TextValueReader.Word" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.IO.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Read">
-      <MemberSignature Language="C#" Value="public Cadenza.TextValueReader Read (IFormatProvider provider, out ulong value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out ulong value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.TextValueReader</ReturnType>
+        <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="provider" Type="System.IFormatProvider" />
@@ -294,7 +294,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.TextValueReader.Word" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.IO.TextValueReader.Word" /></exception>
       </Docs>
     </Member>
     <Member MemberName="ToBoolean">

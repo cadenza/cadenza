@@ -32,7 +32,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Cadenza {
+namespace Cadenza.IO {
 
 	[Flags]
 	public enum TextReaderRocksOptions {

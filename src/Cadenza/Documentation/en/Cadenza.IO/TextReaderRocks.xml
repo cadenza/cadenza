@@ -1,4 +1,4 @@
-<Type Name="TextReaderRocks" FullName="Cadenza.TextReaderRocks">
+<Type Name="TextReaderRocks" FullName="Cadenza.IO.TextReaderRocks">
   <TypeSignature Language="C#" Value="public static class TextReaderRocks" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
@@ -63,7 +63,7 @@
       </Docs>
     </Member>
     <Member MemberName="Lines">
-      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self, Cadenza.TextReaderRocksOptions options);" />
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self, Cadenza.IO.TextReaderRocksOptions options);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -73,14 +73,14 @@
       </ReturnValue>
       <Parameters>
         <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-        <Parameter Name="options" Type="Cadenza.TextReaderRocksOptions" />
+        <Parameter Name="options" Type="Cadenza.IO.TextReaderRocksOptions" />
       </Parameters>
       <Docs>
         <param name="self">
           A <see cref="T:System.IO.TextReader" /> to read lines from.
         </param>
         <param name="options">
-          A <see cref="T:Cadenza.TextReaderRocksOptions" /> controlling
+          A <see cref="T:Cadenza.IO.TextReaderRocksOptions" /> controlling
           method execution.
         </param>
         <summary>
@@ -101,11 +101,11 @@
           </para>
           <para>
             If <paramref name="options" /> contains
-            <see cref="F:Cadenza.TextReaderRocksOptions.CloseReader" />,
+            <see cref="F:Cadenza.IO.TextReaderRocksOptions.CloseReader" />,
             then <paramref name="self" /> will be 
             <see cref="M:System.IO.TextReader.Close" />ed once all lines have
             been returned; if 
-            <see cref="F:Cadenza.TextReaderRocksOptions.CloseReader" />
+            <see cref="F:Cadenza.IO.TextReaderRocksOptions.CloseReader" />
             is not specified, then the 
             <see cref="T:System.IO.TextReader" /> will not be disposed.
           </para>
@@ -178,7 +178,7 @@
           </para>
           <para>
             If <paramref name="options" /> contains
-            <see cref="F:Cadenza.TextReaderRocksOptions.CloseReader" />,
+            <see cref="F:Cadenza.IO.TextReaderRocksOptions.CloseReader" />,
             then <paramref name="self" /> will be 
             <see cref="M:System.IO.TextReader.Close" />ed once all lines have
             been returned.
@@ -195,7 +195,7 @@
               them.
             </para>
           </block>
-          <code lang="C#" src="../../Test/Cadenza/TextReaderTest.cs#Tokens">var r = new MyStringReader ("(append 3.5 \"hello, world!\")");
+          <code lang="C#" src="../../Test/Cadenza.IO/TextReaderTest.cs#Tokens">var r = new MyStringReader ("(append 3.5 \"hello, world!\")");
 var words = r.Tokens (
 	(p, c) =&gt; char.IsLetterOrDigit (c) || c == '.',
 	(p, c) =&gt; !char.IsWhiteSpace (c))
@@ -222,7 +222,7 @@ Assert.IsFalse (r.WasDisposed);
       </Docs>
     </Member>
     <Member MemberName="Tokens">
-      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Cadenza.TextReaderRocksOptions options, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Cadenza.IO.TextReaderRocksOptions options, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -232,7 +232,7 @@ Assert.IsFalse (r.WasDisposed);
       </ReturnValue>
       <Parameters>
         <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-        <Parameter Name="options" Type="Cadenza.TextReaderRocksOptions" />
+        <Parameter Name="options" Type="Cadenza.IO.TextReaderRocksOptions" />
         <Parameter Name="categories" Type="System.Func&lt;System.Nullable&lt;System.Char&gt;,System.Char,System.Boolean&gt;[]">
           <Attributes>
             <Attribute>
@@ -246,7 +246,7 @@ Assert.IsFalse (r.WasDisposed);
           A <see cref="T:System.IO.TextReader" /> to extract tokens from.
         </param>
         <param name="options">
-          A <see cref="T:Cadenza.TextReaderRocksOptions" /> controlling
+          A <see cref="T:Cadenza.IO.TextReaderRocksOptions" /> controlling
           method execution.
         </param>
         <param name="categories">
@@ -281,7 +281,7 @@ Assert.IsFalse (r.WasDisposed);
           </para>
           <para>
             If <paramref name="options" /> contains
-            <see cref="F:Cadenza.TextReaderRocksOptions.CloseReader" />,
+            <see cref="F:Cadenza.IO.TextReaderRocksOptions.CloseReader" />,
             then <paramref name="self" /> will be 
             <see cref="M:System.IO.TextReader.Close" />ed once all lines have
             been returned.
@@ -298,7 +298,7 @@ Assert.IsFalse (r.WasDisposed);
               them.
             </para>
           </block>
-          <code lang="C#" src="../../Test/Cadenza/TextReaderTest.cs#Tokens">var r = new MyStringReader ("(append 3.5 \"hello, world!\")");
+          <code lang="C#" src="../../Test/Cadenza.IO/TextReaderTest.cs#Tokens">var r = new MyStringReader ("(append 3.5 \"hello, world!\")");
 var words = r.Tokens (
 	(p, c) =&gt; char.IsLetterOrDigit (c) || c == '.',
 	(p, c) =&gt; !char.IsWhiteSpace (c))
@@ -367,7 +367,7 @@ Assert.IsFalse (r.WasDisposed);
               returns <see langword="false" />.
             </para>
           </block>
-          <code lang="C#" src="../../Test/Cadenza/TextReaderTest.cs#Words">MyStringReader r = new MyStringReader ("   (skip  leading,\r\n\tand trailing\vwhitespace)   ");
+          <code lang="C#" src="../../Test/Cadenza.IO/TextReaderTest.cs#Words">MyStringReader r = new MyStringReader ("   (skip  leading,\r\n\tand trailing\vwhitespace)   ");
 string[] words = r.Words ().ToArray ();
 Assert.IsTrue (r.WasDisposed);
 Assert.AreEqual (5, words.Length);
@@ -398,7 +398,7 @@ Assert.AreEqual ("4", r.Words ().First ());
       </Docs>
     </Member>
     <Member MemberName="Words">
-      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self, Cadenza.TextReaderRocksOptions options);" />
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self, Cadenza.IO.TextReaderRocksOptions options);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -408,14 +408,14 @@ Assert.AreEqual ("4", r.Words ().First ());
       </ReturnValue>
       <Parameters>
         <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-        <Parameter Name="options" Type="Cadenza.TextReaderRocksOptions" />
+        <Parameter Name="options" Type="Cadenza.IO.TextReaderRocksOptions" />
       </Parameters>
       <Docs>
         <param name="self">
           A <see cref="T:System.IO.TextReader" /> to extract words from.
         </param>
         <param name="options">
-          A <see cref="T:Cadenza.TextReaderRocksOptions" /> controlling
+          A <see cref="T:Cadenza.IO.TextReaderRocksOptions" /> controlling
           method execution.
         </param>
         <summary>
@@ -436,11 +436,11 @@ Assert.AreEqual ("4", r.Words ().First ());
           </para>
           <para>
             If <paramref name="options" /> contains
-            <see cref="F:Cadenza.TextReaderRocksOptions.CloseReader" />,
+            <see cref="F:Cadenza.IO.TextReaderRocksOptions.CloseReader" />,
             then <paramref name="self" /> will be 
             <see cref="M:System.IO.TextReader.Close" />ed once all lines have
             been returned; if 
-            <see cref="F:Cadenza.TextReaderRocksOptions.CloseReader" />
+            <see cref="F:Cadenza.IO.TextReaderRocksOptions.CloseReader" />
             is not specified, then the 
             <see cref="T:System.IO.TextReader" /> will not be disposed.
           </para>
@@ -451,7 +451,7 @@ Assert.AreEqual ("4", r.Words ().First ());
               returns <see langword="false" />.
             </para>
           </block>
-          <code lang="C#" src="../../Test/Cadenza/TextReaderTest.cs#Words">MyStringReader r = new MyStringReader ("   (skip  leading,\r\n\tand trailing\vwhitespace)   ");
+          <code lang="C#" src="../../Test/Cadenza.IO/TextReaderTest.cs#Words">MyStringReader r = new MyStringReader ("   (skip  leading,\r\n\tand trailing\vwhitespace)   ");
 string[] words = r.Words ().ToArray ();
 Assert.IsTrue (r.WasDisposed);
 Assert.AreEqual (5, words.Length);

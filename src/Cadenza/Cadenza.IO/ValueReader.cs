@@ -29,7 +29,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Cadenza
+namespace Cadenza.IO
 {
 	[CLSCompliant (false)]
 	public abstract class ValueReader<T> : IValueReader, IDisposable

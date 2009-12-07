@@ -1,4 +1,4 @@
-<Type Name="StreamRocks" FullName="Cadenza.StreamRocks">
+<Type Name="StreamRocks" FullName="Cadenza.IO.StreamRocks">
   <TypeSignature Language="C#" Value="public static class StreamRocks" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
@@ -14,13 +14,13 @@
   </Docs>
   <Members>
     <Member MemberName="WithSystemConverter">
-      <MemberSignature Language="C#" Value="public static Cadenza.StreamConverter WithSystemConverter (this System.IO.Stream self);" />
+      <MemberSignature Language="C#" Value="public static Cadenza.IO.StreamConverter WithSystemConverter (this System.IO.Stream self);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IO.StreamConverter</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="self" Type="System.IO.Stream" RefType="this" />
@@ -56,7 +56,7 @@
         <param name="destination">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Destination(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IO.Check.Destination(System.Object)" /></exception>
       </Docs>
     </Member>
   </Members>

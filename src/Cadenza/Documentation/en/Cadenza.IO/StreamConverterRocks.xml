@@ -1,4 +1,4 @@
-<Type Name="StreamConverterRocks" FullName="Cadenza.StreamConverterRocks">
+<Type Name="StreamConverterRocks" FullName="Cadenza.IO.StreamConverterRocks">
   <TypeSignature Language="C#" Value="public static class StreamConverterRocks" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
@@ -14,19 +14,19 @@
   </Docs>
   <Members>
     <Member MemberName="Read&lt;TValue&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.StreamConverter Read&lt;TValue&gt; (this Cadenza.StreamConverter self, out TValue value);" />
+      <MemberSignature Language="C#" Value="public static Cadenza.IO.StreamConverter Read&lt;TValue&gt; (this Cadenza.IO.StreamConverter self, out TValue value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IO.StreamConverter</ReturnType>
       </ReturnValue>
       <TypeParameters>
         <TypeParameter Name="TValue" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="self" Type="Cadenza.StreamConverter" RefType="this" />
+        <Parameter Name="self" Type="Cadenza.IO.StreamConverter" RefType="this" />
         <Parameter Name="value" Type="TValue&amp;" RefType="out" />
       </Parameters>
       <Docs>
@@ -40,19 +40,19 @@
       </Docs>
     </Member>
     <Member MemberName="Write&lt;TValue&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.StreamConverter Write&lt;TValue&gt; (this Cadenza.StreamConverter self, TValue value);" />
+      <MemberSignature Language="C#" Value="public static Cadenza.IO.StreamConverter Write&lt;TValue&gt; (this Cadenza.IO.StreamConverter self, TValue value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.StreamConverter</ReturnType>
+        <ReturnType>Cadenza.IO.StreamConverter</ReturnType>
       </ReturnValue>
       <TypeParameters>
         <TypeParameter Name="TValue" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="self" Type="Cadenza.StreamConverter" RefType="this" />
+        <Parameter Name="self" Type="Cadenza.IO.StreamConverter" RefType="this" />
         <Parameter Name="value" Type="TValue" />
       </Parameters>
       <Docs>

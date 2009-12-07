@@ -33,9 +33,10 @@ using System.Linq;
 
 using NUnit.Framework;
 
-using Cadenza;
+using Cadenza.IO;
+using Cadenza.Tests;
 
-namespace Cadenza.Tests {
+namespace Cadenza.IO.Tests {
 
 	[TestFixture]
 	public class TextReaderTest : BaseRocksFixture {
