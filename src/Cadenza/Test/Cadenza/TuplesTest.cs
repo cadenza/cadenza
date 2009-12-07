@@ -33,6 +33,7 @@ using System.Linq;
 using NUnit.Framework;
 
 using Cadenza;
+using Cadenza.Collections;
 
 namespace Cadenza.Tests {
 

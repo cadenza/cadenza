@@ -1,5 +1,5 @@
 //
-// KeyValuePairTest.cs
+// Sequence.cs
 //
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
@@ -28,43 +28,47 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
-using NUnit.Framework;
+namespace Cadenza.Collections {
 
-using Cadenza;
+	public static class Sequence {
 
-namespace Cadenza.Tests {
-
-	[TestFixture]
-	public class KeyValuePairTest : BaseRocksFixture {
-
-		[Test]
-		[ExpectedException (typeof (ArgumentNullException))]
-		public void Aggregate_FuncNull ()
+		public static IEnumerable<TSource> Iterate<TSource> (TSource value, Func<TSource, TSource> selector)
 		{
-			Func<int, int, int> f = null;
-			new KeyValuePair<int,int> (1, 2).Aggregate (f);
+			Check.Selector (selector);
+
+			return CreateIterateIterator (value, selector);
 		}
 
-		[Test]
-		public void Aggregate ()
+		private static IEnumerable<TSource> CreateIterateIterator<TSource> (TSource value, Func<TSource, TSource> selector)
 		{
-			Assert.AreEqual (
-					3, 
-					new KeyValuePair<int, int>(1, 2).Aggregate ((k, v) => k+v));
-			Assert.AreEqual (
-					"1,2", 
-					new KeyValuePair<int, int>(1, 2).Aggregate ((k, v) => k+","+v));
+			yield return value;
+			while (true)
+				yield return (value = selector (value));
 		}
 
-		[Test]
-		public void ToTuple ()
+		public static IEnumerable<TSource> Repeat<TSource> (TSource value)
 		{
-			KeyValuePair<int, string> k = new KeyValuePair<int, string> (42, "42");
-			var t = k.ToTuple ();
-			Assert.AreEqual (k.Key,   t._1);
-			Assert.AreEqual (k.Value, t._2);
+			while (true)
+				yield return value;
+		}
+
+		public static IEnumerable<TResult> GenerateReverse<TSource, TResult> (TSource value, Func<TSource, Maybe<Tuple<TResult, TSource>>> selector)
+		{
+			Check.Selector (selector);
+
+			return CreateGenerateReverseIterator (value, selector);
+		}
+
+		private static IEnumerable<TResult> CreateGenerateReverseIterator<TSource, TResult> (TSource value, Func<TSource, Maybe<Tuple<TResult, TSource>>> selector)
+		{
+			Maybe<Tuple<TResult, TSource>> r;
+			while ((r = selector (value)).HasValue) {
+				Tuple<TResult, TSource> v = r.Value;
+				yield return v._1;
+				value = v._2;
+			}
 		}
 	}
 }
+

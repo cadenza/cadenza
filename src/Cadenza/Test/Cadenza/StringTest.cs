@@ -37,6 +37,7 @@ using System.Text.RegularExpressions;
 using NUnit.Framework;
 
 using Cadenza;
+using Cadenza.Collections;
 
 namespace Cadenza.Tests {
 

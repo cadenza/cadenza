@@ -30,7 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cadenza
+namespace Cadenza.Collections
 {
 	/// <summary>
 	/// A mutable lookup implementing <see cref="ILookup{TKey,TElement}"/>

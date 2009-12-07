@@ -1,5 +1,5 @@
-﻿//
-// KeyValuePair.cs
+//
+// NaturalStringComparerTest.cs
 //
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
@@ -28,23 +28,59 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Cadenza {
+using NUnit.Framework;
 
-	public static class KeyValuePairRocks {
+using Cadenza.Collections;
+using Cadenza.Tests;
 
-		public static TResult Aggregate<TKey, TValue, TResult> (this KeyValuePair<TKey, TValue> self, Func<TKey, TValue, TResult> func)
+namespace Cadenza.Collections.Tests {
+
+	[TestFixture]
+	public class NaturalStringComparerTest : BaseRocksFixture {
+
+		[Test]
+		public void Compare ()
 		{
-			if (func == null)
-				throw new ArgumentNullException ("func");
+			string[] expected = {
+				"a.1.b.2.c.3.d.4.e.5.f.6.g.7.h.8.i.9.j.10.k.11",
+				"a.1.b.2.c.3.d.4.e.5.f.6.g.7.h.8.i.9.j.10.k.12",
+				"bar",
+				"foo",
+				"foo",
+				"foo1",
+				"foo2",
+				"foo3",
+				"foo4",
+				"foo5",
+				"foo6",
+				"foo7",
+				"foo8",
+				"foo9",
+				"foo10",
+			};
 
-			return func (self.Key, self.Value);
-		}
+			List<string> actual = new List<string> {
+				"foo",
+				"foo",
+				"foo10",
+				"foo1",
+				"foo4",
+				"foo2",
+				"foo3",
+				"foo9",
+				"foo5",
+				"foo7",
+				"foo8",
+				"foo6",
+				"bar",
+				"a.1.b.2.c.3.d.4.e.5.f.6.g.7.h.8.i.9.j.10.k.12",
+				"a.1.b.2.c.3.d.4.e.5.f.6.g.7.h.8.i.9.j.10.k.11",
+			};
+			actual.Sort (NaturalStringComparer.Default);
 
-		public static Tuple<TKey, TValue> ToTuple<TKey, TValue> (this KeyValuePair<TKey, TValue> self)
-		{
-			return Tuple.Create (self.Key, self.Value);
+			AssertAreSame (expected, actual);
 		}
 	}
 }
-

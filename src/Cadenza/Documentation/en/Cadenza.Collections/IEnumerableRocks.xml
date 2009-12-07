@@ -1,4 +1,4 @@
-<Type Name="IEnumerableRocks" FullName="Cadenza.IEnumerableRocks">
+<Type Name="IEnumerableRocks" FullName="Cadenza.Collections.IEnumerableRocks">
   <TypeSignature Language="C#" Value="public static class IEnumerableRocks" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
@@ -103,7 +103,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Func(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.AggregateHistory``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Func(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.AggregateHistory``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="AggregateReverse&lt;TSource&gt;">
@@ -130,7 +130,7 @@
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Func(System.Object)" /></exception>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.IEnumerableRocks.AggregateReverse``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" /></exception>
+        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.Collections.IEnumerableRocks.AggregateReverse``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="AggregateReverse&lt;TSource,TAccumulate&gt;">
@@ -194,7 +194,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Func(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.AggregateReverse``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Func(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.AggregateReverse``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="AggregateReverseHistory&lt;TSource&gt;">
@@ -284,7 +284,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Func(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.AggregateReverseHistory``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Func(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.AggregateReverseHistory``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="And">
@@ -359,7 +359,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.ApplyPairs``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}[])" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.ApplyPairs``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}[])" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Break&lt;TSource&gt;">
@@ -389,13 +389,13 @@
       </Docs>
     </Member>
     <Member MemberName="Cache&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.CachedSequence&lt;T&gt; Cache&lt;T&gt; (this System.Collections.Generic.IEnumerable&lt;T&gt; self);" />
+      <MemberSignature Language="C#" Value="public static Cadenza.Collections.CachedSequence&lt;T&gt; Cache&lt;T&gt; (this System.Collections.Generic.IEnumerable&lt;T&gt; self);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.CachedSequence&lt;T&gt;</ReturnType>
+        <ReturnType>Cadenza.Collections.CachedSequence&lt;T&gt;</ReturnType>
       </ReturnValue>
       <TypeParameters>
         <TypeParameter Name="T" />
@@ -434,7 +434,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Concat&lt;TSource&gt;">
@@ -466,7 +466,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="ContiguousSubsequences&lt;TSource&gt;">
@@ -541,7 +541,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Each&lt;TSource&gt;">
@@ -567,7 +567,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="ExceptLast&lt;TSource&gt;">
@@ -591,8 +591,8 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.ExceptLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" /></exception>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.ExceptLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" /></exception>
+        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.ExceptLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.ExceptLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="ExceptLast&lt;TSource&gt;">
@@ -618,7 +618,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Cadenza.IEnumerableRocks.ExceptLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" /></exception>
+        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Cadenza.Collections.IEnumerableRocks.ExceptLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" /></exception>
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
       </Docs>
     </Member>
@@ -696,7 +696,7 @@
         <param name="action">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="ForEach&lt;TSource&gt;">
@@ -721,7 +721,7 @@
         <param name="action">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="HaskellGroup&lt;TSource&gt;">
@@ -794,7 +794,7 @@
             next element within <paramref name="self" /> is the first element
             of the new group).
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#HaskellGroupBy">// Split a string into pairs
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#HaskellGroupBy">// Split a string into pairs
 string s = "123456789";
 int c = 0;
 List&lt;List&lt;char&gt;&gt; pairs = s.HaskellGroupBy(delegate {
@@ -1106,7 +1106,7 @@ Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
             starts at the start of <paramref name="self" /> and increments
             until the end of <paramref name="self" />.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#InitialSegments">IEnumerable&lt;IEnumerable&lt;char&gt;&gt; e = "abc".InitialSegments ();
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#InitialSegments">IEnumerable&lt;IEnumerable&lt;char&gt;&gt; e = "abc".InitialSegments ();
 var l = e.ToList ();
 Assert.AreEqual (4, l.Count);
 AssertAreSame (new char[]{},          l [0]);
@@ -1115,7 +1115,7 @@ AssertAreSame (new[]{'a', 'b'},       l [2]);
 AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
 </code>
         </remarks>
-        <altmember cref="M:Cadenza.IEnumerableRocks.TrailingSegments``1(System.Collections.Generic.IEnumerable{``0})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.TrailingSegments``1(System.Collections.Generic.IEnumerable{``0})" />
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.
         </exception>
@@ -1198,7 +1198,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.Intersperse``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}},System.Collections.Generic.IEnumerable{``0})" />, <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.Intersperse``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}},System.Collections.Generic.IEnumerable{``0})" />, <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Intersperse&lt;TSource&gt;">
@@ -1342,8 +1342,8 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" /></exception>
-        <exception cref="T:System.ArgumentOutOfRangeException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" /></exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="RemoveFirstOccurrences&lt;TSource&gt;">
@@ -1372,7 +1372,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
-        <exception cref="T:System.ArgumentOutOfRangeException">To be added; from: <see cref="M:Cadenza.IEnumerableRocks.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" /></exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">To be added; from: <see cref="M:Cadenza.Collections.IEnumerableRocks.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Repeat&lt;TSource&gt;">
@@ -1560,7 +1560,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
             The number of items in the list returned is equal to the shorter of
             <paramref name="self" /> and <paramref name="source2" />.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#SelectFromEach2">List&lt;int&gt;  a = new List&lt;int&gt; {1, 2, 3, 4};
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#SelectFromEach2">List&lt;int&gt;  a = new List&lt;int&gt; {1, 2, 3, 4};
 List&lt;char&gt; b = new List&lt;char&gt; {'a', 'b', 'c', 'd', 'e'};
 var c = a.SelectFromEach (b, (x, y) =&gt; new { First = x, Second = y }).ToList ();
 Assert.AreEqual (4, c.Count);
@@ -1578,7 +1578,7 @@ Assert.AreEqual ('d', c [3].Second);
           <paramref name="self" />, <paramref name="source2" />, or
           <paramref name="selector" /> is <see langword="null" />.
         </exception>
-        <altmember cref="M:Cadenza.IEnumerableRocks.Zip``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.Zip``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})" />
       </Docs>
     </Member>
     <Member MemberName="SelectFromEach&lt;T1,T2,T3,TResult&gt;">
@@ -1657,7 +1657,7 @@ Assert.AreEqual ('d', c [3].Second);
             The number of items in the list returned is equal to the shorter of
             <paramref name="self" />, <paramref name="source2" />, and <paramref name="source3" />.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#SelectFromEach3">Assert.AreEqual ("123",
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#SelectFromEach3">Assert.AreEqual ("123",
 		new[]{1}.SelectFromEach (new[]{2}, new[]{3}, 
 			(x,y,z) =&gt; x.ToString () + y.ToString () + z.ToString ()).Implode ());
 </code>
@@ -1666,7 +1666,7 @@ Assert.AreEqual ('d', c [3].Second);
           <paramref name="self" />, <paramref name="source2" />, <paramref name="source3" />, or
           <paramref name="selector" /> is <see langword="null" />.
         </exception>
-        <altmember cref="M:Cadenza.IEnumerableRocks.Zip``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.Zip``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2})" />
       </Docs>
     </Member>
     <Member MemberName="SelectFromEach&lt;T1,T2,T3,T4,TResult&gt;">
@@ -1754,7 +1754,7 @@ Assert.AreEqual ('d', c [3].Second);
             The number of items in the list returned is equal to the shorter of
             <paramref name="self" />, <paramref name="source2" />, <paramref name="source3" />, and <paramref name="source4" />.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#SelectFromEach4">Assert.AreEqual ("1234",
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#SelectFromEach4">Assert.AreEqual ("1234",
 		new[]{1}.SelectFromEach (new[]{2}, new[]{3}, new[]{4},
 			(w,x,y,z) =&gt; w.ToString () + x.ToString () + y.ToString () + z.ToString ()).Implode ());
 </code>
@@ -1763,7 +1763,7 @@ Assert.AreEqual ('d', c [3].Second);
           <paramref name="self" />, <paramref name="source2" />, <paramref name="source3" />, <paramref name="source4" />, or
           <paramref name="selector" /> is <see langword="null" />.
         </exception>
-        <altmember cref="M:Cadenza.IEnumerableRocks.Zip``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.Zip``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3})" />
       </Docs>
     </Member>
     <Member MemberName="SelectReverseAggregated&lt;TSource,TAccumulate,TResult&gt;">
@@ -1925,7 +1925,7 @@ Assert.AreEqual ('d', c [3].Second);
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.SkipPrefix``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.SkipPrefix``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Sort&lt;TSource&gt;">
@@ -1975,7 +1975,7 @@ Assert.AreEqual ('d', c [3].Second);
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Sort&lt;TSource&gt;">
@@ -2001,7 +2001,7 @@ Assert.AreEqual ('d', c [3].Second);
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Comparison{``0})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Comparison{``0})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="SortNatural">
@@ -2026,21 +2026,21 @@ Assert.AreEqual ('d', c [3].Second);
           <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
           which contains the elements within <paramref name="self" /> sorted 
           using the
-          <see cref="F:Cadenza.NaturalStringComparer.Default" /> comparer.
+          <see cref="F:Cadenza.Collections.NaturalStringComparer.Default" /> comparer.
         </summary>
         <returns>
           A new 
           <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
           which contains the elements within <paramref name="self" /> sorted 
           using the
-          <see cref="F:Cadenza.NaturalStringComparer.Default" /> comparer.
+          <see cref="F:Cadenza.Collections.NaturalStringComparer.Default" /> comparer.
         </returns>
         <remarks>
           <para>
             This method does not modify <paramref name="self" />.
           </para>
         </remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Span&lt;TSource&gt;">
@@ -2096,7 +2096,7 @@ Assert.AreEqual ('d', c [3].Second);
             <c>Tuple.Create (self.TakeWhile (predicate), 
             self.SkipWhile (predicate));</c>.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Span">Assert.AreEqual ("12|341234",
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#Span">Assert.AreEqual ("12|341234",
 		new[]{1,2,3,4,1,2,3,4}.Span (e =&gt; e &lt; 3)
 		.Aggregate ((x, y) =&gt; x.Implode () + "|" + y.Implode ()));
 Assert.AreEqual ("123|",
@@ -2158,7 +2158,7 @@ Assert.AreEqual ("|123",
             <c>Tuple.Create (self.Take (firstLength), 
             self.Skip (firstLength));</c>.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#SplitAt">Assert.AreEqual ("Hello |World!",
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#SplitAt">Assert.AreEqual ("Hello |World!",
 		"Hello World!".SplitAt (6)
 		.Aggregate ((x,y) =&gt; x.Implode () + "|" + y.Implode ()));
 Assert.AreEqual ("123|45",
@@ -2225,7 +2225,7 @@ Assert.AreEqual ("|123",
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Cadenza.IEnumerableRocks.Tokens``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,Cadenza.Tuple{``2,``1}},System.Func{``1,``0,System.Boolean}[])" /></exception>
+        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Cadenza.Collections.IEnumerableRocks.Tokens``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,Cadenza.Tuple{``2,``1}},System.Func{``1,``0,System.Boolean}[])" /></exception>
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Accumulate(System.Object)" />, <see cref="M:Cadenza.Check.ResultSelector(System.Object)" />, <see cref="M:Cadenza.Check.Categories(System.Object)" /></exception>
       </Docs>
     </Member>
@@ -2264,7 +2264,7 @@ Assert.AreEqual ("|123",
           with the same ordering and values as <paramref name="self" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#ToList">int[][] a = new int[][]{
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#ToList">int[][] a = new int[][]{
 	new int[]{1, 2, 3},
 	new int[]{4, 5, 6},
 };
@@ -2285,13 +2285,13 @@ Assert.AreEqual (a [1][2], c [1][2]);
       </Docs>
     </Member>
     <Member MemberName="ToReadOnlyDictionary&lt;TKey,TValue&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.ReadOnlyDictionary&lt;TKey,TValue&gt; ToReadOnlyDictionary&lt;TKey,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TValue&gt; self, Func&lt;TValue,TKey&gt; keySelector);" />
+      <MemberSignature Language="C#" Value="public static Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TValue&gt; ToReadOnlyDictionary&lt;TKey,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TValue&gt; self, Func&lt;TValue,TKey&gt; keySelector);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.ReadOnlyDictionary&lt;TKey,TValue&gt;</ReturnType>
+        <ReturnType>Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TValue&gt;</ReturnType>
       </ReturnValue>
       <TypeParameters>
         <TypeParameter Name="TKey" />
@@ -2312,13 +2312,13 @@ Assert.AreEqual (a [1][2], c [1][2]);
       </Docs>
     </Member>
     <Member MemberName="ToReadOnlyDictionary&lt;TSource,TKey,TValue&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.ReadOnlyDictionary&lt;TKey,TValue&gt; ToReadOnlyDictionary&lt;TSource,TKey,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TKey&gt; keySelector, Func&lt;TSource,TValue&gt; valueSelector);" />
+      <MemberSignature Language="C#" Value="public static Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TValue&gt; ToReadOnlyDictionary&lt;TSource,TKey,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TKey&gt; keySelector, Func&lt;TSource,TValue&gt; valueSelector);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.ReadOnlyDictionary&lt;TKey,TValue&gt;</ReturnType>
+        <ReturnType>Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TValue&gt;</ReturnType>
       </ReturnValue>
       <TypeParameters>
         <TypeParameter Name="TSource" />
@@ -2384,7 +2384,7 @@ Assert.AreEqual (a [1][2], c [1][2]);
             otherwise a <see cref="T:System.NotSupportedException" /> is
             thrown.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#ToTuple">IEnumerable&lt;object&gt; s = new object[]{1, '2', 3L, "4"};
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#ToTuple">IEnumerable&lt;object&gt; s = new object[]{1, '2', 3L, "4"};
 IList&lt;object&gt; tl = s.ToTuple ();
 Assert.AreEqual (typeof(Tuple&lt;int, char, long, string&gt;), tl.GetType());
 Assert.AreEqual (4,   tl.Count);
@@ -2505,7 +2505,7 @@ Assert.AreEqual ("4", t._4);
             starts at the start of <paramref name="self" /> and increments
             until the end of <paramref name="self" />.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#TrailingSegments">IEnumerable&lt;IEnumerable&lt;char&gt;&gt; e = "abc".TrailingSegments ();
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#TrailingSegments">IEnumerable&lt;IEnumerable&lt;char&gt;&gt; e = "abc".TrailingSegments ();
 var l = e.ToList ();
 Assert.AreEqual (4, l.Count);
 AssertAreSame (new[]{'a', 'b', 'c'},  l [0]);
@@ -2517,7 +2517,7 @@ AssertAreSame (new char[]{},          l [3]);
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.
         </exception>
-        <altmember cref="M:Cadenza.IEnumerableRocks.InitialSegments``1(System.Collections.Generic.IEnumerable{``0})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.InitialSegments``1(System.Collections.Generic.IEnumerable{``0})" />
       </Docs>
     </Member>
     <Member MemberName="Transpose&lt;TSource&gt;">
@@ -2563,7 +2563,7 @@ AssertAreSame (new char[]{},          l [3]);
             maximum number of input columns are "skipped" when an input column
             index exceeds the length of that row.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Transpose">IEnumerable&lt;IEnumerable&lt;int&gt;&gt; a = new int[][]{
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#Transpose">IEnumerable&lt;IEnumerable&lt;int&gt;&gt; a = new int[][]{
 	new int[]{1, 2, 3},
 	new int[]{4, 5, 6},
 };
@@ -2642,7 +2642,7 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
           <para>
             This is analogous to undoing a <c>Zip</c> operation.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Unzip2">Assert.AreEqual ("1,2|3,4",
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#Unzip2">Assert.AreEqual ("1,2|3,4",
 		new[]{1,2}.Zip (new[]{3,4,5}).Unzip ()
 		.Aggregate ((a, b) =&gt; a.Implode (",") + "|" + b.Implode (",")));
 </code>
@@ -2650,7 +2650,7 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.
         </exception>
-        <altmember cref="M:Cadenza.IEnumerableRocks.Zip``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.Zip``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})" />
       </Docs>
     </Member>
     <Member MemberName="Unzip&lt;T1,T2,T3&gt;">
@@ -2702,7 +2702,7 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
           <para>
             This is analogous to undoing a <c>Zip</c> operation.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Unzip3">Assert.AreEqual ("1,2|3,4|5,6",
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#Unzip3">Assert.AreEqual ("1,2|3,4|5,6",
 		new[]{1,2}.Zip (new[]{3,4,5}, new[]{5,6}).Unzip ()
 		.Aggregate ((a, b, c) =&gt; a.Implode (",") + "|" + b.Implode (",") + "|" + c.Implode (",")));
 </code>
@@ -2710,7 +2710,7 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.
         </exception>
-        <altmember cref="M:Cadenza.IEnumerableRocks.Zip``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.Zip``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2})" />
       </Docs>
     </Member>
     <Member MemberName="Unzip&lt;T1,T2,T3,T4&gt;">
@@ -2766,7 +2766,7 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
           <para>
             This is analogous to undoing a <c>Zip</c> operation.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Unzip4">Assert.AreEqual ("1,2|3,4|5,6|7,8",
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#Unzip4">Assert.AreEqual ("1,2|3,4|5,6|7,8",
 		new[]{1,2}.Zip (new[]{3,4,5,6}, new[]{5,6,7}, new[]{7,8}).Unzip ()
 		.Aggregate ((a, b, c, d) =&gt; a.Implode (",") + "|" + b.Implode (",") + "|" + c.Implode (",") + "|" + d.Implode (",")));
 </code>
@@ -2774,7 +2774,7 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.
         </exception>
-        <altmember cref="M:Cadenza.IEnumerableRocks.Zip``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.Zip``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3})" />
       </Docs>
     </Member>
     <Member MemberName="Zip&lt;T1,T2&gt;">
@@ -2833,7 +2833,7 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
             The number of items in the list returned is equal to the shorter
             of <paramref name="self" /> and <paramref name="source2" />.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Zip2">Assert.AreEqual ("1,5|2,4|",
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#Zip2">Assert.AreEqual ("1,5|2,4|",
 		new[]{1,2}.Zip (new[]{5,4,3})
 		.Aggregate (new StringBuilder(), 
 			(b, e) =&gt; b.AppendFormat ("{0},{1}|", e._1, e._2)).ToString ());
@@ -2847,8 +2847,8 @@ Assert.AreEqual ("",
           <paramref name="self" /> or <paramref name="source2" /> 
           is <see langword="null" />.
         </exception>
-        <altmember cref="M:Cadenza.IEnumerableRocks.SelectFromEach``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})" />
-        <altmember cref="M:Cadenza.IEnumerableRocks.Unzip``2(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1}})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.SelectFromEach``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.Unzip``2(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1}})" />
       </Docs>
     </Member>
     <Member MemberName="Zip&lt;T1,T2,T3&gt;">
@@ -2917,7 +2917,7 @@ Assert.AreEqual ("",
             The number of items in the list returned is equal to the shorter of
             <paramref name="self" />, <paramref name="source2" />, and <paramref name="source3" />.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Zip3">Assert.AreEqual ("1,3,5|2,4,6|",
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#Zip3">Assert.AreEqual ("1,3,5|2,4,6|",
 		new[]{1,2}.Zip (new[]{3,4,5,6}, new[]{5,6,7})
 		.Aggregate (new StringBuilder(), 
 			(b, e) =&gt; b.AppendFormat ("{0},{1},{2}|", e._1, e._2, e._3)).ToString ());
@@ -2931,8 +2931,8 @@ Assert.AreEqual ("",
           <paramref name="self" />, <paramref name="source2" />, or <paramref name="source3" /> 
           is <see langword="null" />.
         </exception>
-        <altmember cref="M:Cadenza.IEnumerableRocks.SelectFromEach``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Func{``0,``1,``2,``3})" />
-        <altmember cref="M:Cadenza.IEnumerableRocks.Unzip``3(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1,``2}})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.SelectFromEach``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Func{``0,``1,``2,``3})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.Unzip``3(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1,``2}})" />
       </Docs>
     </Member>
     <Member MemberName="Zip&lt;T1,T2,T3,T4&gt;">
@@ -3010,7 +3010,7 @@ Assert.AreEqual ("",
             The number of items in the list returned is equal to the shorter of
             <paramref name="self" />, <paramref name="source2" />, <paramref name="source3" />, and <paramref name="source4" />.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/IEnumerableTest.cs#Zip4">Assert.AreEqual ("1,3,5,7|2,4,6,8|",
+          <code lang="C#" src="../../Test/Cadenza.Collections/IEnumerableTest.cs#Zip4">Assert.AreEqual ("1,3,5,7|2,4,6,8|",
 		new[]{1,2}.Zip (new[]{3,4,5,6}, new[]{5,6,7}, new[]{7,8})
 		.Aggregate (new StringBuilder(), 
 			(b, e) =&gt; b.AppendFormat ("{0},{1},{2},{3}|", e._1, e._2, e._3, e._4)).ToString ());
@@ -3024,8 +3024,8 @@ Assert.AreEqual ("",
           <paramref name="self" />, <paramref name="source2" />, <paramref name="source3" />, or <paramref name="source4" />
           is <see langword="null" />.
         </exception>
-        <altmember cref="M:Cadenza.IEnumerableRocks.SelectFromEach``5(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3},System.Func{``0,``1,``2,``3,``4})" />
-        <altmember cref="M:Cadenza.IEnumerableRocks.Unzip``4(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1,``2,``3}})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.SelectFromEach``5(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3},System.Func{``0,``1,``2,``3,``4})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.Unzip``4(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1,``2,``3}})" />
       </Docs>
     </Member>
   </Members>

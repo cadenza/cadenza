@@ -31,6 +31,7 @@ using System;
 using NUnit.Framework;
 
 using Cadenza;
+using Cadenza.Collections;
 
 namespace Cadenza.Tests {
 

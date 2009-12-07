@@ -33,7 +33,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Cadenza {
+namespace Cadenza.Collections {
 	[Serializable]
 	public sealed class NaturalStringComparer : IComparer<string>, System.Collections.IComparer
 	{

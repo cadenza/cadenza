@@ -1,5 +1,5 @@
 //
-// SequenceTest.cs
+// KeyValuePairTest.cs
 //
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
@@ -32,60 +32,40 @@ using System.Linq;
 
 using NUnit.Framework;
 
-using Cadenza;
+using Cadenza.Collections;
+using Cadenza.Tests;
 
-namespace Cadenza.Tests {
+namespace Cadenza.Collections.Tests {
 
 	[TestFixture]
-	public class SequenceTest : BaseRocksFixture {
+	public class KeyValuePairTest : BaseRocksFixture {
 
 		[Test]
 		[ExpectedException (typeof (ArgumentNullException))]
-		public void Iterate_FuncNull ()
+		public void Aggregate_FuncNull ()
 		{
-			Func<int, int> f = null;
-			Sequence.Iterate (0, f);
+			Func<int, int, int> f = null;
+			new KeyValuePair<int,int> (1, 2).Aggregate (f);
 		}
 
 		[Test]
-		public void Iterate ()
+		public void Aggregate ()
 		{
-			// not entirely sure how you sanely test an infinite list...
-			#region Iterate
-			Assert.AreEqual ("16,8,4,2,1",
-					Sequence.Iterate (16, v => v / 2).Take (5).Implode (","));
-			Assert.AreEqual ("1,2,3,4,5",
-					Sequence.Iterate (1, v => v+1).Take (5).Implode (","));
-			#endregion
+			Assert.AreEqual (
+					3, 
+					new KeyValuePair<int, int>(1, 2).Aggregate ((k, v) => k+v));
+			Assert.AreEqual (
+					"1,2", 
+					new KeyValuePair<int, int>(1, 2).Aggregate ((k, v) => k+","+v));
 		}
 
 		[Test]
-		public void Repeat ()
+		public void ToTuple ()
 		{
-			// not entirely sure how you sanely test an infinite list...
-			#region Repeat
-			Assert.AreEqual ("1,1,1,1,1",
-					Sequence.Repeat (1).Take (5).Implode (","));
-			#endregion
-		}
-
-		[Test]
-		[ExpectedException (typeof (ArgumentNullException))]
-		public void GenerateReverse_SelectorNull ()
-		{
-			Func<int, Maybe<Tuple<int,int>>> f = null;
-			Sequence.GenerateReverse (0, f);
-		}
-
-		[Test]
-		public void GenerateReverse ()
-		{
-			#region GenerateReverse
-			Assert.AreEqual ("10,9,8,7,6,5,4,3,2,1",
-				Sequence.GenerateReverse (10, 
-					b => Maybe.When (b > 0, Tuple.Create (b, b-1)))
-				.Implode (","));
-			#endregion
+			KeyValuePair<int, string> k = new KeyValuePair<int, string> (42, "42");
+			var t = k.ToTuple ();
+			Assert.AreEqual (k.Key,   t._1);
+			Assert.AreEqual (k.Value, t._2);
 		}
 	}
 }

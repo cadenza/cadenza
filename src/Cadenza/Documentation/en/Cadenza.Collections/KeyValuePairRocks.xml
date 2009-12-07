@@ -1,4 +1,4 @@
-<Type Name="KeyValuePairRocks" FullName="Cadenza.KeyValuePairRocks">
+<Type Name="KeyValuePairRocks" FullName="Cadenza.Collections.KeyValuePairRocks">
   <TypeSignature Language="C#" Value="public static class KeyValuePairRocks" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
@@ -81,7 +81,7 @@ string entries = dict
 // entries contains "(1,1)|(2,4)|(3,9)"
           </code>
         </remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.KeyValuePairRocks.Aggregate``3(System.Collections.Generic.KeyValuePair{``0,``1},System.Func{``0,``1,``2})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Collections.KeyValuePairRocks.Aggregate``3(System.Collections.Generic.KeyValuePair{``0,``1},System.Func{``0,``1,``2})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="ToTuple&lt;TKey,TValue&gt;">

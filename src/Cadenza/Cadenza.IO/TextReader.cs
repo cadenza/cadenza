@@ -32,6 +32,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
+using Cadenza.Collections;
+
 namespace Cadenza.IO {
 
 	[Flags]

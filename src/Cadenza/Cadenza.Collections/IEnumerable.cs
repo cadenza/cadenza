@@ -39,7 +39,7 @@ using System.Text;
 
 using Cadenza.IO;
 
-namespace Cadenza {
+namespace Cadenza.Collections {
 
 	public static class IEnumerableRocks {
 

@@ -1,4 +1,4 @@
-<Type Name="CachedSequence&lt;T&gt;" FullName="Cadenza.CachedSequence&lt;T&gt;">
+<Type Name="CachedSequence&lt;T&gt;" FullName="Cadenza.Collections.CachedSequence&lt;T&gt;">
   <TypeSignature Language="C#" Value="public class CachedSequence&lt;T&gt; : System.Collections.Generic.IEnumerable&lt;T&gt;" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
@@ -52,14 +52,14 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public CachedSequence (T head, Cadenza.CachedSequence&lt;T&gt; tail);" />
+      <MemberSignature Language="C#" Value="public CachedSequence (T head, Cadenza.Collections.CachedSequence&lt;T&gt; tail);" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="head" Type="T" />
-        <Parameter Name="tail" Type="Cadenza.CachedSequence&lt;T&gt;" />
+        <Parameter Name="tail" Type="Cadenza.Collections.CachedSequence&lt;T&gt;" />
       </Parameters>
       <Docs>
         <param name="head">To be added.</param>
@@ -69,13 +69,13 @@
       </Docs>
     </Member>
     <Member MemberName="Append">
-      <MemberSignature Language="C#" Value="public Cadenza.CachedSequence&lt;T&gt; Append (T value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.Collections.CachedSequence&lt;T&gt; Append (T value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.CachedSequence&lt;T&gt;</ReturnType>
+        <ReturnType>Cadenza.Collections.CachedSequence&lt;T&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="T" />
@@ -202,13 +202,13 @@
       </Docs>
     </Member>
     <Member MemberName="Prepend">
-      <MemberSignature Language="C#" Value="public Cadenza.CachedSequence&lt;T&gt; Prepend (T value);" />
+      <MemberSignature Language="C#" Value="public Cadenza.Collections.CachedSequence&lt;T&gt; Prepend (T value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.CachedSequence&lt;T&gt;</ReturnType>
+        <ReturnType>Cadenza.Collections.CachedSequence&lt;T&gt;</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="T" />
@@ -221,13 +221,13 @@
       </Docs>
     </Member>
     <Member MemberName="Reverse">
-      <MemberSignature Language="C#" Value="public Cadenza.CachedSequence&lt;T&gt; Reverse ();" />
+      <MemberSignature Language="C#" Value="public Cadenza.Collections.CachedSequence&lt;T&gt; Reverse ();" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.CachedSequence&lt;T&gt;</ReturnType>
+        <ReturnType>Cadenza.Collections.CachedSequence&lt;T&gt;</ReturnType>
       </ReturnValue>
       <Parameters />
       <Docs>
@@ -253,13 +253,13 @@
       </Docs>
     </Member>
     <Member MemberName="Tail">
-      <MemberSignature Language="C#" Value="public Cadenza.CachedSequence&lt;T&gt; Tail { get; }" />
+      <MemberSignature Language="C#" Value="public Cadenza.Collections.CachedSequence&lt;T&gt; Tail { get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.CachedSequence&lt;T&gt;</ReturnType>
+        <ReturnType>Cadenza.Collections.CachedSequence&lt;T&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>

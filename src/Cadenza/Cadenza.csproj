@@ -38,6 +38,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cadenza.Collections\CachedSequence.cs" />
+    <Compile Include="Cadenza.Collections\IEnumerable.cs" />
+    <Compile Include="Cadenza.Collections\KeyValuePair.cs" />
+    <Compile Include="Cadenza.Collections\MutableLookup.cs" />
+    <Compile Include="Cadenza.Collections\NaturalStringComparer.cs" />
+    <Compile Include="Cadenza.Collections\OrderedDictionary.cs" />
+    <Compile Include="Cadenza.Collections\ReadOnlyDictionary.cs" />
+    <Compile Include="Cadenza.Collections\Sequence.cs" />
     <Compile Include="Cadenza.IO\EnumerableValueReader.cs" />
     <Compile Include="Cadenza.IO\IValueReader.cs" />
     <Compile Include="Cadenza.IO\IValueWriter.cs" />
@@ -48,29 +56,21 @@
     <Compile Include="Cadenza.IO\TextValueReader.cs" />
     <Compile Include="Cadenza.IO\ValueReader.cs" />
     <Compile Include="Cadenza\AssemblyInfo.cs" />
-    <Compile Include="Cadenza\CachedSequence.cs" />
     <Compile Include="Cadenza\Check.cs" />
     <Compile Include="Cadenza\Delegates.cs" />
     <Compile Include="Cadenza\Either.cs" />
     <Compile Include="Cadenza\Eithers.cs" />
     <Compile Include="Cadenza\ICustomAttributeProvider.cs" />
-    <Compile Include="Cadenza\IEnumerable.cs" />
     <Compile Include="Cadenza\Int16.cs" />
     <Compile Include="Cadenza\Int32.cs" />
     <Compile Include="Cadenza\Int64.cs" />
     <Compile Include="Cadenza\JaggedArray.cs" />
-    <Compile Include="Cadenza\KeyValuePair.cs" />
     <Compile Include="Cadenza\Lambda.cs" />
     <Compile Include="Cadenza\Lambdas.cs" />
-    <Compile Include="Cadenza\MutableLookup.cs" />
     <Compile Include="Cadenza\Maybe.cs" />
-    <Compile Include="Cadenza\NaturalStringComparer.cs" />
     <Compile Include="Cadenza\Nullable.cs" />
     <Compile Include="Cadenza\Object.cs" />
-    <Compile Include="Cadenza\OrderedDictionary.cs" />
-    <Compile Include="Cadenza\ReadOnlyDictionary.cs" />
     <Compile Include="Cadenza\RectangularArray.cs" />
-    <Compile Include="Cadenza\Sequence.cs" />
     <Compile Include="Cadenza\String.cs" />
     <Compile Include="Cadenza\Tuple.cs" />
     <Compile Include="Cadenza\Tuples.cs" />

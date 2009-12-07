@@ -1,5 +1,5 @@
-//
-// IEnumerableContract.cs
+﻿//
+// KeyValuePair.cs
 //
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
@@ -28,52 +28,22 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
-using NUnit.Framework;
+namespace Cadenza.Collections {
 
-using Cadenza;
+	public static class KeyValuePairRocks {
 
-namespace Cadenza.Tests {
+		public static TResult Aggregate<TKey, TValue, TResult> (this KeyValuePair<TKey, TValue> self, Func<TKey, TValue, TResult> func)
+		{
+			if (func == null)
+				throw new ArgumentNullException ("func");
 
-	public abstract class IEnumerableContract : BaseRocksFixture {
-
-		protected abstract IEnumerable<T> CreateSequence<T> (IEnumerable<T> source);
-
-		protected class DisposedCounter {
-			public int Disposed;
-			public IEnumerable<int> Values (int max)
-			{
-				int v = 0;
-				try {
-					for (int i = 0; i < max; ++i)
-						yield return v++;
-				}
-				finally {
-					Disposed++;
-				}
-			}
+			return func (self.Key, self.Value);
 		}
 
-		[Test]
-		public void Create_SequencEqual ()
+		public static Tuple<TKey, TValue> ToTuple<TKey, TValue> (this KeyValuePair<TKey, TValue> self)
 		{
-			var a = new List<int> ();
-			for (int i = 0; i < 10; ++i) {
-				a.Add (i);
-				Assert.IsTrue (CreateSequence (a).SequenceEqual (a), "Count=" + (i+1));
-			}
-		}
-
-		[Test]
-		public void GetEnumerator_DisposeDisposesIterator ()
-		{
-			var d = new DisposedCounter ();
-			var s = CreateSequence (d.Values (2));
-			var i = s.GetEnumerator ();
-			Assert.IsTrue (i.MoveNext ());
-			i.Dispose ();
-			Assert.AreEqual (1, d.Disposed);
+			return Tuple.Create (self.Key, self.Value);
 		}
 	}
 }

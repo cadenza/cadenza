@@ -1,4 +1,4 @@
-<Type Name="OrderedDictionary&lt;TKey,TValue&gt;" FullName="Cadenza.OrderedDictionary&lt;TKey,TValue&gt;">
+<Type Name="OrderedDictionary&lt;TKey,TValue&gt;" FullName="Cadenza.Collections.OrderedDictionary&lt;TKey,TValue&gt;">
   <TypeSignature Language="C#" Value="public class OrderedDictionary&lt;TKey,TValue&gt; : System.Collections.Generic.ICollection&lt;System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;&gt;, System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;, System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;&gt;, System.Collections.Generic.IList&lt;System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;&gt;" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
@@ -365,7 +365,7 @@
         <exception cref="T:System.ArgumentNullException">
           <paramref name="key" /> is <c>null</c>.</exception>
         <exception cref="T:System.ArgumentOutOfRangeException">
-          <paramref name="index" /> is less than 0 or greater than <see cref="P:Cadenza.OrderedDictionary`2.Count" /></exception>
+          <paramref name="index" /> is less than 0 or greater than <see cref="P:Cadenza.Collections.OrderedDictionary`2.Count" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Item">
@@ -388,7 +388,7 @@
         <value>The value at the specified index.</value>
         <remarks>To be added.</remarks>
         <exception cref="T:System.IndexOutOfRangeException">
-          <paramref name="index" /> is less than 0 or greater than <see cref="P:Cadenza.OrderedDictionary`2.Count" />.</exception>
+          <paramref name="index" /> is less than 0 or greater than <see cref="P:Cadenza.Collections.OrderedDictionary`2.Count" />.</exception>
       </Docs>
     </Member>
     <Member MemberName="Item">

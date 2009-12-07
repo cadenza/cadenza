@@ -1,5 +1,5 @@
 //
-// NaturalStringComparerTest.cs
+// SequenceTest.cs
 //
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
@@ -32,54 +32,61 @@ using System.Linq;
 
 using NUnit.Framework;
 
-using Cadenza;
+using Cadenza.Collections;
+using Cadenza.Tests;
 
-namespace Cadenza.Tests {
+namespace Cadenza.Collections.Tests {
 
 	[TestFixture]
-	public class NaturalStringComparerTest : BaseRocksFixture {
+	public class SequenceTest : BaseRocksFixture {
 
 		[Test]
-		public void Compare ()
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void Iterate_FuncNull ()
 		{
-			string[] expected = {
-				"a.1.b.2.c.3.d.4.e.5.f.6.g.7.h.8.i.9.j.10.k.11",
-				"a.1.b.2.c.3.d.4.e.5.f.6.g.7.h.8.i.9.j.10.k.12",
-				"bar",
-				"foo",
-				"foo",
-				"foo1",
-				"foo2",
-				"foo3",
-				"foo4",
-				"foo5",
-				"foo6",
-				"foo7",
-				"foo8",
-				"foo9",
-				"foo10",
-			};
+			Func<int, int> f = null;
+			Sequence.Iterate (0, f);
+		}
 
-			List<string> actual = new List<string> {
-				"foo",
-				"foo",
-				"foo10",
-				"foo1",
-				"foo4",
-				"foo2",
-				"foo3",
-				"foo9",
-				"foo5",
-				"foo7",
-				"foo8",
-				"foo6",
-				"bar",
-				"a.1.b.2.c.3.d.4.e.5.f.6.g.7.h.8.i.9.j.10.k.12",
-				"a.1.b.2.c.3.d.4.e.5.f.6.g.7.h.8.i.9.j.10.k.11",
-			};
-			actual.Sort (NaturalStringComparer.Default);
+		[Test]
+		public void Iterate ()
+		{
+			// not entirely sure how you sanely test an infinite list...
+			#region Iterate
+			Assert.AreEqual ("16,8,4,2,1",
+					Sequence.Iterate (16, v => v / 2).Take (5).Implode (","));
+			Assert.AreEqual ("1,2,3,4,5",
+					Sequence.Iterate (1, v => v+1).Take (5).Implode (","));
+			#endregion
+		}
 
-			AssertAreSame (expected, actual);
+		[Test]
+		public void Repeat ()
+		{
+			// not entirely sure how you sanely test an infinite list...
+			#region Repeat
+			Assert.AreEqual ("1,1,1,1,1",
+					Sequence.Repeat (1).Take (5).Implode (","));
+			#endregion
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void GenerateReverse_SelectorNull ()
+		{
+			Func<int, Maybe<Tuple<int,int>>> f = null;
+			Sequence.GenerateReverse (0, f);
+		}
+
+		[Test]
+		public void GenerateReverse ()
+		{
+			#region GenerateReverse
+			Assert.AreEqual ("10,9,8,7,6,5,4,3,2,1",
+				Sequence.GenerateReverse (10, 
+					b => Maybe.When (b > 0, Tuple.Create (b, b-1)))
+				.Implode (","));
+			#endregion
 		}
 	}
 }

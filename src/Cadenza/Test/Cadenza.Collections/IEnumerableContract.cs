@@ -1,5 +1,5 @@
 //
-// Sequence.cs
+// IEnumerableContract.cs
 //
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
@@ -28,46 +28,53 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Cadenza {
+using NUnit.Framework;
 
-	public static class Sequence {
+using Cadenza.Collections;
+using Cadenza.Tests;
 
-		public static IEnumerable<TSource> Iterate<TSource> (TSource value, Func<TSource, TSource> selector)
-		{
-			Check.Selector (selector);
+namespace Cadenza.Collections.Tests {
 
-			return CreateIterateIterator (value, selector);
-		}
+	public abstract class IEnumerableContract : BaseRocksFixture {
 
-		private static IEnumerable<TSource> CreateIterateIterator<TSource> (TSource value, Func<TSource, TSource> selector)
-		{
-			yield return value;
-			while (true)
-				yield return (value = selector (value));
-		}
+		protected abstract IEnumerable<T> CreateSequence<T> (IEnumerable<T> source);
 
-		public static IEnumerable<TSource> Repeat<TSource> (TSource value)
-		{
-			while (true)
-				yield return value;
-		}
-
-		public static IEnumerable<TResult> GenerateReverse<TSource, TResult> (TSource value, Func<TSource, Maybe<Tuple<TResult, TSource>>> selector)
-		{
-			Check.Selector (selector);
-
-			return CreateGenerateReverseIterator (value, selector);
-		}
-
-		private static IEnumerable<TResult> CreateGenerateReverseIterator<TSource, TResult> (TSource value, Func<TSource, Maybe<Tuple<TResult, TSource>>> selector)
-		{
-			Maybe<Tuple<TResult, TSource>> r;
-			while ((r = selector (value)).HasValue) {
-				Tuple<TResult, TSource> v = r.Value;
-				yield return v._1;
-				value = v._2;
+		protected class DisposedCounter {
+			public int Disposed;
+			public IEnumerable<int> Values (int max)
+			{
+				int v = 0;
+				try {
+					for (int i = 0; i < max; ++i)
+						yield return v++;
+				}
+				finally {
+					Disposed++;
+				}
 			}
+		}
+
+		[Test]
+		public void Create_SequencEqual ()
+		{
+			var a = new List<int> ();
+			for (int i = 0; i < 10; ++i) {
+				a.Add (i);
+				Assert.IsTrue (CreateSequence (a).SequenceEqual (a), "Count=" + (i+1));
+			}
+		}
+
+		[Test]
+		public void GetEnumerator_DisposeDisposesIterator ()
+		{
+			var d = new DisposedCounter ();
+			var s = CreateSequence (d.Values (2));
+			var i = s.GetEnumerator ();
+			Assert.IsTrue (i.MoveNext ());
+			i.Dispose ();
+			Assert.AreEqual (1, d.Disposed);
 		}
 	}
 }

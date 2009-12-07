@@ -31,7 +31,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Cadenza
+namespace Cadenza.Collections
 {
 	public class OrderedDictionary<TKey, TValue>
 		: IDictionary<TKey, TValue>, IList<KeyValuePair<TKey, TValue>>

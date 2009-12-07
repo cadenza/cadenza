@@ -32,9 +32,10 @@ using System.Linq;
 
 using NUnit.Framework;
 
-using Cadenza;
+using Cadenza.Collections;
+using Cadenza.Tests;
 
-namespace Cadenza.Tests {
+namespace Cadenza.Collections.Tests {
 
 	[TestFixture]
 	public class CachedSequenceTest : IEnumerableContract {

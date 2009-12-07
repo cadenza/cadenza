@@ -32,7 +32,9 @@ using System.Linq;
 
 using NUnit.Framework;
 
-namespace Cadenza.Tests
+using Cadenza.Collections;
+
+namespace Cadenza.Collections.Tests
 {
 	[TestFixture]
 	public class ReadOnlyDictionaryTests

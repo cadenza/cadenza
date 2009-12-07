@@ -32,7 +32,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace Cadenza {
+namespace Cadenza.Collections {
 
 	public class CachedSequence<T> : IEnumerable<T>
 	{
