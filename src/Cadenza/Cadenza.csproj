@@ -55,12 +55,12 @@
     <Compile Include="Cadenza.IO\TextReader.cs" />
     <Compile Include="Cadenza.IO\TextValueReader.cs" />
     <Compile Include="Cadenza.IO\ValueReader.cs" />
+    <Compile Include="Cadenza.Reflection\CustomAttributeProvider.cs" />
     <Compile Include="Cadenza\AssemblyInfo.cs" />
     <Compile Include="Cadenza\Check.cs" />
     <Compile Include="Cadenza\Delegates.cs" />
     <Compile Include="Cadenza\Either.cs" />
     <Compile Include="Cadenza\Eithers.cs" />
-    <Compile Include="Cadenza\CustomAttributeProvider.cs" />
     <Compile Include="Cadenza\Int16.cs" />
     <Compile Include="Cadenza\Int32.cs" />
     <Compile Include="Cadenza\Int64.cs" />

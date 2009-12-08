@@ -15,12 +15,12 @@
 ./src/Cadenza/Cadenza.IO/TextReader.cs
 ./src/Cadenza/Cadenza.IO/TextValueReader.cs
 ./src/Cadenza/Cadenza.IO/ValueReader.cs
+./src/Cadenza/Cadenza.Reflection/CustomAttributeProvider.cs
 ./src/Cadenza/Cadenza/AssemblyInfo.cs
 ./src/Cadenza/Cadenza/Check.cs
 ./src/Cadenza/Cadenza/Delegates.cs
 ./src/Cadenza/Cadenza/Either.cs
 ./src/Cadenza/Cadenza/Eithers.cs
-./src/Cadenza/Cadenza/CustomAttributeProvider.cs
 ./src/Cadenza/Cadenza/Int16.cs
 ./src/Cadenza/Cadenza/Int32.cs
 ./src/Cadenza/Cadenza/Int64.cs

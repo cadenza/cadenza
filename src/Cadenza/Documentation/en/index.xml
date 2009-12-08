@@ -50,7 +50,6 @@
   </Copyright>
   <Types>
     <Namespace Name="Cadenza">
-      <Type Name="CustomAttributeProviderCoda" Kind="Class" />
       <Type Name="DelegateCoda" Kind="Class" />
       <Type Name="Either" Kind="Class" />
       <Type Name="Either`2" DisplayName="Either&lt;T1,T2&gt;" Kind="Class" />
@@ -101,6 +100,9 @@
       <Type Name="TextValueReader" Kind="Class" />
       <Type Name="ValueReader`1" DisplayName="ValueReader&lt;T&gt;" Kind="Class" />
       <Type Name="ValueReaderCoda" Kind="Class" />
+    </Namespace>
+    <Namespace Name="Cadenza.Reflection">
+      <Type Name="CustomAttributeProviderCoda" Kind="Class" />
     </Namespace>
   </Types>
   <Title>Cadenza</Title>
@@ -2694,76 +2696,6 @@
         </summary>
         </Docs>
         <Link Type="Cadenza.Collections.KeyValuePairCoda" Member="M:Cadenza.Collections.KeyValuePairCoda.ToTuple``2(System.Collections.Generic.KeyValuePair{``0,``1})" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.Reflection.ICustomAttributeProvider" />
-      </Targets>
-      <Member MemberName="GetCustomAttribute&lt;TAttribute&gt;">
-        <MemberSignature Language="C#" Value="public static TAttribute GetCustomAttribute&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>TAttribute</ReturnType>
-        </ReturnValue>
-        <TypeParameters>
-          <TypeParameter Name="TAttribute">
-            <Constraints>
-              <BaseTypeName>System.Attribute</BaseTypeName>
-            </Constraints>
-          </TypeParameter>
-        </TypeParameters>
-        <Parameters>
-          <Parameter Name="self" Type="System.Reflection.ICustomAttributeProvider" RefType="this" />
-        </Parameters>
-        <Docs>
-          <typeparam name="TAttribute">The type of the custom attribute to return.</typeparam>
-          <param name="self">
-          A <see cref="T:System.Reflection.ICustomAttributeProvider" />
-          from which to retrieve a custom attribute of type 
-          <typeparamref name="TAttribute" />.
-        </param>
-          <summary>
-          Retrieves a custom attribute of type 
-          <typeparamref name="TAttribute" />.
-        </summary>
-        </Docs>
-        <Link Type="Cadenza.CustomAttributeProviderCoda" Member="M:Cadenza.CustomAttributeProviderCoda.GetCustomAttribute``1(System.Reflection.ICustomAttributeProvider)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.Reflection.ICustomAttributeProvider" />
-      </Targets>
-      <Member MemberName="GetCustomAttributes&lt;TAttribute&gt;">
-        <MemberSignature Language="C#" Value="public static TAttribute[] GetCustomAttributes&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>TAttribute[]</ReturnType>
-        </ReturnValue>
-        <TypeParameters>
-          <TypeParameter Name="TAttribute">
-            <Constraints>
-              <BaseTypeName>System.Attribute</BaseTypeName>
-            </Constraints>
-          </TypeParameter>
-        </TypeParameters>
-        <Parameters>
-          <Parameter Name="self" Type="System.Reflection.ICustomAttributeProvider" RefType="this" />
-        </Parameters>
-        <Docs>
-          <typeparam name="TAttribute">The type of the custom attribute to return.</typeparam>
-          <param name="self">
-          A <see cref="T:System.Reflection.ICustomAttributeProvider" />
-          from which to retrieve custom attributes of type 
-          <typeparamref name="TAttribute" />.
-        </param>
-          <summary>
-          Retrieves all custom attributes of type 
-          <typeparamref name="TAttribute" />.
-        </summary>
-        </Docs>
-        <Link Type="Cadenza.CustomAttributeProviderCoda" Member="M:Cadenza.CustomAttributeProviderCoda.GetCustomAttributes``1(System.Reflection.ICustomAttributeProvider)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6942,6 +6874,76 @@
         </summary>
         </Docs>
         <Link Type="Cadenza.RectangularArrayCoda" Member="M:Cadenza.RectangularArrayCoda.Rows``1(``0[,])" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Reflection.ICustomAttributeProvider" />
+      </Targets>
+      <Member MemberName="GetCustomAttribute&lt;TAttribute&gt;">
+        <MemberSignature Language="C#" Value="public static TAttribute GetCustomAttribute&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TAttribute</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TAttribute">
+            <Constraints>
+              <BaseTypeName>System.Attribute</BaseTypeName>
+            </Constraints>
+          </TypeParameter>
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Reflection.ICustomAttributeProvider" RefType="this" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TAttribute">The type of the custom attribute to return.</typeparam>
+          <param name="self">
+          A <see cref="T:System.Reflection.ICustomAttributeProvider" />
+          from which to retrieve a custom attribute of type 
+          <typeparamref name="TAttribute" />.
+        </param>
+          <summary>
+          Retrieves a custom attribute of type 
+          <typeparamref name="TAttribute" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.Reflection.CustomAttributeProviderCoda" Member="M:Cadenza.Reflection.CustomAttributeProviderCoda.GetCustomAttribute``1(System.Reflection.ICustomAttributeProvider)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Reflection.ICustomAttributeProvider" />
+      </Targets>
+      <Member MemberName="GetCustomAttributes&lt;TAttribute&gt;">
+        <MemberSignature Language="C#" Value="public static TAttribute[] GetCustomAttributes&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TAttribute[]</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TAttribute">
+            <Constraints>
+              <BaseTypeName>System.Attribute</BaseTypeName>
+            </Constraints>
+          </TypeParameter>
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Reflection.ICustomAttributeProvider" RefType="this" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TAttribute">The type of the custom attribute to return.</typeparam>
+          <param name="self">
+          A <see cref="T:System.Reflection.ICustomAttributeProvider" />
+          from which to retrieve custom attributes of type 
+          <typeparamref name="TAttribute" />.
+        </param>
+          <summary>
+          Retrieves all custom attributes of type 
+          <typeparamref name="TAttribute" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.Reflection.CustomAttributeProviderCoda" Member="M:Cadenza.Reflection.CustomAttributeProviderCoda.GetCustomAttributes``1(System.Reflection.ICustomAttributeProvider)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>

@@ -12,12 +12,12 @@
 ./src/Cadenza/Test/Cadenza.IO/SystemStreamConverterTest.cs
 ./src/Cadenza/Test/Cadenza.IO/TextReaderTest.cs
 ./src/Cadenza/Test/Cadenza.IO/TextValueReaderTest.cs
+./src/Cadenza/Test/Cadenza.Reflection/CustomAttributeProviderTest.cs
 ./src/Cadenza/Test/Cadenza/AssemblyInfo.cs
 ./src/Cadenza/Test/Cadenza/BaseRocksFixture.cs
 ./src/Cadenza/Test/Cadenza/DelegateTest.cs
 ./src/Cadenza/Test/Cadenza/EitherTest.cs
 ./src/Cadenza/Test/Cadenza/EquatableContract.cs
-./src/Cadenza/Test/Cadenza/CustomAttributeProviderTest.cs
 ./src/Cadenza/Test/Cadenza/Int16Test.cs
 ./src/Cadenza/Test/Cadenza/Int32Test.cs
 ./src/Cadenza/Test/Cadenza/Int64Test.cs

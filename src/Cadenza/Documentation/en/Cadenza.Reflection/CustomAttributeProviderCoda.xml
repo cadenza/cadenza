@@ -1,4 +1,4 @@
-<Type Name="CustomAttributeProviderCoda" FullName="Cadenza.CustomAttributeProviderCoda">
+<Type Name="CustomAttributeProviderCoda" FullName="Cadenza.Reflection.CustomAttributeProviderCoda">
   <TypeSignature Language="C#" Value="public static class CustomAttributeProviderCoda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>

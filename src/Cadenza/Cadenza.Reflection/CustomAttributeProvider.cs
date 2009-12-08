@@ -1,5 +1,5 @@
 ﻿//
-// ICustomAttributeProviderTest.cs
+// CustomAttributeProvider.cs
 //
 // Author:
 //   Jb Evain (jbevain@novell.com)
@@ -27,41 +27,30 @@
 //
 
 using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
-using NUnit.Framework;
+namespace Cadenza.Reflection {
 
-using Cadenza;
+	public static class CustomAttributeProviderCoda {
 
-namespace Cadenza.Tests {
-
-	[TestFixture]
-	public class CustomAttributeProviderTest : BaseRocksFixture {
-
-		[AttributeUsage (AttributeTargets.All, AllowMultiple = true)]
-		class FooAttribute : Attribute {
-		}
-
-		[Foo ()]
-		[Foo ()]
-		class Bar {
-		}
-
-		[Test]
-		public void GetCustomAttribute ()
+		public static TAttribute GetCustomAttribute<TAttribute> (this ICustomAttributeProvider self) where TAttribute : Attribute
 		{
-			FooAttribute foo = typeof (Bar).GetCustomAttribute<FooAttribute> ();
-			Assert.IsNotNull (foo); // cannot assert the value
+			Check.Self (self);
+
+			var attributes = self.GetCustomAttributes<TAttribute> ();
+			if (attributes == null || attributes.Length == 0)
+				return null;
+
+			return attributes [0];
 		}
 
-		[Test]
-		public void GetCustomAttributes ()
+		public static TAttribute [] GetCustomAttributes<TAttribute> (this ICustomAttributeProvider self) where TAttribute : Attribute
 		{
-			var attributes = typeof (Bar).GetCustomAttributes<FooAttribute> ();
+			Check.Self (self);
 
-			Assert.IsNotNull (attributes);
-			Assert.AreEqual (2, attributes.Length);
+			return (TAttribute []) self.GetCustomAttributes (typeof (TAttribute), true);
 		}
 	}
 }
