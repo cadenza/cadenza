@@ -32,7 +32,7 @@ using System;
 
 namespace Cadenza
 {
-	public static class Int16Rocks
+	public static class Int16Coda
 	{
 		public static bool IsEven (this short value)
 		{

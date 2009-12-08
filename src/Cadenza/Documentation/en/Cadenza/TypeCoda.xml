@@ -1,5 +1,5 @@
-<Type Name="TypeRocks" FullName="Cadenza.TypeRocks">
-  <TypeSignature Language="C#" Value="public static class TypeRocks" />
+<Type Name="TypeCoda" FullName="Cadenza.TypeCoda">
+  <TypeSignature Language="C#" Value="public static class TypeCoda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>

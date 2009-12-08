@@ -31,7 +31,7 @@ using System;
 
 namespace Cadenza
 {
-	public static class TypeRocks
+	public static class TypeCoda
 	{
 		public static bool IsNullable (this Type self)
 		{

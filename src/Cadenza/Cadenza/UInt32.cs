@@ -35,7 +35,7 @@ using System.Collections.Generic;
 namespace Cadenza {
 
 	[CLSCompliant (false)]
-	public static class UInt32Rocks {
+	public static class UInt32Coda {
 
 		public static bool IsEven (this uint value)
 		{

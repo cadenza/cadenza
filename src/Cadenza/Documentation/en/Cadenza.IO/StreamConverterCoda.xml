@@ -1,5 +1,5 @@
-<Type Name="StreamConverterRocks" FullName="Cadenza.IO.StreamConverterRocks">
-  <TypeSignature Language="C#" Value="public static class StreamConverterRocks" />
+<Type Name="StreamConverterCoda" FullName="Cadenza.IO.StreamConverterCoda">
+  <TypeSignature Language="C#" Value="public static class StreamConverterCoda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>

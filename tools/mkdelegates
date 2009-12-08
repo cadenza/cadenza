@@ -74,17 +74,17 @@ qq(Provides extension methods on <see cref="T:System.Action{T}"/>,
 <see cref="T:System.Func{T,TResult}"/>, and related delegates.));
 	$g->XmlRemarks (
 qq(<para>
- <see cref="T:Cadenza.DelegateRocks" /> provides methods methods for:
+ <see cref="T:Cadenza.DelegateCoda" /> provides methods methods for:
 </para>
 <list type="bullet">
  <item><term>
-  Delegate currying and partial application (<see cref="M:Cadenza.DelegateRocks.Curry" />)
+  Delegate currying and partial application (<see cref="M:Cadenza.DelegateCoda.Curry" />)
  </term></item>
  <item><term>
-  Delegate composition (<see cref="M:Cadenza.DelegateRocks.Compose" />)
+  Delegate composition (<see cref="M:Cadenza.DelegateCoda.Compose" />)
  </term></item>
  <item><term>
-  Timing generation (<see cref="M:Cadenza.DelegateRocks.Timings" />)
+  Timing generation (<see cref="M:Cadenza.DelegateCoda.Timings" />)
  </term></item>
 </list>
 <para>
@@ -127,7 +127,7 @@ Console.WriteLine (double_then_tostring (5));
  for the <see cref="T:System.Action{T}"/>, 
  <see cref="T:System.Func{T,TResult}"/>, and related types.
 </para>));
-	$g->Type ("public static partial class DelegateRocks ", sub {
+	$g->Type ("public static partial class DelegateCoda", sub {
 		for (my $ntypes = 1; $ntypes <= $n; ++$ntypes) {
 			for (my $nret = 0; $nret < $ntypes; ++$nret) {
 				$g->Write ("\n");
@@ -757,7 +757,7 @@ qq(<para>
  <paramref name="loopsPerRun" /> times.
 </para>));
 	} else {
-		my $alt = "Cadenza.DelegateRocks.Timings"
+		my $alt = "Cadenza.DelegateCoda.Timings"
 			. ($nargs == 0 ? "" : "``$nargs")
 			. "(" . action_cref ($nargs);
 		for (my $i = 0; $i < $nargs; ++$i) {

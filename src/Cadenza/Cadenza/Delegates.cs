@@ -39,17 +39,17 @@ namespace Cadenza {
 	/// </summary>
 	/// <remarks>
 	///   <para>
-	///    <see cref="T:Mono.Rocks.DelegateRocks" /> provides methods methods for:
+	///    <see cref="T:Cadenza.DelegateCoda" /> provides methods methods for:
 	///   </para>
 	///   <list type="bullet">
 	///    <item><term>
-	///     Delegate currying and partial application (<see cref="M:Mono.Rocks.DelegateRocks.Curry" />)
+	///     Delegate currying and partial application (<see cref="M:Cadenza.DelegateCoda.Curry" />)
 	///    </term></item>
 	///    <item><term>
-	///     Delegate composition (<see cref="M:Mono.Rocks.DelegateRocks.Compose" />)
+	///     Delegate composition (<see cref="M:Cadenza.DelegateCoda.Compose" />)
 	///    </term></item>
 	///    <item><term>
-	///     Timing generation (<see cref="M:Mono.Rocks.DelegateRocks.Timings" />)
+	///     Timing generation (<see cref="M:Cadenza.DelegateCoda.Timings" />)
 	///    </term></item>
 	///   </list>
 	///   <para>
@@ -93,7 +93,7 @@ namespace Cadenza {
 	///    <see cref="T:System.Func{T,TResult}"/>, and related types.
 	///   </para>
 	/// </remarks>
-	public static partial class DelegateRocks  {
+	public static partial class DelegateCoda {
 
 		/// <typeparam name="T">
 		///   A <see cref="T:System.Action{T}"/> parameter type.
@@ -129,7 +129,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Action{T}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Action"/> delegate.
@@ -188,7 +188,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Func{T,TResult}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Func{TResult}"/> delegate.
@@ -250,7 +250,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Action{T1,T2}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1, T2}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Action"/> delegate.
@@ -318,7 +318,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Func{T1,T2,TResult}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1, T2}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Func{TResult}"/> delegate.
@@ -377,7 +377,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Action{T1,T2}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Action{T2}"/> delegate.
@@ -442,7 +442,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Func{T1,T2,TResult}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Func{T2, TResult}"/> delegate.
@@ -513,7 +513,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Action{T1,T2,T3}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Action"/> delegate.
@@ -590,7 +590,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Func{T1,T2,T3,TResult}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Func{TResult}"/> delegate.
@@ -658,7 +658,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Action{T1,T2,T3}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1, T2}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Action{T3}"/> delegate.
@@ -732,7 +732,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Func{T1,T2,T3,TResult}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1, T2}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Func{T3, TResult}"/> delegate.
@@ -797,7 +797,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Action{T1,T2,T3}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Action{T2, T3}"/> delegate.
@@ -868,7 +868,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Func{T1,T2,T3,TResult}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Func{T2, T3, TResult}"/> delegate.
@@ -948,7 +948,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Action{T1,T2,T3,T4}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Action"/> delegate.
@@ -1034,7 +1034,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Func{T1,T2,T3,T4,TResult}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2, T3, T4}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Func{TResult}"/> delegate.
@@ -1111,7 +1111,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Action{T1,T2,T3,T4}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Action{T4}"/> delegate.
@@ -1194,7 +1194,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Func{T1,T2,T3,T4,TResult}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2, T3}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Func{T4, TResult}"/> delegate.
@@ -1268,7 +1268,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Action{T1,T2,T3,T4}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1, T2}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Action{T3, T4}"/> delegate.
@@ -1348,7 +1348,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Func{T1,T2,T3,T4,TResult}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1, T2}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1, T2}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Func{T3, T4, TResult}"/> delegate.
@@ -1419,7 +1419,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Action{T1,T2,T3,T4}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Action{T2, T3, T4}"/> delegate.
@@ -1496,7 +1496,7 @@ namespace Cadenza {
 		///   The <see cref="T:System.Func{T1,T2,T3,T4,TResult}"/> to curry.
 		/// </param>
 		/// <param name="values">
-		///   A value of type <see cref="T:Mono.Rocks.Tuple{T1}"/> which contains the values to fix.
+		///   A value of type <see cref="T:Cadenza.Tuple{T1}"/> which contains the values to fix.
 		/// </param>
 		/// <summary>
 		///   Creates a <see cref="T:System.Func{T2, T3, T4, TResult}"/> delegate.
@@ -1531,12 +1531,12 @@ namespace Cadenza {
 		/// <remarks>
 		///   <para>
 		///    This is equivalent to calling
-		///    <see cref="M:Mono.Rocks.DelegateRocks.Timings(System.Action,System.Int32,System.Int32)"/>
+		///    <see cref="M:Cadenza.DelegateCoda.Timings(System.Action,System.Int32,System.Int32)"/>
 		///    with a <paramref name="loopsPerRun" /> value of <c>1</c>,
 		///    e.g. as if by calling <c>self.Timing (runs, 1)</c>.
 		///   </para>
 		/// </remarks>
-		/// <seealso cref="M:Mono.Rocks.DelegateRocks.Timings(System.Action,System.Int32,System.Int32)" />
+		/// <seealso cref="M:Cadenza.DelegateCoda.Timings(System.Action,System.Int32,System.Int32)" />
 		/// <exception cref="T:System.ArgumentException">
 		///   <para>
 		///    <paramref name="runs" /> is negative.
@@ -1814,12 +1814,12 @@ namespace Cadenza {
 		/// <remarks>
 		///   <para>
 		///    This is equivalent to calling
-		///    <see cref="M:Mono.Rocks.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)"/>
+		///    <see cref="M:Cadenza.DelegateCoda.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)"/>
 		///    with a <paramref name="loopsPerRun" /> value of <c>1</c>,
 		///    e.g. as if by calling <c>self.Timing (value, runs, 1)</c>.
 		///   </para>
 		/// </remarks>
-		/// <seealso cref="M:Mono.Rocks.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
+		/// <seealso cref="M:Cadenza.DelegateCoda.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
 		/// <exception cref="T:System.ArgumentException">
 		///   <para>
 		///    <paramref name="runs" /> is negative.
@@ -2117,12 +2117,12 @@ namespace Cadenza {
 		/// <remarks>
 		///   <para>
 		///    This is equivalent to calling
-		///    <see cref="M:Mono.Rocks.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)"/>
+		///    <see cref="M:Cadenza.DelegateCoda.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)"/>
 		///    with a <paramref name="loopsPerRun" /> value of <c>1</c>,
 		///    e.g. as if by calling <c>self.Timing (value1, value2, runs, 1)</c>.
 		///   </para>
 		/// </remarks>
-		/// <seealso cref="M:Mono.Rocks.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
+		/// <seealso cref="M:Cadenza.DelegateCoda.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
 		/// <exception cref="T:System.ArgumentException">
 		///   <para>
 		///    <paramref name="runs" /> is negative.
@@ -2446,12 +2446,12 @@ namespace Cadenza {
 		/// <remarks>
 		///   <para>
 		///    This is equivalent to calling
-		///    <see cref="M:Mono.Rocks.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)"/>
+		///    <see cref="M:Cadenza.DelegateCoda.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)"/>
 		///    with a <paramref name="loopsPerRun" /> value of <c>1</c>,
 		///    e.g. as if by calling <c>self.Timing (value1, value2, value3, runs, 1)</c>.
 		///   </para>
 		/// </remarks>
-		/// <seealso cref="M:Mono.Rocks.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
+		/// <seealso cref="M:Cadenza.DelegateCoda.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
 		/// <exception cref="T:System.ArgumentException">
 		///   <para>
 		///    <paramref name="runs" /> is negative.
@@ -2801,12 +2801,12 @@ namespace Cadenza {
 		/// <remarks>
 		///   <para>
 		///    This is equivalent to calling
-		///    <see cref="M:Mono.Rocks.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)"/>
+		///    <see cref="M:Cadenza.DelegateCoda.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)"/>
 		///    with a <paramref name="loopsPerRun" /> value of <c>1</c>,
 		///    e.g. as if by calling <c>self.Timing (value1, value2, value3, value4, runs, 1)</c>.
 		///   </para>
 		/// </remarks>
-		/// <seealso cref="M:Mono.Rocks.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
+		/// <seealso cref="M:Cadenza.DelegateCoda.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
 		/// <exception cref="T:System.ArgumentException">
 		///   <para>
 		///    <paramref name="runs" /> is negative.

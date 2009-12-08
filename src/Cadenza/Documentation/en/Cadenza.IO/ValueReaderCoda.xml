@@ -1,5 +1,5 @@
-<Type Name="ValueReaderRocks" FullName="Cadenza.IO.ValueReaderRocks">
-  <TypeSignature Language="C#" Value="public static class ValueReaderRocks" />
+<Type Name="ValueReaderCoda" FullName="Cadenza.IO.ValueReaderCoda">
+  <TypeSignature Language="C#" Value="public static class ValueReaderCoda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>

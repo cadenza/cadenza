@@ -54,7 +54,7 @@ namespace Cadenza.IO.Tests {
 		public void Lines_OptionsInvalid()
 		{
 			TextReader s = new StringReader ("");
-			s.Lines ((TextReaderRocksOptions) (-1));
+			s.Lines ((TextReaderCodaOptions) (-1));
 		}
 
 		class MyStringReader : StringReader {
@@ -87,7 +87,7 @@ namespace Cadenza.IO.Tests {
 			Assert.AreEqual ("land!", lines [5]);
 
 			r = new MyStringReader ("\nhello\n\nworld!");
-			lines = r.Lines (TextReaderRocksOptions.None).ToArray ();
+			lines = r.Lines (TextReaderCodaOptions.None).ToArray ();
 			Assert.IsFalse (r.WasDisposed);
 			Assert.AreEqual (4, lines.Length);
 			Assert.AreEqual ("",        lines [0]);
@@ -123,7 +123,7 @@ namespace Cadenza.IO.Tests {
 		public void Tokens_OptionsInvalid()
 		{
 			TextReader s = new StringReader ("");
-			s.Tokens ((TextReaderRocksOptions) (-1));
+			s.Tokens ((TextReaderCodaOptions) (-1));
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -131,7 +131,7 @@ namespace Cadenza.IO.Tests {
 		{
 			TextReader                         s = new StringReader ("");
 			Func<char?, char, bool>[] categories = null;
-			IEnumerable<string>                r = s.Tokens (TextReaderRocksOptions.None, categories);
+			IEnumerable<string>                r = s.Tokens (TextReaderCodaOptions.None, categories);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentException))]
@@ -139,7 +139,7 @@ namespace Cadenza.IO.Tests {
 		{
 			TextReader                         s = new StringReader ("");
 			Func<char?, char, bool>[] categories = new Func<char?, char, bool>[0];
-			IEnumerable<string>                r = s.Tokens (TextReaderRocksOptions.None, categories);
+			IEnumerable<string>                r = s.Tokens (TextReaderCodaOptions.None, categories);
 		}
 
 		[Test]
@@ -158,7 +158,7 @@ namespace Cadenza.IO.Tests {
 
 			r = new MyStringReader ("Hello, world!");
 			Assert.AreEqual (false, 
-				r.Tokens (TextReaderRocksOptions.None,
+				r.Tokens (TextReaderCodaOptions.None,
 					(p, c) => false).Any ());
 			Assert.IsFalse (r.WasDisposed);
 			#endregion
@@ -176,7 +176,7 @@ namespace Cadenza.IO.Tests {
 		public void Words_OptionsInvalid()
 		{
 			TextReader s = new StringReader ("");
-			s.Words ((TextReaderRocksOptions) (-1));
+			s.Words ((TextReaderCodaOptions) (-1));
 		}
 
 		[Test]
@@ -194,7 +194,7 @@ namespace Cadenza.IO.Tests {
 			Assert.AreEqual ("whitespace)", words [4]);
 
 			r = new MyStringReader ("notext");
-			words = r.Words (TextReaderRocksOptions.None).ToArray ();
+			words = r.Words (TextReaderCodaOptions.None).ToArray ();
 			Assert.IsFalse (r.WasDisposed);
 			Assert.AreEqual (1, words.Length);
 			Assert.AreEqual ("notext", words [0]);

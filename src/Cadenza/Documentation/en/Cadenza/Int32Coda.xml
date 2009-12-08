@@ -1,5 +1,5 @@
-<Type Name="Int32Rocks" FullName="Cadenza.Int32Rocks">
-  <TypeSignature Language="C#" Value="public static class Int32Rocks" />
+<Type Name="Int32Coda" FullName="Cadenza.Int32Coda">
+  <TypeSignature Language="C#" Value="public static class Int32Coda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -61,14 +61,14 @@
         <example>
           <para>
             The following example demonstrates use of 
-            <see cref="M:Cadenza.Int32Rocks.DownTo(System.Int32,System.Int32)" />:
+            <see cref="M:Cadenza.Int32Coda.DownTo(System.Int32,System.Int32)" />:
           </para>
           <code lang="C#">
 Console.WriteLine (5.DownTo (0).Implode (", "));
     // Prints "5, 4, 3, 2, 1, 0"</code>
         </example>
-        <altmember cref="M:Cadenza.IEnumerableRocks.Apply``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
-        <altmember cref="M:Cadenza.IEnumerableRocks.Apply``1(System.Collections.Generic.IEnumerable{``0})" />
+        <altmember cref="M:Cadenza.IEnumerableCoda.Apply``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
+        <altmember cref="M:Cadenza.IEnumerableCoda.Apply``1(System.Collections.Generic.IEnumerable{``0})" />
       </Docs>
     </Member>
     <Member MemberName="IsEven">
@@ -101,7 +101,7 @@ Console.WriteLine (5.DownTo (0).Implode (", "));
             are odd.
           </para>
         </remarks>
-        <altmember cref="M:Cadenza.Int32Rocks.IsOdd(System.Int32)" />
+        <altmember cref="M:Cadenza.Int32Coda.IsOdd(System.Int32)" />
       </Docs>
     </Member>
     <Member MemberName="IsOdd">
@@ -134,7 +134,7 @@ Console.WriteLine (5.DownTo (0).Implode (", "));
             are odd.
           </para>
         </remarks>
-        <altmember cref="M:Cadenza.Int32Rocks.IsEven(System.Int32)" />
+        <altmember cref="M:Cadenza.Int32Coda.IsEven(System.Int32)" />
       </Docs>
     </Member>
     <Member MemberName="Step">
@@ -190,14 +190,14 @@ Console.WriteLine (5.DownTo (0).Implode (", "));
         <example>
           <para>
             The following example demonstrates use of 
-            <see cref="M:Cadenza.Int32Rocks.Step(System.Int32,System.Int32,System.Int32)" />:
+            <see cref="M:Cadenza.Int32Coda.Step(System.Int32,System.Int32,System.Int32)" />:
           </para>
           <code lang="C#">
 Console.WriteLine (1.Step(9, 2).Implode (", "));
     // Prints "1, 3, 5, 7, 9"</code>
         </example>
-        <altmember cref="M:Cadenza.IEnumerableRocks.Apply``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
-        <altmember cref="M:Cadenza.IEnumerableRocks.Apply``1(System.Collections.Generic.IEnumerable{``0})" />
+        <altmember cref="M:Cadenza.IEnumerableCoda.Apply``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
+        <altmember cref="M:Cadenza.IEnumerableCoda.Apply``1(System.Collections.Generic.IEnumerable{``0})" />
       </Docs>
     </Member>
     <Member MemberName="Times">
@@ -239,14 +239,14 @@ Console.WriteLine (1.Step(9, 2).Implode (", "));
         <example>
           <para>
             The following example demonstrates use of 
-            <see cref="M:Cadenza.Int32Rocks.Times(System.Int32)" />:
+            <see cref="M:Cadenza.Int32Coda.Times(System.Int32)" />:
           </para>
           <code lang="C#">
 Console.WriteLine (6.Times ().Implode (", "));
     // Prints "0, 1, 2, 3, 4, 5"</code>
         </example>
-        <altmember cref="M:Cadenza.IEnumerableRocks.Apply``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
-        <altmember cref="M:Cadenza.IEnumerableRocks.Apply``1(System.Collections.Generic.IEnumerable{``0})" />
+        <altmember cref="M:Cadenza.IEnumerableCoda.Apply``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
+        <altmember cref="M:Cadenza.IEnumerableCoda.Apply``1(System.Collections.Generic.IEnumerable{``0})" />
       </Docs>
     </Member>
     <Member MemberName="UpTo">
@@ -296,14 +296,14 @@ Console.WriteLine (6.Times ().Implode (", "));
         <example>
           <para>
             The following example demonstrates use of 
-            <see cref="M:Cadenza.Int32Rocks.UpTo(System.Int32,System.Int32)" />:
+            <see cref="M:Cadenza.Int32Coda.UpTo(System.Int32,System.Int32)" />:
           </para>
           <code lang="C#">
 Console.WriteLine (6.UpTo (12).Implode (", "));
     // Prints "6, 7, 8, 9, 10, 11, 12"</code>
         </example>
-        <altmember cref="M:Cadenza.IEnumerableRocks.Apply``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
-        <altmember cref="M:Cadenza.IEnumerableRocks.Apply``1(System.Collections.Generic.IEnumerable{``0})" />
+        <altmember cref="M:Cadenza.IEnumerableCoda.Apply``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
+        <altmember cref="M:Cadenza.IEnumerableCoda.Apply``1(System.Collections.Generic.IEnumerable{``0})" />
       </Docs>
     </Member>
   </Members>

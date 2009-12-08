@@ -45,7 +45,7 @@ using Cadenza.Tests;
 namespace Cadenza.Collections.Tests {
 
 	[TestFixture]
-	public class IEnumerableTest : BaseRocksFixture {
+	public class EnumerableTest : BaseRocksFixture {
 
 		[Test]
 		[ExpectedException (typeof (ArgumentNullException))]

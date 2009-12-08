@@ -127,7 +127,7 @@ sub create_funcs {
 	my ($g, $n) = @_;
 	if ($n > $g->MaxSystemFuncs) {
 		for (my $i = $g->MaxSystemFuncs+1; $i <= $n; ++$i) {
-			$g->Write ("\npublic delegate TResult RocksFunc<");
+			$g->Write ("\npublic delegate TResult CadenzaFunc<");
 			$g->TypeParameterList ($i);
 			$g->Write (", TResult> (");
 			$g->MethodParameterList ($i);

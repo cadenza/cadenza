@@ -115,7 +115,7 @@ namespace Cadenza.IO.Tests {
 			TextValueReader r = new[]{"component-model-doesn't-support-TvrOp"}
 				.ToValueReader ();
 			TvrOp op;
-			ValueReaderRocks.Read (r, out op);
+			ValueReaderCoda.Read (r, out op);
 		}
 
 		[Test, ExpectedException (typeof (InvalidOperationException))]

@@ -1,5 +1,5 @@
-<Type Name="UInt32Rocks" FullName="Cadenza.UInt32Rocks">
-  <TypeSignature Language="C#" Value="public static class UInt32Rocks" />
+<Type Name="UInt64Coda" FullName="Cadenza.UInt64Coda">
+  <TypeSignature Language="C#" Value="public static class UInt64Coda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -15,14 +15,14 @@
   </Attributes>
   <Docs>
     <summary>
-      Extension methods for <see cref="T:System.UInt32" />.
+      Extension methods for <see cref="T:System.UInt64" />.
     </summary>
     <remarks>
     </remarks>
   </Docs>
   <Members>
     <Member MemberName="IsEven">
-      <MemberSignature Language="C#" Value="public static bool IsEven (this uint value);" />
+      <MemberSignature Language="C#" Value="public static bool IsEven (this ulong value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -31,11 +31,11 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="value" Type="System.UInt32" RefType="this" />
+        <Parameter Name="value" Type="System.UInt64" RefType="this" />
       </Parameters>
       <Docs>
         <param name="value">
-          A <see cref="T:System.UInt32" /> containing the value to check.
+          A <see cref="T:System.UInt64" /> containing the value to check.
         </param>
         <summary>
           Gets a value indicating whether <paramref name="value" /> is an even number.
@@ -51,11 +51,11 @@
             are odd.
           </para>
         </remarks>
-        <altmember cref="M:Cadenza.UInt32Rocks.IsOdd(System.UInt32)" />
+        <altmember cref="M:Cadenza.UInt64Coda.IsOdd(System.UInt64)" />
       </Docs>
     </Member>
     <Member MemberName="IsOdd">
-      <MemberSignature Language="C#" Value="public static bool IsOdd (this uint value);" />
+      <MemberSignature Language="C#" Value="public static bool IsOdd (this ulong value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -64,11 +64,11 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="value" Type="System.UInt32" RefType="this" />
+        <Parameter Name="value" Type="System.UInt64" RefType="this" />
       </Parameters>
       <Docs>
         <param name="value">
-          A <see cref="T:System.UInt32" /> containing the value to check.
+          A <see cref="T:System.UInt64" /> containing the value to check.
         </param>
         <summary>
           Gets a value indicating whether <paramref name="value" /> is an odd number.
@@ -84,7 +84,7 @@
             are odd.
           </para>
         </remarks>
-        <altmember cref="M:Cadenza.UInt32Rocks.IsEven(System.UInt32)" />
+        <altmember cref="M:Cadenza.UInt64Coda.IsEven(System.UInt64)" />
       </Docs>
     </Member>
   </Members>

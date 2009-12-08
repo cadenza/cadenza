@@ -33,7 +33,7 @@ using System;
 namespace Cadenza
 {
 	[CLSCompliant (false)]
-	public static class UInt64Rocks
+	public static class UInt64Coda
 	{
 		public static bool IsEven (this ulong value)
 		{

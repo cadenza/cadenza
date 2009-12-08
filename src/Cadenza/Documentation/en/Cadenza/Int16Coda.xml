@@ -1,5 +1,5 @@
-<Type Name="UInt16Rocks" FullName="Cadenza.UInt16Rocks">
-  <TypeSignature Language="C#" Value="public static class UInt16Rocks" />
+<Type Name="Int16Coda" FullName="Cadenza.Int16Coda">
+  <TypeSignature Language="C#" Value="public static class Int16Coda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -8,21 +8,16 @@
     <BaseTypeName>System.Object</BaseTypeName>
   </Base>
   <Interfaces />
-  <Attributes>
-    <Attribute>
-      <AttributeName>System.CLSCompliant(false)</AttributeName>
-    </Attribute>
-  </Attributes>
   <Docs>
     <summary>
-      Extension methods for <see cref="T:System.UInt16" />.
+      Extension methods for <see cref="T:System.Int16" />.
     </summary>
     <remarks>
     </remarks>
   </Docs>
   <Members>
     <Member MemberName="IsEven">
-      <MemberSignature Language="C#" Value="public static bool IsEven (this ushort value);" />
+      <MemberSignature Language="C#" Value="public static bool IsEven (this short value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -31,11 +26,11 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="value" Type="System.UInt16" RefType="this" />
+        <Parameter Name="value" Type="System.Int16" RefType="this" />
       </Parameters>
       <Docs>
         <param name="value">
-          A <see cref="T:System.UInt16" /> containing the value to check.
+          A <see cref="T:System.Int16" /> containing the value to check.
         </param>
         <summary>
           Gets a value indicating whether <paramref name="value" /> is an even number.
@@ -51,11 +46,11 @@
             are odd.
           </para>
         </remarks>
-        <altmember cref="M:Cadenza.UInt16Rocks.IsOdd(System.UInt16)" />
+        <altmember cref="M:Cadenza.Int16Coda.IsOdd(System.Int16)" />
       </Docs>
     </Member>
     <Member MemberName="IsOdd">
-      <MemberSignature Language="C#" Value="public static bool IsOdd (this ushort value);" />
+      <MemberSignature Language="C#" Value="public static bool IsOdd (this short value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -64,11 +59,11 @@
         <ReturnType>System.Boolean</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="value" Type="System.UInt16" RefType="this" />
+        <Parameter Name="value" Type="System.Int16" RefType="this" />
       </Parameters>
       <Docs>
         <param name="value">
-          A <see cref="T:System.UInt16" /> containing the value to check.
+          A <see cref="T:System.Int16" /> containing the value to check.
         </param>
         <summary>
           Gets a value indicating whether <paramref name="value" /> is an odd number.
@@ -84,7 +79,7 @@
             are odd.
           </para>
         </remarks>
-        <altmember cref="M:Cadenza.UInt16Rocks.IsEven(System.UInt16)" />
+        <altmember cref="M:Cadenza.Int16Coda.IsEven(System.Int16)" />
       </Docs>
     </Member>
   </Members>

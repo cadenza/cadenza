@@ -1,5 +1,5 @@
 ﻿//
-// IEnumerableRocks.cs
+// EnumerableCoda.cs
 //
 // Author:
 //   Jb Evain (jbevain@novell.com)
@@ -41,7 +41,7 @@ using Cadenza.IO;
 
 namespace Cadenza.Collections {
 
-	public static class IEnumerableRocks {
+	public static class EnumerableCoda {
 
 		public static string Implode<TSource> (this IEnumerable<TSource> self, string separator)
 		{

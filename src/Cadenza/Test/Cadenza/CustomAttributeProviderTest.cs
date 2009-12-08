@@ -37,7 +37,7 @@ using Cadenza;
 namespace Cadenza.Tests {
 
 	[TestFixture]
-	public class ICustomAttributeProviderTest : BaseRocksFixture {
+	public class CustomAttributeProviderTest : BaseRocksFixture {
 
 		[AttributeUsage (AttributeTargets.All, AllowMultiple = true)]
 		class FooAttribute : Attribute {

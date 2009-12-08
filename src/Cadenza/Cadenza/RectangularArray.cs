@@ -1,5 +1,5 @@
 //
-// RectangularArrayRocks.cs
+// RectangularArrayCoda.cs
 //
 // Author:
 //   Jonathan Pryor <jpryor@novell.com>
@@ -31,7 +31,7 @@ using System.Collections.Generic;
 
 namespace Cadenza
 {
-	public static class RectangularArrayRocks
+	public static class RectangularArrayCoda
 	{
 		public static IEnumerable<IEnumerable<TSource>> Rows<TSource> (this TSource[,] self)
 		{

@@ -34,7 +34,7 @@ using System.Linq.Expressions;
 
 namespace Cadenza {
 
-	public static class ObjectRocks {
+	public static class ObjectCoda {
 
 		// Match based in part on:
 		// http://blogs.msdn.com/lucabol/archive/2008/07/15/a-c-library-to-write-functional-code-part-v-the-match-operator.aspx

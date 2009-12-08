@@ -34,7 +34,7 @@ using System.Text;
 
 namespace Cadenza.IO {
 
-	public static class StreamRocks {
+	public static class StreamCoda {
 
 		[CLSCompliant (false)]
 		public static StreamConverter WithSystemConverter (this Stream self)

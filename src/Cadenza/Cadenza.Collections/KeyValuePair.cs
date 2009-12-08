@@ -31,7 +31,7 @@ using System.Collections.Generic;
 
 namespace Cadenza.Collections {
 
-	public static class KeyValuePairRocks {
+	public static class KeyValuePairCoda {
 
 		public static TResult Aggregate<TKey, TValue, TResult> (this KeyValuePair<TKey, TValue> self, Func<TKey, TValue, TResult> func)
 		{

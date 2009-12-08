@@ -40,7 +40,7 @@
   <ItemGroup>
     <Compile Include="Cadenza.Collections\CachedSequenceTest.cs" />
     <Compile Include="Cadenza.Collections\IEnumerableContract.cs" />
-    <Compile Include="Cadenza.Collections\IEnumerableTest.cs" />
+    <Compile Include="Cadenza.Collections\EnumerableTest.cs" />
     <Compile Include="Cadenza.Collections\KeyValuePairTest.cs" />
     <Compile Include="Cadenza.Collections\MutableLookupTest.cs" />
     <Compile Include="Cadenza.Collections\NaturalStringComparerTest.cs" />
@@ -57,7 +57,7 @@
     <Compile Include="Cadenza\DelegateTest.cs" />
     <Compile Include="Cadenza\EitherTest.cs" />
     <Compile Include="Cadenza\EquatableContract.cs" />
-    <Compile Include="Cadenza\ICustomAttributeProviderTest.cs" />
+    <Compile Include="Cadenza\CustomAttributeProviderTest.cs" />
     <Compile Include="Cadenza\Int16Test.cs" />
     <Compile Include="Cadenza\Int32Test.cs" />
     <Compile Include="Cadenza\Int64Test.cs" />

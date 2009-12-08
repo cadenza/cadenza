@@ -1,5 +1,5 @@
-<Type Name="StringRocks" FullName="Cadenza.StringRocks">
-  <TypeSignature Language="C#" Value="public static class StringRocks" />
+<Type Name="StringCoda" FullName="Cadenza.StringCoda">
+  <TypeSignature Language="C#" Value="public static class StringCoda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -293,13 +293,13 @@
           </para>
           <block subset="none" type="note">
             A "line of text" is the same as that used by 
-            <see cref="M:Cadenza.TextReaderRocks.Lines(System.IO.TextReader)" />.
+            <see cref="M:Cadenza.TextReaderCoda.Lines(System.IO.TextReader)" />.
           </block>
           <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Lines">Assert.IsTrue (new[]{"one", "two", "three"}
 		.SequenceEqual ("one\ntwo\nthree".Lines ()));
 </code>
         </remarks>
-        <altmember cref="M:Cadenza.TextReaderRocks.Lines(System.IO.TextReader)" />
+        <altmember cref="M:Cadenza.TextReaderCoda.Lines(System.IO.TextReader)" />
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.
         </exception>
@@ -461,7 +461,7 @@ Assert.AreEqual ("e - f", matches [2].Value);
         <remarks>
           <para>
             This differs from
-            <see cref="M:Cadenza.StringRocks.Captures(System.String,System.String)" />
+            <see cref="M:Cadenza.StringCoda.Captures(System.String,System.String)" />
             in that no captures (parenthesis) are required within 
             <paramref name="regex" />.
           </para>
@@ -528,7 +528,7 @@ AssertAreSame (expected, actual);
         <remarks>
           <para>
             This differs from
-            <see cref="M:Cadenza.StringRocks.Captures(System.String,System.String)" />
+            <see cref="M:Cadenza.StringCoda.Captures(System.String,System.String)" />
             in that no captures (parenthesis) are required within 
             <paramref name="regex" />.
           </para>
@@ -835,7 +835,7 @@ string[] actual =
 AssertAreSame (expected, actual);
 </code>
         </remarks>
-        <altmember cref="M:Cadenza.TextReaderRocks.Words(System.IO.TextReader)" />
+        <altmember cref="M:Cadenza.TextReaderCoda.Words(System.IO.TextReader)" />
         <exception cref="T:System.ArgumentNullException">
           <paramref name="self" /> is <see langword="null" />.
         </exception>

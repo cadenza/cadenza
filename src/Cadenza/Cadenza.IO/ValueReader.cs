@@ -186,7 +186,7 @@ namespace Cadenza.IO
 	}
 
 	[CLSCompliant (false)]
-	public static class ValueReaderRocks
+	public static class ValueReaderCoda
 	{
 		public static ValueReader<TSource> Read<TSource, TValue> (this ValueReader<TSource> self, out TValue value)
 		{

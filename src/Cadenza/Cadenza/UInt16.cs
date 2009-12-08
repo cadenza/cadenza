@@ -33,7 +33,7 @@ using System;
 namespace Cadenza
 {
 	[CLSCompliant (false)]
-	public static class UInt16Rocks
+	public static class UInt16Coda
 	{
 		public static bool IsEven (this ushort value)
 		{

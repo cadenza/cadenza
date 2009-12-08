@@ -244,7 +244,7 @@ sub create_actions {
 	my ($g, $n) = @_;
 	if ($n > $g->MaxSystemFuncs) {
 		for (my $i = $g->MaxSystemFuncs+1; $i <= $n; ++$i) {
-			$g->Write ("\npublic delegate void RocksAction<");
+			$g->Write ("\npublic delegate void CadenzaAction<");
 			$g->TypeParameterList ($i);
 			$g->Write ("> (");
 			$g->MethodParameterList ($i);

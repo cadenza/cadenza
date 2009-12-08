@@ -33,7 +33,7 @@ sub GetAction {
 	if ($n <= $num_system_funcs) {
 		return "Action";
 	} else {
-		return "RocksAction";
+		return "CadenzaAction";
 	}
 }
 
@@ -49,7 +49,7 @@ sub GetFunc {
 	if ($n <= $num_system_funcs) {
 		return "Func";
 	} else {
-		return "RocksFunc";
+		return "CadenzaFunc";
 	}
 }
 
@@ -286,7 +286,7 @@ sub MethodParameterList {
 sub GetDocActionType {
 	my ($n) = @_;
 
-	return (($n <= $num_system_funcs) ? "System." : "Mono.Rocks.") 
+	return (($n <= $num_system_funcs) ? "System." : "Cadenza.") 
 		. GetAction ($n);
 }
 
@@ -311,7 +311,7 @@ sub GetDocAction {
 sub GetDocFuncType {
 	my ($n) = @_;
 
-	return (($n <= $num_system_funcs) ? "System." : "Mono.Rocks.") 
+	return (($n <= $num_system_funcs) ? "System." : "Cadenza.") 
 		. GetFunc ($n);
 }
 

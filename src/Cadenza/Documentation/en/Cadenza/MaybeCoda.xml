@@ -1,5 +1,5 @@
-<Type Name="MaybeRocks" FullName="Cadenza.MaybeRocks">
-  <TypeSignature Language="C#" Value="public static class MaybeRocks" />
+<Type Name="MaybeCoda" FullName="Cadenza.MaybeCoda">
+  <TypeSignature Language="C#" Value="public static class MaybeCoda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -104,7 +104,7 @@ Assert.AreEqual (2.Just (),
 	select x + 1);
 </code>
         </remarks>
-        <altmember cref="M:Cadenza.ObjectRocks.ToMaybe``1(``0)" />
+        <altmember cref="M:Cadenza.ObjectCoda.ToMaybe``1(``0)" />
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Selector(System.Object)" /></exception>
         <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.Maybe`1.get_Value" /></exception>
       </Docs>
@@ -219,7 +219,7 @@ Assert.AreEqual (9.Just (),
 		select x + y);
 </code>
         </remarks>
-        <altmember cref="M:Cadenza.ObjectRocks.ToMaybe``1(``0)" />
+        <altmember cref="M:Cadenza.ObjectCoda.ToMaybe``1(``0)" />
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Selector(System.Object)" />, <see cref="M:Cadenza.Check.ResultSelector(System.Object)" /></exception>
         <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.Maybe`1.get_Value" />, <see cref="M:Cadenza.Maybe`1.get_Value" />, <see cref="M:Cadenza.Maybe`1.get_Value" /></exception>
       </Docs>

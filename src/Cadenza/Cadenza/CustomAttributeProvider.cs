@@ -33,7 +33,7 @@ using System.Reflection;
 
 namespace Cadenza {
 
-	public static class ICustomAttributeProviderRocks {
+	public static class CustomAttributeProviderCoda {
 
 		public static TAttribute GetCustomAttribute<TAttribute> (this ICustomAttributeProvider self) where TAttribute : Attribute
 		{

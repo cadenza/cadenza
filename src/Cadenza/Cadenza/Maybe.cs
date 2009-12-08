@@ -68,7 +68,7 @@ namespace Cadenza {
 		}
 	}
 
-	public static class MaybeRocks {
+	public static class MaybeCoda {
 #region BNC_424064 - Should be Maybe<T> instance members
 		public static Maybe<TResult> Select<TSource, TResult>(this Maybe<TSource> self, Func<TSource, TResult> selector)
 		{

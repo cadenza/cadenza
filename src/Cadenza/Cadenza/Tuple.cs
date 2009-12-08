@@ -38,7 +38,7 @@ namespace Cadenza {
 
 	}
 
-	public static class TupleRocks
+	public static class TupleCoda
 	{
 		public static KeyValuePair<TKey, TValue>
 			ToKeyValuePair<TKey, TValue> (this Tuple<TKey, TValue> self)

@@ -149,7 +149,7 @@ namespace Cadenza.IO {
 	}
 
 	[CLSCompliant (false)]
-	public static class StreamConverterRocks
+	public static class StreamConverterCoda
 	{
 		public static StreamConverter Read<TValue> (this StreamConverter self, out TValue value)
 		{

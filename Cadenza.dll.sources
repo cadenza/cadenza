@@ -1,5 +1,5 @@
 ./src/Cadenza/Cadenza.Collections/CachedSequence.cs
-./src/Cadenza/Cadenza.Collections/IEnumerable.cs
+./src/Cadenza/Cadenza.Collections/Enumerable.cs
 ./src/Cadenza/Cadenza.Collections/KeyValuePair.cs
 ./src/Cadenza/Cadenza.Collections/MutableLookup.cs
 ./src/Cadenza/Cadenza.Collections/NaturalStringComparer.cs
@@ -20,7 +20,7 @@
 ./src/Cadenza/Cadenza/Delegates.cs
 ./src/Cadenza/Cadenza/Either.cs
 ./src/Cadenza/Cadenza/Eithers.cs
-./src/Cadenza/Cadenza/ICustomAttributeProvider.cs
+./src/Cadenza/Cadenza/CustomAttributeProvider.cs
 ./src/Cadenza/Cadenza/Int16.cs
 ./src/Cadenza/Cadenza/Int32.cs
 ./src/Cadenza/Cadenza/Int64.cs

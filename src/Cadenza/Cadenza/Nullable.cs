@@ -29,7 +29,7 @@ using System;
 
 namespace Cadenza {
 
-	public static class NullableRocks {
+	public static class NullableCoda {
 
 		public static Maybe<T> Just<T> (this T? self)
 			where T : struct

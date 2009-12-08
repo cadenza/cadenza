@@ -1,5 +1,5 @@
 //
-// JagedArrayRocks.cs
+// JagedArrayCoda.cs
 //
 // Author:
 //   Jonathan Pryor <jpryor@novell.com>
@@ -31,7 +31,7 @@ using System.Collections.Generic;
 
 namespace Cadenza
 {
-	public static class JaggedArrayRocks
+	public static class JaggedArrayCoda
 	{
 		public static IEnumerable<IEnumerable<TSource>> Rows<TSource> (this TSource[][] self)
 		{

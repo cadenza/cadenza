@@ -1,5 +1,5 @@
-<Type Name="ObjectRocks" FullName="Cadenza.ObjectRocks">
-  <TypeSignature Language="C#" Value="public static class ObjectRocks" />
+<Type Name="ObjectCoda" FullName="Cadenza.ObjectCoda">
+  <TypeSignature Language="C#" Value="public static class ObjectCoda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -63,7 +63,7 @@
           <typeparamref name="T" /> is a reference type and
           <paramref name="self" /> is <see langword="null" />.
         </exception>
-        <altmember cref="M:Cadenza.ObjectRocks.ToMaybe``1(``0)" />
+        <altmember cref="M:Cadenza.ObjectCoda.ToMaybe``1(``0)" />
       </Docs>
     </Member>
     <Member MemberName="Match&lt;TSource,TResult&gt;">
@@ -218,7 +218,7 @@ Assert.AreEqual (-1, "*default*".Match (m));
             created containing the value <paramref name="self" />.
           </para>
         </remarks>
-        <altmember cref="M:Cadenza.ObjectRocks.Just``1(``0)" />
+        <altmember cref="M:Cadenza.ObjectCoda.Just``1(``0)" />
       </Docs>
     </Member>
     <Member MemberName="TraverseBreadthFirst&lt;TSource,TResult&gt;">

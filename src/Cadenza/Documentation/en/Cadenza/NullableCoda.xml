@@ -1,5 +1,5 @@
-<Type Name="NullableRocks" FullName="Cadenza.NullableRocks">
-  <TypeSignature Language="C#" Value="public static class NullableRocks" />
+<Type Name="NullableCoda" FullName="Cadenza.NullableCoda">
+  <TypeSignature Language="C#" Value="public static class NullableCoda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -71,7 +71,7 @@
           <paramref name="self" />s <see cref="P:System.Nullable{T}.HasValue" />
 					property is <see langword="false" />.
         </exception>
-        <altmember cref="M:Cadenza.ObjectRocks.ToMaybe``1(``0)" />
+        <altmember cref="M:Cadenza.ObjectCoda.ToMaybe``1(``0)" />
       </Docs>
     </Member>
     <Member MemberName="ToMaybe&lt;T&gt;">
@@ -129,7 +129,7 @@
             created containing the value within <paramref name="self" />.
           </para>
         </remarks>
-        <altmember cref="M:Cadenza.NullableRocks.Just``1(``0)" />
+        <altmember cref="M:Cadenza.NullableCoda.Just``1(``0)" />
       </Docs>
     </Member>
   </Members>

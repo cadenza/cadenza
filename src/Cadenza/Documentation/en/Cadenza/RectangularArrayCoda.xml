@@ -1,5 +1,5 @@
-<Type Name="RectangularArrayRocks" FullName="Cadenza.RectangularArrayRocks">
-  <TypeSignature Language="C#" Value="public static class RectangularArrayRocks" />
+<Type Name="RectangularArrayCoda" FullName="Cadenza.RectangularArrayCoda">
+  <TypeSignature Language="C#" Value="public static class RectangularArrayCoda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -49,7 +49,7 @@
           <para>
             This is particularly useful for transposing rectangular arrays, as
             it can be used with
-            <see cref="M:Cadenza.IEnumerableRocks.Transpose``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />.
+            <see cref="M:Cadenza.IEnumerableCoda.Transpose``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />.
           </para>
           <code lang="C#" src="../../Test/Cadenza/RectangularArrayTest.cs#Rows">int[,] s = new int[,] {
 	{1, 2, 3},

@@ -1,6 +1,6 @@
 ./src/Cadenza/Test/Cadenza.Collections/CachedSequenceTest.cs
 ./src/Cadenza/Test/Cadenza.Collections/IEnumerableContract.cs
-./src/Cadenza/Test/Cadenza.Collections/IEnumerableTest.cs
+./src/Cadenza/Test/Cadenza.Collections/EnumerableTest.cs
 ./src/Cadenza/Test/Cadenza.Collections/KeyValuePairTest.cs
 ./src/Cadenza/Test/Cadenza.Collections/MutableLookupTest.cs
 ./src/Cadenza/Test/Cadenza.Collections/NaturalStringComparerTest.cs
@@ -17,7 +17,7 @@
 ./src/Cadenza/Test/Cadenza/DelegateTest.cs
 ./src/Cadenza/Test/Cadenza/EitherTest.cs
 ./src/Cadenza/Test/Cadenza/EquatableContract.cs
-./src/Cadenza/Test/Cadenza/ICustomAttributeProviderTest.cs
+./src/Cadenza/Test/Cadenza/CustomAttributeProviderTest.cs
 ./src/Cadenza/Test/Cadenza/Int16Test.cs
 ./src/Cadenza/Test/Cadenza/Int32Test.cs
 ./src/Cadenza/Test/Cadenza/Int64Test.cs

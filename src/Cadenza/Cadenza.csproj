@@ -39,7 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cadenza.Collections\CachedSequence.cs" />
-    <Compile Include="Cadenza.Collections\IEnumerable.cs" />
+    <Compile Include="Cadenza.Collections\Enumerable.cs" />
     <Compile Include="Cadenza.Collections\KeyValuePair.cs" />
     <Compile Include="Cadenza.Collections\MutableLookup.cs" />
     <Compile Include="Cadenza.Collections\NaturalStringComparer.cs" />
@@ -60,7 +60,7 @@
     <Compile Include="Cadenza\Delegates.cs" />
     <Compile Include="Cadenza\Either.cs" />
     <Compile Include="Cadenza\Eithers.cs" />
-    <Compile Include="Cadenza\ICustomAttributeProvider.cs" />
+    <Compile Include="Cadenza\CustomAttributeProvider.cs" />
     <Compile Include="Cadenza\Int16.cs" />
     <Compile Include="Cadenza\Int32.cs" />
     <Compile Include="Cadenza\Int64.cs" />

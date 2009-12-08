@@ -1,5 +1,5 @@
-<Type Name="TupleRocks" FullName="Cadenza.TupleRocks">
-  <TypeSignature Language="C#" Value="public static class TupleRocks" />
+<Type Name="TupleCoda" FullName="Cadenza.TupleCoda">
+  <TypeSignature Language="C#" Value="public static class TupleCoda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -68,7 +68,7 @@ var                       tuple = Tuple.Create ("s", 1);
 KeyValuePair&lt;string, int&gt; kvp   = tuple.ToKeyValuePair ();
     // kvp.Key == "s", kvp.Value == 1</code>
         </remarks>
-        <altmember cref="M:Cadenza.TupleRocks.ToKeyValuePair``2(Cadenza.Tuple{``0,``1})" />
+        <altmember cref="M:Cadenza.TupleCoda.ToKeyValuePair``2(Cadenza.Tuple{``0,``1})" />
       </Docs>
     </Member>
   </Members>

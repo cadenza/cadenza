@@ -1,5 +1,5 @@
-<Type Name="StreamRocks" FullName="Cadenza.IO.StreamRocks">
-  <TypeSignature Language="C#" Value="public static class StreamRocks" />
+<Type Name="StreamCoda" FullName="Cadenza.IO.StreamCoda">
+  <TypeSignature Language="C#" Value="public static class StreamCoda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>

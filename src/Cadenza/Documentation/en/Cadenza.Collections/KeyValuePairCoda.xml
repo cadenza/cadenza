@@ -1,5 +1,5 @@
-<Type Name="KeyValuePairRocks" FullName="Cadenza.Collections.KeyValuePairRocks">
-  <TypeSignature Language="C#" Value="public static class KeyValuePairRocks" />
+<Type Name="KeyValuePairCoda" FullName="Cadenza.Collections.KeyValuePairCoda">
+  <TypeSignature Language="C#" Value="public static class KeyValuePairCoda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -81,7 +81,7 @@ string entries = dict
 // entries contains "(1,1)|(2,4)|(3,9)"
           </code>
         </remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Collections.KeyValuePairRocks.Aggregate``3(System.Collections.Generic.KeyValuePair{``0,``1},System.Func{``0,``1,``2})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Collections.KeyValuePairCoda.Aggregate``3(System.Collections.Generic.KeyValuePair{``0,``1},System.Func{``0,``1,``2})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="ToTuple&lt;TKey,TValue&gt;">
@@ -133,7 +133,7 @@ KeyValuePair&lt;string, int&gt; kvp   = new KeyValuePair&lt;string, int&gt; ("s"
 Tuple&lt;string, int&gt;        tuple = kvp.ToTuple ();
     // tuple._1 == "s", tuple._2 == 1</code>
         </remarks>
-        <altmember cref="M:Cadenza.TupleRocks.ToKeyValuePair``2(Cadenza.Tuple{``0,``1})" />
+        <altmember cref="M:Cadenza.TupleCoda.ToKeyValuePair``2(Cadenza.Tuple{``0,``1})" />
       </Docs>
     </Member>
   </Members>

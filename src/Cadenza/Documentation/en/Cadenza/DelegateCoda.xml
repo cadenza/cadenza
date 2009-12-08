@@ -1,5 +1,5 @@
-<Type Name="DelegateRocks" FullName="Cadenza.DelegateRocks">
-  <TypeSignature Language="C#" Value="public static class DelegateRocks" />
+<Type Name="DelegateCoda" FullName="Cadenza.DelegateCoda">
+  <TypeSignature Language="C#" Value="public static class DelegateCoda" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -15,22 +15,22 @@
             </summary>
     <remarks>
       <para>
-        <see cref="T:Cadenza.DelegateRocks" /> provides methods methods for:
+        <see cref="T:Cadenza.DelegateCoda" /> provides methods methods for:
             </para>
       <list type="bullet">
         <item>
           <term>
-            Delegate currying and partial application (<see cref="M:Cadenza.DelegateRocks.Curry" />)
+            Delegate currying and partial application (<see cref="M:Cadenza.DelegateCoda.Curry" />)
             </term>
         </item>
         <item>
           <term>
-            Delegate composition (<see cref="M:Cadenza.DelegateRocks.Compose" />)
+            Delegate composition (<see cref="M:Cadenza.DelegateCoda.Compose" />)
             </term>
         </item>
         <item>
           <term>
-            Timing generation (<see cref="M:Cadenza.DelegateRocks.Timings" />)
+            Timing generation (<see cref="M:Cadenza.DelegateCoda.Timings" />)
             </term>
         </item>
       </list>
@@ -3107,12 +3107,12 @@
         <remarks>
           <para>
             This is equivalent to calling
-            <see cref="M:Cadenza.DelegateRocks.Timings(System.Action,System.Int32,System.Int32)" />
+            <see cref="M:Cadenza.DelegateCoda.Timings(System.Action,System.Int32,System.Int32)" />
             with a <paramref name="loopsPerRun" /> value of <c>1</c>,
             e.g. as if by calling <c>self.Timing (runs, 1)</c>.
             </para>
         </remarks>
-        <altmember cref="M:Cadenza.DelegateRocks.Timings(System.Action,System.Int32,System.Int32)" />
+        <altmember cref="M:Cadenza.DelegateCoda.Timings(System.Action,System.Int32,System.Int32)" />
         <exception cref="T:System.ArgumentException">
           <para>
             <paramref name="runs" /> is negative.
@@ -3215,12 +3215,12 @@
         <remarks>
           <para>
             This is equivalent to calling
-            <see cref="M:Cadenza.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
+            <see cref="M:Cadenza.DelegateCoda.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
             with a <paramref name="loopsPerRun" /> value of <c>1</c>,
             e.g. as if by calling <c>self.Timing (value, runs, 1)</c>.
             </para>
         </remarks>
-        <altmember cref="M:Cadenza.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
+        <altmember cref="M:Cadenza.DelegateCoda.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
         <exception cref="T:System.ArgumentException">
           <para>
             <paramref name="runs" /> is negative.
@@ -3341,12 +3341,12 @@
         <remarks>
           <para>
             This is equivalent to calling
-            <see cref="M:Cadenza.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
+            <see cref="M:Cadenza.DelegateCoda.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
             with a <paramref name="loopsPerRun" /> value of <c>1</c>,
             e.g. as if by calling <c>self.Timing (value1, value2, runs, 1)</c>.
             </para>
         </remarks>
-        <altmember cref="M:Cadenza.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
+        <altmember cref="M:Cadenza.DelegateCoda.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
         <exception cref="T:System.ArgumentException">
           <para>
             <paramref name="runs" /> is negative.
@@ -3483,12 +3483,12 @@
         <remarks>
           <para>
             This is equivalent to calling
-            <see cref="M:Cadenza.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
+            <see cref="M:Cadenza.DelegateCoda.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
             with a <paramref name="loopsPerRun" /> value of <c>1</c>,
             e.g. as if by calling <c>self.Timing (value1, value2, value3, runs, 1)</c>.
             </para>
         </remarks>
-        <altmember cref="M:Cadenza.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
+        <altmember cref="M:Cadenza.DelegateCoda.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
         <exception cref="T:System.ArgumentException">
           <para>
             <paramref name="runs" /> is negative.
@@ -3641,12 +3641,12 @@
         <remarks>
           <para>
             This is equivalent to calling
-            <see cref="M:Cadenza.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
+            <see cref="M:Cadenza.DelegateCoda.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
             with a <paramref name="loopsPerRun" /> value of <c>1</c>,
             e.g. as if by calling <c>self.Timing (value1, value2, value3, value4, runs, 1)</c>.
             </para>
         </remarks>
-        <altmember cref="M:Cadenza.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
+        <altmember cref="M:Cadenza.DelegateCoda.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
         <exception cref="T:System.ArgumentException">
           <para>
             <paramref name="runs" /> is negative.

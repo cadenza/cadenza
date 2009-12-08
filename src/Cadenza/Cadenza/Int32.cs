@@ -34,7 +34,7 @@ using System.Collections.Generic;
 
 namespace Cadenza {
 
-	public static class Int32Rocks {
+	public static class Int32Coda {
 
 		public static IEnumerable<int> Times (this int self)
 		{

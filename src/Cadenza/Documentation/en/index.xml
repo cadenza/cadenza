@@ -50,39 +50,39 @@
   </Copyright>
   <Types>
     <Namespace Name="Cadenza">
-      <Type Name="DelegateRocks" Kind="Class" />
+      <Type Name="CustomAttributeProviderCoda" Kind="Class" />
+      <Type Name="DelegateCoda" Kind="Class" />
       <Type Name="Either" Kind="Class" />
       <Type Name="Either`2" DisplayName="Either&lt;T1,T2&gt;" Kind="Class" />
       <Type Name="Either`3" DisplayName="Either&lt;T1,T2,T3&gt;" Kind="Class" />
       <Type Name="Either`4" DisplayName="Either&lt;T1,T2,T3,T4&gt;" Kind="Class" />
-      <Type Name="ICustomAttributeProviderRocks" Kind="Class" />
-      <Type Name="Int16Rocks" Kind="Class" />
-      <Type Name="Int32Rocks" Kind="Class" />
-      <Type Name="Int64Rocks" Kind="Class" />
-      <Type Name="JaggedArrayRocks" Kind="Class" />
+      <Type Name="Int16Coda" Kind="Class" />
+      <Type Name="Int32Coda" Kind="Class" />
+      <Type Name="Int64Coda" Kind="Class" />
+      <Type Name="JaggedArrayCoda" Kind="Class" />
       <Type Name="Lambda" Kind="Class" />
       <Type Name="Maybe" Kind="Class" />
       <Type Name="Maybe`1" DisplayName="Maybe&lt;T&gt;" Kind="Structure" />
-      <Type Name="MaybeRocks" Kind="Class" />
-      <Type Name="NullableRocks" Kind="Class" />
-      <Type Name="ObjectRocks" Kind="Class" />
-      <Type Name="RectangularArrayRocks" Kind="Class" />
-      <Type Name="StringRocks" Kind="Class" />
+      <Type Name="MaybeCoda" Kind="Class" />
+      <Type Name="NullableCoda" Kind="Class" />
+      <Type Name="ObjectCoda" Kind="Class" />
+      <Type Name="RectangularArrayCoda" Kind="Class" />
+      <Type Name="StringCoda" Kind="Class" />
       <Type Name="Tuple" Kind="Class" />
       <Type Name="Tuple`1" DisplayName="Tuple&lt;T&gt;" Kind="Structure" />
       <Type Name="Tuple`2" DisplayName="Tuple&lt;T1,T2&gt;" Kind="Structure" />
       <Type Name="Tuple`3" DisplayName="Tuple&lt;T1,T2,T3&gt;" Kind="Structure" />
       <Type Name="Tuple`4" DisplayName="Tuple&lt;T1,T2,T3,T4&gt;" Kind="Structure" />
-      <Type Name="TupleRocks" Kind="Class" />
-      <Type Name="TypeRocks" Kind="Class" />
-      <Type Name="UInt16Rocks" Kind="Class" />
-      <Type Name="UInt32Rocks" Kind="Class" />
-      <Type Name="UInt64Rocks" Kind="Class" />
+      <Type Name="TupleCoda" Kind="Class" />
+      <Type Name="TypeCoda" Kind="Class" />
+      <Type Name="UInt16Coda" Kind="Class" />
+      <Type Name="UInt32Coda" Kind="Class" />
+      <Type Name="UInt64Coda" Kind="Class" />
     </Namespace>
     <Namespace Name="Cadenza.Collections">
       <Type Name="CachedSequence`1" DisplayName="CachedSequence&lt;T&gt;" Kind="Class" />
-      <Type Name="IEnumerableRocks" Kind="Class" />
-      <Type Name="KeyValuePairRocks" Kind="Class" />
+      <Type Name="EnumerableCoda" Kind="Class" />
+      <Type Name="KeyValuePairCoda" Kind="Class" />
       <Type Name="MutableLookup`2" DisplayName="MutableLookup&lt;TKey,TElement&gt;" Kind="Class" />
       <Type Name="NaturalStringComparer" Kind="Class" />
       <Type Name="OrderedDictionary`2" DisplayName="OrderedDictionary&lt;TKey,TValue&gt;" Kind="Class" />
@@ -93,14 +93,14 @@
       <Type Name="EnumerableValueReader`1" DisplayName="EnumerableValueReader&lt;T&gt;" Kind="Class" />
       <Type Name="IValueReader" Kind="Interface" />
       <Type Name="IValueWriter" Kind="Interface" />
+      <Type Name="StreamCoda" Kind="Class" />
       <Type Name="StreamConverter" Kind="Class" />
-      <Type Name="StreamConverterRocks" Kind="Class" />
-      <Type Name="StreamRocks" Kind="Class" />
-      <Type Name="TextReaderRocks" Kind="Class" />
-      <Type Name="TextReaderRocksOptions" Kind="Enumeration" />
+      <Type Name="StreamConverterCoda" Kind="Class" />
+      <Type Name="TextReaderCoda" Kind="Class" />
+      <Type Name="TextReaderCodaOptions" Kind="Enumeration" />
       <Type Name="TextValueReader" Kind="Class" />
       <Type Name="ValueReader`1" DisplayName="ValueReader&lt;T&gt;" Kind="Class" />
-      <Type Name="ValueReaderRocks" Kind="Class" />
+      <Type Name="ValueReaderCoda" Kind="Class" />
     </Namespace>
   </Types>
   <Title>Cadenza</Title>
@@ -128,7 +128,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.AggregateHistory``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.AggregateHistory``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -158,7 +158,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.AggregateHistory``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.AggregateHistory``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -192,7 +192,7 @@
           <param name="resultSelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.AggregateHistory``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.AggregateHistory``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -218,7 +218,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.AggregateReverse``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.AggregateReverse``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -248,7 +248,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.AggregateReverse``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.AggregateReverse``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -282,7 +282,7 @@
           <param name="resultSelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.AggregateReverse``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.AggregateReverse``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -308,7 +308,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.AggregateReverseHistory``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.AggregateReverseHistory``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -338,7 +338,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.AggregateReverseHistory``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.AggregateReverseHistory``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -372,7 +372,7 @@
           <param name="resultSelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.AggregateReverseHistory``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.AggregateReverseHistory``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -392,7 +392,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.And(System.Collections.Generic.IEnumerable{System.Boolean})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.And(System.Collections.Generic.IEnumerable{System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -416,7 +416,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Apply``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Apply``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -448,7 +448,7 @@
           <param name="actions">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.ApplyPairs``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}[])" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ApplyPairs``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -474,7 +474,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Break``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Break``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -498,7 +498,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Cache``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Cache``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -530,7 +530,7 @@
           <param name="selfs">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}[])" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -556,7 +556,7 @@
           <param name="selfs">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -582,7 +582,7 @@
           <param name="windowSize">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.ContiguousSubsequences``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ContiguousSubsequences``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -606,7 +606,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Cycle``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Cycle``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -632,7 +632,7 @@
           <param name="action">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -658,7 +658,7 @@
           <param name="action">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -682,7 +682,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.ExceptLast``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ExceptLast``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -708,7 +708,7 @@
           <param name="count">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.ExceptLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ExceptLast``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -734,7 +734,7 @@
           <param name="predicate">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.FindIndex``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.FindIndex``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -760,7 +760,7 @@
           <param name="predicate">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.FindIndices``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.FindIndices``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -786,7 +786,7 @@
           <param name="action">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0,System.Int32})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -812,7 +812,7 @@
           <param name="action">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -836,7 +836,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.HaskellGroup``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.HaskellGroup``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -873,7 +873,7 @@
           Split <paramref name="self" /> into a sequence of groups.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.HaskellGroupBy``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,System.Boolean})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.HaskellGroupBy``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -897,7 +897,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Implode``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Implode``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -923,7 +923,7 @@
           <param name="separator">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Implode``1(System.Collections.Generic.IEnumerable{``0},System.String)" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Implode``1(System.Collections.Generic.IEnumerable{``0},System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -951,7 +951,7 @@
           <param name="selector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Implode``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.String})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Implode``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.String})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -977,7 +977,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.IndexOf``1(System.Collections.Generic.IEnumerable{``0},``0)" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.IndexOf``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1009,7 +1009,7 @@
           <param name="values">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.IndexOfAny``1(System.Collections.Generic.IEnumerable{``0},``0[])" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.IndexOfAny``1(System.Collections.Generic.IEnumerable{``0},``0[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1035,7 +1035,7 @@
           <param name="values">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.IndexOfAny``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.IndexOfAny``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1061,7 +1061,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.IndicesOf``1(System.Collections.Generic.IEnumerable{``0},``0)" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.IndicesOf``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1093,7 +1093,7 @@
           <param name="values">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.IndicesOfAny``1(System.Collections.Generic.IEnumerable{``0},``0[])" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.IndicesOfAny``1(System.Collections.Generic.IEnumerable{``0},``0[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1119,7 +1119,7 @@
           <param name="values">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.IndicesOfAny``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.IndicesOfAny``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1153,7 +1153,7 @@
           shortest first.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.InitialSegments``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.InitialSegments``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1179,7 +1179,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Insert``1(System.Collections.Generic.IEnumerable{``0},``0)" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Insert``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1207,7 +1207,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Insert``1(System.Collections.Generic.IEnumerable{``0},``0,System.Func{``0,``0,System.Int32})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Insert``1(System.Collections.Generic.IEnumerable{``0},``0,System.Func{``0,``0,System.Int32})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1233,7 +1233,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Intersperse``1(System.Collections.Generic.IEnumerable{``0},``0)" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Intersperse``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1259,7 +1259,7 @@
           <param name="between">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Intersperse``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}},System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Intersperse``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}},System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1279,7 +1279,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Or(System.Collections.Generic.IEnumerable{System.Boolean})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Or(System.Collections.Generic.IEnumerable{System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1305,7 +1305,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.OrderByNatural``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.OrderByNatural``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1331,7 +1331,7 @@
           <param name="predicate">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1351,7 +1351,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.PathCombine(System.Collections.Generic.IEnumerable{System.String})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.PathCombine(System.Collections.Generic.IEnumerable{System.String})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1377,7 +1377,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.RemoveFirstOccurrence``1(System.Collections.Generic.IEnumerable{``0},``0)" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrence``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1405,7 +1405,7 @@
           <param name="count">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1431,7 +1431,7 @@
           <param name="number">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Repeat``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Repeat``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1463,7 +1463,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.SelectAggregated``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,Cadenza.Tuple{``1,``2}})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SelectAggregated``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,Cadenza.Tuple{``1,``2}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1493,7 +1493,7 @@
           <param name="childrenSelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.SelectBreadthFirst``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SelectBreadthFirst``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1523,7 +1523,7 @@
           <param name="childrenSelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.SelectDepthFirst``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SelectDepthFirst``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1575,7 +1575,7 @@
           new form.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.SelectFromEach``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SelectFromEach``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1636,7 +1636,7 @@
           new form.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.SelectFromEach``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Func{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SelectFromEach``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Func{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1706,7 +1706,7 @@
           new form.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.SelectFromEach``5(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3},System.Func{``0,``1,``2,``3,``4})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SelectFromEach``5(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3},System.Func{``0,``1,``2,``3,``4})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1738,7 +1738,7 @@
           <param name="func">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.SelectReverseAggregated``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,Cadenza.Tuple{``1,``2}})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SelectReverseAggregated``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,Cadenza.Tuple{``1,``2}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1764,7 +1764,7 @@
           <param name="list">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.SequenceCompare``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SequenceCompare``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1792,7 +1792,7 @@
           <param name="comparer">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.SequenceCompare``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SequenceCompare``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1816,7 +1816,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Shuffle``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Shuffle``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1842,7 +1842,7 @@
           <param name="random">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Shuffle``1(System.Collections.Generic.IEnumerable{``0},System.Random)" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Shuffle``1(System.Collections.Generic.IEnumerable{``0},System.Random)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1868,7 +1868,7 @@
           <param name="prefix">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.SkipPrefix``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SkipPrefix``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1892,7 +1892,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Sort``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1918,7 +1918,7 @@
           <param name="comparer">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1944,7 +1944,7 @@
           <param name="comparison">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Comparison{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Comparison{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1973,7 +1973,7 @@
           <see cref="F:Cadenza.Collections.NaturalStringComparer.Default" /> comparer.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.SortNatural(System.Collections.Generic.IEnumerable{System.String})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SortNatural(System.Collections.Generic.IEnumerable{System.String})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2015,7 +2015,7 @@
           which satisfy <paramref name="predicate" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Span``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Span``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2052,7 +2052,7 @@
           <see cref="T:Cadenza.Tuple{System.Collections.Generic.IEnumerable{TSource},System.Collections.Generic.IEnumerable{TSource}}" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.SplitAt``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SplitAt``1(System.Collections.Generic.IEnumerable{``0},System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2094,7 +2094,7 @@
           <param name="categories">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Tokens``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,Cadenza.Tuple{``2,``1}},System.Func{``1,``0,System.Boolean}[])" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Tokens``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,Cadenza.Tuple{``2,``1}},System.Func{``1,``0,System.Boolean}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2128,7 +2128,7 @@
           with the same ordering and values as <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.ToList``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ToList``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2156,7 +2156,7 @@
           <param name="keySelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.ToReadOnlyDictionary``2(System.Collections.Generic.IEnumerable{``1},System.Func{``1,``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ToReadOnlyDictionary``2(System.Collections.Generic.IEnumerable{``1},System.Func{``1,``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2188,7 +2188,7 @@
           <param name="valueSelector">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.ToReadOnlyDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ToReadOnlyDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2213,7 +2213,7 @@
           Creates a <c>Tuple</c> from a sequence.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.ToTuple(System.Collections.IEnumerable)" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ToTuple(System.Collections.IEnumerable)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2233,7 +2233,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.ToValueReader(System.Collections.Generic.IEnumerable{System.String})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ToValueReader(System.Collections.Generic.IEnumerable{System.String})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2257,7 +2257,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.ToValueReader``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ToValueReader``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2291,7 +2291,7 @@
           longest first.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.TrailingSegments``1(System.Collections.Generic.IEnumerable{``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.TrailingSegments``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2325,7 +2325,7 @@
           <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Transpose``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Transpose``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2365,7 +2365,7 @@
           element.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Unzip``2(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1}})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Unzip``2(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2409,7 +2409,7 @@
           element.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Unzip``3(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1,``2}})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Unzip``3(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1,``2}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2457,7 +2457,7 @@
           element.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Unzip``4(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1,``2,``3}})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Unzip``4(System.Collections.Generic.IEnumerable{Cadenza.Tuple{``0,``1,``2,``3}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2500,7 +2500,7 @@
           <paramref name="self" /> and <paramref name="source2" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Zip``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Zip``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2552,7 +2552,7 @@
           <paramref name="self" />, <paramref name="source2" />, and <paramref name="source3" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Zip``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Zip``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2613,7 +2613,7 @@
           <paramref name="self" />, <paramref name="source2" />, <paramref name="source3" />, and <paramref name="source4" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.IEnumerableRocks" Member="M:Cadenza.Collections.IEnumerableRocks.Zip``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Zip``4(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``2},System.Collections.Generic.IEnumerable{``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2657,7 +2657,7 @@
           into a different value.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.KeyValuePairRocks" Member="M:Cadenza.Collections.KeyValuePairRocks.Aggregate``3(System.Collections.Generic.KeyValuePair{``0,``1},System.Func{``0,``1,``2})" />
+        <Link Type="Cadenza.Collections.KeyValuePairCoda" Member="M:Cadenza.Collections.KeyValuePairCoda.Aggregate``3(System.Collections.Generic.KeyValuePair{``0,``1},System.Func{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2693,7 +2693,77 @@
           <see cref="T:Cadenza.Tuple{TKey,TValue}" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.KeyValuePairRocks" Member="M:Cadenza.Collections.KeyValuePairRocks.ToTuple``2(System.Collections.Generic.KeyValuePair{``0,``1})" />
+        <Link Type="Cadenza.Collections.KeyValuePairCoda" Member="M:Cadenza.Collections.KeyValuePairCoda.ToTuple``2(System.Collections.Generic.KeyValuePair{``0,``1})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Reflection.ICustomAttributeProvider" />
+      </Targets>
+      <Member MemberName="GetCustomAttribute&lt;TAttribute&gt;">
+        <MemberSignature Language="C#" Value="public static TAttribute GetCustomAttribute&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TAttribute</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TAttribute">
+            <Constraints>
+              <BaseTypeName>System.Attribute</BaseTypeName>
+            </Constraints>
+          </TypeParameter>
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Reflection.ICustomAttributeProvider" RefType="this" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TAttribute">The type of the custom attribute to return.</typeparam>
+          <param name="self">
+          A <see cref="T:System.Reflection.ICustomAttributeProvider" />
+          from which to retrieve a custom attribute of type 
+          <typeparamref name="TAttribute" />.
+        </param>
+          <summary>
+          Retrieves a custom attribute of type 
+          <typeparamref name="TAttribute" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.CustomAttributeProviderCoda" Member="M:Cadenza.CustomAttributeProviderCoda.GetCustomAttribute``1(System.Reflection.ICustomAttributeProvider)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Reflection.ICustomAttributeProvider" />
+      </Targets>
+      <Member MemberName="GetCustomAttributes&lt;TAttribute&gt;">
+        <MemberSignature Language="C#" Value="public static TAttribute[] GetCustomAttributes&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TAttribute[]</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TAttribute">
+            <Constraints>
+              <BaseTypeName>System.Attribute</BaseTypeName>
+            </Constraints>
+          </TypeParameter>
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Reflection.ICustomAttributeProvider" RefType="this" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TAttribute">The type of the custom attribute to return.</typeparam>
+          <param name="self">
+          A <see cref="T:System.Reflection.ICustomAttributeProvider" />
+          from which to retrieve custom attributes of type 
+          <typeparamref name="TAttribute" />.
+        </param>
+          <summary>
+          Retrieves all custom attributes of type 
+          <typeparamref name="TAttribute" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.CustomAttributeProviderCoda" Member="M:Cadenza.CustomAttributeProviderCoda.GetCustomAttributes``1(System.Reflection.ICustomAttributeProvider)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2731,7 +2801,7 @@
             Creates a <see cref="T:System.Action{T1}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``2(System.Action{``1},System.Func{``0,``1})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Compose``2(System.Action{``1},System.Func{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2773,7 +2843,7 @@
             Creates a <see cref="T:System.Action{T1,T2}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``3(System.Action{``2},System.Func{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Compose``3(System.Action{``2},System.Func{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2815,7 +2885,7 @@
             Creates a <see cref="T:System.Func{T1,TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``3(System.Func{``1,``2},System.Func{``0,``1})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Compose``3(System.Func{``1,``2},System.Func{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2861,7 +2931,7 @@
             Creates a <see cref="T:System.Action{T1,T2,T3}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``4(System.Action{``3},System.Func{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Compose``4(System.Action{``3},System.Func{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2907,7 +2977,7 @@
             Creates a <see cref="T:System.Func{T1,T2,TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``4(System.Func{``2,``3},System.Func{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Compose``4(System.Func{``2,``3},System.Func{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2957,7 +3027,7 @@
             Creates a <see cref="T:System.Action{T1,T2,T3,T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``5(System.Action{``4},System.Func{``0,``1,``2,``3,``4})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Compose``5(System.Action{``4},System.Func{``0,``1,``2,``3,``4})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3007,7 +3077,7 @@
             Creates a <see cref="T:System.Func{T1,T2,T3,TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``5(System.Func{``3,``4},System.Func{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Compose``5(System.Func{``3,``4},System.Func{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3061,7 +3131,7 @@
             Creates a <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Compose``6(System.Func{``4,``5},System.Func{``0,``1,``2,``3,``4})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Compose``6(System.Func{``4,``5},System.Func{``0,``1,``2,``3,``4})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3091,7 +3161,7 @@
             Creates a <see cref="T:System.Action{T}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``1(System.Action{``0})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``1(System.Action{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3125,7 +3195,7 @@
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``1(System.Action{``0},``0)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``1(System.Action{``0},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3159,7 +3229,7 @@
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``1(System.Action{``0},Cadenza.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``1(System.Action{``0},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3193,7 +3263,7 @@
             Creates a <see cref="T:System.Func{T1,System.Action{T2}}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Action{``0,``1})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``2(System.Action{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3231,7 +3301,7 @@
             Creates a <see cref="T:System.Action{T2}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Action{``0,``1},``0)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``2(System.Action{``0,``1},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3273,7 +3343,7 @@
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Action{``0,``1},``0,``1)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``2(System.Action{``0,``1},``0,``1)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3311,7 +3381,7 @@
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Action{``0,``1},Cadenza.Tuple{``0,``1})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``2(System.Action{``0,``1},Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3349,7 +3419,7 @@
             Creates a <see cref="T:System.Action{T2}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Action{``0,``1},Cadenza.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``2(System.Action{``0,``1},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3383,7 +3453,7 @@
             Creates a <see cref="T:System.Func{T,TResult}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Func{``0,``1})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``2(System.Func{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3421,7 +3491,7 @@
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Func{``0,``1},``0)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``2(System.Func{``0,``1},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3459,7 +3529,7 @@
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``2(System.Func{``0,``1},Cadenza.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``2(System.Func{``0,``1},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3497,7 +3567,7 @@
             Creates a <see cref="T:System.Func{T1,System.Func{T2,System.Action{T3}}}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Action{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3539,7 +3609,7 @@
             Creates a <see cref="T:System.Action{T2, T3}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2},``0)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Action{``0,``1,``2},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3585,7 +3655,7 @@
             Creates a <see cref="T:System.Action{T3}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2},``0,``1)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Action{``0,``1,``2},``0,``1)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3635,7 +3705,7 @@
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2},``0,``1,``2)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Action{``0,``1,``2},``0,``1,``2)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3677,7 +3747,7 @@
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2},Cadenza.Tuple{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Action{``0,``1,``2},Cadenza.Tuple{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3719,7 +3789,7 @@
             Creates a <see cref="T:System.Action{T3}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2},Cadenza.Tuple{``0,``1})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Action{``0,``1,``2},Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3761,7 +3831,7 @@
             Creates a <see cref="T:System.Action{T2, T3}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Action{``0,``1,``2},Cadenza.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Action{``0,``1,``2},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3799,7 +3869,7 @@
             Creates a <see cref="T:System.Func{T1,System.Func{T2,TResult}}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Func{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Func{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3841,7 +3911,7 @@
             Creates a <see cref="T:System.Func{T2, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Func{``0,``1,``2},``0)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Func{``0,``1,``2},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3887,7 +3957,7 @@
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Func{``0,``1,``2},``0,``1)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Func{``0,``1,``2},``0,``1)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3929,7 +3999,7 @@
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Func{``0,``1,``2},Cadenza.Tuple{``0,``1})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Func{``0,``1,``2},Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3971,7 +4041,7 @@
             Creates a <see cref="T:System.Func{T2, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``3(System.Func{``0,``1,``2},Cadenza.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Func{``0,``1,``2},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4013,7 +4083,7 @@
             Creates a <see cref="T:System.Func{T1,System.Func{T2,System.Func{T3,System.Action{T4}}}}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Action{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4059,7 +4129,7 @@
             Creates a <see cref="T:System.Action{T2, T3, T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},``0)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Action{``0,``1,``2,``3},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4109,7 +4179,7 @@
             Creates a <see cref="T:System.Action{T3, T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},``0,``1)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Action{``0,``1,``2,``3},``0,``1)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4163,7 +4233,7 @@
             Creates a <see cref="T:System.Action{T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},``0,``1,``2)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Action{``0,``1,``2,``3},``0,``1,``2)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4221,7 +4291,7 @@
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4267,7 +4337,7 @@
             Creates a <see cref="T:System.Action" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4313,7 +4383,7 @@
             Creates a <see cref="T:System.Action{T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4359,7 +4429,7 @@
             Creates a <see cref="T:System.Action{T3, T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0,``1})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4405,7 +4475,7 @@
             Creates a <see cref="T:System.Action{T2, T3, T4}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4447,7 +4517,7 @@
             Creates a <see cref="T:System.Func{T1,System.Func{T2,System.Func{T3,TResult}}}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Func{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4493,7 +4563,7 @@
             Creates a <see cref="T:System.Func{T2, T3, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},``0)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Func{``0,``1,``2,``3},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4543,7 +4613,7 @@
             Creates a <see cref="T:System.Func{T3, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},``0,``1)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Func{``0,``1,``2,``3},``0,``1)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4597,7 +4667,7 @@
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},``0,``1,``2)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Func{``0,``1,``2,``3},``0,``1,``2)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4643,7 +4713,7 @@
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},Cadenza.Tuple{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Func{``0,``1,``2,``3},Cadenza.Tuple{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4689,7 +4759,7 @@
             Creates a <see cref="T:System.Func{T3, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},Cadenza.Tuple{``0,``1})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Func{``0,``1,``2,``3},Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4735,7 +4805,7 @@
             Creates a <see cref="T:System.Func{T2, T3, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``4(System.Func{``0,``1,``2,``3},Cadenza.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Func{``0,``1,``2,``3},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4781,7 +4851,7 @@
             Creates a <see cref="T:System.Func{T1,System.Func{T2,System.Func{T3,System.Func{T4,TResult}}}}" /> for currying.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4831,7 +4901,7 @@
             Creates a <see cref="T:System.Func{T2, T3, T4, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},``0)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4885,7 +4955,7 @@
             Creates a <see cref="T:System.Func{T3, T4, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -4943,7 +5013,7 @@
             Creates a <see cref="T:System.Func{T4, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5005,7 +5075,7 @@
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2,``3)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2,``3)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5055,7 +5125,7 @@
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0,``1,``2,``3})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5105,7 +5175,7 @@
             Creates a <see cref="T:System.Func{T4, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0,``1,``2})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5155,7 +5225,7 @@
             Creates a <see cref="T:System.Func{T3, T4, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0,``1})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5205,7 +5275,7 @@
             Creates a <see cref="T:System.Func{T2, T3, T4, TResult}" /> delegate.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0})" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5233,7 +5303,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings(System.Action,System.Int32)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Timings(System.Action,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5266,7 +5336,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings(System.Action,System.Int32,System.Int32)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Timings(System.Action,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5304,7 +5374,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Timings``1(System.Action{``0},``0,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5347,7 +5417,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Timings``1(System.Action{``0},``0,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5393,7 +5463,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Timings``2(System.Action{``0,``1},``0,``1,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5444,7 +5514,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Timings``2(System.Action{``0,``1},``0,``1,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5498,7 +5568,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5557,7 +5627,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Timings``3(System.Action{``0,``1,``2},``0,``1,``2,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5619,7 +5689,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5686,77 +5756,7 @@
             Get timing information for delegate invocations.
             </summary>
         </Docs>
-        <Link Type="Cadenza.DelegateRocks" Member="M:Cadenza.DelegateRocks.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.Reflection.ICustomAttributeProvider" />
-      </Targets>
-      <Member MemberName="GetCustomAttribute&lt;TAttribute&gt;">
-        <MemberSignature Language="C#" Value="public static TAttribute GetCustomAttribute&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>TAttribute</ReturnType>
-        </ReturnValue>
-        <TypeParameters>
-          <TypeParameter Name="TAttribute">
-            <Constraints>
-              <BaseTypeName>System.Attribute</BaseTypeName>
-            </Constraints>
-          </TypeParameter>
-        </TypeParameters>
-        <Parameters>
-          <Parameter Name="self" Type="System.Reflection.ICustomAttributeProvider" RefType="this" />
-        </Parameters>
-        <Docs>
-          <typeparam name="TAttribute">The type of the custom attribute to return.</typeparam>
-          <param name="self">
-          A <see cref="T:System.Reflection.ICustomAttributeProvider" />
-          from which to retrieve a custom attribute of type 
-          <typeparamref name="TAttribute" />.
-        </param>
-          <summary>
-          Retrieves a custom attribute of type 
-          <typeparamref name="TAttribute" />.
-        </summary>
-        </Docs>
-        <Link Type="Cadenza.ICustomAttributeProviderRocks" Member="M:Cadenza.ICustomAttributeProviderRocks.GetCustomAttribute``1(System.Reflection.ICustomAttributeProvider)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.Reflection.ICustomAttributeProvider" />
-      </Targets>
-      <Member MemberName="GetCustomAttributes&lt;TAttribute&gt;">
-        <MemberSignature Language="C#" Value="public static TAttribute[] GetCustomAttributes&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>TAttribute[]</ReturnType>
-        </ReturnValue>
-        <TypeParameters>
-          <TypeParameter Name="TAttribute">
-            <Constraints>
-              <BaseTypeName>System.Attribute</BaseTypeName>
-            </Constraints>
-          </TypeParameter>
-        </TypeParameters>
-        <Parameters>
-          <Parameter Name="self" Type="System.Reflection.ICustomAttributeProvider" RefType="this" />
-        </Parameters>
-        <Docs>
-          <typeparam name="TAttribute">The type of the custom attribute to return.</typeparam>
-          <param name="self">
-          A <see cref="T:System.Reflection.ICustomAttributeProvider" />
-          from which to retrieve custom attributes of type 
-          <typeparamref name="TAttribute" />.
-        </param>
-          <summary>
-          Retrieves all custom attributes of type 
-          <typeparamref name="TAttribute" />.
-        </summary>
-        </Docs>
-        <Link Type="Cadenza.ICustomAttributeProviderRocks" Member="M:Cadenza.ICustomAttributeProviderRocks.GetCustomAttributes``1(System.Reflection.ICustomAttributeProvider)" />
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5780,7 +5780,7 @@
           Gets a value indicating whether <paramref name="value" /> is an even number.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Int16Rocks" Member="M:Cadenza.Int16Rocks.IsEven(System.Int16)" />
+        <Link Type="Cadenza.Int16Coda" Member="M:Cadenza.Int16Coda.IsEven(System.Int16)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5804,7 +5804,7 @@
           Gets a value indicating whether <paramref name="value" /> is an odd number.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Int16Rocks" Member="M:Cadenza.Int16Rocks.IsOdd(System.Int16)" />
+        <Link Type="Cadenza.Int16Coda" Member="M:Cadenza.Int16Coda.IsOdd(System.Int16)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5835,7 +5835,7 @@
           <paramref name="limit" />, inclusive.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Int32Rocks" Member="M:Cadenza.Int32Rocks.DownTo(System.Int32,System.Int32)" />
+        <Link Type="Cadenza.Int32Coda" Member="M:Cadenza.Int32Coda.DownTo(System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5859,7 +5859,7 @@
           Gets a value indicating whether <paramref name="value" /> is an even number.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Int32Rocks" Member="M:Cadenza.Int32Rocks.IsEven(System.Int32)" />
+        <Link Type="Cadenza.Int32Coda" Member="M:Cadenza.Int32Coda.IsEven(System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5883,7 +5883,7 @@
           Gets a value indicating whether <paramref name="value" /> is an odd number.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Int32Rocks" Member="M:Cadenza.Int32Rocks.IsOdd(System.Int32)" />
+        <Link Type="Cadenza.Int32Coda" Member="M:Cadenza.Int32Coda.IsOdd(System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5920,7 +5920,7 @@
           <paramref name="step" /> between each value.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Int32Rocks" Member="M:Cadenza.Int32Rocks.Step(System.Int32,System.Int32,System.Int32)" />
+        <Link Type="Cadenza.Int32Coda" Member="M:Cadenza.Int32Coda.Step(System.Int32,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5947,7 +5947,7 @@
           <paramref name="self" />, exclusive.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Int32Rocks" Member="M:Cadenza.Int32Rocks.Times(System.Int32)" />
+        <Link Type="Cadenza.Int32Coda" Member="M:Cadenza.Int32Coda.Times(System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -5978,7 +5978,7 @@
           <paramref name="limit" />, inclusive.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Int32Rocks" Member="M:Cadenza.Int32Rocks.UpTo(System.Int32,System.Int32)" />
+        <Link Type="Cadenza.Int32Coda" Member="M:Cadenza.Int32Coda.UpTo(System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6002,7 +6002,7 @@
           Gets a value indicating whether <paramref name="value" /> is an even number.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Int64Rocks" Member="M:Cadenza.Int64Rocks.IsEven(System.Int64)" />
+        <Link Type="Cadenza.Int64Coda" Member="M:Cadenza.Int64Coda.IsEven(System.Int64)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6026,7 +6026,49 @@
           Gets a value indicating whether <paramref name="value" /> is an odd number.
         </summary>
         </Docs>
-        <Link Type="Cadenza.Int64Rocks" Member="M:Cadenza.Int64Rocks.IsOdd(System.Int64)" />
+        <Link Type="Cadenza.Int64Coda" Member="M:Cadenza.Int64Coda.IsOdd(System.Int64)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IO.Stream" />
+      </Targets>
+      <Member MemberName="WithSystemConverter">
+        <MemberSignature Language="C#" Value="public static Cadenza.IO.StreamConverter WithSystemConverter (this System.IO.Stream self);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>Cadenza.IO.StreamConverter</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.IO.Stream" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="self">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.IO.StreamCoda" Member="M:Cadenza.IO.StreamCoda.WithSystemConverter(System.IO.Stream)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.IO.Stream" />
+      </Targets>
+      <Member MemberName="WriteTo">
+        <MemberSignature Language="C#" Value="public static void WriteTo (this System.IO.Stream self, System.IO.Stream destination);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.IO.Stream" RefType="this" />
+          <Parameter Name="destination" Type="System.IO.Stream" />
+        </Parameters>
+        <Docs>
+          <param name="self">To be added.</param>
+          <param name="destination">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.IO.StreamCoda" Member="M:Cadenza.IO.StreamCoda.WriteTo(System.IO.Stream,System.IO.Stream)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6052,7 +6094,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.IO.StreamConverterRocks" Member="M:Cadenza.IO.StreamConverterRocks.Read``1(Cadenza.IO.StreamConverter,``0@)" />
+        <Link Type="Cadenza.IO.StreamConverterCoda" Member="M:Cadenza.IO.StreamConverterCoda.Read``1(Cadenza.IO.StreamConverter,``0@)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6078,49 +6120,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.IO.StreamConverterRocks" Member="M:Cadenza.IO.StreamConverterRocks.Write``1(Cadenza.IO.StreamConverter,``0)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.IO.Stream" />
-      </Targets>
-      <Member MemberName="WithSystemConverter">
-        <MemberSignature Language="C#" Value="public static Cadenza.IO.StreamConverter WithSystemConverter (this System.IO.Stream self);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>Cadenza.IO.StreamConverter</ReturnType>
-        </ReturnValue>
-        <Parameters>
-          <Parameter Name="self" Type="System.IO.Stream" RefType="this" />
-        </Parameters>
-        <Docs>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
-        </Docs>
-        <Link Type="Cadenza.IO.StreamRocks" Member="M:Cadenza.IO.StreamRocks.WithSystemConverter(System.IO.Stream)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.IO.Stream" />
-      </Targets>
-      <Member MemberName="WriteTo">
-        <MemberSignature Language="C#" Value="public static void WriteTo (this System.IO.Stream self, System.IO.Stream destination);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>System.Void</ReturnType>
-        </ReturnValue>
-        <Parameters>
-          <Parameter Name="self" Type="System.IO.Stream" RefType="this" />
-          <Parameter Name="destination" Type="System.IO.Stream" />
-        </Parameters>
-        <Docs>
-          <param name="self">To be added.</param>
-          <param name="destination">To be added.</param>
-          <summary>To be added.</summary>
-        </Docs>
-        <Link Type="Cadenza.IO.StreamRocks" Member="M:Cadenza.IO.StreamRocks.WriteTo(System.IO.Stream,System.IO.Stream)" />
+        <Link Type="Cadenza.IO.StreamConverterCoda" Member="M:Cadenza.IO.StreamConverterCoda.Write``1(Cadenza.IO.StreamConverter,``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6148,7 +6148,7 @@
           <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.IO.TextReaderRocks" Member="M:Cadenza.IO.TextReaderRocks.Lines(System.IO.TextReader)" />
+        <Link Type="Cadenza.IO.TextReaderCoda" Member="M:Cadenza.IO.TextReaderCoda.Lines(System.IO.TextReader)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6156,21 +6156,21 @@
         <Target Type="T:System.IO.TextReader" />
       </Targets>
       <Member MemberName="Lines">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self, Cadenza.IO.TextReaderRocksOptions options);" />
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self, Cadenza.IO.TextReaderCodaOptions options);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-          <Parameter Name="options" Type="Cadenza.IO.TextReaderRocksOptions" />
+          <Parameter Name="options" Type="Cadenza.IO.TextReaderCodaOptions" />
         </Parameters>
         <Docs>
           <param name="self">
           A <see cref="T:System.IO.TextReader" /> to read lines from.
         </param>
           <param name="options">
-          A <see cref="T:Cadenza.IO.TextReaderRocksOptions" /> controlling
+          A <see cref="T:Cadenza.IO.TextReaderCodaOptions" /> controlling
           method execution.
         </param>
           <summary>
@@ -6181,7 +6181,7 @@
           <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.IO.TextReaderRocks" Member="M:Cadenza.IO.TextReaderRocks.Lines(System.IO.TextReader,Cadenza.IO.TextReaderRocksOptions)" />
+        <Link Type="Cadenza.IO.TextReaderCoda" Member="M:Cadenza.IO.TextReaderCoda.Lines(System.IO.TextReader,Cadenza.IO.TextReaderCodaOptions)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6189,14 +6189,14 @@
         <Target Type="T:System.IO.TextReader" />
       </Targets>
       <Member MemberName="Tokens">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Cadenza.IO.TextReaderRocksOptions options, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Cadenza.IO.TextReaderCodaOptions options, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-          <Parameter Name="options" Type="Cadenza.IO.TextReaderRocksOptions" />
+          <Parameter Name="options" Type="Cadenza.IO.TextReaderCodaOptions" />
           <Parameter Name="categories" Type="System.Func&lt;System.Nullable&lt;System.Char&gt;,System.Char,System.Boolean&gt;[]">
             <Attributes>
               <Attribute>
@@ -6210,7 +6210,7 @@
           A <see cref="T:System.IO.TextReader" /> to extract tokens from.
         </param>
           <param name="options">
-          A <see cref="T:Cadenza.IO.TextReaderRocksOptions" /> controlling
+          A <see cref="T:Cadenza.IO.TextReaderCodaOptions" /> controlling
           method execution.
         </param>
           <param name="categories">
@@ -6235,7 +6235,7 @@
           <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.IO.TextReaderRocks" Member="M:Cadenza.IO.TextReaderRocks.Tokens(System.IO.TextReader,Cadenza.IO.TextReaderRocksOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
+        <Link Type="Cadenza.IO.TextReaderCoda" Member="M:Cadenza.IO.TextReaderCoda.Tokens(System.IO.TextReader,Cadenza.IO.TextReaderCodaOptions,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6284,7 +6284,7 @@
           <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.IO.TextReaderRocks" Member="M:Cadenza.IO.TextReaderRocks.Tokens(System.IO.TextReader,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
+        <Link Type="Cadenza.IO.TextReaderCoda" Member="M:Cadenza.IO.TextReaderCoda.Tokens(System.IO.TextReader,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6312,7 +6312,7 @@
           <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.IO.TextReaderRocks" Member="M:Cadenza.IO.TextReaderRocks.Words(System.IO.TextReader)" />
+        <Link Type="Cadenza.IO.TextReaderCoda" Member="M:Cadenza.IO.TextReaderCoda.Words(System.IO.TextReader)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6320,21 +6320,21 @@
         <Target Type="T:System.IO.TextReader" />
       </Targets>
       <Member MemberName="Words">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self, Cadenza.IO.TextReaderRocksOptions options);" />
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self, Cadenza.IO.TextReaderCodaOptions options);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="self" Type="System.IO.TextReader" RefType="this" />
-          <Parameter Name="options" Type="Cadenza.IO.TextReaderRocksOptions" />
+          <Parameter Name="options" Type="Cadenza.IO.TextReaderCodaOptions" />
         </Parameters>
         <Docs>
           <param name="self">
           A <see cref="T:System.IO.TextReader" /> to extract words from.
         </param>
           <param name="options">
-          A <see cref="T:Cadenza.IO.TextReaderRocksOptions" /> controlling
+          A <see cref="T:Cadenza.IO.TextReaderCodaOptions" /> controlling
           method execution.
         </param>
           <summary>
@@ -6345,7 +6345,7 @@
           <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.IO.TextReaderRocks" Member="M:Cadenza.IO.TextReaderRocks.Words(System.IO.TextReader,Cadenza.IO.TextReaderRocksOptions)" />
+        <Link Type="Cadenza.IO.TextReaderCoda" Member="M:Cadenza.IO.TextReaderCoda.Words(System.IO.TextReader,Cadenza.IO.TextReaderCodaOptions)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6373,7 +6373,7 @@
           <param name="value">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.IO.ValueReaderRocks" Member="M:Cadenza.IO.ValueReaderRocks.Read``2(Cadenza.IO.ValueReader{``0},``1@)" />
+        <Link Type="Cadenza.IO.ValueReaderCoda" Member="M:Cadenza.IO.ValueReaderCoda.Read``2(Cadenza.IO.ValueReader{``0},``1@)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6404,7 +6404,7 @@
           <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.JaggedArrayRocks" Member="M:Cadenza.JaggedArrayRocks.Rows``1(``0[][])" />
+        <Link Type="Cadenza.JaggedArrayCoda" Member="M:Cadenza.JaggedArrayCoda.Rows``1(``0[][])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6446,7 +6446,7 @@
           <see cref="T:Cadenza.Maybe{TResult}" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.MaybeRocks" Member="M:Cadenza.MaybeRocks.Select``2(Cadenza.Maybe{``0},System.Func{``0,``1})" />
+        <Link Type="Cadenza.MaybeCoda" Member="M:Cadenza.MaybeCoda.Select``2(Cadenza.Maybe{``0},System.Func{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6500,7 +6500,7 @@
           <see cref="T:Cadenza.Maybe{TResult}" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.MaybeRocks" Member="M:Cadenza.MaybeRocks.SelectMany``3(Cadenza.Maybe{``0},System.Func{``0,Cadenza.Maybe{``1}},System.Func{``0,``1,``2})" />
+        <Link Type="Cadenza.MaybeCoda" Member="M:Cadenza.MaybeCoda.SelectMany``3(Cadenza.Maybe{``0},System.Func{``0,Cadenza.Maybe{``1}},System.Func{``0,``1,``2})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6539,7 +6539,7 @@
           <see cref="F:Cadenza.Maybe{T}.Nothing" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.NullableRocks" Member="M:Cadenza.NullableRocks.Just``1(System.Nullable{``0})" />
+        <Link Type="Cadenza.NullableCoda" Member="M:Cadenza.NullableCoda.Just``1(System.Nullable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6578,7 +6578,7 @@
           <see cref="F:Cadenza.Maybe{T}.Nothing" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.NullableRocks" Member="M:Cadenza.NullableRocks.ToMaybe``1(System.Nullable{``0})" />
+        <Link Type="Cadenza.NullableCoda" Member="M:Cadenza.NullableCoda.ToMaybe``1(System.Nullable{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6611,7 +6611,7 @@
           <see cref="F:Cadenza.Maybe{T}.Nothing" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.Just``1(``0)" />
+        <Link Type="Cadenza.ObjectCoda" Member="M:Cadenza.ObjectCoda.Just``1(``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6656,7 +6656,7 @@
           <paramref name="self" /> into a <typeparamref name="TResult" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.Match``2(``0,System.Func{``0,Cadenza.Maybe{``1}}[])" />
+        <Link Type="Cadenza.ObjectCoda" Member="M:Cadenza.ObjectCoda.Match``2(``0,System.Func{``0,Cadenza.Maybe{``1}}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6689,7 +6689,7 @@
           <see cref="F:Cadenza.Maybe{T}.Nothing" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.ToMaybe``1(``0)" />
+        <Link Type="Cadenza.ObjectCoda" Member="M:Cadenza.ObjectCoda.ToMaybe``1(``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6735,7 +6735,7 @@
           encountered node.
         </summary>
         </Docs>
-        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.TraverseBreadthFirst``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.ObjectCoda" Member="M:Cadenza.ObjectCoda.TraverseBreadthFirst``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6781,7 +6781,7 @@
           encountered node.
         </summary>
         </Docs>
-        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.TraverseBreadthFirstWithParent``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.ObjectCoda" Member="M:Cadenza.ObjectCoda.TraverseBreadthFirstWithParent``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6827,7 +6827,7 @@
           encountered node.
         </summary>
         </Docs>
-        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.TraverseDepthFirst``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.ObjectCoda" Member="M:Cadenza.ObjectCoda.TraverseDepthFirst``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6873,7 +6873,7 @@
           encountered node.
         </summary>
         </Docs>
-        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.TraverseDepthFirstWithParent``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
+        <Link Type="Cadenza.ObjectCoda" Member="M:Cadenza.ObjectCoda.TraverseDepthFirstWithParent``2(``0,System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6910,7 +6910,7 @@
           Supports chaining otherwise temporary values.
         </summary>
         </Docs>
-        <Link Type="Cadenza.ObjectRocks" Member="M:Cadenza.ObjectRocks.With``2(``0,System.Func{``0,``1})" />
+        <Link Type="Cadenza.ObjectCoda" Member="M:Cadenza.ObjectCoda.With``2(``0,System.Func{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6941,7 +6941,7 @@
           <see cref="T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{TSource}}" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.RectangularArrayRocks" Member="M:Cadenza.RectangularArrayRocks.Rows``1(``0[,])" />
+        <Link Type="Cadenza.RectangularArrayCoda" Member="M:Cadenza.RectangularArrayCoda.Rows``1(``0[,])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -6972,7 +6972,7 @@
           the associated captured values within <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.CaptureNamedGroups(System.String,System.String)" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.CaptureNamedGroups(System.String,System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7008,7 +7008,7 @@
           the associated captured values within <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.CaptureNamedGroups(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.CaptureNamedGroups(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7039,7 +7039,7 @@
           match the regular expression <paramref name="regex" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Captures(System.String,System.String)" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.Captures(System.String,System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7075,7 +7075,7 @@
           match the regular expression <paramref name="regex" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Captures(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.Captures(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7095,7 +7095,7 @@
           <param name="self">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.IsNullOrWhitespace(System.String)" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.IsNullOrWhitespace(System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7121,7 +7121,7 @@
           which will return all lines of text from <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Lines(System.String)" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.Lines(System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7152,7 +7152,7 @@
           text within <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Matches(System.String,System.String)" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.Matches(System.String,System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7188,7 +7188,7 @@
           text within <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Matches(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.Matches(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7219,7 +7219,7 @@
           <paramref name="regex" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.MatchValues(System.String,System.String)" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.MatchValues(System.String,System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7255,7 +7255,7 @@
           <paramref name="regex" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.MatchValues(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.MatchValues(System.String,System.String,System.Text.RegularExpressions.RegexOptions)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7283,7 +7283,7 @@
           <param name="targets">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Remove(System.String,System.String[])" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.Remove(System.String,System.String[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7320,7 +7320,7 @@
           position.
         </summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Slice(System.String,System.Int32,System.Int32)" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.Slice(System.String,System.Int32,System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7353,7 +7353,7 @@
           of type <typeparamref name="TEnum" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.ToEnum``1(System.String)" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.ToEnum``1(System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7400,7 +7400,7 @@
           which will return all tokens from <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Tokens(System.String,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.Tokens(System.String,System.Func{System.Nullable{System.Char},System.Char,System.Boolean}[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7426,7 +7426,7 @@
           which will return all words from <paramref name="self" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.Words(System.String)" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.Words(System.String)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7448,7 +7448,7 @@
           <param name="widths">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.WrappedLines(System.String,System.Collections.Generic.IEnumerable{System.Int32})" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.WrappedLines(System.String,System.Collections.Generic.IEnumerable{System.Int32})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7476,7 +7476,7 @@
           <param name="widths">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.StringRocks" Member="M:Cadenza.StringRocks.WrappedLines(System.String,System.Int32[])" />
+        <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.WrappedLines(System.String,System.Int32[])" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7512,7 +7512,7 @@
           <see cref="T:System.Collections.Generic.KeyValuePair{TKey,TValue}" />.
         </summary>
         </Docs>
-        <Link Type="Cadenza.TupleRocks" Member="M:Cadenza.TupleRocks.ToKeyValuePair``2(Cadenza.Tuple{``0,``1})" />
+        <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.ToKeyValuePair``2(Cadenza.Tuple{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7534,7 +7534,7 @@
           <param name="type">To be added.</param>
           <summary>To be added.</summary>
         </Docs>
-        <Link Type="Cadenza.TypeRocks" Member="M:Cadenza.TypeRocks.IsAssignableTo(System.Type,System.Type)" />
+        <Link Type="Cadenza.TypeCoda" Member="M:Cadenza.TypeCoda.IsAssignableTo(System.Type,System.Type)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7558,7 +7558,7 @@
           Gets a value indicating whether the type is a nullable type.
         </summary>
         </Docs>
-        <Link Type="Cadenza.TypeRocks" Member="M:Cadenza.TypeRocks.IsNullable(System.Type)" />
+        <Link Type="Cadenza.TypeCoda" Member="M:Cadenza.TypeCoda.IsNullable(System.Type)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7582,7 +7582,7 @@
           Gets a value indicating whether <paramref name="value" /> is an even number.
         </summary>
         </Docs>
-        <Link Type="Cadenza.UInt16Rocks" Member="M:Cadenza.UInt16Rocks.IsEven(System.UInt16)" />
+        <Link Type="Cadenza.UInt16Coda" Member="M:Cadenza.UInt16Coda.IsEven(System.UInt16)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7606,7 +7606,7 @@
           Gets a value indicating whether <paramref name="value" /> is an odd number.
         </summary>
         </Docs>
-        <Link Type="Cadenza.UInt16Rocks" Member="M:Cadenza.UInt16Rocks.IsOdd(System.UInt16)" />
+        <Link Type="Cadenza.UInt16Coda" Member="M:Cadenza.UInt16Coda.IsOdd(System.UInt16)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7630,7 +7630,7 @@
           Gets a value indicating whether <paramref name="value" /> is an even number.
         </summary>
         </Docs>
-        <Link Type="Cadenza.UInt32Rocks" Member="M:Cadenza.UInt32Rocks.IsEven(System.UInt32)" />
+        <Link Type="Cadenza.UInt32Coda" Member="M:Cadenza.UInt32Coda.IsEven(System.UInt32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7654,7 +7654,7 @@
           Gets a value indicating whether <paramref name="value" /> is an odd number.
         </summary>
         </Docs>
-        <Link Type="Cadenza.UInt32Rocks" Member="M:Cadenza.UInt32Rocks.IsOdd(System.UInt32)" />
+        <Link Type="Cadenza.UInt32Coda" Member="M:Cadenza.UInt32Coda.IsOdd(System.UInt32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7678,7 +7678,7 @@
           Gets a value indicating whether <paramref name="value" /> is an even number.
         </summary>
         </Docs>
-        <Link Type="Cadenza.UInt64Rocks" Member="M:Cadenza.UInt64Rocks.IsEven(System.UInt64)" />
+        <Link Type="Cadenza.UInt64Coda" Member="M:Cadenza.UInt64Coda.IsEven(System.UInt64)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -7702,7 +7702,7 @@
           Gets a value indicating whether <paramref name="value" /> is an odd number.
         </summary>
         </Docs>
-        <Link Type="Cadenza.UInt64Rocks" Member="M:Cadenza.UInt64Rocks.IsOdd(System.UInt64)" />
+        <Link Type="Cadenza.UInt64Coda" Member="M:Cadenza.UInt64Coda.IsOdd(System.UInt64)" />
       </Member>
     </ExtensionMethod>
   </ExtensionMethods>

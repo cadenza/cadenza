@@ -1,5 +1,5 @@
-<Type Name="TextReaderRocksOptions" FullName="Cadenza.IO.TextReaderRocksOptions">
-  <TypeSignature Language="C#" Value="public enum TextReaderRocksOptions" />
+<Type Name="TextReaderCodaOptions" FullName="Cadenza.IO.TextReaderCodaOptions">
+  <TypeSignature Language="C#" Value="public enum TextReaderCodaOptions" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -14,15 +14,15 @@
   </Attributes>
   <Docs>
     <summary>
-      Options to control <see cref="T:Cadenza.IO.TextReaderRocks" /> 
+      Options to control <see cref="T:Cadenza.IO.TextReaderCoda" /> 
       method behavior.
     </summary>
     <remarks>
       <para>
         This enumeration is used to control the behavior of 
-        <see cref="M:Cadenza.IO.TextReaderRocks.Lines(System.IO.TextReader,Cadenza.IO.TextReaderRocksOptions)" />
+        <see cref="M:Cadenza.IO.TextReaderCoda.Lines(System.IO.TextReader,Cadenza.IO.TextReaderCodaOptions)" />
         and
-        <see cref="M:Cadenza.IO.TextReaderRocks.Words(System.IO.TextReader,Cadenza.IO.TextReaderRocksOptions)" />
+        <see cref="M:Cadenza.IO.TextReaderCoda.Words(System.IO.TextReader,Cadenza.IO.TextReaderCodaOptions)" />
         behavior.
       </para>
     </remarks>
@@ -35,7 +35,7 @@
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IO.TextReaderRocksOptions</ReturnType>
+        <ReturnType>Cadenza.IO.TextReaderCodaOptions</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
@@ -61,7 +61,7 @@
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.IO.TextReaderRocksOptions</ReturnType>
+        <ReturnType>Cadenza.IO.TextReaderCodaOptions</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>

@@ -37,19 +37,19 @@ using Cadenza.Collections;
 namespace Cadenza.IO {
 
 	[Flags]
-	public enum TextReaderRocksOptions {
+	public enum TextReaderCodaOptions {
 		None          = 0,
 		CloseReader   = 1,
 	}
 
-	public static class TextReaderRocks {
+	public static class TextReaderCoda {
 
 		public static IEnumerable<string> Lines (this TextReader self)
 		{
-			return Lines (self, TextReaderRocksOptions.CloseReader);
+			return Lines (self, TextReaderCodaOptions.CloseReader);
 		}
 
-		public static IEnumerable<string> Lines (this TextReader self, TextReaderRocksOptions options)
+		public static IEnumerable<string> Lines (this TextReader self, TextReaderCodaOptions options)
 		{
 			Check.Self (self);
 			CheckOptions (options);
@@ -57,20 +57,20 @@ namespace Cadenza.IO {
 			return CreateLineIterator (self, options);
 		}
 
-		private static void CheckOptions (TextReaderRocksOptions options)
+		private static void CheckOptions (TextReaderCodaOptions options)
 		{
-			if (options != TextReaderRocksOptions.None && options != TextReaderRocksOptions.CloseReader)
+			if (options != TextReaderCodaOptions.None && options != TextReaderCodaOptions.CloseReader)
 				throw new ArgumentException ("options", "Invalid `options' value.");
 		}
 
-		private static IEnumerable<string> CreateLineIterator (TextReader self, TextReaderRocksOptions options)
+		private static IEnumerable<string> CreateLineIterator (TextReader self, TextReaderCodaOptions options)
 		{
 			try {
 				string line;
 				while ((line = self.ReadLine ()) != null)
 					yield return line;
 			} finally {
-				if ((options & TextReaderRocksOptions.CloseReader) != 0) {
+				if ((options & TextReaderCodaOptions.CloseReader) != 0) {
 					self.Close ();
 					self.Dispose ();
 				}
@@ -83,10 +83,10 @@ namespace Cadenza.IO {
 			Check.Categories (categories);
 			if (categories.Length == 0)
 				throw new ArgumentException ("categories", "Must provide at least one catagory");
-			return Tokens (self, TextReaderRocksOptions.CloseReader, categories);
+			return Tokens (self, TextReaderCodaOptions.CloseReader, categories);
 		}
 
-		public static IEnumerable<string> Tokens (this TextReader self, TextReaderRocksOptions options, params Func<char?, char, bool>[] categories)
+		public static IEnumerable<string> Tokens (this TextReader self, TextReaderCodaOptions options, params Func<char?, char, bool>[] categories)
 		{
 			Check.Self (self);
 			CheckOptions (options);
@@ -97,7 +97,7 @@ namespace Cadenza.IO {
 			return CreateTokensIterator (self, options, categories);
 		}
 
-		private static IEnumerable<string> CreateTokensIterator (TextReader self, TextReaderRocksOptions options, Func<char?, char, bool>[] categories)
+		private static IEnumerable<string> CreateTokensIterator (TextReader self, TextReaderCodaOptions options, Func<char?, char, bool>[] categories)
 		{
 			try {
 				var cats = categories.Select (
@@ -114,7 +114,7 @@ namespace Cadenza.IO {
 							cats.ToArray ()))
 					yield return t;
 			} finally {
-				if ((options & TextReaderRocksOptions.CloseReader) != 0) {
+				if ((options & TextReaderCodaOptions.CloseReader) != 0) {
 					self.Close ();
 					self.Dispose ();
 				}
@@ -130,10 +130,10 @@ namespace Cadenza.IO {
 
 		public static IEnumerable<string> Words (this TextReader self)
 		{
-			return Words (self, TextReaderRocksOptions.CloseReader);
+			return Words (self, TextReaderCodaOptions.CloseReader);
 		}
 
-		public static IEnumerable<string> Words (this TextReader self, TextReaderRocksOptions options)
+		public static IEnumerable<string> Words (this TextReader self, TextReaderCodaOptions options)
 		{
 			Check.Self (self);
 			CheckOptions (options);

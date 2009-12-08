@@ -39,7 +39,7 @@ using Cadenza.IO;
 
 namespace Cadenza {
 
-	public static class StringRocks {
+	public static class StringCoda {
 
 		public static TEnum ToEnum<TEnum> (this string self)
 		{
