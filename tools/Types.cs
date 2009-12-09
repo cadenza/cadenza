@@ -73,37 +73,37 @@ namespace Cadenza.Tools {
 					GetTypeParameterReferences (total, start, count, false).ToArray ());
 		}
 
-		public static IEnumerable<CodeTypeReference> GetTypeParameterReferences (int args, bool ret)
+		public static IEnumerable<CodeTypeReference> GetTypeParameterReferences (int total, bool ret)
 		{
-			return GetTypeParameterReferences (args, 0, ret);
+			return GetTypeParameterReferences (total, 0, ret);
 		}
 
-		public static IEnumerable<CodeTypeReference> GetTypeParameterReferences (int args, int start, bool ret)
+		public static IEnumerable<CodeTypeReference> GetTypeParameterReferences (int total, int start, bool ret)
 		{
-			return GetTypeParameterReferences (args, start, args - start, ret);
+			return GetTypeParameterReferences (total, start, total - start, ret);
 		}
 
-		public static IEnumerable<CodeTypeReference> GetTypeParameterReferences (int args, int start, int end, bool ret)
+		public static IEnumerable<CodeTypeReference> GetTypeParameterReferences (int total, int start, int end, bool ret)
 		{
-			return GetTypeParameters (args, start, end, ret)
+			return GetTypeParameters (total, start, end, ret)
 				.Select (p => new CodeTypeReference (p));
 		}
 
-		public static IEnumerable<CodeTypeParameter> GetTypeParameters (int args, bool ret)
+		public static IEnumerable<CodeTypeParameter> GetTypeParameters (int total, bool ret)
 		{
-			return GetTypeParameters (args, 0, ret);
+			return GetTypeParameters (total, 0, ret);
 		}
 
-		public static IEnumerable<CodeTypeParameter> GetTypeParameters (int args, int start, bool ret)
+		public static IEnumerable<CodeTypeParameter> GetTypeParameters (int total, int start, bool ret)
 		{
-			return GetTypeParameters (args, start, args - start, ret);
+			return GetTypeParameters (total, start, total - start, ret);
 		}
 
-		public static IEnumerable<CodeTypeParameter> GetTypeParameters (int args, int start, int end, bool ret)
+		public static IEnumerable<CodeTypeParameter> GetTypeParameters (int total, int start, int count, bool ret)
 		{
-			return Enumerable.Range (start, end)
+			return Enumerable.Range (start, count)
 				.Select (
-					v => new CodeTypeParameter (GetTypeParameter (v, args)))
+					v => new CodeTypeParameter (GetTypeParameter (total, v)))
 				.Concat (ret ? new[]{new CodeTypeParameter ("TResult")} : new CodeTypeParameter [0]);
 		}
 
@@ -143,7 +143,7 @@ namespace Cadenza.Tools {
 					GetTypeParameterReferences (total, start, true).ToArray ());
 		}
 
-		public static string GetTypeParameter (int index, int total)
+		public static string GetTypeParameter (int total, int index)
 		{
 			return total == 1 ? "T" : "T" + (index+1);
 		}

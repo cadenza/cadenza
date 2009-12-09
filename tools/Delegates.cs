@@ -88,12 +88,12 @@ namespace Cadenza.Tools {
 				ReturnType = retType,
 			};
 			for (int i = 0; i < n; ++i)
-				m.TypeParameters.Add (Types.GetTypeParameter (i, n));
+				m.TypeParameters.Add (Types.GetTypeParameter (n, i));
 			if (tret)
 				m.TypeParameters.Add ("TResult");
 			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));
 			for (int i = 0; i < a; ++i) {
-				m.Parameters.Add (new CodeParameterDeclarationExpression (Types.GetTypeParameter (i, n), Value (n, i)));
+				m.Parameters.Add (new CodeParameterDeclarationExpression (Types.GetTypeParameter (n, i), Value (n, i)));
 			}
 			m.Statements.AddCheck ("Self", "self");
 			var expr = new StringBuilder ().Append ("(");
@@ -145,7 +145,7 @@ namespace Cadenza.Tools {
 				ReturnType = retType,
 			};
 			for (int i = 0; i < n; ++i)
-				m.TypeParameters.Add (Types.GetTypeParameter (i, n));
+				m.TypeParameters.Add (Types.GetTypeParameter (n, i));
 			if (tret)
 				m.TypeParameters.Add ("TResult");
 			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));
@@ -184,14 +184,14 @@ namespace Cadenza.Tools {
 			var selfType = getSelfType (n, 0);
 			var retType  = getRetType (n, n - 1);
 			for (int i = n - 2; i >= 0; --i)
-				retType = new CodeTypeReference ("System.Func", new CodeTypeReference (Types.GetTypeParameter (i, n)), retType);
+				retType = new CodeTypeReference ("System.Func", new CodeTypeReference (Types.GetTypeParameter (n, i)), retType);
 			var m = new CodeMemberMethod () {
 				Attributes = MemberAttributes.Public | MemberAttributes.Static,
 				Name = "Curry",
 				ReturnType = retType,
 			};
 			for (int i = 0; i < n; ++i)
-				m.TypeParameters.Add (Types.GetTypeParameter (i, n));
+				m.TypeParameters.Add (Types.GetTypeParameter (n, i));
 			if (tret)
 				m.TypeParameters.Add ("TResult");
 			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));
@@ -230,7 +230,7 @@ namespace Cadenza.Tools {
 				ReturnType = retType,
 			};
 			for (int i = 0; i < n + 1; ++i)
-				m.TypeParameters.Add (Types.GetTypeParameter (i, n+1));
+				m.TypeParameters.Add (Types.GetTypeParameter (n+1, i));
 			if (tret)
 				m.TypeParameters.Add ("TResult");
 			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));

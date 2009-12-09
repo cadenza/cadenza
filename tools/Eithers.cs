@@ -145,7 +145,7 @@ namespace Cadenza.Tools {
 				Name       = ((char) ('A' + w)).ToString (),
 				ReturnType = GetEitherType (n),
 			};
-			m.Parameters.Add (new CodeParameterDeclarationExpression (Types.GetTypeParameter (w, n), "value"));
+			m.Parameters.Add (new CodeParameterDeclarationExpression (Types.GetTypeParameter (n, w), "value"));
 			m.Statements.ThrowWhenArgumentIsNull ("value");
 			m.Statements.Add (
 					new CodeMethodReturnStatement (
@@ -156,7 +156,7 @@ namespace Cadenza.Tools {
 
 		void AddCreatorDocs (CodeTypeDeclaration type, CodeMemberMethod method, int w, int n)
 		{
-			var tp    = Types.GetTypeParameter (w, n);
+			var tp    = Types.GetTypeParameter (n, w);
 			var idx   = XmlDocs.GetIndex (tp);
 			var fold  = type.GetMethods ("Fold").First ();
 			method.Comments.AddDocs (
@@ -239,7 +239,7 @@ namespace Cadenza.Tools {
 		IEnumerable<string> GetFoldParametersDocs (CodeTypeDeclaration type, int n)
 		{
 			for (int i = 0; i < n; ++i) {
-				var tp = Types.GetTypeParameter (i, n);
+				var tp = Types.GetTypeParameter (n, i);
 				yield return "<param name=\"" + a (i) + "\">";
 				yield return "  A <see cref=\"T:System.Func{" + tp + ",TResult}\" /> ";
 				yield return "  used if the " + XmlDocs.See (DefaultNamespace, type) + " stores a ";
@@ -262,7 +262,7 @@ namespace Cadenza.Tools {
 		static CodeTypeReference GetFoldParameterType (int i, int n)
 		{
 			return new CodeTypeReference ("System.Func",
-					new CodeTypeReference (Types.GetTypeParameter (i, n)),
+					new CodeTypeReference (Types.GetTypeParameter (n, i)),
 					new CodeTypeReference (new CodeTypeParameter ("TResult")));
 		}
 
@@ -395,13 +395,13 @@ namespace Cadenza.Tools {
 				TypeAttributes = TypeAttributes.NestedPrivate,
 			};
 			h.BaseTypes.Add (GetEitherType (n));
-			h.Members.Add (new CodeMemberField (Types.GetTypeParameter (w, n), "_value") {
+			h.Members.Add (new CodeMemberField (Types.GetTypeParameter (n, w), "_value") {
 					Attributes = MemberAttributes.Final | MemberAttributes.Private,
 			});
 			var c = new CodeConstructor () {
 				Attributes = MemberAttributes.Public,
 			};
-			c.Parameters.Add (new CodeParameterDeclarationExpression (Types.GetTypeParameter (w, n), "value"));
+			c.Parameters.Add (new CodeParameterDeclarationExpression (Types.GetTypeParameter (n, w), "value"));
 			c.Statements.Add (
 					new CodeAssignStatement (
 						new CodeVariableReferenceExpression ("_value"),
@@ -463,7 +463,7 @@ namespace Cadenza.Tools {
 							new CodePropertyReferenceExpression (
 								new CodeTypeReferenceExpression (
 									new CodeTypeReference ("System.Collections.Generic.EqualityComparer",
-										new CodeTypeReference (new CodeTypeParameter (Types.GetTypeParameter (w, n))))),
+										new CodeTypeReference (new CodeTypeParameter (Types.GetTypeParameter (n, w))))),
 								"Default"),
 							"Equals",
 							new CodeVariableReferenceExpression ("this._value"), new CodeVariableReferenceExpression ("o._value"))));
