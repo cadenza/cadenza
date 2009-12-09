@@ -34,7 +34,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Mono.Rocks.Tools {
+namespace Cadenza.Tools {
 
 	class Eithers : FileGenerator
 	{

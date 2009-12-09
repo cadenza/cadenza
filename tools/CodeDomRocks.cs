@@ -32,7 +32,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Mono.Rocks.Tools
+namespace Cadenza.Tools
 {
 	public static class Seq {
 		public static IEnumerable Expand (object o)

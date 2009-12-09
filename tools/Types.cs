@@ -38,7 +38,7 @@ using Microsoft.CSharp;
 
 using Mono.Options;
 
-namespace Mono.Rocks.Tools {
+namespace Cadenza.Tools {
 
 	static class Types {
 
@@ -57,7 +57,7 @@ namespace Mono.Rocks.Tools {
 		public static CodeTypeReference Action (int total, int start, int count)
 		{
 			return new CodeTypeReference (
-					(total - (start + count)) <= MaxFuncArgs ? "System.Action" : "Mono.Rocks.RocksAction",
+					(total - (start + count)) <= MaxFuncArgs ? "System.Action" : "Cadenza.CadenzaAction",
 					GetTypeParameterReferences (total, start, count, false).ToArray ());
 		}
 
@@ -69,7 +69,7 @@ namespace Mono.Rocks.Tools {
 		public static CodeTypeReference ThisAction (int total, int start, int count)
 		{
 			return new CodeTypeReference (
-					(total - count) <= MaxFuncArgs ? "this System.Action" : "this Mono.Rocks.RocksAction",
+					(total - count) <= MaxFuncArgs ? "this System.Action" : "this Cadenza.CadenzaAction",
 					GetTypeParameterReferences (total, start, count, false).ToArray ());
 		}
 

@@ -34,7 +34,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Mono.Rocks.Tools {
+namespace Cadenza.Tools {
 
 	class Delegates : FileGenerator
 	{
@@ -62,7 +62,7 @@ namespace Mono.Rocks.Tools {
 
 		CodeTypeDeclaration CreateDelegateRocks (int n)
 		{
-			var dr = new CodeTypeDeclaration ("DelegateRocks") {
+			var dr = new CodeTypeDeclaration ("DelegateCoda") {
 				IsPartial      = true,
 				TypeAttributes = TypeAttributes.Public,
 			};

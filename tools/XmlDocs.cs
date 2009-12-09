@@ -38,7 +38,7 @@ using Microsoft.CSharp;
 
 using Mono.Options;
 
-namespace Mono.Rocks.Tools {
+namespace Cadenza.Tools {
 
 	public static class XmlDocs {
 

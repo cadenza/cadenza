@@ -38,7 +38,7 @@ using Microsoft.CSharp;
 
 using Mono.Options;
 
-namespace Mono.Rocks.Tools {
+namespace Cadenza.Tools {
 
 	public abstract class FileGenerator
 	{
@@ -98,7 +98,7 @@ namespace Mono.Rocks.Tools {
 		}
 
 		protected virtual string DefaultNamespace {
-			get {return "Mono.Rocks";}
+			get {return "Cadenza";}
 		}
 
 		protected virtual IEnumerable<CodeNamespace> GetCodeNamespaces ()
