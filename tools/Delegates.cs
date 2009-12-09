@@ -73,6 +73,7 @@ namespace Mono.Rocks.Tools {
 				dr.Members.AddRange (CreateCurryFuncs (i));
 				dr.Members.AddRange (CreateCurryTupleFuncs (i));
 				dr.Members.AddRange (CreateTraditionalCurryFuncs (i));
+				dr.Members.AddRange (CreateCompose (i));
 			}
 			return dr;
 		}
@@ -217,6 +218,41 @@ namespace Mono.Rocks.Tools {
 			if (n <= 1)
 				yield break;
 			yield return CreateTraditionalCurryMethod (Types.ThisFunc, Types.Func, n, true);
+		}
+
+		static CodeMemberMethod CreateComposeMethod (Func<int, int, int, CodeTypeReference> getSelfType, Func<int, int, int, CodeTypeReference> getRetType, int n, bool tret)
+		{
+			var selfType = getSelfType (n + 1, n, 1);
+			var retType  = getRetType (n + 1, 0, n);
+			var m = new CodeMemberMethod () {
+				Attributes = MemberAttributes.Public | MemberAttributes.Static,
+				Name       = "Compose",
+				ReturnType = retType,
+			};
+			for (int i = 0; i < n + 1; ++i)
+				m.TypeParameters.Add (Types.GetTypeParameter (i, n+1));
+			if (tret)
+				m.TypeParameters.Add ("TResult");
+			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));
+			var composerType = new CodeTypeReference (
+					Types.FuncType (n),
+					Types.GetTypeParameterReferences (n + 1, 0, n + 1, false).ToArray ());
+			m.Parameters.Add (new CodeParameterDeclarationExpression (composerType, "composer"));
+			m.Statements.AddCheck ("Self", "self");
+			m.Statements.AddCheck ("Composer", "composer");
+			var expr = new StringBuilder ().Append ("(");
+			Values (expr, n, 0, n);
+			expr.Append (") => self (composer (");
+			Values (expr, n, 0, n);
+			expr.Append ("))");
+			m.Statements.Add (new CodeMethodReturnStatement (new CodeSnippetExpression (expr.ToString ())));
+			return m;
+		}
+
+		IEnumerable<CodeTypeMember> CreateCompose (int n)
+		{
+			yield return CreateComposeMethod (Types.ThisAction, Types.Action, n, false);
+			yield return CreateComposeMethod (Types.ThisFunc, Types.Func, n, true);
 		}
 	}
 }
