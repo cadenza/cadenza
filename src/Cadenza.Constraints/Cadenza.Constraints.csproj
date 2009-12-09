@@ -37,5 +37,10 @@
     <Compile Include="Assembly\AssemblyInfo.cs" />
     <Compile Include="Cadenza.Contraints\Arguments.cs" />
   </ItemGroup>
+  <Import Project="..\..\lib\mdoc-net\mdoc.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>$(Mdoc) update --exceptions=added -o $(ProjectDir)Documentation\en $(TargetPath)
+$(Mdoc) export-msxdoc -o $(TargetDir)$(TargetName).xml $(ProjectDir)Documentation\en</PostBuildEvent>
+  </PropertyGroup>
 </Project>
