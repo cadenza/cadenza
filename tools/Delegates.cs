@@ -305,8 +305,8 @@ namespace Cadenza.Tools {
 			m.Parameters.Add (new CodeParameterDeclarationExpression (typeof (int), "loopsPerRun"));
 
 			m.Statements.AddCheck ("Self", "self");
-			m.Statements.ThrowWhenArgumentIsLtz ("runs");
-			m.Statements.ThrowWhenArgumentIsLtz ("loopsPerRun");
+			m.Statements.ThrowWhenArgumentIsLessThanZero ("runs");
+			m.Statements.ThrowWhenArgumentIsLessThanZero ("loopsPerRun");
 			var e = new CodeMethodInvokeExpression (
 					new CodeMethodReferenceExpression (null, "CreateTimingsIterator"),
 					new CodeVariableReferenceExpression ("self"));
