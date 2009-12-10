@@ -4,7 +4,7 @@
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
 //
-// Copyright (c) 2008 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2009 Novell, Inc. (http://www.novell.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -35,41 +35,38 @@ namespace Cadenza {
 
 	public static partial class Sequence {
 
-		public static IEnumerable<TSource> Iterate<TSource> (TSource value, Func<TSource, TSource> selector)
-		{
-			Check.Selector (selector);
+		private static readonly Type[] defaultExpandExcept = new[]{
+			typeof (string),
+		};
 
-			return CreateIterateIterator (value, selector);
+		public static IEnumerable Expand (object o)
+		{
+			return Expand (o, (IEnumerable<Type>) defaultExpandExcept);
 		}
 
-		private static IEnumerable<TSource> CreateIterateIterator<TSource> (TSource value, Func<TSource, TSource> selector)
+		public static IEnumerable Expand (object o, params Type[] except)
 		{
-			yield return value;
-			while (true)
-				yield return (value = selector (value));
+			return Expand (o, (IEnumerable<Type>) except);
 		}
 
-		public static IEnumerable<TSource> Repeat<TSource> (TSource value)
+		public static IEnumerable Expand (object o, IEnumerable<Type> except)
 		{
-			while (true)
-				yield return value;
+			if (except == null)
+				throw new ArgumentNullException ("except");
+			return CreateExpandIterator (o, except);
 		}
 
-		public static IEnumerable<TResult> GenerateReverse<TSource, TResult> (TSource value, Func<TSource, Maybe<Tuple<TResult, TSource>>> selector)
+		static IEnumerable CreateExpandIterator (object o, IEnumerable<Type> except)
 		{
-			Check.Selector (selector);
-
-			return CreateGenerateReverseIterator (value, selector);
-		}
-
-		private static IEnumerable<TResult> CreateGenerateReverseIterator<TSource, TResult> (TSource value, Func<TSource, Maybe<Tuple<TResult, TSource>>> selector)
-		{
-			Maybe<Tuple<TResult, TSource>> r;
-			while ((r = selector (value)).HasValue) {
-				Tuple<TResult, TSource> v = r.Value;
-				yield return v._1;
-				value = v._2;
-			}
+			IEnumerable e;
+			if (except.Any (t => t.IsAssignableFrom (o.GetType ())))
+				yield return o;
+			else if ((e = o as IEnumerable) != null)
+				foreach (var obj in e)
+					foreach (object oo in Expand (obj))
+						yield return oo;
+			else
+				yield return o;
 		}
 	}
 }

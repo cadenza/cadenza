@@ -31,6 +31,7 @@
 ./src/Cadenza/Cadenza/Object.cs
 ./src/Cadenza/Cadenza/RectangularArray.cs
 ./src/Cadenza/Cadenza/Sequence.cs
+./src/Cadenza/Cadenza/Sequence.Tools.cs
 ./src/Cadenza/Cadenza/String.cs
 ./src/Cadenza/Cadenza/Tuple.cs
 ./src/Cadenza/Cadenza/Tuples.cs

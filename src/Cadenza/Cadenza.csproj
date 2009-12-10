@@ -71,6 +71,7 @@
     <Compile Include="Cadenza\Object.cs" />
     <Compile Include="Cadenza\RectangularArray.cs" />
     <Compile Include="Cadenza\Sequence.cs" />
+    <Compile Include="Cadenza\Sequence.Tools.cs" />
     <Compile Include="Cadenza\String.cs" />
     <Compile Include="Cadenza\Tuple.cs" />
     <Compile Include="Cadenza\Tuples.cs" />
