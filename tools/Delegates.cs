@@ -67,7 +67,7 @@ namespace Cadenza.Tools {
 				IsPartial      = true,
 				TypeAttributes = TypeAttributes.Public,
 			};
-			for (int i = 1; i <= n; ++i) {
+			for (int i = 0; i <= n; ++i) {
 				dr.Members.AddRange (CreateCurryActions (i));
 				dr.Members.AddRange (CreateCurryTupleActions (i));
 				dr.Members.AddRange (CreateTraditionalCurryActions (i));
