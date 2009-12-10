@@ -29,6 +29,7 @@
 using System;
 using System.CodeDom;
 using System.CodeDom.Compiler;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -74,6 +75,7 @@ namespace Cadenza.Tools {
 				dr.Members.AddRange (CreateCurryTupleFuncs (i));
 				dr.Members.AddRange (CreateTraditionalCurryFuncs (i));
 				dr.Members.AddRange (CreateCompose (i));
+				dr.Members.AddRange (CreateTimings (i));
 			}
 			return dr;
 		}
@@ -121,6 +123,12 @@ namespace Cadenza.Tools {
 				buf.Append (Value (n, i));
 				comma = true;
 			}
+		}
+
+		static IEnumerable<string> Values (int n, int start, int end)
+		{
+			for (int i = start; i < end; ++i)
+				yield return Value (n, i);
 		}
 
 		IEnumerable<CodeTypeMember> CreateCurryActions (int n)
@@ -253,6 +261,131 @@ namespace Cadenza.Tools {
 		{
 			yield return CreateComposeMethod (Types.ThisAction, Types.Action, n, false);
 			yield return CreateComposeMethod (Types.ThisFunc, Types.Func, n, true);
+		}
+
+		static CodeMemberMethod CreateTimingsHeader (int n, string name, MemberAttributes protection)
+		{
+			var m = new CodeMemberMethod () {
+				Attributes = protection | MemberAttributes.Static,
+				Name       = name,
+				ReturnType = new CodeTypeReference (typeof (IEnumerable<TimeSpan>)),
+			};
+			for (int i = 0; i < n; ++i)
+				m.TypeParameters.Add (Types.GetTypeParameter (n, i));
+			m.Parameters.Add (new CodeParameterDeclarationExpression (
+						protection == MemberAttributes.Public ? Types.ThisAction (n, 0) : Types.Action (n, 0),
+						"self"));
+			for (int i = 0; i < n; ++i)
+				m.Parameters.Add (new CodeParameterDeclarationExpression (Types.GetTypeParameter (n, i), Value (n, i)));
+			m.Parameters.Add (new CodeParameterDeclarationExpression (typeof (int), "runs"));
+
+			return m;
+		}
+
+		static CodeMemberMethod CreateTimingsRunsMethod (int n)
+		{
+			var m = CreateTimingsHeader (n, "Timings", MemberAttributes.Public);
+
+			var e = new CodeMethodInvokeExpression (
+					new CodeMethodReferenceExpression (null, "Timings"),
+					new CodeVariableReferenceExpression ("self"));
+			for (int i = 0; i < n; ++i)
+				e.Parameters.Add (new CodeVariableReferenceExpression (Value (n, i)));
+			e.Parameters.Add (new CodeVariableReferenceExpression ("runs"));
+			e.Parameters.Add (new CodePrimitiveExpression (1));
+			m.Statements.Add (new CodeMethodReturnStatement (e));
+
+			return m;
+		}
+
+		static CodeMemberMethod CreateTimingsRunsLoopsMethod (int n)
+		{
+			var m = CreateTimingsHeader (n, "Timings", MemberAttributes.Public);
+
+			m.Parameters.Add (new CodeParameterDeclarationExpression (typeof (int), "loopsPerRun"));
+
+			m.Statements.AddCheck ("Self", "self");
+			m.Statements.ThrowWhenArgumentIsLtz ("runs");
+			m.Statements.ThrowWhenArgumentIsLtz ("loopsPerRun");
+			var e = new CodeMethodInvokeExpression (
+					new CodeMethodReferenceExpression (null, "CreateTimingsIterator"),
+					new CodeVariableReferenceExpression ("self"));
+			for (int i = 0; i < n; ++i)
+				e.Parameters.Add (new CodeVariableReferenceExpression (Value (n, i)));
+			e.Parameters.Add (new CodeVariableReferenceExpression ("runs"));
+			e.Parameters.Add (new CodeVariableReferenceExpression ("loopsPerRun"));
+			m.Statements.Add (new CodeMethodReturnStatement (e));
+
+			return m;
+		}
+
+		static CodeMemberMethod CreateTimingsIteratorMethod (int n)
+		{
+			var m = CreateTimingsHeader (n, "CreateTimingsIterator", MemberAttributes.Private);
+
+			m.Parameters.Add (new CodeParameterDeclarationExpression (typeof (int), "loopsPerRun"));
+
+			m.Statements.Add (new CodeCommentStatement ("Ensure that required methods are already JITed"));
+			m.Statements.Add (
+					new CodeVariableDeclarationStatement (typeof (Stopwatch), "watch",
+					new CodeMethodInvokeExpression (
+						new CodeTypeReferenceExpression (typeof (Stopwatch)),
+							"StartNew")));
+			m.Statements.Add (
+					new CodeDelegateInvokeExpression (
+						new CodeVariableReferenceExpression ("self"),
+						Values (n, 0, n).Select (v => new CodeVariableReferenceExpression (v)).ToArray ()));
+			m.Statements.Add (
+					new CodeMethodInvokeExpression (
+						new CodeVariableReferenceExpression ("watch"),
+						"Stop"));
+			m.Statements.Add (
+					new CodeMethodInvokeExpression (
+						new CodeVariableReferenceExpression ("watch"),
+						"Reset"));
+
+			m.Statements.Add (
+					new CodeIterationStatement (
+						new CodeVariableDeclarationStatement (typeof (int), "i", new CodePrimitiveExpression (0)),
+						new CodeBinaryOperatorExpression (
+							new CodeVariableReferenceExpression ("i"),
+							CodeBinaryOperatorType.LessThan,
+							new CodeVariableReferenceExpression ("runs")),
+						new CodeAssignStatement (
+							new CodeVariableReferenceExpression ("i"),
+							new CodeBinaryOperatorExpression (
+								new CodeVariableReferenceExpression ("i"),
+								CodeBinaryOperatorType.Add,
+								new CodePrimitiveExpression (1))),
+						new CodeExpressionStatement (new CodeMethodInvokeExpression (new CodeVariableReferenceExpression ("watch"), "Start")),
+						new CodeIterationStatement (
+							new CodeVariableDeclarationStatement (typeof (int), "j", new CodePrimitiveExpression (0)),
+							new CodeBinaryOperatorExpression (
+								new CodeVariableReferenceExpression ("j"),
+								CodeBinaryOperatorType.LessThan,
+								new CodeVariableReferenceExpression ("loopsPerRun")),
+							new CodeAssignStatement (
+								new CodeVariableReferenceExpression ("j"),
+								new CodeBinaryOperatorExpression (
+									new CodeVariableReferenceExpression ("j"),
+									CodeBinaryOperatorType.Add,
+									new CodePrimitiveExpression (1))),
+							new CodeExpressionStatement (
+								new CodeDelegateInvokeExpression (
+									new CodeVariableReferenceExpression ("self"),
+									Values (n, 0, n).Select (v => new CodeVariableReferenceExpression (v)).ToArray ()))),
+						new CodeExpressionStatement (new CodeMethodInvokeExpression (new CodeVariableReferenceExpression ("watch"), "Stop")),
+						new CodeSnippetStatement ("                yield return watch.Elapsed;"),
+						new CodeExpressionStatement (new CodeMethodInvokeExpression (new CodeVariableReferenceExpression ("watch"), "Reset"))));
+
+			return m;
+		}
+
+		IEnumerable<CodeTypeMember> CreateTimings (int n)
+		{
+			yield return CreateTimingsRunsMethod (n);
+			yield return CreateTimingsRunsLoopsMethod (n);
+			yield return CreateTimingsIteratorMethod (n);
 		}
 	}
 }

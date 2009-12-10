@@ -97,13 +97,33 @@ namespace Cadenza.Tools
 
 		public static void ThrowWhenArgumentIsNull (this CodeStatementCollection self, string argument)
 		{
+			ThrowWhenArgumentMatchesExpression (self, argument,
+					new CodeBinaryOperatorExpression (
+						new CodeVariableReferenceExpression (argument),
+						CodeBinaryOperatorType.ValueEquality,
+						new CodePrimitiveExpression (null)));
+		}
+
+		public static void ThrowWhenArgumentIsLessThanZero (this CodeStatementCollection self, string argument)
+		{
 			self.Add (
 					new CodeConditionStatement (
 						new CodeBinaryOperatorExpression (
 							new CodeVariableReferenceExpression (argument),
-							CodeBinaryOperatorType.ValueEquality,
-							new CodePrimitiveExpression (null)
-						),
+							CodeBinaryOperatorType.LessThan,
+							new CodePrimitiveExpression (0)),
+						new CodeThrowExceptionStatement (
+							new CodeObjectCreateExpression (
+								new CodeTypeReference ("System.ArgumentException"),
+								new CodePrimitiveExpression ("Negative values are not supported."),
+								new CodePrimitiveExpression (argument)))));
+		}
+
+		public static void ThrowWhenArgumentMatchesExpression (this CodeStatementCollection self, string argument, CodeBinaryOperatorExpression expression)
+		{
+			self.Add (
+					new CodeConditionStatement (
+						expression,
 						new CodeThrowExceptionStatement (
 							new CodeObjectCreateExpression (
 								new CodeTypeReference ("System.ArgumentNullException"),
