@@ -27,11 +27,47 @@
 //
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Cadenza.Collections {
 
 	public static class Sequence {
+
+		private static readonly Type[] defaultExpandExcept = new[]{
+			typeof (string),
+		};
+
+		public static IEnumerable Expand (object o)
+		{
+			return Expand (o, (IEnumerable<Type>) defaultExpandExcept);
+		}
+
+		public static IEnumerable Expand (object o, params Type[] except)
+		{
+			return Expand (o, (IEnumerable<Type>) except);
+		}
+
+		public static IEnumerable Expand (object o, IEnumerable<Type> except)
+		{
+			if (except == null)
+				throw new ArgumentNullException ("except");
+			return CreateExpandIterator (o, except);
+		}
+
+		static IEnumerable CreateExpandIterator (object o, IEnumerable<Type> except)
+		{
+			IEnumerable e;
+			if (except.Any (t => t.IsAssignableFrom (o.GetType ())))
+				yield return o;
+			else if ((e = o as IEnumerable) != null)
+				foreach (var obj in e)
+					foreach (object oo in Expand (obj))
+						yield return oo;
+			else
+				yield return o;
+		}
 
 		public static IEnumerable<TSource> Iterate<TSource> (TSource value, Func<TSource, TSource> selector)
 		{

@@ -41,6 +41,69 @@ namespace Cadenza.Collections.Tests {
 	public class SequenceTest : BaseRocksFixture {
 
 		[Test]
+		public void Expand_ONull ()
+		{
+			var e = Sequence.Expand (null).GetEnumerator ();
+			Assert.AreEqual (null, e.Current);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void Expand_ExceptArrayNull ()
+		{
+			Type[] except = null;
+			Sequence.Expand (null, except);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void Expand_ExceptEnumerableNull ()
+		{
+			IEnumerable<Type> except = null;
+			Sequence.Expand (null, except);
+		}
+
+		[Test]
+		public void Expand ()
+		{
+			Assert.IsTrue (
+				new[]{
+					"1", "2", "3", "4", "5", "6", "7", "8", "9",
+				}.SequenceEqual (
+					Sequence.Expand (
+						new object[]{
+							"1",
+							new object[]{
+								"2",
+								new object[]{
+									"3",
+									new object[]{
+										"4",
+										new object[]{
+											"5",
+											"6",
+										},
+										"7",
+									"8",
+									},
+								new object[]{
+									"9",
+								},
+							},
+						},
+					}).Cast<string>()));
+		}
+
+		[Test]
+		public void Expand_NoExceptions ()
+		{
+			var except = new Type[0];
+			Assert.IsTrue (
+				new[]{
+					'a', 'b', 'c', 'd'
+				}.SequenceEqual (
+					Sequence.Expand ("abcd", except).Cast<char>()));
+		}
+
+		[Test]
 		[ExpectedException (typeof (ArgumentNullException))]
 		public void Iterate_FuncNull ()
 		{
