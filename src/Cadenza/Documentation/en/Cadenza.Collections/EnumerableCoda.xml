@@ -2026,14 +2026,14 @@ Assert.AreEqual ('d', c [3].Second);
           <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
           which contains the elements within <paramref name="self" /> sorted 
           using the
-          <see cref="F:Cadenza.Collections.NaturalStringComparer.Default" /> comparer.
+          <see cref="F:Cadenza.NaturalStringComparer.Default" /> comparer.
         </summary>
         <returns>
           A new 
           <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
           which contains the elements within <paramref name="self" /> sorted 
           using the
-          <see cref="F:Cadenza.Collections.NaturalStringComparer.Default" /> comparer.
+          <see cref="F:Cadenza.NaturalStringComparer.Default" /> comparer.
         </returns>
         <remarks>
           <para>

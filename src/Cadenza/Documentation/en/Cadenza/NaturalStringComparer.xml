@@ -1,4 +1,4 @@
-<Type Name="NaturalStringComparer" FullName="Cadenza.Collections.NaturalStringComparer">
+<Type Name="NaturalStringComparer" FullName="Cadenza.NaturalStringComparer">
   <TypeSignature Language="C#" Value="public sealed class NaturalStringComparer : System.Collections.Generic.IComparer&lt;string&gt;, System.Collections.IComparer" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
@@ -118,21 +118,21 @@
       </Docs>
     </Member>
     <Member MemberName="Default">
-      <MemberSignature Language="C#" Value="public static Cadenza.Collections.NaturalStringComparer Default { get; }" />
+      <MemberSignature Language="C#" Value="public static Cadenza.NaturalStringComparer Default { get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.Collections.NaturalStringComparer</ReturnType>
+        <ReturnType>Cadenza.NaturalStringComparer</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>
-          Returns the default <see cref="T:Cadenza.Collections.NaturalStringComparer" /> 
+          Returns the default <see cref="T:Cadenza.NaturalStringComparer" /> 
           instance to use for comparing strings.
         </summary>
         <value>
-          A <see cref="T:Cadenza.Collections.NaturalStringComparer" /> 
+          A <see cref="T:Cadenza.NaturalStringComparer" /> 
           instance to use for comparing strings.
         </value>
         <remarks>
@@ -205,7 +205,7 @@
         <remarks>
           <para>
             This method calls 
-            <see cref="M:Cadenza.Collections.NaturalStringComparer.Compare(System.String,System.String)" />,
+            <see cref="M:Cadenza.NaturalStringComparer.Compare(System.String,System.String)" />,
             passing <c><paramref name="x" />.ToString()</c> and 
             <c><paramref name="y" />.ToString()</c> as arguments.
           </para>

@@ -63,9 +63,11 @@
       <Type Name="Maybe" Kind="Class" />
       <Type Name="Maybe`1" DisplayName="Maybe&lt;T&gt;" Kind="Structure" />
       <Type Name="MaybeCoda" Kind="Class" />
+      <Type Name="NaturalStringComparer" Kind="Class" />
       <Type Name="NullableCoda" Kind="Class" />
       <Type Name="ObjectCoda" Kind="Class" />
       <Type Name="RectangularArrayCoda" Kind="Class" />
+      <Type Name="Sequence" Kind="Class" />
       <Type Name="StringCoda" Kind="Class" />
       <Type Name="Tuple" Kind="Class" />
       <Type Name="Tuple`1" DisplayName="Tuple&lt;T&gt;" Kind="Structure" />
@@ -83,10 +85,8 @@
       <Type Name="EnumerableCoda" Kind="Class" />
       <Type Name="KeyValuePairCoda" Kind="Class" />
       <Type Name="MutableLookup`2" DisplayName="MutableLookup&lt;TKey,TElement&gt;" Kind="Class" />
-      <Type Name="NaturalStringComparer" Kind="Class" />
       <Type Name="OrderedDictionary`2" DisplayName="OrderedDictionary&lt;TKey,TValue&gt;" Kind="Class" />
       <Type Name="ReadOnlyDictionary`2" DisplayName="ReadOnlyDictionary&lt;TKey,TValue&gt;" Kind="Class" />
-      <Type Name="Sequence" Kind="Class" />
     </Namespace>
     <Namespace Name="Cadenza.IO">
       <Type Name="EnumerableValueReader`1" DisplayName="EnumerableValueReader&lt;T&gt;" Kind="Class" />
@@ -1972,7 +1972,7 @@
           <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
           which contains the elements within <paramref name="self" /> sorted 
           using the
-          <see cref="F:Cadenza.Collections.NaturalStringComparer.Default" /> comparer.
+          <see cref="F:Cadenza.NaturalStringComparer.Default" /> comparer.
         </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SortNatural(System.Collections.Generic.IEnumerable{System.String})" />

@@ -42,10 +42,8 @@
     <Compile Include="Cadenza.Collections\Enumerable.cs" />
     <Compile Include="Cadenza.Collections\KeyValuePair.cs" />
     <Compile Include="Cadenza.Collections\MutableLookup.cs" />
-    <Compile Include="Cadenza.Collections\NaturalStringComparer.cs" />
     <Compile Include="Cadenza.Collections\OrderedDictionary.cs" />
     <Compile Include="Cadenza.Collections\ReadOnlyDictionary.cs" />
-    <Compile Include="Cadenza.Collections\Sequence.cs" />
     <Compile Include="Cadenza.IO\EnumerableValueReader.cs" />
     <Compile Include="Cadenza.IO\IValueReader.cs" />
     <Compile Include="Cadenza.IO\IValueWriter.cs" />
@@ -68,9 +66,11 @@
     <Compile Include="Cadenza\Lambda.cs" />
     <Compile Include="Cadenza\Lambdas.cs" />
     <Compile Include="Cadenza\Maybe.cs" />
+    <Compile Include="Cadenza\NaturalStringComparer.cs" />
     <Compile Include="Cadenza\Nullable.cs" />
     <Compile Include="Cadenza\Object.cs" />
     <Compile Include="Cadenza\RectangularArray.cs" />
+    <Compile Include="Cadenza\Sequence.cs" />
     <Compile Include="Cadenza\String.cs" />
     <Compile Include="Cadenza\Tuple.cs" />
     <Compile Include="Cadenza\Tuples.cs" />

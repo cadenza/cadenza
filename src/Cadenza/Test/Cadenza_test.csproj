@@ -43,10 +43,8 @@
     <Compile Include="Cadenza.Collections\EnumerableTest.cs" />
     <Compile Include="Cadenza.Collections\KeyValuePairTest.cs" />
     <Compile Include="Cadenza.Collections\MutableLookupTest.cs" />
-    <Compile Include="Cadenza.Collections\NaturalStringComparerTest.cs" />
     <Compile Include="Cadenza.Collections\OrderedDictionaryTest.cs" />
     <Compile Include="Cadenza.Collections\ReadOnlyDictionaryTest.cs" />
-    <Compile Include="Cadenza.Collections\SequenceTest.cs" />
     <Compile Include="Cadenza.IO\EnumerableValueReaderTest.cs" />
     <Compile Include="Cadenza.IO\StreamTest.cs" />
     <Compile Include="Cadenza.IO\SystemStreamConverterTest.cs" />
@@ -64,9 +62,11 @@
     <Compile Include="Cadenza\JaggedArrayTest.cs" />
     <Compile Include="Cadenza\LambdaTest.cs" />
     <Compile Include="Cadenza\MaybeTest.cs" />
+    <Compile Include="Cadenza\NaturalStringComparerTest.cs" />
     <Compile Include="Cadenza\NullableTest.cs" />
     <Compile Include="Cadenza\ObjectTest.cs" />
     <Compile Include="Cadenza\RectangularArrayTest.cs" />
+    <Compile Include="Cadenza\SequenceTest.cs" />
     <Compile Include="Cadenza\StringTest.cs" />
     <Compile Include="Cadenza\TuplesTest.cs" />
     <Compile Include="Cadenza\TypeTest.cs" />

@@ -2,10 +2,8 @@
 ./src/Cadenza/Cadenza.Collections/Enumerable.cs
 ./src/Cadenza/Cadenza.Collections/KeyValuePair.cs
 ./src/Cadenza/Cadenza.Collections/MutableLookup.cs
-./src/Cadenza/Cadenza.Collections/NaturalStringComparer.cs
 ./src/Cadenza/Cadenza.Collections/OrderedDictionary.cs
 ./src/Cadenza/Cadenza.Collections/ReadOnlyDictionary.cs
-./src/Cadenza/Cadenza.Collections/Sequence.cs
 ./src/Cadenza/Cadenza.IO/EnumerableValueReader.cs
 ./src/Cadenza/Cadenza.IO/IValueReader.cs
 ./src/Cadenza/Cadenza.IO/IValueWriter.cs
@@ -28,9 +26,11 @@
 ./src/Cadenza/Cadenza/Lambda.cs
 ./src/Cadenza/Cadenza/Lambdas.cs
 ./src/Cadenza/Cadenza/Maybe.cs
+./src/Cadenza/Cadenza/NaturalStringComparer.cs
 ./src/Cadenza/Cadenza/Nullable.cs
 ./src/Cadenza/Cadenza/Object.cs
 ./src/Cadenza/Cadenza/RectangularArray.cs
+./src/Cadenza/Cadenza/Sequence.cs
 ./src/Cadenza/Cadenza/String.cs
 ./src/Cadenza/Cadenza/Tuple.cs
 ./src/Cadenza/Cadenza/Tuples.cs

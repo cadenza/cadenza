@@ -1,12 +1,10 @@
 ./src/Cadenza/Test/Cadenza.Collections/CachedSequenceTest.cs
-./src/Cadenza/Test/Cadenza.Collections/IEnumerableContract.cs
 ./src/Cadenza/Test/Cadenza.Collections/EnumerableTest.cs
+./src/Cadenza/Test/Cadenza.Collections/IEnumerableContract.cs
 ./src/Cadenza/Test/Cadenza.Collections/KeyValuePairTest.cs
 ./src/Cadenza/Test/Cadenza.Collections/MutableLookupTest.cs
-./src/Cadenza/Test/Cadenza.Collections/NaturalStringComparerTest.cs
 ./src/Cadenza/Test/Cadenza.Collections/OrderedDictionaryTest.cs
 ./src/Cadenza/Test/Cadenza.Collections/ReadOnlyDictionaryTest.cs
-./src/Cadenza/Test/Cadenza.Collections/SequenceTest.cs
 ./src/Cadenza/Test/Cadenza.IO/EnumerableValueReaderTest.cs
 ./src/Cadenza/Test/Cadenza.IO/StreamTest.cs
 ./src/Cadenza/Test/Cadenza.IO/SystemStreamConverterTest.cs
@@ -24,9 +22,11 @@
 ./src/Cadenza/Test/Cadenza/JaggedArrayTest.cs
 ./src/Cadenza/Test/Cadenza/LambdaTest.cs
 ./src/Cadenza/Test/Cadenza/MaybeTest.cs
+./src/Cadenza/Test/Cadenza/NaturalStringComparerTest.cs
 ./src/Cadenza/Test/Cadenza/NullableTest.cs
 ./src/Cadenza/Test/Cadenza/ObjectTest.cs
 ./src/Cadenza/Test/Cadenza/RectangularArrayTest.cs
+./src/Cadenza/Test/Cadenza/SequenceTest.cs
 ./src/Cadenza/Test/Cadenza/StringTest.cs
 ./src/Cadenza/Test/Cadenza/TuplesTest.cs
 ./src/Cadenza/Test/Cadenza/TypeTest.cs

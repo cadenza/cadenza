@@ -1,4 +1,4 @@
-<Type Name="Sequence" FullName="Cadenza.Collections.Sequence">
+<Type Name="Sequence" FullName="Cadenza.Sequence">
   <TypeSignature Language="C#" Value="public static class Sequence" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
@@ -57,7 +57,7 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Collections.Sequence.Expand(System.Object,System.Collections.Generic.IEnumerable{System.Type})" /></exception>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Sequence.Expand(System.Object,System.Collections.Generic.IEnumerable{System.Type})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Expand">
@@ -157,7 +157,7 @@
               the sequence is terminated.
             </para>
           </block>
-          <code lang="C#" src="../../Test/Cadenza.Collections/SequenceTest.cs#GenerateReverse">Assert.AreEqual ("10,9,8,7,6,5,4,3,2,1",
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#GenerateReverse">Assert.AreEqual ("10,9,8,7,6,5,4,3,2,1",
 	Sequence.GenerateReverse (10, 
 		b =&gt; Maybe.When (b &gt; 0, Tuple.Create (b, b-1)))
 	.Implode (","));
@@ -231,7 +231,7 @@
               ... }</c>.
             </para>
           </block>
-          <code lang="C#" src="../../Test/Cadenza.Collections/SequenceTest.cs#Iterate">Assert.AreEqual ("16,8,4,2,1",
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#Iterate">Assert.AreEqual ("16,8,4,2,1",
 		Sequence.Iterate (16, v =&gt; v / 2).Take (5).Implode (","));
 Assert.AreEqual ("1,2,3,4,5",
 		Sequence.Iterate (1, v =&gt; v+1).Take (5).Implode (","));
@@ -275,7 +275,7 @@ Assert.AreEqual ("1,2,3,4,5",
           seqeuence where each element value is <paramref name="value" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Test/Cadenza.Collections/SequenceTest.cs#Repeat">Assert.AreEqual ("1,1,1,1,1",
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#Repeat">Assert.AreEqual ("1,1,1,1,1",
 		Sequence.Repeat (1).Take (5).Implode (","));
 </code>
         </remarks>
