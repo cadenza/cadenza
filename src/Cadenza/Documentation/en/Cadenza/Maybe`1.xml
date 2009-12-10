@@ -86,7 +86,7 @@
         </item>
         <item>
           <term>
-          By using the <see cref="M:Cadenza.ObjectRocks.Just``1(``0)" />
+          By using the <see cref="M:Cadenza.ObjectCoda.Just``1(``0)" />
           extension method.  This will throw an 
           <see cref="T:System.ArgumentNullException" /> if the value is
           <see langword="null" />.
@@ -94,7 +94,7 @@
         </item>
         <item>
           <term>
-          By using the <see cref="M:Cadenza.ObjectRocks.ToMaybe``1(``0)" />
+          By using the <see cref="M:Cadenza.ObjectCoda.ToMaybe``1(``0)" />
           extension method.  If the value is <see langword="null" />, then
           <see cref="F:Cadenza.Maybe{T}.Nothing" /> is returned.
         </term>

@@ -62,7 +62,7 @@
         <remarks>
           <para>
             <c>GenerateReverse</c> acts as a "dual" to 
-            <see cref="M:Cadenza.Collections.IEnumerableRocks.AggregateReverse``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />:
+            <see cref="M:Cadenza.Collections.IEnumerableCoda.AggregateReverse``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />:
             while <c>AggregateReverse</c> reduces a list to a summary value
             (evaluating the list starting from the end),
             <c>GenerateReverse</c> builds a list from a seed value.
@@ -98,7 +98,7 @@
         <exception cref="T:System.ArgumentNullException">
           <paramref name="selector" /> is <see langword="null" />.
         </exception>
-        <altmember cref="M:Cadenza.Collections.IEnumerableRocks.AggregateReverse``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
+        <altmember cref="M:Cadenza.Collections.IEnumerableCoda.AggregateReverse``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})" />
         <altmember cref="M:Cadenza.Maybe.When``1(System.Boolean,``0)" />
         <altmember cref="M:Cadenza.Maybe.When``1(System.Boolean,System.Func{``0})" />
         <altmember cref="T:Cadenza.Tuple{TResult,TSource}" />

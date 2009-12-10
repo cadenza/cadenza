@@ -229,7 +229,7 @@ Assert.AreEqual (42, r.Value);
           <paramref name="creator" /> returned <see langword="null" />.
         </exception>
         <altmember cref="M:Cadenza.Maybe.When``1(System.Boolean,``0)" />
-        <altmember cref="M:Cadenza.ObjectRocks.Match``2(``0,System.Func{``0,Cadenza.Maybe{``1}}[])" />
+        <altmember cref="M:Cadenza.ObjectCoda.Match``2(``0,System.Func{``0,Cadenza.Maybe{``1}}[])" />
       </Docs>
     </Member>
     <Member MemberName="When&lt;T&gt;">
@@ -296,7 +296,7 @@ Assert.IsFalse (r.HasValue);
           <paramref name="value" /> returned <see langword="null" />.
         </exception>
         <altmember cref="M:Cadenza.Maybe.When``1(System.Boolean,``0)" />
-        <altmember cref="M:Cadenza.ObjectRocks.Match``2(``0,System.Func{``0,Cadenza.Maybe{``1}}[])" />
+        <altmember cref="M:Cadenza.ObjectCoda.Match``2(``0,System.Func{``0,Cadenza.Maybe{``1}}[])" />
       </Docs>
     </Member>
   </Members>

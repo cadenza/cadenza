@@ -33,8 +33,8 @@
         time, and <c>"1"</c> is before <c>"2"</c>.
       </para>
     </remarks>
-    <altmember cref="M:Cadenza.Collections.IEnumerableRocks.OrderByNatural``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})" />
-    <altmember cref="M:Cadenza.Collections.IEnumerableRocks.SortNatural(System.Collections.Generic.IEnumerable{System.String})" />
+    <altmember cref="M:Cadenza.Collections.IEnumerableCoda.OrderByNatural``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})" />
+    <altmember cref="M:Cadenza.Collections.IEnumerableCoda.SortNatural(System.Collections.Generic.IEnumerable{System.String})" />
   </Docs>
   <Members>
     <Member MemberName="Compare">
