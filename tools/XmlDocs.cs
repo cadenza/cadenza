@@ -178,7 +178,7 @@ namespace Cadenza.Tools {
 		static IEnumerable<string> Block (string element, string attrs, params object[] block)
 		{
 			yield return "<" + element + (!string.IsNullOrEmpty (attrs) ? " " + attrs : "") + ">";
-			foreach (var o in Seq.Expand (block))
+			foreach (var o in Sequence.Expand (block))
 				yield return "  " + o.ToString ();
 			yield return "</" + element + ">";
 		}

@@ -40,6 +40,7 @@
     <Compile Include="FileGenerator.cs" />
     <Compile Include="Types.cs" />
     <Compile Include="XmlDocs.cs" />
+    <Compile Include="..\src\Cadenza\Cadenza\Sequence.Tools.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>

@@ -32,24 +32,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+using Cadenza;
+
 namespace Cadenza.Tools
 {
-	public static class Seq {
-		public static IEnumerable Expand (object o)
-		{
-			IEnumerable e;
-			var s = o as string;
-			if (s != null)
-				yield return s;
-			else if ((e = o as IEnumerable) != null)
-				foreach (var obj in e)
-					foreach (object oo in Expand (obj))
-						yield return oo;
-			else
-				yield return o;
-		}
-	}
-
 	public static class CodeDomRocks
 	{
 		public static void AddCheck (this CodeStatementCollection self, string method, string argument)
@@ -80,13 +66,13 @@ namespace Cadenza.Tools
 
 		public static void AddRange (this CodeCommentStatementCollection self, params object[] comments)
 		{
-			foreach (var comment in Seq.Expand (comments))
+			foreach (var comment in Sequence.Expand (comments))
 				self.Add (new CodeCommentStatement (comment.ToString ()));
 		}
 
 		public static void AddDocs (this CodeCommentStatementCollection self, params object[] comments)
 		{
-			foreach (var comment in Seq.Expand (comments))
+			foreach (var comment in Sequence.Expand (comments))
 				self.Add (new CodeCommentStatement (comment.ToString (), true));
 		}
 
