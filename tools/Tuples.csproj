@@ -8,7 +8,7 @@
     <ProjectGuid>{c783daa9-89fb-4cbf-aa59-ac6ec61a0c22}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Mono.Rocks.Tools</RootNamespace>
-    <AssemblyName>Delegates</AssemblyName>
+    <AssemblyName>Tuples</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
