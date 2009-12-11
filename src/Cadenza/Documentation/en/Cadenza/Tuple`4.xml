@@ -58,8 +58,8 @@
             by-index in a strongly typed manner.  Strongly typed properties use
             the pattern <c>_N</c>, where <c>N</c> is the ones-based value position.
             The indexer, as always, uses 0-based positions.  Thus the value
-            <see cref="P:Cadenza.Tuple`4._1" /> and <c>tuple[0]</c> refer to the same value,
-            except <see cref="P:Cadenza.Tuple`4._1" /> is strongly typed, while
+            <see cref="P:Cadenza.Tuple`4.Item1" /> and <c>tuple[0]</c> refer to the same value,
+            except <see cref="P:Cadenza.Tuple`4.Item1" /> is strongly typed, while
             <c>tuple[0]</c> is typed as a <see cref="T:System.Object" /> (and thus
             potentially boxed).
             </para>
@@ -106,110 +106,6 @@
         </remarks>
       </Docs>
     </Member>
-    <Member MemberName="_1">
-      <MemberSignature Language="C#" Value="public T1 _1 { get; }" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>T1</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            The first tuple value.
-            </summary>
-        <value>
-            A <typeparamref name="T1" /> which is the first tuple value.
-            </value>
-        <remarks>
-            The first tuple value.
-            </remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="_2">
-      <MemberSignature Language="C#" Value="public T2 _2 { get; }" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>T2</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            The second tuple value.
-            </summary>
-        <value>
-            A <typeparamref name="T2" /> which is the second tuple value.
-            </value>
-        <remarks>
-            The second tuple value.
-            </remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="_3">
-      <MemberSignature Language="C#" Value="public T3 _3 { get; }" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>T3</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            The third tuple value.
-            </summary>
-        <value>
-            A <typeparamref name="T3" /> which is the third tuple value.
-            </value>
-        <remarks>
-            The third tuple value.
-            </remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="_4">
-      <MemberSignature Language="C#" Value="public T4 _4 { get; }" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
-      <ReturnValue>
-        <ReturnType>T4</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>
-            The fourth tuple value.
-            </summary>
-        <value>
-            A <typeparamref name="T4" /> which is the fourth tuple value.
-            </value>
-        <remarks>
-            The fourth tuple value.
-            </remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Aggregate&lt;TResult&gt;">
       <MemberSignature Language="C#" Value="public TResult Aggregate&lt;TResult&gt; (Func&lt;T1,T2,T3,T4,TResult&gt; func);" />
       <MemberType>Method</MemberType>
@@ -231,7 +127,7 @@
             </typeparam>
         <param name="func">
             A <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> which will be invoked, providing the values
-            <see cref="P:Cadenza.Tuple`4._1" />, <see cref="P:Cadenza.Tuple`4._2" />, <see cref="P:Cadenza.Tuple`4._3" />, <see cref="P:Cadenza.Tuple`4._4" /> to <paramref name="func" /> and
+            <see cref="P:Cadenza.Tuple`4.Item1" />, <see cref="P:Cadenza.Tuple`4.Item2" />, <see cref="P:Cadenza.Tuple`4.Item3" />, <see cref="P:Cadenza.Tuple`4.Item4" /> to <paramref name="func" /> and
             returning the value returned by <paramref name="func" />.
             </param>
         <summary>
@@ -243,7 +139,7 @@
         <remarks>
           <para>
             <block subset="none" type="behaviors">
-            Passes the values <see cref="P:Cadenza.Tuple`4._1" />, <see cref="P:Cadenza.Tuple`4._2" />, <see cref="P:Cadenza.Tuple`4._3" />, <see cref="P:Cadenza.Tuple`4._4" /> to
+            Passes the values <see cref="P:Cadenza.Tuple`4.Item1" />, <see cref="P:Cadenza.Tuple`4.Item2" />, <see cref="P:Cadenza.Tuple`4.Item3" />, <see cref="P:Cadenza.Tuple`4.Item4" /> to
             <paramref name="func" />, returning the value produced by
             	<paramref name="func" />.
             </block>
@@ -353,7 +249,7 @@
           <para>
             Returns each value in the <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> as an
             <see cref="T:System.Object" />, in the order
-            <see cref="P:Cadenza.Tuple`4._1" />, <see cref="P:Cadenza.Tuple`4._2" />, <see cref="P:Cadenza.Tuple`4._3" />, <see cref="P:Cadenza.Tuple`4._4" />.
+            <see cref="P:Cadenza.Tuple`4.Item1" />, <see cref="P:Cadenza.Tuple`4.Item2" />, <see cref="P:Cadenza.Tuple`4.Item3" />, <see cref="P:Cadenza.Tuple`4.Item4" />.
             </para>
         </remarks>
       </Docs>
@@ -418,6 +314,110 @@
         <exception cref="T:System.NotSupportedException">
             The setter was called.
             </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Item1">
+      <MemberSignature Language="C#" Value="public T1 Item1 { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>T1</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The first tuple value.
+            </summary>
+        <value>
+            A <typeparamref name="T1" /> which is the first tuple value.
+            </value>
+        <remarks>
+            The first tuple value.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Item2">
+      <MemberSignature Language="C#" Value="public T2 Item2 { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>T2</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The second tuple value.
+            </summary>
+        <value>
+            A <typeparamref name="T2" /> which is the second tuple value.
+            </value>
+        <remarks>
+            The second tuple value.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Item3">
+      <MemberSignature Language="C#" Value="public T3 Item3 { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>T3</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The third tuple value.
+            </summary>
+        <value>
+            A <typeparamref name="T3" /> which is the third tuple value.
+            </value>
+        <remarks>
+            The third tuple value.
+            </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Item4">
+      <MemberSignature Language="C#" Value="public T4 Item4 { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
+      <ReturnValue>
+        <ReturnType>T4</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>
+            The fourth tuple value.
+            </summary>
+        <value>
+            A <typeparamref name="T4" /> which is the fourth tuple value.
+            </value>
+        <remarks>
+            The fourth tuple value.
+            </remarks>
       </Docs>
     </Member>
     <Member MemberName="Match&lt;TResult&gt;">
@@ -1333,7 +1333,7 @@
             <block subset="none" type="behaviors">
             Returns <c>(</c>, followed by a comma-separated list of the result of
             calling <see cref="M:System.Object.ToString" /> on
-            <see cref="P:Cadenza.Tuple`4._1" />, <see cref="P:Cadenza.Tuple`4._2" />, <see cref="P:Cadenza.Tuple`4._3" />, <see cref="P:Cadenza.Tuple`4._4" />, followed by <c>)</c>.
+            <see cref="P:Cadenza.Tuple`4.Item1" />, <see cref="P:Cadenza.Tuple`4.Item2" />, <see cref="P:Cadenza.Tuple`4.Item3" />, <see cref="P:Cadenza.Tuple`4.Item4" />, followed by <c>)</c>.
             </block>
           </para>
         </remarks>
