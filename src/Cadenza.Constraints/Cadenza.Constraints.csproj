@@ -35,7 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assembly\AssemblyInfo.cs" />
-    <Compile Include="Cadenza.Contraints\Arguments.cs" />
+    <Compile Include="Cadenza.Constraints\Arguments.cs" />
   </ItemGroup>
   <Import Project="..\..\lib\mdoc-net\mdoc.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
