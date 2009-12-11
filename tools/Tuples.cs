@@ -185,10 +185,6 @@ namespace Cadenza.Tools {
 		protected override IEnumerable<string> GetUsings ()
 		{
 			yield return "System";
-			yield return "System.Collections";
-			yield return "System.Collections.Generic";
-			yield return "System.Reflection";
-			yield return "System.Text";
 		}
 
 		protected override IEnumerable<CodeTypeDeclaration> GetRocksNamespaceTypes ()
@@ -204,7 +200,7 @@ namespace Cadenza.Tools {
 			};
 			for (int i = 1; i <= n; ++i) {
 				t.Members.Add (CreateAggregateMethod (i));
-				// t.Members.Add (CreateMatchMethod (i));
+				t.Members.Add (CreateMatchMethod (i));
 			}
 			return t;
 		}
@@ -221,7 +217,7 @@ namespace Cadenza.Tools {
 				m.TypeParameters.Add (Types.GetTypeParameter (n, i));
 			m.TypeParameters.Add ("TResult");
 
-			var selfType = new CodeTypeReference ("this Cadenza.Tuple", Types.GetTypeParameterReferences (n, false).ToArray ());
+			var selfType = new CodeTypeReference ("this Tuple", Types.GetTypeParameterReferences (n, false).ToArray ());
 			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));
 
 			var funcType = Types.Func (n);
@@ -241,7 +237,48 @@ namespace Cadenza.Tools {
 
 		CodeMemberMethod CreateMatchMethod (int n)
 		{
-			return null;
+			var retType   = new CodeTypeReference ("TResult");
+			var m = new CodeMemberMethod () {
+				Attributes  = MemberAttributes.Public | MemberAttributes.Static,
+				Name        = "Match",
+				ReturnType  = retType,
+			};
+			for (int i = 0; i < n; ++i)
+				m.TypeParameters.Add (Types.GetTypeParameter (n, i));
+			m.TypeParameters.Add ("TResult");
+
+			var selfType = new CodeTypeReference ("this Tuple", Types.GetTypeParameterReferences (n, false).ToArray ());
+			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));
+
+			var matchersType = new CodeTypeReference (
+					new CodeTypeReference (Types.FuncType (n),
+						Types.GetTypeParameterReferences (n, false)
+						.Concat (new[]{new CodeTypeReference ("Cadenza.Maybe", new[]{new CodeTypeReference ("TResult")})})
+						.ToArray ()),
+					1);
+			var matchersParam = new CodeParameterDeclarationExpression (matchersType, "matchers");
+			matchersParam.CustomAttributes.Add (new CodeAttributeDeclaration ("System.ParamArrayAttribute"));
+			m.Parameters.Add (matchersParam);
+
+			m.Statements.AddCheck ("Self", "self");
+			m.Statements.ThrowWhenArgumentIsNull ("matchers");
+
+			var loop = new StringBuilder ();
+			loop.Append ("            foreach (var m in matchers) {\n");
+			loop.Append ("              var r = m (self.Item1");
+			for (int i = 1; i < n; ++i)
+				loop.Append (", self.").Append (Tuple.Item (n, i));
+			loop.Append (");\n");
+			loop.Append ("              if (r.HasValue)\n");
+			loop.Append ("                return r.Value;\n");
+			loop.Append ("            }");
+			m.Statements.Add (new CodeSnippetStatement (loop.ToString ()));
+			m.Statements.Add (
+					new CodeThrowExceptionStatement (
+						new CodeObjectCreateExpression (
+							new CodeTypeReference ("System.InvalidOperationException"),
+							new CodePrimitiveExpression ("no match"))));
+			return m;
 		}
 	}
 }
