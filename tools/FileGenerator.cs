@@ -50,11 +50,15 @@ namespace Cadenza.Tools {
 
 		public virtual int Run (string[] args)
 		{
+			string outputFile = null;
 			try {
 				var p = new OptionSet () {
 					{ "n|count=",
 					  "The number of method overloads to generate.",
 					  (int v) => TypeParameterCount = v },
+					{ "o|out=",
+					  "The file to write to.",
+					  v => outputFile = v },
 				};
 				bool help = false;
 				AddOptions (p);
@@ -76,7 +80,8 @@ namespace Cadenza.Tools {
 			foreach (var ns in GetCodeNamespaces ())
 				file.Namespaces.Add (ns);
 
-			var o = new IndentedTextWriter (Console.Out, "\t");
+			var o = GetOutputFile (outputFile);
+			var w = new IndentedTextWriter (o, "\t");
 			var provider = new CSharpCodeProvider ();
 			provider.GenerateCodeFromCompileUnit (file, o, new CodeGeneratorOptions () {
 					// BlankLinesBetweenMembers = true,
@@ -153,6 +158,13 @@ namespace Cadenza.Tools {
 
 		protected virtual void AddOptions (OptionSet options)
 		{
+		}
+
+		protected virtual TextWriter GetOutputFile (string outputFile)
+		{
+			if (outputFile == null)
+				return Console.Out;
+			return new StreamWriter (outputFile, false, Encoding.UTF8);
 		}
 	}
 }

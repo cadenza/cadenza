@@ -32,21 +32,59 @@ using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 
 namespace Cadenza.Tools {
 
-	class Tuples : FileGenerator
-	{
+	class TuplesGenerator {
 		public static int Main (string[] args)
 		{
-			return new Tuples ().Run (args);
+			if (args.Any(a => new[]{"-h", "--help", "/help", "/?"}.Contains (a)))
+				return new Tuples ().Run (args);
+			foreach (var p in new FileGenerator[]{new Tuples (), new TuplesCoda ()}) {
+				var r = p.Run (args);
+				if (r != 0)
+					return r;
+			}
+			return 0;
+		}
+	}
+
+	class Tuples : FileGenerator
+	{
+		protected override string Header {
+			get {return "Tuples.cs: Tuple types.";}
+		}
+
+		protected override IEnumerable<string> GetUsings ()
+		{
+			yield return "System";
+			yield return "System.Collections";
+			yield return "System.Collections.Generic";
+			yield return "System.Reflection";
+			yield return "System.Text";
+		}
+
+		protected override IEnumerable<CodeTypeDeclaration> GetRocksNamespaceTypes ()
+		{
+			yield break;
+		}
+	}
+
+	class TuplesCoda : FileGenerator
+	{
+		protected override TextWriter GetOutputFile (string outputFile)
+		{
+			if (outputFile != null)
+				outputFile = outputFile.Replace (".cs", "Coda.cs");
+			return base.GetOutputFile (outputFile);
 		}
 
 		protected override string Header {
-			get {return "Tuples.cs: Tuple types.";}
+			get {return "TuplesCoda.cs: Tuple extension methods.";}
 		}
 
 		protected override IEnumerable<string> GetUsings ()
