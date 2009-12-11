@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambdas", "tools\Lambdas.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegates", "tools\Delegates.csproj", "{f5c4e1e8-7e56-4957-8d65-e5bf21ebe757}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tuples", "tools\Tuples.csproj", "{c783daa9-89fb-4cbf-aa59-ac6ec61a0c22}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "doc", "doc\doc.csproj", "{9D66D3EB-C4CD-4964-95B1-33C7FAE14CAF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadenza.Constraints", "src\Cadenza.Constraints\Cadenza.Constraints.csproj", "{C84F2A75-81FD-42BA-8660-02A6CA773851}"
@@ -53,6 +55,12 @@ Global
 		{9D66D3EB-C4CD-4964-95B1-33C7FAE14CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9D66D3EB-C4CD-4964-95B1-33C7FAE14CAF}.Default|Any CPU.ActiveCfg = Debug|Any CPU
 		{9D66D3EB-C4CD-4964-95B1-33C7FAE14CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{c783daa9-89fb-4cbf-aa59-ac6ec61a0c22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{c783daa9-89fb-4cbf-aa59-ac6ec61a0c22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{c783daa9-89fb-4cbf-aa59-ac6ec61a0c22}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{c783daa9-89fb-4cbf-aa59-ac6ec61a0c22}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{c783daa9-89fb-4cbf-aa59-ac6ec61a0c22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{c783daa9-89fb-4cbf-aa59-ac6ec61a0c22}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C84F2A75-81FD-42BA-8660-02A6CA773851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C84F2A75-81FD-42BA-8660-02A6CA773851}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C84F2A75-81FD-42BA-8660-02A6CA773851}.Default|Any CPU.ActiveCfg = Debug|Any CPU
@@ -76,6 +84,7 @@ Global
 		{06905AC7-3D4C-4F8F-8321-8B6FC227B990} = {B0006991-25C5-4A27-A4B0-0C048BF7784F}
 		{7E42A1FF-7E63-4F80-A184-49A214C4A978} = {B0006991-25C5-4A27-A4B0-0C048BF7784F}
 		{f5c4e1e8-7e56-4957-8d65-e5bf21ebe757} = {B0006991-25C5-4A27-A4B0-0C048BF7784F}
+		{c783daa9-89fb-4cbf-aa59-ac6ec61a0c22} = {B0006991-25C5-4A27-A4B0-0C048BF7784F}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = src\Cadenza\Cadenza.csproj
