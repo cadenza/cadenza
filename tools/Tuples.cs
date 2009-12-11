@@ -110,26 +110,12 @@ namespace Cadenza.Tools {
 			for (int i = 0; i < n; ++i)
 				m.Parameters.Add (
 						new CodeParameterDeclarationExpression (
-							new CodeTypeReference (Types.GetTypeParameter (n, i)), item (n, i)));
+							new CodeTypeReference (Types.GetTypeParameter (n, i)), Tuple.item (n, i)));
 			m.Statements.Add (
 					new CodeMethodReturnStatement (
 						new CodeObjectCreateExpression ("Cadenza.Tuple",
-							Enumerable.Range (0, n).Select (p => new CodeVariableReferenceExpression (item (n, p))).ToArray ())));
+							Enumerable.Range (0, n).Select (p => new CodeVariableReferenceExpression (Tuple.item (n, p))).ToArray ())));
 			return m;
-		}
-
-		static string item (int n, int i)
-		{
-			if (n == 0 || n == 1)
-				return "item1";
-			return "item" + (i+1);
-		}
-
-		static string Item (int n, int i)
-		{
-			if (n == 0 || n == 1)
-				return "Item1";
-			return "Item" + (i+1);
 		}
 
 		CodeTypeDeclaration CreateTupleType (int n)
@@ -140,29 +126,46 @@ namespace Cadenza.Tools {
 			};
 			for (int i = 0; i < n; ++i) {
 				tuple.TypeParameters.Add (Types.GetTypeParameter (n, i));
-				tuple.Members.Add (new CodeMemberField (Types.GetTypeParameter (n, i), item (n, i)));
+				tuple.Members.Add (new CodeMemberField (Types.GetTypeParameter (n, i), Tuple.item (n, i)));
 				var p = new CodeMemberProperty () {
 					Attributes  = MemberAttributes.Public | MemberAttributes.Final,
-					Name        = Item (n, i),
+					Name        = Tuple.Item (n, i),
 					HasGet      = true,
 					HasSet      = false,
 					Type        = new CodeTypeReference (Types.GetTypeParameter (n, i)),
 				};
 				p.GetStatements.Add (
-						new CodeMethodReturnStatement (new CodeFieldReferenceExpression (new CodeThisReferenceExpression (), item (n, i))));
+						new CodeMethodReturnStatement (new CodeFieldReferenceExpression (new CodeThisReferenceExpression (), Tuple.item (n, i))));
 				tuple.Members.Add (p);
 			}
 			var c = new CodeConstructor () {
 				Attributes  = MemberAttributes.Public,
 			};
 			for (int i = 0; i < n; ++i) {
-				c.Parameters.Add (new CodeParameterDeclarationExpression (Types.GetTypeParameter (n, i), item (n, i)));
+				c.Parameters.Add (new CodeParameterDeclarationExpression (Types.GetTypeParameter (n, i), Tuple.item (n, i)));
 				c.Statements.Add (new CodeAssignStatement (
-							new CodeFieldReferenceExpression (new CodeThisReferenceExpression (), item (n, i)),
-							new CodeVariableReferenceExpression (item (n, i))));
+							new CodeFieldReferenceExpression (new CodeThisReferenceExpression (), Tuple.item (n, i)),
+							new CodeVariableReferenceExpression (Tuple.item (n, i))));
 			}
 			tuple.Members.Add (c);
 			return tuple;
+		}
+	}
+
+	static class Tuple {
+
+		public static string item (int n, int i)
+		{
+			if (n == 0 || n == 1)
+				return "item1";
+			return "item" + (i+1);
+		}
+
+		public static string Item (int n, int i)
+		{
+			if (n == 0 || n == 1)
+				return "Item1";
+			return "Item" + (i+1);
 		}
 	}
 
@@ -190,7 +193,55 @@ namespace Cadenza.Tools {
 
 		protected override IEnumerable<CodeTypeDeclaration> GetRocksNamespaceTypes ()
 		{
-			yield break;
+			yield return CreateTupleCodaType (TypeParameterCount);
+		}
+
+		CodeTypeDeclaration CreateTupleCodaType (int n)
+		{
+			var t = new CodeTypeDeclaration ("TupleCoda") {
+				IsClass   = true,
+				IsPartial = true,
+			};
+			for (int i = 1; i <= n; ++i) {
+				t.Members.Add (CreateAggregateMethod (i));
+				// t.Members.Add (CreateMatchMethod (i));
+			}
+			return t;
+		}
+
+		CodeMemberMethod CreateAggregateMethod (int n)
+		{
+			var retType   = new CodeTypeReference ("TResult");
+			var m = new CodeMemberMethod () {
+				Attributes  = MemberAttributes.Public | MemberAttributes.Static,
+				Name        = "Aggregate",
+				ReturnType  = retType,
+			};
+			for (int i = 0; i < n; ++i)
+				m.TypeParameters.Add (Types.GetTypeParameter (n, i));
+			m.TypeParameters.Add ("TResult");
+
+			var selfType = new CodeTypeReference ("this Cadenza.Tuple", Types.GetTypeParameterReferences (n, false).ToArray ());
+			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));
+
+			var funcType = Types.Func (n);
+			m.Parameters.Add (new CodeParameterDeclarationExpression (funcType, "func"));
+
+			m.Statements.AddCheck ("Self", "self");
+			m.Statements.AddCheck ("Func", "func");
+			m.Statements.Add (
+					new CodeMethodReturnStatement (
+						new CodeDelegateInvokeExpression (
+							new CodeVariableReferenceExpression ("func"),
+							Enumerable.Range (0, n).Select (p =>
+								new CodePropertyReferenceExpression (new CodeVariableReferenceExpression ("self"), Tuple.Item (n, p))).ToArray ())));
+
+			return m;
+		}
+
+		CodeMemberMethod CreateMatchMethod (int n)
+		{
+			return null;
 		}
 	}
 }
