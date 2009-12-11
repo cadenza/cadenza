@@ -70,7 +70,57 @@ namespace Cadenza.Tools {
 
 		protected override IEnumerable<CodeTypeDeclaration> GetRocksNamespaceTypes ()
 		{
-			yield break;
+			yield return CreateTupleType (TypeParameterCount);
+		}
+
+		CodeTypeDeclaration CreateTupleType (int n)
+		{
+			var tuple = new CodeTypeDeclaration ("Tuple") {
+				TypeAttributes = TypeAttributes.Public,
+				IsPartial      = true,
+			};
+			var maxValues = new CodeMemberProperty () {
+				Attributes      = MemberAttributes.Public | MemberAttributes.Static,
+				Name            = "MaxValues",
+				Type            = new CodeTypeReference (typeof (int)),
+				HasGet          = true,
+				HasSet          = false,
+			};
+			maxValues.GetStatements.Add (
+					new CodeMethodReturnStatement (new CodePrimitiveExpression (n)));
+			tuple.Members.Add (maxValues);
+			for (int i = 0; i < n; ++i) {
+				tuple.Members.Add (CreateCreateMethod (i+1));
+			}
+			return tuple;
+		}
+
+		CodeMemberMethod CreateCreateMethod (int n)
+		{
+			var retType = new CodeTypeReference ("Cadenza.Tuple", Types.GetTypeParameterReferences (n, false).ToArray ());
+			var m = new CodeMemberMethod () {
+				Attributes  = MemberAttributes.Public | MemberAttributes.Static,
+				Name        = "Create",
+				ReturnType  = retType,
+			};
+			for (int i = 0; i < n; ++i)
+				m.TypeParameters.Add (Types.GetTypeParameter (n, i));
+			for (int i = 0; i < n; ++i)
+				m.Parameters.Add (
+						new CodeParameterDeclarationExpression (
+							new CodeTypeReference (Types.GetTypeParameter (n, i)), Item (n, i)));
+			m.Statements.Add (
+					new CodeMethodReturnStatement (
+						new CodeObjectCreateExpression ("Cadenza.Tuple",
+							Enumerable.Range (0, n).Select (p => new CodeVariableReferenceExpression (Item (n, p))).ToArray ())));
+			return m;
+		}
+
+		static string Item (int n, int i)
+		{
+			if (n == 0 || n == 1)
+				return "item";
+			return "item" + (i+1);
 		}
 	}
 
