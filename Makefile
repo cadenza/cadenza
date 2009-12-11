@@ -19,7 +19,7 @@ TST_FLAGS = -nowarn:0219,0168
 .PHONY: all check-gendarme check clean install shell
 
 $(mrdir)/Cadenza.dll: Cadenza.dll.sources $(shell cat Cadenza.dll.sources)
-	$(MCS) -doc:src/Cadenza/Documentation/Cadenza.xml -debug+ -t:library -r:System.Core -out:$@ $(MCS_FLAGS) @Cadenza.dll.sources
+	$(MCS) -doc:$(mrdir)/Cadenza-in.xml -debug+ -t:library -r:System.Core -out:$@ $(MCS_FLAGS) @Cadenza.dll.sources
 
 all: $(mrdir)/Cadenza.dll
 
