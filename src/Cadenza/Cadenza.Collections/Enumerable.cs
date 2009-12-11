@@ -397,15 +397,15 @@ namespace Cadenza.Collections {
 				else if (next_cat >= 0) {
 					if (have_data) {
 						var r = resultSelector (seed);
-						yield return r._1;
-						seed = r._2;
+						yield return r.Item1;
+						seed = r.Item2;
 					}
 					accum (s, next_cat);
 				}
 				else if (have_data) {
 					var r = resultSelector (seed);
-					yield return r._1;
-					seed = r._2;
+					yield return r.Item1;
+					seed = r.Item2;
 					cat  = -1;
 					have_data = false;
 					// retry
@@ -418,7 +418,7 @@ namespace Cadenza.Collections {
 				}
 			}
 			if (have_data)
-				yield return resultSelector (seed)._1;
+				yield return resultSelector (seed).Item1;
 		}
 
 		public static ReadOnlyDictionary<TKey,TValue> ToReadOnlyDictionary<TKey,TValue> (this IEnumerable<TValue> self, Func<TValue, TKey> keySelector)
@@ -964,8 +964,8 @@ namespace Cadenza.Collections {
 			var result = seed;
 			foreach (var element in self) {
 				var r = func (result, element);
-				result = r._1;
-				aggregates.Add (r._2);
+				result = r.Item1;
+				aggregates.Add (r.Item2);
 			}
 
 			return new Tuple<TAccumulate, List<TResult>> (result, aggregates);
@@ -982,8 +982,8 @@ namespace Cadenza.Collections {
 
 			for (int i = s.Count-1; i >= 0; --i) {
 				var r = func (result, s [i]);
-				result = r._1;
-				aggregates.Add (r._2);
+				result = r.Item1;
+				aggregates.Add (r.Item2);
 			}
 
 			return new Tuple<TAccumulate, List<TResult>> (result, aggregates);
@@ -1214,8 +1214,8 @@ namespace Cadenza.Collections {
 			Check.Self (self);
 
 			return Tuple.Create (
-					self.Select (t => t._1),
-					self.Select (t => t._2));
+					self.Select (t => t.Item1),
+					self.Select (t => t.Item2));
 		}
 
 		// Haskell: unzip3
@@ -1224,9 +1224,9 @@ namespace Cadenza.Collections {
 			Check.Self (self);
 
 			return Tuple.Create (
-					self.Select (t => t._1),
-					self.Select (t => t._2),
-					self.Select (t => t._3));
+					self.Select (t => t.Item1),
+					self.Select (t => t.Item2),
+					self.Select (t => t.Item3));
 		}
 
 		// Haskell: unzip4
@@ -1235,10 +1235,10 @@ namespace Cadenza.Collections {
 			Check.Self (self);
 
 			return Tuple.Create (
-					self.Select (t => t._1),
-					self.Select (t => t._2),
-					self.Select (t => t._3),
-					self.Select (t => t._4));
+					self.Select (t => t.Item1),
+					self.Select (t => t.Item2),
+					self.Select (t => t.Item3),
+					self.Select (t => t.Item4));
 		}
 
 		// Haskell: insert

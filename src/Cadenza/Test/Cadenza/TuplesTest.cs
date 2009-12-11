@@ -89,8 +89,8 @@ namespace Cadenza.Tests {
 		{
 			var t = Tuple.Create (42, "42");
 			var k = t.ToKeyValuePair ();
-			Assert.AreEqual (t._1,  k.Key);
-			Assert.AreEqual (t._2,  k.Value);
+			Assert.AreEqual (t.Item1,  k.Key);
+			Assert.AreEqual (t.Item2,  k.Value);
 		}
 	}
 }

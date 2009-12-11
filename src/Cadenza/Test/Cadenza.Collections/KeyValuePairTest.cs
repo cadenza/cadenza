@@ -64,8 +64,8 @@ namespace Cadenza.Collections.Tests {
 		{
 			KeyValuePair<int, string> k = new KeyValuePair<int, string> (42, "42");
 			var t = k.ToTuple ();
-			Assert.AreEqual (k.Key,   t._1);
-			Assert.AreEqual (k.Value, t._2);
+			Assert.AreEqual (k.Key,   t.Item1);
+			Assert.AreEqual (k.Value, t.Item2);
 		}
 	}
 }

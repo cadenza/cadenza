@@ -43,7 +43,7 @@ namespace Cadenza {
 		public static KeyValuePair<TKey, TValue>
 			ToKeyValuePair<TKey, TValue> (this Tuple<TKey, TValue> self)
 		{
-			return new KeyValuePair<TKey, TValue> (self._1, self._2);
+			return new KeyValuePair<TKey, TValue> (self.Item1, self.Item2);
 		}
 	}
 }

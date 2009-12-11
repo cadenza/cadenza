@@ -193,8 +193,8 @@ qq(<para>
  by-index in a strongly typed manner.  Strongly typed properties use
  the pattern <c>_N</c>, where <c>N</c> is the ones-based value position.
  The indexer, as always, uses 0-based positions.  Thus the value
- <see cref="P:$typeN._1"/> and <c>tuple[0]</c> refer to the same value,
- except <see cref="P:$typeN._1"/> is strongly typed, while
+ <see cref="P:$typeN.Item1"/> and <c>tuple[0]</c> refer to the same value,
+ except <see cref="P:$typeN.Item1"/> is strongly typed, while
  <c>tuple[0]</c> is typed as a <see cref="T:System.Object"/> (and thus
  potentially boxed).
 </para>
@@ -245,7 +245,7 @@ qq(<para>
 				$g->XmlRemarks ("The " . Generator::Nth ($i) . " tuple value.");
 				$g->Write ("[CLSCompliant (false)]\n");
 				$g->Write ("public ")->TypeParameter ($n, $i)
-					->Write (" _$i {get{return ")->Value ($n, $i)->Write (";}}\n");
+					->Write (" Item$i {get{return ")->Value ($n, $i)->Write (";}}\n");
 			}
 
 			$g->Write ("\n");
@@ -260,7 +260,7 @@ qq(<para>
 			$g->Method ("public override int ", "GetHashCode", "", sub {
 					$g->Write ("int hc = 0;\n");
 					for (my $i = 1; $i <= $n; ++$i) {
-						$g->Write ("hc ^= _$i.GetHashCode ();\n");
+						$g->Write ("hc ^= Item$i.GetHashCode ();\n");
 					}
 					$g->Write ("return hc;\n");
 			});
@@ -310,10 +310,10 @@ qq(<para>
 				sub { $g->Write ("Tuple<")->TypeParameterList ($n)->Write ("> obj"); },
 				sub {
 					$g->Write ("return EqualityComparer<")->TypeParameter ($n, 1)
-						->Write (">.Default.Equals (_1, obj._1)\n");
+						->Write (">.Default.Equals (Item1, obj.Item1)\n");
 					for (my $i = 2; $i <= $n; ++$i) {
 						$g->Write ("\t&& EqualityComparer<")->TypeParameter ($n, $i)
-							->Write (">.Default.Equals (_$i, obj._$i)\n");
+							->Write (">.Default.Equals (Item$i, obj.Item$i)\n");
 					}
 					$g->Write ("\t;\n");
 			});
@@ -354,7 +354,7 @@ qq(<para>
 				$g->Write ("\t\t(array.Length - index) < $n)\n");
 				$g->Write ("\tthrow new ArgumentException (\"index\");\n");
 				for (my $i = 1; $i <= $n; ++$i) {
-					$g->Write ("array.SetValue (_$i, index + ", $i-1, ");\n");
+					$g->Write ("array.SetValue (Item$i, index + ", $i-1, ");\n");
 				}
 			});
 			$g->Write ("\n");
@@ -467,7 +467,7 @@ qq(<para>
 				$g->Write ("\t\t(array.Length - arrayIndex) < $n)\n");
 				$g->Write ("\tthrow new ArgumentException (\"arrayIndex\");\n");
 				for (my $i = 1; $i <= $n; ++$i) {
-					$g->Write ("array [arrayIndex + ", $i-1, "] = _$i;\n");
+					$g->Write ("array [arrayIndex + ", $i-1, "] = Item$i;\n");
 				}
 			});
 
@@ -497,7 +497,7 @@ qq(An <see cref="T:System.Collections.Generic.IEnumerator{System.Object}"/> for 
 </para>));
 			$g->Method ("public IEnumerator<object> ", "GetEnumerator", "", sub {
 				for (my $i = 1; $i <= $n; ++$i) {
-					$g->Write ("yield return _$i;\n");
+					$g->Write ("yield return Item$i;\n");
 				}
 			});
 			$g->Write ("\n#endregion\n");
@@ -541,7 +541,7 @@ instance, if found; otherwise, -1.));
 value equality.));
 			$g->Method ("int ", "IList.IndexOf", "object value", sub {
 				for (my $i = 1; $i <= $n; ++$i) {
-					$g->Write ("if (object.Equals (_$i, value)) return ", $i-1, ";\n");
+					$g->Write ("if (object.Equals (Item$i, value)) return ", $i-1, ";\n");
 				}
 				$g->Write ("return -1;\n");
 			});
@@ -591,7 +591,7 @@ instance, if found; otherwise, -1.));
 value equality.));
 			$g->Method ("int ", "IList<object>.IndexOf", "object value", sub {
 				for (my $i = 1; $i <= $n; ++$i) {
-					$g->Write ("if (object.Equals (_$i, value)) return ", $i-1, ";\n");
+					$g->Write ("if (object.Equals (Item$i, value)) return ", $i-1, ";\n");
 				}
 				$g->Write ("return -1;\n");
 			});
@@ -615,7 +615,7 @@ qq(<paramref name="index"/> is less than 0 or greater than or equal to
 				->Write ("\tget {\n")
 				->Write ("\t\tswitch (index) {\n");
 			for (my $i = 1; $i <= $n; ++$i) {
-				$g->Write ("\t\t\tcase ", $i-1, ": return _$i;\n");
+				$g->Write ("\t\t\tcase ", $i-1, ": return Item$i;\n");
 			}
 			$g->Write ("\t\t}\n");
 			$g->Write ("\t\tthrow new ArgumentOutOfRangeException (\"index\");\n");
@@ -734,10 +734,10 @@ delegates within <paramref name="matchers" /> returned a
 			$g->Method ("public override string ", "ToString", "", sub {
 				$g->Write ("StringBuilder buf = new StringBuilder ();\n");
 				$g->Write ("buf.Append (\"(\");\n");
-				$g->Write ("buf.Append (_1);\n");
+				$g->Write ("buf.Append (Item1);\n");
 				for (my $i = 2; $i <= $n; ++$i) {
 					$g->Write ("buf.Append (\", \");\n");
-					$g->Write ("buf.Append (_$i);\n");
+					$g->Write ("buf.Append (Item$i);\n");
 				}
 				$g->Write ("buf.Append (\")\");\n");
 				$g->Write ("return buf.ToString ();\n");
@@ -792,9 +792,9 @@ sub create_notsupp_doc {
 sub create_values_doc {
 	my ($type, $n) = @_;
 
-	my $list = "<see cref=\"P:$type._1\"/>";
+	my $list = "<see cref=\"P:$type.Item1\"/>";
 	for (my $i = 2; $i <= $n; ++$i) {
-		$list .= ", <see cref=\"P:$type._$i\"/>";
+		$list .= ", <see cref=\"P:$type.Item$i\"/>";
 	}
 	return $list;
 }

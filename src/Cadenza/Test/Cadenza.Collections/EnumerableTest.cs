@@ -744,10 +744,10 @@ namespace Cadenza.Collections.Tests {
 			Assert.AreEqual ("4", tl [3]);
 
 			var t = (Tuple<int, char, long, string>) tl;
-			Assert.AreEqual (1,   t._1);
-			Assert.AreEqual ('2', t._2);
-			Assert.AreEqual (3L,  t._3);
-			Assert.AreEqual ("4", t._4);
+			Assert.AreEqual (1,   t.Item1);
+			Assert.AreEqual ('2', t.Item2);
+			Assert.AreEqual (3L,  t.Item3);
+			Assert.AreEqual ("4", t.Item4);
 			#endregion
 		}
 
@@ -2199,31 +2199,31 @@ namespace Cadenza.Collections.Tests {
 			Assert.AreEqual ("1,5|2,4|",
 					new[]{1,2}.Zip (new[]{5,4,3})
 					.Aggregate (new StringBuilder(), 
-						(b, e) => b.AppendFormat ("{0},{1}|", e._1, e._2)).ToString ());
+						(b, e) => b.AppendFormat ("{0},{1}|", e.Item1, e.Item2)).ToString ());
 			Assert.AreEqual ("",
 					new int[]{}.Zip (new[]{5,4,3})
 					.Aggregate (new StringBuilder(), 
-						(b, e) => b.AppendFormat ("{0},{1}|", e._1, e._2)).ToString ());
+						(b, e) => b.AppendFormat ("{0},{1}|", e.Item1, e.Item2)).ToString ());
 			#endregion
 			#region Zip3
 			Assert.AreEqual ("1,3,5|2,4,6|",
 					new[]{1,2}.Zip (new[]{3,4,5,6}, new[]{5,6,7})
 					.Aggregate (new StringBuilder(), 
-						(b, e) => b.AppendFormat ("{0},{1},{2}|", e._1, e._2, e._3)).ToString ());
+						(b, e) => b.AppendFormat ("{0},{1},{2}|", e.Item1, e.Item2, e.Item3)).ToString ());
 			Assert.AreEqual ("",
 					new int[]{}.Zip (new[]{5,4,3}, new[]{1,2,3})
 					.Aggregate (new StringBuilder(), 
-						(b, e) => b.AppendFormat ("{0},{1},{2}|", e._1, e._2, e._3)).ToString ());
+						(b, e) => b.AppendFormat ("{0},{1},{2}|", e.Item1, e.Item2, e.Item3)).ToString ());
 			#endregion
 			#region Zip4
 			Assert.AreEqual ("1,3,5,7|2,4,6,8|",
 					new[]{1,2}.Zip (new[]{3,4,5,6}, new[]{5,6,7}, new[]{7,8})
 					.Aggregate (new StringBuilder(), 
-						(b, e) => b.AppendFormat ("{0},{1},{2},{3}|", e._1, e._2, e._3, e._4)).ToString ());
+						(b, e) => b.AppendFormat ("{0},{1},{2},{3}|", e.Item1, e.Item2, e.Item3, e.Item4)).ToString ());
 			Assert.AreEqual ("",
 					new int[]{}.Zip (new[]{3,4,5,6}, new[]{5,6,7}, new[]{7,8})
 					.Aggregate (new StringBuilder(), 
-						(b, e) => b.AppendFormat ("{0},{1},{2},{3}|", e._1, e._2, e._3, e._4)).ToString ());
+						(b, e) => b.AppendFormat ("{0},{1},{2},{3}|", e.Item1, e.Item2, e.Item3, e.Item4)).ToString ());
 			#endregion
 		}
 

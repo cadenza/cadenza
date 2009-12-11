@@ -332,9 +332,9 @@ sub tuple_body {
 		$g->ValueList ($ntypes, $ret_start);
 	}
 	$g->Write (") => self (");
-	$g->Write ("values._1");
+	$g->Write ("values.Item1");
 	for (my $i = 2; $i <= $ntypes - $nret; ++$i) {
-		$g->Write (", ")->Write ("values._$i");
+		$g->Write (", ")->Write ("values.Item$i");
 	}
 	if ($nret) {
 		$g->Write (", ");

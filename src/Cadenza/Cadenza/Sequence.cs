@@ -67,8 +67,8 @@ namespace Cadenza {
 			Maybe<Tuple<TResult, TSource>> r;
 			while ((r = selector (value)).HasValue) {
 				Tuple<TResult, TSource> v = r.Value;
-				yield return v._1;
-				value = v._2;
+				yield return v.Item1;
+				value = v.Item2;
 			}
 		}
 	}

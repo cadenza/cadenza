@@ -145,7 +145,7 @@ namespace Cadenza {
 			Curry<T> (this Action<T> self, Tuple<T> values)
 		{
 			Check.Self (self);
-			return () => self (values._1);
+			return () => self (values.Item1);
 		}
 
 		/// <typeparam name="T">
@@ -204,7 +204,7 @@ namespace Cadenza {
 			Curry<T, TResult> (this Func<T, TResult> self, Tuple<T> values)
 		{
 			Check.Self (self);
-			return () => self (values._1);
+			return () => self (values.Item1);
 		}
 
 		/// <typeparam name="T1">
@@ -266,7 +266,7 @@ namespace Cadenza {
 			Curry<T1, T2> (this Action<T1, T2> self, Tuple<T1, T2> values)
 		{
 			Check.Self (self);
-			return () => self (values._1, values._2);
+			return () => self (values.Item1, values.Item2);
 		}
 
 		/// <typeparam name="T1">
@@ -334,7 +334,7 @@ namespace Cadenza {
 			Curry<T1, T2, TResult> (this Func<T1, T2, TResult> self, Tuple<T1, T2> values)
 		{
 			Check.Self (self);
-			return () => self (values._1, values._2);
+			return () => self (values.Item1, values.Item2);
 		}
 
 		/// <typeparam name="T1">
@@ -393,7 +393,7 @@ namespace Cadenza {
 			Curry<T1, T2> (this Action<T1, T2> self, Tuple<T1> values)
 		{
 			Check.Self (self);
-			return (value2) => self (values._1, value2);
+			return (value2) => self (values.Item1, value2);
 		}
 
 		/// <typeparam name="T1">
@@ -458,7 +458,7 @@ namespace Cadenza {
 			Curry<T1, T2, TResult> (this Func<T1, T2, TResult> self, Tuple<T1> values)
 		{
 			Check.Self (self);
-			return (value2) => self (values._1, value2);
+			return (value2) => self (values.Item1, value2);
 		}
 
 		/// <typeparam name="T1">
@@ -529,7 +529,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3> (this Action<T1, T2, T3> self, Tuple<T1, T2, T3> values)
 		{
 			Check.Self (self);
-			return () => self (values._1, values._2, values._3);
+			return () => self (values.Item1, values.Item2, values.Item3);
 		}
 
 		/// <typeparam name="T1">
@@ -606,7 +606,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3, TResult> (this Func<T1, T2, T3, TResult> self, Tuple<T1, T2, T3> values)
 		{
 			Check.Self (self);
-			return () => self (values._1, values._2, values._3);
+			return () => self (values.Item1, values.Item2, values.Item3);
 		}
 
 		/// <typeparam name="T1">
@@ -674,7 +674,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3> (this Action<T1, T2, T3> self, Tuple<T1, T2> values)
 		{
 			Check.Self (self);
-			return (value3) => self (values._1, values._2, value3);
+			return (value3) => self (values.Item1, values.Item2, value3);
 		}
 
 		/// <typeparam name="T1">
@@ -748,7 +748,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3, TResult> (this Func<T1, T2, T3, TResult> self, Tuple<T1, T2> values)
 		{
 			Check.Self (self);
-			return (value3) => self (values._1, values._2, value3);
+			return (value3) => self (values.Item1, values.Item2, value3);
 		}
 
 		/// <typeparam name="T1">
@@ -813,7 +813,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3> (this Action<T1, T2, T3> self, Tuple<T1> values)
 		{
 			Check.Self (self);
-			return (value2, value3) => self (values._1, value2, value3);
+			return (value2, value3) => self (values.Item1, value2, value3);
 		}
 
 		/// <typeparam name="T1">
@@ -884,7 +884,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3, TResult> (this Func<T1, T2, T3, TResult> self, Tuple<T1> values)
 		{
 			Check.Self (self);
-			return (value2, value3) => self (values._1, value2, value3);
+			return (value2, value3) => self (values.Item1, value2, value3);
 		}
 
 		/// <typeparam name="T1">
@@ -964,7 +964,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, Tuple<T1, T2, T3, T4> values)
 		{
 			Check.Self (self);
-			return () => self (values._1, values._2, values._3, values._4);
+			return () => self (values.Item1, values.Item2, values.Item3, values.Item4);
 		}
 
 		/// <typeparam name="T1">
@@ -1050,7 +1050,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3, T4, TResult> (this Func<T1, T2, T3, T4, TResult> self, Tuple<T1, T2, T3, T4> values)
 		{
 			Check.Self (self);
-			return () => self (values._1, values._2, values._3, values._4);
+			return () => self (values.Item1, values.Item2, values.Item3, values.Item4);
 		}
 
 		/// <typeparam name="T1">
@@ -1127,7 +1127,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, Tuple<T1, T2, T3> values)
 		{
 			Check.Self (self);
-			return (value4) => self (values._1, values._2, values._3, value4);
+			return (value4) => self (values.Item1, values.Item2, values.Item3, value4);
 		}
 
 		/// <typeparam name="T1">
@@ -1210,7 +1210,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3, T4, TResult> (this Func<T1, T2, T3, T4, TResult> self, Tuple<T1, T2, T3> values)
 		{
 			Check.Self (self);
-			return (value4) => self (values._1, values._2, values._3, value4);
+			return (value4) => self (values.Item1, values.Item2, values.Item3, value4);
 		}
 
 		/// <typeparam name="T1">
@@ -1284,7 +1284,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, Tuple<T1, T2> values)
 		{
 			Check.Self (self);
-			return (value3, value4) => self (values._1, values._2, value3, value4);
+			return (value3, value4) => self (values.Item1, values.Item2, value3, value4);
 		}
 
 		/// <typeparam name="T1">
@@ -1364,7 +1364,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3, T4, TResult> (this Func<T1, T2, T3, T4, TResult> self, Tuple<T1, T2> values)
 		{
 			Check.Self (self);
-			return (value3, value4) => self (values._1, values._2, value3, value4);
+			return (value3, value4) => self (values.Item1, values.Item2, value3, value4);
 		}
 
 		/// <typeparam name="T1">
@@ -1435,7 +1435,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3, T4> (this Action<T1, T2, T3, T4> self, Tuple<T1> values)
 		{
 			Check.Self (self);
-			return (value2, value3, value4) => self (values._1, value2, value3, value4);
+			return (value2, value3, value4) => self (values.Item1, value2, value3, value4);
 		}
 
 		/// <typeparam name="T1">
@@ -1512,7 +1512,7 @@ namespace Cadenza {
 			Curry<T1, T2, T3, T4, TResult> (this Func<T1, T2, T3, T4, TResult> self, Tuple<T1> values)
 		{
 			Check.Self (self);
-			return (value2, value3, value4) => self (values._1, value2, value3, value4);
+			return (value2, value3, value4) => self (values.Item1, value2, value3, value4);
 		}
 
 		/// <param name="self">

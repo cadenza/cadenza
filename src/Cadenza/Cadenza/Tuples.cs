@@ -206,8 +206,8 @@ namespace Cadenza {
 	///    by-index in a strongly typed manner.  Strongly typed properties use
 	///    the pattern <c>_N</c>, where <c>N</c> is the ones-based value position.
 	///    The indexer, as always, uses 0-based positions.  Thus the value
-	///    <see cref="P:Cadenza.Tuple`1._1"/> and <c>tuple[0]</c> refer to the same value,
-	///    except <see cref="P:Cadenza.Tuple`1._1"/> is strongly typed, while
+	///    <see cref="P:Cadenza.Tuple`1.Item1"/> and <c>tuple[0]</c> refer to the same value,
+	///    except <see cref="P:Cadenza.Tuple`1.Item1"/> is strongly typed, while
 	///    <c>tuple[0]</c> is typed as a <see cref="T:System.Object"/> (and thus
 	///    potentially boxed).
 	///   </para>
@@ -251,7 +251,7 @@ namespace Cadenza {
 		///   The first tuple value.
 		/// </remarks>
 		[CLSCompliant (false)]
-		public T _1 {get{return value;}}
+		public T Item1 {get{return value;}}
 
 		/// <summary>
 		///   Generates a hash code for the current instance.
@@ -269,7 +269,7 @@ namespace Cadenza {
 		public override int GetHashCode ()
 		{
 			int hc = 0;
-			hc ^= _1.GetHashCode ();
+			hc ^= Item1.GetHashCode ();
 			return hc;
 		}
 
@@ -330,7 +330,7 @@ namespace Cadenza {
 		/// </remarks>
 		public bool Equals (Tuple<T> obj)
 		{
-			return EqualityComparer<T>.Default.Equals (_1, obj._1)
+			return EqualityComparer<T>.Default.Equals (Item1, obj.Item1)
 				;
 		}
 		#region ICollection
@@ -381,7 +381,7 @@ namespace Cadenza {
 			if (array.Length - index <= 0 ||
 					(array.Length - index) < 1)
 				throw new ArgumentException ("index");
-			array.SetValue (_1, index + 0);
+			array.SetValue (Item1, index + 0);
 		}
 
 		/// <summary>
@@ -587,7 +587,7 @@ namespace Cadenza {
 			if (array.Length - arrayIndex <= 0 ||
 					(array.Length - arrayIndex) < 1)
 				throw new ArgumentException ("arrayIndex");
-			array [arrayIndex + 0] = _1;
+			array [arrayIndex + 0] = Item1;
 		}
 		#endregion
 		#region IEnumerable
@@ -602,7 +602,7 @@ namespace Cadenza {
 		///   <para>
 		///    Returns each value in the <see cref="T:Cadenza.Tuple{T}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Cadenza.Tuple`1._1"/>.
+		///    <see cref="P:Cadenza.Tuple`1.Item1"/>.
 		///   </para>
 		/// </remarks>
 		IEnumerator IEnumerable.GetEnumerator ()
@@ -623,12 +623,12 @@ namespace Cadenza {
 		///   <para>
 		///    Returns each value in the <see cref="T:Cadenza.Tuple{T}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Cadenza.Tuple`1._1"/>.
+		///    <see cref="P:Cadenza.Tuple`1.Item1"/>.
 		///   </para>
 		/// </remarks>
 		public IEnumerator<object> GetEnumerator ()
 		{
-			yield return _1;
+			yield return Item1;
 		}
 
 		#endregion
@@ -717,7 +717,7 @@ namespace Cadenza {
 		/// </remarks>
 		int IList.IndexOf (object value)
 		{
-			if (object.Equals (_1, value)) return 0;
+			if (object.Equals (Item1, value)) return 0;
 			return -1;
 		}
 
@@ -843,7 +843,7 @@ namespace Cadenza {
 		/// </remarks>
 		int IList<object>.IndexOf (object value)
 		{
-			if (object.Equals (_1, value)) return 0;
+			if (object.Equals (Item1, value)) return 0;
 			return -1;
 		}
 
@@ -890,7 +890,7 @@ namespace Cadenza {
 		public object this [int index] {
 			get {
 				switch (index) {
-					case 0: return _1;
+					case 0: return Item1;
 				}
 				throw new ArgumentOutOfRangeException ("index");
 			}
@@ -904,7 +904,7 @@ namespace Cadenza {
 		/// </typeparam>
 		/// <param name="func">
 		///   A <see cref="T:System.Func{T,TResult}"/> which will be invoked, providing the values
-		///   <see cref="P:Cadenza.Tuple`1._1"/> to <paramref name="func"/> and
+		///   <see cref="P:Cadenza.Tuple`1.Item1"/> to <paramref name="func"/> and
 		///   returning the value returned by <paramref name="func"/>.
 		/// </param>
 		/// <summary>
@@ -916,7 +916,7 @@ namespace Cadenza {
 		/// <remarks>
 		///   <para>
 		///    <block subset="none" type="behaviors">
-		///     Passes the values <see cref="P:Cadenza.Tuple`1._1"/> to 
+		///     Passes the values <see cref="P:Cadenza.Tuple`1.Item1"/> to 
 		///     <paramref name="func"/>, returning the value produced by 
 		///   	<paramref name="func"/>.
 		///    </block>
@@ -1016,7 +1016,7 @@ namespace Cadenza {
 		///    <block subset="none" type="behaviors">
 		///     Returns <c>(</c>, followed by a comma-separated list of the result of
 		///     calling <see cref="M:System.Object.ToString"/> on 
-		///     <see cref="P:Cadenza.Tuple`1._1"/>, followed by <c>)</c>.
+		///     <see cref="P:Cadenza.Tuple`1.Item1"/>, followed by <c>)</c>.
 		///    </block>
 		///   </para>
 		/// </remarks>
@@ -1024,7 +1024,7 @@ namespace Cadenza {
 		{
 			StringBuilder buf = new StringBuilder ();
 			buf.Append ("(");
-			buf.Append (_1);
+			buf.Append (Item1);
 			buf.Append (")");
 			return buf.ToString ();
 		}
@@ -1091,8 +1091,8 @@ namespace Cadenza {
 	///    by-index in a strongly typed manner.  Strongly typed properties use
 	///    the pattern <c>_N</c>, where <c>N</c> is the ones-based value position.
 	///    The indexer, as always, uses 0-based positions.  Thus the value
-	///    <see cref="P:Cadenza.Tuple`2._1"/> and <c>tuple[0]</c> refer to the same value,
-	///    except <see cref="P:Cadenza.Tuple`2._1"/> is strongly typed, while
+	///    <see cref="P:Cadenza.Tuple`2.Item1"/> and <c>tuple[0]</c> refer to the same value,
+	///    except <see cref="P:Cadenza.Tuple`2.Item1"/> is strongly typed, while
 	///    <c>tuple[0]</c> is typed as a <see cref="T:System.Object"/> (and thus
 	///    potentially boxed).
 	///   </para>
@@ -1141,7 +1141,7 @@ namespace Cadenza {
 		///   The first tuple value.
 		/// </remarks>
 		[CLSCompliant (false)]
-		public T1 _1 {get{return value1;}}
+		public T1 Item1 {get{return value1;}}
 
 		/// <summary>
 		///   The second tuple value.
@@ -1153,7 +1153,7 @@ namespace Cadenza {
 		///   The second tuple value.
 		/// </remarks>
 		[CLSCompliant (false)]
-		public T2 _2 {get{return value2;}}
+		public T2 Item2 {get{return value2;}}
 
 		/// <summary>
 		///   Generates a hash code for the current instance.
@@ -1171,8 +1171,8 @@ namespace Cadenza {
 		public override int GetHashCode ()
 		{
 			int hc = 0;
-			hc ^= _1.GetHashCode ();
-			hc ^= _2.GetHashCode ();
+			hc ^= Item1.GetHashCode ();
+			hc ^= Item2.GetHashCode ();
 			return hc;
 		}
 
@@ -1233,8 +1233,8 @@ namespace Cadenza {
 		/// </remarks>
 		public bool Equals (Tuple<T1, T2> obj)
 		{
-			return EqualityComparer<T1>.Default.Equals (_1, obj._1)
-				&& EqualityComparer<T2>.Default.Equals (_2, obj._2)
+			return EqualityComparer<T1>.Default.Equals (Item1, obj.Item1)
+				&& EqualityComparer<T2>.Default.Equals (Item2, obj.Item2)
 				;
 		}
 		#region ICollection
@@ -1285,8 +1285,8 @@ namespace Cadenza {
 			if (array.Length - index <= 0 ||
 					(array.Length - index) < 2)
 				throw new ArgumentException ("index");
-			array.SetValue (_1, index + 0);
-			array.SetValue (_2, index + 1);
+			array.SetValue (Item1, index + 0);
+			array.SetValue (Item2, index + 1);
 		}
 
 		/// <summary>
@@ -1492,8 +1492,8 @@ namespace Cadenza {
 			if (array.Length - arrayIndex <= 0 ||
 					(array.Length - arrayIndex) < 2)
 				throw new ArgumentException ("arrayIndex");
-			array [arrayIndex + 0] = _1;
-			array [arrayIndex + 1] = _2;
+			array [arrayIndex + 0] = Item1;
+			array [arrayIndex + 1] = Item2;
 		}
 		#endregion
 		#region IEnumerable
@@ -1508,7 +1508,7 @@ namespace Cadenza {
 		///   <para>
 		///    Returns each value in the <see cref="T:Cadenza.Tuple{T1, T2}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Cadenza.Tuple`2._1"/>, <see cref="P:Cadenza.Tuple`2._2"/>.
+		///    <see cref="P:Cadenza.Tuple`2.Item1"/>, <see cref="P:Cadenza.Tuple`2.Item2"/>.
 		///   </para>
 		/// </remarks>
 		IEnumerator IEnumerable.GetEnumerator ()
@@ -1529,13 +1529,13 @@ namespace Cadenza {
 		///   <para>
 		///    Returns each value in the <see cref="T:Cadenza.Tuple{T1, T2}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Cadenza.Tuple`2._1"/>, <see cref="P:Cadenza.Tuple`2._2"/>.
+		///    <see cref="P:Cadenza.Tuple`2.Item1"/>, <see cref="P:Cadenza.Tuple`2.Item2"/>.
 		///   </para>
 		/// </remarks>
 		public IEnumerator<object> GetEnumerator ()
 		{
-			yield return _1;
-			yield return _2;
+			yield return Item1;
+			yield return Item2;
 		}
 
 		#endregion
@@ -1624,8 +1624,8 @@ namespace Cadenza {
 		/// </remarks>
 		int IList.IndexOf (object value)
 		{
-			if (object.Equals (_1, value)) return 0;
-			if (object.Equals (_2, value)) return 1;
+			if (object.Equals (Item1, value)) return 0;
+			if (object.Equals (Item2, value)) return 1;
 			return -1;
 		}
 
@@ -1751,8 +1751,8 @@ namespace Cadenza {
 		/// </remarks>
 		int IList<object>.IndexOf (object value)
 		{
-			if (object.Equals (_1, value)) return 0;
-			if (object.Equals (_2, value)) return 1;
+			if (object.Equals (Item1, value)) return 0;
+			if (object.Equals (Item2, value)) return 1;
 			return -1;
 		}
 
@@ -1799,8 +1799,8 @@ namespace Cadenza {
 		public object this [int index] {
 			get {
 				switch (index) {
-					case 0: return _1;
-					case 1: return _2;
+					case 0: return Item1;
+					case 1: return Item2;
 				}
 				throw new ArgumentOutOfRangeException ("index");
 			}
@@ -1814,7 +1814,7 @@ namespace Cadenza {
 		/// </typeparam>
 		/// <param name="func">
 		///   A <see cref="T:System.Func{T1,T2,TResult}"/> which will be invoked, providing the values
-		///   <see cref="P:Cadenza.Tuple`2._1"/>, <see cref="P:Cadenza.Tuple`2._2"/> to <paramref name="func"/> and
+		///   <see cref="P:Cadenza.Tuple`2.Item1"/>, <see cref="P:Cadenza.Tuple`2.Item2"/> to <paramref name="func"/> and
 		///   returning the value returned by <paramref name="func"/>.
 		/// </param>
 		/// <summary>
@@ -1826,7 +1826,7 @@ namespace Cadenza {
 		/// <remarks>
 		///   <para>
 		///    <block subset="none" type="behaviors">
-		///     Passes the values <see cref="P:Cadenza.Tuple`2._1"/>, <see cref="P:Cadenza.Tuple`2._2"/> to 
+		///     Passes the values <see cref="P:Cadenza.Tuple`2.Item1"/>, <see cref="P:Cadenza.Tuple`2.Item2"/> to 
 		///     <paramref name="func"/>, returning the value produced by 
 		///   	<paramref name="func"/>.
 		///    </block>
@@ -1926,7 +1926,7 @@ namespace Cadenza {
 		///    <block subset="none" type="behaviors">
 		///     Returns <c>(</c>, followed by a comma-separated list of the result of
 		///     calling <see cref="M:System.Object.ToString"/> on 
-		///     <see cref="P:Cadenza.Tuple`2._1"/>, <see cref="P:Cadenza.Tuple`2._2"/>, followed by <c>)</c>.
+		///     <see cref="P:Cadenza.Tuple`2.Item1"/>, <see cref="P:Cadenza.Tuple`2.Item2"/>, followed by <c>)</c>.
 		///    </block>
 		///   </para>
 		/// </remarks>
@@ -1934,9 +1934,9 @@ namespace Cadenza {
 		{
 			StringBuilder buf = new StringBuilder ();
 			buf.Append ("(");
-			buf.Append (_1);
+			buf.Append (Item1);
 			buf.Append (", ");
-			buf.Append (_2);
+			buf.Append (Item2);
 			buf.Append (")");
 			return buf.ToString ();
 		}
@@ -2006,8 +2006,8 @@ namespace Cadenza {
 	///    by-index in a strongly typed manner.  Strongly typed properties use
 	///    the pattern <c>_N</c>, where <c>N</c> is the ones-based value position.
 	///    The indexer, as always, uses 0-based positions.  Thus the value
-	///    <see cref="P:Cadenza.Tuple`3._1"/> and <c>tuple[0]</c> refer to the same value,
-	///    except <see cref="P:Cadenza.Tuple`3._1"/> is strongly typed, while
+	///    <see cref="P:Cadenza.Tuple`3.Item1"/> and <c>tuple[0]</c> refer to the same value,
+	///    except <see cref="P:Cadenza.Tuple`3.Item1"/> is strongly typed, while
 	///    <c>tuple[0]</c> is typed as a <see cref="T:System.Object"/> (and thus
 	///    potentially boxed).
 	///   </para>
@@ -2061,7 +2061,7 @@ namespace Cadenza {
 		///   The first tuple value.
 		/// </remarks>
 		[CLSCompliant (false)]
-		public T1 _1 {get{return value1;}}
+		public T1 Item1 {get{return value1;}}
 
 		/// <summary>
 		///   The second tuple value.
@@ -2073,7 +2073,7 @@ namespace Cadenza {
 		///   The second tuple value.
 		/// </remarks>
 		[CLSCompliant (false)]
-		public T2 _2 {get{return value2;}}
+		public T2 Item2 {get{return value2;}}
 
 		/// <summary>
 		///   The third tuple value.
@@ -2085,7 +2085,7 @@ namespace Cadenza {
 		///   The third tuple value.
 		/// </remarks>
 		[CLSCompliant (false)]
-		public T3 _3 {get{return value3;}}
+		public T3 Item3 {get{return value3;}}
 
 		/// <summary>
 		///   Generates a hash code for the current instance.
@@ -2103,9 +2103,9 @@ namespace Cadenza {
 		public override int GetHashCode ()
 		{
 			int hc = 0;
-			hc ^= _1.GetHashCode ();
-			hc ^= _2.GetHashCode ();
-			hc ^= _3.GetHashCode ();
+			hc ^= Item1.GetHashCode ();
+			hc ^= Item2.GetHashCode ();
+			hc ^= Item3.GetHashCode ();
 			return hc;
 		}
 
@@ -2166,9 +2166,9 @@ namespace Cadenza {
 		/// </remarks>
 		public bool Equals (Tuple<T1, T2, T3> obj)
 		{
-			return EqualityComparer<T1>.Default.Equals (_1, obj._1)
-				&& EqualityComparer<T2>.Default.Equals (_2, obj._2)
-				&& EqualityComparer<T3>.Default.Equals (_3, obj._3)
+			return EqualityComparer<T1>.Default.Equals (Item1, obj.Item1)
+				&& EqualityComparer<T2>.Default.Equals (Item2, obj.Item2)
+				&& EqualityComparer<T3>.Default.Equals (Item3, obj.Item3)
 				;
 		}
 		#region ICollection
@@ -2219,9 +2219,9 @@ namespace Cadenza {
 			if (array.Length - index <= 0 ||
 					(array.Length - index) < 3)
 				throw new ArgumentException ("index");
-			array.SetValue (_1, index + 0);
-			array.SetValue (_2, index + 1);
-			array.SetValue (_3, index + 2);
+			array.SetValue (Item1, index + 0);
+			array.SetValue (Item2, index + 1);
+			array.SetValue (Item3, index + 2);
 		}
 
 		/// <summary>
@@ -2427,9 +2427,9 @@ namespace Cadenza {
 			if (array.Length - arrayIndex <= 0 ||
 					(array.Length - arrayIndex) < 3)
 				throw new ArgumentException ("arrayIndex");
-			array [arrayIndex + 0] = _1;
-			array [arrayIndex + 1] = _2;
-			array [arrayIndex + 2] = _3;
+			array [arrayIndex + 0] = Item1;
+			array [arrayIndex + 1] = Item2;
+			array [arrayIndex + 2] = Item3;
 		}
 		#endregion
 		#region IEnumerable
@@ -2444,7 +2444,7 @@ namespace Cadenza {
 		///   <para>
 		///    Returns each value in the <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Cadenza.Tuple`3._1"/>, <see cref="P:Cadenza.Tuple`3._2"/>, <see cref="P:Cadenza.Tuple`3._3"/>.
+		///    <see cref="P:Cadenza.Tuple`3.Item1"/>, <see cref="P:Cadenza.Tuple`3.Item2"/>, <see cref="P:Cadenza.Tuple`3.Item3"/>.
 		///   </para>
 		/// </remarks>
 		IEnumerator IEnumerable.GetEnumerator ()
@@ -2465,14 +2465,14 @@ namespace Cadenza {
 		///   <para>
 		///    Returns each value in the <see cref="T:Cadenza.Tuple{T1, T2, T3}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Cadenza.Tuple`3._1"/>, <see cref="P:Cadenza.Tuple`3._2"/>, <see cref="P:Cadenza.Tuple`3._3"/>.
+		///    <see cref="P:Cadenza.Tuple`3.Item1"/>, <see cref="P:Cadenza.Tuple`3.Item2"/>, <see cref="P:Cadenza.Tuple`3.Item3"/>.
 		///   </para>
 		/// </remarks>
 		public IEnumerator<object> GetEnumerator ()
 		{
-			yield return _1;
-			yield return _2;
-			yield return _3;
+			yield return Item1;
+			yield return Item2;
+			yield return Item3;
 		}
 
 		#endregion
@@ -2561,9 +2561,9 @@ namespace Cadenza {
 		/// </remarks>
 		int IList.IndexOf (object value)
 		{
-			if (object.Equals (_1, value)) return 0;
-			if (object.Equals (_2, value)) return 1;
-			if (object.Equals (_3, value)) return 2;
+			if (object.Equals (Item1, value)) return 0;
+			if (object.Equals (Item2, value)) return 1;
+			if (object.Equals (Item3, value)) return 2;
 			return -1;
 		}
 
@@ -2689,9 +2689,9 @@ namespace Cadenza {
 		/// </remarks>
 		int IList<object>.IndexOf (object value)
 		{
-			if (object.Equals (_1, value)) return 0;
-			if (object.Equals (_2, value)) return 1;
-			if (object.Equals (_3, value)) return 2;
+			if (object.Equals (Item1, value)) return 0;
+			if (object.Equals (Item2, value)) return 1;
+			if (object.Equals (Item3, value)) return 2;
 			return -1;
 		}
 
@@ -2738,9 +2738,9 @@ namespace Cadenza {
 		public object this [int index] {
 			get {
 				switch (index) {
-					case 0: return _1;
-					case 1: return _2;
-					case 2: return _3;
+					case 0: return Item1;
+					case 1: return Item2;
+					case 2: return Item3;
 				}
 				throw new ArgumentOutOfRangeException ("index");
 			}
@@ -2754,7 +2754,7 @@ namespace Cadenza {
 		/// </typeparam>
 		/// <param name="func">
 		///   A <see cref="T:System.Func{T1,T2,T3,TResult}"/> which will be invoked, providing the values
-		///   <see cref="P:Cadenza.Tuple`3._1"/>, <see cref="P:Cadenza.Tuple`3._2"/>, <see cref="P:Cadenza.Tuple`3._3"/> to <paramref name="func"/> and
+		///   <see cref="P:Cadenza.Tuple`3.Item1"/>, <see cref="P:Cadenza.Tuple`3.Item2"/>, <see cref="P:Cadenza.Tuple`3.Item3"/> to <paramref name="func"/> and
 		///   returning the value returned by <paramref name="func"/>.
 		/// </param>
 		/// <summary>
@@ -2766,7 +2766,7 @@ namespace Cadenza {
 		/// <remarks>
 		///   <para>
 		///    <block subset="none" type="behaviors">
-		///     Passes the values <see cref="P:Cadenza.Tuple`3._1"/>, <see cref="P:Cadenza.Tuple`3._2"/>, <see cref="P:Cadenza.Tuple`3._3"/> to 
+		///     Passes the values <see cref="P:Cadenza.Tuple`3.Item1"/>, <see cref="P:Cadenza.Tuple`3.Item2"/>, <see cref="P:Cadenza.Tuple`3.Item3"/> to 
 		///     <paramref name="func"/>, returning the value produced by 
 		///   	<paramref name="func"/>.
 		///    </block>
@@ -2866,7 +2866,7 @@ namespace Cadenza {
 		///    <block subset="none" type="behaviors">
 		///     Returns <c>(</c>, followed by a comma-separated list of the result of
 		///     calling <see cref="M:System.Object.ToString"/> on 
-		///     <see cref="P:Cadenza.Tuple`3._1"/>, <see cref="P:Cadenza.Tuple`3._2"/>, <see cref="P:Cadenza.Tuple`3._3"/>, followed by <c>)</c>.
+		///     <see cref="P:Cadenza.Tuple`3.Item1"/>, <see cref="P:Cadenza.Tuple`3.Item2"/>, <see cref="P:Cadenza.Tuple`3.Item3"/>, followed by <c>)</c>.
 		///    </block>
 		///   </para>
 		/// </remarks>
@@ -2874,11 +2874,11 @@ namespace Cadenza {
 		{
 			StringBuilder buf = new StringBuilder ();
 			buf.Append ("(");
-			buf.Append (_1);
+			buf.Append (Item1);
 			buf.Append (", ");
-			buf.Append (_2);
+			buf.Append (Item2);
 			buf.Append (", ");
-			buf.Append (_3);
+			buf.Append (Item3);
 			buf.Append (")");
 			return buf.ToString ();
 		}
@@ -2951,8 +2951,8 @@ namespace Cadenza {
 	///    by-index in a strongly typed manner.  Strongly typed properties use
 	///    the pattern <c>_N</c>, where <c>N</c> is the ones-based value position.
 	///    The indexer, as always, uses 0-based positions.  Thus the value
-	///    <see cref="P:Cadenza.Tuple`4._1"/> and <c>tuple[0]</c> refer to the same value,
-	///    except <see cref="P:Cadenza.Tuple`4._1"/> is strongly typed, while
+	///    <see cref="P:Cadenza.Tuple`4.Item1"/> and <c>tuple[0]</c> refer to the same value,
+	///    except <see cref="P:Cadenza.Tuple`4.Item1"/> is strongly typed, while
 	///    <c>tuple[0]</c> is typed as a <see cref="T:System.Object"/> (and thus
 	///    potentially boxed).
 	///   </para>
@@ -3011,7 +3011,7 @@ namespace Cadenza {
 		///   The first tuple value.
 		/// </remarks>
 		[CLSCompliant (false)]
-		public T1 _1 {get{return value1;}}
+		public T1 Item1 {get{return value1;}}
 
 		/// <summary>
 		///   The second tuple value.
@@ -3023,7 +3023,7 @@ namespace Cadenza {
 		///   The second tuple value.
 		/// </remarks>
 		[CLSCompliant (false)]
-		public T2 _2 {get{return value2;}}
+		public T2 Item2 {get{return value2;}}
 
 		/// <summary>
 		///   The third tuple value.
@@ -3035,7 +3035,7 @@ namespace Cadenza {
 		///   The third tuple value.
 		/// </remarks>
 		[CLSCompliant (false)]
-		public T3 _3 {get{return value3;}}
+		public T3 Item3 {get{return value3;}}
 
 		/// <summary>
 		///   The fourth tuple value.
@@ -3047,7 +3047,7 @@ namespace Cadenza {
 		///   The fourth tuple value.
 		/// </remarks>
 		[CLSCompliant (false)]
-		public T4 _4 {get{return value4;}}
+		public T4 Item4 {get{return value4;}}
 
 		/// <summary>
 		///   Generates a hash code for the current instance.
@@ -3065,10 +3065,10 @@ namespace Cadenza {
 		public override int GetHashCode ()
 		{
 			int hc = 0;
-			hc ^= _1.GetHashCode ();
-			hc ^= _2.GetHashCode ();
-			hc ^= _3.GetHashCode ();
-			hc ^= _4.GetHashCode ();
+			hc ^= Item1.GetHashCode ();
+			hc ^= Item2.GetHashCode ();
+			hc ^= Item3.GetHashCode ();
+			hc ^= Item4.GetHashCode ();
 			return hc;
 		}
 
@@ -3129,10 +3129,10 @@ namespace Cadenza {
 		/// </remarks>
 		public bool Equals (Tuple<T1, T2, T3, T4> obj)
 		{
-			return EqualityComparer<T1>.Default.Equals (_1, obj._1)
-				&& EqualityComparer<T2>.Default.Equals (_2, obj._2)
-				&& EqualityComparer<T3>.Default.Equals (_3, obj._3)
-				&& EqualityComparer<T4>.Default.Equals (_4, obj._4)
+			return EqualityComparer<T1>.Default.Equals (Item1, obj.Item1)
+				&& EqualityComparer<T2>.Default.Equals (Item2, obj.Item2)
+				&& EqualityComparer<T3>.Default.Equals (Item3, obj.Item3)
+				&& EqualityComparer<T4>.Default.Equals (Item4, obj.Item4)
 				;
 		}
 		#region ICollection
@@ -3183,10 +3183,10 @@ namespace Cadenza {
 			if (array.Length - index <= 0 ||
 					(array.Length - index) < 4)
 				throw new ArgumentException ("index");
-			array.SetValue (_1, index + 0);
-			array.SetValue (_2, index + 1);
-			array.SetValue (_3, index + 2);
-			array.SetValue (_4, index + 3);
+			array.SetValue (Item1, index + 0);
+			array.SetValue (Item2, index + 1);
+			array.SetValue (Item3, index + 2);
+			array.SetValue (Item4, index + 3);
 		}
 
 		/// <summary>
@@ -3392,10 +3392,10 @@ namespace Cadenza {
 			if (array.Length - arrayIndex <= 0 ||
 					(array.Length - arrayIndex) < 4)
 				throw new ArgumentException ("arrayIndex");
-			array [arrayIndex + 0] = _1;
-			array [arrayIndex + 1] = _2;
-			array [arrayIndex + 2] = _3;
-			array [arrayIndex + 3] = _4;
+			array [arrayIndex + 0] = Item1;
+			array [arrayIndex + 1] = Item2;
+			array [arrayIndex + 2] = Item3;
+			array [arrayIndex + 3] = Item4;
 		}
 		#endregion
 		#region IEnumerable
@@ -3410,7 +3410,7 @@ namespace Cadenza {
 		///   <para>
 		///    Returns each value in the <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Cadenza.Tuple`4._1"/>, <see cref="P:Cadenza.Tuple`4._2"/>, <see cref="P:Cadenza.Tuple`4._3"/>, <see cref="P:Cadenza.Tuple`4._4"/>.
+		///    <see cref="P:Cadenza.Tuple`4.Item1"/>, <see cref="P:Cadenza.Tuple`4.Item2"/>, <see cref="P:Cadenza.Tuple`4.Item3"/>, <see cref="P:Cadenza.Tuple`4.Item4"/>.
 		///   </para>
 		/// </remarks>
 		IEnumerator IEnumerable.GetEnumerator ()
@@ -3431,15 +3431,15 @@ namespace Cadenza {
 		///   <para>
 		///    Returns each value in the <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}"/> as an
 		///    <see cref="T:System.Object"/>, in the order 
-		///    <see cref="P:Cadenza.Tuple`4._1"/>, <see cref="P:Cadenza.Tuple`4._2"/>, <see cref="P:Cadenza.Tuple`4._3"/>, <see cref="P:Cadenza.Tuple`4._4"/>.
+		///    <see cref="P:Cadenza.Tuple`4.Item1"/>, <see cref="P:Cadenza.Tuple`4.Item2"/>, <see cref="P:Cadenza.Tuple`4.Item3"/>, <see cref="P:Cadenza.Tuple`4.Item4"/>.
 		///   </para>
 		/// </remarks>
 		public IEnumerator<object> GetEnumerator ()
 		{
-			yield return _1;
-			yield return _2;
-			yield return _3;
-			yield return _4;
+			yield return Item1;
+			yield return Item2;
+			yield return Item3;
+			yield return Item4;
 		}
 
 		#endregion
@@ -3528,10 +3528,10 @@ namespace Cadenza {
 		/// </remarks>
 		int IList.IndexOf (object value)
 		{
-			if (object.Equals (_1, value)) return 0;
-			if (object.Equals (_2, value)) return 1;
-			if (object.Equals (_3, value)) return 2;
-			if (object.Equals (_4, value)) return 3;
+			if (object.Equals (Item1, value)) return 0;
+			if (object.Equals (Item2, value)) return 1;
+			if (object.Equals (Item3, value)) return 2;
+			if (object.Equals (Item4, value)) return 3;
 			return -1;
 		}
 
@@ -3657,10 +3657,10 @@ namespace Cadenza {
 		/// </remarks>
 		int IList<object>.IndexOf (object value)
 		{
-			if (object.Equals (_1, value)) return 0;
-			if (object.Equals (_2, value)) return 1;
-			if (object.Equals (_3, value)) return 2;
-			if (object.Equals (_4, value)) return 3;
+			if (object.Equals (Item1, value)) return 0;
+			if (object.Equals (Item2, value)) return 1;
+			if (object.Equals (Item3, value)) return 2;
+			if (object.Equals (Item4, value)) return 3;
 			return -1;
 		}
 
@@ -3707,10 +3707,10 @@ namespace Cadenza {
 		public object this [int index] {
 			get {
 				switch (index) {
-					case 0: return _1;
-					case 1: return _2;
-					case 2: return _3;
-					case 3: return _4;
+					case 0: return Item1;
+					case 1: return Item2;
+					case 2: return Item3;
+					case 3: return Item4;
 				}
 				throw new ArgumentOutOfRangeException ("index");
 			}
@@ -3724,7 +3724,7 @@ namespace Cadenza {
 		/// </typeparam>
 		/// <param name="func">
 		///   A <see cref="T:System.Func{T1,T2,T3,T4,TResult}"/> which will be invoked, providing the values
-		///   <see cref="P:Cadenza.Tuple`4._1"/>, <see cref="P:Cadenza.Tuple`4._2"/>, <see cref="P:Cadenza.Tuple`4._3"/>, <see cref="P:Cadenza.Tuple`4._4"/> to <paramref name="func"/> and
+		///   <see cref="P:Cadenza.Tuple`4.Item1"/>, <see cref="P:Cadenza.Tuple`4.Item2"/>, <see cref="P:Cadenza.Tuple`4.Item3"/>, <see cref="P:Cadenza.Tuple`4.Item4"/> to <paramref name="func"/> and
 		///   returning the value returned by <paramref name="func"/>.
 		/// </param>
 		/// <summary>
@@ -3736,7 +3736,7 @@ namespace Cadenza {
 		/// <remarks>
 		///   <para>
 		///    <block subset="none" type="behaviors">
-		///     Passes the values <see cref="P:Cadenza.Tuple`4._1"/>, <see cref="P:Cadenza.Tuple`4._2"/>, <see cref="P:Cadenza.Tuple`4._3"/>, <see cref="P:Cadenza.Tuple`4._4"/> to 
+		///     Passes the values <see cref="P:Cadenza.Tuple`4.Item1"/>, <see cref="P:Cadenza.Tuple`4.Item2"/>, <see cref="P:Cadenza.Tuple`4.Item3"/>, <see cref="P:Cadenza.Tuple`4.Item4"/> to 
 		///     <paramref name="func"/>, returning the value produced by 
 		///   	<paramref name="func"/>.
 		///    </block>
@@ -3836,7 +3836,7 @@ namespace Cadenza {
 		///    <block subset="none" type="behaviors">
 		///     Returns <c>(</c>, followed by a comma-separated list of the result of
 		///     calling <see cref="M:System.Object.ToString"/> on 
-		///     <see cref="P:Cadenza.Tuple`4._1"/>, <see cref="P:Cadenza.Tuple`4._2"/>, <see cref="P:Cadenza.Tuple`4._3"/>, <see cref="P:Cadenza.Tuple`4._4"/>, followed by <c>)</c>.
+		///     <see cref="P:Cadenza.Tuple`4.Item1"/>, <see cref="P:Cadenza.Tuple`4.Item2"/>, <see cref="P:Cadenza.Tuple`4.Item3"/>, <see cref="P:Cadenza.Tuple`4.Item4"/>, followed by <c>)</c>.
 		///    </block>
 		///   </para>
 		/// </remarks>
@@ -3844,13 +3844,13 @@ namespace Cadenza {
 		{
 			StringBuilder buf = new StringBuilder ();
 			buf.Append ("(");
-			buf.Append (_1);
+			buf.Append (Item1);
 			buf.Append (", ");
-			buf.Append (_2);
+			buf.Append (Item2);
 			buf.Append (", ");
-			buf.Append (_3);
+			buf.Append (Item3);
 			buf.Append (", ");
-			buf.Append (_4);
+			buf.Append (Item4);
 			buf.Append (")");
 			return buf.ToString ();
 		}
