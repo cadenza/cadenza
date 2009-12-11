@@ -214,9 +214,6 @@
         <summary>
             The maximum number of Tuple types provided.
             </summary>
-        <value>
-            The maximum number of Tuple types provided.
-            </value>
         <remarks>
           <para>
             Only tuples up to a certain "arity" are supported; for example,
