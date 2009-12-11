@@ -164,7 +164,7 @@ namespace Cadenza.Tools {
 
 		static string GetType (CodeTypeReference type)
 		{
-			var b = type.BaseType;
+			var b = type.BaseType.Replace ("this ", "");
 			if (b.Contains ('`'))
 				b = b.Substring (0, b.IndexOf ('`'));
 			return b;

@@ -30,6 +30,7 @@ using System;
 using System.CodeDom;
 using System.CodeDom.Compiler;
 using System.Diagnostics;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -75,7 +76,7 @@ namespace Cadenza.Tools {
 				dr.Members.AddRange (CreateCurryTupleFuncs (i));
 				dr.Members.AddRange (CreateTraditionalCurryFuncs (i));
 				dr.Members.AddRange (CreateCompose (i));
-				dr.Members.AddRange (CreateTimings (i));
+				dr.Members.AddRange (CreateTimings (i, dr));
 			}
 			dr.Comments.AddDocs (
 					XmlDocs.Summary (
@@ -165,6 +166,17 @@ namespace Cadenza.Tools {
 			Values (expr, n, 0, n);
 			expr.Append (")");
 			m.Statements.Add (new CodeMethodReturnStatement (new CodeSnippetExpression (expr.ToString ())));
+
+			m.Comments.AddDocs (
+					GetTypeParameters (n, selfType),
+					XmlDocs.Summary ("Creates a " + XmlDocs.See (retType) + " delegate."),
+					XmlDocs.Param ("self", "The " + XmlDocs.See (selfType) + " to curry."),
+					Enumerable.Range (0, n).Select (p => XmlDocs.Param (Value (n, p),
+							"A value of type <typeparamref name=\"" + Types.GetTypeParameter (n, p) + "\"/> to fix.")),
+					XmlDocs.Returns (
+						"Returns a " + XmlDocs.See (retType) + " which, when invoked, will",
+						"invoke <paramref name=\"self\"/> along with the provided fixed parameters."),
+					XmlDocs.ArgumentNullException ("self"));
 			return m;
 		}
 
@@ -190,6 +202,12 @@ namespace Cadenza.Tools {
 		{
 			for (int i = start; i < end; ++i)
 				yield return Value (n, i);
+		}
+
+		static IEnumerable<IEnumerable<string>> GetTypeParameters (int n, CodeTypeReference selfType)
+		{
+			return Enumerable.Range (0, n).Select (p => XmlDocs.TypeParam (Types.GetTypeParameter (n, p),
+					"A " + XmlDocs.See (selfType) + " parameter type."));
 		}
 
 		IEnumerable<CodeTypeMember> CreateCurryActions (int n)
@@ -218,9 +236,9 @@ namespace Cadenza.Tools {
 			if (tret)
 				m.TypeParameters.Add ("TResult");
 			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));
-			m.Parameters.Add (new CodeParameterDeclarationExpression (
-					new CodeTypeReference ("Cadenza.Tuple", Types.GetTypeParameterReferences (n, 0, a, false).ToArray ()),
-					"values"));
+			var valuesType =
+				new CodeTypeReference ("Cadenza.Tuple", Types.GetTypeParameterReferences (n, 0, a, false).ToArray ());
+			m.Parameters.Add (new CodeParameterDeclarationExpression (valuesType, "values"));
 			m.Statements.AddCheck ("Self", "self");
 			var expr = new StringBuilder ().Append ("(");
 			Values (expr, n, a, n);
@@ -233,6 +251,16 @@ namespace Cadenza.Tools {
 			}
 			expr.Append (")");
 			m.Statements.Add (new CodeMethodReturnStatement (new CodeSnippetExpression (expr.ToString ())));
+
+			m.Comments.AddDocs (
+					GetTypeParameters (n, selfType),
+					XmlDocs.Summary ("Creates a " + XmlDocs.See (retType) + " delegate."),
+					XmlDocs.Param ("self", "The " + XmlDocs.See (selfType) + " to curry."),
+					XmlDocs.Param ("values", "A value of type " + XmlDocs.See (valuesType) + "  which contains the values to fix."),
+					XmlDocs.Returns (
+						"Returns a " + XmlDocs.See (retType) + " which, when invoked, will",
+						"invoke <paramref name=\"self\"/> along with the provided fixed parameters."),
+					XmlDocs.ArgumentNullException ("self"));
 			return m;
 		}
 
@@ -315,7 +343,41 @@ namespace Cadenza.Tools {
 			Values (expr, n, 0, n);
 			expr.Append ("))");
 			m.Statements.Add (new CodeMethodReturnStatement (new CodeSnippetExpression (expr.ToString ())));
+			m.Comments.AddDocs (
+					GetComposeTypeParameters (n, selfType, composerType, tret),
+					XmlDocs.Summary ("Creates a " + XmlDocs.See (retType) + " delegate."),
+					XmlDocs.Param ("self", "The " + XmlDocs.See (selfType) + " to compose."),
+					XmlDocs.Param ("composer", "The " + XmlDocs.See (composerType) + " to compose with <paramref name=\"self\" />."),
+					XmlDocs.Returns (
+						"Returns a " + XmlDocs.See (retType) + " which, when invoked, will",
+						"invoke <paramref name=\"composer\"/> and pass the return value of",
+						"<paramref name=\"composer\" /> to <paramref name=\"self\" />."),
+					XmlDocs.Remarks (
+						"<para>",
+						" Composition is useful for chaining delegates together, so that the",
+						" return value of <paramref name=\"composer\" /> is automatically used as",
+						" the input parameter for <paramref name=\"self\" />.",
+						"</para>",
+						"<code lang=\"C#\">",
+						"Func&lt;int,string> tostring = Lambda.F ((int n) => n.ToString ());",
+						"Func&lt;int, int>    doubler = Lambda.F ((int n) => n * 2);",
+						"Func&lt;int, string>",
+						"     double_then_tostring = tostring.Compose (doubler);",
+						"Console.WriteLine (double_then_tostring (5));",
+						"    // Prints \"10\";</code>"),
+					XmlDocs.ArgumentNullException (new[]{"self", "composer"}));
 			return m;
+		}
+
+		static IEnumerable GetComposeTypeParameters (int n, CodeTypeReference selfType, CodeTypeReference composerType, bool tret)
+		{
+			for (int i = 0; i < n-1; ++i)
+				yield return XmlDocs.TypeParam (Types.GetTypeParameter (n + 1, i),
+						"A " + XmlDocs.See (composerType) + " parameter type.");
+			yield return XmlDocs.TypeParam (Types.GetTypeParameter (n + 1, n),
+					"The " + XmlDocs.See (composerType) + " return type, and " + XmlDocs.See (selfType) + " argument type.");
+			if (tret)
+				yield return XmlDocs.TypeParam ("TResult", "The " + XmlDocs.See (selfType) + " return type.");
 		}
 
 		IEnumerable<CodeTypeMember> CreateCompose (int n)
@@ -357,6 +419,62 @@ namespace Cadenza.Tools {
 			m.Statements.Add (new CodeMethodReturnStatement (e));
 
 			return m;
+		}
+
+		CodeMemberMethod AddTimingsDocs (CodeMemberMethod m, int n, CodeTypeDeclaration t, CodeMemberMethod full)
+		{
+			m.Comments.AddDocs (
+					GetTypeParameters (n, m.Parameters [0].Type),
+					XmlDocs.Summary ("Get timing information for delegate invocations."),
+					XmlDocs.Param ("self", "The " + XmlDocs.See (m.Parameters [0].Type) + " to generate timings for."),
+					GetTimingsParameters (n),
+					XmlDocs.Param ("runs", "The number of <see cref=\"T:System.TimeSpan\" /> values to return."),
+					XmlDocs.Returns (
+						"An " + XmlDocs.See (m.ReturnType),
+						"which will return the timing information for <paramref name=\"self\" />."));
+			if (full != null) {
+				var alt = new StringBuilder ().Append ("self.Timing (");
+				Values (alt, n, 0, n);
+				if (n > 0)
+					alt.Append (", ");
+				alt.Append ("runs, 1)");
+				m.Comments.AddDocs (
+						XmlDocs.Remarks (
+							"<para>",
+							" This is equivalent to calling",
+							" " + XmlDocs.See (DefaultNamespace, t, full),
+							" with a <paramref name=\"loopsPerRun\" /> value of <c>1</c>,",
+							" e.g. as if by calling <c>" + alt.ToString () + "</c>.",
+							"</para>"),
+						"<seealso cref=\"" + XmlDocs.Cref (DefaultNamespace, t, full) + "\" />");
+			}
+			else
+				m.Comments.AddDocs (XmlDocs.Remarks (
+							"<para>",
+							" Generates <paramref name=\"runs\" /> <see cref=\"T:System.TimeSpan\" />",
+							" instances, in which each <c>TimeSpan</c> instance is the amount of time",
+							" required to execute <paramref name=\"self\" /> for",
+							" <paramref name=\"loopsPerRun\" /> times.",
+							"</para>"));
+			m.Comments.AddDocs (
+					XmlDocs.Exception (typeof (ArgumentException),
+						"<para>",
+						" <paramref name=\"runs\" /> is negative.",
+						"</para>",
+						full != null ? new object[0] : new object[]{
+							"<para>-or-</para>",
+							"<para>",
+							" <paramref name=\"loopsPerRun\" /> is negative.",
+							"</para>"}),
+					XmlDocs.ArgumentNullException ("self"));
+
+			return m;
+		}
+
+		static IEnumerable GetTimingsParameters (int n)
+		{
+			return Enumerable.Range (0, n).Select (p =>
+					XmlDocs.Param (Value (n, p), "The " + XmlDocs.GetIndex (Value (n, p)) + " <paramref name=\"self\"/> parameter value."));
 		}
 
 		static CodeMemberMethod CreateTimingsRunsLoopsMethod (int n)
@@ -442,10 +560,12 @@ namespace Cadenza.Tools {
 			return m;
 		}
 
-		IEnumerable<CodeTypeMember> CreateTimings (int n)
+		IEnumerable<CodeTypeMember> CreateTimings (int n, CodeTypeDeclaration dr)
 		{
-			yield return CreateTimingsRunsMethod (n);
-			yield return CreateTimingsRunsLoopsMethod (n);
+			var m = CreateTimingsRunsMethod (n);
+			var f = CreateTimingsRunsLoopsMethod (n);
+			yield return AddTimingsDocs (m, n, dr, f);
+			yield return AddTimingsDocs (f, n, null, null);
 			yield return CreateTimingsIteratorMethod (n);
 		}
 	}
