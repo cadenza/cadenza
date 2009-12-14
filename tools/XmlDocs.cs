@@ -267,6 +267,17 @@ namespace Cadenza.Tools {
 			return "*unknown*";
 		}
 
+		public static string GetIndex (int index)
+		{
+			switch (index+1) {
+				case 1: return "first";
+				case 2: return "second";
+				case 3: return "third";
+				case 4: return "fourth";
+			}
+			return "*unknown*";
+		}
+
 		public static IEnumerable<string> TypeParams (CodeTypeParameterCollection typeParams, CodeTypeReference type)
 		{
 			return typeParams.Cast<CodeTypeParameter> ()

@@ -90,10 +90,47 @@ namespace Cadenza.Tools {
 			};
 			maxValues.GetStatements.Add (
 					new CodeMethodReturnStatement (new CodePrimitiveExpression (n)));
+			maxValues.Comments.AddDocs (
+					XmlDocs.Summary ("The maximum number of Tuple types provided."),
+					"<value>",
+					"  The maximum number of Tuple types provided.",
+					"</value>",
+					XmlDocs.Remarks (
+					"  <para>",
+					"   Only tuples up to a certain \"arity\" are supported; for example,",
+					"   a <c>Tuple&lt;T1, T2, ..., T100&gt;</c> isn't supported (and won't",
+					"   likely ever be).",
+					"  </para>",
+					"  <para>",
+					"   <see cref=\"P:Cadenza.Tuple.MaxValues\" /> is the maximum number of",
+					"   values that the Tuple types support.  If you need to support",
+					"   more values, then you need to either live with potential boxing",
+					"   and use a e.g. <see cref=\"T:System.Collections.Generic.List{System.Object}\" />",
+					"   or nest Tuple instantiations, e.g. ",
+					"   <c>Tuple&lt;int, Tuple&lt;int, Tuple&lt;int, Tuple&lt;int, int>>>></c>.",
+					"   The problem with such nesting is that it becomes \"unnatural\" to access ",
+					"   later elements -- <c>t._2._2._2._2</c> to access the fifth value for",
+					"   the previous example.",
+					"  </para>"));
 			tuple.Members.Add (maxValues);
 			for (int i = 0; i < n; ++i) {
 				tuple.Members.Add (CreateCreateMethod (i+1));
 			}
+			tuple.Comments.AddDocs (
+					XmlDocs.Summary ("Utility methods to create Tuple instances."),
+					XmlDocs.Remarks (
+						"<para>",
+						" Provides a set of <see cref=\"M:Cadenza.Tuple.Create\"/> methods so that",
+						" C# type inferencing can easily be used with tuples.  For example,",
+						" instead of:",
+						"</para>",
+						"<code lang=\"C#\">",
+						"Tuple&lt;int, long&gt; a = new Tuple&lt;int, long&gt; (1, 2L);</code>",
+						"<para>You can instead write:</para>",
+						"<code lang=\"C#\">",
+						"Tuple&lt;int, long&gt; b = Tuple.Create (1, 2L);",
+						"// or",
+						"var              c = Tuple.Create (1, 2L);</code>"));
 			return tuple;
 		}
 
@@ -115,6 +152,18 @@ namespace Cadenza.Tools {
 					new CodeMethodReturnStatement (
 						new CodeObjectCreateExpression ("Cadenza.Tuple",
 							Enumerable.Range (0, n).Select (p => new CodeVariableReferenceExpression (Tuple.item (n, p))).ToArray ())));
+			var tcref = "Cadenza.Tuple{" + Types.GetTypeParameterList (n) + "}";
+			m.Comments.AddDocs (
+					Enumerable.Range (0, n).Select (p => XmlDocs.TypeParam (Types.GetTypeParameter (n, p),
+						string.Format ("The {0} <see cref=\"T:{1}\" /> value type.", XmlDocs.GetIndex (p), tcref))),
+					XmlDocs.Summary ("Creates a <see cref=\"" + tcref + "\" />."),
+					Enumerable.Range (0, n).Select (p => XmlDocs.Param (Tuple.item (n, p),
+						string.Format ("The {0} <see cref=\"T:{1}\" /> value.", XmlDocs.GetIndex (p), tcref))),
+					XmlDocs.Returns (
+						"A <see cref=\"T:" + tcref + "\" /> initialized witih the parameter values."),
+					"<seealso cref=\"C:" + tcref + "(" +
+					string.Join(",", Enumerable.Range(0, n)
+						.Select (p => "`" + p.ToString ()).ToArray ()) + ")\" />");
 			return m;
 		}
 
