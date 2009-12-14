@@ -138,7 +138,7 @@ namespace Cadenza.Tools {
 
 		IEnumerable<string> GetCreators (CodeTypeDeclaration type, int n)
 		{
-			var targs = GetEitherTypeArgumentList (n);
+			var targs = Types.GetTypeParameterList (n);
 			for (int i = 0; i < n; ++i) {
 				yield return "    <item><term><see cref=\"" +
 					XmlDocs.Cref (DefaultNamespace, type, type.GetMethods (A (i)).First ()) +
@@ -148,18 +148,9 @@ namespace Cadenza.Tools {
 			}
 		}
 
-		static string GetEitherTypeArgumentList (int n)
-		{
-			var targs = new StringBuilder ("T1");
-			for (int i = 1; i < n; ++i) {
-				targs.Append (",").Append (Types.GetTypeParameter (n, i));
-			}
-			return targs.ToString ();
-		}
-
 		CodeTypeMember CreateImplicitCreator (CodeTypeDeclaration type, int w, int n)
 		{
-			var targs = GetEitherTypeArgumentList (n);
+			var targs = Types.GetTypeParameterList (n);
 			var body = new StringBuilder ();
 			body.AppendFormat (@"
         /// <param name=""value"">

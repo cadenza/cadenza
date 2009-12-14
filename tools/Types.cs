@@ -147,5 +147,15 @@ namespace Cadenza.Tools {
 		{
 			return total == 1 ? "T" : "T" + (index+1);
 		}
+
+		public static string GetTypeParameterList (int n)
+		{
+			var targs = new StringBuilder ();
+			targs.Append (GetTypeParameter (n, 0));
+			for (int i = 1; i < n; ++i) {
+				targs.Append (",").Append (GetTypeParameter (n, i));
+			}
+			return targs.ToString ();
+		}
 	}
 }

@@ -148,7 +148,48 @@ namespace Cadenza.Tools {
 							new CodeVariableReferenceExpression (Tuple.item (n, i))));
 			}
 			tuple.Members.Add (c);
+			tuple.Members.Add (CreateTupleEqualsMethod (n));
 			return tuple;
+		}
+	
+		CodeMemberMethod CreateTupleEqualsMethod (int n)
+		{
+			var m = new CodeMemberMethod () {
+				Attributes  = MemberAttributes.Override | MemberAttributes.Public,
+				Name        = "Equals",
+				ReturnType  = new CodeTypeReference (typeof (bool)),
+			};
+			var t = "Tuple<" + Types.GetTypeParameterList (n) + ">";
+			m.Parameters.Add (new CodeParameterDeclarationExpression (typeof (object), "obj"));
+			m.Statements.Add (new CodeSnippetStatement (string.Format ("            {0} o = obj as {0};", t)));
+			m.Statements.Add (new CodeConditionStatement (
+					new CodeBinaryOperatorExpression (
+						new CodeVariableReferenceExpression ("o"),
+						CodeBinaryOperatorType.ValueEquality,
+						new CodePrimitiveExpression (null)),
+					new CodeMethodReturnStatement (new CodePrimitiveExpression (false))));
+			Func<int, CodeMethodInvokeExpression> c = w =>
+					new CodeMethodInvokeExpression (
+						new CodePropertyReferenceExpression (
+							new CodeTypeReferenceExpression (
+								new CodeTypeReference ("System.Collections.Generic.EqualityComparer",
+									new CodeTypeReference (new CodeTypeParameter (Types.GetTypeParameter (n, w))))),
+							"Default"),
+						"Equals",
+						new CodeFieldReferenceExpression (
+							new CodeThisReferenceExpression (), Tuple.item (n, w)),
+						new CodeFieldReferenceExpression (
+							new CodeVariableReferenceExpression ("o"), Tuple.item (n, w)));
+			CodeExpression pred = c (0);
+			for (int i = 1; i < n; ++i) {
+				pred = new CodeBinaryOperatorExpression (
+						pred,
+						CodeBinaryOperatorType.BooleanAnd,
+						c (i));
+			}
+			m.Statements.Add (
+					new CodeMethodReturnStatement (pred));
+			return m;
 		}
 	}
 
