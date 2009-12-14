@@ -149,9 +149,10 @@ namespace Cadenza.Tools {
 			}
 			tuple.Members.Add (c);
 			tuple.Members.Add (CreateTupleEqualsMethod (n));
+			tuple.Members.Add (CreateTupleGetHashCodeMethod (n));
 			return tuple;
 		}
-	
+
 		CodeMemberMethod CreateTupleEqualsMethod (int n)
 		{
 			var m = new CodeMemberMethod () {
@@ -189,6 +190,23 @@ namespace Cadenza.Tools {
 			}
 			m.Statements.Add (
 					new CodeMethodReturnStatement (pred));
+			return m;
+		}
+
+		CodeMemberMethod CreateTupleGetHashCodeMethod (int n)
+		{
+			var m = new CodeMemberMethod () {
+				Attributes  = MemberAttributes.Override | MemberAttributes.Public,
+				Name        = "GetHashCode",
+				ReturnType  = new CodeTypeReference (typeof (int)),
+			};
+			m.Statements.Add (new CodeVariableDeclarationStatement (typeof (int), "hc", new CodePrimitiveExpression (0)));
+			for (int i = 0; i < n; ++i) {
+				m.Statements.Add (new CodeSnippetStatement (
+							string.Format ("            hc ^= {0}.GetHashCode();", Tuple.Item (n, i))));
+			}
+			m.Statements.Add (
+					new CodeMethodReturnStatement (new CodeVariableReferenceExpression ("hc")));
 			return m;
 		}
 	}
