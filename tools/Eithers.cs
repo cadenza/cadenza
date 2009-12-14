@@ -69,8 +69,10 @@ namespace Cadenza.Tools {
 			either.Members.Add (new CodeConstructor () {
 					Attributes = MemberAttributes.Private,
 			});
-			for (int i = 0; i < n; ++i)
+			for (int i = 0; i < n; ++i) {
+				either.Members.Add (CreateImplicitCreator (either, i, n));
 				either.Members.Add (CreateCreator (either, i, n));
+			}
 			either.Members.Add (CreateFold (either, n));
 			either.Members.Add (CreateCheckFolders (n));
 			either.Members.Add (CreateEqualsObject ());
@@ -136,6 +138,22 @@ namespace Cadenza.Tools {
 					XmlDocs.Cref (DefaultNamespace, type, type.GetMethods (A (i)).First ()) +
 					"\" /></term></item>";
 			}
+		}
+
+		CodeTypeMember CreateImplicitCreator (CodeTypeDeclaration type, int w, int n)
+		{
+			var targs = new StringBuilder ("T1");
+			for (int i = 1; i < n; ++i) {
+				targs.Append (", ").Append (Types.GetTypeParameter (n, i));
+			}
+			var body = new StringBuilder ();
+			body.AppendFormat (@"
+        public static implicit operator Either<{0}>({1} value)
+        {{
+            return Either<{0}>.{2} (value);
+        }}
+", targs.ToString (), Types.GetTypeParameter (n, w), A (w));
+			return new CodeSnippetTypeMember (body.ToString ());
 		}
 
 		CodeMemberMethod CreateCreator (CodeTypeDeclaration type, int w, int n)
