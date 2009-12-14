@@ -185,6 +185,11 @@ namespace Cadenza.Tools {
 				};
 				p.GetStatements.Add (
 						new CodeMethodReturnStatement (new CodeFieldReferenceExpression (new CodeThisReferenceExpression (), Tuple.item (n, i))));
+				p.Comments.AddDocs (
+						XmlDocs.Summary (string.Format ("The {0} tuple value.", XmlDocs.GetIndex (i))),
+						XmlDocs.Value ("A <typeparamref name=\"" + Types.GetTypeParameter (n, i) + "\" /> which is the " +
+							XmlDocs.GetIndex (i) + " tuple value."),
+						XmlDocs.Remarks (string.Format ("The {0} tuple value.", XmlDocs.GetIndex (i))));
 				tuple.Members.Add (p);
 			}
 			var c = new CodeConstructor () {
@@ -197,9 +202,28 @@ namespace Cadenza.Tools {
 							new CodeVariableReferenceExpression (Tuple.item (n, i))));
 			}
 			tuple.Members.Add (c);
+			c.Comments.AddDocs (
+					XmlDocs.Summary ("Constructs and initializes a new " + XmlDocs.See (DefaultNamespace, tuple) + " instance."),
+					Enumerable.Range (0, n).Select (p => XmlDocs.Param (Tuple.item (n, p),
+						"A <typeparamref name=\"" + Types.GetTypeParameter (n, p) + "\"/> which is used to initialize the " +
+						XmlDocs.See (DefaultNamespace, tuple, tuple.Members.OfType<CodeMemberProperty>().First(v => v.Name == Tuple.Item (n, p))) +
+						" property.")),
+					XmlDocs.Remarks (
+						"<para>",
+						"  Constructs and initializes a new " + XmlDocs.See (DefaultNamespace, tuple) + " instance.",
+						"</para>"));
 			tuple.Members.Add (CreateTupleEqualsMethod (n));
 			tuple.Members.Add (CreateTupleGetHashCodeMethod (n));
 			tuple.Members.Add (CreateTupleToStringMethod (n));
+			tuple.Comments.AddDocs (
+					XmlDocs.TypeParams (tuple.TypeParameters),
+					XmlDocs.Summary ("A strongly-typed sequence of " + n + " variously typed values."),
+					XmlDocs.Remarks (
+						"<para>",
+						" A <c>Tuple</c> is an immutable, strongly typed sequence of variously",
+						" typed values with each value lacking an otherwise meaningful name aside",
+						" from its position.",
+						"</para>"));
 			return tuple;
 		}
 

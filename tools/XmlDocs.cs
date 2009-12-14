@@ -123,6 +123,14 @@ namespace Cadenza.Tools {
 			return b.ToString ();
 		}
 
+		public static string Cref (string ns, CodeTypeDeclaration declType, CodeMemberProperty property)
+		{
+			var b = new CrefMemberBuilder ("P", declType, null);
+			Cref (b, ns, declType);
+			b.Cref.Append (".").Append (property.Name);
+			return b.ToString ();
+		}
+
 		class CrefMemberBuilder : CrefBuilder {
 			CodeTypeDeclaration declType;
 			CodeMemberMethod method;
@@ -147,6 +155,8 @@ namespace Cadenza.Tools {
 					Cref.Append ("`").Append (declType.TypeParameters.IndexOf (dt));
 					return true;
 				}
+				if (method == null)
+					return false;
 				dt = method.TypeParameters.Cast<CodeTypeParameter>().FirstOrDefault (e => e.Name == p.BaseType);
 				if (dt != null) {
 					Cref.Append ("``").Append (method.TypeParameters.IndexOf (dt));
@@ -235,6 +245,11 @@ namespace Cadenza.Tools {
 			return "<see cref=\"" + Cref (ns, type, method) + "\" />";
 		}
 
+		public static string See (string ns, CodeTypeDeclaration type, CodeMemberProperty property)
+		{
+			return "<see cref=\"" + Cref (ns, type, property) + "\" />";
+		}
+
 		public static IEnumerable<string> Summary (params object[] block)
 		{
 			return Block ("summary", null, block);
@@ -284,6 +299,11 @@ namespace Cadenza.Tools {
 				.Select (p => Block ("typeparam", "name=\"" + p.Name + "\"",
 					"A " + See (type) + (p.Name == "TResult" ? " return type." : " parameter type.")))
 				.SelectMany (x => x);
+		}
+
+		public static IEnumerable<string> Value (params object[] block)
+		{
+			return Block ("value", null, block);
 		}
 	}
 }
