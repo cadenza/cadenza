@@ -112,7 +112,12 @@ namespace Cadenza.Tools {
 					"          v => (int) v,                                 // 1st position converter",
 					"          v => v.Length);                               // 2nd position converter",
 					"  ",
-					"  Console.WriteLine (r);                        // prints 3</code>",
+					"  Console.WriteLine (r);                        // prints 3",
+					"",
+					"  // alternatively...",
+					"  Either&lt;double, string&gt; b = \"value\";           // value stored in 2nd position",
+					"  Console.WriteLine (b.Fold (v => v.ToString(), v => v));",
+					"                                                // prints \"value\"</code>",
 					"</remarks>"
 			);
 			for (int i = 0; i < n; ++i)
@@ -133,26 +138,58 @@ namespace Cadenza.Tools {
 
 		IEnumerable<string> GetCreators (CodeTypeDeclaration type, int n)
 		{
+			var targs = GetEitherTypeArgumentList (n);
 			for (int i = 0; i < n; ++i) {
 				yield return "    <item><term><see cref=\"" +
 					XmlDocs.Cref (DefaultNamespace, type, type.GetMethods (A (i)).First ()) +
 					"\" /></term></item>";
+				yield return "    <item><term><see cref=\"M:Cadenza.Either{" + targs +
+					"}.op_Implicit(`" + i + ")~Cadenza.Either{" + targs + "}";
 			}
+		}
+
+		static string GetEitherTypeArgumentList (int n)
+		{
+			var targs = new StringBuilder ("T1");
+			for (int i = 1; i < n; ++i) {
+				targs.Append (",").Append (Types.GetTypeParameter (n, i));
+			}
+			return targs.ToString ();
 		}
 
 		CodeTypeMember CreateImplicitCreator (CodeTypeDeclaration type, int w, int n)
 		{
-			var targs = new StringBuilder ("T1");
-			for (int i = 1; i < n; ++i) {
-				targs.Append (", ").Append (Types.GetTypeParameter (n, i));
-			}
+			var targs = GetEitherTypeArgumentList (n);
 			var body = new StringBuilder ();
 			body.AppendFormat (@"
+        /// <param name=""value"">
+        ///    A <typeparamref name=""{1}"" /> containing the value to store.
+        /// </param>
+        /// <summary>
+        ///    Creates a <see cref=""T:Cadenza.Either{{{0}}}"" /> instance which
+        ///    holds a <typeparamref name=""{1}"" /> value.
+        /// </summary>
+        /// <returns>
+        ///    A <see cref=""T:Cadenza.Either{{{0}}}"" /> instance which
+        ///    holds a <typeparamref name=""{1}"" /> value.
+        /// </returns>
+        /// <remarks>
+        ///   <para>
+        ///     This conversion operator is provided to make
+        ///     <see cref=""T:Cadenza.Either{{{0}}}"" /> instance creation easier:
+        ///   </para>
+        ///   <code lang=\""C#\"">
+        /// Either&lt;int, double&gt; value = 42.0;  // value stored in 2nd position</code>
+        /// </remarks>
+        /// <exception>
+        ///    if <paramref name""value"" /> is <see langword=""null"" />.
+        /// </exception>
+        /// <seealso cref=""M:Cadenza.Eithers{{{0}}}.{2}(`{3})"" />
         public static implicit operator Either<{0}>({1} value)
         {{
             return Either<{0}>.{2} (value);
         }}
-", targs.ToString (), Types.GetTypeParameter (n, w), A (w));
+", targs, Types.GetTypeParameter (n, w), A (w), w);
 			return new CodeSnippetTypeMember (body.ToString ());
 		}
 
