@@ -150,6 +150,7 @@ namespace Cadenza.Tools {
 			tuple.Members.Add (c);
 			tuple.Members.Add (CreateTupleEqualsMethod (n));
 			tuple.Members.Add (CreateTupleGetHashCodeMethod (n));
+			tuple.Members.Add (CreateTupleToStringMethod (n));
 			return tuple;
 		}
 
@@ -207,6 +208,39 @@ namespace Cadenza.Tools {
 			}
 			m.Statements.Add (
 					new CodeMethodReturnStatement (new CodeVariableReferenceExpression ("hc")));
+			return m;
+		}
+
+		CodeMemberMethod CreateTupleToStringMethod (int n)
+		{
+			var m = new CodeMemberMethod () {
+				Attributes  = MemberAttributes.Override | MemberAttributes.Public,
+				Name        = "ToString",
+				ReturnType  = new CodeTypeReference (typeof (bool)),
+			};
+			Func<int, CodeMethodInvokeExpression> c = w =>
+					new CodeMethodInvokeExpression (
+						new CodePropertyReferenceExpression (
+							new CodeThisReferenceExpression (),
+							Tuple.Item (n, w)),
+						"ToString");
+
+			var args = new List<CodeExpression> ();
+			args.Add (new CodePrimitiveExpression ("("));
+			args.Add (c (0));
+			for (int i = 1; i < n; ++i) {
+				args.Add (new CodePrimitiveExpression (", "));
+				args.Add (c (i));
+			}
+			args.Add (new CodePrimitiveExpression (")"));
+			m.Statements.Add (
+					new CodeMethodReturnStatement (
+						new CodeMethodInvokeExpression (
+							new CodeMethodReferenceExpression (
+								new CodeTypeReferenceExpression (typeof (string)),
+								"Concat"),
+							args.ToArray ())));
+
 			return m;
 		}
 	}
