@@ -320,7 +320,7 @@ namespace Cadenza.Tools {
 			var m = new CodeMemberMethod () {
 				Attributes  = MemberAttributes.Override | MemberAttributes.Public,
 				Name        = "ToString",
-				ReturnType  = new CodeTypeReference (typeof (bool)),
+				ReturnType  = new CodeTypeReference (typeof (string)),
 			};
 			Func<int, CodeMethodInvokeExpression> c = w =>
 					new CodeMethodInvokeExpression (
