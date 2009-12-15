@@ -303,6 +303,15 @@ namespace Cadenza.Tools {
 			}
 			m.Statements.Add (
 					new CodeMethodReturnStatement (new CodeVariableReferenceExpression ("hc")));
+			m.Comments.AddDocs (
+					XmlDocs.Summary ("Generates a hash code for the current instance."),
+					XmlDocs.Returns ("A <see cref=\"T:System.Int32\"/> containing the hash code for this instance."),
+					XmlDocs.Remarks (
+						"<para>",
+						" <block subset=\"none\" type=\"note\">",
+						"  This method overrides <see cref=\"M:System.Object.GetHashCode\"/>.",
+						" </block>",
+						"</para>"));
 			return m;
 		}
 
