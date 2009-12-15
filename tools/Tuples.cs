@@ -447,17 +447,19 @@ namespace Cadenza.Tools {
 							Enumerable.Range (0, n).Select (p =>
 								new CodePropertyReferenceExpression (new CodeVariableReferenceExpression ("self"), Tuple.Item (n, p))).ToArray ())));
 
+			var tref  = "<see cref=\"T:Cadenza.Tuple{" + Types.GetTypeParameterList (n) + "}\" />";
 			var props = string.Join (", ",
 					Enumerable.Range (0, n).Select (p => "<see cref=\"P:Cadenza.Tuple`" + n + "." + Tuple.Item (n, p) + "\"/>").ToArray ());
 			m.Comments.AddDocs (
 					XmlDocs.TypeParams (m.TypeParameters),
+					XmlDocs.Param ("self", "A " + tref + " to aggregate the values of."),
 					XmlDocs.Param ("func",
 						"A " + XmlDocs.See (funcType) + " which will be invoked, providing the values",
 						props,
 						"to <paramref name=\"func\"/> and ",
 						"returning the value returned by <paramref name=\"func\"/>."),
 					XmlDocs.Summary (
-						"Converts the <see cref=\"T:Cadenza.Tuple{" + Types.GetTypeParameterList (n) + "}/> into a <typeparamref name=\"TResult\"/>."),
+						"Converts the " + tref + " into a <typeparamref name=\"TResult\"/>."),
 					XmlDocs.Returns (
 						"The <typeparamref name=\"TResult\"/> returned by <paramref name=\"func\"/>."),
 					XmlDocs.Remarks (
@@ -520,6 +522,7 @@ namespace Cadenza.Tools {
 			var tref = "<see cref=\"T:Cadenza.Tuple{" + Types.GetTypeParameterList (n) + "}\" />";
 			m.Comments.AddDocs (
 					XmlDocs.TypeParams (m.TypeParameters),
+					XmlDocs.Param ("self", "A " + tref + " to match against."),
 					XmlDocs.Param ("matchers", "A " + fref,
 						"array containing the conversion routines to use to convert ",
 						"the current " + tref + " instance into a ",
