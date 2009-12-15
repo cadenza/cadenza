@@ -161,7 +161,7 @@ namespace Cadenza.Tools {
 					Enumerable.Range (0, n).Select (p => XmlDocs.Param (Tuple.item (n, p),
 						string.Format ("The {0} <see cref=\"T:{1}\" /> value.", XmlDocs.GetIndex (p), tcref))),
 					XmlDocs.Returns (
-						"A <see cref=\"T:" + tcref + "\" /> initialized witih the parameter values."),
+						"A <see cref=\"T:" + tcref + "\" /> initialized with the parameter values."),
 					"<seealso cref=\"C:" + tcref + "(" +
 					string.Join(",", Enumerable.Range(0, n)
 						.Select (p => "`" + p.ToString ()).ToArray ()) + ")\" />");

@@ -84,7 +84,7 @@ namespace Cadenza.Tools {
 						"<see cref=\"T:System.Func{T,TResult}\"/>, and related delegates."),
 					XmlDocs.Remarks (
 						"<para>",
-						" " + XmlDocs.See (DefaultNamespace, dr) + "provides methods methods for:",
+						" " + XmlDocs.See (DefaultNamespace, dr) + " provides methods methods for:",
 						"</para>",
 						"<list type=\"bullet\">",
 						" <item><term>",
@@ -256,7 +256,7 @@ namespace Cadenza.Tools {
 					GetTypeParameters (n, selfType),
 					XmlDocs.Summary ("Creates a " + XmlDocs.See (retType) + " delegate."),
 					XmlDocs.Param ("self", "The " + XmlDocs.See (selfType) + " to curry."),
-					XmlDocs.Param ("values", "A value of type " + XmlDocs.See (valuesType) + "  which contains the values to fix."),
+					XmlDocs.Param ("values", "A value of type " + XmlDocs.See (valuesType) + " which contains the values to fix."),
 					XmlDocs.Returns (
 						"Returns a " + XmlDocs.See (retType) + " which, when invoked, will",
 						"invoke <paramref name=\"self\"/> along with the provided fixed parameters."),
@@ -280,8 +280,9 @@ namespace Cadenza.Tools {
 		{
 			var selfType = getSelfType (n, 0);
 			var retType  = getRetType (n, n - 1);
-			for (int i = n - 2; i >= 0; --i)
+			for (int i = n - 2; i >= 0; --i) {
 				retType = new CodeTypeReference ("System.Func", new CodeTypeReference (Types.GetTypeParameter (n, i)), retType);
+			}
 			var m = new CodeMemberMethod () {
 				Attributes = MemberAttributes.Public | MemberAttributes.Static,
 				Name = "Curry",
@@ -300,6 +301,39 @@ namespace Cadenza.Tools {
 			Values (expr, n, 0, n);
 			expr.Append (")");
 			m.Statements.Add (new CodeMethodReturnStatement (new CodeSnippetExpression (expr.ToString ())));
+			var retDocs  = new StringBuilder ();
+			if (retType.TypeArguments.Count > 1) {
+				var rt = retType.TypeArguments [1];
+				while (rt != null && rt.TypeArguments.Count > 1) {
+					retDocs.Append ("return a ").Append (XmlDocs.See (rt)).Append (" which, when invoked, will ");
+					rt = rt.TypeArguments [1];
+				}
+				if (rt.TypeArguments.Count > 0)
+					retDocs.Append ("return a ").Append (XmlDocs.See (rt)).Append (" which, when invoked, will ");
+			}
+			m.Comments.Add (new CodeCommentStatement ("Currying method idea courtesy of:"));
+			m.Comments.Add (new CodeCommentStatement ("http://blogs.msdn.com/wesdyer/archive/2007/01/29/currying-and-partial-function-application.aspx"));
+			m.Comments.AddDocs (
+					XmlDocs.TypeParams (m.TypeParameters),
+					XmlDocs.Param ("self", "The " + XmlDocs.See (selfType) + " to curry."),
+					XmlDocs.Summary ("Creates a " + XmlDocs.See (retType) + " for currying."),
+					XmlDocs.Returns (
+						"A " + XmlDocs.See (retType) + " which, when invoked, will ",
+						retDocs.ToString (),
+						"invoke <paramref name=\"self\"/>."),
+					XmlDocs.Remarks (
+						"<para>",
+						" This is the more \"traditional\" view of currying, turning a method",
+						" which takes <c>(X * Y)-&gt;Z</c> (i.e. separate arguments) into a",
+						" <c>X -&gt; (Y -&gt; Z)</c> (that is a \"chain\" of nested Funcs such that",
+						" you provide only one argument to each Func until you provide enough",
+						" arguments to invoke the original method).",
+						"</para>",
+						"<code lang=\"C#\">",
+						"Func&lt;int,int,int,int&gt; function = (int a, int b, int c) =&gt; a + b + c;",
+						"Func&lt;int,Func&lt;int,Func&lt;int, int&gt;&gt;&gt; curry = function.Curry ();",
+						"Assert.AreEqual(6, curry (3)(2)(1));</code>"),
+					XmlDocs.ArgumentNullException ("self"));
 			return m;
 		}
 

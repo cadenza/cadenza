@@ -63,6 +63,8 @@ namespace Cadenza.Tools {
 			lambda.IsPartial = true;
 			lambda.Members.Add (A (0));
 			lambda.Members.Add (F (0));
+			lambda.Members.Add (XA (0));
+			lambda.Members.Add (XF (0));
 			for (int i = 1; i <= n; ++i) {
 				lambda.Members.Add (A (i));
 				lambda.Members.Add (F (i));

@@ -139,12 +139,13 @@ namespace Cadenza.Tools {
 		IEnumerable<string> GetCreators (CodeTypeDeclaration type, int n)
 		{
 			var targs = Types.GetTypeParameterList (n);
+			var targsc = string.Join (",", Enumerable.Range (0, n).Select(p => "`" + p).ToArray ());
 			for (int i = 0; i < n; ++i) {
 				yield return "    <item><term><see cref=\"" +
 					XmlDocs.Cref (DefaultNamespace, type, type.GetMethods (A (i)).First ()) +
 					"\" /></term></item>";
 				yield return "    <item><term><see cref=\"M:Cadenza.Either{" + targs +
-					"}.op_Implicit(`" + i + ")~Cadenza.Either{" + targs + "}";
+					"}.op_Implicit(`" + i + ")~Cadenza.Either{" + targsc + "}\" /></term></item>";
 			}
 		}
 
@@ -169,13 +170,13 @@ namespace Cadenza.Tools {
         ///     This conversion operator is provided to make
         ///     <see cref=""T:Cadenza.Either{{{0}}}"" /> instance creation easier:
         ///   </para>
-        ///   <code lang=\""C#\"">
+        ///   <code lang=""C#"">
         /// Either&lt;int, double&gt; value = 42.0;  // value stored in 2nd position</code>
         /// </remarks>
-        /// <exception>
-        ///    if <paramref name""value"" /> is <see langword=""null"" />.
+        /// <exception cref=""T:System.ArgumentNullException"">
+        ///    if <paramref name=""value"" /> is <see langword=""null"" />.
         /// </exception>
-        /// <seealso cref=""M:Cadenza.Eithers{{{0}}}.{2}(`{3})"" />
+        /// <seealso cref=""M:Cadenza.Either{{{0}}}.{2}(`{3})"" />
         public static implicit operator Either<{0}>({1} value)
         {{
             return Either<{0}>.{2} (value);
