@@ -299,13 +299,78 @@
         </Parameter>
       </Parameters>
       <Docs>
-        <typeparam name="T">To be added.</typeparam>
-        <typeparam name="TResult">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="matchers">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <typeparam name="T">
+          The first value type.
+        </typeparam>
+        <typeparam name="TResult">
+          The return value type.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:Cadenza.Tuple{T}" /> to match against.
+        </param>
+        <param name="matchers">
+          A <see cref="T:System.Func{T,Cadenza.Maybe{TResult}}" />
+          array containing the conversion routines to use to convert 
+          the current <see cref="T:Cadenza.Tuple{T}" /> instance into a 
+          <typeparamref name="TResult" /> value.
+        </param>
+        <summary>
+          Converts the current <see cref="T:Cadenza.Tuple{T}" /> instance into a <typeparamref name="TResult"/>.
+        </summary>
+        <returns>
+          The <typeparamref name="TResult"/> returned by one of the <paramref name="matchers"/>.
+        </returns>
+        <remarks>
+          <para>
+           <block subset="none" type="behaviors">
+            <para>
+             The current <see cref="T:Cadenza.Tuple{T}" /> instance is converted into a 
+             <typeparamref name="TResult" /> instance by trying each
+             <see cref="T:System.Func{T,Cadenza.Maybe{TResult}}" />
+             within <paramref name="matchers" />.
+            </para>
+            <para>
+             This method returns 
+             <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
+             for the first delegate to return a
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />.
+            </para>
+            <para>
+             If no <see cref="T:System.Func{T,Cadenza.Maybe{TResult}}" />
+             returns a 
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />, then an
+             <see cref="T:System.InvalidOperationException" /> is thrown.
+            </para>
+           </block>
+           <code lang="C#">
+          var    a = Tuple.Create (1, 2);
+          string b = a.Match (
+              (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
+              (t, v) =&gt; "*default*".Just ());
+          Console.WriteLine (b);  // prints "foo!"</code>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="matchers" /> is <see langword="null" />.
+          </para>
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          None of the 
+          <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
+          delegates within <paramref name="matchers" /> returned a 
+          <see cref="T:Cadenza.Maybe{TResult}" /> instance where
+          <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> was
+          <see langword="true" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Match&lt;T1,T2,TResult&gt;">
@@ -333,14 +398,81 @@
         </Parameter>
       </Parameters>
       <Docs>
-        <typeparam name="T1">To be added.</typeparam>
-        <typeparam name="T2">To be added.</typeparam>
-        <typeparam name="TResult">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="matchers">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <typeparam name="T1">
+          The first value type.
+        </typeparam>
+        <typeparam name="T2">
+          The second value type.
+        </typeparam>
+        <typeparam name="TResult">
+          The return value type.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:Cadenza.Tuple{T1,T2}" /> to match against.
+        </param>
+        <param name="matchers">
+          A <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+          array containing the conversion routines to use to convert 
+          the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a 
+          <typeparamref name="TResult" /> value.
+        </param>
+        <summary>
+          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult"/>.
+        </summary>
+        <returns>
+          The <typeparamref name="TResult"/> returned by one of the <paramref name="matchers"/>.
+        </returns>
+        <remarks>
+          <para>
+           <block subset="none" type="behaviors">
+            <para>
+             The current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance is converted into a 
+             <typeparamref name="TResult" /> instance by trying each
+             <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+             within <paramref name="matchers" />.
+            </para>
+            <para>
+             This method returns 
+             <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
+             for the first delegate to return a
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />.
+            </para>
+            <para>
+             If no <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+             returns a 
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />, then an
+             <see cref="T:System.InvalidOperationException" /> is thrown.
+            </para>
+           </block>
+           <code lang="C#">
+          var    a = Tuple.Create (1, 2);
+          string b = a.Match (
+              (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
+              (t, v) =&gt; "*default*".Just ());
+          Console.WriteLine (b);  // prints "foo!"</code>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="matchers" /> is <see langword="null" />.
+          </para>
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          None of the 
+          <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
+          delegates within <paramref name="matchers" /> returned a 
+          <see cref="T:Cadenza.Maybe{TResult}" /> instance where
+          <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> was
+          <see langword="true" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Match&lt;T1,T2,T3,TResult&gt;">
@@ -369,15 +501,81 @@
         </Parameter>
       </Parameters>
       <Docs>
-        <typeparam name="T1">To be added.</typeparam>
-        <typeparam name="T2">To be added.</typeparam>
-        <typeparam name="T3">To be added.</typeparam>
-        <typeparam name="TResult">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="matchers">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <typeparam name="T1">
+          The first value type.
+        </typeparam>
+        <typeparam name="T2">
+          The second value type.
+        </typeparam>
+        <typeparam name="TResult">
+          The return value type.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:Cadenza.Tuple{T1,T2}" /> to match against.
+        </param>
+        <param name="matchers">
+          A <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+          array containing the conversion routines to use to convert 
+          the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a 
+          <typeparamref name="TResult" /> value.
+        </param>
+        <summary>
+          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult"/>.
+        </summary>
+        <returns>
+          The <typeparamref name="TResult"/> returned by one of the <paramref name="matchers"/>.
+        </returns>
+        <remarks>
+          <para>
+           <block subset="none" type="behaviors">
+            <para>
+             The current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance is converted into a 
+             <typeparamref name="TResult" /> instance by trying each
+             <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+             within <paramref name="matchers" />.
+            </para>
+            <para>
+             This method returns 
+             <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
+             for the first delegate to return a
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />.
+            </para>
+            <para>
+             If no <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+             returns a 
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />, then an
+             <see cref="T:System.InvalidOperationException" /> is thrown.
+            </para>
+           </block>
+           <code lang="C#">
+          var    a = Tuple.Create (1, 2);
+          string b = a.Match (
+              (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
+              (t, v) =&gt; "*default*".Just ());
+          Console.WriteLine (b);  // prints "foo!"</code>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="matchers" /> is <see langword="null" />.
+          </para>
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          None of the 
+          <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
+          delegates within <paramref name="matchers" /> returned a 
+          <see cref="T:Cadenza.Maybe{TResult}" /> instance where
+          <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> was
+          <see langword="true" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Match&lt;T1,T2,T3,T4,TResult&gt;">
@@ -407,16 +605,81 @@
         </Parameter>
       </Parameters>
       <Docs>
-        <typeparam name="T1">To be added.</typeparam>
-        <typeparam name="T2">To be added.</typeparam>
-        <typeparam name="T3">To be added.</typeparam>
-        <typeparam name="T4">To be added.</typeparam>
-        <typeparam name="TResult">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="matchers">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <typeparam name="T1">
+          The first value type.
+        </typeparam>
+        <typeparam name="T2">
+          The second value type.
+        </typeparam>
+        <typeparam name="TResult">
+          The return value type.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:Cadenza.Tuple{T1,T2}" /> to match against.
+        </param>
+        <param name="matchers">
+          A <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+          array containing the conversion routines to use to convert 
+          the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a 
+          <typeparamref name="TResult" /> value.
+        </param>
+        <summary>
+          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult"/>.
+        </summary>
+        <returns>
+          The <typeparamref name="TResult"/> returned by one of the <paramref name="matchers"/>.
+        </returns>
+        <remarks>
+          <para>
+           <block subset="none" type="behaviors">
+            <para>
+             The current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance is converted into a 
+             <typeparamref name="TResult" /> instance by trying each
+             <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+             within <paramref name="matchers" />.
+            </para>
+            <para>
+             This method returns 
+             <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
+             for the first delegate to return a
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />.
+            </para>
+            <para>
+             If no <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+             returns a 
+             <see cref="T:Cadenza.Maybe{TResult}" /> instance
+             where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
+             is <see langword="true" />, then an
+             <see cref="T:System.InvalidOperationException" /> is thrown.
+            </para>
+           </block>
+           <code lang="C#">
+          var    a = Tuple.Create (1, 2);
+          string b = a.Match (
+              (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
+              (t, v) =&gt; "*default*".Just ());
+          Console.WriteLine (b);  // prints "foo!"</code>
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="matchers" /> is <see langword="null" />.
+          </para>
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          None of the 
+          <see cref="T:System.Func{TSource,Cadenza.Maybe{TResult}}" />
+          delegates within <paramref name="matchers" /> returned a 
+          <see cref="T:Cadenza.Maybe{TResult}" /> instance where
+          <see cref="P:Cadenza.Maybe{TResult}.HasValue" /> was
+          <see langword="true" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="ToEnumerable&lt;T&gt;">
