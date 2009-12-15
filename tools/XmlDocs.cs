@@ -278,6 +278,8 @@ namespace Cadenza.Tools {
 				case "2": return "second";
 				case "3": return "third";
 				case "4": return "fourth";
+				case "Result":
+					return "return";
 			}
 			return "*unknown*";
 		}

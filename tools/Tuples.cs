@@ -413,6 +413,9 @@ namespace Cadenza.Tools {
 				t.Members.Add (CreateAggregateMethod (i));
 				t.Members.Add (CreateMatchMethod (i));
 			}
+			t.Comments.AddDocs (
+					XmlDocs.Summary ("Extension methods on <c>Tuple</c> types."),
+					XmlDocs.Remarks ());
 			return t;
 		}
 
@@ -443,6 +446,28 @@ namespace Cadenza.Tools {
 							Enumerable.Range (0, n).Select (p =>
 								new CodePropertyReferenceExpression (new CodeVariableReferenceExpression ("self"), Tuple.Item (n, p))).ToArray ())));
 
+			var props = string.Join (", ",
+					Enumerable.Range (0, n).Select (p => "<see cref=\"P:Cadenza.Tuple`" + n + "." + Tuple.Item (n, p) + "\"/>").ToArray ());
+			m.Comments.AddDocs (
+					XmlDocs.TypeParams (m.TypeParameters),
+					XmlDocs.Param ("func",
+						"A " + XmlDocs.See (funcType) + " which will be invoked, providing the values",
+						props,
+						"to <paramref name=\"func\"/> and ",
+						"returning the value returned by <paramref name=\"func\"/>."),
+					XmlDocs.Summary (
+						"Converts the <see cref=\"T:Cadenza.Tuple{" + Types.GetTypeParameterList (n) + "}/> into a <typeparamref name=\"TResult\"/>."),
+					XmlDocs.Returns (
+						"The <typeparamref name=\"TResult\"/> returned by <paramref name=\"func\"/>."),
+					XmlDocs.Remarks (
+						"<para>",
+						" <block subset=\"none\" type=\"behaviors\">",
+						"  Passes the values " + props + " to ",
+						"  <paramref name=\"func\"/>, returning the value produced by ",
+						"  <paramref name=\"func\"/>.",
+						" </block>",
+						"</para>"),
+					XmlDocs.ArgumentNullException ("func"));
 			return m;
 		}
 
@@ -489,6 +514,60 @@ namespace Cadenza.Tools {
 						new CodeObjectCreateExpression (
 							new CodeTypeReference ("System.InvalidOperationException"),
 							new CodePrimitiveExpression ("no match"))));
+
+			var fref = "<see cref=\"T:System.Func{" + Types.GetTypeParameterList (n) + ",Cadenza.Maybe{TResult}}\" />";
+			var tref = "<see cref=\"T:Cadenza.Tuple{" + Types.GetTypeParameterList (n) + "}\" />";
+			m.Comments.AddDocs (
+					XmlDocs.TypeParams (m.TypeParameters),
+					XmlDocs.Param ("matchers", "A " + fref,
+						"array containing the conversion routines to use to convert ",
+						"the current " + tref + " instance into a ",
+						"<typeparamref name=\"TResult\" /> value."),
+					XmlDocs.Summary (
+						"Converts the current " + tref + " instance into a <typeparamref name=\"TResult\"/>."),
+					XmlDocs.Returns (
+						"The <typeparamref name=\"TResult\"/> returned by one of the <paramref name=\"matchers\"/>."),
+					XmlDocs.Remarks (
+					"<para>",
+					" <block subset=\"none\" type=\"behaviors\">",
+					"  <para>",
+					"   The current " + tref + " instance is converted into a ",
+					"   <typeparamref name=\"TResult\" /> instance by trying each",
+					"   " + fref,
+					"   within <paramref name=\"matchers\" />.",
+					"  </para>",
+					"  <para>",
+					"   This method returns ",
+					"   <see cref=\"P:Cadenza.Maybe{TResult}.Value\" /> ",
+					"   for the first delegate to return a",
+					"   <see cref=\"T:Cadenza.Maybe{TResult}\" /> instance",
+					"   where <see cref=\"P:Cadenza.Maybe{TResult}.HasValue\" />",
+					"   is <see langword=\"true\" />.",
+					"  </para>",
+					"  <para>",
+					"   If no " + fref,
+					"   returns a ",
+					"   <see cref=\"T:Cadenza.Maybe{TResult}\" /> instance",
+					"   where <see cref=\"P:Cadenza.Maybe{TResult}.HasValue\" />",
+					"   is <see langword=\"true\" />, then an",
+					"   <see cref=\"T:System.InvalidOperationException\" /> is thrown.",
+					"  </para>",
+					" </block>",
+					" <code lang=\"C#\">",
+					"var    a = Tuple.Create (1, 2);",
+					"string b = a.Match (",
+					"    (t, v) =&gt; Match.When ( t + v == 3, \"foo!\"),",
+					"    (t, v) =&gt; \"*default*\".Just ());",
+					"Console.WriteLine (b);  // prints \"foo!\"</code>",
+					"</para>"),
+					XmlDocs.ArgumentNullException ("matchers"),
+					XmlDocs.Exception (typeof (InvalidOperationException),
+						"None of the ",
+						"<see cref=\"T:System.Func{TSource,Cadenza.Maybe{TResult}}\" />",
+						"delegates within <paramref name=\"matchers\" /> returned a ",
+						"<see cref=\"T:Cadenza.Maybe{TResult}\" /> instance where",
+						"<see cref=\"P:Cadenza.Maybe{TResult}.HasValue\" /> was",
+						"<see langword=\"true\" />."));
 			return m;
 		}
 	}
