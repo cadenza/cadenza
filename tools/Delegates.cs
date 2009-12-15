@@ -305,14 +305,14 @@ namespace Cadenza.Tools {
 
 		IEnumerable<CodeTypeMember> CreateTraditionalCurryActions (int n)
 		{
-			if (n <= 1)
+			if (n < 1)
 				yield break;
 			yield return CreateTraditionalCurryMethod (Types.ThisAction, Types.Action, n, false);
 		}
 
 		IEnumerable<CodeTypeMember> CreateTraditionalCurryFuncs (int n)
 		{
-			if (n <= 1)
+			if (n < 1)
 				yield break;
 			yield return CreateTraditionalCurryMethod (Types.ThisFunc, Types.Func, n, true);
 		}
