@@ -242,9 +242,9 @@ namespace Cadenza.Tools {
 			m.Statements.AddCheck ("Self", "self");
 			var expr = new StringBuilder ().Append ("(");
 			Values (expr, n, a, n);
-			expr.Append (") => self (values._1");
+			expr.Append (") => self (values.Item1");
 			for (int i = 1; i < a; ++i)
-				expr.Append (", ").Append ("values._" + (i+1));
+				expr.Append (", ").Append ("values.Item" + (i+1));
 			if (a < n) {
 				expr.Append (", ");
 				Values (expr, n, a, n);
