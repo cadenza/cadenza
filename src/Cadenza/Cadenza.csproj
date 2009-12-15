@@ -91,22 +91,26 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <Runtime Condition=" '$(OS)' == 'Windows_NT' "></Runtime>
+    <Runtime Condition=" '$(OS)' != 'Windows_NT' ">mono</Runtime>
+  </PropertyGroup>
   <ItemGroup>
-    <Scripts Include="..\..\tools\mkdelegates">
+    <Scripts Include="..\..\tools\Delegates.exe">
       <TargetFileName>Cadenza\Delegates.cs</TargetFileName>
     </Scripts>
-    <Scripts Include="..\..\tools\mkeithers">
+    <Scripts Include="..\..\tools\Eithers.exe">
       <TargetFileName>Cadenza\Eithers.cs</TargetFileName>
     </Scripts>
-    <Scripts Include="..\..\tools\mklambda">
+    <Scripts Include="..\..\tools\Lambdas.exe">
       <TargetFileName>Cadenza\Lambdas.cs</TargetFileName>
     </Scripts>
-    <Scripts Include="..\..\tools\mktuples">
+    <Scripts Include="..\..\tools\Tuples.exe">
       <TargetFileName>Cadenza\Tuples.cs</TargetFileName>
     </Scripts>
   </ItemGroup>
   <Target Name="Update" Inputs="@(Scripts)" Outputs="%(Scripts.TargetFileName)">
-    <Exec Command="perl @(Scripts) -n 4 &gt; %(Scripts.TargetFileName)" />
+    <Exec Command="$(Runtime) @(Scripts) -n 4 -o %(Scripts.TargetFileName)" />
   </Target>
   <!--
   <PropertyGroup>
