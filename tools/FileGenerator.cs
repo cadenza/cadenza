@@ -47,10 +47,10 @@ namespace Cadenza.Tools {
 		}
 
 		protected int TypeParameterCount {get; set;}
+		protected string OutputFile {get; set;}
 
 		public virtual int Run (string[] args)
 		{
-			string outputFile = null;
 			try {
 				var p = new OptionSet () {
 					{ "n|count=",
@@ -58,7 +58,7 @@ namespace Cadenza.Tools {
 					  (int v) => TypeParameterCount = v },
 					{ "o|out=",
 					  "The file to write to.",
-					  v => outputFile = v },
+					  v => OutputFile = v },
 				};
 				bool help = false;
 				AddOptions (p);
@@ -80,7 +80,8 @@ namespace Cadenza.Tools {
 			foreach (var ns in GetCodeNamespaces ())
 				file.Namespaces.Add (ns);
 
-			using (var o = GetOutputFile (outputFile)) {
+			using (var o = GetOutputFile (OutputFile)) {
+				o.NewLine = "\n";
 				var w = new IndentedTextWriter (o, "\t");
 				var provider = new CSharpCodeProvider ();
 				provider.GenerateCodeFromCompileUnit (file, o, new CodeGeneratorOptions () {
@@ -101,7 +102,7 @@ namespace Cadenza.Tools {
 		}
 
 		protected virtual string CommandLine {
-			get {return string.Format ("{0} -n {1}", Program, TypeParameterCount);}
+			get {return string.Format ("{0} -n {1} -o {2}", Program, TypeParameterCount, OutputFile);}
 		}
 
 		protected virtual string DefaultNamespace {
