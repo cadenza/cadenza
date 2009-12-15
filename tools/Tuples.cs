@@ -150,7 +150,8 @@ namespace Cadenza.Tools {
 							new CodeTypeReference (Types.GetTypeParameter (n, i)), Tuple.item (n, i)));
 			m.Statements.Add (
 					new CodeMethodReturnStatement (
-						new CodeObjectCreateExpression ("Cadenza.Tuple",
+						new CodeObjectCreateExpression (
+							new CodeTypeReference ("Cadenza.Tuple", Types.GetTypeParameterReferences (n, false).ToArray ()),
 							Enumerable.Range (0, n).Select (p => new CodeVariableReferenceExpression (Tuple.item (n, p))).ToArray ())));
 			var tcref = "Cadenza.Tuple{" + Types.GetTypeParameterList (n) + "}";
 			m.Comments.AddDocs (
