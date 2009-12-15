@@ -13,7 +13,7 @@
 // 
 // GENERATED CODE: DO NOT EDIT.
 // 
-// To regenerate this code, execute: Lambdas.exe -n 4
+// To regenerate this code, execute: Lambdas.exe -n 4 -o Cadenza/Lambdas.cs
 // 
 // Copyright (c) 2009 Novell, Inc. (http://www.novell.com)
 // 

@@ -107,7 +107,7 @@ namespace Cadenza
         ///   The first <see cref="T:Cadenza.Tuple{T}" /> value.
         /// </param>
         /// <returns>
-        ///   A <see cref="T:Cadenza.Tuple{T}" /> initialized witih the parameter values.
+        ///   A <see cref="T:Cadenza.Tuple{T}" /> initialized with the parameter values.
         /// </returns>
         /// <seealso cref="C:Cadenza.Tuple{T}(`0)" />
         public static Cadenza.Tuple<T> Create<T>(T item1)
@@ -132,7 +132,7 @@ namespace Cadenza
         ///   The second <see cref="T:Cadenza.Tuple{T1,T2}" /> value.
         /// </param>
         /// <returns>
-        ///   A <see cref="T:Cadenza.Tuple{T1,T2}" /> initialized witih the parameter values.
+        ///   A <see cref="T:Cadenza.Tuple{T1,T2}" /> initialized with the parameter values.
         /// </returns>
         /// <seealso cref="C:Cadenza.Tuple{T1,T2}(`0,`1)" />
         public static Cadenza.Tuple<T1, T2> Create<T1, T2>(T1 item1, T2 item2)
@@ -164,7 +164,7 @@ namespace Cadenza
         ///   The third <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> value.
         /// </param>
         /// <returns>
-        ///   A <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> initialized witih the parameter values.
+        ///   A <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> initialized with the parameter values.
         /// </returns>
         /// <seealso cref="C:Cadenza.Tuple{T1,T2,T3}(`0,`1,`2)" />
         public static Cadenza.Tuple<T1, T2, T3> Create<T1, T2, T3>(T1 item1, T2 item2, T3 item3)
@@ -203,7 +203,7 @@ namespace Cadenza
         ///   The fourth <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> value.
         /// </param>
         /// <returns>
-        ///   A <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> initialized witih the parameter values.
+        ///   A <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> initialized with the parameter values.
         /// </returns>
         /// <seealso cref="C:Cadenza.Tuple{T1,T2,T3,T4}(`0,`1,`2,`3)" />
         public static Cadenza.Tuple<T1, T2, T3, T4> Create<T1, T2, T3, T4>(T1 item1, T2 item2, T3 item3, T4 item4)

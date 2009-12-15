@@ -13,7 +13,7 @@
 // 
 // GENERATED CODE: DO NOT EDIT.
 // 
-// To regenerate this code, execute: Eithers.exe -n 4
+// To regenerate this code, execute: Eithers.exe -n 4 -o Cadenza/Eithers.cs
 // 
 // Copyright (c) 2009 Novell, Inc. (http://www.novell.com)
 // 
@@ -118,7 +118,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///    if <paramref name="value" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="M:Cadenza.Eithers{T1,T2}.A(`0)" />
+        /// <seealso cref="M:Cadenza.Either{T1,T2}.A(`0)" />
         public static implicit operator Either<T1,T2>(T1 value)
         {
             return Either<T1,T2>.A (value);
@@ -147,7 +147,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///    if <paramref name="value" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="M:Cadenza.Eithers{T1,T2}.B(`1)" />
+        /// <seealso cref="M:Cadenza.Either{T1,T2}.B(`1)" />
         public static implicit operator Either<T1,T2>(T2 value)
         {
             return Either<T1,T2>.B (value);
@@ -527,7 +527,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///    if <paramref name="value" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="M:Cadenza.Eithers{T1,T2,T3}.A(`0)" />
+        /// <seealso cref="M:Cadenza.Either{T1,T2,T3}.A(`0)" />
         public static implicit operator Either<T1,T2,T3>(T1 value)
         {
             return Either<T1,T2,T3>.A (value);
@@ -556,7 +556,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///    if <paramref name="value" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="M:Cadenza.Eithers{T1,T2,T3}.B(`1)" />
+        /// <seealso cref="M:Cadenza.Either{T1,T2,T3}.B(`1)" />
         public static implicit operator Either<T1,T2,T3>(T2 value)
         {
             return Either<T1,T2,T3>.B (value);
@@ -585,7 +585,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///    if <paramref name="value" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="M:Cadenza.Eithers{T1,T2,T3}.C(`2)" />
+        /// <seealso cref="M:Cadenza.Either{T1,T2,T3}.C(`2)" />
         public static implicit operator Either<T1,T2,T3>(T3 value)
         {
             return Either<T1,T2,T3>.C (value);
@@ -1064,7 +1064,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///    if <paramref name="value" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="M:Cadenza.Eithers{T1,T2,T3,T4}.A(`0)" />
+        /// <seealso cref="M:Cadenza.Either{T1,T2,T3,T4}.A(`0)" />
         public static implicit operator Either<T1,T2,T3,T4>(T1 value)
         {
             return Either<T1,T2,T3,T4>.A (value);
@@ -1093,7 +1093,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///    if <paramref name="value" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="M:Cadenza.Eithers{T1,T2,T3,T4}.B(`1)" />
+        /// <seealso cref="M:Cadenza.Either{T1,T2,T3,T4}.B(`1)" />
         public static implicit operator Either<T1,T2,T3,T4>(T2 value)
         {
             return Either<T1,T2,T3,T4>.B (value);
@@ -1122,7 +1122,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///    if <paramref name="value" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="M:Cadenza.Eithers{T1,T2,T3,T4}.C(`2)" />
+        /// <seealso cref="M:Cadenza.Either{T1,T2,T3,T4}.C(`2)" />
         public static implicit operator Either<T1,T2,T3,T4>(T3 value)
         {
             return Either<T1,T2,T3,T4>.C (value);
@@ -1151,7 +1151,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///    if <paramref name="value" /> is <see langword="null" />.
         /// </exception>
-        /// <seealso cref="M:Cadenza.Eithers{T1,T2,T3,T4}.D(`3)" />
+        /// <seealso cref="M:Cadenza.Either{T1,T2,T3,T4}.D(`3)" />
         public static implicit operator Either<T1,T2,T3,T4>(T4 value)
         {
             return Either<T1,T2,T3,T4>.D (value);
