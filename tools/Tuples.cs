@@ -413,6 +413,8 @@ namespace Cadenza.Tools {
 			for (int i = 1; i <= n; ++i) {
 				t.Members.Add (CreateAggregateMethod (i));
 				t.Members.Add (CreateMatchMethod (i));
+				t.Members.Add (CreateToEnumerableMethod (i));
+				t.Members.Add (CreateCreateToEnumerableIteratorMethod (i));
 			}
 			t.Comments.AddDocs (
 					XmlDocs.Summary ("Extension methods on <c>Tuple</c> types."),
@@ -470,7 +472,7 @@ namespace Cadenza.Tools {
 						"  <paramref name=\"func\"/>.",
 						" </block>",
 						"</para>"),
-					XmlDocs.ArgumentNullException ("func"));
+					XmlDocs.ArgumentNullException (new[]{"self", "func"}));
 			return m;
 		}
 
@@ -564,7 +566,7 @@ namespace Cadenza.Tools {
 					"    (t, v) =&gt; \"*default*\".Just ());",
 					"Console.WriteLine (b);  // prints \"foo!\"</code>",
 					"</para>"),
-					XmlDocs.ArgumentNullException ("matchers"),
+					XmlDocs.ArgumentNullException (new[]{"self", "matchers"}),
 					XmlDocs.Exception (typeof (InvalidOperationException),
 						"None of the ",
 						"<see cref=\"T:System.Func{TSource,Cadenza.Maybe{TResult}}\" />",
@@ -572,6 +574,69 @@ namespace Cadenza.Tools {
 						"<see cref=\"T:Cadenza.Maybe{TResult}\" /> instance where",
 						"<see cref=\"P:Cadenza.Maybe{TResult}.HasValue\" /> was",
 						"<see langword=\"true\" />."));
+			return m;
+		}
+
+		CodeMemberMethod CreateToEnumerableMethod (int n)
+		{
+			var retType   = new CodeTypeReference ("System.Collections.Generic.IEnumerable", new CodeTypeReference (typeof (object)));
+			var m = new CodeMemberMethod () {
+				Attributes  = MemberAttributes.Public | MemberAttributes.Static,
+				Name        = "ToEnumerable",
+				ReturnType  = retType,
+			};
+			for (int i = 0; i < n; ++i)
+				m.TypeParameters.Add (Types.GetTypeParameter (n, i));
+
+			var selfType = new CodeTypeReference ("this Tuple", Types.GetTypeParameterReferences (n, false).ToArray ());
+			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));
+
+			m.Statements.AddCheck ("Self", "self");
+			m.Statements.Add (
+					new CodeMethodReturnStatement (
+						new CodeMethodInvokeExpression (
+							new CodeMethodReferenceExpression (new CodeTypeReferenceExpression ("TupleCoda"), "CreateToEnumerableIterator"),
+							new CodeVariableReferenceExpression ("self"))));
+
+			var tref  = "<see cref=\"T:Cadenza.Tuple{" + Types.GetTypeParameterList (n) + "}\" />";
+			var props = string.Join (", ",
+					Enumerable.Range (0, n).Select (p => "<see cref=\"P:Cadenza.Tuple`" + n + "." + Tuple.Item (n, p) + "\"/>").ToArray ());
+			m.Comments.AddDocs (
+					XmlDocs.TypeParams (m.TypeParameters),
+					XmlDocs.Param ("self", "A " + tref + " to convert into an <see cref=\"T:System.Collections.Generic.IEnumerable{System.Object}\"/>."),
+					XmlDocs.Summary (
+						"Converts the " + tref + " into a <see cref=\"T:System.Collections.Generic.IEnumerable{System.Object}\"/>."),
+					XmlDocs.Returns (
+						"A <see cref=\"T:System.Collections.Generic.IEnumerable{System.Object}\"/>."),
+					XmlDocs.Remarks (
+						"<para>",
+						" <block subset=\"none\" type=\"behaviors\">",
+						"  Passes the values " + props + " to ",
+						"  <paramref name=\"func\"/>, returning the value produced by ",
+						"  <paramref name=\"func\"/>.",
+						" </block>",
+						"</para>"),
+					XmlDocs.ArgumentNullException ("self"));
+			return m;
+		}
+
+		CodeMemberMethod CreateCreateToEnumerableIteratorMethod (int n)
+		{
+			var retType   = new CodeTypeReference ("System.Collections.Generic.IEnumerable", new CodeTypeReference (typeof (object)));
+			var m = new CodeMemberMethod () {
+				Attributes  = MemberAttributes.Private | MemberAttributes.Static,
+				Name        = "CreateToEnumerableIterator",
+				ReturnType  = retType,
+			};
+			for (int i = 0; i < n; ++i)
+				m.TypeParameters.Add (Types.GetTypeParameter (n, i));
+
+			var selfType = new CodeTypeReference ("Tuple", Types.GetTypeParameterReferences (n, false).ToArray ());
+			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));
+
+			for (int i = 0; i < n; ++i) {
+				m.Statements.Add (new CodeSnippetStatement ("            yield return self.Item" + (i+1) + ";"));
+			}
 			return m;
 		}
 	}
