@@ -214,7 +214,7 @@ namespace Cadenza.Tools {
 						"</para>"));
 			tuple.Members.Add (CreateTupleEqualsMethod (n, tuple));
 			tuple.Members.Add (CreateTupleGetHashCodeMethod (n));
-			tuple.Members.Add (CreateTupleToStringMethod (n));
+			tuple.Members.Add (CreateTupleToStringMethod (n, tuple));
 			tuple.Comments.AddDocs (
 					XmlDocs.TypeParams (tuple.TypeParameters),
 					XmlDocs.Summary ("A strongly-typed sequence of " + n + " variously typed values."),
@@ -315,7 +315,7 @@ namespace Cadenza.Tools {
 			return m;
 		}
 
-		CodeMemberMethod CreateTupleToStringMethod (int n)
+		CodeMemberMethod CreateTupleToStringMethod (int n, CodeTypeDeclaration tuple)
 		{
 			var m = new CodeMemberMethod () {
 				Attributes  = MemberAttributes.Override | MemberAttributes.Public,
@@ -345,6 +345,20 @@ namespace Cadenza.Tools {
 								"Concat"),
 							args.ToArray ())));
 
+			m.Comments.AddDocs (
+					XmlDocs.Summary ("Returns a <see cref=\"T:System.String\"/> representation of the value of the current instance."),
+					XmlDocs.Returns ("A <see cref=\"T:System.String\"/> representation of the value of the current instance."),
+					XmlDocs.Remarks (
+						"<para>",
+						" <block subset=\"none\" type=\"behaviors\">",
+						"  Returns <c>(</c>, followed by a comma-separated list of the result of",
+						"  calling <see cref=\"M:System.Object.ToString\"/> on",
+						Enumerable.Range (0, n).Select (p =>
+							XmlDocs.See (DefaultNamespace, tuple, tuple.Members.OfType<CodeMemberProperty>().First(v => v.Name == Tuple.Item (n, p))) +
+							", "),
+						"  followed by <c>)</c>.",
+						" </block>",
+						"</para>"));
 			return m;
 		}
 	}
