@@ -533,7 +533,7 @@ namespace Cadenza.Tests {
 		{
 			List<TimeSpan> c = Lambda.A (()=>Thread.Sleep (1000)).Timings (1, 1).ToList ();
 			Assert.AreEqual (1, c.Count);
-			Assert.AreEqual (1000, (int) System.Math.Round (c [0].TotalMilliseconds));
+			Assert.AreEqual (1.0, (int) Math.Round (c [0].TotalSeconds, 1));
 		}
 	}
 }
