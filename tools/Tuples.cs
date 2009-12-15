@@ -212,7 +212,7 @@ namespace Cadenza.Tools {
 						"<para>",
 						"  Constructs and initializes a new " + XmlDocs.See (DefaultNamespace, tuple) + " instance.",
 						"</para>"));
-			tuple.Members.Add (CreateTupleEqualsMethod (n));
+			tuple.Members.Add (CreateTupleEqualsMethod (n, tuple));
 			tuple.Members.Add (CreateTupleGetHashCodeMethod (n));
 			tuple.Members.Add (CreateTupleToStringMethod (n));
 			tuple.Comments.AddDocs (
@@ -227,7 +227,7 @@ namespace Cadenza.Tools {
 			return tuple;
 		}
 
-		CodeMemberMethod CreateTupleEqualsMethod (int n)
+		CodeMemberMethod CreateTupleEqualsMethod (int n, CodeTypeDeclaration tuple)
 		{
 			var m = new CodeMemberMethod () {
 				Attributes  = MemberAttributes.Override | MemberAttributes.Public,
@@ -264,6 +264,28 @@ namespace Cadenza.Tools {
 			}
 			m.Statements.Add (
 					new CodeMethodReturnStatement (pred));
+			m.Comments.AddDocs (
+					XmlDocs.Param ("obj", "A <see cref=\"T:System.Object\"/> to compare this instance against."),
+					XmlDocs.Summary ("Determines whether the current instance and the specified object have the same value."),
+					XmlDocs.Returns (
+						"<para>",
+						" <see langword=\"true\"/> if <paramref name=\"obj\"/> is a",
+						" " + XmlDocs.See (DefaultNamespace, tuple) + " and each member of <paramref name=\"obj\"/>",
+						" and the current instance have the same value (according to",
+						" <see cref=\"M:System.Collections.Generic.EqualityComparer{T}.Equals(`0,`0)\" />); otherwise",
+						" <see langword=\"false\"/> is returned.",
+						"</para>"),
+					XmlDocs.Remarks (
+						"<para>",
+						" This method checks for value equality",
+						" (<see cref=\"M:System.Collections.Generic.EqualityComparer{T}.Equals(`0,`0)\" />), as defined by each",
+						" value type.",
+						"</para>",
+						"<para>",
+						" <block subset=\"none\" type=\"note\">",
+						"  This method overrides <see cref=\"M:System.Object.Equals(System.Object)\"/>.",
+						" </block>",
+						"</para>"));
 			return m;
 		}
 
