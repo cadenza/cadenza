@@ -29,7 +29,7 @@
   </Docs>
   <Members>
     <Member MemberName="Create&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;T&gt; Create&lt;T&gt; (T value);" />
+      <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;T&gt; Create&lt;T&gt; (T item1);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -41,13 +41,13 @@
         <TypeParameter Name="T" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="value" Type="T" />
+        <Parameter Name="item1" Type="T" />
       </Parameters>
       <Docs>
         <typeparam name="T">
             The first <see cref="T:Cadenza.Tuple{T}" /> value type.
             </typeparam>
-        <param name="value">
+        <param name="item1">
             The first <see cref="T:Cadenza.Tuple{T}" /> value.
             </param>
         <summary>
@@ -57,10 +57,11 @@
             A <see cref="T:Cadenza.Tuple{T}" /> initialized with the parameter values.
             </returns>
         <remarks>To be added.</remarks>
+        <altmember cref="C:Cadenza.Tuple{T}(`0)" />
       </Docs>
     </Member>
     <Member MemberName="Create&lt;T1,T2&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;T1,T2&gt; Create&lt;T1,T2&gt; (T1 value1, T2 value2);" />
+      <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;T1,T2&gt; Create&lt;T1,T2&gt; (T1 item1, T2 item2);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -73,33 +74,34 @@
         <TypeParameter Name="T2" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="value1" Type="T1" />
-        <Parameter Name="value2" Type="T2" />
+        <Parameter Name="item1" Type="T1" />
+        <Parameter Name="item2" Type="T2" />
       </Parameters>
       <Docs>
         <typeparam name="T1">
-            The first <see cref="T:Cadenza.Tuple{T1, T2}" /> value type.
+            The first <see cref="T:Cadenza.Tuple{T1,T2}" /> value type.
             </typeparam>
         <typeparam name="T2">
-            The second <see cref="T:Cadenza.Tuple{T1, T2}" /> value type.
+            The second <see cref="T:Cadenza.Tuple{T1,T2}" /> value type.
             </typeparam>
-        <param name="value1">
-            The first <see cref="T:Cadenza.Tuple{T1, T2}" /> value.
+        <param name="item1">
+            The first <see cref="T:Cadenza.Tuple{T1,T2}" /> value.
             </param>
-        <param name="value2">
-            The second <see cref="T:Cadenza.Tuple{T1, T2}" /> value.
+        <param name="item2">
+            The second <see cref="T:Cadenza.Tuple{T1,T2}" /> value.
             </param>
         <summary>
-            Creates a <see cref="T:Cadenza.Tuple{T1, T2}" />.
+            Creates a <see cref="T:Cadenza.Tuple{T1,T2}" />.
             </summary>
         <returns>
-            A <see cref="T:Cadenza.Tuple{T1, T2}" /> initialized with the parameter values.
+            A <see cref="T:Cadenza.Tuple{T1,T2}" /> initialized with the parameter values.
             </returns>
         <remarks>To be added.</remarks>
+        <altmember cref="C:Cadenza.Tuple{T1,T2}(`0,`1)" />
       </Docs>
     </Member>
     <Member MemberName="Create&lt;T1,T2,T3&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;T1,T2,T3&gt; Create&lt;T1,T2,T3&gt; (T1 value1, T2 value2, T3 value3);" />
+      <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;T1,T2,T3&gt; Create&lt;T1,T2,T3&gt; (T1 item1, T2 item2, T3 item3);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -113,40 +115,41 @@
         <TypeParameter Name="T3" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="value1" Type="T1" />
-        <Parameter Name="value2" Type="T2" />
-        <Parameter Name="value3" Type="T3" />
+        <Parameter Name="item1" Type="T1" />
+        <Parameter Name="item2" Type="T2" />
+        <Parameter Name="item3" Type="T3" />
       </Parameters>
       <Docs>
         <typeparam name="T1">
-            The first <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> value type.
+            The first <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> value type.
             </typeparam>
         <typeparam name="T2">
-            The second <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> value type.
+            The second <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> value type.
             </typeparam>
         <typeparam name="T3">
-            The third <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> value type.
+            The third <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> value type.
             </typeparam>
-        <param name="value1">
-            The first <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> value.
+        <param name="item1">
+            The first <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> value.
             </param>
-        <param name="value2">
-            The second <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> value.
+        <param name="item2">
+            The second <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> value.
             </param>
-        <param name="value3">
-            The third <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> value.
+        <param name="item3">
+            The third <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> value.
             </param>
         <summary>
-            Creates a <see cref="T:Cadenza.Tuple{T1, T2, T3}" />.
+            Creates a <see cref="T:Cadenza.Tuple{T1,T2,T3}" />.
             </summary>
         <returns>
-            A <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> initialized with the parameter values.
+            A <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> initialized with the parameter values.
             </returns>
         <remarks>To be added.</remarks>
+        <altmember cref="C:Cadenza.Tuple{T1,T2,T3}(`0,`1,`2)" />
       </Docs>
     </Member>
     <Member MemberName="Create&lt;T1,T2,T3,T4&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;T1,T2,T3,T4&gt; Create&lt;T1,T2,T3,T4&gt; (T1 value1, T2 value2, T3 value3, T4 value4);" />
+      <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;T1,T2,T3,T4&gt; Create&lt;T1,T2,T3,T4&gt; (T1 item1, T2 item2, T3 item3, T4 item4);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -161,59 +164,62 @@
         <TypeParameter Name="T4" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="value1" Type="T1" />
-        <Parameter Name="value2" Type="T2" />
-        <Parameter Name="value3" Type="T3" />
-        <Parameter Name="value4" Type="T4" />
+        <Parameter Name="item1" Type="T1" />
+        <Parameter Name="item2" Type="T2" />
+        <Parameter Name="item3" Type="T3" />
+        <Parameter Name="item4" Type="T4" />
       </Parameters>
       <Docs>
         <typeparam name="T1">
-            The first <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> value type.
+            The first <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> value type.
             </typeparam>
         <typeparam name="T2">
-            The second <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> value type.
+            The second <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> value type.
             </typeparam>
         <typeparam name="T3">
-            The third <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> value type.
+            The third <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> value type.
             </typeparam>
         <typeparam name="T4">
-            The fourth <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> value type.
+            The fourth <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> value type.
             </typeparam>
-        <param name="value1">
-            The first <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> value.
+        <param name="item1">
+            The first <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> value.
             </param>
-        <param name="value2">
-            The second <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> value.
+        <param name="item2">
+            The second <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> value.
             </param>
-        <param name="value3">
-            The third <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> value.
+        <param name="item3">
+            The third <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> value.
             </param>
-        <param name="value4">
-            The fourth <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> value.
+        <param name="item4">
+            The fourth <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> value.
             </param>
         <summary>
-            Creates a <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" />.
+            Creates a <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" />.
             </summary>
         <returns>
-            A <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> initialized with the parameter values.
+            A <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> initialized with the parameter values.
             </returns>
         <remarks>To be added.</remarks>
+        <altmember cref="C:Cadenza.Tuple{T1,T2,T3,T4}(`0,`1,`2,`3)" />
       </Docs>
     </Member>
     <Member MemberName="MaxValues">
-      <MemberSignature Language="C#" Value="public static readonly int MaxValues;" />
-      <MemberType>Field</MemberType>
+      <MemberSignature Language="C#" Value="public static int MaxValues { get; }" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
-      <MemberValue>4</MemberValue>
       <Docs>
         <summary>
             The maximum number of Tuple types provided.
             </summary>
+        <value>
+            The maximum number of Tuple types provided.
+            </value>
         <remarks>
           <para>
             Only tuples up to a certain "arity" are supported; for example,

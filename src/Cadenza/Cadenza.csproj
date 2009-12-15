@@ -56,6 +56,7 @@
     <Compile Include="Cadenza.Reflection\CustomAttributeProvider.cs" />
     <Compile Include="Cadenza\AssemblyInfo.cs" />
     <Compile Include="Cadenza\Check.cs" />
+    <Compile Include="Cadenza\Delegate.cs" />
     <Compile Include="Cadenza\Delegates.cs" />
     <Compile Include="Cadenza\Either.cs" />
     <Compile Include="Cadenza\Eithers.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Cadenza\String.cs" />
     <Compile Include="Cadenza\Tuple.cs" />
     <Compile Include="Cadenza\Tuples.cs" />
+    <Compile Include="Cadenza\TuplesCoda.cs" />
     <Compile Include="Cadenza\Type.cs" />
     <Compile Include="Cadenza\UInt16.cs" />
     <Compile Include="Cadenza\UInt32.cs" />

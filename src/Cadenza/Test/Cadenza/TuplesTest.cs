@@ -38,25 +38,6 @@ using Cadenza.Collections;
 namespace Cadenza.Tests {
 
 	[TestFixture]
-	public class Tuple2EquatableContract : EquatableContract<Tuple<char, int>>
-	{
-		protected override Tuple<char, int> CreateValueX ()
-		{
-			return Tuple.Create ('x', 1);
-		}
-
-		protected override Tuple<char, int> CreateValueY ()
-		{
-			return Tuple.Create ('y', 2);
-		}
-
-		protected override Tuple<char, int> CreateValueZ ()
-		{
-			return Tuple.Create ('z', 3);
-		}
-	}
-
-	[TestFixture]
 	public class TuplesTest : BaseRocksFixture {
 
 		[Test]
@@ -81,7 +62,7 @@ namespace Cadenza.Tests {
 			Assert.AreEqual (true,
 					a.Equals (new object[]{1U, 2L, '\x3', (byte) 4}.ToTuple ()));
 			Assert.AreEqual (a,
-					a.AsEnumerable ().ToTuple ());
+					a.ToEnumerable ().ToTuple ());
 		}
 
 		[Test]

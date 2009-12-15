@@ -1,5 +1,5 @@
 //
-// Tuple.cs
+// Delegate.cs: Delegate extension methods
 //
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
@@ -25,26 +25,12 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
+using System.Linq.Expressions;
 
 namespace Cadenza {
 
-	public static partial class Tuple {
-
-	}
-
-	public static partial class TupleCoda
-	{
-		public static KeyValuePair<TKey, TValue>
-			ToKeyValuePair<TKey, TValue> (this Tuple<TKey, TValue> self)
-		{
-			return new KeyValuePair<TKey, TValue> (self.Item1, self.Item2);
-		}
+	public static partial class DelegateCoda {
 	}
 }
 

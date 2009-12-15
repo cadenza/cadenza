@@ -21,7 +21,8 @@
             the following code fails to compile:
             </para>
       <code lang="C#">
-            ((int x) =&gt; Console.WriteLine (x))(5);</code>
+            ((int x) =&gt; Console.WriteLine (x))(5);
+            </code>
       <para>It would instead need:</para>
       <code lang="C#">
             // either:
@@ -30,7 +31,8 @@
             //
             // or
             //
-            ((Action&lt;int&gt;) (x =&gt; Console.WriteLine (x)))(5);</code>
+            ((Action&lt;int&gt;) (x =&gt; Console.WriteLine (x)))(5);
+            </code>
       <para>
             So you'd either need to assign the lambda to an actual
             delegate type, or insert a cast.
@@ -287,7 +289,7 @@
       </Parameters>
       <Docs>
         <typeparam name="TResult">
-            The <see cref="T:System.Func{TResult}" /> return type.
+            A <see cref="T:System.Func{TResult}" /> return type.
             </typeparam>
         <param name="lambda">
             The <see cref="T:System.Func{TResult}" /> to return.
@@ -322,7 +324,7 @@
             A <see cref="T:System.Func{T,TResult}" /> parameter type.
             </typeparam>
         <typeparam name="TResult">
-            The <see cref="T:System.Func{T,TResult}" /> return type.
+            A <see cref="T:System.Func{T,TResult}" /> return type.
             </typeparam>
         <param name="lambda">
             The <see cref="T:System.Func{T,TResult}" /> to return.
@@ -361,7 +363,7 @@
             A <see cref="T:System.Func{T1,T2,TResult}" /> parameter type.
             </typeparam>
         <typeparam name="TResult">
-            The <see cref="T:System.Func{T1,T2,TResult}" /> return type.
+            A <see cref="T:System.Func{T1,T2,TResult}" /> return type.
             </typeparam>
         <param name="lambda">
             The <see cref="T:System.Func{T1,T2,TResult}" /> to return.
@@ -404,7 +406,7 @@
             A <see cref="T:System.Func{T1,T2,T3,TResult}" /> parameter type.
             </typeparam>
         <typeparam name="TResult">
-            The <see cref="T:System.Func{T1,T2,T3,TResult}" /> return type.
+            A <see cref="T:System.Func{T1,T2,T3,TResult}" /> return type.
             </typeparam>
         <param name="lambda">
             The <see cref="T:System.Func{T1,T2,T3,TResult}" /> to return.
@@ -451,7 +453,7 @@
             A <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> parameter type.
             </typeparam>
         <typeparam name="TResult">
-            The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> return type.
+            A <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> return type.
             </typeparam>
         <param name="lambda">
             The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to return.
@@ -486,17 +488,16 @@
             A <see cref="T:System.Func{T,TResult}" /> parameter type.
             </typeparam>
         <typeparam name="TResult">
-            The <see cref="T:System.Func{T,TResult}" /> return type.
+            A <see cref="T:System.Func{T,TResult}" /> return type.
             </typeparam>
         <param name="lambda">
-            The <see cref="T:System.Func{System.Func{T,TResult},System.Func{T,TResult}}" /> to use.
+            The <see cref="T:System.Func{T,TResult}" /> to use.
             </param>
         <summary>
             Creates a <see cref="T:System.Func{T,TResult}" /> delegate, which may be recursive.
             </summary>
         <returns>
-            Returns a <see cref="T:System.Func{T,TResult}" /> which (eventually) invokes
-            <paramref name="lambda" />.
+            Returns a <see cref="T:System.Func{T,TResult}" /> which (eventually) invokes <paramref name="lambda" />.
             </returns>
         <remarks>
           <para>
@@ -505,7 +506,8 @@
           <code lang="C#">
             Func&lt;int, int&gt; factorial = Lambda.RecFunc&lt;int, int&gt; (
             fac =&gt; x =&gt; x == 0 ? 1 : x * fac (x-1));
-            Console.WriteLine (factorial (5));  // prints "120"</code>
+            Console.WriteLine (factorial (5));  // prints "120"
+            </code>
         </remarks>
         <exception cref="T:System.ArgumentNullException">
             if <paramref name="lambda" /> is <see langword="null" />.
@@ -537,17 +539,16 @@
             A <see cref="T:System.Func{T1,T2,TResult}" /> parameter type.
             </typeparam>
         <typeparam name="TResult">
-            The <see cref="T:System.Func{T1,T2,TResult}" /> return type.
+            A <see cref="T:System.Func{T1,T2,TResult}" /> return type.
             </typeparam>
         <param name="lambda">
-            The <see cref="T:System.Func{System.Func{T1,T2,TResult},System.Func{T1,T2,TResult}}" /> to use.
+            The <see cref="T:System.Func{T1,T2,TResult}" /> to use.
             </param>
         <summary>
             Creates a <see cref="T:System.Func{T1,T2,TResult}" /> delegate, which may be recursive.
             </summary>
         <returns>
-            Returns a <see cref="T:System.Func{T1,T2,TResult}" /> which (eventually) invokes
-            <paramref name="lambda" />.
+            Returns a <see cref="T:System.Func{T1,T2,TResult}" /> which (eventually) invokes <paramref name="lambda" />.
             </returns>
         <remarks>
           <para>
@@ -556,7 +557,8 @@
           <code lang="C#">
             Func&lt;int, int&gt; factorial = Lambda.RecFunc&lt;int, int&gt; (
             fac =&gt; x =&gt; x == 0 ? 1 : x * fac (x-1));
-            Console.WriteLine (factorial (5));  // prints "120"</code>
+            Console.WriteLine (factorial (5));  // prints "120"
+            </code>
         </remarks>
         <exception cref="T:System.ArgumentNullException">
             if <paramref name="lambda" /> is <see langword="null" />.
@@ -592,17 +594,16 @@
             A <see cref="T:System.Func{T1,T2,T3,TResult}" /> parameter type.
             </typeparam>
         <typeparam name="TResult">
-            The <see cref="T:System.Func{T1,T2,T3,TResult}" /> return type.
+            A <see cref="T:System.Func{T1,T2,T3,TResult}" /> return type.
             </typeparam>
         <param name="lambda">
-            The <see cref="T:System.Func{System.Func{T1,T2,T3,TResult},System.Func{T1,T2,T3,TResult}}" /> to use.
+            The <see cref="T:System.Func{T1,T2,T3,TResult}" /> to use.
             </param>
         <summary>
             Creates a <see cref="T:System.Func{T1,T2,T3,TResult}" /> delegate, which may be recursive.
             </summary>
         <returns>
-            Returns a <see cref="T:System.Func{T1,T2,T3,TResult}" /> which (eventually) invokes
-            <paramref name="lambda" />.
+            Returns a <see cref="T:System.Func{T1,T2,T3,TResult}" /> which (eventually) invokes <paramref name="lambda" />.
             </returns>
         <remarks>
           <para>
@@ -611,7 +612,8 @@
           <code lang="C#">
             Func&lt;int, int&gt; factorial = Lambda.RecFunc&lt;int, int&gt; (
             fac =&gt; x =&gt; x == 0 ? 1 : x * fac (x-1));
-            Console.WriteLine (factorial (5));  // prints "120"</code>
+            Console.WriteLine (factorial (5));  // prints "120"
+            </code>
         </remarks>
         <exception cref="T:System.ArgumentNullException">
             if <paramref name="lambda" /> is <see langword="null" />.
@@ -651,17 +653,16 @@
             A <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> parameter type.
             </typeparam>
         <typeparam name="TResult">
-            The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> return type.
+            A <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> return type.
             </typeparam>
         <param name="lambda">
-            The <see cref="T:System.Func{System.Func{T1,T2,T3,T4,TResult},System.Func{T1,T2,T3,T4,TResult}}" /> to use.
+            The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to use.
             </param>
         <summary>
             Creates a <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> delegate, which may be recursive.
             </summary>
         <returns>
-            Returns a <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> which (eventually) invokes
-            <paramref name="lambda" />.
+            Returns a <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> which (eventually) invokes <paramref name="lambda" />.
             </returns>
         <remarks>
           <para>
@@ -670,7 +671,8 @@
           <code lang="C#">
             Func&lt;int, int&gt; factorial = Lambda.RecFunc&lt;int, int&gt; (
             fac =&gt; x =&gt; x == 0 ? 1 : x * fac (x-1));
-            Console.WriteLine (factorial (5));  // prints "120"</code>
+            Console.WriteLine (factorial (5));  // prints "120"
+            </code>
         </remarks>
         <exception cref="T:System.ArgumentNullException">
             if <paramref name="lambda" /> is <see langword="null" />.
@@ -902,7 +904,7 @@
             A <see cref="T:System.Linq.Expressions.Expression{System.Func{T,TResult}}" /> parameter type.
             </typeparam>
         <typeparam name="TResult">
-            The <see cref="T:System.Linq.Expressions.Expression{System.Func{T,TResult}}" /> return type.
+            A <see cref="T:System.Linq.Expressions.Expression{System.Func{T,TResult}}" /> return type.
             </typeparam>
         <param name="expr">
             The <see cref="T:System.Linq.Expressions.Expression{System.Func{T,TResult}}" /> to return.
@@ -941,7 +943,7 @@
             A <see cref="T:System.Linq.Expressions.Expression{System.Func{T1,T2,TResult}}" /> parameter type.
             </typeparam>
         <typeparam name="TResult">
-            The <see cref="T:System.Linq.Expressions.Expression{System.Func{T1,T2,TResult}}" /> return type.
+            A <see cref="T:System.Linq.Expressions.Expression{System.Func{T1,T2,TResult}}" /> return type.
             </typeparam>
         <param name="expr">
             The <see cref="T:System.Linq.Expressions.Expression{System.Func{T1,T2,TResult}}" /> to return.
@@ -984,7 +986,7 @@
             A <see cref="T:System.Linq.Expressions.Expression{System.Func{T1,T2,T3,TResult}}" /> parameter type.
             </typeparam>
         <typeparam name="TResult">
-            The <see cref="T:System.Linq.Expressions.Expression{System.Func{T1,T2,T3,TResult}}" /> return type.
+            A <see cref="T:System.Linq.Expressions.Expression{System.Func{T1,T2,T3,TResult}}" /> return type.
             </typeparam>
         <param name="expr">
             The <see cref="T:System.Linq.Expressions.Expression{System.Func{T1,T2,T3,TResult}}" /> to return.
@@ -1031,7 +1033,7 @@
             A <see cref="T:System.Linq.Expressions.Expression{System.Func{T1,T2,T3,T4,TResult}}" /> parameter type.
             </typeparam>
         <typeparam name="TResult">
-            The <see cref="T:System.Linq.Expressions.Expression{System.Func{T1,T2,T3,T4,TResult}}" /> return type.
+            A <see cref="T:System.Linq.Expressions.Expression{System.Func{T1,T2,T3,T4,TResult}}" /> return type.
             </typeparam>
         <param name="expr">
             The <see cref="T:System.Linq.Expressions.Expression{System.Func{T1,T2,T3,T4,TResult}}" /> to return.

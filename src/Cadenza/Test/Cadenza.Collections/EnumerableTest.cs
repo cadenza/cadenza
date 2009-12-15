@@ -34,6 +34,7 @@ using System.Text;
 
 using NUnit.Framework;
 
+using Cadenza;
 using Cadenza.Collections;
 using Cadenza.Tests;
 
@@ -735,13 +736,8 @@ namespace Cadenza.Collections.Tests {
 		{
 			#region ToTuple
 			IEnumerable<object> s = new object[]{1, '2', 3L, "4"};
-			IList<object> tl = s.ToTuple ();
+			object tl = s.ToTuple ();
 			Assert.AreEqual (typeof(Tuple<int, char, long, string>), tl.GetType());
-			Assert.AreEqual (4,   tl.Count);
-			Assert.AreEqual (1,   tl [0]);
-			Assert.AreEqual ('2', tl [1]);
-			Assert.AreEqual (3L,  tl [2]);
-			Assert.AreEqual ("4", tl [3]);
 
 			var t = (Tuple<int, char, long, string>) tl;
 			Assert.AreEqual (1,   t.Item1);

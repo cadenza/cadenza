@@ -23,7 +23,7 @@
     <typeparam name="TKey">The lookup key.</typeparam>
     <typeparam name="TElement">The elements under each <typeparamref name="TKey" />.</typeparam>
     <summary>
-            A mutable lookup implementing <see cref="T:System.Linq.ILookup`2" /></summary>
+            A mutable lookup implementing <see cref="T:System.Linq.ILookup{TKey,TElement}" /></summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -162,7 +162,7 @@
         <param name="key">The key to get the elements for.</param>
         <summary>
             Gets the elements for <paramref name="key" />.
-            </summary>
+        </summary>
         <value>The elements under <paramref name="key" />.</value>
         <remarks>To be added.</remarks>
       </Docs>

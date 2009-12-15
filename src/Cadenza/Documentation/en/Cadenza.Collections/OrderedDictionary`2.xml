@@ -330,7 +330,7 @@
         <param name="startIndex">The index to start the search at.</param>
         <param name="count">How many items to search, including the <paramref name="startIndex" />.</param>
         <summary>
-            Gets the index of <paramref name="key" /> between the range given by <paramref name="startIndex" /> and <paramref name="count" />.
+            	Gets the index of <paramref name="key" /> between the range given by <paramref name="startIndex" /> and <paramref name="count" />.
             </summary>
         <returns>-1 if the key was not found, the index otherwise.</returns>
         <remarks>To be added.</remarks>
@@ -365,7 +365,7 @@
         <exception cref="T:System.ArgumentNullException">
           <paramref name="key" /> is <c>null</c>.</exception>
         <exception cref="T:System.ArgumentOutOfRangeException">
-          <paramref name="index" /> is less than 0 or greater than <see cref="P:Cadenza.Collections.OrderedDictionary`2.Count" /></exception>
+          <paramref name="index" /> is less than 0 or greater than <see cref="P:Cadenza.Collections.OrderedDictionary{`0,`1}.Count" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Item">
@@ -388,7 +388,7 @@
         <value>The value at the specified index.</value>
         <remarks>To be added.</remarks>
         <exception cref="T:System.IndexOutOfRangeException">
-          <paramref name="index" /> is less than 0 or greater than <see cref="P:Cadenza.Collections.OrderedDictionary`2.Count" />.</exception>
+          <paramref name="index" /> is less than 0 or greater than <see cref="P:Cadenza.Collections.OrderedDictionary{`0,`1}.Count" />.</exception>
       </Docs>
     </Member>
     <Member MemberName="Item">

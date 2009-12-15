@@ -2343,13 +2343,13 @@ Assert.AreEqual (a [1][2], c [1][2]);
       </Docs>
     </Member>
     <Member MemberName="ToTuple">
-      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IList&lt;object&gt; ToTuple (this System.Collections.IEnumerable self);" />
+      <MemberSignature Language="C#" Value="public static object ToTuple (this System.Collections.IEnumerable self);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Collections.Generic.IList&lt;System.Object&gt;</ReturnType>
+        <ReturnType>System.Object</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="self" Type="System.Collections.IEnumerable" RefType="this" />
@@ -2380,18 +2380,13 @@ Assert.AreEqual (a [1][2], c [1][2]);
             Converts a sequence into a <c>Tuple</c>.  The specific tuple
             returned is dependent upon <paramref name="self" />.
             <paramref name="self" /> must have between 1 and 
-            <see cref="F:Cadenza.Tuple.MaxValues" /> elements, inclusive,
+            <see cref="P:Cadenza.Tuple.MaxValues" /> elements, inclusive,
             otherwise a <see cref="T:System.NotSupportedException" /> is
             thrown.
           </para>
           <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#ToTuple">IEnumerable&lt;object&gt; s = new object[]{1, '2', 3L, "4"};
-IList&lt;object&gt; tl = s.ToTuple ();
+object tl = s.ToTuple ();
 Assert.AreEqual (typeof(Tuple&lt;int, char, long, string&gt;), tl.GetType());
-Assert.AreEqual (4,   tl.Count);
-Assert.AreEqual (1,   tl [0]);
-Assert.AreEqual ('2', tl [1]);
-Assert.AreEqual (3L,  tl [2]);
-Assert.AreEqual ("4", tl [3]);
 
 var t = (Tuple&lt;int, char, long, string&gt;) tl;
 Assert.AreEqual (1,   t.Item1);
@@ -2405,7 +2400,7 @@ Assert.AreEqual ("4", t.Item4);
         </exception>
         <exception cref="T:System.NotSupportedException">
           The number of elements within <paramref name="self" /> exceeds
-          <see cref="F:Cadenza.Tuple.MaxValues" />, and thus no tuple type
+          <see cref="P:Cadenza.Tuple.MaxValues" />, and thus no tuple type
           exists to contain all the elements within <paramref name="self" />.
         </exception>
       </Docs>

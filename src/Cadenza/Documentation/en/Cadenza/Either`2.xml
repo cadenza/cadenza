@@ -53,7 +53,17 @@
         </item>
         <item>
           <term>
+            <see cref="M:Cadenza.Either{T1, T2}.op_Implicit(`0)~Cadenza.Either{`0,`1}" />
+          </term>
+        </item>
+        <item>
+          <term>
             <see cref="M:Cadenza.Either{T1, T2}.B(`1)" />
+          </term>
+        </item>
+        <item>
+          <term>
+            <see cref="M:Cadenza.Either{T1, T2}.op_Implicit(`1)~Cadenza.Either{`0,`1}" />
           </term>
         </item>
       </list>
@@ -82,29 +92,29 @@
         <param name="value">
             A <typeparamref name="T1" /> containing the value
             to provide to the first
-            <see cref="M:Cadenza.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
+            <see cref="M:Cadenza.Either{T1,T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
             delegate.
             </param>
         <summary>
-            Creates a <see cref="T:Cadenza.Either{T1, T2}" /> instance which
+            Creates a <see cref="T:Cadenza.Either{T1,T2}" /> instance which
             holds a <typeparamref name="T1" /> value.
             </summary>
         <returns>
-            A <see cref="T:Cadenza.Either{T1, T2}" /> instance which holds a
+            A <see cref="T:Cadenza.Either{T1,T2}" /> instance which holds a
             holds a <typeparamref name="T1" /> value.
             </returns>
         <remarks>
           <para>
             When
-            <see cref="M:Cadenza.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
+            <see cref="M:Cadenza.Either{T1,T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
             is invoked,
-            the returned <see cref="T:Cadenza.Either{T1, T2}" /> instance
+            the returned <see cref="T:Cadenza.Either{T1,T2}" /> instance
             will invoke the first delegate
             for conversions.
             </para>
         </remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="value" /> is <see langword="null" />.
+            if <paramref name="value" /> is <see langword="null" />.
             </exception>
       </Docs>
     </Member>
@@ -124,29 +134,29 @@
         <param name="value">
             A <typeparamref name="T2" /> containing the value
             to provide to the second
-            <see cref="M:Cadenza.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
+            <see cref="M:Cadenza.Either{T1,T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
             delegate.
             </param>
         <summary>
-            Creates a <see cref="T:Cadenza.Either{T1, T2}" /> instance which
+            Creates a <see cref="T:Cadenza.Either{T1,T2}" /> instance which
             holds a <typeparamref name="T2" /> value.
             </summary>
         <returns>
-            A <see cref="T:Cadenza.Either{T1, T2}" /> instance which holds a
+            A <see cref="T:Cadenza.Either{T1,T2}" /> instance which holds a
             holds a <typeparamref name="T2" /> value.
             </returns>
         <remarks>
           <para>
             When
-            <see cref="M:Cadenza.Either{T1, T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
+            <see cref="M:Cadenza.Either{T1,T2}.Fold``1(System.Func{`0,``0},System.Func{`1,``0})" />
             is invoked,
-            the returned <see cref="T:Cadenza.Either{T1, T2}" /> instance
+            the returned <see cref="T:Cadenza.Either{T1,T2}" /> instance
             will invoke the second delegate
             for conversions.
             </para>
         </remarks>
         <exception cref="T:System.ArgumentNullException">
-          <paramref name="value" /> is <see langword="null" />.
+            if <paramref name="value" /> is <see langword="null" />.
             </exception>
       </Docs>
     </Member>
@@ -164,10 +174,10 @@
       </Parameters>
       <Docs>
         <param name="obj">
-            A <see cref="T:Cadenza.Either{T1, T2}" /> to compare this instance against.
+            A <see cref="T:Cadenza.Either{T1,T2}" />to compare this instance against.
             </param>
         <summary>
-            Determines whether the current instance and the specified <see cref="T:Cadenza.Either{T1, T2}" /> have the same value.
+            Determines whether the current instance and the specified <see cref="T:Cadenza.Either{T1,T2}" /> have the same value.
             </summary>
         <returns>
           <para>
@@ -208,7 +218,7 @@
         <returns>
           <para>
             <see langword="true" /> if <paramref name="obj" /> is a
-            <see cref="T:Cadenza.Either{T1, T2}" /> and each member of <paramref name="obj" />
+            <see cref="T:Cadenza.Either{T1,T2}" /> and each member of <paramref name="obj" />
             and the current instance have the same value (according to
             <see cref="M:System.Object.Equals(System.Object)" />); otherwise
             <see langword="false" /> is returned.
@@ -246,22 +256,22 @@
       </Parameters>
       <Docs>
         <typeparam name="TResult">
-            The type to convert the <see cref="T:Cadenza.Either{T1, T2}" /> to.
+            The type to convert the <see cref="T:Cadenza.Either{T1,T2}" /> to.
             </typeparam>
         <param name="a">
             A <see cref="T:System.Func{T1,TResult}" />
-            used if the <see cref="T:Cadenza.Either{T1, T2}" /> stores a
+            used if the <see cref="T:Cadenza.Either{T1,T2}" /> stores a
             <typeparamref name="T1" /> value into a
             <typeparamref name="TResult" /> value.
             </param>
         <param name="b">
             A <see cref="T:System.Func{T2,TResult}" />
-            used if the <see cref="T:Cadenza.Either{T1, T2}" /> stores a
+            used if the <see cref="T:Cadenza.Either{T1,T2}" /> stores a
             <typeparamref name="T2" /> value into a
             <typeparamref name="TResult" /> value.
             </param>
         <summary>
-            Converts a <see cref="T:Cadenza.Either{T1, T2}" /> into a <typeparamref name="TResult" /> value.
+            Converts a <see cref="T:Cadenza.Either{T1,T2}" /> into a <typeparamref name="TResult" /> value.
             </summary>
         <returns>
             A <typeparamref name="TResult" /> as generated by one
@@ -269,14 +279,14 @@
             </returns>
         <remarks>
           <para>
-            Converts a <see cref="T:Cadenza.Either{T1, T2}" /> into a <typeparamref name="TResult" />
+            Converts a <see cref="T:Cadenza.Either{T1,T2}" /> into a <typeparamref name="TResult" />
             by invoking one of the provided delegate parameters.
             </para>
           <para>
             The parameter which is invoked is predicated upon the internal position of
             the value held.  For example, if the internal value is in the first position
-            (i.e.  <see cref="M:Cadenza.Either{T1, T2}.A(`0)" />
-            was used to create the <see cref="T:Cadenza.Either{T1, T2}" /> instance), then
+            (i.e. <see cref="M:Cadenza.Either{T1,T2}.A(`0)" />
+            was used to create the <see cref="T:Cadenza.Either{T1,T2}" /> instance), then
             <paramref name="a" /> (the first delegate parameter) will be invoked to
             convert the <typeparamref name="T1" /> into a
             <typeparamref name="TResult" />.
@@ -286,9 +296,7 @@
           <para>
             <paramref name="a" /> is <see langword="null" />.
             </para>
-          <para>
-            -or-
-            </para>
+          <para>-or-</para>
           <para>
             <paramref name="b" /> is <see langword="null" />.
             </para>
@@ -319,6 +327,82 @@
             </block>
           </para>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="op_Implicit">
+      <MemberSignature Language="C#" Value="public static Cadenza.Either&lt;T1,T2&gt; op_Implicit (T1 value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Either&lt;T1,T2&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="T1" />
+      </Parameters>
+      <Docs>
+        <param name="value">
+           A <typeparamref name="T1" /> containing the value to store.
+        </param>
+        <summary>
+           Creates a <see cref="T:Cadenza.Either{T1,T2}" /> instance which
+           holds a <typeparamref name="T1" /> value.
+        </summary>
+        <returns>
+           A <see cref="T:Cadenza.Either{T1,T2}" /> instance which
+           holds a <typeparamref name="T1" /> value.
+        </returns>
+        <remarks>
+          <para>
+            This conversion operator is provided to make
+            <see cref="T:Cadenza.Either{T1,T2}" /> instance creation easier:
+          </para>
+          <code lang="C#">
+        Either&lt;int, double&gt; value = 42.0;  // value stored in 2nd position</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+           if <paramref name="value" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:Cadenza.Either{T1,T2}.A(`0)" />
+      </Docs>
+    </Member>
+    <Member MemberName="op_Implicit">
+      <MemberSignature Language="C#" Value="public static Cadenza.Either&lt;T1,T2&gt; op_Implicit (T2 value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Either&lt;T1,T2&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="T2" />
+      </Parameters>
+      <Docs>
+        <param name="value">
+           A <typeparamref name="T2" /> containing the value to store.
+        </param>
+        <summary>
+           Creates a <see cref="T:Cadenza.Either{T1,T2}" /> instance which
+           holds a <typeparamref name="T2" /> value.
+        </summary>
+        <returns>
+           A <see cref="T:Cadenza.Either{T1,T2}" /> instance which
+           holds a <typeparamref name="T2" /> value.
+        </returns>
+        <remarks>
+          <para>
+            This conversion operator is provided to make
+            <see cref="T:Cadenza.Either{T1,T2}" /> instance creation easier:
+          </para>
+          <code lang="C#">
+        Either&lt;int, double&gt; value = 42.0;  // value stored in 2nd position</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+           if <paramref name="value" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:Cadenza.Either{T1,T2}.B(`1)" />
       </Docs>
     </Member>
   </Members>

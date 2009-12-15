@@ -1,4 +1,4 @@
-﻿//
+//
 // EnumerableCoda.cs
 //
 // Author:
@@ -264,7 +264,7 @@ namespace Cadenza.Collections {
 			return new CachedSequence<T> (self);
 		}
 
-		public static IList<object> ToTuple (this IEnumerable self)
+		public static object ToTuple (this IEnumerable self)
 		{
 			Check.Self (self);
 
@@ -291,7 +291,7 @@ namespace Cadenza.Collections {
 				throw new NotSupportedException (
 						string.Format ("Tuples with {0} values are not supported.", types.Count));
 			tuple = tuple.MakeGenericType (types.ToArray ());
-			return (IList<object>) Activator.CreateInstance (tuple, args.ToArray ());
+			return Activator.CreateInstance (tuple, args.ToArray ());
 		}
 
 		public static int SequenceCompare<TSource> (this IEnumerable<TSource> self, IEnumerable<TSource> list)

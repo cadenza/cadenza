@@ -70,10 +70,10 @@
       <Type Name="Sequence" Kind="Class" />
       <Type Name="StringCoda" Kind="Class" />
       <Type Name="Tuple" Kind="Class" />
-      <Type Name="Tuple`1" DisplayName="Tuple&lt;T&gt;" Kind="Structure" />
-      <Type Name="Tuple`2" DisplayName="Tuple&lt;T1,T2&gt;" Kind="Structure" />
-      <Type Name="Tuple`3" DisplayName="Tuple&lt;T1,T2,T3&gt;" Kind="Structure" />
-      <Type Name="Tuple`4" DisplayName="Tuple&lt;T1,T2,T3,T4&gt;" Kind="Structure" />
+      <Type Name="Tuple`1" DisplayName="Tuple&lt;T&gt;" Kind="Class" />
+      <Type Name="Tuple`2" DisplayName="Tuple&lt;T1,T2&gt;" Kind="Class" />
+      <Type Name="Tuple`3" DisplayName="Tuple&lt;T1,T2,T3&gt;" Kind="Class" />
+      <Type Name="Tuple`4" DisplayName="Tuple&lt;T1,T2,T3,T4&gt;" Kind="Class" />
       <Type Name="TupleCoda" Kind="Class" />
       <Type Name="TypeCoda" Kind="Class" />
       <Type Name="UInt16Coda" Kind="Class" />
@@ -2198,10 +2198,10 @@
         <Target Type="T:System.Collections.IEnumerable" />
       </Targets>
       <Member MemberName="ToTuple">
-        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IList&lt;object&gt; ToTuple (this System.Collections.IEnumerable self);" />
+        <MemberSignature Language="C#" Value="public static object ToTuple (this System.Collections.IEnumerable self);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>System.Collections.Generic.IList&lt;System.Object&gt;</ReturnType>
+          <ReturnType>System.Object</ReturnType>
         </ReturnValue>
         <Parameters>
           <Parameter Name="self" Type="System.Collections.IEnumerable" RefType="this" />
@@ -2702,6 +2702,40 @@
       <Targets>
         <Target Type="T:System.Action`1" />
       </Targets>
+      <Member MemberName="Compose&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static Action Compose&lt;T&gt; (this Action&lt;T&gt; self, Func&lt;T&gt; composer);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Action</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Action&lt;T&gt;" RefType="this" />
+          <Parameter Name="composer" Type="System.Func&lt;T&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">
+            The <see cref="T:System.Func{T}" /> return type, and <see cref="T:System.Action{T}" /> argument type.
+            </typeparam>
+          <param name="self">
+            The <see cref="T:System.Action{T}" /> to compose.
+            </param>
+          <param name="composer">
+            The <see cref="T:System.Func{T}" /> to compose with <paramref name="self" />.
+            </param>
+          <summary>
+            Creates a <see cref="T:System.Action" /> delegate.
+            </summary>
+        </Docs>
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Compose``1(System.Action{``0},System.Func{``0})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Action`1" />
+      </Targets>
       <Member MemberName="Compose&lt;T1,T2&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T1&gt; Compose&lt;T1,T2&gt; (this Action&lt;T2&gt; self, Func&lt;T1,T2&gt; composer);" />
         <MemberType>ExtensionMethod</MemberType>
@@ -2734,6 +2768,44 @@
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Compose``2(System.Action{``1},System.Func{``0,``1})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Func`2" />
+      </Targets>
+      <Member MemberName="Compose&lt;T,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Compose&lt;T,TResult&gt; (this Func&lt;T,TResult&gt; self, Func&lt;T&gt; composer);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Func&lt;T,TResult&gt;" RefType="this" />
+          <Parameter Name="composer" Type="System.Func&lt;T&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">
+            The <see cref="T:System.Func{T}" /> return type, and <see cref="T:System.Func{T,TResult}" /> argument type.
+            </typeparam>
+          <typeparam name="TResult">
+            The <see cref="T:System.Func{T,TResult}" /> return type.
+            </typeparam>
+          <param name="self">
+            The <see cref="T:System.Func{T,TResult}" /> to compose.
+            </param>
+          <param name="composer">
+            The <see cref="T:System.Func{T}" /> to compose with <paramref name="self" />.
+            </param>
+          <summary>
+            Creates a <see cref="T:System.Func{TResult}" /> delegate.
+            </summary>
+        </Docs>
+        <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Compose``2(System.Func{``0,``1},System.Func{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -3155,7 +3227,7 @@
             The <see cref="T:System.Action{T}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T}" />  which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action" /> delegate.
@@ -3307,7 +3379,7 @@
             The <see cref="T:System.Action{T1,T2}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1, T2}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1,T2}" />  which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action" /> delegate.
@@ -3345,7 +3417,7 @@
             The <see cref="T:System.Action{T1,T2}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1}" />  which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action{T2}" /> delegate.
@@ -3455,7 +3527,7 @@
             The <see cref="T:System.Func{T,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T}" />  which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
@@ -3538,7 +3610,7 @@
             A value of type <typeparamref name="T1" /> to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Action{T2, T3}" /> delegate.
+            Creates a <see cref="T:System.Action{T2,T3}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Action{``0,``1,``2},``0)" />
@@ -3673,7 +3745,7 @@
             The <see cref="T:System.Action{T1,T2,T3}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1,T2,T3}" />  which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action" /> delegate.
@@ -3715,7 +3787,7 @@
             The <see cref="T:System.Action{T1,T2,T3}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1, T2}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1,T2}" />  which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action{T3}" /> delegate.
@@ -3757,10 +3829,10 @@
             The <see cref="T:System.Action{T1,T2,T3}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1}" />  which contains the values to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Action{T2, T3}" /> delegate.
+            Creates a <see cref="T:System.Action{T2,T3}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Action{``0,``1,``2},Cadenza.Tuple{``0})" />
@@ -3840,7 +3912,7 @@
             A value of type <typeparamref name="T1" /> to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Func{T2, TResult}" /> delegate.
+            Creates a <see cref="T:System.Func{T2,TResult}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Func{``0,``1,``2},``0)" />
@@ -3925,7 +3997,7 @@
             The <see cref="T:System.Func{T1,T2,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1, T2}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1,T2}" />  which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
@@ -3967,10 +4039,10 @@
             The <see cref="T:System.Func{T1,T2,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1}" />  which contains the values to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Func{T2, TResult}" /> delegate.
+            Creates a <see cref="T:System.Func{T2,TResult}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``3(System.Func{``0,``1,``2},Cadenza.Tuple{``0})" />
@@ -4058,7 +4130,7 @@
             A value of type <typeparamref name="T1" /> to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Action{T2, T3, T4}" /> delegate.
+            Creates a <see cref="T:System.Action{T2,T3,T4}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Action{``0,``1,``2,``3},``0)" />
@@ -4108,7 +4180,7 @@
             A value of type <typeparamref name="T2" /> to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Action{T3, T4}" /> delegate.
+            Creates a <see cref="T:System.Action{T3,T4}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Action{``0,``1,``2,``3},``0,``1)" />
@@ -4263,7 +4335,7 @@
             The <see cref="T:System.Action{T1,T2,T3,T4}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" />  which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action" /> delegate.
@@ -4309,7 +4381,7 @@
             The <see cref="T:System.Action{T1,T2,T3,T4}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1,T2,T3}" />  which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Action{T4}" /> delegate.
@@ -4355,10 +4427,10 @@
             The <see cref="T:System.Action{T1,T2,T3,T4}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1, T2}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1,T2}" />  which contains the values to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Action{T3, T4}" /> delegate.
+            Creates a <see cref="T:System.Action{T3,T4}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0,``1})" />
@@ -4401,10 +4473,10 @@
             The <see cref="T:System.Action{T1,T2,T3,T4}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1}" />  which contains the values to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Action{T2, T3, T4}" /> delegate.
+            Creates a <see cref="T:System.Action{T2,T3,T4}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Action{``0,``1,``2,``3},Cadenza.Tuple{``0})" />
@@ -4492,7 +4564,7 @@
             A value of type <typeparamref name="T1" /> to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Func{T2, T3, TResult}" /> delegate.
+            Creates a <see cref="T:System.Func{T2,T3,TResult}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Func{``0,``1,``2,``3},``0)" />
@@ -4542,7 +4614,7 @@
             A value of type <typeparamref name="T2" /> to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Func{T3, TResult}" /> delegate.
+            Creates a <see cref="T:System.Func{T3,TResult}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Func{``0,``1,``2,``3},``0,``1)" />
@@ -4639,7 +4711,7 @@
             The <see cref="T:System.Func{T1,T2,T3,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1,T2,T3}" />  which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
@@ -4685,10 +4757,10 @@
             The <see cref="T:System.Func{T1,T2,T3,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1, T2}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1,T2}" />  which contains the values to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Func{T3, TResult}" /> delegate.
+            Creates a <see cref="T:System.Func{T3,TResult}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Func{``0,``1,``2,``3},Cadenza.Tuple{``0,``1})" />
@@ -4731,10 +4803,10 @@
             The <see cref="T:System.Func{T1,T2,T3,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1}" />  which contains the values to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Func{T2, T3, TResult}" /> delegate.
+            Creates a <see cref="T:System.Func{T2,T3,TResult}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``4(System.Func{``0,``1,``2,``3},Cadenza.Tuple{``0})" />
@@ -4830,7 +4902,7 @@
             A value of type <typeparamref name="T1" /> to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Func{T2, T3, T4, TResult}" /> delegate.
+            Creates a <see cref="T:System.Func{T2,T3,T4,TResult}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},``0)" />
@@ -4884,7 +4956,7 @@
             A value of type <typeparamref name="T2" /> to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Func{T3, T4, TResult}" /> delegate.
+            Creates a <see cref="T:System.Func{T3,T4,TResult}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1)" />
@@ -4942,7 +5014,7 @@
             A value of type <typeparamref name="T3" /> to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Func{T4, TResult}" /> delegate.
+            Creates a <see cref="T:System.Func{T4,TResult}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},``0,``1,``2)" />
@@ -5051,7 +5123,7 @@
             The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3, T4}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" />  which contains the values to fix.
             </param>
           <summary>
             Creates a <see cref="T:System.Func{TResult}" /> delegate.
@@ -5101,10 +5173,10 @@
             The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1, T2, T3}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1,T2,T3}" />  which contains the values to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Func{T4, TResult}" /> delegate.
+            Creates a <see cref="T:System.Func{T4,TResult}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0,``1,``2})" />
@@ -5151,10 +5223,10 @@
             The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1, T2}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1,T2}" />  which contains the values to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Func{T3, T4, TResult}" /> delegate.
+            Creates a <see cref="T:System.Func{T3,T4,TResult}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0,``1})" />
@@ -5201,10 +5273,10 @@
             The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to curry.
             </param>
           <param name="values">
-            A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
+            A value of type <see cref="T:Cadenza.Tuple{T1}" />  which contains the values to fix.
             </param>
           <summary>
-            Creates a <see cref="T:System.Func{T2, T3, T4, TResult}" /> delegate.
+            Creates a <see cref="T:System.Func{T2,T3,T4,TResult}" /> delegate.
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Curry``5(System.Func{``0,``1,``2,``3,``4},Cadenza.Tuple{``0})" />
@@ -5297,7 +5369,7 @@
             The <see cref="T:System.Action{T}" /> to generate timings for.
             </param>
           <param name="value">
-            The first <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="runs">
             The number of <see cref="T:System.TimeSpan" /> values to return.
@@ -5336,7 +5408,7 @@
             The <see cref="T:System.Action{T}" /> to generate timings for.
             </param>
           <param name="value">
-            The first <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="runs">
             The number of <see cref="T:System.TimeSpan" /> values to return.
@@ -5383,10 +5455,10 @@
             The <see cref="T:System.Action{T1,T2}" /> to generate timings for.
             </param>
           <param name="value1">
-            The first <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="value2">
-            The second <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="runs">
             The number of <see cref="T:System.TimeSpan" /> values to return.
@@ -5430,10 +5502,10 @@
             The <see cref="T:System.Action{T1,T2}" /> to generate timings for.
             </param>
           <param name="value1">
-            The first <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="value2">
-            The second <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="runs">
             The number of <see cref="T:System.TimeSpan" /> values to return.
@@ -5485,13 +5557,13 @@
             The <see cref="T:System.Action{T1,T2,T3}" /> to generate timings for.
             </param>
           <param name="value1">
-            The first <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="value2">
-            The second <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="value3">
-            The third <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="runs">
             The number of <see cref="T:System.TimeSpan" /> values to return.
@@ -5540,13 +5612,13 @@
             The <see cref="T:System.Action{T1,T2,T3}" /> to generate timings for.
             </param>
           <param name="value1">
-            The first <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="value2">
-            The second <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="value3">
-            The third <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="runs">
             The number of <see cref="T:System.TimeSpan" /> values to return.
@@ -5603,16 +5675,16 @@
             The <see cref="T:System.Action{T1,T2,T3,T4}" /> to generate timings for.
             </param>
           <param name="value1">
-            The first <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="value2">
-            The second <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="value3">
-            The third <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="value4">
-            The fourth <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="runs">
             The number of <see cref="T:System.TimeSpan" /> values to return.
@@ -5666,16 +5738,16 @@
             The <see cref="T:System.Action{T1,T2,T3,T4}" /> to generate timings for.
             </param>
           <param name="value1">
-            The first <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="value2">
-            The second <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="value3">
-            The third <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="value4">
-            The fourth <paramref name="self" /> parameter value.
+            The *unknown* <paramref name="self" /> parameter value.
             </param>
           <param name="runs">
             The number of <see cref="T:System.TimeSpan" /> values to return.
@@ -7479,6 +7551,486 @@
           <summary>To be added.</summary>
         </Docs>
         <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.WrappedLines(System.String,System.Int32[])" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.Tuple`1" />
+      </Targets>
+      <Member MemberName="Aggregate&lt;T,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T,TResult&gt; (this Cadenza.Tuple&lt;T&gt; self, Func&lt;T,TResult&gt; func);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TResult</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.Tuple&lt;T&gt;" RefType="this" />
+          <Parameter Name="func" Type="System.Func&lt;T,TResult&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">
+            The first value type.
+            </typeparam>
+          <typeparam name="TResult">
+            The return value type.
+            </typeparam>
+          <param name="self">
+            A <see cref="T:Cadenza.Tuple{T}" /> to aggregate the values of.
+            </param>
+          <param name="func">
+            A <see cref="T:System.Func{T,TResult}" /> which will be invoked, providing the values
+            <see cref="P:Cadenza.Tuple`1.Item1" />
+            to <paramref name="func" /> and
+            returning the value returned by <paramref name="func" />.
+            </param>
+          <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T}" /> into a <typeparamref name="TResult" />.
+            </summary>
+        </Docs>
+        <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.Aggregate``2(Cadenza.Tuple{``0},System.Func{``0,``1})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.Tuple`2" />
+      </Targets>
+      <Member MemberName="Aggregate&lt;T1,T2,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T1,T2,TResult&gt; (this Cadenza.Tuple&lt;T1,T2&gt; self, Func&lt;T1,T2,TResult&gt; func);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TResult</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2&gt;" RefType="this" />
+          <Parameter Name="func" Type="System.Func&lt;T1,T2,TResult&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">
+            The first value type.
+            </typeparam>
+          <typeparam name="T2">
+            The second value type.
+            </typeparam>
+          <typeparam name="TResult">
+            The return value type.
+            </typeparam>
+          <param name="self">
+            A <see cref="T:Cadenza.Tuple{T1,T2}" /> to aggregate the values of.
+            </param>
+          <param name="func">
+            A <see cref="T:System.Func{T1,T2,TResult}" /> which will be invoked, providing the values
+            <see cref="P:Cadenza.Tuple`2.Item1" />, <see cref="P:Cadenza.Tuple`2.Item2" />
+            to <paramref name="func" /> and
+            returning the value returned by <paramref name="func" />.
+            </param>
+          <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T1,T2}" /> into a <typeparamref name="TResult" />.
+            </summary>
+        </Docs>
+        <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.Aggregate``3(Cadenza.Tuple{``0,``1},System.Func{``0,``1,``2})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.Tuple`3" />
+      </Targets>
+      <Member MemberName="Aggregate&lt;T1,T2,T3,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T1,T2,T3,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3&gt; self, Func&lt;T1,T2,T3,TResult&gt; func);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TResult</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+          <TypeParameter Name="T3" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2,T3&gt;" RefType="this" />
+          <Parameter Name="func" Type="System.Func&lt;T1,T2,T3,TResult&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">
+            The first value type.
+            </typeparam>
+          <typeparam name="T2">
+            The second value type.
+            </typeparam>
+          <typeparam name="T3">
+            The third value type.
+            </typeparam>
+          <typeparam name="TResult">
+            The return value type.
+            </typeparam>
+          <param name="self">
+            A <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> to aggregate the values of.
+            </param>
+          <param name="func">
+            A <see cref="T:System.Func{T1,T2,T3,TResult}" /> which will be invoked, providing the values
+            <see cref="P:Cadenza.Tuple`3.Item1" />, <see cref="P:Cadenza.Tuple`3.Item2" />, <see cref="P:Cadenza.Tuple`3.Item3" />
+            to <paramref name="func" /> and
+            returning the value returned by <paramref name="func" />.
+            </param>
+          <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> into a <typeparamref name="TResult" />.
+            </summary>
+        </Docs>
+        <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.Aggregate``4(Cadenza.Tuple{``0,``1,``2},System.Func{``0,``1,``2,``3})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.Tuple`4" />
+      </Targets>
+      <Member MemberName="Aggregate&lt;T1,T2,T3,T4,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T1,T2,T3,T4,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3,T4&gt; self, Func&lt;T1,T2,T3,T4,TResult&gt; func);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TResult</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+          <TypeParameter Name="T3" />
+          <TypeParameter Name="T4" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2,T3,T4&gt;" RefType="this" />
+          <Parameter Name="func" Type="System.Func&lt;T1,T2,T3,T4,TResult&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">
+            The first value type.
+            </typeparam>
+          <typeparam name="T2">
+            The second value type.
+            </typeparam>
+          <typeparam name="T3">
+            The third value type.
+            </typeparam>
+          <typeparam name="T4">
+            The fourth value type.
+            </typeparam>
+          <typeparam name="TResult">
+            The return value type.
+            </typeparam>
+          <param name="self">
+            A <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> to aggregate the values of.
+            </param>
+          <param name="func">
+            A <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> which will be invoked, providing the values
+            <see cref="P:Cadenza.Tuple`4.Item1" />, <see cref="P:Cadenza.Tuple`4.Item2" />, <see cref="P:Cadenza.Tuple`4.Item3" />, <see cref="P:Cadenza.Tuple`4.Item4" />
+            to <paramref name="func" /> and
+            returning the value returned by <paramref name="func" />.
+            </param>
+          <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> into a <typeparamref name="TResult" />.
+            </summary>
+        </Docs>
+        <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.Aggregate``5(Cadenza.Tuple{``0,``1,``2,``3},System.Func{``0,``1,``2,``3,``4})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.Tuple`1" />
+      </Targets>
+      <Member MemberName="Match&lt;T,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static TResult Match&lt;T,TResult&gt; (this Cadenza.Tuple&lt;T&gt; self, Func&lt;T,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TResult</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.Tuple&lt;T&gt;" RefType="this" />
+          <Parameter Name="matchers" Type="System.Func&lt;T,Cadenza.Maybe&lt;TResult&gt;&gt;[]">
+            <Attributes>
+              <Attribute>
+                <AttributeName>System.ParamArray</AttributeName>
+              </Attribute>
+            </Attributes>
+          </Parameter>
+        </Parameters>
+        <Docs>
+          <typeparam name="T">To be added.</typeparam>
+          <typeparam name="TResult">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="matchers">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.Match``2(Cadenza.Tuple{``0},System.Func{``0,Cadenza.Maybe{``1}}[])" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.Tuple`2" />
+      </Targets>
+      <Member MemberName="Match&lt;T1,T2,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static TResult Match&lt;T1,T2,TResult&gt; (this Cadenza.Tuple&lt;T1,T2&gt; self, Func&lt;T1,T2,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TResult</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2&gt;" RefType="this" />
+          <Parameter Name="matchers" Type="System.Func&lt;T1,T2,Cadenza.Maybe&lt;TResult&gt;&gt;[]">
+            <Attributes>
+              <Attribute>
+                <AttributeName>System.ParamArray</AttributeName>
+              </Attribute>
+            </Attributes>
+          </Parameter>
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">To be added.</typeparam>
+          <typeparam name="T2">To be added.</typeparam>
+          <typeparam name="TResult">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="matchers">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.Match``3(Cadenza.Tuple{``0,``1},System.Func{``0,``1,Cadenza.Maybe{``2}}[])" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.Tuple`3" />
+      </Targets>
+      <Member MemberName="Match&lt;T1,T2,T3,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static TResult Match&lt;T1,T2,T3,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3&gt; self, Func&lt;T1,T2,T3,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TResult</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+          <TypeParameter Name="T3" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2,T3&gt;" RefType="this" />
+          <Parameter Name="matchers" Type="System.Func&lt;T1,T2,T3,Cadenza.Maybe&lt;TResult&gt;&gt;[]">
+            <Attributes>
+              <Attribute>
+                <AttributeName>System.ParamArray</AttributeName>
+              </Attribute>
+            </Attributes>
+          </Parameter>
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">To be added.</typeparam>
+          <typeparam name="T2">To be added.</typeparam>
+          <typeparam name="T3">To be added.</typeparam>
+          <typeparam name="TResult">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="matchers">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.Match``4(Cadenza.Tuple{``0,``1,``2},System.Func{``0,``1,``2,Cadenza.Maybe{``3}}[])" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.Tuple`4" />
+      </Targets>
+      <Member MemberName="Match&lt;T1,T2,T3,T4,TResult&gt;">
+        <MemberSignature Language="C#" Value="public static TResult Match&lt;T1,T2,T3,T4,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3,T4&gt; self, Func&lt;T1,T2,T3,T4,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TResult</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+          <TypeParameter Name="T3" />
+          <TypeParameter Name="T4" />
+          <TypeParameter Name="TResult" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2,T3,T4&gt;" RefType="this" />
+          <Parameter Name="matchers" Type="System.Func&lt;T1,T2,T3,T4,Cadenza.Maybe&lt;TResult&gt;&gt;[]">
+            <Attributes>
+              <Attribute>
+                <AttributeName>System.ParamArray</AttributeName>
+              </Attribute>
+            </Attributes>
+          </Parameter>
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">To be added.</typeparam>
+          <typeparam name="T2">To be added.</typeparam>
+          <typeparam name="T3">To be added.</typeparam>
+          <typeparam name="T4">To be added.</typeparam>
+          <typeparam name="TResult">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="matchers">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.Match``5(Cadenza.Tuple{``0,``1,``2,``3},System.Func{``0,``1,``2,``3,Cadenza.Maybe{``4}}[])" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.Tuple`1" />
+      </Targets>
+      <Member MemberName="ToEnumerable&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T&gt; (this Cadenza.Tuple&lt;T&gt; self);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Object&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.Tuple&lt;T&gt;" RefType="this" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">
+            The first value type.
+            </typeparam>
+          <param name="self">
+            A <see cref="T:Cadenza.Tuple{T}" /> to convert into an <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </param>
+          <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T}" /> into a <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </summary>
+        </Docs>
+        <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.ToEnumerable``1(Cadenza.Tuple{``0})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.Tuple`2" />
+      </Targets>
+      <Member MemberName="ToEnumerable&lt;T1,T2&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T1,T2&gt; (this Cadenza.Tuple&lt;T1,T2&gt; self);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Object&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2&gt;" RefType="this" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">
+            The first value type.
+            </typeparam>
+          <typeparam name="T2">
+            The second value type.
+            </typeparam>
+          <param name="self">
+            A <see cref="T:Cadenza.Tuple{T1,T2}" /> to convert into an <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </param>
+          <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T1,T2}" /> into a <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </summary>
+        </Docs>
+        <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.ToEnumerable``2(Cadenza.Tuple{``0,``1})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.Tuple`3" />
+      </Targets>
+      <Member MemberName="ToEnumerable&lt;T1,T2,T3&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T1,T2,T3&gt; (this Cadenza.Tuple&lt;T1,T2,T3&gt; self);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Object&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+          <TypeParameter Name="T3" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2,T3&gt;" RefType="this" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">
+            The first value type.
+            </typeparam>
+          <typeparam name="T2">
+            The second value type.
+            </typeparam>
+          <typeparam name="T3">
+            The third value type.
+            </typeparam>
+          <param name="self">
+            A <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> to convert into an <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </param>
+          <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> into a <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </summary>
+        </Docs>
+        <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.ToEnumerable``3(Cadenza.Tuple{``0,``1,``2})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Cadenza.Tuple`4" />
+      </Targets>
+      <Member MemberName="ToEnumerable&lt;T1,T2,T3,T4&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T1,T2,T3,T4&gt; (this Cadenza.Tuple&lt;T1,T2,T3,T4&gt; self);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Object&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T1" />
+          <TypeParameter Name="T2" />
+          <TypeParameter Name="T3" />
+          <TypeParameter Name="T4" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="Cadenza.Tuple&lt;T1,T2,T3,T4&gt;" RefType="this" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T1">
+            The first value type.
+            </typeparam>
+          <typeparam name="T2">
+            The second value type.
+            </typeparam>
+          <typeparam name="T3">
+            The third value type.
+            </typeparam>
+          <typeparam name="T4">
+            The fourth value type.
+            </typeparam>
+          <param name="self">
+            A <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> to convert into an <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </param>
+          <summary>
+            Converts the <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> into a <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />.
+            </summary>
+        </Docs>
+        <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.ToEnumerable``4(Cadenza.Tuple{``0,``1,``2,``3})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
