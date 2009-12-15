@@ -7766,11 +7766,24 @@
           </Parameter>
         </Parameters>
         <Docs>
-          <typeparam name="T">To be added.</typeparam>
-          <typeparam name="TResult">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="matchers">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="T">
+          The first value type.
+        </typeparam>
+          <typeparam name="TResult">
+          The return value type.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:Cadenza.Tuple{T}" /> to match against.
+        </param>
+          <param name="matchers">
+          A <see cref="T:System.Func{T,Cadenza.Maybe{TResult}}" />
+          array containing the conversion routines to use to convert 
+          the current <see cref="T:Cadenza.Tuple{T}" /> instance into a 
+          <typeparamref name="TResult" /> value.
+        </param>
+          <summary>
+          Converts the current <see cref="T:Cadenza.Tuple{T}" /> instance into a <typeparamref name="TResult" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.Match``2(Cadenza.Tuple{``0},System.Func{``0,Cadenza.Maybe{``1}}[])" />
       </Member>
@@ -7801,12 +7814,27 @@
           </Parameter>
         </Parameters>
         <Docs>
-          <typeparam name="T1">To be added.</typeparam>
-          <typeparam name="T2">To be added.</typeparam>
-          <typeparam name="TResult">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="matchers">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="T1">
+          The first value type.
+        </typeparam>
+          <typeparam name="T2">
+          The second value type.
+        </typeparam>
+          <typeparam name="TResult">
+          The return value type.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:Cadenza.Tuple{T1,T2}" /> to match against.
+        </param>
+          <param name="matchers">
+          A <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+          array containing the conversion routines to use to convert 
+          the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a 
+          <typeparamref name="TResult" /> value.
+        </param>
+          <summary>
+          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.Match``3(Cadenza.Tuple{``0,``1},System.Func{``0,``1,Cadenza.Maybe{``2}}[])" />
       </Member>
@@ -7838,13 +7866,28 @@
           </Parameter>
         </Parameters>
         <Docs>
-          <typeparam name="T1">To be added.</typeparam>
-          <typeparam name="T2">To be added.</typeparam>
+          <typeparam name="T1">
+          The first value type.
+        </typeparam>
+          <typeparam name="T2">
+          The second value type.
+        </typeparam>
           <typeparam name="T3">To be added.</typeparam>
-          <typeparam name="TResult">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="matchers">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TResult">
+          The return value type.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:Cadenza.Tuple{T1,T2}" /> to match against.
+        </param>
+          <param name="matchers">
+          A <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+          array containing the conversion routines to use to convert 
+          the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a 
+          <typeparamref name="TResult" /> value.
+        </param>
+          <summary>
+          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.Match``4(Cadenza.Tuple{``0,``1,``2},System.Func{``0,``1,``2,Cadenza.Maybe{``3}}[])" />
       </Member>
@@ -7877,14 +7920,29 @@
           </Parameter>
         </Parameters>
         <Docs>
-          <typeparam name="T1">To be added.</typeparam>
-          <typeparam name="T2">To be added.</typeparam>
+          <typeparam name="T1">
+          The first value type.
+        </typeparam>
+          <typeparam name="T2">
+          The second value type.
+        </typeparam>
           <typeparam name="T3">To be added.</typeparam>
           <typeparam name="T4">To be added.</typeparam>
-          <typeparam name="TResult">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="matchers">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TResult">
+          The return value type.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:Cadenza.Tuple{T1,T2}" /> to match against.
+        </param>
+          <param name="matchers">
+          A <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
+          array containing the conversion routines to use to convert 
+          the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a 
+          <typeparamref name="TResult" /> value.
+        </param>
+          <summary>
+          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.TupleCoda" Member="M:Cadenza.TupleCoda.Match``5(Cadenza.Tuple{``0,``1,``2,``3},System.Func{``0,``1,``2,``3,Cadenza.Maybe{``4}}[])" />
       </Member>

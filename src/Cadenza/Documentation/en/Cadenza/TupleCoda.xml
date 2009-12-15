@@ -315,21 +315,21 @@
           <typeparamref name="TResult" /> value.
         </param>
         <summary>
-          Converts the current <see cref="T:Cadenza.Tuple{T}" /> instance into a <typeparamref name="TResult"/>.
+          Converts the current <see cref="T:Cadenza.Tuple{T}" /> instance into a <typeparamref name="TResult" />.
         </summary>
         <returns>
-          The <typeparamref name="TResult"/> returned by one of the <paramref name="matchers"/>.
+          The <typeparamref name="TResult" /> returned by one of the <paramref name="matchers" />.
         </returns>
         <remarks>
           <para>
-           <block subset="none" type="behaviors">
-            <para>
+            <block subset="none" type="behaviors">
+              <para>
              The current <see cref="T:Cadenza.Tuple{T}" /> instance is converted into a 
              <typeparamref name="TResult" /> instance by trying each
              <see cref="T:System.Func{T,Cadenza.Maybe{TResult}}" />
              within <paramref name="matchers" />.
             </para>
-            <para>
+              <para>
              This method returns 
              <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
              for the first delegate to return a
@@ -337,7 +337,7 @@
              where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
              is <see langword="true" />.
             </para>
-            <para>
+              <para>
              If no <see cref="T:System.Func{T,Cadenza.Maybe{TResult}}" />
              returns a 
              <see cref="T:Cadenza.Maybe{TResult}" /> instance
@@ -345,8 +345,8 @@
              is <see langword="true" />, then an
              <see cref="T:System.InvalidOperationException" /> is thrown.
             </para>
-           </block>
-           <code lang="C#">
+            </block>
+            <code lang="C#">
           var    a = Tuple.Create (1, 2);
           string b = a.Match (
               (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
@@ -417,21 +417,21 @@
           <typeparamref name="TResult" /> value.
         </param>
         <summary>
-          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult"/>.
+          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult" />.
         </summary>
         <returns>
-          The <typeparamref name="TResult"/> returned by one of the <paramref name="matchers"/>.
+          The <typeparamref name="TResult" /> returned by one of the <paramref name="matchers" />.
         </returns>
         <remarks>
           <para>
-           <block subset="none" type="behaviors">
-            <para>
+            <block subset="none" type="behaviors">
+              <para>
              The current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance is converted into a 
              <typeparamref name="TResult" /> instance by trying each
              <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
              within <paramref name="matchers" />.
             </para>
-            <para>
+              <para>
              This method returns 
              <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
              for the first delegate to return a
@@ -439,7 +439,7 @@
              where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
              is <see langword="true" />.
             </para>
-            <para>
+              <para>
              If no <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
              returns a 
              <see cref="T:Cadenza.Maybe{TResult}" /> instance
@@ -447,8 +447,8 @@
              is <see langword="true" />, then an
              <see cref="T:System.InvalidOperationException" /> is thrown.
             </para>
-           </block>
-           <code lang="C#">
+            </block>
+            <code lang="C#">
           var    a = Tuple.Create (1, 2);
           string b = a.Match (
               (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
@@ -507,6 +507,7 @@
         <typeparam name="T2">
           The second value type.
         </typeparam>
+        <typeparam name="T3">To be added.</typeparam>
         <typeparam name="TResult">
           The return value type.
         </typeparam>
@@ -520,21 +521,21 @@
           <typeparamref name="TResult" /> value.
         </param>
         <summary>
-          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult"/>.
+          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult" />.
         </summary>
         <returns>
-          The <typeparamref name="TResult"/> returned by one of the <paramref name="matchers"/>.
+          The <typeparamref name="TResult" /> returned by one of the <paramref name="matchers" />.
         </returns>
         <remarks>
           <para>
-           <block subset="none" type="behaviors">
-            <para>
+            <block subset="none" type="behaviors">
+              <para>
              The current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance is converted into a 
              <typeparamref name="TResult" /> instance by trying each
              <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
              within <paramref name="matchers" />.
             </para>
-            <para>
+              <para>
              This method returns 
              <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
              for the first delegate to return a
@@ -542,7 +543,7 @@
              where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
              is <see langword="true" />.
             </para>
-            <para>
+              <para>
              If no <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
              returns a 
              <see cref="T:Cadenza.Maybe{TResult}" /> instance
@@ -550,8 +551,8 @@
              is <see langword="true" />, then an
              <see cref="T:System.InvalidOperationException" /> is thrown.
             </para>
-           </block>
-           <code lang="C#">
+            </block>
+            <code lang="C#">
           var    a = Tuple.Create (1, 2);
           string b = a.Match (
               (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
@@ -611,6 +612,8 @@
         <typeparam name="T2">
           The second value type.
         </typeparam>
+        <typeparam name="T3">To be added.</typeparam>
+        <typeparam name="T4">To be added.</typeparam>
         <typeparam name="TResult">
           The return value type.
         </typeparam>
@@ -624,21 +627,21 @@
           <typeparamref name="TResult" /> value.
         </param>
         <summary>
-          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult"/>.
+          Converts the current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance into a <typeparamref name="TResult" />.
         </summary>
         <returns>
-          The <typeparamref name="TResult"/> returned by one of the <paramref name="matchers"/>.
+          The <typeparamref name="TResult" /> returned by one of the <paramref name="matchers" />.
         </returns>
         <remarks>
           <para>
-           <block subset="none" type="behaviors">
-            <para>
+            <block subset="none" type="behaviors">
+              <para>
              The current <see cref="T:Cadenza.Tuple{T1,T2}" /> instance is converted into a 
              <typeparamref name="TResult" /> instance by trying each
              <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
              within <paramref name="matchers" />.
             </para>
-            <para>
+              <para>
              This method returns 
              <see cref="P:Cadenza.Maybe{TResult}.Value" /> 
              for the first delegate to return a
@@ -646,7 +649,7 @@
              where <see cref="P:Cadenza.Maybe{TResult}.HasValue" />
              is <see langword="true" />.
             </para>
-            <para>
+              <para>
              If no <see cref="T:System.Func{T1,T2,Cadenza.Maybe{TResult}}" />
              returns a 
              <see cref="T:Cadenza.Maybe{TResult}" /> instance
@@ -654,8 +657,8 @@
              is <see langword="true" />, then an
              <see cref="T:System.InvalidOperationException" /> is thrown.
             </para>
-           </block>
-           <code lang="C#">
+            </block>
+            <code lang="C#">
           var    a = Tuple.Create (1, 2);
           string b = a.Match (
               (t, v) =&gt; Match.When ( t + v == 3, "foo!"),
