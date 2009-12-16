@@ -32,10 +32,41 @@
         <Parameter Name="o" Type="System.Object" />
       </Parameters>
       <Docs>
-        <param name="o">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="o">
+          A <see cref="T:System.Object" /> containing the object graph to traverse.
+        </param>
+        <summary>Depth-first object graph traversal.</summary>
+        <returns>
+          An <see cref="T:System.Collections.IEnumerable" /> containing all 
+          non-<see cref="T:System.String" />, non-<see cref="T:System.Collections.IEnumerable" />
+          values found while traversing <paramref name="o" /></returns>
+        <remarks>
+          <para>
+            This is to simplify supporting 
+            <see cref="M:System.Xml.Linq.XContainer.Add(System.Object)" />-style 
+            enumerable traversal.
+          </para>
+          <para>
+            If <paramref name="o" /> does not implement 
+            <see cref="T:System.Collections.IEnumerable" />, then an enumerator
+            which will yield <paramref name="o" /> is returned.
+          </para>
+          <para>
+            If <paramref name="o" /> implements <c>IEnumerable</c>, then it is 
+            enumerated over, and if an enumerated element implements 
+            <c>IEnumerable</c>, it too is enumerated, repeatedly, until
+            the enumerated element doesn't implement <c>IEnumerable</c> or
+            the element is a <see cref="T:System.String" />.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#Expand">Assert.AreEqual (
+	"1,2,3,4",
+	Sequence.Expand (new object[]{
+		Enumerable.Range (1, 2),
+		"3",
+		4
+	}).Cast&lt;object&gt;().Implode (","));
+</code>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Expand">
@@ -52,12 +83,58 @@
         <Parameter Name="except" Type="System.Collections.Generic.IEnumerable&lt;System.Type&gt;" />
       </Parameters>
       <Docs>
-        <param name="o">To be added.</param>
-        <param name="except">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Sequence.Expand(System.Object,System.Collections.Generic.IEnumerable{System.Type})" /></exception>
+        <param name="o">
+          A <see cref="T:System.Object" /> containing the object graph to traverse.
+        </param>
+        <param name="except">
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.Type}" /> containing
+          the types that, while implementing <see cref="T:System.Collections.IEnumerable" />,
+          should not be traversed.  An inheritance match is used.
+        </param>
+        <summary>Depth-first object graph traversal.</summary>
+        <returns>
+          An <see cref="T:System.Collections.IEnumerable" /> containing only 
+          values with types present within <paramref name="except" /> or values
+          with types that do not implement <see cref="T:System.Collections.IEnumerable" />.
+        </returns>
+        <remarks>
+          <para>
+            This is to simplify supporting 
+            <see cref="M:System.Xml.Linq.XContainer.Add(System.Object)" />-style 
+            enumerable traversal.
+          </para>
+          <para>
+            If <paramref name="o" /> does not implement 
+            <see cref="T:System.Collections.IEnumerable" />, then an enumerator
+            which will yield <paramref name="o" /> is returned.
+          </para>
+          <para>
+            If <paramref name="o" /> implements <c>IEnumerable</c>, then it is 
+            enumerated over, and if an enumerated element implements 
+            <c>IEnumerable</c>, it too is enumerated, repeatedly, until either
+            the enumerated element doesn't implement <c>IEnumerable</c> or
+            the element's type is present within <paramref name="except" />.
+            <paramref name="except" /> type matching is based on 
+            <see cref="M:System.Type.IsAssignableFrom(System.Type)" />; 
+            consequently, exact type matching is not performed, and inheritance
+            relationships are taken into consideration.
+          </para>
+          <para>
+            For example, if <paramref name="except" /> contains 
+            <c>typeof(<see cref="T:System.Collections.ICollection" />)</c>,
+            then if <paramref name="o" /> were a
+            <see cref="T:System.Collections.Generic.List{System.Int32}" />
+            (which implements <c>ICollection</c>), then the embedded list
+            will not be further enumerated.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#Expand(IEnumerable)">IEnumerable seq = Sequence.Expand (new List&lt;int&gt; { 1, 2, 3 }, typeof (ICollection));
+foreach (object v in seq)
+	Assert.IsTrue (v is List&lt;int&gt;);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="except" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Expand">
@@ -80,11 +157,58 @@
         </Parameter>
       </Parameters>
       <Docs>
-        <param name="o">To be added.</param>
-        <param name="except">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="o">
+          A <see cref="T:System.Object" /> containing the object graph to traverse.
+        </param>
+        <param name="except">
+          A <see cref="T:System.Type" /> array containing
+          the types that, while implementing <see cref="T:System.Collections.IEnumerable" />,
+          should not be traversed.  An inheritance match is used.
+        </param>
+        <summary>Depth-first object graph traversal.</summary>
+        <returns>
+          An <see cref="T:System.Collections.IEnumerable" /> containing only 
+          values with types present within <paramref name="except" /> or values
+          with types that do not implement <see cref="T:System.Collections.IEnumerable" />.
+        </returns>
+        <remarks>
+          <para>
+            This is to simplify supporting 
+            <see cref="M:System.Xml.Linq.XContainer.Add(System.Object)" />-style 
+            enumerable traversal.
+          </para>
+          <para>
+            If <paramref name="o" /> does not implement 
+            <see cref="T:System.Collections.IEnumerable" />, then an enumerator
+            which will yield <paramref name="o" /> is returned.
+          </para>
+          <para>
+            If <paramref name="o" /> implements <c>IEnumerable</c>, then it is 
+            enumerated over, and if an enumerated element implements 
+            <c>IEnumerable</c>, it too is enumerated, repeatedly, until either
+            the enumerated element doesn't implement <c>IEnumerable</c> or
+            the element's type is present within <paramref name="except" />.
+            <paramref name="except" /> type matching is based on 
+            <see cref="M:System.Type.IsAssignableFrom(System.Type)" />; 
+            consequently, exact type matching is not performed, and inheritance
+            relationships are taken into consideration.
+          </para>
+          <para>
+            For example, if <paramref name="except" /> contains 
+            <c>typeof(<see cref="T:System.Collections.ICollection" />)</c>,
+            then if <paramref name="o" /> were a
+            <see cref="T:System.Collections.Generic.List{System.Int32}" />
+            (which implements <c>ICollection</c>), then the embedded list
+            will not be further enumerated.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/SequenceTest.cs#Expand(IEnumerable)">IEnumerable seq = Sequence.Expand (new List&lt;int&gt; { 1, 2, 3 }, typeof (ICollection));
+foreach (object v in seq)
+	Assert.IsTrue (v is List&lt;int&gt;);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="except" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="GenerateReverse&lt;TSource,TResult&gt;">

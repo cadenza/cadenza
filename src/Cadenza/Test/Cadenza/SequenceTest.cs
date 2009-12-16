@@ -27,6 +27,7 @@
 //
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -90,6 +91,20 @@ namespace Cadenza.Collections.Tests {
 							},
 						},
 					}).Cast<string>()));
+			#region Expand
+			Assert.AreEqual (
+				"1,2,3,4",
+				Sequence.Expand (new object[]{
+					Enumerable.Range (1, 2),
+					"3",
+					4
+				}).Cast<object>().Implode (","));
+			#endregion
+			#region Expand(IEnumerable)
+			IEnumerable seq = Sequence.Expand (new List<int> { 1, 2, 3 }, typeof (ICollection));
+			foreach (object v in seq)
+				Assert.IsTrue (v is List<int>);
+			#endregion
 		}
 
 		[Test]
