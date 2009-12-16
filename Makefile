@@ -30,20 +30,6 @@ install: doc-install
 	cp $(mrdir)/Cadenza.dll* $(libdir)/cadenza
 	cp $(pkdir)/*.pc   $(libdir)/pkgconfig
 
-tools/mkdelegates tools/mkeithers tools/mklambda tools/mktuples : tools/Generator.pm
-
-src/Cadenza/Cadenza/Eithers.cs : tools/mkeithers Makefile
-	./tools/mkeithers -n 4 > $@
-
-src/Cadenza/Cadenza/Tuples.cs : tools/mktuples Makefile
-	./tools/mktuples -n 4 > $@
-
-src/Cadenza/Cadenza/Lambdas.cs : tools/mklambda Makefile
-	./tools/mklambda -n 4 > $@
-
-src/Cadenza/Cadenza/Delegates.cs : tools/mkdelegates Makefile
-	./tools/mkdelegates -n 4 > $@
-
 check-gendarme:
 	gendarme --html errors.html --ignore gendarme.ignore $(mrdir)/Cadenza.dll
 
