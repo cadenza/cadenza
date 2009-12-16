@@ -732,6 +732,13 @@ namespace Cadenza.Collections.Tests {
 		}
 
 		[Test]
+		[ExpectedException (typeof (NotSupportedException))]
+		public void ToTuple_TooManyValues ()
+		{
+			Enumerable.Range (0, Tuple.MaxValues+1).ToTuple ();
+		}
+
+		[Test]
 		public void ToTuple ()
 		{
 			#region ToTuple
@@ -745,6 +752,12 @@ namespace Cadenza.Collections.Tests {
 			Assert.AreEqual (3L,  t.Item3);
 			Assert.AreEqual ("4", t.Item4);
 			#endregion
+
+			var a = Tuple.Create (1U, 2L, '\x3', (byte) 4);
+			Assert.AreEqual (true,
+					a.Equals (new object[]{1U, 2L, '\x3', (byte) 4}.ToTuple ()));
+			Assert.AreEqual (a,
+					a.ToEnumerable ().ToTuple ());
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
