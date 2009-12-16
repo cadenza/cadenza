@@ -105,8 +105,9 @@ Assert.AreEqual (2.Just (),
 </code>
         </remarks>
         <altmember cref="M:Cadenza.ObjectCoda.ToMaybe``1(``0)" />
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Selector(System.Object)" /></exception>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.Maybe`1.get_Value" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="selector" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="SelectMany&lt;TSource,TCollection,TResult&gt;">
@@ -220,8 +221,15 @@ Assert.AreEqual (9.Just (),
 </code>
         </remarks>
         <altmember cref="M:Cadenza.ObjectCoda.ToMaybe``1(``0)" />
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Selector(System.Object)" />, <see cref="M:Cadenza.Check.ResultSelector(System.Object)" /></exception>
-        <exception cref="T:System.InvalidOperationException">To be added; from: <see cref="M:Cadenza.Maybe`1.get_Value" />, <see cref="M:Cadenza.Maybe`1.get_Value" />, <see cref="M:Cadenza.Maybe`1.get_Value" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="selector" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="resultSelector" /> is <see langword="null" />.
+          </para>
+        </exception>
       </Docs>
     </Member>
   </Members>
