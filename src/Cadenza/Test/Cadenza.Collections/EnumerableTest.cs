@@ -80,9 +80,59 @@ namespace Cadenza.Collections.Tests {
 		public void TryGetFirst_NotFound ()
 		{
 			int oi;
-			var e = Enumerable.Range (0, 10);
+			var e = Enumerable.Range (1, 10);
 
 			Assert.IsFalse (e.TryGetFirst (i => i > 10, out oi));
+			Assert.AreEqual (default(int), oi);
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void TryGetFirstNoPredicate_Null()
+		{
+			int oi;
+			IEnumerable<int> e = null;
+
+			e.TryGetFirst (out oi);
+		}
+
+		[Test]
+		public void TryGetFirstNoPredicate_List ()
+		{
+			int oi;
+			var e = Enumerable.Range (1, 10).ToList();
+
+			Assert.IsTrue (e.TryGetFirst (out oi));
+			Assert.AreEqual (1, oi);
+		}
+
+		[Test]
+		public void TryGetFirstNoPredicate_List_NotFound()
+		{
+			int oi;
+			var e = Enumerable.Empty<int>().ToList();
+
+			Assert.IsFalse (e.TryGetFirst (out oi));
+			Assert.AreEqual (default(int), oi);
+		}
+
+		[Test]
+		public void TryGetFirstNoPredicate()
+		{
+			int oi;
+			var e = Enumerable.Range (1, 10);
+
+			Assert.IsTrue (e.TryGetFirst (out oi));
+			Assert.AreEqual (1, oi);
+		}
+
+		[Test]
+		public void TryGetFirstNoPredicate_NotFound()
+		{
+			int oi;
+			var e = Enumerable.Empty<int>();
+
+			Assert.IsFalse (e.TryGetFirst (out oi));
 			Assert.AreEqual (default(int), oi);
 		}
 

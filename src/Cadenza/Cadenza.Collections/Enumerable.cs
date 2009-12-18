@@ -43,6 +43,36 @@ namespace Cadenza.Collections {
 
 	public static class EnumerableCoda {
 
+		public static bool TryGetFirst<TSource> (this IEnumerable<TSource> self, out TSource first)
+		{
+			Check.Self (self);
+
+			first = default(TSource);
+
+			var list = (self as IList<TSource>);
+			if (list != null)
+			{
+				if (list.Count > 0)
+				{
+					first = list[0];
+					return true;
+				}
+				else
+					return false;
+			}
+
+			using (var e = self.GetEnumerator ())
+			{
+				if (e.MoveNext ())
+				{
+					first = e.Current;
+					return true;
+				}
+			}
+
+			return false;
+		}
+
 		public static bool TryGetFirst<TSource> (this IEnumerable<TSource> self, Func<TSource, bool> predicate, out TSource first)
 		{
 			Check.Self (self);
