@@ -43,6 +43,24 @@ namespace Cadenza.Collections {
 
 	public static class EnumerableCoda {
 
+		public static bool TryGetFirst<TSource> (this IEnumerable<TSource> self, Func<TSource, bool> predicate, out TSource first)
+		{
+			Check.Self (self);
+			Check.Predicate (predicate);
+
+			first = default(TSource);
+			foreach (TSource item in self)
+			{
+				if (!predicate (item))
+					continue;
+
+				first = item;
+				return true;
+			}
+
+			return false;
+		}
+
 		public static string Implode<TSource> (this IEnumerable<TSource> self, string separator)
 		{
 			return Implode (self, separator, e => e.ToString ());

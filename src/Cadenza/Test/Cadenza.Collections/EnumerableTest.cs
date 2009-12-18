@@ -49,6 +49,44 @@ namespace Cadenza.Collections.Tests {
 	public class EnumerableTest : BaseRocksFixture {
 
 		[Test]
+		[ExpectedException (typeof(ArgumentNullException))]
+		public void TryGetFirst_SelfNull ()
+		{
+			int oi;
+			IEnumerable<int> e = null;
+			e.TryGetFirst (i => i > 0, out oi);
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void TryGetFirst_PredicateNull ()
+		{
+			int i;
+			IEnumerable<int> e = Enumerable.Empty<int> ();
+			e.TryGetFirst (null, out i);
+		}
+
+		[Test]
+		public void TryGetFirst ()
+		{
+			int oi;
+			var e = Enumerable.Range (0, 10);
+
+			Assert.IsTrue (e.TryGetFirst (i => i > 5, out oi));
+			Assert.AreEqual (6, oi);
+		}
+
+		[Test]
+		public void TryGetFirst_NotFound ()
+		{
+			int oi;
+			var e = Enumerable.Range (0, 10);
+
+			Assert.IsFalse (e.TryGetFirst (i => i > 10, out oi));
+			Assert.AreEqual (default(int), oi);
+		}
+
+		[Test]
 		[ExpectedException (typeof (ArgumentNullException))]
 		public void Implode_SourceNull ()
 		{
