@@ -2226,7 +2226,7 @@ Assert.AreEqual ("|123",
             a <see cref="T:System.InvalidOperationException" /> when you try to
             enumerate the results.
           </para>
-          <example>
+          <code>
             Given the input sequence, [a, b, c] the result would be:
             [a]
             [b]
@@ -2235,7 +2235,7 @@ Assert.AreEqual ("|123",
             [a,c]
             [b,c]
             [a,b,c]
-          </example>
+          </code>
           <para>
             Note: This method does not remove duplicates from <paramref name="self" />.
             If <paramref name="self" /> may contain duplicates and you want true subsets
@@ -2250,29 +2250,37 @@ Assert.AreEqual ("|123",
             Note: This keep the input sizes small, as the result set will contain
             <c>(n ^ 2) - 1</c> results, eg for 20 items there are 1,048,575 subsets.
           </para>
+        </remarks>
+        <example>
           <code lang="C#">
             List&lt;string&gt; source = new List&lt;string&gt; { "a", "b", "c" };
             IEnumerable&lt;IEnumerable&lt;string&gt;&gt; results = source.Subsets();
+
             foreach (IEnumerable&lt;string&gt; subset in results) {
+
               foreach (string value in subset) {
                 Console.Write(value);
                 Console.Write(" ");
               }
+
               Console.WriteLine();
             }
           </code>
           <code lang="VB">
             Dim source As New List(Of String)(New String() { "a", "b", "c" })
             Dim results As IEnumerable(Of IEnumerable(Of String)) = source.Subsets()
+
             For Each subset As IEnumerable(Of String) In results
+
               For Each value As String In subset
                 Console.Write(value)
                 Console.Write(" ")
               Next
+
               Console.WriteLine()
             Next
           </code>
-        </remarks>
+        </example>
         <exception cref="T:System.ArgumentNullException">
           If <paramref name="self" /> is null (Nothing in VB).
         </exception>
