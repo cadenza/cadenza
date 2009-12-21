@@ -41,31 +41,6 @@ namespace Cadenza.Tests {
 	public class TuplesTest : BaseRocksFixture {
 
 		[Test]
-		[ExpectedException (typeof (ArgumentNullException))]
-		public void ToTuple_ValuesNull ()
-		{
-			IEnumerable<object> v = null;
-			v.ToTuple ();
-		}
-
-		[Test]
-		[ExpectedException (typeof (NotSupportedException))]
-		public void ToTuple_TooManyValues ()
-		{
-			Enumerable.Range (0, Tuple.MaxValues+1).ToTuple ();
-		}
-
-		[Test]
-		public void ToTuple ()
-		{
-			var a = Tuple.Create (1U, 2L, '\x3', (byte) 4);
-			Assert.AreEqual (true,
-					a.Equals (new object[]{1U, 2L, '\x3', (byte) 4}.ToTuple ()));
-			Assert.AreEqual (a,
-					a.ToEnumerable ().ToTuple ());
-		}
-
-		[Test]
 		public void ToKeyValuePair ()
 		{
 			var t = Tuple.Create (42, "42");
