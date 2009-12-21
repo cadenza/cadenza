@@ -2592,6 +2592,58 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
         </exception>
       </Docs>
     </Member>
+    <Member MemberName="TryGetFirst&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static bool TryGetFirst&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, out TSource first);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="first" Type="TSource&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="first">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TryGetFirst&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static bool TryGetFirst&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate, out TSource first);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="predicate" Type="System.Func&lt;TSource,System.Boolean&gt;" />
+        <Parameter Name="first" Type="TSource&amp;" RefType="out" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="predicate">To be added.</param>
+        <param name="first">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Unzip&lt;T1,T2&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;&gt; Unzip&lt;T1,T2&gt; (this System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2&gt;&gt; self);" />
       <MemberType>Method</MemberType>
