@@ -12,6 +12,18 @@ namespace Cadenza.Collections.Tests
 
 
 		[Test]
+		public void Ctor_NegativeCapacity()
+		{
+			var ex = Assert.Throws<ArgumentOutOfRangeException>(() => new BidirectionalDictionary<string, string>(-1));
+			Assert.AreEqual("capacity", ex.ParamName);
+			Assert.AreEqual(-1, ex.ActualValue);
+
+			Assert.DoesNotThrow(() => new BidirectionalDictionary<string, string>(0));
+			Assert.DoesNotThrow(() => new BidirectionalDictionary<string, string>(1));
+		}
+
+
+		[Test]
 		public void ContainsKey()
 		{
 			var dictionary = new BidirectionalDictionary<string, string>();

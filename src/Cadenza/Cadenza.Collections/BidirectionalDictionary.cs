@@ -19,6 +19,8 @@ namespace Cadenza.Collections
 
 		public BidirectionalDictionary(int capacity, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer)
 		{
+			if (capacity < 0) throw new ArgumentOutOfRangeException("capacity", capacity, "capacity cannot be less than 0");
+
 			this.keyComparer = keyComparer ?? EqualityComparer<TKey>.Default;
 			this.valueComparer = valueComparer ?? EqualityComparer<TValue>.Default;
 
