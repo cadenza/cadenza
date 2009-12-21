@@ -38,6 +38,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cadenza.Collections\BidirectionalDictionary.cs" />
     <Compile Include="Cadenza.Collections\CachedSequence.cs" />
     <Compile Include="Cadenza.Collections\Enumerable.cs" />
     <Compile Include="Cadenza.Collections\KeyValuePair.cs" />

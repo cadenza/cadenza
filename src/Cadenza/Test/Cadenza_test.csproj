@@ -40,6 +40,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cadenza.Collections\BidirectionalDictionaryTest.cs" />
     <Compile Include="Cadenza.Collections\CachedSequenceTest.cs" />
     <Compile Include="Cadenza.Collections\IEnumerableContract.cs" />
     <Compile Include="Cadenza.Collections\EnumerableTest.cs" />

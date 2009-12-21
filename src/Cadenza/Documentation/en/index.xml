@@ -87,6 +87,7 @@
       <Type Name="UInt64Coda" Kind="Class" />
     </Namespace>
     <Namespace Name="Cadenza.Collections">
+      <Type Name="BidirectionalDictionary`2" DisplayName="BidirectionalDictionary&lt;TKey,TValue&gt;" Kind="Class" />
       <Type Name="CachedSequence`1" DisplayName="CachedSequence&lt;T&gt;" Kind="Class" />
       <Type Name="EnumerableCoda" Kind="Class" />
       <Type Name="KeyValuePairCoda" Kind="Class" />
