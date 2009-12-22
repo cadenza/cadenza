@@ -36,8 +36,8 @@ namespace Cadenza.Collections
 	{
 		private readonly IEqualityComparer<TKey> keyComparer;
 		private readonly IEqualityComparer<TValue> valueComparer;
-		private readonly Dictionary<TKey, TValue> items1;
-		private readonly Dictionary<TValue, TKey> items2;
+		private readonly Dictionary<TKey, TValue> keysToValues;
+		private readonly Dictionary<TValue, TKey> valuesToKeys;
 		private readonly BidirectionalDictionary<TValue, TKey> inverse;
 
 
@@ -53,8 +53,8 @@ namespace Cadenza.Collections
 			this.keyComparer = keyComparer ?? EqualityComparer<TKey>.Default;
 			this.valueComparer = valueComparer ?? EqualityComparer<TValue>.Default;
 
-			items1 = new Dictionary<TKey, TValue> (capacity, this.keyComparer);
-			items2 = new Dictionary<TValue, TKey> (capacity, this.valueComparer);
+			keysToValues = new Dictionary<TKey, TValue> (capacity, this.keyComparer);
+			valuesToKeys = new Dictionary<TValue, TKey> (capacity, this.valueComparer);
 
 			inverse = new BidirectionalDictionary<TValue, TKey> (this);
 		}
@@ -64,8 +64,8 @@ namespace Cadenza.Collections
 			this.inverse = inverse;
 			keyComparer = inverse.valueComparer;
 			valueComparer = inverse.keyComparer;
-			items2 = inverse.items1;
-			items1 = inverse.items2;
+			valuesToKeys = inverse.keysToValues;
+			keysToValues = inverse.valuesToKeys;
 		}
 
 
@@ -75,16 +75,16 @@ namespace Cadenza.Collections
 
 
 		public ICollection<TKey> Keys {
-			get { return items1.Keys; }
+			get { return keysToValues.Keys; }
 		}
 
 		public ICollection<TValue> Values {
-			get { return items2.Keys; }
+			get { return valuesToKeys.Keys; }
 		}
 
 		public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator ()
 		{
-			return items1.GetEnumerator ();
+			return keysToValues.GetEnumerator ();
 		}
 
 		IEnumerator IEnumerable.GetEnumerator ()
@@ -94,7 +94,7 @@ namespace Cadenza.Collections
 
 		void ICollection<KeyValuePair<TKey, TValue>>.CopyTo (KeyValuePair<TKey, TValue>[] array, int arrayIndex)
 		{
-			((ICollection<KeyValuePair<TKey, TValue>>) items1).CopyTo (array, arrayIndex);
+			((ICollection<KeyValuePair<TKey, TValue>>) keysToValues).CopyTo (array, arrayIndex);
 		}
 
 
@@ -102,37 +102,37 @@ namespace Cadenza.Collections
 		{
 			if (key == null)
 				throw new ArgumentNullException ("key");
-			return items1.ContainsKey (key);
+			return keysToValues.ContainsKey (key);
 		}
 
 		public bool ContainsValue (TValue value)
 		{
 			if (value == null)
 				throw new ArgumentNullException ("value");
-			return items2.ContainsKey (value);
+			return valuesToKeys.ContainsKey (value);
 		}
 
 		bool ICollection<KeyValuePair<TKey, TValue>>.Contains (KeyValuePair<TKey, TValue> item)
 		{
-			return ((ICollection<KeyValuePair<TKey, TValue>>) items1).Contains (item);
+			return ((ICollection<KeyValuePair<TKey, TValue>>) keysToValues).Contains (item);
 		}
 
 		public bool TryGetKey (TValue value, out TKey key)
 		{
 			if (value == null)
 				throw new ArgumentNullException ("value");
-			return items2.TryGetValue (value, out key);
+			return valuesToKeys.TryGetValue (value, out key);
 		}
 
 		public bool TryGetValue (TKey key, out TValue value)
 		{
 			if (key == null)
 				throw new ArgumentNullException ("key");
-			return items1.TryGetValue (key, out value);
+			return keysToValues.TryGetValue (key, out value);
 		}
 
 		public TValue this[TKey key] {
-			get { return items1 [key]; }
+			get { return keysToValues [key]; }
 			set {
 				if (key == null)
 					throw new ArgumentNullException ("key");
@@ -144,13 +144,13 @@ namespace Cadenza.Collections
 				if (ValueBelongsToOtherKey (key, value))
 					throw new ArgumentException ("Value already exists", "value");
 
-				items1 [key] = value;
-				items2 [value] = key;
+				keysToValues [key] = value;
+				valuesToKeys [value] = key;
 			}
 		}
 
 		public int Count {
-			get { return items1.Count; }
+			get { return keysToValues.Count; }
 		}
 
 		public bool IsReadOnly {
@@ -165,13 +165,13 @@ namespace Cadenza.Collections
 			if (value == null)
 				throw new ArgumentNullException ("value");
 
-			if (items1.ContainsKey (key))
+			if (keysToValues.ContainsKey (key))
 				throw new ArgumentException ("Key already exists", "key");
-			if (items2.ContainsKey (value))
+			if (valuesToKeys.ContainsKey (value))
 				throw new ArgumentException ("Value already exists", "value");
 
-			items1.Add (key, value);
-			items2.Add (value, key);
+			keysToValues.Add (key, value);
+			valuesToKeys.Add (value, key);
 		}
 
 		public void Replace (TKey key, TValue value)
@@ -201,9 +201,9 @@ namespace Cadenza.Collections
 				throw new ArgumentNullException ("key");
 
 			TValue value;
-			if (items1.TryGetValue (key, out value)) {
-				items1.Remove (key);
-				items2.Remove (value);
+			if (keysToValues.TryGetValue (key, out value)) {
+				keysToValues.Remove (key);
+				valuesToKeys.Remove (value);
 				return true;
 			}
 			else {
@@ -213,23 +213,23 @@ namespace Cadenza.Collections
 
 		bool ICollection<KeyValuePair<TKey, TValue>>.Remove (KeyValuePair<TKey, TValue> item)
 		{
-			bool removed = ((ICollection<KeyValuePair<TKey, TValue>>) items1).Remove (item);
+			bool removed = ((ICollection<KeyValuePair<TKey, TValue>>) keysToValues).Remove (item);
 			if (removed)
-				items2.Remove (item.Value);
+				valuesToKeys.Remove (item.Value);
 			return removed;
 		}
 
 		public void Clear ()
 		{
-			items1.Clear ();
-			items2.Clear ();
+			keysToValues.Clear ();
+			valuesToKeys.Clear ();
 		}
 
 
 		private bool ValueBelongsToOtherKey (TKey key, TValue value)
 		{
 			TKey otherKey;
-			if (items2.TryGetValue (value, out otherKey))
+			if (valuesToKeys.TryGetValue (value, out otherKey))
 				// if the keys are not equal the value belongs to another key
 				return !keyComparer.Equals (key, otherKey);
 			else
