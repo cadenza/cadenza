@@ -162,7 +162,7 @@ namespace Cadenza.Collections.Tests
 
 
 		[Test]
-		public void Items_Get ()
+		public void Item_Get ()
 		{
 			var dictionary = new BidirectionalDictionary<string, string> ();
 			dictionary.Add (String1, String2);
@@ -170,7 +170,7 @@ namespace Cadenza.Collections.Tests
 		}
 
 		[Test]
-		public void Items_Get_Null ()
+		public void Item_Get_Null ()
 		{
 			var dictionary = new BidirectionalDictionary<string, string> ();
 			var ex = Assert.Throws<ArgumentNullException> (() => { var x = dictionary [null]; });
@@ -178,14 +178,14 @@ namespace Cadenza.Collections.Tests
 		}
 
 		[Test]
-		public void Items_Get_NotFound ()
+		public void Item_Get_NotFound ()
 		{
 			var dictionary = new BidirectionalDictionary<string, string> ();
 			Assert.Throws<KeyNotFoundException> (() => { var x = dictionary [String1]; });
 		}
 
 		[Test]
-		public void Items_Set ()
+		public void Item_Set ()
 		{
 			var dictionary = new BidirectionalDictionary<string, string> ();
 			dictionary [String1] = String2;
@@ -193,7 +193,7 @@ namespace Cadenza.Collections.Tests
 		}
 
 		[Test]
-		public void Items_Set_NullKey ()
+		public void Item_Set_NullKey ()
 		{
 			var dictionary = new BidirectionalDictionary<string, string> ();
 			var ex = Assert.Throws<ArgumentNullException> (() => dictionary [null] = String2);
@@ -201,7 +201,7 @@ namespace Cadenza.Collections.Tests
 		}
 
 		[Test]
-		public void Items_Set_NullValue ()
+		public void Item_Set_NullValue ()
 		{
 			var dictionary = new BidirectionalDictionary<string, string> ();
 			var ex = Assert.Throws<ArgumentNullException> (() => dictionary [String1] = null);
@@ -209,7 +209,7 @@ namespace Cadenza.Collections.Tests
 		}
 
 		[Test]
-		public void Items_Set_ExistingKey ()
+		public void Item_Set_ExistingKey ()
 		{
 			var dictionary = new BidirectionalDictionary<int, string> ();
 			dictionary.Add (42, String1);
@@ -218,7 +218,7 @@ namespace Cadenza.Collections.Tests
 		}
 
 		[Test]
-		public void Items_Set_ExistingValue ()
+		public void Item_Set_ExistingValue ()
 		{
 			var dictionary = new BidirectionalDictionary<int, string> ();
 			dictionary.Add (42, String1);
@@ -227,7 +227,7 @@ namespace Cadenza.Collections.Tests
 		}
 
 		[Test]
-		public void Items_Set_KeyToOwnValue ()
+		public void Item_Set_KeyToOwnValue ()
 		{
 			var dictionary = new BidirectionalDictionary<int, string> ();
 			dictionary.Add (42, String1);
