@@ -139,8 +139,8 @@ namespace Cadenza.Collections
 				if (value == null)
 					throw new ArgumentNullException ("value");
 
-				//no check if key exists as it is expected that an existing key should be overwrote.
-				//not sure if an existing value should be overwrote or not, perhaps it should be an option when creating? Currently defaulting to not.
+				//foo[5] = "bar"; foo[6] = "bar"; should not be valid
+				//as it would have to remove foo[5], which is unexpected.
 				if (ValueBelongsToOtherKey (key, value))
 					throw new ArgumentException ("Value already exists", "value");
 
