@@ -2527,17 +2527,17 @@ namespace Cadenza.Collections.Tests {
 		public void Subsets_Prune () {
 			char[] input = { 'a', 'b', 'c', 'd' };
 			char[][] expected = {
-				new[] { 'd' },
-				new[] { 'd', 'c' },
-				new[] { 'd', 'c', 'a' },
-				new[] { 'd', 'a' },
-				new[] { 'c' },
-				new[] { 'c', 'b' },
-				new[] { 'c', 'b', 'a' },
-				new[] { 'c', 'a' },
+				new[] { 'a' },
 				new[] { 'b' },
 				new[] { 'b', 'a' },
-				new[] { 'a' },
+				new[] { 'c' },
+				new[] { 'c', 'a' },
+				new[] { 'c', 'b' },
+				new[] { 'c', 'b', 'a' },
+				new[] { 'd' },
+				new[] { 'd', 'a' },
+				new[] { 'd', 'c' },
+				new[] { 'd', 'c', 'a' },
 			};
 
 			char[][] output = input

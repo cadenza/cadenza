@@ -1416,31 +1416,30 @@ namespace Cadenza.Collections {
 
         private static IEnumerable<IEnumerable<TSource>> CreateSubsetsIterator<TSource> (IEnumerable<TSource> self, Func<IEnumerable<TSource>, bool> predicate)
         {
-            var subsets = Enumerable.Empty<IEnumerable<TSource>> ();
+			var subsets = new List<CachedSequence<TSource>> ();
 
             foreach (var value in self.ToList ()) {
-				subsets = CreateSubsetsIterator (value, subsets, predicate);
-			}
+				var newSubsets = CreateSubsetsIterator (value, subsets, predicate).Cache ();
+				
+				foreach (var s in newSubsets)
+					yield return s;
 
-            return subsets;
+				subsets.AddRange (newSubsets);
+			}
         }
 
-        private static IEnumerable<IEnumerable<TSource>> CreateSubsetsIterator<TSource> (TSource value, IEnumerable<IEnumerable<TSource>> subsets, Func<IEnumerable<TSource>, bool> predicate)
+        private static IEnumerable<CachedSequence<TSource>> CreateSubsetsIterator<TSource> (TSource value, IEnumerable<CachedSequence<TSource>> subsets, Func<IEnumerable<TSource>, bool> predicate)
 		{
-            var item =  new [] { value };
- 
-			if (predicate(item)) {
+			var item = new CachedSequence<TSource> (value);
+			if (predicate (item)) {
 				yield return item;
 	            
 				foreach (var p in subsets) {
-					var combined = item.Concat (p);
-					if (predicate(combined))
+					var combined = p.Prepend (value);
+					if (predicate (combined))
 						yield return combined;
 				}
 			}
- 
-            foreach (var p in subsets)
-                yield return p;
         }
 	}
 }
