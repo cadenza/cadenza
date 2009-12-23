@@ -2522,5 +2522,37 @@ namespace Cadenza.Collections.Tests {
 			var ex = Assert.Throws<InvalidOperationException>(() => c.Subsets().First());
 			Assert.AreEqual("Cannot create subsets for more than 63 items, the source contained 64 items", ex.Message);
 		}
+
+		[Test]
+		public void Subsets_Prune () {
+			char[] input = { 'a', 'b', 'c', 'd' };
+			char[][] expected = {
+				new[] { 'd' },
+				new[] { 'd', 'c' },
+				new[] { 'd', 'c', 'a' },
+				new[] { 'd', 'a' },
+				new[] { 'c' },
+				new[] { 'c', 'b' },
+				new[] { 'c', 'b', 'a' },
+				new[] { 'c', 'a' },
+				new[] { 'b' },
+				new[] { 'b', 'a' },
+				new[] { 'a' },
+			};
+
+			char[][] output = input
+				.Subsets (x => !(x.Contains ('b') && x.Contains ('d')))
+				.Select (x => x.ToArray ()).ToArray ();
+
+			foreach (var x in output) {
+				foreach (var y in x) {
+					Console.Write (y);
+					Console.Write (" ");
+				}
+				Console.Write ("\n");
+			}
+
+			CollectionAssert.AreEqual (expected, output);
+		}
 	}
 }

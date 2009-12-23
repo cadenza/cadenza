@@ -2290,6 +2290,31 @@ Assert.AreEqual ("|123",
         </exception>
       </Docs>
     </Member>
+    <Member MemberName="Subsets&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Subsets&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,bool&gt; predicate);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="predicate" Type="System.Func&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Boolean&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="predicate">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Tokens&lt;TSource,TAccumulate,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; Tokens&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; accumulate, Func&lt;TAccumulate,Cadenza.Tuple&lt;TResult,TAccumulate&gt;&gt; resultSelector, Func&lt;TAccumulate,TSource,bool&gt;[] categories);" />
       <MemberType>Method</MemberType>

@@ -1404,5 +1404,43 @@ namespace Cadenza.Collections {
 					yield return source[index];
 			}
 		}
+
+
+        public static IEnumerable<IEnumerable<TSource>> Subsets<TSource> (this IEnumerable<TSource> self, Func<IEnumerable<TSource>, bool> predicate)
+        {
+            Check.Self (self);
+            Check.Predicate (predicate);
+
+            return CreateSubsetsIterator (self, predicate);
+        }
+
+        private static IEnumerable<IEnumerable<TSource>> CreateSubsetsIterator<TSource> (IEnumerable<TSource> self, Func<IEnumerable<TSource>, bool> predicate)
+        {
+            var subsets = Enumerable.Empty<IEnumerable<TSource>> ();
+
+            foreach (var value in self.ToList ()) {
+				subsets = CreateSubsetsIterator (value, subsets, predicate);
+			}
+
+            return subsets;
+        }
+
+        private static IEnumerable<IEnumerable<TSource>> CreateSubsetsIterator<TSource> (TSource value, IEnumerable<IEnumerable<TSource>> subsets, Func<IEnumerable<TSource>, bool> predicate)
+		{
+            var item =  new [] { value };
+ 
+			if (predicate(item)) {
+				yield return item;
+	            
+				foreach (var p in subsets) {
+					var combined = item.Concat (p);
+					if (predicate(combined))
+						yield return combined;
+				}
+			}
+ 
+            foreach (var p in subsets)
+                yield return p;
+        }
 	}
 }
