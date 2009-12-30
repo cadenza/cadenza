@@ -2465,5 +2465,31 @@ namespace Cadenza.Collections.Tests {
 			Func<int, int, int> f = null;
 			s.Insert (0, f);
 		}
+
+		[Test]
+		public void Subsets()
+		{
+			char[] input = { 'a', 'b', 'c', 'd' };
+			char[][] expected = {
+				new[] { 'a' },
+				new[] { 'b' },
+				new[] { 'a', 'b' },
+				new[] { 'c' },
+				new[] { 'a', 'c' },
+				new[] { 'b', 'c' },
+				new[] { 'a', 'b', 'c' },
+				new[] { 'd' },
+				new[] { 'a', 'd' },
+				new[] { 'b', 'd' },
+				new[] { 'a', 'b', 'd' },
+				new[] { 'c', 'd' },
+				new[] { 'a', 'c', 'd' },
+				new[] { 'b', 'c', 'd' },
+				new[] { 'a', 'b', 'c', 'd' },
+			};
+
+			char[][] output = input.Subsets().Select(x => x.ToArray()).ToArray();
+			CollectionAssert.AreEqual(expected, output);
+		}
 	}
 }

@@ -1372,5 +1372,38 @@ namespace Cadenza.Collections {
 			if (!inserted)
 				yield return value;
 		}
+
+		public static IEnumerable<IEnumerable<TSource>> Subsets<TSource>(this IEnumerable<TSource> self)
+		{
+			Check.Self(self);
+
+			return CreateSubsetsIterator(self);
+		}
+
+		private static IEnumerable<IEnumerable<TSource>> CreateSubsetsIterator<TSource>(IEnumerable<TSource> self)
+		{
+			var source = self.ToList();
+			if (source.Count == 0) yield break;
+
+			long max = 1 << source.Count; //2 ** source.Length
+
+			for (long row = 1; row < max; row++)
+			{
+				yield return CreateSubsetsIterator(source, row);
+			}
+		}
+
+		private static IEnumerable<TSource> CreateSubsetsIterator<TSource>(List<TSource> source, long row)
+		{
+			long mask = 1;
+
+			for (int index = 0; index < source.Count; index++)
+			{
+				if ((row & mask) != 0)
+					yield return source[index];
+
+				mask <<= 1;
+			}
+		}
 	}
 }
