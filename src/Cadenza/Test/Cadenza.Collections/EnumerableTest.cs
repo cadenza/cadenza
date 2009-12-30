@@ -2531,26 +2531,18 @@ namespace Cadenza.Collections.Tests {
 				new[] { 'b' },
 				new[] { 'b', 'a' },
 				new[] { 'c' },
-				new[] { 'c', 'a' },
-				new[] { 'c', 'b' },
 				new[] { 'c', 'b', 'a' },
+				new[] { 'c', 'b' },
+				new[] { 'c', 'a' },
 				new[] { 'd' },
-				new[] { 'd', 'a' },
-				new[] { 'd', 'c' },
 				new[] { 'd', 'c', 'a' },
+				new[] { 'd', 'c' },
+				new[] { 'd', 'a' },
 			};
 
 			char[][] output = input
 				.Subsets (x => !(x.Contains ('b') && x.Contains ('d')))
 				.Select (x => x.ToArray ()).ToArray ();
-
-			foreach (var x in output) {
-				foreach (var y in x) {
-					Console.Write (y);
-					Console.Write (" ");
-				}
-				Console.Write ("\n");
-			}
 
 			CollectionAssert.AreEqual (expected, output);
 		}
