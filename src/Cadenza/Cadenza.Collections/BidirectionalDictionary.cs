@@ -79,7 +79,7 @@ namespace Cadenza.Collections
 		}
 
 		public ICollection<TValue> Values {
-			get { return valuesToKeys.Keys; }
+			get { return keysToValues.Values; }
 		}
 
 		public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator ()
