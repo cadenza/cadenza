@@ -2202,11 +2202,84 @@ Assert.AreEqual ("|123",
         <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <typeparam name="TSource">
+          The type of element in the sequence <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to create subsets from.
+        </param>
+        <summary>
+          Creates all subsets of a given input sequence.
+        </summary>
+        <returns>
+          An unordered <see cref="T:System.Collections.IEnumerable{System.Collections.IEnumerable{TSource}}" />
+          that contains all subsets of <paramref name="source" /> including the proper
+          subset <paramref name="self" /> itself.
+        </returns>
+        <remarks>
+          <para>
+            This creates all subsets from the sequence <paramref name="self" />.
+          </para>
+          <para>
+            Sequences greater than 63 items are not supported and will throw
+            a <see cref="T:System.InvalidOperationException" /> when you try to
+            enumerate the results.
+          </para>
+          <example>
+            Given the input sequence, [a, b, c] the result would be:
+            [a]
+            [b]
+            [a,b]
+            [c]
+            [a,c]
+            [b,c]
+            [a,b,c]
+          </example>
+          <para>
+            Note: This method does not remove duplicates from <paramref name="self" />.
+            If <paramref name="self" /> may contain duplicates and you want true subsets
+            use <see cref="T:System.Linq.Enumerable.Distinct{TSource}" /> first,
+            i.e. <c>source.Distinct().Subsets()</c>.
+          </para>
+          <para>
+            Note: This method does not guarantee any order to the results
+            so future implementations may return the results in a different order.
+          </para>
+          <para>
+            Note: This keep the input sizes small, as the result set will contain
+            <c>(n ^ 2) - 1</c> results, eg for 20 items there are 1,048,575 subsets.
+          </para>
+          <code lang="C#">
+            List&lt;string&gt; source = new List&lt;string&gt; { "a", "b", "c" };
+            IEnumerable&lt;IEnumerable&lt;string&gt;&gt; results = source.Subsets();
+            foreach (IEnumerable&lt;string&gt; subset in results) {
+              foreach (string value in subset) {
+                Console.Write(value);
+                Console.Write(" ");
+              }
+              Console.WriteLine();
+            }
+          </code>
+          <code lang="VB">
+            Dim source As New List(Of String)(New String() { "a", "b", "c" })
+            Dim results As IEnumerable(Of IEnumerable(Of String)) = source.Subsets()
+            For Each subset As IEnumerable(Of String) In results
+              For Each value As String In subset
+                Console.Write(value)
+                Console.Write(" ")
+              Next
+              Console.WriteLine()
+            Next
+          </code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          If <paramref name="self" /> is null (Nothing in VB).
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          If <paramref name="self" /> contains more than 63 items.
+          Important, this will only be thrown when you start enumerating the results.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Tokens&lt;TSource,TAccumulate,TResult&gt;">
