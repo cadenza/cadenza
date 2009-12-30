@@ -153,7 +153,7 @@ namespace Cadenza.Collections
 			get { return keysToValues.Count; }
 		}
 
-		public bool IsReadOnly {
+		bool ICollection<KeyValuePair<TKey, TValue>>.IsReadOnly {
 			get { return false; }
 		}
 
