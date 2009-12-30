@@ -1384,25 +1384,24 @@ namespace Cadenza.Collections {
 		{
 			var source = self.ToList();
 			if (source.Count == 0) yield break;
+			if (source.Count > 63) throw new InvalidOperationException(string.Format("Cannot create subsets for more than 63 items, the source contained {0} items", source.Count));
 
-			long max = 1 << source.Count; //2 ** source.Length
+			ulong max = 1UL << source.Count; //2 ** source.Length
 
-			for (long row = 1; row < max; row++)
+			for (ulong row = 1; row < max; row++)
 			{
 				yield return CreateSubsetsIterator(source, row);
 			}
 		}
 
-		private static IEnumerable<TSource> CreateSubsetsIterator<TSource>(List<TSource> source, long row)
+		private static IEnumerable<TSource> CreateSubsetsIterator<TSource>(List<TSource> source, ulong row)
 		{
-			long mask = 1;
-
 			for (int index = 0; index < source.Count; index++)
 			{
+				ulong mask = 1UL << index;
+
 				if ((row & mask) != 0)
 					yield return source[index];
-
-				mask <<= 1;
 			}
 		}
 	}

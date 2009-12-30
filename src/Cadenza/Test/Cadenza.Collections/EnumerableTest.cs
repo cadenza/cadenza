@@ -2491,5 +2491,36 @@ namespace Cadenza.Collections.Tests {
 			char[][] output = input.Subsets().Select(x => x.ToArray()).ToArray();
 			CollectionAssert.AreEqual(expected, output);
 		}
+
+		[Test]
+		public void Subsets_SelfNull()
+		{
+			IEnumerable<char> s = null;
+			Assert.Throws<ArgumentNullException>(() => s.Subsets());
+		}
+
+		[Test]
+		public void Subsets_EmptySet()
+		{
+			IEnumerable<char> s = Enumerable.Empty<char>();
+			CollectionAssert.IsEmpty(s.Subsets());
+		}
+
+		[Test]
+		public void Subsets_MoreThan63Items()
+		{
+			IEnumerable<int> a = 1.UpTo(62);
+			IEnumerable<int> b = 1.UpTo(63);
+			IEnumerable<int> c = 1.UpTo(64);
+
+			int[] expectedFirstResult = { 1 };
+
+			//boundry tests
+			CollectionAssert.AreEqual(expectedFirstResult, a.Subsets().First());
+			CollectionAssert.AreEqual(expectedFirstResult, b.Subsets().First());
+
+			var ex = Assert.Throws<InvalidOperationException>(() => c.Subsets().First());
+			Assert.AreEqual("Cannot create subsets for more than 63 items, the source contained 64 items", ex.Message);
+		}
 	}
 }
