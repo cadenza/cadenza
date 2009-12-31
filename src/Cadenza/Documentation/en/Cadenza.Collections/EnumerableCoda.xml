@@ -2186,6 +2186,181 @@ Assert.AreEqual ("|123",
         </exception>
       </Docs>
     </Member>
+    <Member MemberName="Subsets&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Subsets&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of element in the sequence <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to create subsets from.
+        </param>
+        <summary>
+          Creates all subsets of a given input sequence.
+        </summary>
+        <returns>
+          An unordered <see cref="T:System.Collections.IEnumerable{System.Collections.IEnumerable{TSource}}" />
+          that contains all subsets of <paramref name="source" /> including the set <paramref name="self" /> itself.
+        </returns>
+        <remarks>
+          <para>This creates all subsets from the sequence <paramref name="self" />.</para>
+          <para>Sequences greater than 63 items are not supported and will throw a <see cref="T:System.InvalidOperationException" /> when you try to enumerate the results.</para>
+          <code>Given the input sequence, [a, b, c] the result would be:
+[a]
+[b]
+[a,b]
+[c]
+[a,c]
+[b,c]
+[a,b,c]</code>
+          <para>
+            Note: This method does not remove duplicates from <paramref name="self" />. If <paramref name="self" /> may contain duplicates and you want true subsets use
+            <see cref="T:System.Linq.Enumerable.Distinct{TSource}" /> first, e.g. <c>source.Distinct().Subsets()</c>.
+          </para>
+          <para>
+            Note: This method does not guarantee any order to the results so future implementations may return the results in a different order.
+          </para>
+          <para>
+            Note: This keep the input sizes small, as the result set will contain <c>(n ^ 2) - 1</c> results, eg for 20 items there are 1,048,575 subsets.
+          </para>
+        </remarks>
+        <example>
+          <code lang="C#"><![CDATA[List<string> source = new List<string> { "a", "b", "c" };
+IEnumerable<IEnumerable<string>> results = source.Subsets ();
+
+foreach (IEnumerable<string> subset in results) {
+
+  foreach (string value in subset) {
+    Console.Write (value);
+    Console.Write (" ");
+  }
+
+  Console.WriteLine ();
+}
+]]></code>
+          <code lang="VB">Dim source As New List (Of String) (New String () { "a", "b", "c" })
+Dim results As IEnumerable (Of IEnumerable (Of String)) = source.Subsets ()
+
+For Each subset As IEnumerable (Of String) In results
+
+  For Each value As String In subset
+    Console.Write (value)
+    Console.Write (" ")
+  Next
+  
+  Console.WriteLine ()
+Next
+</code>
+        </example>
+        <exception cref="T:System.ArgumentNullException">
+          If <paramref name="self" /> is null (Nothing in VB).
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          If <paramref name="self" /> contains more than 63 items. Important, this will only be thrown when you start enumerating the results.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="Subsets&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Subsets&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,bool&gt; predicate);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="predicate" Type="System.Func&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Boolean&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of element in the sequence <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" /> containing the sequence to create subsets from.
+        </param>
+        <param name="predicate">
+          A <see cref="T:System.Func{TSource,System.Boolean}" /> used to filter .
+        </param>
+        <summary>
+          Creates all subsets that match <paramref name="predicate" />.
+        </summary>
+        <returns>
+          An unordered <see cref="T:System.Collections.IEnumerable{System.Collections.IEnumerable{TSource}}" /> that contains
+          all subsets of <paramref name="source" /> including the set <paramref name="self" /> itself, excluding any sets and
+          all their supersets that did not match the <paramref name="predicate" />.
+        </returns>
+        <remarks>
+          <para>
+            This creates all subsets from the sequence <paramref name="self" />, excluding any sets and their supersets that were
+            filtered out by <paramref name="predicate" />.
+          </para>
+          <code>Given the input sequence, [a, b, c] and filtering out anything containing the subset [a, b] the result would be:
+[a]
+[b]
+[c]
+[a,c]
+[b,c]</code>
+          <para>
+            Note: This method does not remove duplicates from <paramref name="self" />. If <paramref name="self" /> may contain
+            duplicates and you want true subsets use <see cref="T:System.Linq.Enumerable.Distinct{TSource}" /> first, e.g.
+            <c>source.Distinct().Subsets(predicate)</c>.
+          </para>
+          <para>
+            Note: This method does not guarantee any order to the results so future implementations may return the results in a different order.
+          </para>
+        </remarks>
+        <example>
+          <code lang="C#"><![CDATA[List<string> source = new List<string> { "a", "b", "c" };
+IEnumerable<IEnumerable<string>> results = source.Subsets (x => !(x.Contains ("a") && x.Contains ("b")));
+
+foreach (IEnumerable<string> subset in results) {
+
+  foreach (string value in subset) {
+    Console.Write (value);
+    Console.Write (" ");
+  }
+
+  Console.WriteLine ();
+}
+]]></code>
+          <code lang="VB">Dim source As New List (Of String) (New String () { "a", "b", "c" })
+Dim results As IEnumerable (Of IEnumerable (Of String)) = source.Subsets (Function (x) Not (x.Contains ("a") AndAlso x.Contains ("b")))
+
+For Each subset As IEnumerable (Of String) In results
+
+  For Each value As String In subset
+    Console.Write (value)
+    Console.Write (" ")
+  Next
+
+  Console.WriteLine ()
+Next
+</code>
+        </example>
+        <exception cref="T:System.ArgumentNullException">
+          If <paramref name="self" /> is null (Nothing in VB).
+        </exception>
+      </Docs>
+    </Member>
     <Member MemberName="Tokens&lt;TSource,TAccumulate,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; Tokens&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; accumulate, Func&lt;TAccumulate,Cadenza.Tuple&lt;TResult,TAccumulate&gt;&gt; resultSelector, Func&lt;TAccumulate,TSource,bool&gt;[] categories);" />
       <MemberType>Method</MemberType>

@@ -1372,5 +1372,80 @@ namespace Cadenza.Collections {
 			if (!inserted)
 				yield return value;
 		}
+
+
+		public static IEnumerable<IEnumerable<TSource>> Subsets<TSource>(this IEnumerable<TSource> self)
+		{
+			Check.Self(self);
+
+			return CreateSubsetsIterator(self);
+		}
+
+		private static IEnumerable<IEnumerable<TSource>> CreateSubsetsIterator<TSource>(IEnumerable<TSource> self)
+		{
+			var source = self.ToList();
+			if (source.Count == 0) yield break;
+			if (source.Count > 63) throw new InvalidOperationException(string.Format("Cannot create subsets for more than 63 items, the source contained {0} items", source.Count));
+
+			ulong max = 1UL << source.Count; //2 ** source.Length
+
+			for (ulong row = 1; row < max; row++)
+			{
+				yield return CreateSubsetsIterator(source, row);
+			}
+		}
+
+		private static IEnumerable<TSource> CreateSubsetsIterator<TSource>(List<TSource> source, ulong row)
+		{
+			for (int index = 0; index < source.Count; index++)
+			{
+				ulong mask = 1UL << index;
+
+				if ((row & mask) != 0)
+					yield return source[index];
+			}
+		}
+
+
+		public static IEnumerable<IEnumerable<TSource>> Subsets<TSource> (this IEnumerable<TSource> self, Func<IEnumerable<TSource>, bool> predicate)
+		{
+			Check.Self (self);
+			Check.Predicate (predicate);
+
+			return CreateSubsetsIterator (self, predicate);
+		}
+
+		private static IEnumerable<IEnumerable<TSource>> CreateSubsetsIterator<TSource> (IEnumerable<TSource> self, Func<IEnumerable<TSource>, bool> predicate)
+		{
+			CachedSequence<CachedSequence<TSource>> subsets = null;
+
+			foreach (var value in self) {
+				var newSubsets = CreateSubsetsIterator (value, subsets, predicate);
+
+				foreach (var s in newSubsets) {
+					yield return s;
+					subsets = new CachedSequence<CachedSequence<TSource>> (s, subsets);
+				}
+			}
+		}
+
+		private static IEnumerable<CachedSequence<TSource>> CreateSubsetsIterator<TSource> (TSource value, IEnumerable<CachedSequence<TSource>> subsets, Func<IEnumerable<TSource>, bool> predicate)
+		{
+			var item = new CachedSequence<TSource> (value);
+
+			if (predicate (item)) {
+				yield return item;
+
+				if (subsets == null)
+					yield break;
+
+				foreach (var p in subsets) {
+					var combined = p.Prepend (value);
+
+					if (predicate (combined))
+						yield return combined;
+				}
+			}
+		}
 	}
 }
