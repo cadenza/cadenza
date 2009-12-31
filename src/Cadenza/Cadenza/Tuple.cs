@@ -34,9 +34,11 @@ using System.Text;
 
 namespace Cadenza {
 
+#if !NET_4_0
 	public static partial class Tuple {
 
 	}
+#endif	// !NET_4_0
 
 	public static partial class TupleCoda
 	{
