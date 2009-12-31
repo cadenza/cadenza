@@ -27,6 +27,7 @@
 //
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
 
@@ -160,8 +161,8 @@ namespace Cadenza.ComponentModel.Tests {
 			// CurrentStep via NotifyingProperty.CreateDependent().
 			w.CurrentStep = 50;
 			Assert.AreEqual (2, changedProperties.Count);
-			Assert.AreEqual ("CurrentStep", changedProperties [0]);
-			Assert.AreEqual ("Progress", changedProperties [1]);
+			Assert.AreEqual ("Progress", changedProperties [0]);
+			Assert.AreEqual ("CurrentStep", changedProperties [1]);
 		}
 		#endregion
 
