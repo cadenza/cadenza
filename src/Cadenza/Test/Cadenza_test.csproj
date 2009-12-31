@@ -48,6 +48,7 @@
     <Compile Include="Cadenza.Collections\MutableLookupTest.cs" />
     <Compile Include="Cadenza.Collections\OrderedDictionaryTest.cs" />
     <Compile Include="Cadenza.Collections\ReadOnlyDictionaryTest.cs" />
+    <Compile Include="Cadenza.ComponentModel\NotifyingPropertyTest.cs" />
     <Compile Include="Cadenza.IO\EnumerableValueReaderTest.cs" />
     <Compile Include="Cadenza.IO\StreamTest.cs" />
     <Compile Include="Cadenza.IO\SystemStreamConverterTest.cs" />
