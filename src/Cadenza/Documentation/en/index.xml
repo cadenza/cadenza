@@ -2113,10 +2113,18 @@
           <Parameter Name="predicate" Type="System.Func&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Boolean&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="predicate">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of element in the sequence <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" /> containing the sequence to create subsets from.
+        </param>
+          <param name="predicate">
+          A <see cref="T:System.Func{TSource,System.Boolean}" /> used to filter .
+        </param>
+          <summary>
+          Creates all subsets that match <paramref name="predicate" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Subsets``1(System.Collections.Generic.IEnumerable{``0},System.Func{System.Collections.Generic.IEnumerable{``0},System.Boolean})" />
       </Member>
