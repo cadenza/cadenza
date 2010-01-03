@@ -67,7 +67,7 @@ namespace Cadenza.Collections.Tests {
 		}
 
 		[Test]
-		public void TryGetFirst ()
+		public void TryGetFirst_Predicate ()
 		{
 			int oi;
 			var e = Enumerable.Range (0, 10);
@@ -134,6 +134,40 @@ namespace Cadenza.Collections.Tests {
 
 			Assert.IsFalse (e.TryGetFirst (out oi));
 			Assert.AreEqual (default(int), oi);
+		}
+
+		[Test]
+		public void TryGetFirst ()
+		{
+			#region TryGetFirst
+			var seq = new int[]{0, 1, 2};
+			int first;
+
+			Assert.IsTrue (seq.TryGetFirst (out first));
+			Assert.IsTrue (0 == first);
+
+			seq = new int[]{};
+			Assert.IsFalse (seq.TryGetFirst (out first));
+			Assert.IsTrue (0 == first);
+			#endregion
+		}
+
+		[Test]
+		public void TryGetFirst2 ()
+		{
+			#region TryGetFirst2
+			var seq = new int[]{0, 1, 2};
+			int first;
+
+			Assert.IsTrue (seq.TryGetFirst (v => v.IsOdd (), out first));
+			Assert.IsTrue (1 == first);
+
+			Assert.IsTrue (seq.TryGetFirst (v => v.IsEven (), out first));
+			Assert.IsTrue (0 == first);
+
+			Assert.IsFalse (seq.TryGetFirst (v => v == 5, out first));
+			Assert.IsTrue (0 == first);
+			#endregion
 		}
 
 		[Test]

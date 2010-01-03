@@ -2784,12 +2784,46 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
         <Parameter Name="first" Type="TSource&amp;" RefType="out" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="first">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <typeparam name="TSource">The type of the elements in <paramref name="self" />.</typeparam>
+        <param name="self">
+          An <see cref="T:System.Collections.Generic.IEnumerable{TSource}" /> 
+          containing the sequence of elements to extract the first element from.
+        </param>
+        <param name="first">
+          When this method returns, contains a <typeparamref name="TSource" /> 
+          which contains either the first element within <paramref name="self" />
+          (if the return value is <see langword="true" />), or will 
+          contain <c>default(<typeparamref name="TSource" />)</c>.
+        </param>
+        <summary>Attempts to obtain the first element in the sequence.</summary>
+        <returns>
+          <see langword="true" /> if <paramref name="self" /> contains elements
+          and <paramref name="first" /> contains the value of the first element; 
+          otherwise, <see langword="false" />.
+        </returns>
+        <remarks>
+          <block subset="none" type="note">
+            Use this method instead of 
+            <see cref="M:System.Linq.Enumerable.FirstOrDefault`1(System.Collections.Generic.IEnumerable{``0})" />
+            when one of the elements in the sequence may be 
+            <c>default(<typeparamref name="TSource" />)</c>, thus making it 
+            impossible to tell if 
+            <c>default(<typeparamref name="TSource" />)</c>, was returned 
+            because no matching element was found or because 
+            <c>default(<typeparamref name="TSource" />)</c>, was the matching
+            element).
+          </block>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#TryGetFirst">var seq = new int[]{0, 1, 2};
+int first;
+
+Assert.IsTrue (seq.TryGetFirst (out first));
+Assert.IsTrue (0 == first);
+
+seq = new int[]{};
+Assert.IsFalse (seq.TryGetFirst (out first));
+Assert.IsTrue (0 == first);
+</code>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="TryGetFirst&lt;TSource&gt;">
@@ -2810,13 +2844,54 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
         <Parameter Name="first" Type="TSource&amp;" RefType="out" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="predicate">To be added.</param>
-        <param name="first">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <typeparam name="TSource">The type of the elements in <paramref name="self" />.</typeparam>
+        <param name="self">
+          An <see cref="T:System.Collections.Generic.IEnumerable{TSource}" /> 
+          containing the sequence of elements to extract the first element from.
+        </param>
+        <param name="predicate">
+          A <see cref="T:System.Func{TSource,System.Boolean}" /> which is tested
+          against each element within <paramref name="self" />.
+        </param>
+        <param name="first">
+          When this method returns, contains a <typeparamref name="TSource" /> 
+          which contains either the first element for which 
+          <paramref name="predicate" /> returned <see langword="true" />
+          (if the return value is <see langword="true" />), or will 
+          contain <c>default(<typeparamref name="TSource" />)</c>.
+        </param>
+        <summary>Attempts to obtain the first element in the sequence that satisfies the specified condition.</summary>
+        <returns>
+          <see langword="true" /> if <paramref name="self" /> contains elements
+          and <paramref name="predicate" /> returned <see langword="true" />
+          for one of those elements and <paramref name="first" /> contains
+          the value of the first matching value; otherwise, <see langword="false" />.
+        </returns>
+        <remarks>
+          <block subset="none" type="note">
+            Use this method instead of 
+            <see cref="M:System.Linq.Enumerable.FirstOrDefault`1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
+            when one of the elements in the sequence may be 
+            <c>default(<typeparamref name="TSource" />)</c>, thus making it 
+            impossible to tell if 
+            <c>default(<typeparamref name="TSource" />)</c>, was returned 
+            because no matching element was found or because 
+            <c>default(<typeparamref name="TSource" />)</c>, was the matching
+            element).
+          </block>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#TryGetFirst2">var seq = new int[]{0, 1, 2};
+int first;
+
+Assert.IsTrue (seq.TryGetFirst (v =&gt; v.IsOdd (), out first));
+Assert.IsTrue (1 == first);
+
+Assert.IsTrue (seq.TryGetFirst (v =&gt; v.IsEven (), out first));
+Assert.IsTrue (0 == first);
+
+Assert.IsFalse (seq.TryGetFirst (v =&gt; v == 5, out first));
+Assert.IsTrue (0 == first);
+</code>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Unzip&lt;T1,T2&gt;">
