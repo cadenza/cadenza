@@ -484,6 +484,8 @@ namespace Cadenza.Collections {
 		[CLSCompliant (false)]
 		public static TextValueReader ToValueReader (this IEnumerable<string> self)
 		{
+			Check.Self (self);
+
 			return new TextValueReader (self);
 		}
 

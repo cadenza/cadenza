@@ -2302,8 +2302,16 @@
           <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="self">
+          A
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing elements to read values from.
+        </param>
+          <summary>
+          Creates a <see cref="T:Cadenza.IO.TextValueReader" />
+          which will extract values from an 
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ToValueReader(System.Collections.Generic.IEnumerable{System.String})" />
       </Member>
@@ -2325,9 +2333,19 @@
           <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of element in the sequence <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing elements to read values from.
+        </param>
+          <summary>
+          Creates a <see cref="T:Cadenza.IO.EnumerableValueReader" />
+          which will extract values from an 
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ToValueReader``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
