@@ -2541,8 +2541,7 @@ Assert.AreEqual (a [1][2], c [1][2]);
         </summary>
         <returns>
           <para>
-            A 
-            <see cref="T:System.Collections.Generic.IEnumerable{System.Object}" />
+            A <see cref="T:System.Object" />
             backed by a <c>Tuple</c> containing the values within the sequence 
             <paramref name="self" />.
           </para>
