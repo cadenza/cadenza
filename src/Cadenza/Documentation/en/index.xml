@@ -2207,28 +2207,45 @@
       <Targets>
         <Target Type="T:System.Collections.Generic.IEnumerable`1" />
       </Targets>
-      <Member MemberName="ToReadOnlyDictionary&lt;TKey,TValue&gt;">
-        <MemberSignature Language="C#" Value="public static Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TValue&gt; ToReadOnlyDictionary&lt;TKey,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TValue&gt; self, Func&lt;TValue,TKey&gt; keySelector);" />
+      <Member MemberName="ToReadOnlyDictionary&lt;TSource,TKey&gt;">
+        <MemberSignature Language="C#" Value="public static Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TSource&gt; ToReadOnlyDictionary&lt;TSource,TKey&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TKey&gt; keySelector);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TValue&gt;</ReturnType>
+          <ReturnType>Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TSource&gt;</ReturnType>
         </ReturnValue>
         <TypeParameters>
+          <TypeParameter Name="TSource" />
           <TypeParameter Name="TKey" />
-          <TypeParameter Name="TValue" />
         </TypeParameters>
         <Parameters>
-          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TValue&gt;" RefType="this" />
-          <Parameter Name="keySelector" Type="System.Func&lt;TValue,TKey&gt;" />
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="keySelector" Type="System.Func&lt;TSource,TKey&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TKey">To be added.</typeparam>
-          <typeparam name="TValue">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="keySelector">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">The type of the elements in <paramref name="self" />.</typeparam>
+          <typeparam name="TKey">
+          The type of the key returned by <paramref name="keySelector" />.
+        </typeparam>
+          <param name="self">
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          to create a 
+          <see cref="T:Cadenza.Collections.ReadOnlyDictionary{TKey,TValue}" />
+          from.
+        </param>
+          <param name="keySelector">
+          A <see cref="T:System.Func{TSource,TKey}" /> used to extract a key 
+          from each element in <paramref name="self" />.
+        </param>
+          <summary>
+          Creates a 
+          <see cref="T:Cadenza.Collections.ReadOnlyDictionary{TKey,TSource}" />
+          from an
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          according to a specified key selector and value selector delegate.
+        </summary>
         </Docs>
-        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ToReadOnlyDictionary``2(System.Collections.Generic.IEnumerable{``1},System.Func{``1,``0})" />
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ToReadOnlyDictionary``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -2252,13 +2269,35 @@
           <Parameter Name="valueSelector" Type="System.Func&lt;TSource,TValue&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <typeparam name="TKey">To be added.</typeparam>
-          <typeparam name="TValue">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="keySelector">To be added.</param>
-          <param name="valueSelector">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">The type of the elements in <paramref name="self" />.</typeparam>
+          <typeparam name="TKey">
+          The type of the key returned by <paramref name="keySelector" />.
+        </typeparam>
+          <typeparam name="TValue">
+          The type of the value returned by <paramref name="valueSelector" />.
+        </typeparam>
+          <param name="self">
+          An
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          to create a 
+          <see cref="T:Cadenza.Collections.ReadOnlyDictionary{TKey,TValue}" />
+          from.
+        </param>
+          <param name="keySelector">
+          A <see cref="T:System.Func{TSource,TKey}" /> used to extract a key 
+          from each element in <paramref name="self" />.
+        </param>
+          <param name="valueSelector">
+          A <see cref="T:System.Func{TSource,TValue}" /> used to extract a 
+          value from each element in <paramref name="self" />.
+        </param>
+          <summary>
+          Creates a 
+          <see cref="T:Cadenza.Collections.ReadOnlyDictionary{TKey,TValue}" />
+          from an
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          according to a specified key selector and value selector delegate.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.ToReadOnlyDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})" />
       </Member>

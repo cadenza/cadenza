@@ -469,13 +469,13 @@ namespace Cadenza.Collections {
 				yield return resultSelector (seed).Item1;
 		}
 
-		public static ReadOnlyDictionary<TKey,TValue> ToReadOnlyDictionary<TKey,TValue> (this IEnumerable<TValue> self, Func<TValue, TKey> keySelector)
+		public static ReadOnlyDictionary<TKey, TSource> ToReadOnlyDictionary<TSource, TKey> (this IEnumerable<TSource> self, Func<TSource, TKey> keySelector)
 		{
 			Check.Self (self);
-			return new ReadOnlyDictionary<TKey, TValue> (self.ToDictionary (keySelector));
+			return new ReadOnlyDictionary<TKey, TSource> (self.ToDictionary (keySelector));
 		}
 
-		public static ReadOnlyDictionary<TKey,TValue> ToReadOnlyDictionary<TSource,TKey,TValue> (this IEnumerable<TSource> self, Func<TSource, TKey> keySelector, Func<TSource, TValue> valueSelector)
+		public static ReadOnlyDictionary<TKey, TValue> ToReadOnlyDictionary<TSource,TKey,TValue> (this IEnumerable<TSource> self, Func<TSource, TKey> keySelector, Func<TSource, TValue> valueSelector)
 		{
 			Check.Self (self);
 			return new ReadOnlyDictionary<TKey, TValue> (self.ToDictionary (keySelector, valueSelector));
