@@ -2156,15 +2156,54 @@
           </Parameter>
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <typeparam name="TAccumulate">To be added.</typeparam>
-          <typeparam name="TResult">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="seed">To be added.</param>
-          <param name="accumulate">To be added.</param>
-          <param name="resultSelector">To be added.</param>
-          <param name="categories">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of elements within <paramref name="self" />.
+        </typeparam>
+          <typeparam name="TAccumulate">
+          The type of the accumulator value.
+        </typeparam>
+          <typeparam name="TResult">
+          The type of the resulting sequence of values.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the values to aggregate and convert.
+        </param>
+          <param name="seed">
+          The initial accumulator value.
+        </param>
+          <param name="accumulate">
+          A <see cref="T:System.Func{TAccumulate,TSource,TAccumulate}" />
+          which is used to accumulate values from <paramref name="self" />
+          into one of the values returned.
+        </param>
+          <param name="resultSelector">
+          A <see cref="T:System.Func{TAccumulate,Cadenza.Tuple{TResult,TAccumulate}}" />
+          which is used to do two things: convert the accumulated value into a
+          return value, and reset the accumulator.
+          The <see cref="P:Cadenza.Tuple{TResult,TAccumulate}.Item1" /> property
+          contains the value to return, while
+          the <see cref="P:Cadenza.Tuple{TResult,TAccumulate}.Item2" /> property
+          contains the new accumulator seed value.
+        </param>
+          <param name="categories">
+          A <see cref="T:System.Func{TAccumulate,TSource,System.Boolean}" />
+          array which contains "categories." A "category" is how
+          <c>Tokens</c> knows when to call <paramref name="accumulate" />
+          or <paramref name="resultSelector" />.
+          If a category returns <see langword="true" /> on an element
+          from <paramref name="self" />, then
+          <paramref name="accumulate" /> will be invoked; otherwise,
+          <paramref name="resultSelector" /> is invoked.
+        </param>
+          <summary>
+          A simple lexer to convert an
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          into a
+          <see cref="T:System.Collections.Generic.IEnumerable{TResult}" />,
+          where the resulting sequence may have a different number of elements
+          than the source sequence.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Tokens``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,Cadenza.Tuple{``2,``1}},System.Func{``1,``0,System.Boolean}[])" />
       </Member>

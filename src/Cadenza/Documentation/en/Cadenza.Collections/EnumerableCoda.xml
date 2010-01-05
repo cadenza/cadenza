@@ -2389,19 +2389,171 @@ Next
         </Parameter>
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <typeparam name="TAccumulate">To be added.</typeparam>
-        <typeparam name="TResult">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="seed">To be added.</param>
-        <param name="accumulate">To be added.</param>
-        <param name="resultSelector">To be added.</param>
-        <param name="categories">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Cadenza.Collections.EnumerableCoda.Tokens``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,Cadenza.Tuple{``2,``1}},System.Func{``1,``0,System.Boolean}[])" /></exception>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Accumulate(System.Object)" />, <see cref="M:Cadenza.Check.ResultSelector(System.Object)" />, <see cref="M:Cadenza.Check.Categories(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of elements within <paramref name="self" />.
+        </typeparam>
+        <typeparam name="TAccumulate">
+          The type of the accumulator value.
+        </typeparam>
+        <typeparam name="TResult">
+          The type of the resulting sequence of values.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the values to aggregate and convert.
+        </param>
+        <param name="seed">
+          The initial accumulator value.
+        </param>
+        <param name="accumulate">
+          A <see cref="T:System.Func{TAccumulate,TSource,TAccumulate}" />
+          which is used to accumulate values from <paramref name="self" />
+          into one of the values returned.
+        </param>
+        <param name="resultSelector">
+          A <see cref="T:System.Func{TAccumulate,Cadenza.Tuple{TResult,TAccumulate}}" />
+          which is used to do two things: convert the accumulated value into a
+          return value, and reset the accumulator.
+          The <see cref="P:Cadenza.Tuple{TResult,TAccumulate}.Item1" /> property
+          contains the value to return, while
+          the <see cref="P:Cadenza.Tuple{TResult,TAccumulate}.Item2" /> property
+          contains the new accumulator seed value.
+        </param>
+        <param name="categories">
+          A <see cref="T:System.Func{TAccumulate,TSource,System.Boolean}" />
+          array which contains "categories." A "category" is how
+          <c>Tokens</c> knows when to call <paramref name="accumulate" />
+          or <paramref name="resultSelector" />.
+          If a category returns <see langword="true" /> on an element
+          from <paramref name="self" />, then
+          <paramref name="accumulate" /> will be invoked; otherwise,
+          <paramref name="resultSelector" /> is invoked.
+        </param>
+        <summary>
+          A simple lexer to convert an
+          <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          into a
+          <see cref="T:System.Collections.Generic.IEnumerable{TResult}" />,
+          where the resulting sequence may have a different number of elements
+          than the source sequence.
+        </summary>
+        <returns>
+          An <see cref="T:System.Collections.Generic.IEnumerable{TResult}" />
+          containing the resulting "tokens" that
+          <paramref name="accumulator" /> and
+          <paramref name="resultSelector" /> produced.
+        </returns>
+        <remarks>
+          <para>
+            This is either a very simple lexer, or the unholy combination of
+            <see cref="M:System.Linq.Enumerable.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" />
+            and
+            <see cref="M:System.Linq.Enumerable.Aggregate``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />.
+            You decide.
+          </para>
+          <para>
+            <c>Tokens</c> allows converting the source sequence
+            <paramref name="self" /> of length <c>N</c> into a
+            resulting sequence of length <c>M</c>, where <c>N</c>
+            can differ from <c>M</c>, and <c>M</c> can be greater than one.
+            (This differs from <c>Enumerable.Select()</c>, where the
+            resulting sequence has the same number of elements as the source
+            sequence, and it differs from <c>Enumerable.Aggregate()</c>,
+            where only a single value is returned.)
+          </para>
+          <block subset="none" type="behaviors">
+            <para>
+              For each element in <paramref name="self" />, get the "category index"
+              for the element.  The "category index" is the first index into the
+              <paramref name="categories" /> array for which a
+              <see cref="T:System.Func{TAccumulate,TSource,System.Boolean}" />
+              returns <see langword="true" />.  Then one of three things happens:
+            </para>
+            <list type="number">
+              <item>
+                <term>
+                If the category index is the same as the previous element's
+                category index, then <paramref name="accumulate" /> is invoked
+                with the current accumulated value and the current element.
+              </term>
+              </item>
+              <item>
+                <term>
+                If the category index differs from the previous element's
+                category index, then <paramref name="resultSelector" />
+                is invoked to obtain a
+                <see cref="T:Cadenza.Tuple{TResult,TAccumulate}" />.
+                The
+                <see cref="P:Cadenza.Tuple{TResult,TAccumulate}.Item1" />
+                value is yielded from <c>Tokens</c> as one of the return
+                values, and
+                <see cref="P:Cadenza.Tuple{TResult,TAccumulate}.Item2" />
+                is used as the new seed value for the next
+                <paramref name="accumulate" /> call.
+              </term>
+              </item>
+              <item>
+                <term>
+                If no matching category is found (i.e. all entries in
+                <paramref name="categories" />
+                return <see langword="false" />),
+                then the element is ignored.
+              </term>
+              </item>
+            </list>
+            <para>
+              This use of "categories" and matching indexes allows for
+              implementing precedence rules in a straightforward manner:
+              if the category index differs, the accumulated token
+              must have a different precedence, and thus should be returned
+              and the accumulation process restarted.
+            </para>
+          </block>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#Tokens">// Turn a sequence of numbers into a new sequence of numbers
+// for which the sum is less than 10.
+IEnumerable&lt;int&gt;  numbers         = new[]{1, 1, 3, 5, 8, 13};
+IEnumerable&lt;int&gt;  sumsLessThan10  = numbers.Tokens (0,
+		// accumulate: add the values together.
+		// p=previous value, c=current value
+		(p, c) =&gt; p + c,
+		// resultSelector: return the current sum and reset count to 0.
+		r =&gt; Tuple.Create (r, 0),
+		// category: sum is less than 10.
+		(p, c) =&gt; p + c &lt; 10
+);
+// Notice that the input value of 13 is missing, as it didn't match
+// any category.
+Assert.IsTrue (new[]{5, 5, 8}.SequenceEqual (sumsLessThan10));
+
+// More "traditional" lexing, with categories as precedence rules
+string expression = " function(value1+value2)  ";
+IEnumerable&lt;string&gt; exprTokens = expression.Tokens ("",
+		// accumulate: concatenate the characters together
+		(p, c) =&gt; p + c,
+		r =&gt; Tuple.Create (r, ""),
+		// category: identifiers: [A-Za-z_][A-Za-z0-9_]*
+		(p, c) =&gt; p.Length == 0
+			? char.IsLetter (c) || c == '_'
+			: char.IsLetterOrDigit (c) || c == '_',
+		// category: arithmetic operators
+		(p, c) =&gt; c == '+' || c == '-' || c == '*' || c == '/',
+		// category: grouping
+		(p, c) =&gt; c == '(' || c == ')'
+);
+// Notice that all whitespace has been removed
+Assert.IsTrue (
+		new[]{"function", "(", "value1", "+", "value2", ")"}
+		.SequenceEqual (exprTokens));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          <paramref name="categories" /> contains no elements.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" />, <paramref name="accumulate" />,
+          <paramref name="resultSelector" />, or
+          <paramref name="categories" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="ToList&lt;TSource&gt;">

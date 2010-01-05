@@ -488,13 +488,41 @@ namespace Cadenza.Collections.Tests {
 		public void Tokens ()
 		{
 			#region Tokens
-			IEnumerable<int>  s      = new[]{1, 1, 3, 5, 8, 13};
-			IEnumerable<int>  tokens = s.Tokens (0, 
-					(x, y) => x + y,
+			// Turn a sequence of numbers into a new sequence of numbers
+			// for which the sum is less than 10.
+			IEnumerable<int>  numbers         = new[]{1, 1, 3, 5, 8, 13};
+			IEnumerable<int>  sumsLessThan10  = numbers.Tokens (0,
+					// accumulate: add the values together.
+					// p=previous value, c=current value
+					(p, c) => p + c,
+					// resultSelector: return the current sum and reset count to 0.
 					r => Tuple.Create (r, 0),
+					// category: sum is less than 10.
 					(p, c) => p + c < 10
 			);
-			Assert.IsTrue (new[]{5, 5, 8}.SequenceEqual (tokens));
+			// Notice that the input value of 13 is missing, as it didn't match
+			// any category.
+			Assert.IsTrue (new[]{5, 5, 8}.SequenceEqual (sumsLessThan10));
+
+			// More "traditional" lexing, with categories as precedence rules
+			string expression = " function(value1+value2)  ";
+			IEnumerable<string> exprTokens = expression.Tokens ("",
+					// accumulate: concatenate the characters together
+					(p, c) => p + c,
+					r => Tuple.Create (r, ""),
+					// category: identifiers: [A-Za-z_][A-Za-z0-9_]*
+					(p, c) => p.Length == 0
+						? char.IsLetter (c) || c == '_'
+						: char.IsLetterOrDigit (c) || c == '_',
+					// category: arithmetic operators
+					(p, c) => c == '+' || c == '-' || c == '*' || c == '/',
+					// category: grouping
+					(p, c) => c == '(' || c == ')'
+			);
+			// Notice that all whitespace has been removed
+			Assert.IsTrue (
+					new[]{"function", "(", "value1", "+", "value2", ")"}
+					.SequenceEqual (exprTokens));
 			#endregion
 		}
 
