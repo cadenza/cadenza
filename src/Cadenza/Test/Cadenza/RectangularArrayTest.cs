@@ -44,6 +44,7 @@ namespace Cadenza.Tests {
 		{
 			int[,] s = null;
 			IEnumerable<IEnumerable<int>> r = s.Rows ();
+			Ignore (r);
 		}
 
 		[Test]

@@ -849,8 +849,10 @@ namespace Cadenza.Collections.Tests {
 		{
 			var r = new CacheIterDisposed ();
 			int c = 0;
-			foreach (var e in r.GetValues ().Take(2).Cache ())
+			foreach (var e in r.GetValues ().Take(2).Cache ()) {
 				++c;
+				Ignore (e);
+			}
 			Assert.AreEqual (2, c);
 			Assert.AreEqual (1, r.Disposed);
 		}
@@ -860,8 +862,10 @@ namespace Cadenza.Collections.Tests {
 		{
 			var r = new CacheIterDisposed ();
 			int c = 0;
-			foreach (var e in r.GetValues ().Cache ().Take (2))
+			foreach (var e in r.GetValues ().Cache ().Take (2)) {
 				++c;
+				Ignore (e);
+			}
 			Assert.AreEqual (2, c);
 			Assert.AreEqual (1, r.Disposed);
 

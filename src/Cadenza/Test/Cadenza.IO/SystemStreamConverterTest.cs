@@ -140,7 +140,6 @@ namespace Cadenza.IO.Tests {
 				.Write (60UL);
 			conv.Write (Encoding.UTF8.GetBytes ("Hello"));
 			conv.Write (new Guid ());
-			byte[] b = ms.ToArray();
 			AssertAreSame (expected, ms.ToArray ());
 		}
 	}

@@ -1,4 +1,4 @@
-﻿//
+//
 // OrderedDictionaryTest.cs
 //
 // Author:
@@ -33,10 +33,12 @@ using NUnit.Framework;
 
 using Cadenza.Collections;
 
+using Cadenza.Tests;
+
 namespace Cadenza.Collections.Tests
 {
 	[TestFixture]
-	public class OrderedDictionaryTest
+	public class OrderedDictionaryTest : BaseRocksFixture
 	{
 		[Test, ExpectedException(typeof(ArgumentNullException))]
 		public void Ctor_DictNull()
@@ -186,7 +188,6 @@ namespace Cadenza.Collections.Tests
 
 			((ICollection<KeyValuePair<uint, int>>)dict).CopyTo (a, 10);
 
-			int v = 0;
 			for (int i = 0; i < 10; ++i)
 			{
 				if (i < 10)
@@ -240,7 +241,6 @@ namespace Cadenza.Collections.Tests
 
 			dict.Values.CopyTo(a, 10);
 
-			int v = 0;
 			for (int i = 0; i < 10; ++i)
 			{
 				if (i < 10)

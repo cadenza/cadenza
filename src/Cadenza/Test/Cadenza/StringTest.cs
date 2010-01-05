@@ -496,7 +496,9 @@ namespace Cadenza.Tests {
 		[Test]
 		public void IsNullOrWhitespaceNull()
 		{
+#pragma warning disable 1720
 			Assert.IsTrue (((string)null).IsNullOrWhitespace());
+#pragma warning restore
 		}
 
 		[Test]

@@ -30,10 +30,12 @@ using System;
 using NUnit.Framework;
 using System.Collections.Generic;
 
+using Cadenza.Tests;
+
 namespace Cadenza.Collections.Tests
 {
 	[TestFixture]
-	public class BidirectionalDictionaryTests
+	public class BidirectionalDictionaryTests : BaseRocksFixture
 	{
 		private const string String1 = "Arthur Dent";
 		private const string String2 = "Ford Perfect";
@@ -173,7 +175,7 @@ namespace Cadenza.Collections.Tests
 		public void Item_Get_Null ()
 		{
 			var dictionary = new BidirectionalDictionary<string, string> ();
-			var ex = Assert.Throws<ArgumentNullException> (() => { var x = dictionary [null]; });
+			var ex = Assert.Throws<ArgumentNullException> (() => { var x = dictionary [null]; Ignore (x); });
 			Assert.AreEqual ("key", ex.ParamName);
 		}
 
@@ -181,7 +183,7 @@ namespace Cadenza.Collections.Tests
 		public void Item_Get_NotFound ()
 		{
 			var dictionary = new BidirectionalDictionary<string, string> ();
-			Assert.Throws<KeyNotFoundException> (() => { var x = dictionary [String1]; });
+			Assert.Throws<KeyNotFoundException> (() => { var x = dictionary [String1]; Ignore (x); });
 		}
 
 		[Test]

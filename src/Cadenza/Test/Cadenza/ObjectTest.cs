@@ -96,6 +96,7 @@ namespace Cadenza.Tests {
 		{
 			string        s = null;
 			Maybe<string> r = s.Just ();
+			Ignore (r);
 		}
 
 		[Test]

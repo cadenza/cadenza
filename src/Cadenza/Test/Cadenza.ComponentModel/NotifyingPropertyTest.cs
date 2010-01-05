@@ -175,6 +175,7 @@ namespace Cadenza.ComponentModel.Tests {
 		{
 			PropertyChangedEventHandler e = null;
 			var p = new NotifyingProperty<int> (null, () => e);
+			Ignore (p);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -182,13 +183,12 @@ namespace Cadenza.ComponentModel.Tests {
 		{
 			int v = 0;
 			var p = new NotifyingProperty<int> (() => v, null);
+			Ignore (p);
 		}
 
 		[Test, ExpectedException (typeof (InvalidOperationException))]
 		public void Ctor_Default_SetValueThrowsException ()
 		{
-			int v = 0;
-			PropertyChangedEventHandler e = null;
 			var p = new NotifyingProperty<int>();
 			Assert.AreEqual (0, p.Value);
 			p.Value = 42;

@@ -80,12 +80,14 @@ namespace Cadenza.Collections.Tests {
 		{
 			string[] c = null;
 			var s = new CachedSequence<string> (c);
+			Ignore (s);
 		}
 
 		[Test, ExpectedException (typeof (InvalidOperationException))]
 		public void Ctor_Collection_Empty ()
 		{
 			var s = new CachedSequence<string> (new string [0]);
+			Ignore (s);
 		}
 
 		[Test]

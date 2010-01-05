@@ -1,4 +1,4 @@
-﻿//
+//
 // TextReaderTest.cs
 //
 // Author:
@@ -109,6 +109,7 @@ namespace Cadenza.IO.Tests {
 			TextReader                         s = new StringReader ("");
 			Func<char?, char, bool>[] categories = null;
 			IEnumerable<string>                r = s.Tokens (categories);
+			Ignore (r);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentException))]
@@ -117,6 +118,7 @@ namespace Cadenza.IO.Tests {
 			TextReader                         s = new StringReader ("");
 			Func<char?, char, bool>[] categories = new Func<char?, char, bool>[0];
 			IEnumerable<string>                r = s.Tokens (categories);
+			Ignore (r);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentException))]
@@ -132,6 +134,7 @@ namespace Cadenza.IO.Tests {
 			TextReader                         s = new StringReader ("");
 			Func<char?, char, bool>[] categories = null;
 			IEnumerable<string>                r = s.Tokens (TextReaderCodaOptions.None, categories);
+			Ignore (r);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentException))]
@@ -140,6 +143,7 @@ namespace Cadenza.IO.Tests {
 			TextReader                         s = new StringReader ("");
 			Func<char?, char, bool>[] categories = new Func<char?, char, bool>[0];
 			IEnumerable<string>                r = s.Tokens (TextReaderCodaOptions.None, categories);
+			Ignore (r);
 		}
 
 		[Test]

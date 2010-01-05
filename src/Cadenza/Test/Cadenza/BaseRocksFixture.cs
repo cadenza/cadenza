@@ -1,4 +1,4 @@
-﻿//
+//
 // BaseRocksTestFixture.cs
 //
 // Author:
@@ -55,6 +55,11 @@ namespace Cadenza.Tests {
 							string.Format ("invalid exception type!  Expected {0}, got {1}.",
 								typeof (TException).FullName, e.GetType().FullName));
 			}
+		}
+
+		// Exists so that you can use a variable and shut up the compiler.
+		public static void Ignore<T>(T value)
+		{
 		}
 	}
 }
