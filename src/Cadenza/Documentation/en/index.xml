@@ -1895,9 +1895,14 @@
           <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource} " />
+          containing the sequence to sort by the default comparer.
+        </param>
+          <summary>Sorts the elements in the sequence <paramref name="self" /> using the default comparer.</summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Sort``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
@@ -1920,10 +1925,22 @@
           <Parameter Name="comparer" Type="System.Collections.Generic.IComparer&lt;TSource&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="comparer">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource} " />
+          containing the sequence to sort by the default comparer.
+        </param>
+          <param name="comparer">
+          A <see cref="T:System.Collections.Generic.IComparer{TSource} " />
+          instance which is used to sort the elements within
+          <paramref name="self" />.
+          If <see langword="null" />, then
+          <see cref="P:System.Collections.Generic.Comparer{TSource}.Default" />
+          is used.
+        </param>
+          <summary>Sorts the elements in the sequence <paramref name="self" /> using the specified comparer.</summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" />
       </Member>
@@ -1946,10 +1963,19 @@
           <Parameter Name="comparison" Type="System.Comparison&lt;TSource&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="comparison">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource} " />
+          containing the sequence to sort by the default comparer.
+        </param>
+          <param name="comparison">
+          A <see cref="T:System.Comparison{TSource} " />
+          instance which is used to sort the elements within
+          <paramref name="self" />.
+        </param>
+          <summary>Sorts the elements in the sequence <paramref name="self" /> using the specified comparer.</summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Comparison{``0})" />
       </Member>

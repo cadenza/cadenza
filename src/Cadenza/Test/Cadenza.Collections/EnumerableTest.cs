@@ -678,7 +678,6 @@ namespace Cadenza.Collections.Tests {
 		}
 
 		[Test]
-		[ExpectedException (typeof (ArgumentNullException))]
 		public void Sort_Comparer_Null ()
 		{
 			IEnumerable<int> e = new[]{1};

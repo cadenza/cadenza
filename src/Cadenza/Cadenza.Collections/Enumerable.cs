@@ -285,8 +285,6 @@ namespace Cadenza.Collections {
 		public static IEnumerable<TSource> Sort<TSource> (this IEnumerable<TSource> self, IComparer<TSource> comparer)
 		{
 			Check.Self (self);
-			if (comparer == null)
-				throw new ArgumentNullException ("comparer");
 
 			List<TSource> s = self.ToList ();
 			s.Sort (comparer);

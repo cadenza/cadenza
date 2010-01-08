@@ -1944,12 +1944,48 @@ Assert.AreEqual ('d', c [3].Second);
         <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource} " />
+          containing the sequence to sort by the default comparer.
+        </param>
+        <summary>Sorts the elements in the sequence <paramref name="self" /> using the default comparer.</summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource} " />
+          containing the elements within <paramref name="self" /> sorted by
+          the default comparer.
+        </returns>
+        <remarks>
+          <para>
+            Use this method instead of the
+            <see cref="M:System.Linq.Enumerable.OrderBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" />
+            method when you don't need to do anything "fancy," as this can
+            result in faster execution.  For example, when sorting 20 million
+            integers, the <c>Sort()</c> extension method can be upwards of 4x
+            faster than the equivalent <c>OrderBy(e =&gt; e)</c> extension method call.
+          </para>
+          <block subset="none" type="behaviors">
+            This method creates a
+            <see cref="T:System.Collections.Generic.List{TSource} " />
+            over <paramref name="self" />, invokes
+            <see cref="M:System.Collections.Generic.List{TSource}.Sort" />
+            and returns the list.
+          </block>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          The default comparer
+          <see cref="P:System.Collections.Generic.Comparer{TSource}.Default" />
+          cannot find ain implementation of the
+          <see cref="T:System.Collections.Generic.IComparer{TSource}" />
+          generic interface or the
+          <see cref="T:System.Collections.IComparer" />
+          interface for the type <typeparamref name="TSource" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Sort&lt;TSource&gt;">
@@ -1969,13 +2005,57 @@ Assert.AreEqual ('d', c [3].Second);
         <Parameter Name="comparer" Type="System.Collections.Generic.IComparer&lt;TSource&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="comparer">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.EnumerableCoda.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" /></exception>
+        <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource} " />
+          containing the sequence to sort by the default comparer.
+        </param>
+        <param name="comparer">
+          A <see cref="T:System.Collections.Generic.IComparer{TSource} " />
+          instance which is used to sort the elements within
+          <paramref name="self" />.
+          If <see langword="null" />, then
+          <see cref="P:System.Collections.Generic.Comparer{TSource}.Default" />
+          is used.
+        </param>
+        <summary>Sorts the elements in the sequence <paramref name="self" /> using the specified comparer.</summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource} " />
+          containing the elements within <paramref name="self" /> sorted by
+          the default comparer.
+        </returns>
+        <remarks>
+          <para>
+            Use this method instead of the
+            <see cref="M:System.Linq.Enumerable.OrderBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})" />
+            method when you don't need to do anything "fancy," as this can
+            result in faster execution.  For example, when sorting 20 million
+            integers, the <c>Sort()</c> extension method can be upwards of 4x
+            faster than the equivalent <c>OrderBy(e =&gt; e)</c> extension method call.
+          </para>
+          <block subset="none" type="behaviors">
+            This method creates a
+            <see cref="T:System.Collections.Generic.List{TSource} " />
+            over <paramref name="self" />, invokes
+            <see cref="M:System.Collections.Generic.List{TSource}.Sort(System.Collections.Generic.IComparer{`0})" />
+            and returns the list.
+          </block>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          <paramref name="comparer" /> is <see langword="null" />
+          and the default comparer
+          <see cref="P:System.Collections.Generic.Comparer{TSource}.Default" />
+          cannot find ain implementation of the
+          <see cref="T:System.Collections.Generic.IComparer{TSource}" />
+          generic interface or the
+          <see cref="T:System.Collections.IComparer" />
+          interface for the type <typeparamref name="TSource" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Sort&lt;TSource&gt;">
@@ -1995,13 +2075,50 @@ Assert.AreEqual ('d', c [3].Second);
         <Parameter Name="comparison" Type="System.Comparison&lt;TSource&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="comparison">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.EnumerableCoda.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Comparison{``0})" /></exception>
+        <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource} " />
+          containing the sequence to sort by the default comparer.
+        </param>
+        <param name="comparison">
+          A <see cref="T:System.Comparison{TSource} " />
+          instance which is used to sort the elements within
+          <paramref name="self" />.
+        </param>
+        <summary>Sorts the elements in the sequence <paramref name="self" /> using the specified comparer.</summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource} " />
+          containing the elements within <paramref name="self" /> sorted by
+          the default comparer.
+        </returns>
+        <remarks>
+          <para>
+            Use this method instead of the
+            <see cref="M:System.Linq.Enumerable.OrderBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" />
+            method when you don't need to do anything "fancy," as this can
+            result in faster execution.  For example, when sorting 20 million
+            integers, the <c>Sort()</c> extension method can be upwards of 4x
+            faster than the equivalent <c>OrderBy(e =&gt; e)</c> extension method call.
+          </para>
+          <block subset="none" type="behaviors">
+            This method creates a
+            <see cref="T:System.Collections.Generic.List{TSource} " />
+            over <paramref name="self" />, invokes
+            <see cref="M:System.Collections.Generic.List{TSource}.Sort(System.Comparer{`0})" />
+            and returns the list.
+          </block>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> or <paramref name="comparison" />
+          is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.ArgumentException">
+          The implementation of <paramref name="comparison" /> caused an error
+          during the sort.  For example, <paramref name="comparison" /> might
+          not return <c>0</c> when comparing an item with itself.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="SortNatural">
