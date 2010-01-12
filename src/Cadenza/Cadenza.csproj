@@ -79,7 +79,7 @@
     <Compile Include="Cadenza\Sequence.Tools.cs" />
     <Compile Include="Cadenza\String.cs" />
     <Compile Include="Cadenza\Tuple.cs" />
-    <Compile Include="Cadenza\Tuples.cs" Condition=" '$(TargetFrameworkVersion)' == 'v3.5' " />
+    <Compile Include="Cadenza\Tuples.cs" />
     <Compile Include="Cadenza\TuplesCoda.cs" />
     <Compile Include="Cadenza\Type.cs" />
     <Compile Include="Cadenza\UInt16.cs" />
