@@ -69,10 +69,6 @@ namespace Cadenza.Collections
 
 		private void Compare (IEnumerable<T> original, IEnumerable<T> update, IEqualityComparer<T> comparer)
 		{
-			//Stayed = original.Intersect (update);
-			//Added = update.Where (i => !original.Contains (i));
-			//Removed = original.Where (i => !update.Contains (i));
-
 			HashSet<T> stayed = new HashSet<T>();
 			HashSet<T> removed = new HashSet<T>();
 

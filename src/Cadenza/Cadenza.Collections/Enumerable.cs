@@ -49,6 +49,11 @@ namespace Cadenza.Collections {
 			return new SequenceComparison<T> (self, update);
 		}
 
+		public static SequenceComparison<T> CompareWith<T> (this IEnumerable<T> self, IEnumerable<T> update, IEqualityComparer<T> comparer)
+		{
+			return new SequenceComparison<T> (self, update, comparer);
+		}
+
 		public static bool TryGetFirst<TSource> (this IEnumerable<TSource> self, out TSource first)
 		{
 			Check.Self (self);
