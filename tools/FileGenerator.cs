@@ -82,7 +82,6 @@ namespace Cadenza.Tools {
 
 			using (var o = GetOutputFile (OutputFile)) {
 				o.NewLine = "\n";
-				var w = new IndentedTextWriter (o, "\t");
 				var provider = new CSharpCodeProvider ();
 				provider.GenerateCodeFromCompileUnit (file, o, new CodeGeneratorOptions () {
 						// BlankLinesBetweenMembers = true,
