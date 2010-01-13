@@ -362,6 +362,29 @@
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.EnumerableCoda.ApplyPairs``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}[])" /></exception>
       </Docs>
     </Member>
+    <Member MemberName="AsIList&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IList&lt;TSource&gt; AsIList&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IList&lt;TSource&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Break&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Break&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; func);" />
       <MemberType>Method</MemberType>
