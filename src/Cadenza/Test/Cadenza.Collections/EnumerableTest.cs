@@ -1366,6 +1366,29 @@ namespace Cadenza.Collections.Tests {
 			#endregion
 		}
 
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void AsIList_SelfNull ()
+		{
+			IEnumerable<int>  s = null;
+			s.AsIList ();
+		}
+
+		[Test]
+		public void AsIList_IListReturnsIdentity ()
+		{
+			IEnumerable<int>  s = new[]{1, 2, 3};
+			Assert.IsTrue (object.ReferenceEquals (s, s.AsIList ()));
+		}
+
+		[Test]
+		public void AsIList_NonListReturnsNewList ()
+		{
+			IEnumerable<int>  s = Sequence.Iterate (1, v => v + 1).Take (5);
+			IList<int>     list = s.AsIList ();
+			Assert.IsFalse (object.ReferenceEquals (s, list));
+			AssertAreSame (s, list);
+		}
+
 		[Test]
 		[ExpectedException (typeof (ArgumentNullException))]
 		public void AggregateReverse_SF_SourceNull ()
