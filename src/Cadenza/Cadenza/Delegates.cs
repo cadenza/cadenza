@@ -738,9 +738,6 @@ namespace Cadenza
         /// <param name="value1">
         ///   A value of type <typeparamref name="T1"/> to fix.
         /// </param>
-        /// <param name="value2">
-        ///   A value of type <typeparamref name="T2"/> to fix.
-        /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action{T2}" /> which, when invoked, will
         ///   invoke <paramref name="self"/> along with the provided fixed parameters.
@@ -906,9 +903,6 @@ namespace Cadenza
         /// </param>
         /// <param name="value1">
         ///   A value of type <typeparamref name="T1"/> to fix.
-        /// </param>
-        /// <param name="value2">
-        ///   A value of type <typeparamref name="T2"/> to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{T2,TResult}" /> which, when invoked, will
@@ -1332,12 +1326,6 @@ namespace Cadenza
         /// <param name="value1">
         ///   A value of type <typeparamref name="T1"/> to fix.
         /// </param>
-        /// <param name="value2">
-        ///   A value of type <typeparamref name="T2"/> to fix.
-        /// </param>
-        /// <param name="value3">
-        ///   A value of type <typeparamref name="T3"/> to fix.
-        /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action{T2,T3}" /> which, when invoked, will
         ///   invoke <paramref name="self"/> along with the provided fixed parameters.
@@ -1374,9 +1362,6 @@ namespace Cadenza
         /// </param>
         /// <param name="value2">
         ///   A value of type <typeparamref name="T2"/> to fix.
-        /// </param>
-        /// <param name="value3">
-        ///   A value of type <typeparamref name="T3"/> to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action{T3}" /> which, when invoked, will
@@ -1601,12 +1586,6 @@ namespace Cadenza
         /// <param name="value1">
         ///   A value of type <typeparamref name="T1"/> to fix.
         /// </param>
-        /// <param name="value2">
-        ///   A value of type <typeparamref name="T2"/> to fix.
-        /// </param>
-        /// <param name="value3">
-        ///   A value of type <typeparamref name="T3"/> to fix.
-        /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{T2,T3,TResult}" /> which, when invoked, will
         ///   invoke <paramref name="self"/> along with the provided fixed parameters.
@@ -1644,9 +1623,6 @@ namespace Cadenza
         /// </param>
         /// <param name="value2">
         ///   A value of type <typeparamref name="T2"/> to fix.
-        /// </param>
-        /// <param name="value3">
-        ///   A value of type <typeparamref name="T3"/> to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{T3,TResult}" /> which, when invoked, will
@@ -2151,15 +2127,6 @@ namespace Cadenza
         /// <param name="value1">
         ///   A value of type <typeparamref name="T1"/> to fix.
         /// </param>
-        /// <param name="value2">
-        ///   A value of type <typeparamref name="T2"/> to fix.
-        /// </param>
-        /// <param name="value3">
-        ///   A value of type <typeparamref name="T3"/> to fix.
-        /// </param>
-        /// <param name="value4">
-        ///   A value of type <typeparamref name="T4"/> to fix.
-        /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action{T2,T3,T4}" /> which, when invoked, will
         ///   invoke <paramref name="self"/> along with the provided fixed parameters.
@@ -2200,12 +2167,6 @@ namespace Cadenza
         /// </param>
         /// <param name="value2">
         ///   A value of type <typeparamref name="T2"/> to fix.
-        /// </param>
-        /// <param name="value3">
-        ///   A value of type <typeparamref name="T3"/> to fix.
-        /// </param>
-        /// <param name="value4">
-        ///   A value of type <typeparamref name="T4"/> to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action{T3,T4}" /> which, when invoked, will
@@ -2250,9 +2211,6 @@ namespace Cadenza
         /// </param>
         /// <param name="value3">
         ///   A value of type <typeparamref name="T3"/> to fix.
-        /// </param>
-        /// <param name="value4">
-        ///   A value of type <typeparamref name="T4"/> to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action{T4}" /> which, when invoked, will
@@ -2542,15 +2500,6 @@ namespace Cadenza
         /// <param name="value1">
         ///   A value of type <typeparamref name="T1"/> to fix.
         /// </param>
-        /// <param name="value2">
-        ///   A value of type <typeparamref name="T2"/> to fix.
-        /// </param>
-        /// <param name="value3">
-        ///   A value of type <typeparamref name="T3"/> to fix.
-        /// </param>
-        /// <param name="value4">
-        ///   A value of type <typeparamref name="T4"/> to fix.
-        /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{T2,T3,T4,TResult}" /> which, when invoked, will
         ///   invoke <paramref name="self"/> along with the provided fixed parameters.
@@ -2592,12 +2541,6 @@ namespace Cadenza
         /// </param>
         /// <param name="value2">
         ///   A value of type <typeparamref name="T2"/> to fix.
-        /// </param>
-        /// <param name="value3">
-        ///   A value of type <typeparamref name="T3"/> to fix.
-        /// </param>
-        /// <param name="value4">
-        ///   A value of type <typeparamref name="T4"/> to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{T3,T4,TResult}" /> which, when invoked, will
@@ -2643,9 +2586,6 @@ namespace Cadenza
         /// </param>
         /// <param name="value3">
         ///   A value of type <typeparamref name="T3"/> to fix.
-        /// </param>
-        /// <param name="value4">
-        ///   A value of type <typeparamref name="T4"/> to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{T4,TResult}" /> which, when invoked, will
