@@ -35,13 +35,18 @@ namespace Cadenza.Collections
 	public class SequenceComparison<T>
 	{
 		public SequenceComparison (IEnumerable<T> original, IEnumerable<T> update)
+			: this (original, update, null)
+		{
+		}
+
+		public SequenceComparison (IEnumerable<T> original, IEnumerable<T> update, IEqualityComparer<T> comparer)
 		{
 			if (original == null)
 				throw new ArgumentNullException ("original");
 			if (update == null)
 				throw new ArgumentNullException ("update");
 
-			Compare (original, update);
+			Compare (original, update, comparer ?? EqualityComparer<T>.Default);
 		}
 
 		public IEnumerable<T> Added
@@ -62,11 +67,28 @@ namespace Cadenza.Collections
 			private set;
 		}
 
-		private void Compare (IEnumerable<T> original, IEnumerable<T> update)
+		private void Compare (IEnumerable<T> original, IEnumerable<T> update, IEqualityComparer<T> comparer)
 		{
-			Stayed = original.Intersect (update);
-			Added = update.Where (i => !original.Contains (i));
-			Removed = original.Where (i => !update.Contains (i));
+			//Stayed = original.Intersect (update);
+			//Added = update.Where (i => !original.Contains (i));
+			//Removed = original.Where (i => !update.Contains (i));
+
+			HashSet<T> stayed = new HashSet<T>();
+			HashSet<T> removed = new HashSet<T>();
+
+			HashSet<T> items = new HashSet<T> (update, comparer);
+
+			foreach (T item in original)
+			{
+				if (items.Remove (item))
+					stayed.Add (item);
+				else
+					removed.Add (item);
+			}
+
+			this.Stayed = stayed;
+			this.Removed = removed;
+			this.Added = items;
 		}
 	}
 }
