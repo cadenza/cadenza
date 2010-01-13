@@ -362,29 +362,6 @@
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.EnumerableCoda.ApplyPairs``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0}[])" /></exception>
       </Docs>
     </Member>
-    <Member MemberName="AsIList&lt;TSource&gt;">
-      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IList&lt;TSource&gt; AsIList&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Collections.Generic.IList&lt;TSource&gt;</ReturnType>
-      </ReturnValue>
-      <TypeParameters>
-        <TypeParameter Name="TSource" />
-      </TypeParameters>
-      <Parameters>
-        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
-      </Parameters>
-      <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Break&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Break&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; func);" />
       <MemberType>Method</MemberType>
@@ -431,6 +408,60 @@
         <param name="self">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CompareWith&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.Collections.SequenceComparison&lt;T&gt; CompareWith&lt;T&gt; (this System.Collections.Generic.IEnumerable&lt;T&gt; self, System.Collections.Generic.IEnumerable&lt;T&gt; update);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Collections.SequenceComparison&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;T&gt;" RefType="this" />
+        <Parameter Name="update" Type="System.Collections.Generic.IEnumerable&lt;T&gt;" />
+      </Parameters>
+      <Docs>
+      	<exception cref="T:System.ArgumentNullException"><paramref name="update" /> is <c>null</c>.</exception>
+        <typeparam name="T">The type of the elements within <paramref name="self" /> and <paramref name="update" /></typeparam>
+        <param name="self">The original enumeration of elements.</param>
+        <param name="update">The updated enumeration of elements to compare against.</param>
+        <summary>Compares two enumerations retrieving added, removed and unchanged elements.</summary>
+        <returns>An <see cref="T:Cadenza.Collections.SequenceComparison{T}" /> containing the added, removed and unchanged elements.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="CompareWith&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.Collections.SequenceComparison&lt;T&gt; CompareWith&lt;T&gt; (this System.Collections.Generic.IEnumerable&lt;T&gt; self, System.Collections.Generic.IEnumerable&lt;T&gt; update, System.Collections.Generic.IEqualityComparer&lt;T&gt; comparer);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Collections.SequenceComparison&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;T&gt;" RefType="this" />
+        <Parameter Name="update" Type="System.Collections.Generic.IEnumerable&lt;T&gt;" />
+        <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;T&gt;" />
+      </Parameters>
+      <Docs>
+      	<exception cref="T:System.ArgumentNullException"><paramref name="update" /> is <c>null</c>.</exception>
+        <typeparam name="T">The type of the elements within <paramref name="self" /> and <paramref name="update" /></typeparam>
+        <param name="self">The original enumeration of elements.</param>
+        <param name="update">The updated enumeration of elements to compare against.</param>
+        <param name="comparer">The <see cref="System.Collections.Generic.IEqualityComparer{T}" /> used to compare equality.</param>
+        <summary>Compares two enumerations retrieving added, removed and unchanged elements.</summary>
+        <returns>An <see cref="T:Cadenza.Collections.SequenceComparison{T}" /> containing the added, removed and unchanged elements.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
