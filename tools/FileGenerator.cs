@@ -102,7 +102,13 @@ namespace Cadenza.Tools {
 		}
 
 		protected virtual string CommandLine {
-			get {return string.Format ("{0} -n {1} -o {2}", Program, TypeParameterCount, OutputFile);}
+			get {
+				var commandLine = new StringBuilder ()
+					.AppendFormat ("{0} -n {1}", Program, TypeParameterCount);
+				if (!string.IsNullOrEmpty (OutputFile))
+					commandLine.AppendFormat (" -o {0}", OutputFile);
+				return commandLine.ToString ();
+			}
 		}
 
 		protected virtual string DefaultNamespace {
