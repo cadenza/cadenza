@@ -46,7 +46,14 @@ namespace Cadenza.Collections
 			if (update == null)
 				throw new ArgumentNullException ("update");
 
-			Compare (original, update, comparer ?? EqualityComparer<T>.Default);
+			Comparer = comparer ?? EqualityComparer<T>.Default;
+			Compare (original, update);
+		}
+
+		public IEqualityComparer<T> Comparer
+		{
+			get;
+			private set;
 		}
 
 		public IEnumerable<T> Added
@@ -67,12 +74,12 @@ namespace Cadenza.Collections
 			private set;
 		}
 
-		private void Compare (IEnumerable<T> original, IEnumerable<T> update, IEqualityComparer<T> comparer)
+		private void Compare (IEnumerable<T> original, IEnumerable<T> update)
 		{
 			HashSet<T> stayed = new HashSet<T>();
 			HashSet<T> removed = new HashSet<T>();
 
-			HashSet<T> items = new HashSet<T> (update, comparer);
+			HashSet<T> items = new HashSet<T> (update, Comparer);
 
 			foreach (T item in original)
 			{

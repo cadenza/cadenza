@@ -29,17 +29,58 @@
 using System;
 using NUnit.Framework;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Cadenza.Collections.Tests
 {
 	[TestFixture]
 	public class SequenceComparisonTests
 	{
+		private class CaseInsensitiveStringComparer
+			: IEqualityComparer<string>
+		{
+			private static readonly CaseInsensitiveStringComparer _default = new CaseInsensitiveStringComparer();
+			public static CaseInsensitiveStringComparer Default
+			{
+				get { return _default; }
+			}
+
+			public bool Equals (string x, string y)
+			{
+				return x.ToLower() == y.ToLower();
+			}
+
+			public int GetHashCode (string obj)
+			{
+				return obj.ToLower().GetHashCode();
+			}
+		}
+
 		[Test]
-		public void ctor_null()
+		public void CtorEqualityComparer()
+		{
+			var c = new SequenceComparison<string> (Enumerable.Empty<string>(), Enumerable.Empty<string>(), CaseInsensitiveStringComparer.Default);
+			Assert.AreEqual (CaseInsensitiveStringComparer.Default, c.Comparer);
+		}
+
+		[Test]
+		public void CtorEqualityComparerNull()
+		{
+			var c = new SequenceComparison<int> (Enumerable.Empty<int>(), Enumerable.Empty<int>());
+			Assert.AreEqual (EqualityComparer<int>.Default, c.Comparer);
+
+			c = new SequenceComparison<int> (Enumerable.Empty<int>(), Enumerable.Empty<int>(), null);
+			Assert.AreEqual (EqualityComparer<int>.Default, c.Comparer);
+		}
+
+		[Test]
+		public void CtorNull()
 		{
 			Assert.AreEqual ("original", Assert.Throws<ArgumentNullException> (() => new SequenceComparison<int> (null, Enumerable.Empty<int>())).ParamName);
 			Assert.AreEqual ("update", Assert.Throws<ArgumentNullException> (() => new SequenceComparison<int> (Enumerable.Empty<int>(), null)).ParamName);
+
+			Assert.AreEqual ("original", Assert.Throws<ArgumentNullException> (() => new SequenceComparison<int> (null, Enumerable.Empty<int>(), null)).ParamName);
+			Assert.AreEqual ("update", Assert.Throws<ArgumentNullException> (() => new SequenceComparison<int> (Enumerable.Empty<int>(), null, null)).ParamName);
 		}
 
 		[Test]
@@ -160,6 +201,22 @@ namespace Cadenza.Collections.Tests
 
 			Assert.AreEqual (1, c.Removed.Count());
 			Assert.Contains (3, c.Removed.ToList());
+		}
+
+		[Test]
+		public void EqualityComparer()
+		{
+			var c = new SequenceComparison<string> (new string[] { "HI", "hello" }, new string[] { "hi", "blah" },
+																							CaseInsensitiveStringComparer.Default);
+
+			Assert.AreEqual (1, c.Stayed.Count());
+			Assert.Contains ("HI", c.Stayed.ToList());
+
+			Assert.AreEqual (1, c.Removed.Count());
+			Assert.Contains ("hello", c.Removed.ToList());
+
+			Assert.AreEqual (1, c.Added.Count());
+			Assert.Contains ("blah", c.Added.ToList());
 		}
 	}
 }
