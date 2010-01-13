@@ -393,7 +393,7 @@ namespace Cadenza.Collections {
 
 		private static IEnumerable<TSource> CreateShuffleIterator<TSource> (IEnumerable<TSource> self, Random random)
 		{
-			IList<TSource> values = GetList (self);
+			IList<TSource> values = self.AsIList ();
 
 			int[] indices = new int [values.Count];
 			for (int i = 0; i < indices.Length; ++i)
@@ -787,7 +787,7 @@ namespace Cadenza.Collections {
 		{
 			Check.SelfAndFunc (self, func);
 
-			IList<TSource> s = GetList (self);
+			IList<TSource> s = self.AsIList ();
 			if (s.Count == 0)
 				throw new InvalidOperationException ("No elements in self list");
 
@@ -798,8 +798,9 @@ namespace Cadenza.Collections {
 			return folded;
 		}
 
-		private static IList<TSource> GetList<TSource> (IEnumerable<TSource> self)
+		public static IList<TSource> AsIList<TSource> (this IEnumerable<TSource> self)
 		{
+			Check.Self (self);
 			IList<TSource> s = self as IList<TSource>;
 			if (s == null) {
 				s = new List<TSource> (self);
@@ -814,7 +815,7 @@ namespace Cadenza.Collections {
 		{
 			Check.SelfAndFunc (self, func);
 
-			IList<TSource> s = GetList (self);
+			IList<TSource> s = self.AsIList ();
 
 			TAccumulate folded = seed;
 			for (int i = s.Count-1; i >= 0; --i) {
@@ -830,7 +831,7 @@ namespace Cadenza.Collections {
 			if (resultSelector == null)
 				throw new ArgumentNullException ("resultSelector");
 
-			IList<TSource> s = GetList (self);
+			IList<TSource> s = self.AsIList ();
 
 			var result = seed;
 			for (int i = s.Count-1; i >= 0; --i)
@@ -959,7 +960,7 @@ namespace Cadenza.Collections {
 
 		private static IEnumerable<TSource> CreateAggregateReverseHistoryIterator<TSource> (IEnumerable<TSource> self, Func<TSource, TSource, TSource> func)
 		{
-			IList<TSource> s = GetList (self);
+			IList<TSource> s = self.AsIList ();
 			if (s.Count == 0)
 				throw new InvalidOperationException ("No elements in self list");
 
@@ -981,7 +982,7 @@ namespace Cadenza.Collections {
 		private static IEnumerable<TAccumulate> CreateAggregateReverseHistoryIterator<TSource, TAccumulate> (IEnumerable<TSource> self,
 			TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
 		{
-			IList<TSource> s = GetList (self);
+			IList<TSource> s = self.AsIList ();
 
 			TAccumulate folded;
 			yield return (folded = seed);
@@ -1000,7 +1001,7 @@ namespace Cadenza.Collections {
 
 		private static IEnumerable<TResult> CreateAggregateReverseHistoryIterator<TSource, TAccumulate, TResult> (IEnumerable<TSource> self, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
 		{
-			IList<TSource> s = GetList (self);
+			IList<TSource> s = self.AsIList ();
 
 			var result = seed;
 			yield return resultSelector (result);
@@ -1035,7 +1036,7 @@ namespace Cadenza.Collections {
 		{
 			Check.SelfAndFunc (self, func);
 
-			var s = GetList (self);
+			var s = self.AsIList ();
 			var aggregates = new List<TResult> (s.Count);
 			var result = seed;
 
