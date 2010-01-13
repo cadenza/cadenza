@@ -462,7 +462,13 @@ namespace Cadenza.Tools {
 					XmlDocs.Summary ("Get timing information for delegate invocations."),
 					XmlDocs.Param ("self", "The " + XmlDocs.See (m.Parameters [0].Type) + " to generate timings for."),
 					GetTimingsParameters (n),
-					XmlDocs.Param ("runs", "The number of <see cref=\"T:System.TimeSpan\" /> values to return."),
+					XmlDocs.Param ("runs", "An <see cref=\"T:System.Int32\" /> containing the number of <see cref=\"T:System.TimeSpan\" /> values to return."),
+					full == null
+						? XmlDocs.Param ("loopsPerRun",
+							"An <see cref=\"T:System.Int32\" /> containing the number of " +
+							"times to invoke <paramref name=\"self\" /> for each " +
+							"<see cref=\"T:System.TimeSpan\" /> value returned.")
+						: new[]{""},
 					XmlDocs.Returns (
 						"An " + XmlDocs.See (m.ReturnType),
 						"which will return the timing information for <paramref name=\"self\" />."));

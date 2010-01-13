@@ -72,8 +72,11 @@ namespace Cadenza.Tools
 
 		public static void AddDocs (this CodeCommentStatementCollection self, params object[] comments)
 		{
-			foreach (var comment in Sequence.Expand (comments))
+			foreach (var comment in Sequence.Expand (comments)) {
+				if (comment is string && string.IsNullOrEmpty ((string) comment))
+					continue;
 				self.Add (new CodeCommentStatement (comment.ToString (), true));
+			}
 		}
 
 		public static IEnumerable<CodeMemberMethod> GetMethods (this CodeTypeDeclaration self, string name)

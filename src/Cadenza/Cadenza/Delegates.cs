@@ -13,9 +13,9 @@
 // 
 // GENERATED CODE: DO NOT EDIT.
 // 
-// To regenerate this code, execute: Delegates.exe -n 4
+// To regenerate this code, execute: Delegates.exe -n 4 -o Cadenza/Delegates.cs
 // 
-// Copyright (c) 2009 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2010 Novell, Inc. (http://www.novell.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -215,7 +215,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Action" /> to generate timings for.
         /// </param>
         /// <param name="runs">
-        ///   The number of <see cref="T:System.TimeSpan" /> values to return.
+        ///   An <see cref="T:System.Int32" /> containing the number of <see cref="T:System.TimeSpan" /> values to return.
         /// </param>
         /// <returns>
         ///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
@@ -250,7 +250,10 @@ namespace Cadenza
         ///   The <see cref="T:System.Action" /> to generate timings for.
         /// </param>
         /// <param name="runs">
-        ///   The number of <see cref="T:System.TimeSpan" /> values to return.
+        ///   An <see cref="T:System.Int32" /> containing the number of <see cref="T:System.TimeSpan" /> values to return.
+        /// </param>
+        /// <param name="loopsPerRun">
+        ///   An <see cref="T:System.Int32" /> containing the number of times to invoke <paramref name="self" /> for each <see cref="T:System.TimeSpan" /> value returned.
         /// </param>
         /// <returns>
         ///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
@@ -613,7 +616,7 @@ namespace Cadenza
         ///   The *unknown* <paramref name="self"/> parameter value.
         /// </param>
         /// <param name="runs">
-        ///   The number of <see cref="T:System.TimeSpan" /> values to return.
+        ///   An <see cref="T:System.Int32" /> containing the number of <see cref="T:System.TimeSpan" /> values to return.
         /// </param>
         /// <returns>
         ///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
@@ -655,7 +658,10 @@ namespace Cadenza
         ///   The *unknown* <paramref name="self"/> parameter value.
         /// </param>
         /// <param name="runs">
-        ///   The number of <see cref="T:System.TimeSpan" /> values to return.
+        ///   An <see cref="T:System.Int32" /> containing the number of <see cref="T:System.TimeSpan" /> values to return.
+        /// </param>
+        /// <param name="loopsPerRun">
+        ///   An <see cref="T:System.Int32" /> containing the number of times to invoke <paramref name="self" /> for each <see cref="T:System.TimeSpan" /> value returned.
         /// </param>
         /// <returns>
         ///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
@@ -1192,7 +1198,7 @@ namespace Cadenza
         ///   The *unknown* <paramref name="self"/> parameter value.
         /// </param>
         /// <param name="runs">
-        ///   The number of <see cref="T:System.TimeSpan" /> values to return.
+        ///   An <see cref="T:System.Int32" /> containing the number of <see cref="T:System.TimeSpan" /> values to return.
         /// </param>
         /// <returns>
         ///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
@@ -1241,7 +1247,10 @@ namespace Cadenza
         ///   The *unknown* <paramref name="self"/> parameter value.
         /// </param>
         /// <param name="runs">
-        ///   The number of <see cref="T:System.TimeSpan" /> values to return.
+        ///   An <see cref="T:System.Int32" /> containing the number of <see cref="T:System.TimeSpan" /> values to return.
+        /// </param>
+        /// <param name="loopsPerRun">
+        ///   An <see cref="T:System.Int32" /> containing the number of times to invoke <paramref name="self" /> for each <see cref="T:System.TimeSpan" /> value returned.
         /// </param>
         /// <returns>
         ///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
@@ -1996,7 +2005,7 @@ namespace Cadenza
         ///   The *unknown* <paramref name="self"/> parameter value.
         /// </param>
         /// <param name="runs">
-        ///   The number of <see cref="T:System.TimeSpan" /> values to return.
+        ///   An <see cref="T:System.Int32" /> containing the number of <see cref="T:System.TimeSpan" /> values to return.
         /// </param>
         /// <returns>
         ///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
@@ -2052,7 +2061,10 @@ namespace Cadenza
         ///   The *unknown* <paramref name="self"/> parameter value.
         /// </param>
         /// <param name="runs">
-        ///   The number of <see cref="T:System.TimeSpan" /> values to return.
+        ///   An <see cref="T:System.Int32" /> containing the number of <see cref="T:System.TimeSpan" /> values to return.
+        /// </param>
+        /// <param name="loopsPerRun">
+        ///   An <see cref="T:System.Int32" /> containing the number of times to invoke <paramref name="self" /> for each <see cref="T:System.TimeSpan" /> value returned.
         /// </param>
         /// <returns>
         ///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
@@ -3069,7 +3081,7 @@ namespace Cadenza
         ///   The *unknown* <paramref name="self"/> parameter value.
         /// </param>
         /// <param name="runs">
-        ///   The number of <see cref="T:System.TimeSpan" /> values to return.
+        ///   An <see cref="T:System.Int32" /> containing the number of <see cref="T:System.TimeSpan" /> values to return.
         /// </param>
         /// <returns>
         ///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
@@ -3132,7 +3144,10 @@ namespace Cadenza
         ///   The *unknown* <paramref name="self"/> parameter value.
         /// </param>
         /// <param name="runs">
-        ///   The number of <see cref="T:System.TimeSpan" /> values to return.
+        ///   An <see cref="T:System.Int32" /> containing the number of <see cref="T:System.TimeSpan" /> values to return.
+        /// </param>
+        /// <param name="loopsPerRun">
+        ///   An <see cref="T:System.Int32" /> containing the number of times to invoke <paramref name="self" /> for each <see cref="T:System.TimeSpan" /> value returned.
         /// </param>
         /// <returns>
         ///   An <see cref="T:System.Collections.Generic.IEnumerable{System.TimeSpan}" />
