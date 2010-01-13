@@ -171,7 +171,7 @@ namespace Cadenza.Tools {
 					GetTypeParameters (n, selfType),
 					XmlDocs.Summary ("Creates a " + XmlDocs.See (retType) + " delegate."),
 					XmlDocs.Param ("self", "The " + XmlDocs.See (selfType) + " to curry."),
-					Enumerable.Range (0, n).Select (p => XmlDocs.Param (Value (n, p),
+					Enumerable.Range (0, a).Select (p => XmlDocs.Param (Value (n, p),
 							"A value of type <typeparamref name=\"" + Types.GetTypeParameter (n, p) + "\"/> to fix.")),
 					XmlDocs.Returns (
 						"Returns a " + XmlDocs.See (retType) + " which, when invoked, will",
