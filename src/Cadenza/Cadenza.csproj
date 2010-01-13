@@ -87,6 +87,7 @@
     <Compile Include="Cadenza\UInt64.cs" />
     <Compile Include="Cadenza.Collections\SequenceComparison.cs" />
   </ItemGroup>
+  <Import Project="..\..\lib\mdoc-net\mdoc.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -96,8 +97,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <Runtime Condition=" '$(OS)' == 'Windows_NT' ">
-    </Runtime>
+    <Runtime Condition=" '$(OS)' == 'Windows_NT' "></Runtime>
     <Runtime Condition=" '$(OS)' != 'Windows_NT' ">mono</Runtime>
   </PropertyGroup>
   <ItemGroup>
