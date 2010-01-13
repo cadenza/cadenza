@@ -5,8 +5,9 @@
 //   Jb Evain (jbevain@novell.com)
 //   Jonathan Pryor  <jpryor@novell.com>
 //   Distilled Brilliance <contact@dispatcher.distilledb.com>
+//   Eric Maupin <me@ermau.com>
 //
-// Copyright (c) 2007-2009 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2007-2010 Novell, Inc. (http://www.novell.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -42,6 +43,11 @@ using Cadenza.IO;
 namespace Cadenza.Collections {
 
 	public static class EnumerableCoda {
+
+		public static SequenceComparison<T> CompareWith<T> (this IEnumerable<T> self, IEnumerable<T> update)
+		{
+			return new SequenceComparison<T> (self, update);
+		}
 
 		public static bool TryGetFirst<TSource> (this IEnumerable<TSource> self, out TSource first)
 		{
