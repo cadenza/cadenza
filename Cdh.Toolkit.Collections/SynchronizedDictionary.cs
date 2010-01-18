@@ -31,6 +31,11 @@ namespace Cdh.Toolkit.Collections
 
         private void Initialize()
         {
+            // The base collections are already read-only, but wrapping the
+            // SynchronizedCollection in a ReadOnlyCollection prevents a write
+            // lock from being acquired prior to throwing the inevitable
+            // exception.
+
             Keys = CreateSynchronizedReadOnlyCollection(Keys);
             Values = CreateSynchronizedReadOnlyCollection(Values);
         }

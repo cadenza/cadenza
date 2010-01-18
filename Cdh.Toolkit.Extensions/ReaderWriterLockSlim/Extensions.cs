@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Threading;
 
 namespace Cdh.Toolkit.Extensions.ReaderWriterLockSlim
 {
     using ReaderWriterLockSlim = System.Threading.ReaderWriterLockSlim;
-    using System.Threading;
 
     public static class Extensions
     {
