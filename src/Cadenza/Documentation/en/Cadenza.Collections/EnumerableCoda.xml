@@ -451,13 +451,14 @@
         <Parameter Name="update" Type="System.Collections.Generic.IEnumerable&lt;T&gt;" />
       </Parameters>
       <Docs>
-      	<exception cref="T:System.ArgumentNullException"><paramref name="update" /> is <c>null</c>.</exception>
         <typeparam name="T">The type of the elements within <paramref name="self" /> and <paramref name="update" /></typeparam>
         <param name="self">The original enumeration of elements.</param>
         <param name="update">The updated enumeration of elements to compare against.</param>
         <summary>Compares two enumerations retrieving added, removed and unchanged elements.</summary>
         <returns>An <see cref="T:Cadenza.Collections.SequenceComparison{T}" /> containing the added, removed and unchanged elements.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="update" /> is <c>null</c>.</exception>
       </Docs>
     </Member>
     <Member MemberName="CompareWith&lt;T&gt;">
@@ -478,7 +479,6 @@
         <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;T&gt;" />
       </Parameters>
       <Docs>
-      	<exception cref="T:System.ArgumentNullException"><paramref name="update" /> is <c>null</c>.</exception>
         <typeparam name="T">The type of the elements within <paramref name="self" /> and <paramref name="update" /></typeparam>
         <param name="self">The original enumeration of elements.</param>
         <param name="update">The updated enumeration of elements to compare against.</param>
@@ -486,6 +486,8 @@
         <summary>Compares two enumerations retrieving added, removed and unchanged elements.</summary>
         <returns>An <see cref="T:Cadenza.Collections.SequenceComparison{T}" /> containing the added, removed and unchanged elements.</returns>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="update" /> is <c>null</c>.</exception>
       </Docs>
     </Member>
     <Member MemberName="Concat&lt;TSource&gt;">
