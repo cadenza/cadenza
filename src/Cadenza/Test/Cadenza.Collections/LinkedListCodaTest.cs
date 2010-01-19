@@ -71,7 +71,7 @@ namespace Cadenza.Collections.Tests {
 			Assert.AreSame (first, list.First);
 		}
 
-		[Test, ExpectedException (typeof (ArgumentOutOfRangeException))]
+		[Test]
 		public void NodeAt ()
 		{
 			LinkedList<int> list = new LinkedList<int>();
