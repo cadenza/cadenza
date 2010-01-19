@@ -24,25 +24,25 @@ namespace Cdh.Toolkit.Collections
 
         #region IList<T> Members
 
-        public int IndexOf(T item)
+        public virtual int IndexOf(T item)
         {
             using (Lock.Read())
                 return Decorated.IndexOf(item);
         }
 
-        public void Insert(int index, T item)
+        public virtual void Insert(int index, T item)
         {
             using (Lock.Write())
                 Decorated.Insert(index, item);
         }
 
-        public void RemoveAt(int index)
+        public virtual void RemoveAt(int index)
         {
             using (Lock.Write())
                 Decorated.RemoveAt(index);
         }
 
-        public T this[int index]
+        public virtual T this[int index]
         {
             get
             {

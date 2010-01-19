@@ -37,31 +37,31 @@ namespace Cdh.Toolkit.Collections
 
         #region ICollection<T> Members
 
-        public void Add(T item)
+        public virtual void Add(T item)
         {
             using (Lock.Write())
                 Decorated.Add(item);
         }
 
-        public void Clear()
+        public virtual void Clear()
         {
             using (Lock.Write())
                 Decorated.Clear();
         }
 
-        public bool Contains(T item)
+        public virtual bool Contains(T item)
         {
             using (Lock.Read())
                 return Decorated.Contains(item);
         }
 
-        public void CopyTo(T[] array, int arrayIndex)
+        public virtual void CopyTo(T[] array, int arrayIndex)
         {
             using (Lock.Read())
                 Decorated.CopyTo(array, arrayIndex);
         }
 
-        public int Count
+        public virtual int Count
         {
             get
             {
@@ -70,12 +70,12 @@ namespace Cdh.Toolkit.Collections
             }
         }
 
-        public bool IsReadOnly
+        public virtual bool IsReadOnly
         {
             get { return Decorated.IsReadOnly; }
         }
 
-        public bool Remove(T item)
+        public virtual bool Remove(T item)
         {
             using (Lock.Write())
                 return Decorated.Remove(item);
@@ -85,7 +85,7 @@ namespace Cdh.Toolkit.Collections
 
         #region IEnumerable<T> Members
 
-        public IEnumerator<T> GetEnumerator()
+        public virtual IEnumerator<T> GetEnumerator()
         {
             if (EnumerateBehavior == EnumerateBehavior.Copy)
                 using (Lock.Read())

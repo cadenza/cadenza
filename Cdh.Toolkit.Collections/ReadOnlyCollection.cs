@@ -28,17 +28,17 @@ namespace Cdh.Toolkit.Collections
             throw new NotSupportedException();
         }
 
-        public bool Contains(T item)
+        public virtual bool Contains(T item)
         {
             return Decorated.Contains(item);
         }
 
-        public void CopyTo(T[] array, int arrayIndex)
+        public virtual void CopyTo(T[] array, int arrayIndex)
         {
             Decorated.CopyTo(array, arrayIndex);
         }
 
-        public int Count
+        public virtual int Count
         {
             get { return Decorated.Count; }
         }
@@ -57,7 +57,7 @@ namespace Cdh.Toolkit.Collections
 
         #region IEnumerable<T> Members
 
-        public IEnumerator<T> GetEnumerator()
+        public virtual IEnumerator<T> GetEnumerator()
         {
             return Decorated.GetEnumerator();
         }

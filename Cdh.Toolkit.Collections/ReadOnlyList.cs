@@ -17,7 +17,7 @@ namespace Cdh.Toolkit.Collections
 
         #region IList<T> Members
 
-        public int IndexOf(T item)
+        public virtual int IndexOf(T item)
         {
             return Decorated.IndexOf(item);
         }
@@ -32,7 +32,7 @@ namespace Cdh.Toolkit.Collections
             throw new NotSupportedException();
         }
 
-        public T this[int index]
+        public virtual T this[int index]
         {
             get { return Decorated[index]; }
             set { throw new NotSupportedException(); }

@@ -23,12 +23,12 @@ namespace Cdh.Toolkit.Collections
             throw new NotSupportedException();
         }
 
-        public bool ContainsKey(TKey key)
+        public virtual bool ContainsKey(TKey key)
         {
             return Decorated.ContainsKey(key);
         }
 
-        public ICollection<TKey> Keys
+        public virtual ICollection<TKey> Keys
         {
             get { return Decorated.Keys; }
         }
@@ -38,17 +38,17 @@ namespace Cdh.Toolkit.Collections
             throw new NotSupportedException();
         }
 
-        public bool TryGetValue(TKey key, out TValue value)
+        public virtual bool TryGetValue(TKey key, out TValue value)
         {
             return Decorated.TryGetValue(key, out value);
         }
 
-        public ICollection<TValue> Values
+        public virtual ICollection<TValue> Values
         {
             get { return Decorated.Values; }
         }
 
-        public TValue this[TKey key]
+        public virtual TValue this[TKey key]
         {
             get { return Decorated[key]; }
             set { throw new NotSupportedException(); }

@@ -49,35 +49,35 @@ namespace Cdh.Toolkit.Collections
 
         #region IDictionary<TKey,TValue> Members
 
-        public void Add(TKey key, TValue value)
+        public virtual void Add(TKey key, TValue value)
         {
             using (Lock.Write())
                 Decorated.Add(key, value);
         }
 
-        public bool ContainsKey(TKey key)
+        public virtual bool ContainsKey(TKey key)
         {
             using (Lock.Read())
                 return Decorated.ContainsKey(key);
         }
 
-        public ICollection<TKey> Keys { get; private set; }
+        public virtual ICollection<TKey> Keys { get; private set; }
 
-        public bool Remove(TKey key)
+        public virtual bool Remove(TKey key)
         {
             using (Lock.Write())
                 return Decorated.Remove(key);
         }
 
-        public bool TryGetValue(TKey key, out TValue value)
+        public virtual bool TryGetValue(TKey key, out TValue value)
         {
             using (Lock.Read())
                 return Decorated.TryGetValue(key, out value);
         }
 
-        public ICollection<TValue> Values { get; private set; }
+        public virtual ICollection<TValue> Values { get; private set; }
 
-        public TValue this[TKey key]
+        public virtual TValue this[TKey key]
         {
             get
             {
