@@ -46,6 +46,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnumerateBehavior.cs" />
+    <Compile Include="Observable\IObservableCollection.cs" />
+    <Compile Include="Observable\IObservableList.cs" />
+    <Compile Include="Observable\ObservableEvents.cs" />
+    <Compile Include="Observable\ObservableHashSet.cs" />
     <Compile Include="ReadOnlyCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadOnlyDictionary.cs" />
