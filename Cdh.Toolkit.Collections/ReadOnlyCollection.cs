@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Cdh.Toolkit.Collections
 {
+    [DebuggerDisplay("Count = {Count}")]
     public class ReadOnlyCollection<T> : ICollection<T>
     {
         protected ICollection<T> Decorated { get; private set; }

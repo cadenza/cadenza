@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 
-using Cdh.Toolkit.Extensions.Events;
 using Cdh.Toolkit.Extensions.ReaderWriterLockSlim;
-using System.Security;
 
 namespace Cdh.Toolkit.Collections.Observable
 {
@@ -24,6 +21,18 @@ namespace Cdh.Toolkit.Collections.Observable
             : base(hashSet, behavior)
         {
             Decorated = hashSet;
+        }
+
+        public ObservableHashSet(EnumerateBehavior behavior, ReaderWriterLockSlim @lock)
+            : base(new HashSet<T>(), behavior, @lock)
+        {
+            Decorated = (HashSet<T>)base.Decorated;
+        }
+
+        public ObservableHashSet(EnumerateBehavior behavior)
+            : base(new HashSet<T>(), behavior)
+        {
+            Decorated = (HashSet<T>)base.Decorated;
         }
 
         protected void FireAdded(T item)

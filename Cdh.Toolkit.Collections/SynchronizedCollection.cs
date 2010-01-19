@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 
@@ -8,6 +9,7 @@ using Cdh.Toolkit.Extensions.ReaderWriterLockSlim;
 
 namespace Cdh.Toolkit.Collections
 {
+    [DebuggerDisplay("Count = {Count}")]
     public class SynchronizedCollection<T> : ICollection<T>
     {
         public ReaderWriterLockSlim Lock { get; private set; }
