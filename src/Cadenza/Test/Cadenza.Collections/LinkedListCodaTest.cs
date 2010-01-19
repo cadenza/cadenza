@@ -62,13 +62,13 @@ namespace Cadenza.Collections.Tests {
 			list.ElementAt (1);
 		}
 
-		[Test, ExpectedException (typeof (ArgumentOutOfRangeException))]
+		[Test]
 		public void NodeAt_IndexZeroIsFirst ()
 		{
 			LinkedList<int> list = new LinkedList<int>();
 			list.AddFirst (1);
-			var first = list.ElementAt (0);
-			Assert.AreSame (first, list.First);
+			var first = list.NodeAt (0);
+			Assert.AreSame (list.First, first);
 		}
 
 		[Test]
