@@ -85,6 +85,7 @@
       <Type Name="CachedSequence`1" DisplayName="CachedSequence&lt;T&gt;" Kind="Class" />
       <Type Name="EnumerableCoda" Kind="Class" />
       <Type Name="KeyValuePairCoda" Kind="Class" />
+      <Type Name="LinkedListCoda" Kind="Class" />
       <Type Name="MutableLookup`2" DisplayName="MutableLookup&lt;TKey,TElement&gt;" Kind="Class" />
       <Type Name="OrderedDictionary`2" DisplayName="OrderedDictionary&lt;TKey,TValue&gt;" Kind="Class" />
       <Type Name="ReadOnlyDictionary`2" DisplayName="ReadOnlyDictionary&lt;TKey,TValue&gt;" Kind="Class" />
@@ -551,10 +552,10 @@
           <Parameter Name="update" Type="System.Collections.Generic.IEnumerable&lt;T&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="T">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="update">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="T">The type of the elements within <paramref name="self" /> and <paramref name="update" /></typeparam>
+          <param name="self">The original enumeration of elements.</param>
+          <param name="update">The updated enumeration of elements to compare against.</param>
+          <summary>Compares two enumerations retrieving added, removed and unchanged elements.</summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.CompareWith``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
       </Member>
@@ -578,11 +579,11 @@
           <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;T&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="T">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="update">To be added.</param>
-          <param name="comparer">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="T">The type of the elements within <paramref name="self" /> and <paramref name="update" /></typeparam>
+          <param name="self">The original enumeration of elements.</param>
+          <param name="update">The updated enumeration of elements to compare against.</param>
+          <param name="comparer">The <see cref="System.Collections.Generic.IEqualityComparer{T}" /> used to compare equality.</param>
+          <summary>Compares two enumerations retrieving added, removed and unchanged elements.</summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.CompareWith``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})" />
       </Member>
@@ -3041,6 +3042,32 @@
         </summary>
         </Docs>
         <Link Type="Cadenza.Collections.KeyValuePairCoda" Member="M:Cadenza.Collections.KeyValuePairCoda.ToTuple``2(System.Collections.Generic.KeyValuePair{``0,``1})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.LinkedList`1" />
+      </Targets>
+      <Member MemberName="NodeAt&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static System.Collections.Generic.LinkedListNode&lt;T&gt; NodeAt&lt;T&gt; (this System.Collections.Generic.LinkedList&lt;T&gt; self, int index);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Collections.Generic.LinkedListNode&lt;T&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.LinkedList&lt;T&gt;" RefType="this" />
+          <Parameter Name="index" Type="System.Int32" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="index">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.Collections.LinkedListCoda" Member="M:Cadenza.Collections.LinkedListCoda.NodeAt``1(System.Collections.Generic.LinkedList{``0},System.Int32)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
