@@ -1947,12 +1947,42 @@ Assert.AreEqual ('d', c [3].Second);
         <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Random(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to remove <paramref name="prefix" /> from.
+        </param>
+        <summary>
+          Randomizes the ordering of items within <paramref name="self" />.
+        </summary>
+        <returns>
+          A new <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          with the same number of elements as <paramref name="self" /> except
+          that the elements returned may be in a different order.  The order of
+          the elements returned is controlled by <paramref name="random" />.
+        </returns>
+        <remarks>
+          <para>
+            This is equivalent to calling <c>Shuffle(self, null)</c>.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#Shuffle">IEnumerable&lt;int&gt; r = new[]{1,2,3,4,5}.Shuffle ();
+Assert.AreEqual (5, r.Count());
+Assert.IsTrue (r.Contains (1));
+Assert.IsTrue (r.Contains (2));
+Assert.IsTrue (r.Contains (3));
+Assert.IsTrue (r.Contains (4));
+Assert.IsTrue (r.Contains (5));
+
+Assert.IsFalse (r.Contains (0));
+Assert.IsFalse (r.Contains (6));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:Cadenza.Collections.EnumerableCoda.Shuffle``1(System.Collections.Generic.IEnumerable{``0},System.Random)" />
       </Docs>
     </Member>
     <Member MemberName="Shuffle&lt;TSource&gt;">
@@ -1972,13 +2002,47 @@ Assert.AreEqual ('d', c [3].Second);
         <Parameter Name="random" Type="System.Random" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="random">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Random(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to remove <paramref name="prefix" /> from.
+        </param>
+        <param name="random">
+          A <see cref="T:System.Random" /> instance to get random numbers from.
+        </param>
+        <summary>
+          Randomizes the ordering of items within <paramref name="self" />.
+        </summary>
+        <returns>
+          A new <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          with the same number of elements as <paramref name="self" /> except
+          that the elements returned may be in a different order.  The order of
+          the elements returned is controlled by <paramref name="random" />.
+        </returns>
+        <remarks>
+          <block subset="none" type="behaviors">
+            Calls <see cref="M:System.Random.Next(System.Int32)" />
+            once for each element within <paramref name="self" /> to partially
+            determine the element's position within the returned sequence, then
+            creates a new sequence based on the random element ordering.
+          </block>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#Shuffle">IEnumerable&lt;int&gt; r = new[]{1,2,3,4,5}.Shuffle ();
+Assert.AreEqual (5, r.Count());
+Assert.IsTrue (r.Contains (1));
+Assert.IsTrue (r.Contains (2));
+Assert.IsTrue (r.Contains (3));
+Assert.IsTrue (r.Contains (4));
+Assert.IsTrue (r.Contains (5));
+
+Assert.IsFalse (r.Contains (0));
+Assert.IsFalse (r.Contains (6));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="SkipPrefix&lt;TSource&gt;">

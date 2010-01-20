@@ -968,6 +968,7 @@ namespace Cadenza.Collections.Tests {
 		public void Shuffle ()
 		{
 			// how do you adequately test randomness?
+			#region Shuffle
 			IEnumerable<int> r = new[]{1,2,3,4,5}.Shuffle ();
 			Assert.AreEqual (5, r.Count());
 			Assert.IsTrue (r.Contains (1));
@@ -978,6 +979,7 @@ namespace Cadenza.Collections.Tests {
 
 			Assert.IsFalse (r.Contains (0));
 			Assert.IsFalse (r.Contains (6));
+			#endregion
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]

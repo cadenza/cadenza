@@ -1899,9 +1899,16 @@
           <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to remove <paramref name="prefix" /> from.
+        </param>
+          <summary>
+          Randomizes the ordering of items within <paramref name="self" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Shuffle``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
@@ -1924,10 +1931,19 @@
           <Parameter Name="random" Type="System.Random" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="random">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to remove <paramref name="prefix" /> from.
+        </param>
+          <param name="random">
+          A <see cref="T:System.Random" /> instance to get random numbers from.
+        </param>
+          <summary>
+          Randomizes the ordering of items within <paramref name="self" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Shuffle``1(System.Collections.Generic.IEnumerable{``0},System.Random)" />
       </Member>
