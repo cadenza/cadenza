@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Cdh.Toolkit.Collections.Observable
 {
-    public interface IObservableList<T>
+    public interface IObservableList<T> : IObservableCollection<T>, IList<T>
     {
-        event EventHandler<ObservableListChangedEventArgs<T>> Changed;
+        new event EventHandler<ObservableListChangedEventArgs<T>> Changed;
     }
 }
