@@ -38,7 +38,7 @@ namespace Cadenza.Collections {
 			Check.Self (self);
 			if (index < 0)
 				throw new ArgumentOutOfRangeException ("`index` cannot be negative.");
-			if (index > self.Count)
+			if (index >= self.Count)
 				throw new ArgumentOutOfRangeException ("`index` cannot be larger than self.Count");
 
 			var node = self.First;
