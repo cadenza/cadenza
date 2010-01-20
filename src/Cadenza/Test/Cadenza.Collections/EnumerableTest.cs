@@ -956,11 +956,12 @@ namespace Cadenza.Collections.Tests {
 			s.Shuffle ();
 		}
 
-		[Test, ExpectedException (typeof (ArgumentNullException))]
+		[Test]
 		public void Shuffle_RandomNull ()
 		{
 			IEnumerable<int> s = new[]{1};
-			s.Shuffle (null);
+			IEnumerable<int> r = s.Shuffle (null);
+			AssertAreSame (s, r);
 		}
 
 		[Test]

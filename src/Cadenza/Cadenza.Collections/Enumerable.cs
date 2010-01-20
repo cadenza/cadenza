@@ -380,13 +380,14 @@ namespace Cadenza.Collections {
 
 		public static IEnumerable<TSource> Shuffle<TSource> (this IEnumerable<TSource> self)
 		{
-			return Shuffle (self, new Random ());
+			return Shuffle (self, null);
 		}
 
 		public static IEnumerable<TSource> Shuffle<TSource> (this IEnumerable<TSource> self, Random random)
 		{
 			Check.Self (self);
-			Check.Random (random);
+			if (random == null)
+				random = new Random ();
 
 			return CreateShuffleIterator (self, random);
 		}
