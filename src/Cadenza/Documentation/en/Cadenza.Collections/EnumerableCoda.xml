@@ -2236,7 +2236,9 @@ Assert.AreEqual ('d', c [3].Second);
             This method does not modify <paramref name="self" />.
           </para>
         </remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.EnumerableCoda.Sort``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Span&lt;TSource&gt;">
