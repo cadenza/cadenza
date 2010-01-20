@@ -2007,6 +2007,34 @@ Assert.AreEqual ('d', c [3].Second);
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.EnumerableCoda.SkipPrefix``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" /></exception>
       </Docs>
     </Member>
+    <Member MemberName="SkipPrefix&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; SkipPrefix&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; prefix, System.Collections.Generic.IEqualityComparer&lt;TSource&gt; comparer);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="prefix" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" />
+        <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;TSource&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="prefix">To be added.</param>
+        <param name="comparer">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Collections.EnumerableCoda.SkipPrefix``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})" /></exception>
+      </Docs>
+    </Member>
     <Member MemberName="Sort&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Sort&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
       <MemberType>Method</MemberType>

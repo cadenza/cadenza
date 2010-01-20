@@ -1094,9 +1094,15 @@ namespace Cadenza.Collections {
 		// Haskell: stripPrefix
 		public static IEnumerable<TSource> SkipPrefix<TSource> (this IEnumerable<TSource> self, IEnumerable<TSource> prefix)
 		{
+			return SkipPrefix (self, prefix, null);
+		}
+
+		public static IEnumerable<TSource> SkipPrefix<TSource> (this IEnumerable<TSource> self, IEnumerable<TSource> prefix, IEqualityComparer<TSource> comparer)
+		{
 			Check.Self (self);
 			if (prefix == null)
 				throw new ArgumentNullException ("prefix");
+			comparer = comparer ?? EqualityComparer<TSource>.Default;
 
 			using (IEnumerator<TSource> s = self.GetEnumerator ())
 			using (IEnumerator<TSource> p = prefix.GetEnumerator ()) {
@@ -1104,7 +1110,7 @@ namespace Cadenza.Collections {
 				bool have_s = s.MoveNext(), have_p = p.MoveNext(), have_match = true;
 				do {
 					++c;
-					if ((have_p && !have_s) || !EqualityComparer<TSource>.Default.Equals (s.Current, p.Current)) {
+					if ((have_p && !have_s) || !comparer.Equals (s.Current, p.Current)) {
 						have_match = false;
 						break;
 					}
