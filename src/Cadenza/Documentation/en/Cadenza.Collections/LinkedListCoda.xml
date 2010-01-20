@@ -1,0 +1,90 @@
+<Type Name="LinkedListCoda" FullName="Cadenza.Collections.LinkedListCoda">
+  <TypeSignature Language="C#" Value="public static class LinkedListCoda" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+      <see cref="T:System.Collections.Generic.LinkedList{T}" /> extension methods.
+    </summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="NodeAt&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.LinkedListNode&lt;T&gt; NodeAt&lt;T&gt; (this System.Collections.Generic.LinkedList&lt;T&gt; self, int index);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.LinkedListNode&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.LinkedList&lt;T&gt;" RefType="this" />
+        <Parameter Name="index" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.LinkedList{T}" />
+          to get a
+          <see cref="T:System.Collections.Generic.LinkedListNode{T}" /> from.
+        </param>
+        <param name="index">
+          A <see cref="T:System.Int32" /> containing the zero-based index of the
+          <see cref="T:System.Collections.Generic.LinkedListNode{T}" /> to
+          retrieve.
+        </param>
+        <summary>
+          Returns the
+          <see cref="T:System.Collections.Generic.LinkedListNode{T}" />
+          at the specified <paramref name="index" /> of the
+          <see cref="T:System.Collections.Generic.LinkedList{T}" />.
+        </summary>
+        <returns>
+          The
+          <see cref="T:System.Collections.Generic.LinkedListNode{T}" />
+          at the specified <paramref name="index" /> of the
+          <see cref="T:System.Collections.Generic.LinkedList{T}" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza.Collections/LinkedListCodaTest.cs#NodeAt">LinkedList&lt;int&gt; list = new LinkedList&lt;int&gt;();
+list.AddLast (1); // first node;  index=0
+list.AddLast (2); // middle node; index=1
+list.AddLast (3); // last node;   index=2
+
+Assert.AreSame (list.First,         list.NodeAt (0));
+Assert.AreSame (list.First.Next,    list.NodeAt (1));
+Assert.AreSame (list.Last.Previous, list.NodeAt (1));
+Assert.AreSame (list.Last,          list.NodeAt (2));
+Assert.AreEqual (3, list.NodeAt (2).Value);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <para>
+            <paramref name="index" /> is negative.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="index" /> is greater than or equal to
+            <see cref="P:System.Collections.Generic.LinkedList{T}.Count" />.
+          </para>
+        </exception>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

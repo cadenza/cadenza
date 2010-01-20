@@ -81,11 +81,18 @@ namespace Cadenza.Collections.Tests {
 		[Test]
 		public void NodeAt ()
 		{
+			#region NodeAt
 			LinkedList<int> list = new LinkedList<int>();
-			list.AddLast (1);
-			list.AddLast (2);
-			list.AddLast (3);
+			list.AddLast (1); // first node;  index=0
+			list.AddLast (2); // middle node; index=1
+			list.AddLast (3); // last node;   index=2
+
+			Assert.AreSame (list.First,         list.NodeAt (0));
+			Assert.AreSame (list.First.Next,    list.NodeAt (1));
+			Assert.AreSame (list.Last.Previous, list.NodeAt (1));
+			Assert.AreSame (list.Last,          list.NodeAt (2));
 			Assert.AreEqual (3, list.NodeAt (2).Value);
+			#endregion
 		}
 	}
 }
