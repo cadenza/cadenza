@@ -2303,7 +2303,9 @@ Assert.AreEqual ("|123",
 		.Aggregate ((x, y) =&gt; x.Implode () + "|" + y.Implode ()));
 </code>
         </remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Predicate(System.Object)" /></exception>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> or <paramref name="predicate" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="SplitAt&lt;TSource&gt;">
