@@ -1950,10 +1950,22 @@
           <Parameter Name="prefix" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="prefix">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to remove <paramref name="prefix" /> from.
+        </param>
+          <param name="prefix">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to remove from the start of
+          <paramref name="self" />.
+        </param>
+          <summary>
+          Skips over <paramref name="prefix" />, returning the elements following
+          <paramref name="prefix" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SkipPrefix``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
       </Member>
@@ -1977,11 +1989,30 @@
           <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;TSource&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="prefix">To be added.</param>
-          <param name="comparer">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to remove <paramref name="prefix" /> from.
+        </param>
+          <param name="prefix">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to remove from the start of
+          <paramref name="self" />.
+        </param>
+          <param name="comparer">
+          A <see cref="T:System.Collections.Generic.IEqualityComparer{TSource}" />
+          to use to compare elements between the <paramref name="self" />
+          and <paramref name="prefix" /> sequences.  If <see langword="null" />
+          then
+          <see cref="P:System.Collections.Generic.EqualityComparer{TSource}.Default" />
+          is used.
+        </param>
+          <summary>
+          Skips over <paramref name="prefix" />, returning the elements following
+          <paramref name="prefix" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SkipPrefix``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})" />
       </Member>

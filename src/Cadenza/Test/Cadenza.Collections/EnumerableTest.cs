@@ -2017,6 +2017,7 @@ namespace Cadenza.Collections.Tests {
 		[Test]
 		public void SkipPrefix ()
 		{
+			#region SkipPrefix
 			Assert.AreEqual ("bar",
 					"foobar".SkipPrefix ("foo").Implode ());
 			Assert.AreEqual ("",
@@ -2025,6 +2026,7 @@ namespace Cadenza.Collections.Tests {
 					"barfoo".SkipPrefix ("foo"));
 			Assert.AreEqual (null,
 					"barfoobaz".SkipPrefix ("foo"));
+			#endregion
 		}
 
 		[Test]

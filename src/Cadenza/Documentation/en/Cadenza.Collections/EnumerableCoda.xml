@@ -1998,13 +1998,47 @@ Assert.AreEqual ('d', c [3].Second);
         <Parameter Name="prefix" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="prefix">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.EnumerableCoda.SkipPrefix``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" /></exception>
+        <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to remove <paramref name="prefix" /> from.
+        </param>
+        <param name="prefix">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to remove from the start of
+          <paramref name="self" />.
+        </param>
+        <summary>
+          Skips over <paramref name="prefix" />, returning the elements following
+          <paramref name="prefix" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          if <paramref name="self" /> begins with <paramref name="prefix" />
+          which contains the elements within <paramref name="self" /> following
+          the sequence within <paramref name="prefix" />.
+          If <paramref name="self" /> does not start with
+          <paramref name="prefix" />, then <see langword="null" /> is returned.
+        </returns>
+        <remarks>
+          <para>
+            This is equivalent to calling <c>SkipPrefix(self, prefix, null).</c></para>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#SkipPrefix">Assert.AreEqual ("bar",
+		"foobar".SkipPrefix ("foo").Implode ());
+Assert.AreEqual ("",
+		"foo".SkipPrefix ("foo").Implode ());
+Assert.AreEqual (null,
+		"barfoo".SkipPrefix ("foo"));
+Assert.AreEqual (null,
+		"barfoobaz".SkipPrefix ("foo"));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> or <paramref name="prefix" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:Cadenza.Collections.EnumerableCoda.SkipPrefix``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})" />
       </Docs>
     </Member>
     <Member MemberName="SkipPrefix&lt;TSource&gt;">
@@ -2025,14 +2059,52 @@ Assert.AreEqual ('d', c [3].Second);
         <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;TSource&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="prefix">To be added.</param>
-        <param name="comparer">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Collections.EnumerableCoda.SkipPrefix``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})" /></exception>
+        <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to remove <paramref name="prefix" /> from.
+        </param>
+        <param name="prefix">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to remove from the start of
+          <paramref name="self" />.
+        </param>
+        <param name="comparer">
+          A <see cref="T:System.Collections.Generic.IEqualityComparer{TSource}" />
+          to use to compare elements between the <paramref name="self" />
+          and <paramref name="prefix" /> sequences.  If <see langword="null" />
+          then
+          <see cref="P:System.Collections.Generic.EqualityComparer{TSource}.Default" />
+          is used.
+        </param>
+        <summary>
+          Skips over <paramref name="prefix" />, returning the elements following
+          <paramref name="prefix" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          if <paramref name="self" /> begins with <paramref name="prefix" />
+          which contains the elements within <paramref name="self" /> following
+          the sequence within <paramref name="prefix" />.
+          If <paramref name="self" /> does not start with
+          <paramref name="prefix" />, then <see langword="null" /> is returned.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#SkipPrefix">Assert.AreEqual ("bar",
+		"foobar".SkipPrefix ("foo").Implode ());
+Assert.AreEqual ("",
+		"foo".SkipPrefix ("foo").Implode ());
+Assert.AreEqual (null,
+		"barfoo".SkipPrefix ("foo"));
+Assert.AreEqual (null,
+		"barfoobaz".SkipPrefix ("foo"));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> or <paramref name="prefix" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Sort&lt;TSource&gt;">
