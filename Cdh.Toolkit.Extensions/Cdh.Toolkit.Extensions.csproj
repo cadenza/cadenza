@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\Extensions.cs" />
+    <Compile Include="ComponentModel\Extensions.cs" />
     <Compile Include="Enumerable\Extensions.cs" />
     <Compile Include="Events\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
