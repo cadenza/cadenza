@@ -7657,8 +7657,14 @@
           <Parameter Name="self" Type="System.String" RefType="this" />
         </Parameters>
         <Docs>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="self">
+          A <see cref="T:System.String" /> to check to see if it is
+          <see langword="null" /> or contains only whitespace characters.
+        </param>
+          <summary>
+          Indicates whether <paramref name="self" /> is a
+          <see langword="null" /> or contains only whitespace.
+        </summary>
         </Docs>
         <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.IsNullOrWhitespace(System.String)" />
       </Member>

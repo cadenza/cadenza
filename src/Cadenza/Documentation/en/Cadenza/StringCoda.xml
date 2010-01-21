@@ -255,10 +255,28 @@
         <Parameter Name="self" Type="System.String" RefType="this" />
       </Parameters>
       <Docs>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="self">
+          A <see cref="T:System.String" /> to check to see if it is
+          <see langword="null" /> or contains only whitespace characters.
+        </param>
+        <summary>
+          Indicates whether <paramref name="self" /> is a
+          <see langword="null" /> or contains only whitespace.
+        </summary>
+        <returns>
+          <see langword="true" /> if <paramref name="self" />
+          is <see langword="null" /> or contains only
+          whitespace; otherwise, <see langword="false" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#IsNullOrWhitespace">string s = null;
+Assert.IsTrue (s.IsNullOrWhitespace());
+Assert.IsTrue ("".IsNullOrWhitespace());
+Assert.IsTrue ("    ".IsNullOrWhitespace());
+Assert.IsFalse ("foo".IsNullOrWhitespace());
+</code>
+        </remarks>
+        <altmember cref="M:System.String.Trim" />
       </Docs>
     </Member>
     <Member MemberName="Lines">

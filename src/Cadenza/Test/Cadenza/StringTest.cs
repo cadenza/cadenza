@@ -494,29 +494,15 @@ namespace Cadenza.Tests {
 		}
 
 		[Test]
-		public void IsNullOrWhitespaceNull()
+		public void IsNullOrWhitespace ()
 		{
-#pragma warning disable 1720
-			Assert.IsTrue (((string)null).IsNullOrWhitespace());
-#pragma warning restore
-		}
-
-		[Test]
-		public void IsNullOrWhitespaceNot()
-		{
-			Assert.IsFalse ("foo".IsNullOrWhitespace());
-		}
-
-		[Test]
-		public void IsNullOrWhitespaceEmpty()
-		{
+			#region IsNullOrWhitespace
+			string s = null;
+			Assert.IsTrue (s.IsNullOrWhitespace());
 			Assert.IsTrue ("".IsNullOrWhitespace());
-		}
-
-		[Test]
-		public void IsNullOrWhitespaceWhitespace()
-		{
 			Assert.IsTrue ("    ".IsNullOrWhitespace());
+			Assert.IsFalse ("foo".IsNullOrWhitespace());
+			#endregion
 		}
 	}
 }
