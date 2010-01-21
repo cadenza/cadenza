@@ -1846,10 +1846,21 @@
           <Parameter Name="list" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="list">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to compare against <paramref name="list" />.
+        </param>
+          <param name="list">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to compare against <paramref name="self" />.
+        </param>
+          <summary>
+          Compares the elements of two sequences by using the default
+          comparer for their type.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SequenceCompare``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})" />
       </Member>
@@ -1873,11 +1884,29 @@
           <Parameter Name="comparer" Type="System.Collections.Generic.IComparer&lt;TSource&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="list">To be added.</param>
-          <param name="comparer">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to compare against <paramref name="list" />.
+        </param>
+          <param name="list">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to compare against <paramref name="self" />.
+        </param>
+          <param name="comparer">
+          A <see cref="T:System.Collections.Generic.IComparer{TSource}" />
+          which is used to compare elements from <paramref name="self" />
+          and <paramref name="list" /> are to each other.  If
+          <see langword="null" />, then
+          <see cref="P:System.Collections.Generic.Comparer{TSource}.Default" />
+          is used.
+        </param>
+          <summary>
+          Compares the elements of two sequences by using a specified
+          <see cref="T:System.Collections.Generic.IComparer{TSource}" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SequenceCompare``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IComparer{``0})" />
       </Member>

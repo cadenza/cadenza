@@ -938,6 +938,7 @@ namespace Cadenza.Collections.Tests {
 		[Test]
 		public void SequenceCompare ()
 		{
+			#region SequenceCompare
 			Assert.AreEqual (0,
 					new[]{1, 2}.SequenceCompare (new[]{1, 2}));
 			Assert.AreEqual (-1,
@@ -948,6 +949,7 @@ namespace Cadenza.Collections.Tests {
 					new[]{1, 2}.SequenceCompare (new[]{1}));
 			Assert.AreEqual (1,
 					new[]{1}.SequenceCompare (new[]{1, 2}));
+			#endregion
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
