@@ -597,11 +597,31 @@ AssertAreSame (expected, actual);
         </Parameter>
       </Parameters>
       <Docs>
-        <param name="self">To be added.</param>
-        <param name="targets">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="self">
+          A <see cref="T:System.String" /> to remove all occurrences of all
+          elements within <paramref name="targets" />.
+        </param>
+        <param name="targets">
+          A <see cref="T:System.String" /> array containing the strings to
+          remove from <paramref name="self " />.
+        </param>
+        <summary>
+          Deletes all strings within <paramref name="targets" /> from
+          <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.String" /> instance in which all strings
+          within <paramref name="targets " /> have been removed.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Remove">Assert.AreEqual (" Bar ", "Foo Bar Monkeys".Remove ("Foo", "Monkeys"));
+Assert.AreEqual (" Bar ", "Foo Bar Foo".Remove ("Foo"));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> or <paramref name="targets" /> is
+          <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Slice">

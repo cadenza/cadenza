@@ -242,8 +242,10 @@ namespace Cadenza.Tests {
 		[Test]
 		public void Remove()
 		{
+			#region Remove
 			Assert.AreEqual (" Bar ", "Foo Bar Monkeys".Remove ("Foo", "Monkeys"));
 			Assert.AreEqual (" Bar ", "Foo Bar Foo".Remove ("Foo"));
+			#endregion
 		}
 
 		[Test]

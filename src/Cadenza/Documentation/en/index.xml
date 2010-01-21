@@ -7850,9 +7850,18 @@
           </Parameter>
         </Parameters>
         <Docs>
-          <param name="self">To be added.</param>
-          <param name="targets">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="self">
+          A <see cref="T:System.String" /> to remove all occurrences of all
+          elements within <paramref name="targets" />.
+        </param>
+          <param name="targets">
+          A <see cref="T:System.String" /> array containing the strings to
+          remove from <paramref name="self " />.
+        </param>
+          <summary>
+          Deletes all strings within <paramref name="targets" /> from
+          <paramref name="self" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.Remove(System.String,System.String[])" />
       </Member>
