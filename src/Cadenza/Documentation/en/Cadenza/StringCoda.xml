@@ -893,11 +893,178 @@ AssertAreSame (expected, actual);
         <Parameter Name="widths" Type="System.Collections.Generic.IEnumerable&lt;System.Int32&gt;" />
       </Parameters>
       <Docs>
-        <param name="self">To be added.</param>
-        <param name="widths">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="self">
+          A <see cref="T:System.String" /> to split into segments no longer
+          than lenghts in the <paramref name="widths" /> sequence.
+        </param>
+        <param name="widths">
+          A
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing the maximum lengths
+          to use for corresponding returned segments.  The last value in this
+          array is used for all remaining segments.
+        </param>
+        <summary>
+          Splits a string into line segments with a maximum length constrained
+          by <paramref name="widths" />.
+        </summary>
+        <returns>
+          A
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing segments from <paramref name="self" /> with a length
+          no longer than entries from <paramref name="widths" />.
+        </returns>
+        <remarks>
+          <para>
+            This is a "DWIM"-style interface for line wrapping.
+          </para>
+          <para>
+            <c>WrappedLines()</c> is oriented toward
+            <see cref="T:System.Console" />-style output in which line widths
+            are controlled by the number of characters (i.e. fixed-width fonts,
+            not proportional fonts).  <paramref name="widths" /> is used
+            to constrain the length of each corresponding segment within the
+            returned
+            <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />.
+            For example, the first string segment returned will have a length
+            no longer than the first element in <paramref name="widths" />,
+            the second string segment returned will have a length no longer
+            than the second element in <paramref name="widths" />, etc.
+            The last element in <paramref name="widths" /> is used to constrain
+            the lenghts of all remaining string segments; thus, if
+            <paramref name="widths" /> has only one element, that value is
+            used to constrain all returned string segments.
+          </para>
+          <para>
+            Note that <paramref name="widths" /> constrains the width of
+            segments; a segment may be shorter, and may be empty.
+          </para>
+          <para>
+            String splitting is done as follows:
+          </para>
+          <list type="number">
+            <item>
+              <term>
+                Determine the <c>width</c>to use for the current segment by
+                getting a value from <paramref name="widths" />.  If
+                <paramref name="widths" /> is empty, then the maximum
+                segment length is <see cref="F:System.Int32.MaxValue" />.
+                If there is no remaining value in <paramref name="widths" />,
+                use the last width value found.
+              </term>
+            </item>
+            <item>
+              <term>
+                Beginning at index <c>i</c> within <paramref name="self" />
+                (starting at index <c>0</c>), look for all "end-of-line
+                characters" -- characters for which
+                <see cref="M:System.Char.IsLetterOrDigit(System.Char)" />
+                returns <see langword="false" />, thus including punctuation,
+                whitespace, etc. --
+                from <c>self[i]</c> until <c>self[i+width]</c>.
+                If a newline is found, return the segment starting from index
+                <c>i</c> until the first newline position.  If no newline
+                is found but an end-of-line character is is found, return a
+                segment starting from index <c>i</c> until the last end-of-line
+                character. If no end-of-line character is found within
+                <c>self[i]</c> until <c>self[i+width]</c>, create a segment from
+                <c>self[i]</c> until <c>self[i+width-1]</c>, and append
+                <c>'-'</c> to the segment as a line-continuation character.
+              </term>
+            </item>
+            <item>
+              <term>
+                Repeat steps 1-2 until the end of the string is encountered.
+              </term>
+            </item>
+          </list>
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#WrappedLines">// Notice that the first width is 50, but the actual returned length is 17.
+// This is because the newline is encountered first.
+// The width of 48 is used to constrain all remaining lines, causing
+// the 4th line to require line-wrapping.
+//
+// Notice also that all embedded '\n's are removed.
+IEnumerable&lt;string&gt; wrappedLines =
+		("This has a really\n" +
+		 "long, multi-line description that also\n" +
+		 "tests\n" +
+		 "the-builtin-supercalifragilisticexpialidicious-break-on-hyphen.  " +
+		 "Also, a list:\n" +
+		 "  item 1\n" +
+		 "  item 2")
+		.WrappedLines (50, 48);
+Assert.IsTrue (new[]{
+		"This has a really",
+		"long, multi-line description that also",
+		"tests",
+		"the-builtin-supercalifragilisticexpialidicious-",
+		"break-on-hyphen.  Also, a list:",
+		"  item 1",
+		"  item 2",
+}.SequenceEqual (wrappedLines));
+
+// Another example where the text has no whitespace before the
+// constrained width.
+wrappedLines =
+	"IWantThisDescriptionToBreakInsideAWordGeneratingAutoWordHyphenation."
+	.WrappedLines (50, 4, 5, 12);
+Assert.IsTrue (new[]{
+		"IWantThisDescriptionToBreakInsideAWordGeneratingA-", // length=50
+		"uto-",                                               // length=4
+		"Word-",                                              // length=5
+		"Hyphenation.",                                       // length=12
+}.SequenceEqual (wrappedLines));
+
+// Notice that '.' is treated as an end-of-line character
+wrappedLines =
+	"OnlyOnePeriod.AndNoWhitespaceShouldBeSupportedEvenWithLongDescriptions"
+	.WrappedLines (50, 48);
+Assert.IsTrue (new[]{
+		"OnlyOnePeriod.",
+		"AndNoWhitespaceShouldBeSupportedEvenWithLongDes-",
+		"criptions",
+}.SequenceEqual (wrappedLines));
+
+wrappedLines =
+	"Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 and more until the end."
+	.WrappedLines (50, 48);
+Assert.IsTrue (new []{
+		"Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0",
+		"1 2 3 4 5 and more until the end.",
+}.SequenceEqual (wrappedLines));
+
+wrappedLines =
+	"Lots of spaces in the middle - . - . - . - . - . - . - . - and more until the end."
+	.WrappedLines (50, 48);
+Assert.IsTrue (new[]{
+		"Lots of spaces in the middle - . - . - . - . - . -",
+		" . - . - and more until the end.",
+}.SequenceEqual (wrappedLines));
+
+// An ~infinite sequence of widths
+wrappedLines =
+	"1121231234123451234561234567123456781234567891234567890"
+	.WrappedLines (Sequence.Iterate(2, v =&gt; v + 1));
+Assert.IsTrue (new[]{
+		"1-",
+		"12-",
+		"123-",
+		"1234-",
+		"12345-",
+		"123456-",
+		"1234567-",
+		"12345678-",
+		"123456789-",
+		"1234567890",
+}.SequenceEqual (wrappedLines));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="widths" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="widths" /> contains a value that is less than 2.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="WrappedLines">
@@ -920,11 +1087,176 @@ AssertAreSame (expected, actual);
         </Parameter>
       </Parameters>
       <Docs>
-        <param name="self">To be added.</param>
-        <param name="widths">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="self">
+          A <see cref="T:System.String" /> to split into segments no longer
+          than lenghts in the <paramref name="widths" /> sequence.
+        </param>
+        <param name="widths">
+          A <see cref="T:System.Int32" /> array containing the maximum lengths
+          to use for corresponding returned segments.  The last value in this
+          array is used for all remaining segments.
+        </param>
+        <summary>
+          Splits a string into line segments with a maximum length constrained
+          by <paramref name="widths" />.
+        </summary>
+        <returns>
+          A
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing segments from <paramref name="self" /> with a length
+          no longer than entries from <paramref name="widths" />.
+        </returns>
+        <remarks>
+          <para>
+            This is a "DWIM"-style interface for line wrapping.
+          </para>
+          <para>
+            <c>WrappedLines()</c> is oriented toward
+            <see cref="T:System.Console" />-style output in which line widths
+            are controlled by the number of characters (i.e. fixed-width fonts,
+            not proportional fonts).  <paramref name="widths" /> is used
+            to constrain the length of each corresponding segment within the
+            returned
+            <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />.
+            For example, the first string segment returned will have a length
+            no longer than the first element in <paramref name="widths" />,
+            the second string segment returned will have a length no longer
+            than the second element in <paramref name="widths" />, etc.
+            The last element in <paramref name="widths" /> is used to constrain
+            the lenghts of all remaining string segments; thus, if
+            <paramref name="widths" /> has only one element, that value is
+            used to constrain all returned string segments.
+          </para>
+          <para>
+            Note that <paramref name="widths" /> constrains the width of
+            segments; a segment may be shorter, and may be empty.
+          </para>
+          <para>
+            String splitting is done as follows:
+          </para>
+          <list type="number">
+            <item>
+              <term>
+                Determine the <c>width</c>to use for the current segment by
+                getting a value from <paramref name="widths" />.  If
+                <paramref name="widths" /> is empty, then the maximum
+                segment length is <see cref="F:System.Int32.MaxValue" />.
+                If there is no remaining value in <paramref name="widths" />,
+                use the last width value found.
+              </term>
+            </item>
+            <item>
+              <term>
+                Beginning at index <c>i</c> within <paramref name="self" />
+                (starting at index <c>0</c>), look for all "end-of-line
+                characters" -- characters for which
+                <see cref="M:System.Char.IsLetterOrDigit(System.Char)" />
+                returns <see langword="false" />, thus including punctuation,
+                whitespace, etc. --
+                from <c>self[i]</c> until <c>self[i+width]</c>.
+                If a newline is found, return the segment starting from index
+                <c>i</c> until the first newline position.  If no newline
+                is found but an end-of-line character is is found, return a
+                segment starting from index <c>i</c> until the last end-of-line
+                character. If no end-of-line character is found within
+                <c>self[i]</c> until <c>self[i+width]</c>, create a segment from
+                <c>self[i]</c> until <c>self[i+width-1]</c>, and append
+                <c>'-'</c> to the segment as a line-continuation character.
+              </term>
+            </item>
+            <item>
+              <term>
+                Repeat steps 1-2 until the end of the string is encountered.
+              </term>
+            </item>
+          </list>
+          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#WrappedLines">// Notice that the first width is 50, but the actual returned length is 17.
+// This is because the newline is encountered first.
+// The width of 48 is used to constrain all remaining lines, causing
+// the 4th line to require line-wrapping.
+//
+// Notice also that all embedded '\n's are removed.
+IEnumerable&lt;string&gt; wrappedLines =
+		("This has a really\n" +
+		 "long, multi-line description that also\n" +
+		 "tests\n" +
+		 "the-builtin-supercalifragilisticexpialidicious-break-on-hyphen.  " +
+		 "Also, a list:\n" +
+		 "  item 1\n" +
+		 "  item 2")
+		.WrappedLines (50, 48);
+Assert.IsTrue (new[]{
+		"This has a really",
+		"long, multi-line description that also",
+		"tests",
+		"the-builtin-supercalifragilisticexpialidicious-",
+		"break-on-hyphen.  Also, a list:",
+		"  item 1",
+		"  item 2",
+}.SequenceEqual (wrappedLines));
+
+// Another example where the text has no whitespace before the
+// constrained width.
+wrappedLines =
+	"IWantThisDescriptionToBreakInsideAWordGeneratingAutoWordHyphenation."
+	.WrappedLines (50, 4, 5, 12);
+Assert.IsTrue (new[]{
+		"IWantThisDescriptionToBreakInsideAWordGeneratingA-", // length=50
+		"uto-",                                               // length=4
+		"Word-",                                              // length=5
+		"Hyphenation.",                                       // length=12
+}.SequenceEqual (wrappedLines));
+
+// Notice that '.' is treated as an end-of-line character
+wrappedLines =
+	"OnlyOnePeriod.AndNoWhitespaceShouldBeSupportedEvenWithLongDescriptions"
+	.WrappedLines (50, 48);
+Assert.IsTrue (new[]{
+		"OnlyOnePeriod.",
+		"AndNoWhitespaceShouldBeSupportedEvenWithLongDes-",
+		"criptions",
+}.SequenceEqual (wrappedLines));
+
+wrappedLines =
+	"Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 and more until the end."
+	.WrappedLines (50, 48);
+Assert.IsTrue (new []{
+		"Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0",
+		"1 2 3 4 5 and more until the end.",
+}.SequenceEqual (wrappedLines));
+
+wrappedLines =
+	"Lots of spaces in the middle - . - . - . - . - . - . - . - and more until the end."
+	.WrappedLines (50, 48);
+Assert.IsTrue (new[]{
+		"Lots of spaces in the middle - . - . - . - . - . -",
+		" . - . - and more until the end.",
+}.SequenceEqual (wrappedLines));
+
+// An ~infinite sequence of widths
+wrappedLines =
+	"1121231234123451234561234567123456781234567891234567890"
+	.WrappedLines (Sequence.Iterate(2, v =&gt; v + 1));
+Assert.IsTrue (new[]{
+		"1-",
+		"12-",
+		"123-",
+		"1234-",
+		"12345-",
+		"123456-",
+		"1234567-",
+		"12345678-",
+		"123456789-",
+		"1234567890",
+}.SequenceEqual (wrappedLines));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="widths" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="widths" /> contains a value that is less than 2.
+        </exception>
       </Docs>
     </Member>
   </Members>

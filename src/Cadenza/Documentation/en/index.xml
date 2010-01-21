@@ -8024,9 +8024,21 @@
           <Parameter Name="widths" Type="System.Collections.Generic.IEnumerable&lt;System.Int32&gt;" />
         </Parameters>
         <Docs>
-          <param name="self">To be added.</param>
-          <param name="widths">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="self">
+          A <see cref="T:System.String" /> to split into segments no longer
+          than lenghts in the <paramref name="widths" /> sequence.
+        </param>
+          <param name="widths">
+          A
+          <see cref="T:System.Collections.Generic.IEnumerable{System.String}" />
+          containing the maximum lengths
+          to use for corresponding returned segments.  The last value in this
+          array is used for all remaining segments.
+        </param>
+          <summary>
+          Splits a string into line segments with a maximum length constrained
+          by <paramref name="widths" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.WrappedLines(System.String,System.Collections.Generic.IEnumerable{System.Int32})" />
       </Member>
@@ -8052,9 +8064,19 @@
           </Parameter>
         </Parameters>
         <Docs>
-          <param name="self">To be added.</param>
-          <param name="widths">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="self">
+          A <see cref="T:System.String" /> to split into segments no longer
+          than lenghts in the <paramref name="widths" /> sequence.
+        </param>
+          <param name="widths">
+          A <see cref="T:System.Int32" /> array containing the maximum lengths
+          to use for corresponding returned segments.  The last value in this
+          array is used for all remaining segments.
+        </param>
+          <summary>
+          Splits a string into line segments with a maximum length constrained
+          by <paramref name="widths" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.StringCoda" Member="M:Cadenza.StringCoda.WrappedLines(System.String,System.Int32[])" />
       </Member>

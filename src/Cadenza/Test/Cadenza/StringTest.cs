@@ -119,7 +119,14 @@ namespace Cadenza.Tests {
 		[Test]
 		public void WrappedLines ()
 		{
-			var e =
+			#region WrappedLines
+			// Notice that the first width is 50, but the actual returned length is 17.
+			// This is because the newline is encountered first.
+			// The width of 48 is used to constrain all remaining lines, causing
+			// the 4th line to require line-wrapping.
+			//
+			// Notice also that all embedded '\n's are removed.
+			IEnumerable<string> wrappedLines =
 					("This has a really\n" +
 					 "long, multi-line description that also\n" +
 					 "tests\n" +
@@ -128,59 +135,71 @@ namespace Cadenza.Tests {
 					 "  item 1\n" +
 					 "  item 2")
 					.WrappedLines (50, 48);
-			Assert.AreEqual (
-					"This has a really\n" +
-					"long, multi-line description that also\n" +
-					"tests\n" +
-					"the-builtin-supercalifragilisticexpialidicious-\n" +
-					"break-on-hyphen.  Also, a list:\n" +
-					"  item 1\n" +
+			Assert.IsTrue (new[]{
+					"This has a really",
+					"long, multi-line description that also",
+					"tests",
+					"the-builtin-supercalifragilisticexpialidicious-",
+					"break-on-hyphen.  Also, a list:",
+					"  item 1",
 					"  item 2",
-					e.Implode ("\n"));
+			}.SequenceEqual (wrappedLines));
 
-			e = "IWantThisDescriptionToBreakInsideAWordGeneratingAutoWordHyphenation."
-					.WrappedLines (50, 48);
-			Assert.AreEqual (
-					"IWantThisDescriptionToBreakInsideAWordGeneratingA-\n" +
-					"utoWordHyphenation.",
-					e.Implode ("\n"));
+			// Another example where the text has no whitespace before the
+			// constrained width.
+			wrappedLines =
+				"IWantThisDescriptionToBreakInsideAWordGeneratingAutoWordHyphenation."
+				.WrappedLines (50, 4, 5, 12);
+			Assert.IsTrue (new[]{
+					"IWantThisDescriptionToBreakInsideAWordGeneratingA-", // length=50
+					"uto-",                                               // length=4
+					"Word-",                                              // length=5
+					"Hyphenation.",                                       // length=12
+			}.SequenceEqual (wrappedLines));
 
-			e = "OnlyOnePeriod.AndNoWhitespaceShouldBeSupportedEvenWithLongDescriptions"
-					.WrappedLines (50, 48);
-			Assert.AreEqual (
-					"OnlyOnePeriod.\n" +
-					"AndNoWhitespaceShouldBeSupportedEvenWithLongDes-\n" +
+			// Notice that '.' is treated as an end-of-line character
+			wrappedLines =
+				"OnlyOnePeriod.AndNoWhitespaceShouldBeSupportedEvenWithLongDescriptions"
+				.WrappedLines (50, 48);
+			Assert.IsTrue (new[]{
+					"OnlyOnePeriod.",
+					"AndNoWhitespaceShouldBeSupportedEvenWithLongDes-",
 					"criptions",
-					e.Implode ("\n"));
+			}.SequenceEqual (wrappedLines));
 
-			e = "Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 and more until the end."
-					.WrappedLines (50, 48);
-			Assert.AreEqual (
-					"Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0\n" +
+			wrappedLines =
+				"Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 and more until the end."
+				.WrappedLines (50, 48);
+			Assert.IsTrue (new []{
+					"Lots of spaces in the middle 1 2 3 4 5 6 7 8 9 0",
 					"1 2 3 4 5 and more until the end.",
-					e.Implode ("\n"));
+			}.SequenceEqual (wrappedLines));
 
-			e = "Lots of spaces in the middle - . - . - . - . - . - . - . - and more until the end."
-					.WrappedLines (50, 48);
-			Assert.AreEqual (
-					"Lots of spaces in the middle - . - . - . - . - . -\n" +
+			wrappedLines =
+				"Lots of spaces in the middle - . - . - . - . - . - . - . - and more until the end."
+				.WrappedLines (50, 48);
+			Assert.IsTrue (new[]{
+					"Lots of spaces in the middle - . - . - . - . - . -",
 					" . - . - and more until the end.",
-					e.Implode ("\n"));
+			}.SequenceEqual (wrappedLines));
 
-			e = "1121231234123451234561234567123456781234567891234567890"
-					.WrappedLines (Sequence.Iterate(2, v => v + 1));
-			Assert.AreEqual (
-					"1-\n" +
-					"12-\n" +
-					"123-\n" +
-					"1234-\n" +
-					"12345-\n" +
-					"123456-\n" +
-					"1234567-\n" +
-					"12345678-\n" +
-					"123456789-\n" +
+			// An ~infinite sequence of widths
+			wrappedLines =
+				"1121231234123451234561234567123456781234567891234567890"
+				.WrappedLines (Sequence.Iterate(2, v => v + 1));
+			Assert.IsTrue (new[]{
+					"1-",
+					"12-",
+					"123-",
+					"1234-",
+					"12345-",
+					"123456-",
+					"1234567-",
+					"12345678-",
+					"123456789-",
 					"1234567890",
-					e.Implode ("\n"));
+			}.SequenceEqual (wrappedLines));
+			#endregion
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
