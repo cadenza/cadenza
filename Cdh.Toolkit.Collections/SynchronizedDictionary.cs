@@ -27,6 +27,20 @@ namespace Cdh.Toolkit.Collections
             Initialize();
         }
 
+        public SynchronizedDictionary(EnumerateBehavior behavior, ReaderWriterLockSlim @lock)
+            : base(new Dictionary<TKey, TValue>(), behavior, @lock)
+        {
+            Decorated = (IDictionary<TKey, TValue>)base.Decorated;
+            Initialize();
+        }
+
+        public SynchronizedDictionary(EnumerateBehavior behavior)
+            : base(new Dictionary<TKey, TValue>(), behavior)
+        {
+            Decorated = (IDictionary<TKey, TValue>)base.Decorated;
+            Initialize();
+        }
+
         private void Initialize()
         {
             // The base collections are already read-only, but wrapping the

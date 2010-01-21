@@ -22,6 +22,18 @@ namespace Cdh.Toolkit.Collections
             Decorated = list;
         }
 
+        public SynchronizedList(EnumerateBehavior behavior, ReaderWriterLockSlim @lock)
+            : base(new List<T>(), behavior, @lock)
+        {
+            Decorated = (IList<T>)base.Decorated;
+        }
+
+        public SynchronizedList(EnumerateBehavior behavior)
+            : base(new List<T>(), behavior)
+        {
+            Decorated = (IList<T>)base.Decorated;
+        }
+
         #region IList<T> Members
 
         public virtual int IndexOf(T item)

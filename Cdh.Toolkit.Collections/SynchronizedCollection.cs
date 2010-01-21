@@ -37,12 +37,27 @@ namespace Cdh.Toolkit.Collections
         {
         }
 
-        #region ICollection<T> Members
-
-        public virtual void Add(T item)
+        public virtual bool Add(T item)
         {
             using (Lock.Write())
+            {
+                // This is kind of a hack, but it ensures that with e.g.
+                // HashSet<T> this method will return true/false properly,
+                // saving me from having to write HashSet-specific wrappers.
+
+                int initialCount = Decorated.Count;
+
                 Decorated.Add(item);
+
+                return initialCount != Decorated.Count;
+            }
+        }
+
+        #region ICollection<T> Members
+
+        void ICollection<T>.Add(T item)
+        {
+            Add(item);
         }
 
         public virtual void Clear()

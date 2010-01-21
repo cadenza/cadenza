@@ -7,7 +7,7 @@ using Cdh.Toolkit.Extensions.ReaderWriterLockSlim;
 
 namespace Cdh.Toolkit.Collections.Observable
 {
-    public class ObservableHashSet<T> : SynchronizedCollection<T>, IObservableCollection<T>
+    public class ObservableHashSet<T> : ObservableCollection<T>, IObservableCollection<T>
     {
         protected new HashSet<T> Decorated { get; private set; }
 
@@ -35,58 +35,18 @@ namespace Cdh.Toolkit.Collections.Observable
             Decorated = (HashSet<T>)base.Decorated;
         }
 
-        protected void FireAdded(T item)
-        {
-            var handler = Changed;
-            if (handler != null)
-                handler(this, new ObservableCollectionChangedEventArgs<T>(item, ObservableChangeType.Add));
-        }
-
-        protected void FireRemoved(T item)
-        {
-            var handler = Changed;
-            if (handler != null)
-                handler(this, new ObservableCollectionChangedEventArgs<T>(item, ObservableChangeType.Remove));
-        }
-
-        public override void Add(T item)
-        {
-            using (Lock.Write())
-            {
-                if (Decorated.Add(item))
-                    FireAdded(item);
-            }
-        }
-
-        public override void Clear()
-        {
-            using (Lock.Write())
-            {
-                foreach (T item in Decorated)
-                    FireRemoved(item);
-
-                Decorated.Clear();
-            }
-        }
-
-        public override bool Remove(T item)
+        public override bool Add(T item)
         {
             using (Lock.Write())
             {
                 bool success;
 
-                if (success = Decorated.Remove(item))
-                    FireRemoved(item);
+                if (success = Decorated.Add(item))
+                    FireAdded(item);
 
                 return success;
             }
         }
-
-        #region IObservableCollection<T> Members
-
-        public event EventHandler<ObservableCollectionChangedEventArgs<T>> Changed;
-
-        #endregion
 
         private T[] CloneAsArray()
         {
