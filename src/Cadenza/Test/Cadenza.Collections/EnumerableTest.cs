@@ -927,11 +927,12 @@ namespace Cadenza.Collections.Tests {
 			s.SequenceCompare (null);
 		}
 
-		[Test, ExpectedException (typeof (ArgumentNullException))]
+		[Test]
 		public void SequenceCompare_ComparerNull ()
 		{
 			IEnumerable<int> s = new[]{1};
-			s.SequenceCompare (new[]{1}, null);
+			int r = s.SequenceCompare (new[]{1}, null);
+			Assert.AreEqual (0, r);
 		}
 
 		[Test]

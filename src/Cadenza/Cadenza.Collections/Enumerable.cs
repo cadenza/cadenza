@@ -353,14 +353,14 @@ namespace Cadenza.Collections {
 
 		public static int SequenceCompare<TSource> (this IEnumerable<TSource> self, IEnumerable<TSource> list)
 		{
-			return SequenceCompare (self, list, Comparer<TSource>.Default);
+			return SequenceCompare (self, list, null);
 		}
 
 		public static int SequenceCompare<TSource> (this IEnumerable<TSource> self, IEnumerable<TSource> list, IComparer<TSource> comparer)
 		{
 			Check.Self (self);
 			Check.List (list);
-			Check.Comparer (comparer);
+			comparer = comparer ?? Comparer<TSource>.Default;
 
 			using (var se = self.GetEnumerator ())
 			using (var le = list.GetEnumerator ()) {
