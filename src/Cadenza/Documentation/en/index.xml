@@ -8633,9 +8633,19 @@
           <Parameter Name="type" Type="System.Type" />
         </Parameters>
         <Docs>
-          <param name="self">To be added.</param>
-          <param name="type">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="self">
+          A <see cref="T:System.Type" /> which is used to check that
+          instances of type <paramref name="self" /> can be stored
+          into references of type <paramref name="type" />.
+        </param>
+          <param name="type">
+          A <see cref="T:System.Type" /> which is the type of the
+          reference to store an instance of type <paramref name="self" />.
+        </param>
+          <summary>
+          Determines whether an instance of <paramref name="self" /> can be
+          stored in a reference of a type <paramref name="type" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.TypeCoda" Member="M:Cadenza.TypeCoda.IsAssignableTo(System.Type,System.Type)" />
       </Member>

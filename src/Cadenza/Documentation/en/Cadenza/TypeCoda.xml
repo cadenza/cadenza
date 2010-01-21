@@ -30,11 +30,39 @@
         <Parameter Name="type" Type="System.Type" />
       </Parameters>
       <Docs>
-        <param name="self">To be added.</param>
-        <param name="type">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="self">
+          A <see cref="T:System.Type" /> which is used to check that
+          instances of type <paramref name="self" /> can be stored
+          into references of type <paramref name="type" />.
+        </param>
+        <param name="type">
+          A <see cref="T:System.Type" /> which is the type of the
+          reference to store an instance of type <paramref name="self" />.
+        </param>
+        <summary>
+          Determines whether an instance of <paramref name="self" /> can be
+          stored in a reference of a type <paramref name="type" />.
+        </summary>
+        <returns>
+          <see langword="true" /> if an instance of type <paramref name="self" />
+          can be stored into a reference of type <paramref name="type" />;
+          otherwise, <see langword="false" />.
+        </returns>
+        <remarks>
+          <para>
+            This is equivalent to
+            <c><paramref name="type" />.IsAssignableFrom(<paramref name="self" />)</c>.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/TypeTest.cs#IsAssignableTo">// Can string be implicitly converted to object?  Yes.
+Assert.IsTrue (typeof(string).IsAssignableTo (typeof (object)));
+// Can object be implicitly converted to string?  No.
+Assert.IsFalse (typeof(object).IsAssignableTo (typeof (string)));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:System.Type.IsAssignableFrom(System.Type)" />
       </Docs>
     </Member>
     <Member MemberName="IsNullable">

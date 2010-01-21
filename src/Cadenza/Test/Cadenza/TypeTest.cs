@@ -48,7 +48,9 @@ namespace Cadenza.Tests {
 		public void IsAssignableTo ()
 		{
 			#region IsAssignableTo
+			// Can string be implicitly converted to object?  Yes.
 			Assert.IsTrue (typeof(string).IsAssignableTo (typeof (object)));
+			// Can object be implicitly converted to string?  No.
 			Assert.IsFalse (typeof(object).IsAssignableTo (typeof (string)));
 			#endregion
 		}
