@@ -9,18 +9,27 @@ namespace Cdh.Toolkit.Extensions.ReaderWriterLockSlim
     {
         public static LockHandle Read(this ReaderWriterLockSlim rwlock)
         {
+            if (rwlock.IsReadLockHeld || rwlock.IsUpgradeableReadLockHeld || rwlock.IsWriteLockHeld)
+                return new LockHandle();
+
             rwlock.EnterReadLock();
             return new LockHandle(rwlock, LockHandle.LockType.Read);
         }
 
         public static LockHandle UpgradeableRead(this ReaderWriterLockSlim rwlock)
         {
+            if (rwlock.IsUpgradeableReadLockHeld || rwlock.IsWriteLockHeld)
+                return new LockHandle();
+
             rwlock.EnterUpgradeableReadLock();
             return new LockHandle(rwlock, LockHandle.LockType.UpgradeableRead);
         }
 
         public static LockHandle Write(this ReaderWriterLockSlim rwlock)
         {
+            if (rwlock.IsWriteLockHeld)
+                return new LockHandle();
+
             rwlock.EnterWriteLock();
             return new LockHandle(rwlock, LockHandle.LockType.Write);
         }
