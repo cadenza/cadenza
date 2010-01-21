@@ -12,5 +12,11 @@ namespace Cdh.Toolkit.Extensions.Enumerable
                 if (i.HasValue)
                     yield return i.Value;
         }
+
+        public static void Walk<T>(this IEnumerable<T> e)
+        {
+            using (IEnumerator<T> walker = e.GetEnumerator())
+                while (walker.MoveNext()) ;
+        }
     }
 }
