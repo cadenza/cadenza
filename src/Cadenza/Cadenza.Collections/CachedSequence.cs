@@ -178,6 +178,8 @@ namespace Cadenza.Collections {
 			CachedSequence<T> c = this;
 			while (--index >= 0) {
 				c = c.Tail;
+				if (c == null)
+					throw new ArgumentOutOfRangeException ("index", "`index` is larger than the collection size.");
 			}
 			return c.Head;
 		}

@@ -132,6 +132,45 @@ namespace Cadenza.Collections.Tests {
 		}
 
 		[Test]
+		public void Docs_Ctor_RandomValues ()
+		{
+			#region RandomValues
+			var values = new Random ();
+			// Note: wrapping an infinite sequence
+			var randSeq = new CachedSequence<int> (EnumerableTest.RandomValues (values, 10));
+			Assert.IsTrue (
+					randSeq.Take (20).SelectFromEach (randSeq.Take (10),
+						(l, r) => l + r)
+					.All (x => x % 2 == 0));
+			#endregion
+
+			// The above implicitly terminates the infinite sequence (as the
+			// enumerator was disposed); there should be ~10 elements in it.
+			Assert.AreEqual (12, randSeq.Count ());
+		}
+
+		[Test]
+		public void GetEnumerator_Dispose_Is_Forwarded ()
+		{
+			var d = new DisposedCounter ();
+			var s = new CachedSequence<int> (d.Values (100));
+			var q = s.Take (10);
+			int n = 0;
+			foreach (var e in q) {
+				Assert.AreEqual (n, e);
+				++n;
+			}
+			Assert.AreEqual (10, n);
+
+			// When the CachedSequence<T> enumerator is disposed,
+			// the underlying enumerator should also be disposed.
+			Assert.AreEqual (1, d.Disposed);
+
+			// Note that we've "lost" 89 elements
+			Assert.AreEqual (11, s.Count());
+		}
+
+		[Test]
 		public void Append ()
 		{
 			var a = new CachedSequence<int> (1);
@@ -171,13 +210,6 @@ namespace Cadenza.Collections.Tests {
 			Assert.AreEqual ("4,3,2,1", d.Implode (","));
 		}
 
-		[Test, ExpectedException (typeof (ArgumentOutOfRangeException))]
-		public void ElementAt_NegativeIndex ()
-		{
-			CachedSequence<int> c = new CachedSequence<int> (42);
-			c.ElementAt (-1);
-		}
-
 		[Test]
 		public void Count ()
 		{
@@ -190,6 +222,20 @@ namespace Cadenza.Collections.Tests {
 		{
 			var s = new CachedSequence<int> (new[]{1, 2, 3, 4, 5});
 			Assert.AreEqual (5L, s.LongCount ());
+		}
+
+		[Test, ExpectedException (typeof (ArgumentOutOfRangeException))]
+		public void ElementAt_NegativeIndex ()
+		{
+			CachedSequence<int> c = new CachedSequence<int> (42);
+			c.ElementAt (-1);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentOutOfRangeException))]
+		public void ElementAt_TooLarge ()
+		{
+			CachedSequence<int> c = new CachedSequence<int> (42);
+			c.ElementAt (2);
 		}
 
 		[Test]

@@ -4,6 +4,9 @@
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
   </AssemblyInfo>
+  <ThreadingSafetyStatement>
+    This type is thread safe.
+  </ThreadingSafetyStatement>
   <TypeParameters>
     <TypeParameter Name="T" />
   </TypeParameters>
@@ -16,9 +19,111 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <typeparam name="T">To be added.</typeparam>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <typeparam name="T">
+      The type of the value to store in the sequence.
+    </typeparam>
+    <summary>
+      An immutable, thread-safe, singly-linked list.
+    </summary>
+    <remarks>
+      <para>
+        <c>CachedSequence&lt;T&gt;</c> is useful for caching the current values
+        within a <see cref="T:System.Collections.Generic.IEnumerable{T}" />
+        which come from a generator that will generate different values
+        from each invocation.  Consider the following generator:
+      </para>
+      <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#CachedSequence_RandomValuesGenerator">internal static IEnumerable&lt;int&gt; RandomValues (Random r, int max)
+{
+	while (true)
+		yield return r.Next (max);
+}
+</code>
+      <para>
+        The above generator does two things: it generates an infinite sequence,
+        and each time
+        <see cref="T:System.Collections.Generic.IEnumerable{T}.GetEnumerator" />
+        is called on the
+        <see cref="T:System.Collections.Generic.IEnumerable{T}" /> that
+        <c>RandomValues()</c> returns, it may return a different sequence:
+      </para>
+      <code>var r = new Random();
+
+// prints e.g.: 6, 2, 8
+foreach (var v in RandomValues (r, 10).Take(3))
+    Console.WriteLine (v);
+
+// prints e.g.: 1, 4, 3
+foreach (var v in RandomValues (r, 10).Take(3))
+    Console.WriteLine (v);</code>
+      <para>
+        This is potentially fine if you're aware of the problem, but it
+        can potentially break some algorithms if the generator is
+        referenced multiple times (under the assumption that the
+        sequence won't change):
+      </para>
+      <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#NoCache">var randSeq = RandomValues (new Random (), 100);
+// this could pass, but that's highly improbable
+Assert.IsFalse (
+		randSeq.Take (10).SelectFromEach (randSeq.Take (10),
+			(l, r) =&gt; l + r)
+		.All (x =&gt; x % 2 == 0));
+</code>
+      <para>
+        The above algorithm attempts to say: give me two sets of 10 random
+        numbers, add them together, and assert that the results are always
+        even (as any number added to itself will be even).  This algorithm
+        fails because the generator returns a different sequence on the
+        second <c>randSeq.Take(10)</c> call.
+      </para>
+      <para>
+        A fix is to "memoize" the sequence.  <c>CachedSequence&lt;T&gt;</c>
+        will record the input sequence, so that subsequent iterations
+        will return the same values as the first iteration.  This allows
+        the same algorithm to work:
+      </para>
+      <code lang="C#" src="../../Test/Cadenza.Collections/CachedSequenceTest.cs#RandomValues">var values = new Random ();
+// Note: wrapping an infinite sequence
+var randSeq = new CachedSequence&lt;int&gt; (EnumerableTest.RandomValues (values, 10));
+Assert.IsTrue (
+		randSeq.Take (20).SelectFromEach (randSeq.Take (10),
+			(l, r) =&gt; l + r)
+		.All (x =&gt; x % 2 == 0));
+</code>
+      <para>
+        <c>CachedSequence&lt;T&gt;</c> has two modes of operation: as a
+        "fully realized" singly-linked list constructed one node at a time,
+        and (as seen above) as a caching wrapper over an
+        <see cref="T:System.Collections.Generic.IEnumerable{T}" /> sequence.
+      </para>
+      <para>
+        Node at a time construction is performed with the
+        <see cref="C:Cadenza.Collections.CachedSequence{T}(`0)" /> and
+        <see cref="C:Cadenza.Collections.CachedSequence{T}(`0,Cadenza.Collections.CachedSequence{`0})" />
+        constructors.  For both, the <typeparamref name="T" /> parameter then
+        becomes accessible via
+        <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" />,
+        while
+        <see cref="P:Cadenza.Collections.CachedSequence{T}.Tail" /> is either
+        <see langword="null" /> (for the first constructor) or the specified
+        <c>CachedSequence&lt;T&gt;</c> value.  The second constructor
+        thus allows creating sequences of arbitrary length.
+      </para>
+      <para>
+        When wrapping
+        <see cref="T:System.Collections.Generic.IEnumerable{T}" /> sequences
+        via the
+        <see cref="C:Cadenza.Collections.CachedSequence{T}(System.Collections.Generic.IEnumerable{`0})" />
+        constructor, an alternate mode is used.  The sequence is not
+        immediately executed; instead, the sequence is evaluated on-demand
+        when the
+        <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" />
+        and
+        <see cref="P:Cadenza.Collections.CachedSequence{T}.Tail" />
+        properties are accessed.  This allows infinite sequences to be
+        wrapped without requiring infinite memory, as seen above with the
+        random sequence generator.
+      </para>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -31,9 +136,75 @@
         <Parameter Name="collection" Type="System.Collections.Generic.IEnumerable&lt;T&gt;" />
       </Parameters>
       <Docs>
-        <param name="collection">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="collection">
+          A <see cref="T:System.Collections.Generic.IEnumerable{T}" />
+          which is the sequence to wrap.  <paramref name="collection" />
+          may refer to an infinite sequence.
+        </param>
+        <summary>
+          Constructs and initializes a new instance of the
+          <see cref="T:Cadenza.Collections.CachedSequence{T}" /> class
+          which wraps the specified <paramref name="collection" />.
+        </summary>
+        <remarks>
+          <para>
+            This constructor invokes
+            <see cref="M:System.Collections.Generic.IEnumerable{T}.GetEnumerator" />
+            on <paramref name="collection" /> to obtain a
+            <see cref="T:System.Collections.Generic.IEnumerator{T}" />.  This is
+            referred to as the "underlying enumerator".
+            <see cref="M:System.Collections.IEnumerator.MoveNext" /> is invoked
+            on the underlying enumerator; if <see langword="false" /> is
+            returned, then <see cref="T:System.InvalidOperationException" />
+            is thrown; otherwise,
+            <see cref="P:System.Collections.Generic.IEnumerator{T}.Current" />
+            is used to initialize the
+            <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" />
+            property.
+          </para>
+          <para>
+            The value of the
+            <see cref="P:Cadenza.Collections.CachedSequence{T}.Tail" />
+            property is determined lazily, depending upon the state of the
+            underlying enumerator.
+          </para>
+          <para>
+            The underlying enumerator is
+            <see cref="M:System.IDisposable.Dispose" />d
+            when one of two circumstances occurs:
+          </para>
+          <list type="number">
+            <item>
+              <term>
+                The sequence has been completely evaluated (causing
+                <see cref="P:Cadenza.Collections.CachedSequence{T}.Tail" />
+                to return <see langword="null" />).  This can't happen
+                with infinite sequences.
+              </term>
+            </item>
+            <item>
+              <term>
+                <see cref="M:Cadenza.Collections.CachedSequence{T}.GetEnumerator" />
+                is invoked, and the returned enumerator is disposed.  This
+                will cause the underlying enumerator to also be disposed.
+              </term>
+            </item>
+          </list>
+          <para>
+            Note that disposing the underlying enumerator effectively
+            terminates the sequence.  Thus, <paramref name="collection" />
+            is an infinite sequence, if the <c>CachedSequence&lt;T&gt;</c>
+            is enumerated and the enumerator is disposed, the infinite
+            sequence is also disposed, and no additional elements will be
+            accessible.
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="collection" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          <paramref name="collection" /> contains no elements.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -46,9 +217,23 @@
         <Parameter Name="head" Type="T" />
       </Parameters>
       <Docs>
-        <param name="head">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="head">
+          A <typeparamref name="T" /> containing the value to hold.
+        </param>
+        <summary>
+          Constructs and initializes a new instance of the
+          <see cref="T:Cadenza.Collections.CachedSequence{T}" /> class
+          using the specified <paramref name="head" />.
+        </summary>
+        <remarks>
+          <para>
+            This constructor initializes the
+            <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" />
+            property of the new instance using <paramref name="head" />.
+            The <see cref="P:Cadenza.Collections.CachedSequence{T}.Tail" />
+            property of the new sequence will be <see langword="null" />.
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -62,10 +247,31 @@
         <Parameter Name="tail" Type="Cadenza.Collections.CachedSequence&lt;T&gt;" />
       </Parameters>
       <Docs>
-        <param name="head">To be added.</param>
-        <param name="tail">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="head">
+          A <typeparamref name="T" /> containing the value to hold.
+        </param>
+        <param name="tail">
+          A <see cref="T:Cadenza.Collections.CachedSequence{T}" />
+          which is used to initialize the
+          <see cref="P:Cadenza.Collections.CachedSequence{T}.Tail" />
+          property of the created instance.
+        </param>
+        <summary>
+          Constructs and initializes a new instance of the
+          <see cref="T:Cadenza.Collections.CachedSequence{T}" /> class
+          using the specified <paramref name="head" /> and
+          <paramref name="tail" />.
+        </summary>
+        <remarks>
+          <para>
+            This constructor initializes the
+            <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" />
+            property of the new instance using <paramref name="head" />,
+            and initializes the
+            <see cref="P:Cadenza.Collections.CachedSequence{T}.Tail" />
+            property of the new instance using <paramref name="tail" />.
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Append">
@@ -81,10 +287,25 @@
         <Parameter Name="value" Type="T" />
       </Parameters>
       <Docs>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="value">
+          A <typeparamref name="T" /> containing the value to append
+          to the sequence.
+        </param>
+        <summary>Clones the current sequence with <paramref name="value" /> appended.</summary>
+        <returns>
+          A new <see cref="T:Cadenza.Collections.CachedSequence{T}" />
+          which has <paramref name="value" /> as the last value in the sequence.
+        </returns>
+        <remarks>
+          <para>
+            This is an O(n) operation.  Do not use when wrapping infinite sequences.
+          </para>
+          <para>
+            This creates a new, cloned sequence which is identical to the
+            current sequence except that <paramref name="value" /> is
+            the last element in the sequence.  This sequence is unchanged.
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Count">
@@ -98,9 +319,17 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Returns the number of elements in the sequence.</summary>
+        <returns>
+          A <see cref="T:System.Int32" /> containing the number of elements
+          in the sequence.
+        </returns>
+        <remarks>
+          <para>
+            This is an O(n) operation, and will immediately evaluate the entire
+            sequence.  Do not use when wrapping infinite sequences.
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="ElementAt">
@@ -116,10 +345,29 @@
         <Parameter Name="index" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="index">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="index">
+          An <see cref="T:System.Int32" /> which is the in
+        </param>
+        <summary>Returns the value at a specified index in the sequence.</summary>
+        <returns>
+          A <typeparamref name="T" /> which is the value at the
+          <paramref name="index" /> index in the sequence.
+        </returns>
+        <remarks>
+          <para>
+            This is an O(<paramref name="index" />) operation.
+          </para>
+          <para>
+            If this element or a preceding element was constructed via the
+            <see cref="C:Cadenza.Collections.CachedSequence{T}(System.Collections.Generic.IEnumerable{`0})" />
+            constructor, then this may evaluate <paramref name="index" />
+            values.
+          </para>
+        </remarks>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="index" /> is negative or is larger than
+          <see cref="M:Cadenza.Collections.CachedSequence{T}.LongCount" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="First">
@@ -133,9 +381,15 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>
+          Returns <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" />.
+        </summary>
+        <returns>
+          A <typeparamref name="T" /> which is the value held by
+          <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" />.
+        </returns>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="FirstOrDefault">
@@ -149,9 +403,15 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>
+          Returns <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" />.
+        </summary>
+        <returns>
+          A <typeparamref name="T" /> which is the value held by
+          <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" />.
+        </returns>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="GetEnumerator">
@@ -165,9 +425,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Returns an enumerator that iterates through the linked list.</summary>
+        <returns>
+          An <see cref="T:System.Collections.Generic.IEnumerator{T}" />
+          that can be used to iterate through the linked list as a collection.
+        </returns>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Head">
@@ -180,9 +444,12 @@
         <ReturnType>T</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>Returns the value held by this instance.</summary>
+        <value>
+          A <typeparamref name="T" /> which is the value held by this instance.
+        </value>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="LongCount">
@@ -196,9 +463,17 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Returns the number of elements in the sequence.</summary>
+        <returns>
+          A <see cref="T:System.Int64" /> containing the number of elements
+          in the sequence.
+        </returns>
+        <remarks>
+          <para>
+            This is an O(n) operation, and will immediately evaluate the entire
+            sequence.  Do not use when wrapping infinite sequences.
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Prepend">
@@ -214,10 +489,32 @@
         <Parameter Name="value" Type="T" />
       </Parameters>
       <Docs>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="value">
+          A <typeparamref name="T" /> value which should be inserted
+          before the current sequence.
+        </param>
+        <summary>
+          Returns a new <see cref="T:Cadenza.Collections.CachedSequence{T}" />
+          with <paramref name="value" /> as the
+          <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" /> and
+          the current sequence as the
+          <see cref="P:Cadenza.Collections.CachedSequence{T}.Tail" />.
+        </summary>
+        <returns>
+          A new <see cref="T:Cadenza.Collections.CachedSequence{T}" />
+          with <paramref name="value" /> as the
+          <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" /> and
+          the current sequence as the
+          <see cref="P:Cadenza.Collections.CachedSequence{T}.Tail" />.
+        </returns>
+        <remarks>
+          <para>
+            This is an O(1) operation.
+          </para>
+          <para>
+            This is equivalent to: <c>new CachedSequence&lt;T&gt;(value, this)</c>.
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Reverse">
@@ -231,9 +528,24 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Reverse the sequence that the current instance is the start of.</summary>
+        <returns>
+          A new <see cref="T:Cadenza.Collections.CachedSequence{T}" />
+          in which
+          <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" />
+          is the last value in the returned sequence,
+          <c><see cref="P:Cadenza.Collections.CachedSequence{T}.Tail" />.Head</c>
+          is the second to last value in the returned sequence, etc.
+        </returns>
+        <remarks>
+          <para>
+            This is an O(n) operation.
+          </para>
+          <para>
+            This immediately evaluates the entire sequence.  Do not use
+            when wrapping infinite sequences.
+          </para>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="System.Collections.IEnumerable.GetEnumerator">
@@ -247,9 +559,13 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Returns an enumerator that iterates through the linked list.</summary>
+        <returns>
+          An <see cref="T:System.Collections.IEnumerator" /> that can be used
+          to iterate through the linked list as a collection.
+        </returns>
+        <remarks>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Tail">
@@ -262,9 +578,49 @@
         <ReturnType>Cadenza.Collections.CachedSequence&lt;T&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>
+          Obtains the items in the sequence following the current item,
+          <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" />.
+        </summary>
+        <value>
+          A <see cref="T:Cadenza.Collections.CachedSequence{T}" />
+          containing the items in the sequence following
+          <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" />.
+          If there are no more items, then <see langword="null" />
+          is returned.
+        </value>
+        <remarks>
+          <block subset="none" type="behaviors">
+            <para>
+              If this instance was constructed via the
+              <see cref="C:Cadenza.Collections.CachedSequence{T}(`0)" />
+              constructor, <see langword="null" /> is returned.
+            </para>
+            <para>
+              If this instance was constructed via the
+              <see cref="C:Cadenza.Collections.CachedSequence{T}(`0,Cadenza.Collections.CachedSequence{`0})" />
+              constructor, then the <c>tail</c> parameter is
+              returned (which may be <see langword="null" />).
+            </para>
+            <para>
+              If this instance or an instance preceding this instance was
+              constructed via the
+              <see cref="C:Cadenza.Collections.CachedSequence{T}(System.Collections.Generic.IEnumerable{`0})" />
+              constructor, then a lock is taken and
+              <see cref="M:System.Collections.IEnumerator.MoveNext" />
+              is invoked on the underlying enumerator.  If
+              <see langword="false" /> is returned from <c>MoveNext()</c>,
+              then <see langword="null" /> will be returned.  Otherwise,
+              a new <see cref="T:Cadenza.Collections.CachedSequence{T}" />
+              will be returned in which
+              <see cref="P:Cadenza.Collections.CachedSequence{T}.Head" />
+              will contain the
+              <see cref="P:System.Collections.Generic.IEnumerator{T}.Current" />.
+              value and will gain "ownership" of the underlying
+              <see cref="T:System.Collections.Generic.IEnumerator{T}" />.
+            </para>
+          </block>
+        </remarks>
       </Docs>
     </Member>
   </Members>

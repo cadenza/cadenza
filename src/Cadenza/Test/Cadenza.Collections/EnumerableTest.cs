@@ -807,22 +807,31 @@ namespace Cadenza.Collections.Tests {
 			s.Cache ();
 		}
 
-		private static IEnumerable<int> RandomValues (Random r, int max)
+		#region CachedSequence_RandomValuesGenerator
+		internal static IEnumerable<int> RandomValues (Random r, int max)
 		{
 			while (true)
 				yield return r.Next (max);
 		}
+		#endregion
 
 		// Test idea from: http://bartdesmet.net/blogs/bart/archive/2009/09/12/taming-your-sequence-s-side-effects-through-ienumerable-let.aspx
 		[Test]
 		public void Cache ()
 		{
+			#region NoCache
 			var randSeq = RandomValues (new Random (), 100);
 			// this could pass, but that's highly improbable
-			Assert.IsFalse (randSeq.Take (10).SelectFromEach (randSeq.Take (10), (l, r) => l + r).All (x => x % 2 == 0));
+			Assert.IsFalse (
+					randSeq.Take (10).SelectFromEach (randSeq.Take (10),
+						(l, r) => l + r)
+					.All (x => x % 2 == 0));
+			#endregion
 
+			#region Cache
 			// We can make the above sane by memoizing the sequence:
 			Assert.IsTrue (randSeq.Take (10).Cache ().With (c => c.SelectFromEach (c, (l, r) => l + r)).All (x => x % 2 == 0));
+			#endregion
 		}
 
 		class CacheIterDisposed {
