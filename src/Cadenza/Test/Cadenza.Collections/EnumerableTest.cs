@@ -1838,17 +1838,23 @@ namespace Cadenza.Collections.Tests {
 		[Test]
 		public void SelectAggregated ()
 		{
+			#region SelectAggregated
 			IEnumerable<int> s = new []{2, 3, 4, 5};
-			Assert.AreEqual (
-					"-13:s-1,s-4,s-8,s-13",
-					s.SelectAggregated (1, 
-						(a,b) => Tuple.Create (a-b, "s" + (a-b)))
-					.Aggregate ((r, l) => r + ":" + l.Implode (",")));
-			Assert.AreEqual (
-					"42,0",
-					new int[]{}.SelectAggregated (42, 
-						(a,b) => Tuple.Create (a-b, b))
-					.Aggregate ((r, l) => r + "," + l.Count));
+			Tuple<int, List<string>> r = s.SelectAggregated (1,
+					(a,b) => Tuple.Create (a-b, "s" + (a-b)));
+			Assert.AreEqual (-13, r.Item1);
+			Assert.IsTrue (new[]{
+					"s-1",
+					"s-4",
+					"s-8",
+					"s-13",
+			}.SequenceEqual (r.Item2));
+
+			r = new int[]{}.SelectAggregated (42,
+					(a,b) => Tuple.Create (a-b, b.ToString ()));
+			Assert.AreEqual (42, r.Item1);
+			Assert.AreEqual (0, r.Item2.Count);
+			#endregion
 		}
 
 		[Test]

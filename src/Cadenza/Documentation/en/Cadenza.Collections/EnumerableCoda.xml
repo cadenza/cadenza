@@ -1500,16 +1500,70 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <Parameter Name="func" Type="System.Func&lt;TAccumulate,TSource,Cadenza.Tuple&lt;TAccumulate,TResult&gt;&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <typeparam name="TAccumulate">To be added.</typeparam>
-        <typeparam name="TResult">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="seed">To be added.</param>
-        <param name="func">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Func(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of the elements within <paramref name="self" />.
+        </typeparam>
+        <typeparam name="TAccumulate">
+          The type of the accumulator value.
+        </typeparam>
+        <typeparam name="TResult">
+          The type of the return value.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to return the values of successive
+          <see cref="M:System.Linq.Enumerable.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" />
+          and
+          <see cref="M:Cadenza.Collections.EnumerableCoda.AggregateReverse``3(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})" />
+          calls from.
+        </param>
+        <param name="seed">
+          The first <typeparamref name="TAccumulate" /> value to pass to
+          <paramref name="func" />.
+        </param>
+        <param name="func">
+          A
+          <see cref="T:System.Func{TAccumulate,TSource,Cadenza.Tuple{TAccumulate,TResult}}" />
+          which is applied against each element within <paramref name="self" />
+          and the current <paramref name="TAccumulate" />
+          value (initially using <paramref name="seed" />), generating the
+          next accumulated value and the (partial) result value.
+        </param>
+        <summary>
+          Applies <paramref name="func" /> to each element within
+          <paramref name="self" />, returning the final
+          value of the accumulator and the list of intermediate values.
+        </summary>
+        <returns>
+          A
+          <see cref="T:Cadenza.Tuple{TAccumulate,System.Collections.Generic.List{TResult}}" />
+          which contains the final accumulated value in
+          <see cref="P:Cadenza.Tuple{TAccumulate,System.Collections.Generic.List{TResult}}.Item1" />
+          and the list of intermediate results in
+          <see cref="P:Cadenza.Tuple{TAccumulate,System.Collections.Generic.List{TResult}}.Item2" />.
+        </returns>
+        <remarks>
+          <para>This is Haskell's <c>mapAccumL</c>.</para>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#SelectAggregated">IEnumerable&lt;int&gt; s = new []{2, 3, 4, 5};
+Tuple&lt;int, List&lt;string&gt;&gt; r = s.SelectAggregated (1,
+		(a,b) =&gt; Tuple.Create (a-b, "s" + (a-b)));
+Assert.AreEqual (-13, r.Item1);
+Assert.IsTrue (new[]{
+		"s-1",
+		"s-4",
+		"s-8",
+		"s-13",
+}.SequenceEqual (r.Item2));
+
+r = new int[]{}.SelectAggregated (42,
+		(a,b) =&gt; Tuple.Create (a-b, b.ToString ()));
+Assert.AreEqual (42, r.Item1);
+Assert.AreEqual (0, r.Item2.Count);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> or <paramref name="func" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="SelectBreadthFirst&lt;TSource,TResult&gt;">
