@@ -1425,6 +1425,33 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <exception cref="T:System.ArgumentOutOfRangeException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" /></exception>
       </Docs>
     </Member>
+    <Member MemberName="RemoveFirstOccurrence&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; RemoveFirstOccurrence&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value, System.Collections.Generic.IEqualityComparer&lt;TSource&gt; comparer);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="value" Type="TSource" />
+        <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;TSource&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="value">To be added.</param>
+        <param name="comparer">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="RemoveFirstOccurrences&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; RemoveFirstOccurrences&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value, int count);" />
       <MemberType>Method</MemberType>
@@ -1452,6 +1479,36 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
         <exception cref="T:System.ArgumentOutOfRangeException">To be added; from: <see cref="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" /></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="RemoveFirstOccurrences&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; RemoveFirstOccurrences&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value, int count, System.Collections.Generic.IEqualityComparer&lt;TSource&gt; comparer);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="value" Type="TSource" />
+        <Parameter Name="count" Type="System.Int32" />
+        <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;TSource&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="value">To be added.</param>
+        <param name="count">To be added.</param>
+        <param name="comparer">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentOutOfRangeException">To be added; from: <see cref="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32,System.Collections.Generic.IEqualityComparer{``0})" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Repeat&lt;TSource&gt;">

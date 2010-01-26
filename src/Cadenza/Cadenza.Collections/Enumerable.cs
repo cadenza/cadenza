@@ -1317,23 +1317,34 @@ namespace Cadenza.Collections {
 		// Haskell: delete
 		public static IEnumerable<TSource> RemoveFirstOccurrence<TSource> (this IEnumerable<TSource> self, TSource value)
 		{
-			return RemoveFirstOccurrences (self, value, 1);
+			return RemoveFirstOccurrences (self, value, 1, null);
+		}
+
+		public static IEnumerable<TSource> RemoveFirstOccurrence<TSource> (this IEnumerable<TSource> self, TSource value, IEqualityComparer<TSource> comparer)
+		{
+			return RemoveFirstOccurrences (self, value, 1, comparer);
 		}
 
 		public static IEnumerable<TSource> RemoveFirstOccurrences<TSource> (this IEnumerable<TSource> self, TSource value, int count)
+		{
+			return RemoveFirstOccurrences (self, value, count, null);
+		}
+
+		public static IEnumerable<TSource> RemoveFirstOccurrences<TSource> (this IEnumerable<TSource> self, TSource value, int count, IEqualityComparer<TSource> comparer)
 		{
 			Check.Self (self);
 			if (count < 0)
 				throw new ArgumentOutOfRangeException ("count < 0");
 
-			return self.Where (CreateRemoveOccurrencesPredicate (value, count));
+			return self.Where (CreateRemoveOccurrencesPredicate (value, count, comparer));
 		}
 
-		private static Func<TSource, bool> CreateRemoveOccurrencesPredicate<TSource> (TSource value, int maxCount)
+		private static Func<TSource, bool> CreateRemoveOccurrencesPredicate<TSource> (TSource value, int maxCount, IEqualityComparer<TSource> comparer)
 		{
+			comparer = comparer ?? EqualityComparer<TSource>.Default;
 			int count = 0;
 			return e => {
-				if (count < maxCount && EqualityComparer<TSource>.Default.Equals (e, value)) {
+				if (count < maxCount && comparer.Equals (e, value)) {
 					++count;
 					return false;
 				}
