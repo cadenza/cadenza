@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Cdh.Toolkit")]
+[assembly: AssemblyProduct("Chris Howie Toolkit")]
 [assembly: AssemblyCopyright("Copyright © Chris Howie 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
