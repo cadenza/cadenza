@@ -1459,10 +1459,22 @@
           <Parameter Name="value" Type="TSource" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="value">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence from which to remove the first element
+          equal to <paramref name="value" />.
+        </param>
+          <param name="value">
+          A <typeparamref name="TSource" /> which is the value
+          to remove once from <paramref name="self" />.
+        </param>
+          <summary>
+          Removes the first occurrence of
+          <paramref name="value" /> from the sequence <paramref name="self" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrence``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>
@@ -1486,11 +1498,29 @@
           <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;TSource&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="value">To be added.</param>
-          <param name="comparer">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence from which to remove the first element
+          equal to <paramref name="value" />.
+        </param>
+          <param name="value">
+          A <typeparamref name="TSource" /> which is the value
+          to remove once from <paramref name="self" />.
+        </param>
+          <param name="comparer">
+          A <see cref="T:System.Collections.Generic.IEqualityComparer{TSource}" />
+          to use when comparing elements from <paramref name="self" />
+          to <paramref name="value" />. If <see langword="null" /> then
+          <see cref="P:System.Collections.Generic.EqualityComparer{TSource}.Default" />
+          is used.
+        </param>
+          <summary>
+          Removes the first occurrence of
+          <paramref name="value" /> from the sequence <paramref name="self" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrence``1(System.Collections.Generic.IEnumerable{``0},``0,System.Collections.Generic.IEqualityComparer{``0})" />
       </Member>
@@ -1514,11 +1544,27 @@
           <Parameter Name="count" Type="System.Int32" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="value">To be added.</param>
-          <param name="count">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence from which to remove the leading elements
+          equal to <paramref name="value" /> from.
+        </param>
+          <param name="value">
+          A <typeparamref name="TSource" /> which is the value
+          to remove from the start of <paramref name="self" />.
+        </param>
+          <param name="count">
+          A <see cref="T:System.Int32" /> containing the number
+          of <paramref name="value" /> elements to remove from
+          <paramref name="self" />.
+        </param>
+          <summary>
+          Removes the first <paramref name="count" /> occurrences of
+          <paramref name="value" /> from the sequence <paramref name="self" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" />
       </Member>
@@ -1543,12 +1589,34 @@
           <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;TSource&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="value">To be added.</param>
-          <param name="count">To be added.</param>
-          <param name="comparer">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence from which to remove the leading elements
+          equal to <paramref name="value" /> from.
+        </param>
+          <param name="value">
+          A <typeparamref name="TSource" /> which is the value
+          to remove from the start of <paramref name="self" />.
+        </param>
+          <param name="count">
+          A <see cref="T:System.Int32" /> containing the number
+          of <paramref name="value" /> elements to remove from
+          <paramref name="self" />.
+        </param>
+          <param name="comparer">
+          A <see cref="T:System.Collections.Generic.IEqualityComparer{TSource}" />
+          to use when comparing elements from <paramref name="self" />
+          and <paramref name="value" />. If <see langword="null" /> then
+          <see cref="P:System.Collections.Generic.EqualityComparer{TSource}.Default" />
+          is used.
+        </param>
+          <summary>
+          Removes the first <paramref name="count" /> occurrences of
+          <paramref name="value" /> from the sequence <paramref name="self" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32,System.Collections.Generic.IEqualityComparer{``0})" />
       </Member>

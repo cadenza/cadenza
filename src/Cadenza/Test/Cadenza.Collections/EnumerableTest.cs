@@ -2529,10 +2529,14 @@ namespace Cadenza.Collections.Tests {
 		[Test]
 		public void RemoveFirstOccurrences ()
 		{
+			#region RemoveFirstOccurrence
 			Assert.AreEqual ("bnana",
 					"banana".RemoveFirstOccurrence ('a').Implode ());
+			#endregion
+			#region RemoveFirstOccurrences
 			Assert.AreEqual ("bnna",
 					"banana".RemoveFirstOccurrences ('a', 2).Implode ());
+			#endregion
 		}
 
 		[Test]

@@ -1419,14 +1419,42 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <Parameter Name="value" Type="TSource" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" /></exception>
-        <exception cref="T:System.ArgumentOutOfRangeException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" /></exception>
+        <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence from which to remove the first element
+          equal to <paramref name="value" />.
+        </param>
+        <param name="value">
+          A <typeparamref name="TSource" /> which is the value
+          to remove once from <paramref name="self" />.
+        </param>
+        <summary>
+          Removes the first occurrence of
+          <paramref name="value" /> from the sequence <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          which is a copy of <paramref name="self" />
+          in which the first occurrence of
+          <paramref name="value" /> has been removed.
+        </returns>
+        <remarks>
+          <para>
+            This is equivalent to calling
+            <c><paramref name="self" />.RemoveFirstOccurrence(<paramref name="value" />,
+            <see langword="null" />)</c>.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#RemoveFirstOccurrence">Assert.AreEqual ("bnana",
+		"banana".RemoveFirstOccurrence ('a').Implode ());
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <altmember cref="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrence``1(System.Collections.Generic.IEnumerable{``0},``0,System.Collections.Generic.IEqualityComparer{``0})" />
       </Docs>
     </Member>
     <Member MemberName="RemoveFirstOccurrence&lt;TSource&gt;">
@@ -1447,13 +1475,43 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;TSource&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="value">To be added.</param>
-        <param name="comparer">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence from which to remove the first element
+          equal to <paramref name="value" />.
+        </param>
+        <param name="value">
+          A <typeparamref name="TSource" /> which is the value
+          to remove once from <paramref name="self" />.
+        </param>
+        <param name="comparer">
+          A <see cref="T:System.Collections.Generic.IEqualityComparer{TSource}" />
+          to use when comparing elements from <paramref name="self" />
+          to <paramref name="value" />. If <see langword="null" /> then
+          <see cref="P:System.Collections.Generic.EqualityComparer{TSource}.Default" />
+          is used.
+        </param>
+        <summary>
+          Removes the first occurrence of
+          <paramref name="value" /> from the sequence <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          which is a copy of <paramref name="self" />
+          in which the first occurrence of
+          <paramref name="value" /> has been removed.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#RemoveFirstOccurrence">Assert.AreEqual ("bnana",
+		"banana".RemoveFirstOccurrence ('a').Implode ());
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="RemoveFirstOccurrences&lt;TSource&gt;">
@@ -1474,15 +1532,50 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <Parameter Name="count" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="value">To be added.</param>
-        <param name="count">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
-        <exception cref="T:System.ArgumentOutOfRangeException">To be added; from: <see cref="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32)" /></exception>
+        <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence from which to remove the leading elements
+          equal to <paramref name="value" /> from.
+        </param>
+        <param name="value">
+          A <typeparamref name="TSource" /> which is the value
+          to remove from the start of <paramref name="self" />.
+        </param>
+        <param name="count">
+          A <see cref="T:System.Int32" /> containing the number
+          of <paramref name="value" /> elements to remove from
+          <paramref name="self" />.
+        </param>
+        <summary>
+          Removes the first <paramref name="count" /> occurrences of
+          <paramref name="value" /> from the sequence <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          which is a copy of <paramref name="self" />
+          in which the first <paramref name="count" /> occurrences of
+          <paramref name="value" /> have been removed.
+        </returns>
+        <remarks>
+          <para>
+            This is equivalent to calling
+            <c><paramref name="self" />.RemoveFirstOccurrences(<paramref name="value" />,
+            <paramref name="count" />, <see langword="null" />)</c>.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#RemoveFirstOccurrences">Assert.AreEqual ("bnna",
+		"banana".RemoveFirstOccurrences ('a', 2).Implode ());
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="count" /> is negative.
+        </exception>
+        <altmember cref="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32,System.Collections.Generic.IEqualityComparer{``0})" />
       </Docs>
     </Member>
     <Member MemberName="RemoveFirstOccurrences&lt;TSource&gt;">
@@ -1504,15 +1597,51 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;TSource&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="value">To be added.</param>
-        <param name="count">To be added.</param>
-        <param name="comparer">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentOutOfRangeException">To be added; from: <see cref="M:Cadenza.Collections.EnumerableCoda.RemoveFirstOccurrences``1(System.Collections.Generic.IEnumerable{``0},``0,System.Int32,System.Collections.Generic.IEqualityComparer{``0})" /></exception>
+        <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence from which to remove the leading elements
+          equal to <paramref name="value" /> from.
+        </param>
+        <param name="value">
+          A <typeparamref name="TSource" /> which is the value
+          to remove from the start of <paramref name="self" />.
+        </param>
+        <param name="count">
+          A <see cref="T:System.Int32" /> containing the number
+          of <paramref name="value" /> elements to remove from
+          <paramref name="self" />.
+        </param>
+        <param name="comparer">
+          A <see cref="T:System.Collections.Generic.IEqualityComparer{TSource}" />
+          to use when comparing elements from <paramref name="self" />
+          and <paramref name="value" />. If <see langword="null" /> then
+          <see cref="P:System.Collections.Generic.EqualityComparer{TSource}.Default" />
+          is used.
+        </param>
+        <summary>
+          Removes the first <paramref name="count" /> occurrences of
+          <paramref name="value" /> from the sequence <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          which is a copy of <paramref name="self" />
+          in which the first <paramref name="count" /> occurrences of
+          <paramref name="value" /> have been removed.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#RemoveFirstOccurrences">Assert.AreEqual ("bnna",
+		"banana".RemoveFirstOccurrences ('a', 2).Implode ());
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">
+          <paramref name="count" /> is negative.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Repeat&lt;TSource&gt;">
