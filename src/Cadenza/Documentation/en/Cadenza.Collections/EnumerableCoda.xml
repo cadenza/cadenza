@@ -1395,11 +1395,74 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" RefType="this" />
       </Parameters>
       <Docs>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the values to combine into a path name.
+        </param>
+        <summary>
+          Creates a path string by concatenating the elements of
+          <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.String" /> which is the result of combining
+          all the elements within <paramref name="self" /> into a path name.
+        </returns>
+        <remarks>
+          <block subset="none" type="behaviors">
+            For each element within <paramref name="self" />, if the
+            current element is rooted
+            (<see cref="M:System.IO.Path.IsPathRooted(System.String)" />),
+            then the current path string is dropped and the current element
+            becomes the new path root.  Otherwise,
+            <see cref="F:System.IO.Path.DirectorySeparatorChar" /> is
+            appended to the current path string and the current element
+            is appended.
+          </block>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#PathCombine">var data = new [] {"a", "b", "c"};
+var result = string.Format ("a{0}b{0}c", Path.DirectorySeparatorChar);
+Assert.AreEqual (result, data.PathCombine ());
+
+data = new [] { "a", String.Empty, "b", "c" };
+Assert.AreEqual (result, data.PathCombine (), "empty elemetns");
+
+string rooted = Path.DirectorySeparatorChar + "d";
+data = new [] { "a", rooted };
+Assert.AreEqual (rooted, data.PathCombine (), "rooted path2");
+
+data = new [] { "a", "b", rooted, "c" };
+string expected = Path.Combine (Path.Combine (Path.Combine ("a", "b"), rooted), "c");
+Assert.AreEqual (expected, data.PathCombine (), "rooted path2 (complex)");
+
+string end1 = "d" + Path.DirectorySeparatorChar;
+data = new [] { rooted, end1, "e" };
+expected = Path.Combine (Path.Combine (rooted, end1), "e");
+Assert.AreEqual (expected, data.PathCombine (), "DirectorySeparatorChar");
+
+string end2 = "d" + Path.AltDirectorySeparatorChar;
+data = new [] { rooted, end2, "f" };
+expected = Path.Combine (Path.Combine (rooted, end2), "f");
+Assert.AreEqual (expected, data.PathCombine (), "AltDirectorySeparatorChar");
+
+data = new [] { "a" };
+Assert.AreEqual (Path.Combine ("a", String.Empty), data.PathCombine (), "single string");
+
+data = new [] { String.Empty };
+Assert.AreEqual (Path.Combine (String.Empty, String.Empty), data.PathCombine (), "single empty string");
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentException">
+          An element of <paramref name="self" /> contains an invalid path
+          character; see <see cref="M:System.IO.Path.GetInvalidPathChars" />.
+        </exception>
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="self" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            An element within <paramref name="self" /> is <see langword="null" />.
+          </para>
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="RemoveFirstOccurrence&lt;TSource&gt;">

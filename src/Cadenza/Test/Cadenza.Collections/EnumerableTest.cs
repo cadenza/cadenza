@@ -254,6 +254,7 @@ namespace Cadenza.Collections.Tests {
 		[Test]
 		public void PathCombine ()
 		{
+			#region PathCombine
 			var data = new [] {"a", "b", "c"};
 			var result = string.Format ("a{0}b{0}c", Path.DirectorySeparatorChar);
 			Assert.AreEqual (result, data.PathCombine ());
@@ -284,6 +285,7 @@ namespace Cadenza.Collections.Tests {
 
 			data = new [] { String.Empty };
 			Assert.AreEqual (Path.Combine (String.Empty, String.Empty), data.PathCombine (), "single empty string");
+			#endregion
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]

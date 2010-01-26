@@ -1435,8 +1435,14 @@
           <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;System.String&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the values to combine into a path name.
+        </param>
+          <summary>
+          Creates a path string by concatenating the elements of
+          <paramref name="self" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.PathCombine(System.Collections.Generic.IEnumerable{System.String})" />
       </Member>
