@@ -1628,6 +1628,25 @@ Assert.AreEqual (0, r.Item2.Count);
             encountered node is provided to <paramref name="valueSelector" />,
             and the values are returned.
           </para>
+        </remarks>
+        <example>
+          <para>
+            Given the <c>TreeNode&lt;T&gt;</c> declaration:
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/ObjectTest.cs#TreeNode_Declaration">class TreeNode&lt;T&gt;
+{
+	public TreeNode ()
+	{
+		Children = new TreeNode&lt;T&gt; [0];
+	}
+
+	public T Value;
+	public IEnumerable&lt;TreeNode&lt;T&gt;&gt; Children;
+}
+</code>
+          <para>
+            <c>SelectBreadthFirst()</c> is used as:
+          </para>
           <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#SelectBreadthFirst">TreeNode&lt;int&gt;[] root = new TreeNode&lt;int&gt;[] {
 	new TreeNode&lt;int&gt; {
 		Value = 1, Children = new [] {
@@ -1646,7 +1665,7 @@ IEnumerable&lt;int&gt; values = root
 	.SelectBreadthFirst (x =&gt; x.Value, x =&gt; x.Children);
 AssertAreSame (new[]{ 1, 2, 3, 4, 5, -1 }, values);
 </code>
-        </remarks>
+        </example>
         <exception cref="T:System.ArgumentNullException">
           <para>
             <paramref name="self" /> is <see langword="null" />.
@@ -1725,6 +1744,25 @@ AssertAreSame (new[]{ 1, 2, 3, 4, 5, -1 }, values);
             node is provided to <paramref name="valueSelector" />, and the
             values are returned.
           </para>
+        </remarks>
+        <example>
+          <para>
+            Given the <c>TreeNode&lt;T&gt;</c> declaration:
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/ObjectTest.cs#TreeNode_Declaration">class TreeNode&lt;T&gt;
+{
+	public TreeNode ()
+	{
+		Children = new TreeNode&lt;T&gt; [0];
+	}
+
+	public T Value;
+	public IEnumerable&lt;TreeNode&lt;T&gt;&gt; Children;
+}
+</code>
+          <para>
+            <c>SelectDepthFirst()</c> is used as:
+          </para>
           <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#SelectDepthFirst">TreeNode&lt;int&gt;[] root = new TreeNode&lt;int&gt;[] {
 	new TreeNode&lt;int&gt; {
 		Value = 1, Children = new [] {
@@ -1743,7 +1781,7 @@ IEnumerable&lt;int&gt; values = root
 	.SelectDepthFirst (x =&gt; x.Value, x =&gt; x.Children);
 AssertAreSame (new[]{ 1, 2, 3, 5, 4, -1 }, values);
 </code>
-        </remarks>
+        </example>
         <exception cref="T:System.ArgumentNullException">
           <para>
             <paramref name="self" /> is <see langword="null" />.

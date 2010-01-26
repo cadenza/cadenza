@@ -37,6 +37,7 @@ using Cadenza.Collections;
 
 namespace Cadenza.Tests {
 
+	#region TreeNode_Declaration
 	class TreeNode<T>
 	{
 		public TreeNode ()
@@ -47,6 +48,7 @@ namespace Cadenza.Tests {
 		public T Value;
 		public IEnumerable<TreeNode<T>> Children;
 	}
+	#endregion
 
 	[TestFixture]
 	public class ObjectTest : BaseRocksFixture {
