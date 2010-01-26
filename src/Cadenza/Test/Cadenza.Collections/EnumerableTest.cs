@@ -2149,9 +2149,12 @@ namespace Cadenza.Collections.Tests {
 		[Test]
 		public void Partition ()
 		{
-			Assert.AreEqual ("2,4,6|1,3,5",
-					Enumerable.Range (1,6).Partition (x => x % 2 == 0)
-					.Aggregate ((a, b) => a.Implode (",") + "|" + b.Implode (",")));
+			#region Partition
+			Tuple<IEnumerable<int>, IEnumerable<int>> r =
+				Enumerable.Range (1,6).Partition (x => x % 2 == 0);
+			Assert.IsTrue (new[]{2, 4, 6}.SequenceEqual (r.Item1));
+			Assert.IsTrue (new[]{1, 3, 5}.SequenceEqual (r.Item2));
+			#endregion
 		}
 
 		[Test]

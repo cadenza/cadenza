@@ -1413,10 +1413,26 @@
           <Parameter Name="predicate" Type="System.Func&lt;TSource,System.Boolean&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="predicate">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to partition into elements which match
+          <paramref name="predicate" /> and those which do not.
+        </param>
+          <param name="predicate">
+          A <see cref="T:System.Func{TSource,System.Boolean}" /> which is used
+          to partition <paramref name="self" /> into the set of elements for
+          which <paramref name="predicate" /> returns <see langword="true" />
+          and those for which <paramref name="predicate" /> returns
+          <see langword="false" />.
+        </param>
+          <summary>
+          Partitions <paramref name="self" /> into two sequences, those which
+          contain elements satisfying <paramref name="predicate" /> and those
+          which do not.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
       </Member>
