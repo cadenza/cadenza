@@ -1630,12 +1630,30 @@
           <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <typeparam name="TResult">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="valueSelector">To be added.</param>
-          <param name="childrenSelector">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the root nodes and intermediate nodes of the tree.
+        </typeparam>
+          <typeparam name="TResult">
+          The type of the object to return.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the elements to perform a depth-first traversal on.
+        </param>
+          <param name="valueSelector">
+          A <see cref="T:System.Func{TSource,TResult}" /> which is used to
+          convert tree nodes into <typeparamref name="TResult" /> instances.
+        </param>
+          <param name="childrenSelector">
+          A <see cref="T:System.Func{TSource,System.Collections.Generic.IEnumerable{TSource}}" />
+          which returns the child nodes of an element in
+          <paramref name="self" /> (and grand-children, and
+          great-grandchildren, and...).
+        </param>
+          <summary>
+          Traverse a sequence of nodes in a depth-first fashion, converting each
+          encountered node.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.SelectDepthFirst``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,System.Collections.Generic.IEnumerable{``0}})" />
       </Member>
