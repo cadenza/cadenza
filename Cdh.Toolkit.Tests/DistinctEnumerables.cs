@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 
+using Cdh.Toolkit.Collections;
 using NUnit.Framework;
 
-namespace Cdh.Toolkit.Collections.Test
+namespace Cdh.Toolkit.Tests
 {
     /// <summary>
     /// Ensures that ReadOnlyCollection and SynchronizedCollection treat

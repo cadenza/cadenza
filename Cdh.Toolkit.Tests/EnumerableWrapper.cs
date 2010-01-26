@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Cdh.Toolkit.Collections.Test
+namespace Cdh.Toolkit.Tests
 {
     public class EnumerableWrapper<T> : IEnumerable<T>
     {

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Cdh.Toolkit.Extensions")]
+[assembly: AssemblyTitle("Cdh.Toolkit.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Cdh.Toolkit")]
+[assembly: AssemblyProduct("Chris Howie Toolkit")]
 [assembly: AssemblyCopyright("Copyright © Chris Howie 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b399de8e-c8bb-4b80-857f-ba41d6db79e5")]
+[assembly: Guid("f16d8050-9b41-43c0-9659-6c4bc7a83146")]
 
 // Version information for an assembly consists of the following four values:
 //

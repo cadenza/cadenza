@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1E02E9A5-46A9-4C3E-99C5-B2C917B9A3D8}</ProjectGuid>
+    <ProjectGuid>{5F252D4A-2B47-44E7-A8D9-1D0FC21374EA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cdh.Toolkit.Collections.Test</RootNamespace>
-    <AssemblyName>Cdh.Toolkit.Collections.Test</AssemblyName>
+    <RootNamespace>Cdh.Toolkit.Json</RootNamespace>
+    <AssemblyName>Cdh.Toolkit.Json</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,7 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.5.2.9222, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -46,15 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DistinctEnumerables.cs" />
-    <Compile Include="EnumerableWrapper.cs" />
+    <Compile Include="Formatting.cs" />
+    <Compile Include="JsonReader.cs" />
+    <Compile Include="JsonWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Cdh.Toolkit.Collections\Cdh.Toolkit.Collections.csproj">
-      <Project>{A2E1EDA8-78B8-4717-8B75-0D1A2AC47F15}</Project>
-      <Name>Cdh.Toolkit.Collections</Name>
-    </ProjectReference>
+    <Compile Include="Rocks.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
