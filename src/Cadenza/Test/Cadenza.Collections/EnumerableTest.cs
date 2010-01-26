@@ -212,8 +212,10 @@ namespace Cadenza.Collections.Tests {
 		[Test]
 		public void Repeat ()
 		{
+			#region Repeat
 			Assert.AreEqual ("foofoofoo", new [] {"foo"}.Repeat (3).Implode ());
 			Assert.AreEqual ("foobarfoobar", new [] {"foo", "bar"}.Repeat (2).Implode ());
+			#endregion
 		}
 
 		[Test]

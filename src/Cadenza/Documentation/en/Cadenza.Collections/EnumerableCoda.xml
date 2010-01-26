@@ -1528,13 +1528,35 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <Parameter Name="number" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="number">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to repeat.
+        </param>
+        <param name="number">
+          The number of times to repeat <paramref name="self" />.
+        </param>
+        <summary>
+          Repeats the sequence <paramref name="self" /> for
+          <paramref name="number" /> repetitions.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          sequence containing
+          <c><paramref name="count" /> * <paramref name="self" />.Count()</c>
+          elements, consisting of the sequence <paramref name="self" />,
+          followed by the sequence <paramref name="self" />, etc.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#Repeat">Assert.AreEqual ("foofoofoo", new [] {"foo"}.Repeat (3).Implode ());
+Assert.AreEqual ("foobarfoobar", new [] {"foo", "bar"}.Repeat (2).Implode ());
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="SelectAggregated&lt;TSource,TAccumulate,TResult&gt;">
