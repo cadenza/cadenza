@@ -12,8 +12,12 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>
+      Extension methods on
+      <see cref="T:System.Collections.Generic.IEnumerable{T}" />.
+    </summary>
+    <remarks>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName="AggregateHistory&lt;TSource&gt;">
