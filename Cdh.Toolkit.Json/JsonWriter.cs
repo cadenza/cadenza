@@ -49,6 +49,9 @@ namespace Cdh.Toolkit.Json
             if (obj == null)
                 writer.Write("null");
 
+            else if (obj is IJsonSerializable)
+                Write((IJsonSerializable)obj);
+
             else if (obj.GetType().IsPrimitive)
             {
                 if (obj is bool)
@@ -78,6 +81,11 @@ namespace Cdh.Toolkit.Json
 
             else
                 throw new ArgumentException("obj: Type " + obj.GetType().FullName + " cannot be serialized to JSON.");
+        }
+
+        public void Write(IJsonSerializable serializable)
+        {
+            Write(serializable.JsonSerialize());
         }
 
         public void Write(string str)

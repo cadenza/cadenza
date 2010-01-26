@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Formatting.cs" />
+    <Compile Include="IJsonSerializable.cs" />
     <Compile Include="JsonReader.cs" />
     <Compile Include="JsonWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
