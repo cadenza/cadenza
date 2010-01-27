@@ -146,7 +146,7 @@ namespace Cadenza.Collections.Tests {
 
 			// The above implicitly terminates the infinite sequence (as the
 			// enumerator was disposed); there should be ~10 elements in it.
-			Assert.AreEqual (12, randSeq.Count ());
+			Assert.AreEqual (11, randSeq.Count ());
 		}
 
 		[Test]
@@ -154,20 +154,20 @@ namespace Cadenza.Collections.Tests {
 		{
 			var d = new DisposedCounter ();
 			var s = new CachedSequence<int> (d.Values (100));
-			var q = s.Take (10);
+			var q = s.Take (1);
 			int n = 0;
 			foreach (var e in q) {
 				Assert.AreEqual (n, e);
 				++n;
 			}
-			Assert.AreEqual (10, n);
+			Assert.AreEqual (1, n);
 
 			// When the CachedSequence<T> enumerator is disposed,
 			// the underlying enumerator should also be disposed.
 			Assert.AreEqual (1, d.Disposed);
 
-			// Note that we've "lost" 89 elements
-			Assert.AreEqual (11, s.Count());
+			// Note that we've "lost" 99 elements
+			Assert.AreEqual (2, s.Count());
 		}
 
 		[Test]

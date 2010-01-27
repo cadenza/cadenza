@@ -151,17 +151,26 @@ namespace Cadenza.Collections {
 			}
 			finally {
 				// If the enumerator is disposed, ensure that the sequence iterator is disposed.
-				Func<IEnumerator<T>, int> iter = i => {
-					lock (i) {
-						if (i != null)
-							i.Dispose ();
+				// However, since CSC-generated iterator methods have IEnumerator<T>.MoveNext()
+				// return 'true' even after IDisposable.Dispose() has been called on the
+				// iterator, we need to set the last .rest field to null.  Thus, find it:
+				while (c != null && c.rest != null) {
+					// disposeTail should only be invoked on the last item in the
+					// sequence, as rest will hold a CachedSequence<T> for prior items.
+					Func<IEnumerator<T>, bool> disposeTail = i => {
+						lock (i) {
+							if (i != null) {
+								i.Dispose ();
+							}
+						}
+						return true;
+					};
+					if (c.rest.Fold (t => false, disposeTail)) {
+						c.rest = null;
+						break;
 					}
-					return 0; 
-				};
-				Func<CachedSequence<T>, int> tail = null;
-				tail = t => t.rest == null ? 0 : t.rest.Fold (tail, iter);
-				if (c != null && c.rest != null)
-					c.rest.Fold (tail, iter);
+					c = c.Tail;
+				}
 			}
 		}
 
