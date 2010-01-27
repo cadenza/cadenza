@@ -144,6 +144,10 @@ namespace Cadenza.Collections
 				if (ValueBelongsToOtherKey (key, value))
 					throw new ArgumentException ("Value already exists", "value");
 
+				TValue oldValue;
+				if (keysToValues.TryGetValue (key, out oldValue))
+					valuesToKeys.Remove (oldValue);
+
 				keysToValues [key] = value;
 				valuesToKeys [value] = key;
 			}

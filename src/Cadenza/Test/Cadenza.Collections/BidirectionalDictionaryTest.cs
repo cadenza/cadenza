@@ -237,6 +237,17 @@ namespace Cadenza.Collections.Tests
 			Assert.AreEqual (String1, dictionary [42]);
 		}
 
+		[Test]
+		public void Item_Set_KeyToNewValue ()
+		{
+			var dictionary = new BidirectionalDictionary<string, string> ();
+			dictionary.Add ("key", "value1");
+			dictionary ["key"] = "value2";
+
+			Assert.AreEqual ("value2", dictionary["key"]);
+			Assert.AreEqual ("key", dictionary.Inverse["value2"]);
+			Assert.Throws<KeyNotFoundException> (() => dictionary.Inverse ["value1"].ToString ());
+		}
 
 		[Test]
 		public void Add ()
