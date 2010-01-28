@@ -27,8 +27,9 @@
 //
 
 using System;
-using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
+using NUnit.Framework;
 
 using Cadenza.Tests;
 
@@ -217,6 +218,28 @@ namespace Cadenza.Collections.Tests
 			dictionary.Add (42, String1);
 			dictionary [42] = String2;
 			Assert.AreEqual (String2, dictionary [42]);
+			Assert.AreEqual (42, dictionary.Inverse [String2]);
+			Assert.Throws<KeyNotFoundException> (() => dictionary.Inverse [String1].ToString ());
+		}
+
+		[Test]
+		public void Item_Set_EquivalentExistingKey ()
+		{
+			var dictionary = new BidirectionalDictionary<Foo, int> ();
+
+			var key1 = new Foo { Name = "key", Value = "1" };
+			var key2 = new Foo { Name = "key", Value = "2" };
+			var value1 = 42;
+			var value2 = 67;
+
+			dictionary.Add (key1, value1);
+			dictionary [key2] = value2;
+
+			Assert.AreSame (key1, dictionary.Keys.First ());
+			Assert.AreSame (key1, dictionary.Inverse [value2]);
+			Assert.AreEqual (value2, dictionary [key1]);
+			Assert.AreEqual (value2, dictionary [key2]);
+			Assert.Throws<KeyNotFoundException> (() => dictionary.Inverse [value1].ToString ());
 		}
 
 		[Test]
@@ -225,6 +248,22 @@ namespace Cadenza.Collections.Tests
 			var dictionary = new BidirectionalDictionary<int, string> ();
 			dictionary.Add (42, String1);
 			var ex = Assert.Throws<ArgumentException> (() => dictionary [67] = String1);
+			Assert.AreEqual ("value", ex.ParamName);
+		}
+
+		[Test]
+		public void Item_Set_EquivalentExistingValue ()
+		{
+			var dictionary = new BidirectionalDictionary<int, Foo> ();
+
+			var key1 = 42;
+			var key2 = 67;
+			var value1 = new Foo { Name = "value", Value = "1" };
+			var value2 = new Foo { Name = "value", Value = "2" };
+
+			dictionary.Add (key1, value1);
+
+			var ex = Assert.Throws<ArgumentException> (() => dictionary [key2] = value2);
 			Assert.AreEqual ("value", ex.ParamName);
 		}
 
@@ -248,6 +287,23 @@ namespace Cadenza.Collections.Tests
 			Assert.AreEqual ("key", dictionary.Inverse["value2"]);
 			Assert.Throws<KeyNotFoundException> (() => dictionary.Inverse ["value1"].ToString ());
 		}
+
+		[Test]
+		public void Item_Set_KeyToEquivalentValue ()
+		{
+			var dictionary = new BidirectionalDictionary<int, Foo> ();
+
+			var key = 42;
+			var value1 = new Foo { Name = "value", Value = "1" };
+			var value2 = new Foo { Name = "value", Value = "2" };
+
+			dictionary.Add (key, value1);
+			dictionary [key] = value2;
+
+			Assert.AreSame (value2, dictionary [key]);
+			Assert.AreSame (value2, dictionary.Inverse.Keys.First ());
+		}
+
 
 		[Test]
 		public void Add ()
@@ -411,6 +467,42 @@ namespace Cadenza.Collections.Tests
 			var dictionary = new BidirectionalDictionary<int, string> ();
 			Assert.That (dictionary.Keys.IsReadOnly);
 			Assert.That (dictionary.Values.IsReadOnly);
+		}
+
+
+		class Foo : IEquatable<Foo>
+		{
+			public string Name;
+			public string Value;
+
+			public override int GetHashCode ()
+			{
+				return Name.GetHashCode();
+			}
+
+			public bool Equals (Foo other)
+			{
+				if (ReferenceEquals (null, other))
+					return false;
+				if (ReferenceEquals (this, other))
+					return true;
+
+				return Name == other.Name;
+			}
+
+			public override bool Equals (object obj)
+			{
+				var f = (obj as Foo);
+				if (f != null)
+					return Name == f.Name;
+
+				return false;
+			}
+
+			public override string ToString()
+			{
+				return string.Format("Name = {0}, Value = {1}", Name, Value);
+			}
 		}
 	}
 }

@@ -145,11 +145,19 @@ namespace Cadenza.Collections
 					throw new ArgumentException ("Value already exists", "value");
 
 				TValue oldValue;
-				if (keysToValues.TryGetValue (key, out oldValue))
-					valuesToKeys.Remove (oldValue);
+				if (keysToValues.TryGetValue (key, out oldValue)) {
+					// Use the current key for this value to stay consistent
+					// with Dictionary<TKey, TValue> which does not alter
+					// the key if it exists.
+					TKey oldKey = valuesToKeys [oldValue];
 
-				keysToValues [key] = value;
-				valuesToKeys [value] = key;
+					keysToValues [oldKey] = value;
+					valuesToKeys.Remove (oldValue);
+					valuesToKeys [value] = oldKey;
+				} else {
+					keysToValues [key] = value;
+					valuesToKeys [value] = key;
+				}
 			}
 		}
 
