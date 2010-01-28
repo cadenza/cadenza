@@ -9,18 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cdh.Toolkit.Extensions", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cdh.Toolkit.Json", "Cdh.Toolkit.Json\Cdh.Toolkit.Json.csproj", "{5F252D4A-2B47-44E7-A8D9-1D0FC21374EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cdh.Toolkit.Facebook", "Cdh.Toolkit.Facebook\Cdh.Toolkit.Facebook.csproj", "{080C49BD-B588-4B4C-969A-8997E60B20F0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A2E1EDA8-78B8-4717-8B75-0D1A2AC47F15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2E1EDA8-78B8-4717-8B75-0D1A2AC47F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2E1EDA8-78B8-4717-8B75-0D1A2AC47F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2E1EDA8-78B8-4717-8B75-0D1A2AC47F15}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1E02E9A5-46A9-4C3E-99C5-B2C917B9A3D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1E02E9A5-46A9-4C3E-99C5-B2C917B9A3D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E02E9A5-46A9-4C3E-99C5-B2C917B9A3D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,10 +27,16 @@ Global
 		{5F252D4A-2B47-44E7-A8D9-1D0FC21374EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F252D4A-2B47-44E7-A8D9-1D0FC21374EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F252D4A-2B47-44E7-A8D9-1D0FC21374EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{080C49BD-B588-4B4C-969A-8997E60B20F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{080C49BD-B588-4B4C-969A-8997E60B20F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{080C49BD-B588-4B4C-969A-8997E60B20F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{080C49BD-B588-4B4C-969A-8997E60B20F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2E1EDA8-78B8-4717-8B75-0D1A2AC47F15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2E1EDA8-78B8-4717-8B75-0D1A2AC47F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2E1EDA8-78B8-4717-8B75-0D1A2AC47F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2E1EDA8-78B8-4717-8B75-0D1A2AC47F15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Cdh.Toolkit.Collections\Cdh.Toolkit.Collections.csproj
+		Policies = $0
+		$0.StandardHeader = $1
+		$1.inheritsSet = MITX11License
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
