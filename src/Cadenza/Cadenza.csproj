@@ -87,6 +87,7 @@
     <Compile Include="Cadenza\UInt32.cs" />
     <Compile Include="Cadenza\UInt64.cs" />
     <Compile Include="Cadenza.Collections\SequenceComparison.cs" />
+    <Compile Include="Cadenza\WeakReference.cs" />
   </ItemGroup>
   <Import Project="..\..\lib\mdoc-net\mdoc.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

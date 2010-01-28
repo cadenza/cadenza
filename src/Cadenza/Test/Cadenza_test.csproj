@@ -79,6 +79,7 @@
     <Compile Include="Cadenza\UInt32Test.cs" />
     <Compile Include="Cadenza\UInt64Test.cs" />
     <Compile Include="Cadenza.Collections\SequenceComparisonTests.cs" />
+    <Compile Include="Cadenza\WeakReferenceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cadenza.csproj">
