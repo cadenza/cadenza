@@ -4,7 +4,7 @@
 // Author:
 //   Eric Maupin  <me@ermau.com>
 //
-// Copyright (c) 2009 Eric Maupin (http://www.ermau.com)
+// Copyright (c) 2010 Eric Maupin (http://www.ermau.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -39,6 +39,19 @@ namespace Cadenza.Collections.Tests
 	[TestFixture]
 	public class MutableLookupTest
 	{
+		public MutableLookup<string, string> GetTestLookup()
+		{
+			var lookup = new MutableLookup<string, string>();
+			lookup.Add (null, null);
+			lookup.Add (null, "blah");
+			lookup.Add (null, "monkeys");
+			lookup.Add ("F", "Foo");
+			lookup.Add ("F", "Foobar");
+			lookup.Add ("B", "Bar");
+
+			return lookup;
+		}
+
 		[Test]
 		[ExpectedException (typeof (ArgumentNullException))]
 		public void CtorNull()
@@ -242,12 +255,7 @@ namespace Cadenza.Collections.Tests
 		[Test]
 		public void ContainsNull()
 		{
-			var lookup = new MutableLookup<string, string>();
-			lookup.Add(null, "blah");
-			lookup.Add(null, "monkeys");
-			lookup.Add("F", "Foo");
-			lookup.Add("F", "Foobar");
-			lookup.Add("B", "Bar");
+			var lookup = GetTestLookup();
 
 			Assert.IsTrue (lookup.Contains (null));
 		}
@@ -266,12 +274,7 @@ namespace Cadenza.Collections.Tests
 		[Test]
 		public void Indexer()
 		{
-			var lookup = new MutableLookup<string, string>();
-			lookup.Add(null, "blah");
-			lookup.Add(null, "monkeys");
-			lookup.Add("F", "Foo");
-			lookup.Add("F", "Foobar");
-			lookup.Add("B", "Bar");
+			var lookup = GetTestLookup();
 
 			Assert.AreEqual (2, lookup["F"].Count());
 		}
@@ -279,25 +282,15 @@ namespace Cadenza.Collections.Tests
 		[Test]
 		public void IndexerNull()
 		{
-			var lookup = new MutableLookup<string, string>();
-			lookup.Add(null, "blah");
-			lookup.Add(null, "monkeys");
-			lookup.Add("F", "Foo");
-			lookup.Add("F", "Foobar");
-			lookup.Add("B", "Bar");
+			var lookup = GetTestLookup();
 
-			Assert.AreEqual (2, lookup[null].Count());
+			Assert.AreEqual (3, lookup[null].Count());
 		}
 
 		[Test]
 		public void IndexerNotFound()
 		{
-			var lookup = new MutableLookup<string, string>();
-			lookup.Add (null, "blah");
-			lookup.Add (null, "monkeys");
-			lookup.Add ("F", "Foo");
-			lookup.Add ("F", "Foobar");
-			lookup.Add ("B", "Bar");
+			var lookup = GetTestLookup();
 
 			Assert.AreEqual (0, lookup["D"].Count());
 		}
@@ -317,12 +310,7 @@ namespace Cadenza.Collections.Tests
 		[Test]
 		public void EnumeratorNull()
 		{
-			var lookup = new MutableLookup<string, string>();
-			lookup.Add (null, "blah");
-			lookup.Add (null, "monkeys");
-			lookup.Add ("F", "Foo");
-			lookup.Add ("F", "Foobar");
-			lookup.Add ("B", "Bar");
+			var lookup = GetTestLookup();
 
 			Assert.AreEqual (3, lookup.Count());
 			Assert.IsTrue (lookup.Any (g => g.Key == null));
@@ -333,13 +321,7 @@ namespace Cadenza.Collections.Tests
 		[Test]
 		public void NullGroupingEnumerator()
 		{
-			var lookup = new MutableLookup<string, string>();
-			lookup.Add (null, null);
-			lookup.Add (null, "blah");
-			lookup.Add (null, "monkeys");
-			lookup.Add ("F", "Foo");
-			lookup.Add ("F", "Foobar");
-			lookup.Add ("B", "Bar");
+			var lookup = GetTestLookup();
 
 			Assert.AreEqual (3, lookup[null].Count());
 			Assert.IsTrue (lookup[null].Any (s => s == "blah"));
@@ -356,6 +338,57 @@ namespace Cadenza.Collections.Tests
 			Assert.AreEqual (2, lookup[2].Count());
 			Assert.IsTrue (lookup[2].Any (i => i == 20));
 			Assert.IsTrue (lookup[2].Any(i => i == 21));
+		}
+
+		[Test]
+		public void TryGetValuesNull()
+		{
+			var lookup = GetTestLookup();
+
+			IEnumerable<string> values;
+			Assert.IsTrue (lookup.TryGetValues (null, out values));
+			Assert.IsNotNull (values);
+
+			var v = values.ToList();
+			Assert.AreEqual (3, v.Count);
+			Assert.Contains ("blah", v);
+			Assert.Contains ("monkeys", v);
+			Assert.Contains (null, v);
+		}
+
+		[Test]
+		public void TryGetValues()
+		{
+			var lookup = GetTestLookup();
+
+			IEnumerable<string> values;
+			Assert.IsTrue (lookup.TryGetValues ("F", out values));
+			Assert.IsNotNull (values);
+
+			var v = values.ToList();
+			Assert.AreEqual (2, v.Count);
+			Assert.Contains ("Foo", v);
+			Assert.Contains ("Foobar", v);
+		}
+
+		[Test]
+		public void TryGetValuesFail()
+		{
+			var lookup = GetTestLookup();
+
+			IEnumerable<string> values;
+			Assert.IsFalse (lookup.TryGetValues ("notfound", out values));
+			Assert.IsNull (values);
+		}
+
+		[Test]
+		public void TryGetValuesNullFail()
+		{
+			var lookup = new MutableLookup<string,string>();
+
+			IEnumerable<string> values;
+			Assert.IsFalse (lookup.TryGetValues (null, out values));
+			Assert.IsNull (values);
 		}
 	}
 }

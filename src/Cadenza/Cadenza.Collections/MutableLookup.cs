@@ -4,7 +4,7 @@
 // Author:
 //   Eric Maupin  <me@ermau.com>
 //
-// Copyright (c) 2009 Eric Maupin (http://www.ermau.com)
+// Copyright (c) 2010 Eric Maupin (http://www.ermau.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -129,6 +129,29 @@ namespace Cadenza.Collections
 				this.nullGrouping.Clear ();
 
 			this.groupings.Clear();
+		}
+
+		public bool TryGetValues (TKey key, out IEnumerable<TElement> values)
+		{
+			values = null;
+
+			if (key == null)
+			{
+				if (nullGrouping.Count != 0)
+				{
+					values = nullGrouping;
+					return true;
+				}
+				else
+					return false;
+			}
+
+			MutableLookupGrouping grouping;
+			if (!this.groupings.TryGetValue (key, out grouping))
+				return false;
+
+			values = grouping;
+			return true;
 		}
 
 		#region ILookup Members
