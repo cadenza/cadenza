@@ -3,8 +3,9 @@
 //
 // Author:
 //   Jb Evain (jbevain@novell.com)
+//   Jonathan Pryor (jpryor@novell.com)
 //
-// Copyright (c) 2007 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2007-2010 Novell, Inc. (http://www.novell.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -1117,6 +1118,88 @@ namespace Cadenza.Collections.Tests {
 			Assert.AreEqual ("3456", results.ElementAt (2).Implode());
 			Assert.AreEqual ("4567", results.ElementAt (3).Implode());
 			Assert.AreEqual ("5678", results.ElementAt (4).Implode());
+			#endregion
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void NotNull_SelfNull ()
+		{
+			IEnumerable<int?> s = null;
+			s.NotNull ();
+		}
+
+		[Test]
+		public void NotNull ()
+		{
+			#region NotNull
+			IEnumerable<int?> s = new int?[]{
+				null,
+				2,
+				null,
+				4
+			};
+			Assert.IsTrue (new []{
+					2, 4
+			}.SequenceEqual (s.NotNull ()));
+			#endregion
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void CopyTo_Array_SelfNull ()
+		{
+			IEnumerable<int> s = null;
+			var array = new int [2];
+			s.CopyTo (array, 0);
+		}
+
+		[Test, ExpectedException (typeof (ArgumentNullException))]
+		public void CopyTo_Array_ArrayNull ()
+		{
+			IEnumerable<int> s = new int [0];
+			int[] array = null;
+			s.CopyTo (array, 0);
+		}
+
+		[Test]
+		public void CopyTo_Array_ArrayIndex ()
+		{
+			IEnumerable<int> s = new int [0];
+			int[] array = new int [0];
+			Assert.Throws<ArgumentOutOfRangeException>(() => s.CopyTo (array, -1));
+			Assert.Throws<ArgumentOutOfRangeException>(() => s.CopyTo (array, 0));
+			array = new int [1];
+			s.CopyTo (array, 0);
+		}
+
+		[Test]
+		public void CopyTo_Collection ()
+		{
+			IEnumerable<int> s = null;
+			var c = new List<int> ();
+			Assert.Throws<ArgumentNullException>(() => s.CopyTo (c));
+			s = new int [0];
+			c = null;
+			Assert.Throws<ArgumentNullException>(() => s.CopyTo (c));
+		}
+
+		[Test]
+		public void CopyTo ()
+		{
+			#region CopyTo
+			IEnumerable<int> s = new int []{1, 2, 3, 4};
+			int[] array = new int [5];
+			s.CopyTo (array, 0);
+			// Note: trailing 0 because array.Length > s.Length
+			Assert.IsTrue (new[]{
+					1, 2, 3, 4, 0
+			}.SequenceEqual (array));
+
+			List<int> collection = new List<int> ();
+			s.CopyTo (collection);
+			// Note: same size as s.Length
+			Assert.IsTrue (new[]{
+					1, 2, 3, 4
+			}.SequenceEqual (collection));
 			#endregion
 		}
 

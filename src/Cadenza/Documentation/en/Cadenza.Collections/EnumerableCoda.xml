@@ -577,6 +577,59 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="CopyTo&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static void CopyTo&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.ICollection&lt;TSource&gt; destination);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="destination" Type="System.Collections.Generic.ICollection&lt;TSource&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="destination">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Collections.EnumerableCoda.CopyTo``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.ICollection{``0})" /></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="CopyTo&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static void CopyTo&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource[] array, int arrayIndex);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="array" Type="TSource[]" />
+        <Parameter Name="arrayIndex" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="array">To be added.</param>
+        <param name="arrayIndex">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Collections.EnumerableCoda.CopyTo``1(System.Collections.Generic.IEnumerable{``0},``0[],System.Int32)" /></exception>
+        <exception cref="T:System.ArgumentOutOfRangeException">To be added; from: <see cref="M:Cadenza.Collections.EnumerableCoda.CopyTo``1(System.Collections.Generic.IEnumerable{``0},``0[],System.Int32)" />, <see cref="M:Cadenza.Collections.EnumerableCoda.CopyTo``1(System.Collections.Generic.IEnumerable{``0},``0[],System.Int32)" /></exception>
+      </Docs>
+    </Member>
     <Member MemberName="Cycle&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Cycle&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
       <MemberType>Method</MemberType>
@@ -1308,6 +1361,35 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="NotNull&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; NotNull&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;Nullable&lt;TSource&gt;&gt; self) where TSource : struct;" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource">
+          <Constraints>
+            <ParameterAttribute>DefaultConstructorConstraint</ParameterAttribute>
+            <ParameterAttribute>NotNullableValueTypeConstraint</ParameterAttribute>
+            <BaseTypeName>System.ValueType</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;System.Nullable&lt;TSource&gt;&gt;" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Or">

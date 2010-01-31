@@ -567,6 +567,47 @@ namespace Cadenza.Collections {
 			}
 		}
 
+		public static IEnumerable<TSource> NotNull<TSource> (this IEnumerable<TSource?> self)
+			where TSource : struct
+		{
+			Check.Self (self);
+
+			return CreateNotNullIterator (self);
+		}
+
+		static IEnumerable<TSource> CreateNotNullIterator<TSource> (IEnumerable<TSource?> self)
+			where TSource : struct
+		{
+			foreach (var e in self)
+				if (e.HasValue)
+					yield return e.Value;
+		}
+
+		public static void CopyTo<TSource> (this IEnumerable<TSource> self, TSource[] array, int arrayIndex)
+		{
+			Check.Self (self);
+			if (array == null)
+				throw new ArgumentNullException ("array");
+			if (arrayIndex < 0)
+				throw new ArgumentOutOfRangeException ("arrayIndex", "arrayIndex is negative.");
+			if (arrayIndex >= array.Length)
+				throw new ArgumentOutOfRangeException ("arrayIndex", "arrayIndex is larger than list.Count.");
+
+			foreach (var e in self)
+				array [arrayIndex++] = e;
+		}
+
+		public static void CopyTo<TSource> (this IEnumerable<TSource> self, ICollection<TSource> destination)
+		{
+			// warning: not exception safe
+			Check.Self (self);
+			if (destination == null)
+				throw new ArgumentNullException ("destination");
+
+			foreach (var e in self)
+				destination.Add (e);
+		}
+
 		// Haskell: zipWith
 		public static IEnumerable<TResult> 
 			SelectFromEach<T1, T2, TResult> (
