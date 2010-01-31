@@ -6,6 +6,7 @@
 //   Jonathan Pryor  <jpryor@novell.com>
 //   Distilled Brilliance <contact@dispatcher.distilledb.com>
 //   Eric Maupin <me@ermau.com>
+//   Chris Howie <cdhowie@gmail.com>
 //
 // Copyright (c) 2007-2010 Novell, Inc. (http://www.novell.com)
 //
