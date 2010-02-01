@@ -66,6 +66,7 @@
     <Compile Include="Cadenza\Delegates.cs" />
     <Compile Include="Cadenza\Either.cs" />
     <Compile Include="Cadenza\Eithers.cs" />
+    <Compile Include="Cadenza\EventHandlerCoda.cs" />
     <Compile Include="Cadenza\Int16.cs" />
     <Compile Include="Cadenza\Int32.cs" />
     <Compile Include="Cadenza\Int64.cs" />

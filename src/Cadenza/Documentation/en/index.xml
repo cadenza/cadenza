@@ -55,6 +55,7 @@
       <Type Name="Either`2" DisplayName="Either&lt;T1,T2&gt;" Kind="Class" />
       <Type Name="Either`3" DisplayName="Either&lt;T1,T2,T3&gt;" Kind="Class" />
       <Type Name="Either`4" DisplayName="Either&lt;T1,T2,T3,T4&gt;" Kind="Class" />
+      <Type Name="EventHandlerCoda" Kind="Class" />
       <Type Name="Int16Coda" Kind="Class" />
       <Type Name="Int32Coda" Kind="Class" />
       <Type Name="Int64Coda" Kind="Class" />
@@ -6674,6 +6675,140 @@
             </summary>
         </Docs>
         <Link Type="Cadenza.DelegateCoda" Member="M:Cadenza.DelegateCoda.Timings``4(System.Action{``0,``1,``2,``3},``0,``1,``2,``3,System.Int32,System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.EventHandler" />
+      </Targets>
+      <Member MemberName="Raise">
+        <MemberSignature Language="C#" Value="public static void Raise (this EventHandler self, object sender);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.EventHandler" RefType="this" />
+          <Parameter Name="sender" Type="System.Object" />
+        </Parameters>
+        <Docs>
+          <param name="self">To be added.</param>
+          <param name="sender">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.EventHandlerCoda" Member="M:Cadenza.EventHandlerCoda.Raise(System.EventHandler,System.Object)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.EventHandler" />
+      </Targets>
+      <Member MemberName="Raise">
+        <MemberSignature Language="C#" Value="public static void Raise (this EventHandler self, object sender, EventArgs e);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.EventHandler" RefType="this" />
+          <Parameter Name="sender" Type="System.Object" />
+          <Parameter Name="e" Type="System.EventArgs" />
+        </Parameters>
+        <Docs>
+          <param name="self">To be added.</param>
+          <param name="sender">To be added.</param>
+          <param name="e">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.EventHandlerCoda" Member="M:Cadenza.EventHandlerCoda.Raise(System.EventHandler,System.Object,System.EventArgs)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.EventHandler" />
+      </Targets>
+      <Member MemberName="Raise">
+        <MemberSignature Language="C#" Value="public static void Raise (this EventHandler self, object sender, Func&lt;EventArgs&gt; creator);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="self" Type="System.EventHandler" RefType="this" />
+          <Parameter Name="sender" Type="System.Object" />
+          <Parameter Name="creator" Type="System.Func&lt;System.EventArgs&gt;" />
+        </Parameters>
+        <Docs>
+          <param name="self">To be added.</param>
+          <param name="sender">To be added.</param>
+          <param name="creator">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.EventHandlerCoda" Member="M:Cadenza.EventHandlerCoda.Raise(System.EventHandler,System.Object,System.Func{System.EventArgs})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.EventHandler`1" />
+      </Targets>
+      <Member MemberName="Raise&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static void Raise&lt;T&gt; (this EventHandler&lt;T&gt; self, object sender, T args) where T : EventArgs;" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T">
+            <Constraints>
+              <BaseTypeName>System.EventArgs</BaseTypeName>
+            </Constraints>
+          </TypeParameter>
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.EventHandler&lt;T&gt;" RefType="this" />
+          <Parameter Name="sender" Type="System.Object" />
+          <Parameter Name="args" Type="T" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="sender">To be added.</param>
+          <param name="args">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.EventHandlerCoda" Member="M:Cadenza.EventHandlerCoda.Raise``1(System.EventHandler{``0},System.Object,``0)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.EventHandler`1" />
+      </Targets>
+      <Member MemberName="Raise&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static void Raise&lt;T&gt; (this EventHandler&lt;T&gt; self, object sender, Func&lt;T&gt; creator) where T : EventArgs;" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Void</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T">
+            <Constraints>
+              <BaseTypeName>System.EventArgs</BaseTypeName>
+            </Constraints>
+          </TypeParameter>
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.EventHandler&lt;T&gt;" RefType="this" />
+          <Parameter Name="sender" Type="System.Object" />
+          <Parameter Name="creator" Type="System.Func&lt;T&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="sender">To be added.</param>
+          <param name="creator">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.EventHandlerCoda" Member="M:Cadenza.EventHandlerCoda.Raise``1(System.EventHandler{``0},System.Object,System.Func{``0})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
