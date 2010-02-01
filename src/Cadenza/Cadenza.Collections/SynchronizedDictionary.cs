@@ -26,19 +26,18 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading;
 
-using Cdh.Toolkit.Extensions.ReaderWriterLockSlim;
+namespace Cadenza.Collections {
 
-namespace Cdh.Toolkit.Collections
-{
     public class SynchronizedDictionary<TKey, TValue> :
         SynchronizedCollection<KeyValuePair<TKey, TValue>>, IDictionary<TKey, TValue>
     {
         protected new IDictionary<TKey, TValue> Decorated { get; private set; }
 
         public SynchronizedDictionary(IDictionary<TKey, TValue> dictionary,
-            EnumerateBehavior behavior, ReaderWriterLockSlim @lock)
+            EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
             : base(dictionary, behavior, @lock)
         {
             Decorated = dictionary;
@@ -46,21 +45,21 @@ namespace Cdh.Toolkit.Collections
         }
 
         public SynchronizedDictionary(IDictionary<TKey, TValue> dictionary,
-            EnumerateBehavior behavior)
+            EnumerableBehavior behavior)
             : base(dictionary, behavior)
         {
             Decorated = dictionary;
             Initialize();
         }
 
-        public SynchronizedDictionary(EnumerateBehavior behavior, ReaderWriterLockSlim @lock)
+        public SynchronizedDictionary(EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
             : base(new Dictionary<TKey, TValue>(), behavior, @lock)
         {
             Decorated = (IDictionary<TKey, TValue>)base.Decorated;
             Initialize();
         }
 
-        public SynchronizedDictionary(EnumerateBehavior behavior)
+        public SynchronizedDictionary(EnumerableBehavior behavior)
             : base(new Dictionary<TKey, TValue>(), behavior)
         {
             Decorated = (IDictionary<TKey, TValue>)base.Decorated;
@@ -74,15 +73,8 @@ namespace Cdh.Toolkit.Collections
             // lock from being acquired prior to throwing the inevitable
             // exception.
 
-            Keys = CreateSynchronizedReadOnlyCollection(Keys);
-            Values = CreateSynchronizedReadOnlyCollection(Values);
-        }
-
-        private ICollection<T> CreateSynchronizedReadOnlyCollection<T>(ICollection<T> collection)
-        {
-            return new ReadOnlyCollection<T>(
-                new SynchronizedCollection<T>(
-                    collection, EnumerateBehavior, Lock));
+            // Keys = CreateSynchronizedReadOnlyCollection(Keys);
+            // Values = CreateSynchronizedReadOnlyCollection(Values);
         }
 
         #region IDictionary<TKey,TValue> Members

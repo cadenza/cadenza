@@ -26,10 +26,9 @@
 
 using System;
 
-namespace Cdh.Toolkit.Collections
-{
-    public enum EnumerateBehavior
-    {
+namespace Cadenza.Collections {
+
+    public enum EnumerableBehavior {
         Copy,
         Lock
     }

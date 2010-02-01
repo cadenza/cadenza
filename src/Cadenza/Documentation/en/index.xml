@@ -87,6 +87,7 @@
       <Type Name="BidirectionalDictionary`2" DisplayName="BidirectionalDictionary&lt;TKey,TValue&gt;" Kind="Class" />
       <Type Name="CachedSequence`1" DisplayName="CachedSequence&lt;T&gt;" Kind="Class" />
       <Type Name="DictionaryCoda" Kind="Class" />
+      <Type Name="EnumerableBehavior" Kind="Enumeration" />
       <Type Name="EnumerableCoda" Kind="Class" />
       <Type Name="KeyValuePairCoda" Kind="Class" />
       <Type Name="LinkedListCoda" Kind="Class" />
@@ -94,6 +95,9 @@
       <Type Name="OrderedDictionary`2" DisplayName="OrderedDictionary&lt;TKey,TValue&gt;" Kind="Class" />
       <Type Name="ReadOnlyDictionary`2" DisplayName="ReadOnlyDictionary&lt;TKey,TValue&gt;" Kind="Class" />
       <Type Name="SequenceComparison`1" DisplayName="SequenceComparison&lt;T&gt;" Kind="Class" />
+      <Type Name="SynchronizedCollection`1" DisplayName="SynchronizedCollection&lt;T&gt;" Kind="Class" />
+      <Type Name="SynchronizedDictionary`2" DisplayName="SynchronizedDictionary&lt;TKey,TValue&gt;" Kind="Class" />
+      <Type Name="SynchronizedList`1" DisplayName="SynchronizedList&lt;T&gt;" Kind="Class" />
     </Namespace>
     <Namespace Name="Cadenza.ComponentModel">
       <Type Name="NotifyingProperty" Kind="Class" />

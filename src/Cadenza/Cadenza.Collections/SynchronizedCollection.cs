@@ -31,20 +31,17 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 
-using Cdh.Toolkit.Extensions.ReaderWriterLockSlim;
+namespace Cadenza.Collections {
 
-namespace Cdh.Toolkit.Collections
-{
-    [DebuggerDisplay("Count = {Count}")]
-    public class SynchronizedCollection<T> : ICollection<T>
-    {
+    public class SynchronizedCollection<T> : ICollection<T> {
+
         public ReaderWriterLockSlim Lock { get; private set; }
-        public EnumerateBehavior EnumerateBehavior { get; private set; }
+        public EnumerableBehavior EnumerableBehavior { get; private set; }
 
         protected ICollection<T> Decorated { get; private set; }
 
         public SynchronizedCollection(ICollection<T> collection,
-            EnumerateBehavior behavior, ReaderWriterLockSlim @lock)
+            EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
         {
             if (collection == null)
                 throw new ArgumentNullException("collection");
@@ -53,12 +50,12 @@ namespace Cdh.Toolkit.Collections
                 throw new ArgumentNullException("lock");
 
             Decorated = collection;
-            EnumerateBehavior = behavior;
+            EnumerableBehavior = behavior;
             Lock = @lock;
         }
 
         public SynchronizedCollection(ICollection<T> collection,
-            EnumerateBehavior behavior) :
+            EnumerableBehavior behavior) :
             this(collection, behavior, new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion))
         {
         }
@@ -130,7 +127,7 @@ namespace Cdh.Toolkit.Collections
 
         public virtual IEnumerator<T> GetEnumerator()
         {
-            if (EnumerateBehavior == EnumerateBehavior.Copy)
+            if (EnumerableBehavior == EnumerableBehavior.Copy)
                 using (Lock.Read())
                     return Decorated.Where(i => true).ToList().GetEnumerator();
 
@@ -150,7 +147,7 @@ namespace Cdh.Toolkit.Collections
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            if (EnumerateBehavior == EnumerateBehavior.Copy)
+            if (EnumerableBehavior == EnumerableBehavior.Copy)
                 using (Lock.Read())
                     Decorated.Cast<object>().ToList().GetEnumerator();
 

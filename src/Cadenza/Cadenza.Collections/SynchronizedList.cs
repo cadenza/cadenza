@@ -28,33 +28,31 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 
-using Cdh.Toolkit.Extensions.ReaderWriterLockSlim;
+namespace Cadenza.Collections {
 
-namespace Cdh.Toolkit.Collections
-{
-    public class SynchronizedList<T> : SynchronizedCollection<T>, IList<T>
-    {
+    public class SynchronizedList<T> : SynchronizedCollection<T>, IList<T> {
+
         protected new IList<T> Decorated { get; private set; }
 
-        public SynchronizedList(IList<T> list, EnumerateBehavior behavior, ReaderWriterLockSlim @lock)
+        public SynchronizedList(IList<T> list, EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
             : base(list, behavior, @lock)
         {
             Decorated = list;
         }
 
-        public SynchronizedList(IList<T> list, EnumerateBehavior behavior)
+        public SynchronizedList(IList<T> list, EnumerableBehavior behavior)
             : base(list, behavior)
         {
             Decorated = list;
         }
 
-        public SynchronizedList(EnumerateBehavior behavior, ReaderWriterLockSlim @lock)
+        public SynchronizedList(EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
             : base(new List<T>(), behavior, @lock)
         {
             Decorated = (IList<T>)base.Decorated;
         }
 
-        public SynchronizedList(EnumerateBehavior behavior)
+        public SynchronizedList(EnumerableBehavior behavior)
             : base(new List<T>(), behavior)
         {
             Decorated = (IList<T>)base.Decorated;
