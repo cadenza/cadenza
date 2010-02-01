@@ -1,5 +1,5 @@
 // 
-// Extensions.cs
+// ILGeneratorCoda.cs
 //  
 // Author:
 //       Chris Howie <cdhowie@gmail.com>
@@ -25,31 +25,16 @@
 // THE SOFTWARE.
 
 using System;
-using System.ComponentModel;
+using System.Reflection.Emit;
 
-namespace Cdh.Toolkit.Extensions.ComponentModel
+namespace Cadenza.Reflection
 {
-    public static class Extensions
+    public static class ILGeneratorCoda
     {
-        public static void AutoInvoke(this ISynchronizeInvoke obj, Action method)
+        public static void EmitTypeof(this ILGenerator il, Type type)
         {
-            if (obj.InvokeRequired)
-                obj.Invoke(method, null);
-            else
-                method();
-        }
-
-        public static object AutoInvoke(this ISynchronizeInvoke obj, Delegate method, params object[] args)
-        {
-            if (obj.InvokeRequired)
-                return obj.Invoke(method, args);
-            else
-                return method.Method.Invoke(method.Target, args);
-        }
-
-        public static AsyncCallback Invoked(this AsyncCallback callback, ISynchronizeInvoke obj)
-        {
-            return result => obj.AutoInvoke(callback, result);
+            il.Emit(OpCodes.Ldtoken, type);
+            il.Emit(OpCodes.Call, typeof(Type).GetMethod("GetTypeFromHandle"));
         }
     }
 }

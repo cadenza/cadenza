@@ -35,7 +35,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assembly\AssemblyInfo.cs" />
+    <Compile Include="Cadenza.ComponentModel\SynchronizeInvokeCoda.cs" />
     <Compile Include="Cadenza.Constraints\Arguments.cs" />
+    <Compile Include="Cadenza.Reflection\ILGeneratorCoda.cs" />
+    <Compile Include="Cadenza.Threading\ReaderWriterLockSlimCoda.cs" />
   </ItemGroup>
   <Import Project="..\..\lib\mdoc-net\mdoc.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

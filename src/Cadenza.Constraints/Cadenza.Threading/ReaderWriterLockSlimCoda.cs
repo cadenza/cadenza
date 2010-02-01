@@ -1,5 +1,5 @@
 // 
-// Extensions.cs
+// ReaderWriterLockSlimCoda.cs
 //  
 // Author:
 //       Chris Howie <cdhowie@gmail.com>
@@ -27,11 +27,11 @@
 using System;
 using System.Threading;
 
-namespace Cdh.Toolkit.Extensions.ReaderWriterLockSlim
+namespace Cadenza.Threading
 {
     using ReaderWriterLockSlim = System.Threading.ReaderWriterLockSlim;
 
-    public static class Extensions
+    public static class ReaderWriterLockSlimCoda
     {
         public static LockHandle Read(this ReaderWriterLockSlim rwlock)
         {
