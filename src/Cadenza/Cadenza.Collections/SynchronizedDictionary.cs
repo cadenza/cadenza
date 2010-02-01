@@ -31,96 +31,91 @@ using System.Threading;
 
 namespace Cadenza.Collections {
 
-    public class SynchronizedDictionary<TKey, TValue> :
-        SynchronizedCollection<KeyValuePair<TKey, TValue>>, IDictionary<TKey, TValue>
-    {
-        protected new IDictionary<TKey, TValue> Decorated { get; private set; }
+	public class SynchronizedDictionary<TKey, TValue> :
+		SynchronizedCollection<KeyValuePair<TKey, TValue>>, IDictionary<TKey, TValue>
+	{
+		protected new IDictionary<TKey, TValue> Decorated {
+			get {return (IDictionary<TKey, TValue>) base.Decorated;}
+		}
 
-        public SynchronizedDictionary(IDictionary<TKey, TValue> dictionary,
-            EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
-            : base(dictionary, behavior, @lock)
-        {
-            Decorated = dictionary;
-            Initialize();
-        }
+		public SynchronizedDictionary (IDictionary<TKey, TValue> dictionary,
+				EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
+			: base (dictionary, behavior, @lock)
+		{
+			Initialize ();
+		}
 
-        public SynchronizedDictionary(IDictionary<TKey, TValue> dictionary,
-            EnumerableBehavior behavior)
-            : base(dictionary, behavior)
-        {
-            Decorated = dictionary;
-            Initialize();
-        }
+		public SynchronizedDictionary (IDictionary<TKey, TValue> dictionary,
+				EnumerableBehavior behavior)
+			: base (dictionary, behavior)
+		{
+			Initialize ();
+		}
 
-        public SynchronizedDictionary(EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
-            : base(new Dictionary<TKey, TValue>(), behavior, @lock)
-        {
-            Decorated = (IDictionary<TKey, TValue>)base.Decorated;
-            Initialize();
-        }
+		public SynchronizedDictionary (EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
+			: base (new Dictionary<TKey, TValue>(), behavior, @lock)
+		{
+			Initialize ();
+		}
 
-        public SynchronizedDictionary(EnumerableBehavior behavior)
-            : base(new Dictionary<TKey, TValue>(), behavior)
-        {
-            Decorated = (IDictionary<TKey, TValue>)base.Decorated;
-            Initialize();
-        }
+		public SynchronizedDictionary(EnumerableBehavior behavior)
+			: base (new Dictionary<TKey, TValue>(), behavior)
+		{
+			Initialize ();
+		}
 
-        private void Initialize()
-        {
-            // The base collections are already read-only, but wrapping the
-            // SynchronizedCollection in a ReadOnlyCollection prevents a write
-            // lock from being acquired prior to throwing the inevitable
-            // exception.
+		private void Initialize ()
+		{
+			// The base collections are already read-only, but wrapping the
+			// SynchronizedCollection in a ReadOnlyCollection prevents a write
+			// lock from being acquired prior to throwing the inevitable
+			// exception.
 
-            // Keys = CreateSynchronizedReadOnlyCollection(Keys);
-            // Values = CreateSynchronizedReadOnlyCollection(Values);
-        }
+			// Keys = CreateSynchronizedReadOnlyCollection(Keys);
+			// Values = CreateSynchronizedReadOnlyCollection(Values);
+		}
 
-        #region IDictionary<TKey,TValue> Members
+#region IDictionary<TKey,TValue> Members
 
-        public virtual void Add(TKey key, TValue value)
-        {
-            using (Lock.Write())
-                Decorated.Add(key, value);
-        }
+		public virtual void Add (TKey key, TValue value)
+		{
+			using (Lock.Write ())
+				Decorated.Add (key, value);
+		}
 
-        public virtual bool ContainsKey(TKey key)
-        {
-            using (Lock.Read())
-                return Decorated.ContainsKey(key);
-        }
+		public virtual bool ContainsKey (TKey key)
+		{
+			using (Lock.Read ())
+				return Decorated.ContainsKey (key);
+		}
 
-        public virtual ICollection<TKey> Keys { get; private set; }
+		public virtual ICollection<TKey> Keys { get; private set; }
 
-        public virtual bool Remove(TKey key)
-        {
-            using (Lock.Write())
-                return Decorated.Remove(key);
-        }
+		public virtual bool Remove (TKey key)
+		{
+			using (Lock.Write ())
+				return Decorated.Remove (key);
+		}
 
-        public virtual bool TryGetValue(TKey key, out TValue value)
-        {
-            using (Lock.Read())
-                return Decorated.TryGetValue(key, out value);
-        }
+		public virtual bool TryGetValue (TKey key, out TValue value)
+		{
+			using (Lock.Read ())
+				return Decorated.TryGetValue (key, out value);
+		}
 
-        public virtual ICollection<TValue> Values { get; private set; }
+		public virtual ICollection<TValue> Values { get; private set; }
 
-        public virtual TValue this[TKey key]
-        {
-            get
-            {
-                using (Lock.Read())
-                    return Decorated[key];
-            }
-            set
-            {
-                using (Lock.Write())
-                    Decorated[key] = value;
-            }
-        }
+		public virtual TValue this [TKey key] {
+			get {
+				using (Lock.Read())
+					return Decorated[key];
+			}
+			set {
+				using (Lock.Write())
+					Decorated[key] = value;
+			}
+		}
 
-        #endregion
-    }
+#endregion
+	}
 }

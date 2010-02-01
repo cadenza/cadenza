@@ -30,68 +30,63 @@ using System.Threading;
 
 namespace Cadenza.Collections {
 
-    public class SynchronizedList<T> : SynchronizedCollection<T>, IList<T> {
+	public class SynchronizedList<T> : SynchronizedCollection<T>, IList<T> {
 
-        protected new IList<T> Decorated { get; private set; }
+		protected new IList<T> Decorated {
+			get {return (IList<T>) base.Decorated;}
+		}
 
-        public SynchronizedList(IList<T> list, EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
-            : base(list, behavior, @lock)
-        {
-            Decorated = list;
-        }
+		public SynchronizedList (IList<T> list, EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
+			: base (list, behavior, @lock)
+		{
+		}
 
-        public SynchronizedList(IList<T> list, EnumerableBehavior behavior)
-            : base(list, behavior)
-        {
-            Decorated = list;
-        }
+		public SynchronizedList (IList<T> list, EnumerableBehavior behavior)
+			: base (list, behavior)
+		{
+		}
 
-        public SynchronizedList(EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
-            : base(new List<T>(), behavior, @lock)
-        {
-            Decorated = (IList<T>)base.Decorated;
-        }
+		public SynchronizedList (EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
+			: base (new List<T>(), behavior, @lock)
+		{
+		}
 
-        public SynchronizedList(EnumerableBehavior behavior)
-            : base(new List<T>(), behavior)
-        {
-            Decorated = (IList<T>)base.Decorated;
-        }
+		public SynchronizedList (EnumerableBehavior behavior)
+			: base (new List<T>(), behavior)
+		{
+		}
 
-        #region IList<T> Members
+#region IList<T> Members
 
-        public virtual int IndexOf(T item)
-        {
-            using (Lock.Read())
-                return Decorated.IndexOf(item);
-        }
+		public virtual int IndexOf (T item)
+		{
+			using (Lock.Read ())
+				return Decorated.IndexOf (item);
+		}
 
-        public virtual void Insert(int index, T item)
-        {
-            using (Lock.Write())
-                Decorated.Insert(index, item);
-        }
+		public virtual void Insert (int index, T item)
+		{
+			using (Lock.Write ())
+				Decorated.Insert (index, item);
+		}
 
-        public virtual void RemoveAt(int index)
-        {
-            using (Lock.Write())
-                Decorated.RemoveAt(index);
-        }
+		public virtual void RemoveAt (int index)
+		{
+			using (Lock.Write ())
+				Decorated.RemoveAt (index);
+		}
 
-        public virtual T this[int index]
-        {
-            get
-            {
-                using (Lock.Read())
-                    return Decorated[index];
-            }
-            set
-            {
-                using (Lock.Write())
-                    Decorated[index] = value;
-            }
-        }
+		public virtual T this [int index] {
+			get {
+				using (Lock.Read ())
+					return Decorated [index];
+			}
+			set {
+				using (Lock.Write ())
+					Decorated [index] = value;
+			}
+		}
 
-        #endregion
-    }
+#endregion
+	}
 }
