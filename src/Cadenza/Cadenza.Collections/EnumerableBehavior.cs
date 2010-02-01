@@ -28,8 +28,8 @@ using System;
 
 namespace Cadenza.Collections {
 
-    public enum EnumerableBehavior {
-        Copy,
-        Lock
-    }
+	public enum EnumerableBehavior {
+		Copy,
+		Lock,
+	}
 }
