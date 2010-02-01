@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Cadenza.Collections\BidirectionalDictionary.cs" />
     <Compile Include="Cadenza.Collections\CachedSequence.cs" />
+    <Compile Include="Cadenza.Collections\DictionaryCoda.cs" />
     <Compile Include="Cadenza.Collections\Enumerable.cs" />
     <Compile Include="Cadenza.Collections\KeyValuePair.cs" />
     <Compile Include="Cadenza.Collections\LinkedListCoda.cs" />
@@ -99,7 +100,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <Runtime Condition=" '$(OS)' == 'Windows_NT' "></Runtime>
+    <Runtime Condition=" '$(OS)' == 'Windows_NT' " />
     <Runtime Condition=" '$(OS)' != 'Windows_NT' ">mono</Runtime>
   </PropertyGroup>
   <ItemGroup>
