@@ -52,7 +52,7 @@ namespace Cadenza.Collections {
 			return self.TryGetValue(key, out value) ? value : defaultValue;
 		}
 
-		public static void SetValue<TKey, TValue>(this IDictionary<TKey, TValue> self, TKey key, Func<TValue, TValue> valueSelector)
+		public static void UpdateValue<TKey, TValue>(this IDictionary<TKey, TValue> self, TKey key, Func<TValue, TValue> valueSelector)
 		{
 			Check.Self (self);
 			Check.ValueSelector (valueSelector);

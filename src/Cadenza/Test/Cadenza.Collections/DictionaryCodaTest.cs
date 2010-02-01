@@ -64,18 +64,18 @@ namespace Cadenza.Collections.Tests {
 		}
 
 		[Test]
-		public void SetValue_Arguments ()
+		public void UpdateValue_Arguments ()
 		{
 			IDictionary<string, int> s = null;
-			Assert.Throws<ArgumentNullException>(() => s.SetValue ("key", v => v));
+			Assert.Throws<ArgumentNullException>(() => s.UpdateValue ("key", v => v));
 			s = new Dictionary<string, int> ();
-			Assert.Throws<ArgumentNullException>(() => s.SetValue ("key", null));
+			Assert.Throws<ArgumentNullException>(() => s.UpdateValue ("key", null));
 		}
 
 		[Test]
-		public void SetValue ()
+		public void UpdateValue ()
 		{
-			#region SetValue
+			#region UpdateValue
 			var words = new[]{
 				"Count",
 				"the",
@@ -85,7 +85,7 @@ namespace Cadenza.Collections.Tests {
 			};
 			var wordCounts = new Dictionary<string, int> ();
 			foreach (var word in words)
-				wordCounts.SetValue (word, v => v + 1);
+				wordCounts.UpdateValue (word, v => v + 1);
 			Assert.AreEqual (4, wordCounts.Count);
 			Assert.AreEqual (1, wordCounts ["Count"]);
 			Assert.AreEqual (2, wordCounts ["the"]);
