@@ -31,25 +31,35 @@ namespace Cadenza.ComponentModel {
 
 	public static class SynchronizeInvokeCoda {
 
-		public static void AutoInvoke (this ISynchronizeInvoke obj, Action method)
+		public static void AutoInvoke (this ISynchronizeInvoke self, Action action)
 		{
-			if (obj.InvokeRequired)
-				obj.Invoke (method, null);
+			Check.Self (self);
+			if (action == null)
+				throw new ArgumentNullException ("action");
+
+			if (self.InvokeRequired)
+				self.Invoke (action, null);
 			else
-				method();
+				action ();
 		}
 
-		public static object AutoInvoke (this ISynchronizeInvoke obj, Delegate method, params object[] args)
+		public static object AutoInvoke (this ISynchronizeInvoke self, Delegate method, params object[] args)
 		{
-			if (obj.InvokeRequired)
-				return obj.Invoke (method, args);
+			Check.Self (self);
+			if (method == null)
+				throw new ArgumentNullException ("method");
+
+			if (self.InvokeRequired)
+				return self.Invoke (method, args);
 			else
 				return method.Method.Invoke (method.Target, args);
 		}
 
-		public static AsyncCallback Invoked (this AsyncCallback callback, ISynchronizeInvoke obj)
+		public static AsyncCallback Invoked (this AsyncCallback self, ISynchronizeInvoke obj)
 		{
-			return result => obj.AutoInvoke (callback, result);
+			Check.Self (self);
+
+			return result => obj.AutoInvoke (self, result);
 		}
 	}
 }

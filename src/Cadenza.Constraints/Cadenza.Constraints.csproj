@@ -34,6 +34,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Cadenza\Cadenza\Check.cs" />
     <Compile Include="Assembly\AssemblyInfo.cs" />
     <Compile Include="Cadenza.ComponentModel\SynchronizeInvokeCoda.cs" />
     <Compile Include="Cadenza.Constraints\Arguments.cs" />

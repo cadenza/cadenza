@@ -28,35 +28,42 @@ using System;
 using System.Threading;
 using ReaderWriterLockSlim = System.Threading.ReaderWriterLockSlim;
 
+using Cadenza;
+
 namespace Cadenza.Threading {
 
 	public static class ReaderWriterLockSlimCoda {
 
-		public static LockHandle Read (this ReaderWriterLockSlim rwlock)
+		public static LockHandle Read (this ReaderWriterLockSlim self)
 		{
-			if (rwlock.IsReadLockHeld || rwlock.IsUpgradeableReadLockHeld || rwlock.IsWriteLockHeld)
+			Check.Self (self);
+
+			if (self.IsReadLockHeld || self.IsUpgradeableReadLockHeld || self.IsWriteLockHeld)
 				return new LockHandle ();
 
-			rwlock.EnterReadLock ();
-			return new LockHandle (rwlock, LockHandle.LockType.Read);
+			self.EnterReadLock ();
+			return new LockHandle (self, LockHandle.LockType.Read);
 		}
 
-		public static LockHandle UpgradeableRead (this ReaderWriterLockSlim rwlock)
+		public static LockHandle UpgradeableRead (this ReaderWriterLockSlim self)
 		{
-			if (rwlock.IsUpgradeableReadLockHeld || rwlock.IsWriteLockHeld)
-				return new LockHandle();
+			Check.Self (self);
 
-			rwlock.EnterUpgradeableReadLock();
-			return new LockHandle(rwlock, LockHandle.LockType.UpgradeableRead);
+			if (self.IsUpgradeableReadLockHeld || self.IsWriteLockHeld)
+				return new LockHandle ();
+
+			self.EnterUpgradeableReadLock();
+			return new LockHandle (self, LockHandle.LockType.UpgradeableRead);
 		}
 
-		public static LockHandle Write (this ReaderWriterLockSlim rwlock)
+		public static LockHandle Write (this ReaderWriterLockSlim self)
 		{
-			if (rwlock.IsWriteLockHeld)
-				return new LockHandle();
+			Check.Self (self);
+			if (self.IsWriteLockHeld)
+				return new LockHandle ();
 
-			rwlock.EnterWriteLock();
-			return new LockHandle(rwlock, LockHandle.LockType.Write);
+			self.EnterWriteLock();
+			return new LockHandle (self, LockHandle.LockType.Write);
 		}
 
 		public struct LockHandle : IDisposable {
