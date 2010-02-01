@@ -7641,6 +7641,34 @@
       <Targets>
         <Target Type="System.Object" />
       </Targets>
+      <Member MemberName="CreateMonitorLockAccessor&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static Func&lt;Action&gt; CreateMonitorLockAccessor&lt;T&gt; (this T self) where T : class;" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Func&lt;System.Action&gt;</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T">
+            <Constraints>
+              <ParameterAttribute>ReferenceTypeConstraint</ParameterAttribute>
+            </Constraints>
+          </TypeParameter>
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="T" RefType="this" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.ObjectCoda" Member="M:Cadenza.ObjectCoda.CreateMonitorLockAccessor``1(``0)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="System.Object" />
+      </Targets>
       <Member MemberName="Just&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; Just&lt;T&gt; (this T self);" />
         <MemberType>ExtensionMethod</MemberType>

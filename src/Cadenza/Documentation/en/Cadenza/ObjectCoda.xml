@@ -14,6 +14,33 @@
     </remarks>
   </Docs>
   <Members>
+    <Member MemberName="CreateMonitorLockAccessor&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Func&lt;Action&gt; CreateMonitorLockAccessor&lt;T&gt; (this T self) where T : class;" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Func&lt;System.Action&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T">
+          <Constraints>
+            <ParameterAttribute>ReferenceTypeConstraint</ParameterAttribute>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="T" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Just&lt;T&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; Just&lt;T&gt; (this T self);" />
       <MemberType>Method</MemberType>

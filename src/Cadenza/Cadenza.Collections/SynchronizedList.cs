@@ -36,23 +36,23 @@ namespace Cadenza.Collections {
 			get {return (IList<T>) base.Decorated;}
 		}
 
-		public SynchronizedList (IList<T> list, EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
-			: base (list, behavior, @lock)
+		public SynchronizedList (IList<T> list, Func<Action> acquireReadLock, Func<Action> acquireWriteLock, EnumerableBehavior defaultBehavior)
+			: base (list, acquireReadLock, acquireWriteLock, defaultBehavior)
 		{
 		}
 
-		public SynchronizedList (IList<T> list, EnumerableBehavior behavior)
-			: base (list, behavior)
+		public SynchronizedList (IList<T> list, Func<Action> acquireReadLock, Func<Action> acquireWriteLock)
+			: base (list, acquireReadLock, acquireWriteLock)
 		{
 		}
 
-		public SynchronizedList (EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
-			: base (new List<T>(), behavior, @lock)
+		public SynchronizedList (IList<T> list)
+			: base (list)
 		{
 		}
 
-		public SynchronizedList (EnumerableBehavior behavior)
-			: base (new List<T>(), behavior)
+		public SynchronizedList ()
+			: this (new List<T>())
 		{
 		}
 
@@ -60,30 +60,55 @@ namespace Cadenza.Collections {
 
 		public virtual int IndexOf (T item)
 		{
-			using (Lock.Read ())
+			Action release = acquireReadLock ();
+			try {
 				return Decorated.IndexOf (item);
+			}
+			finally {
+				release ();
+			}
 		}
 
 		public virtual void Insert (int index, T item)
 		{
-			using (Lock.Write ())
+			Action release = acquireWriteLock ();
+			try {
 				Decorated.Insert (index, item);
+			}
+			finally {
+				release ();
+			}
 		}
 
 		public virtual void RemoveAt (int index)
 		{
-			using (Lock.Write ())
+			Action release = acquireWriteLock ();
+			try {
 				Decorated.RemoveAt (index);
+			}
+			finally {
+				release ();
+			}
 		}
 
 		public virtual T this [int index] {
 			get {
-				using (Lock.Read ())
+				Action release = acquireReadLock ();
+				try {
 					return Decorated [index];
+				}
+				finally {
+					release ();
+				}
 			}
 			set {
-				using (Lock.Write ())
+				Action release = acquireWriteLock ();
+				try {
 					Decorated [index] = value;
+				}
+				finally {
+					release ();
+				}
 			}
 		}
 

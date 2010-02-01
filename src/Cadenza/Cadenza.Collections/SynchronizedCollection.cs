@@ -35,34 +35,49 @@ namespace Cadenza.Collections {
 
 	public class SynchronizedCollection<T> : ICollection<T> {
 
-		public ReaderWriterLockSlim Lock { get; private set; }
+		protected Func<Action> acquireReadLock, acquireWriteLock;
+
 		public EnumerableBehavior DefaultEnumerableBehavior { get; private set; }
 
 		protected ICollection<T> Decorated { get; private set; }
 
-		public SynchronizedCollection(ICollection<T> collection,
-				EnumerableBehavior defaultBehavior, ReaderWriterLockSlim @lock)
+		public SynchronizedCollection (ICollection<T> collection,
+				Func<Action> acquireReadLock, Func<Action> acquireWriteLock,
+				EnumerableBehavior defaultBehavior)
 		{
 			if (collection == null)
 				throw new ArgumentNullException ("collection");
-
-			if (@lock == null)
-				throw new ArgumentNullException ("lock");
+			if (acquireReadLock == null)
+				throw new ArgumentNullException ("acquireReadLock");
+			if (acquireWriteLock == null)
+				throw new ArgumentNullException ("acquireWriteLock");
 
 			Decorated = collection;
 			DefaultEnumerableBehavior = defaultBehavior;
-			Lock = @lock;
+			this.acquireReadLock  = acquireReadLock;
+			this.acquireWriteLock = acquireWriteLock;
 		}
 
-		public SynchronizedCollection (ICollection<T> collection,
-				EnumerableBehavior defaultBehavior)
-			: this (collection, defaultBehavior, new ReaderWriterLockSlim (LockRecursionPolicy.SupportsRecursion))
+		public SynchronizedCollection (ICollection<T> collection, Func<Action> acquireReadLock, Func<Action> acquireWriteLock)
+			: this (collection, acquireReadLock, acquireWriteLock, EnumerableBehavior.Copy)
 		{
+		}
+
+		public SynchronizedCollection (ICollection<T> collection)
+		{
+			if (collection == null)
+				throw new ArgumentNullException ("collection");
+			Decorated = collection;
+			DefaultEnumerableBehavior = EnumerableBehavior.Copy;
+
+			object _lock = new object ();
+			acquireReadLock = acquireWriteLock = _lock.CreateMonitorLockAccessor ();
 		}
 
 		public virtual bool Add (T item)
 		{
-			using (Lock.Write ()) {
+			Action release = acquireReadLock ();
+			try {
 				// This is kind of a hack, but it ensures that with e.g.
 				// HashSet<T> this method will return true/false properly,
 				// saving me from having to write HashSet-specific wrappers.
@@ -72,6 +87,9 @@ namespace Cadenza.Collections {
 				Decorated.Add (item);
 
 				return initialCount != Decorated.Count;
+			}
+			finally {
+				release ();
 			}
 		}
 
@@ -84,37 +102,70 @@ namespace Cadenza.Collections {
 
 		public virtual void Clear ()
 		{
-			using (Lock.Write ())
+			Action release = acquireWriteLock ();
+			try {
 				Decorated.Clear ();
+			}
+			finally {
+				release ();
+			}
 		}
 
 		public virtual bool Contains (T item)
 		{
-			using (Lock.Read ())
+			Action release = acquireReadLock ();
+			try {
 				return Decorated.Contains (item);
+			}
+			finally {
+				release ();
+			}
 		}
 
 		public virtual void CopyTo (T[] array, int arrayIndex)
 		{
-			using (Lock.Read ())
+			Action release = acquireReadLock ();
+			try {
 				Decorated.CopyTo (array, arrayIndex);
+			}
+			finally {
+				release ();
+			}
 		}
 
 		public virtual int Count {
 			get {
-				using (Lock.Read ())
+				Action release = acquireReadLock ();
+				try {
 					return Decorated.Count;
+				}
+				finally {
+					release ();
+				}
 			}
 		}
 
 		public virtual bool IsReadOnly {
-			get {return Decorated.IsReadOnly;}
+			get {
+				Action release = acquireReadLock ();
+				try {
+					return Decorated.IsReadOnly;
+				}
+				finally {
+					release ();
+				}
+			}
 		}
 
 		public virtual bool Remove (T item)
 		{
-			using (Lock.Write ())
+			Action release = acquireWriteLock ();
+			try {
 				return Decorated.Remove (item);
+			}
+			finally {
+				release ();
+			}
 		}
 
 #endregion
@@ -129,9 +180,15 @@ namespace Cadenza.Collections {
 		public virtual IEnumerator<T> GetEnumerator (EnumerableBehavior behavior)
 		{
 			switch (behavior) {
-				case EnumerableBehavior.Copy:
-					using (Lock.Read ())
+				case EnumerableBehavior.Copy: {
+					Action release = acquireReadLock ();
+					try {
 						return Decorated.Where (i => true).ToList ().GetEnumerator ();
+					}
+					finally {
+						release ();
+					}
+				}
 				case EnumerableBehavior.Lock:
 					return CreateLockEnumerator ();
 			}
@@ -140,9 +197,14 @@ namespace Cadenza.Collections {
 
 		private IEnumerator<T> CreateLockEnumerator ()
 		{
-			using (Lock.Read ())
+			Action release = acquireReadLock ();
+			try {
 				foreach (T i in Decorated)
 					yield return i;
+			}
+			finally {
+				release ();
+			}
 		}
 
 #endregion

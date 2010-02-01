@@ -233,5 +233,19 @@ namespace Cadenza.Tests {
 				.With (c => c.ElementAt (c.Count()/2)));
 			#endregion
 		}
+
+		[Test]
+		public void CreateMonitorLockAccessor_Validation ()
+		{
+			object o = null;
+			Assert.Throws<ArgumentNullException>(() => o.CreateMonitorLockAccessor ());
+		}
+
+		[Test]
+		public void CreateMonitorLockAccessor ()
+		{
+			object o = new object ();
+			o.CreateMonitorLockAccessor ();
+		}
 	}
 }

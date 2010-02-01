@@ -31,69 +31,68 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public SynchronizedList (Cadenza.Collections.EnumerableBehavior behavior);" />
+      <MemberSignature Language="C#" Value="public SynchronizedList ();" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="behavior" Type="Cadenza.Collections.EnumerableBehavior" />
-      </Parameters>
+      <Parameters />
       <Docs>
-        <param name="behavior">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public SynchronizedList (Cadenza.Collections.EnumerableBehavior behavior, System.Threading.ReaderWriterLockSlim lock);" />
-      <MemberType>Constructor</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Parameters>
-        <Parameter Name="behavior" Type="Cadenza.Collections.EnumerableBehavior" />
-        <Parameter Name="lock" Type="System.Threading.ReaderWriterLockSlim" />
-      </Parameters>
-      <Docs>
-        <param name="behavior">To be added.</param>
-        <param name="lock">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public SynchronizedList (System.Collections.Generic.IList&lt;T&gt; list, Cadenza.Collections.EnumerableBehavior behavior);" />
+      <MemberSignature Language="C#" Value="public SynchronizedList (System.Collections.Generic.IList&lt;T&gt; list);" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="list" Type="System.Collections.Generic.IList&lt;T&gt;" />
-        <Parameter Name="behavior" Type="Cadenza.Collections.EnumerableBehavior" />
       </Parameters>
       <Docs>
         <param name="list">To be added.</param>
-        <param name="behavior">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public SynchronizedList (System.Collections.Generic.IList&lt;T&gt; list, Cadenza.Collections.EnumerableBehavior behavior, System.Threading.ReaderWriterLockSlim lock);" />
+      <MemberSignature Language="C#" Value="public SynchronizedList (System.Collections.Generic.IList&lt;T&gt; list, Func&lt;Action&gt; acquireReadLock, Func&lt;Action&gt; acquireWriteLock);" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="list" Type="System.Collections.Generic.IList&lt;T&gt;" />
-        <Parameter Name="behavior" Type="Cadenza.Collections.EnumerableBehavior" />
-        <Parameter Name="lock" Type="System.Threading.ReaderWriterLockSlim" />
+        <Parameter Name="acquireReadLock" Type="System.Func&lt;System.Action&gt;" />
+        <Parameter Name="acquireWriteLock" Type="System.Func&lt;System.Action&gt;" />
       </Parameters>
       <Docs>
         <param name="list">To be added.</param>
-        <param name="behavior">To be added.</param>
-        <param name="lock">To be added.</param>
+        <param name="acquireReadLock">To be added.</param>
+        <param name="acquireWriteLock">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public SynchronizedList (System.Collections.Generic.IList&lt;T&gt; list, Func&lt;Action&gt; acquireReadLock, Func&lt;Action&gt; acquireWriteLock, Cadenza.Collections.EnumerableBehavior defaultBehavior);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="list" Type="System.Collections.Generic.IList&lt;T&gt;" />
+        <Parameter Name="acquireReadLock" Type="System.Func&lt;System.Action&gt;" />
+        <Parameter Name="acquireWriteLock" Type="System.Func&lt;System.Action&gt;" />
+        <Parameter Name="defaultBehavior" Type="Cadenza.Collections.EnumerableBehavior" />
+      </Parameters>
+      <Docs>
+        <param name="list">To be added.</param>
+        <param name="acquireReadLock">To be added.</param>
+        <param name="acquireWriteLock">To be added.</param>
+        <param name="defaultBehavior">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>

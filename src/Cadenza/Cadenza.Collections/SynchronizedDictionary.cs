@@ -38,28 +38,26 @@ namespace Cadenza.Collections {
 			get {return (IDictionary<TKey, TValue>) base.Decorated;}
 		}
 
-		public SynchronizedDictionary (IDictionary<TKey, TValue> dictionary,
-				EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
-			: base (dictionary, behavior, @lock)
+		public SynchronizedDictionary (IDictionary<TKey, TValue> dictionary, Func<Action> acquireReadLock, Func<Action> acquireWriteLock, EnumerableBehavior defaultBehavior)
+			: base (dictionary, acquireReadLock, acquireWriteLock, defaultBehavior)
 		{
 			Initialize ();
 		}
 
-		public SynchronizedDictionary (IDictionary<TKey, TValue> dictionary,
-				EnumerableBehavior behavior)
-			: base (dictionary, behavior)
+		public SynchronizedDictionary (IDictionary<TKey, TValue> dictionary, Func<Action> acquireReadLock, Func<Action> acquireWriteLock)
+			: base (dictionary, acquireReadLock, acquireWriteLock)
 		{
 			Initialize ();
 		}
 
-		public SynchronizedDictionary (EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
-			: base (new Dictionary<TKey, TValue>(), behavior, @lock)
+		public SynchronizedDictionary (IDictionary<TKey, TValue> dictionary)
+			: base (dictionary)
 		{
 			Initialize ();
 		}
 
-		public SynchronizedDictionary(EnumerableBehavior behavior)
-			: base (new Dictionary<TKey, TValue>(), behavior)
+		public SynchronizedDictionary ()
+			: this (new Dictionary<TKey, TValue>())
 		{
 			Initialize ();
 		}
@@ -79,40 +77,70 @@ namespace Cadenza.Collections {
 
 		public virtual void Add (TKey key, TValue value)
 		{
-			using (Lock.Write ())
+			Action release = acquireWriteLock ();
+			try {
 				Decorated.Add (key, value);
+			}
+			finally {
+				release ();
+			}
 		}
 
 		public virtual bool ContainsKey (TKey key)
 		{
-			using (Lock.Read ())
+			Action release = acquireReadLock ();
+			try {
 				return Decorated.ContainsKey (key);
+			}
+			finally {
+				release ();
+			}
 		}
 
 		public virtual ICollection<TKey> Keys { get; private set; }
 
 		public virtual bool Remove (TKey key)
 		{
-			using (Lock.Write ())
+			Action release = acquireWriteLock ();
+			try {
 				return Decorated.Remove (key);
+			}
+			finally {
+				release ();
+			}
 		}
 
 		public virtual bool TryGetValue (TKey key, out TValue value)
 		{
-			using (Lock.Read ())
+			Action release = acquireReadLock ();
+			try {
 				return Decorated.TryGetValue (key, out value);
+			}
+			finally {
+				release ();
+			}
 		}
 
 		public virtual ICollection<TValue> Values { get; private set; }
 
 		public virtual TValue this [TKey key] {
 			get {
-				using (Lock.Read())
+				Action release = acquireReadLock ();
+				try {
 					return Decorated[key];
+				}
+				finally {
+					release ();
+				}
 			}
 			set {
-				using (Lock.Write())
+				Action release = acquireWriteLock ();
+				try {
 					Decorated[key] = value;
+				}
+				finally {
+					release ();
+				}
 			}
 		}
 

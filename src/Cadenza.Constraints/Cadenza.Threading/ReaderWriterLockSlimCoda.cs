@@ -34,6 +34,30 @@ namespace Cadenza.Threading {
 
 	public static class ReaderWriterLockSlimCoda {
 
+		public static Func<Action> CreateReadLockAccessor (this ReaderWriterLockSlim self)
+		{
+			Check.Self (self);
+
+			return () => {
+				var h = Read (self);
+				return () => {
+					h.Dispose ();
+				};
+			};
+		}
+
+		public static Func<Action> CreateWriteLockAccessor (this ReaderWriterLockSlim self)
+		{
+			Check.Self (self);
+
+			return () => {
+				var h = Write (self);
+				return () => {
+					h.Dispose ();
+				};
+			};
+		}
+
 		public static LockHandle Read (this ReaderWriterLockSlim self)
 		{
 			Check.Self (self);
