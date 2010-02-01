@@ -26,80 +26,79 @@
 
 using System;
 using System.Threading;
+using ReaderWriterLockSlim = System.Threading.ReaderWriterLockSlim;
 
-namespace Cadenza.Threading
-{
-    using ReaderWriterLockSlim = System.Threading.ReaderWriterLockSlim;
+namespace Cadenza.Threading {
 
-    public static class ReaderWriterLockSlimCoda
-    {
-        public static LockHandle Read(this ReaderWriterLockSlim rwlock)
-        {
-            if (rwlock.IsReadLockHeld || rwlock.IsUpgradeableReadLockHeld || rwlock.IsWriteLockHeld)
-                return new LockHandle();
+	public static class ReaderWriterLockSlimCoda {
 
-            rwlock.EnterReadLock();
-            return new LockHandle(rwlock, LockHandle.LockType.Read);
-        }
+		public static LockHandle Read (this ReaderWriterLockSlim rwlock)
+		{
+			if (rwlock.IsReadLockHeld || rwlock.IsUpgradeableReadLockHeld || rwlock.IsWriteLockHeld)
+				return new LockHandle ();
 
-        public static LockHandle UpgradeableRead(this ReaderWriterLockSlim rwlock)
-        {
-            if (rwlock.IsUpgradeableReadLockHeld || rwlock.IsWriteLockHeld)
-                return new LockHandle();
+			rwlock.EnterReadLock ();
+			return new LockHandle (rwlock, LockHandle.LockType.Read);
+		}
 
-            rwlock.EnterUpgradeableReadLock();
-            return new LockHandle(rwlock, LockHandle.LockType.UpgradeableRead);
-        }
+		public static LockHandle UpgradeableRead (this ReaderWriterLockSlim rwlock)
+		{
+			if (rwlock.IsUpgradeableReadLockHeld || rwlock.IsWriteLockHeld)
+				return new LockHandle();
 
-        public static LockHandle Write(this ReaderWriterLockSlim rwlock)
-        {
-            if (rwlock.IsWriteLockHeld)
-                return new LockHandle();
+			rwlock.EnterUpgradeableReadLock();
+			return new LockHandle(rwlock, LockHandle.LockType.UpgradeableRead);
+		}
 
-            rwlock.EnterWriteLock();
-            return new LockHandle(rwlock, LockHandle.LockType.Write);
-        }
+		public static LockHandle Write (this ReaderWriterLockSlim rwlock)
+		{
+			if (rwlock.IsWriteLockHeld)
+				return new LockHandle();
 
-        public struct LockHandle : IDisposable
-        {
-            internal enum LockType
-            {
-                Read,
-                UpgradeableRead,
-                Write
-            }
+			rwlock.EnterWriteLock();
+			return new LockHandle(rwlock, LockHandle.LockType.Write);
+		}
 
-            private ReaderWriterLockSlim rwlock;
-            private LockType type;
+		public struct LockHandle : IDisposable {
 
-            internal LockHandle(ReaderWriterLockSlim rwlock, LockType type)
-            {
-                this.rwlock = rwlock;
-                this.type = type;
-            }
+			internal enum LockType
+			{
+				Read,
+				UpgradeableRead,
+				Write,
+			}
 
-            public void Dispose()
-            {
-                ReaderWriterLockSlim copy = Interlocked.Exchange(ref rwlock, null);
+			private ReaderWriterLockSlim rwlock;
+			private LockType type;
 
-                if (copy == null)
-                    return;
+			internal LockHandle(ReaderWriterLockSlim rwlock, LockType type)
+			{
+				this.rwlock = rwlock;
+				this.type = type;
+			}
 
-                switch (type)
-                {
-                    case LockType.Read:
-                        copy.ExitReadLock();
-                        break;
+			public void Dispose()
+			{
+				ReaderWriterLockSlim copy = Interlocked.Exchange (ref rwlock, null);
 
-                    case LockType.UpgradeableRead:
-                        copy.ExitUpgradeableReadLock();
-                        break;
+				if (copy == null)
+					return;
 
-                    case LockType.Write:
-                        copy.ExitWriteLock();
-                        break;
-                }
-            }
-        }
-    }
+				switch (type)
+				{
+					case LockType.Read:
+						copy.ExitReadLock ();
+						break;
+
+					case LockType.UpgradeableRead:
+						copy.ExitUpgradeableReadLock ();
+						break;
+
+					case LockType.Write:
+						copy.ExitWriteLock ();
+						break;
+				}
+			}
+		}
+	}
 }

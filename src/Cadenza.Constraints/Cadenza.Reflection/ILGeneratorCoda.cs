@@ -27,14 +27,14 @@
 using System;
 using System.Reflection.Emit;
 
-namespace Cadenza.Reflection
-{
-    public static class ILGeneratorCoda
-    {
-        public static void EmitTypeof(this ILGenerator il, Type type)
-        {
-            il.Emit(OpCodes.Ldtoken, type);
-            il.Emit(OpCodes.Call, typeof(Type).GetMethod("GetTypeFromHandle"));
-        }
-    }
+namespace Cadenza.Reflection {
+
+	public static class ILGeneratorCoda {
+
+		public static void EmitTypeof(this ILGenerator il, Type type)
+		{
+			il.Emit (OpCodes.Ldtoken, type);
+			il.Emit (OpCodes.Call, typeof (Type).GetMethod ("GetTypeFromHandle"));
+		}
+	}
 }
