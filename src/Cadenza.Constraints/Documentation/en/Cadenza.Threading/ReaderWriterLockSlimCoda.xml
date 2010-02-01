@@ -1,0 +1,74 @@
+<Type Name="ReaderWriterLockSlimCoda" FullName="Cadenza.Threading.ReaderWriterLockSlimCoda">
+  <TypeSignature Language="C#" Value="public static class ReaderWriterLockSlimCoda" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza.Constraints</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Read">
+      <MemberSignature Language="C#" Value="public static Cadenza.Threading.ReaderWriterLockSlimCoda.LockHandle Read (this System.Threading.ReaderWriterLockSlim self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Threading.ReaderWriterLockSlimCoda+LockHandle</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.Threading.ReaderWriterLockSlim" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="self">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpgradeableRead">
+      <MemberSignature Language="C#" Value="public static Cadenza.Threading.ReaderWriterLockSlimCoda.LockHandle UpgradeableRead (this System.Threading.ReaderWriterLockSlim self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Threading.ReaderWriterLockSlimCoda+LockHandle</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.Threading.ReaderWriterLockSlim" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="self">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Write">
+      <MemberSignature Language="C#" Value="public static Cadenza.Threading.ReaderWriterLockSlimCoda.LockHandle Write (this System.Threading.ReaderWriterLockSlim self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Threading.ReaderWriterLockSlimCoda+LockHandle</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="self" Type="System.Threading.ReaderWriterLockSlim" RefType="this" />
+      </Parameters>
+      <Docs>
+        <param name="self">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
