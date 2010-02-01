@@ -36,12 +36,12 @@ namespace Cadenza.Collections {
 	public class SynchronizedCollection<T> : ICollection<T> {
 
 		public ReaderWriterLockSlim Lock { get; private set; }
-		public EnumerableBehavior EnumerableBehavior { get; private set; }
+		public EnumerableBehavior DefaultEnumerableBehavior { get; private set; }
 
 		protected ICollection<T> Decorated { get; private set; }
 
 		public SynchronizedCollection(ICollection<T> collection,
-				EnumerableBehavior behavior, ReaderWriterLockSlim @lock)
+				EnumerableBehavior defaultBehavior, ReaderWriterLockSlim @lock)
 		{
 			if (collection == null)
 				throw new ArgumentNullException ("collection");
@@ -50,13 +50,13 @@ namespace Cadenza.Collections {
 				throw new ArgumentNullException ("lock");
 
 			Decorated = collection;
-			EnumerableBehavior = behavior;
+			DefaultEnumerableBehavior = defaultBehavior;
 			Lock = @lock;
 		}
 
 		public SynchronizedCollection (ICollection<T> collection,
-				EnumerableBehavior behavior) :
-			this(collection, behavior, new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion))
+				EnumerableBehavior defaultBehavior)
+			: this (collection, defaultBehavior, new ReaderWriterLockSlim (LockRecursionPolicy.SupportsRecursion))
 		{
 		}
 
@@ -121,16 +121,24 @@ namespace Cadenza.Collections {
 
 #region IEnumerable<T> Members
 
-		public virtual IEnumerator<T> GetEnumerator ()
+		public IEnumerator<T> GetEnumerator ()
 		{
-			if (EnumerableBehavior == EnumerableBehavior.Copy)
-				using (Lock.Read ())
-					return Decorated.Where (i => true).ToList ().GetEnumerator ();
-
-			return CreateGenericEnumerator ();
+			return GetEnumerator (DefaultEnumerableBehavior);
 		}
 
-		private IEnumerator<T> CreateGenericEnumerator ()
+		public virtual IEnumerator<T> GetEnumerator (EnumerableBehavior behavior)
+		{
+			switch (behavior) {
+				case EnumerableBehavior.Copy:
+					using (Lock.Read ())
+						return Decorated.Where (i => true).ToList ().GetEnumerator ();
+				case EnumerableBehavior.Lock:
+					return CreateLockEnumerator ();
+			}
+			throw new ArgumentException ("Unsupported EnumerableBehavior value: " + behavior + ".", "behavior");
+		}
+
+		private IEnumerator<T> CreateLockEnumerator ()
 		{
 			using (Lock.Read ())
 				foreach (T i in Decorated)

@@ -25,36 +25,36 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public SynchronizedCollection (System.Collections.Generic.ICollection&lt;T&gt; collection, Cadenza.Collections.EnumerableBehavior behavior);" />
+      <MemberSignature Language="C#" Value="public SynchronizedCollection (System.Collections.Generic.ICollection&lt;T&gt; collection, Cadenza.Collections.EnumerableBehavior defaultBehavior);" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="collection" Type="System.Collections.Generic.ICollection&lt;T&gt;" />
-        <Parameter Name="behavior" Type="Cadenza.Collections.EnumerableBehavior" />
+        <Parameter Name="defaultBehavior" Type="Cadenza.Collections.EnumerableBehavior" />
       </Parameters>
       <Docs>
         <param name="collection">To be added.</param>
-        <param name="behavior">To be added.</param>
+        <param name="defaultBehavior">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public SynchronizedCollection (System.Collections.Generic.ICollection&lt;T&gt; collection, Cadenza.Collections.EnumerableBehavior behavior, System.Threading.ReaderWriterLockSlim lock);" />
+      <MemberSignature Language="C#" Value="public SynchronizedCollection (System.Collections.Generic.ICollection&lt;T&gt; collection, Cadenza.Collections.EnumerableBehavior defaultBehavior, System.Threading.ReaderWriterLockSlim lock);" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <Parameters>
         <Parameter Name="collection" Type="System.Collections.Generic.ICollection&lt;T&gt;" />
-        <Parameter Name="behavior" Type="Cadenza.Collections.EnumerableBehavior" />
+        <Parameter Name="defaultBehavior" Type="Cadenza.Collections.EnumerableBehavior" />
         <Parameter Name="lock" Type="System.Threading.ReaderWriterLockSlim" />
       </Parameters>
       <Docs>
         <param name="collection">To be added.</param>
-        <param name="behavior">To be added.</param>
+        <param name="defaultBehavior">To be added.</param>
         <param name="lock">To be added.</param>
         <summary>To be added.</summary>
         <remarks>To be added.</remarks>
@@ -164,8 +164,8 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="EnumerableBehavior">
-      <MemberSignature Language="C#" Value="public Cadenza.Collections.EnumerableBehavior EnumerableBehavior { get; }" />
+    <Member MemberName="DefaultEnumerableBehavior">
+      <MemberSignature Language="C#" Value="public Cadenza.Collections.EnumerableBehavior DefaultEnumerableBehavior { get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -180,7 +180,7 @@
       </Docs>
     </Member>
     <Member MemberName="GetEnumerator">
-      <MemberSignature Language="C#" Value="public virtual System.Collections.Generic.IEnumerator&lt;T&gt; GetEnumerator ();" />
+      <MemberSignature Language="C#" Value="public System.Collections.Generic.IEnumerator&lt;T&gt; GetEnumerator ();" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -193,6 +193,26 @@
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetEnumerator">
+      <MemberSignature Language="C#" Value="public virtual System.Collections.Generic.IEnumerator&lt;T&gt; GetEnumerator (Cadenza.Collections.EnumerableBehavior behavior);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerator&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="behavior" Type="Cadenza.Collections.EnumerableBehavior" />
+      </Parameters>
+      <Docs>
+        <param name="behavior">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentException">To be added; from: <see cref="M:Cadenza.Collections.SynchronizedCollection`1.GetEnumerator(Cadenza.Collections.EnumerableBehavior)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="IsReadOnly">
