@@ -87,7 +87,6 @@
       <Type Name="BidirectionalDictionary`2" DisplayName="BidirectionalDictionary&lt;TKey,TValue&gt;" Kind="Class" />
       <Type Name="CachedSequence`1" DisplayName="CachedSequence&lt;T&gt;" Kind="Class" />
       <Type Name="DictionaryCoda" Kind="Class" />
-      <Type Name="EnumerableBehavior" Kind="Enumeration" />
       <Type Name="EnumerableCoda" Kind="Class" />
       <Type Name="KeyValuePairCoda" Kind="Class" />
       <Type Name="LinkedListCoda" Kind="Class" />
@@ -95,9 +94,6 @@
       <Type Name="OrderedDictionary`2" DisplayName="OrderedDictionary&lt;TKey,TValue&gt;" Kind="Class" />
       <Type Name="ReadOnlyDictionary`2" DisplayName="ReadOnlyDictionary&lt;TKey,TValue&gt;" Kind="Class" />
       <Type Name="SequenceComparison`1" DisplayName="SequenceComparison&lt;T&gt;" Kind="Class" />
-      <Type Name="SynchronizedCollection`1" DisplayName="SynchronizedCollection&lt;T&gt;" Kind="Class" />
-      <Type Name="SynchronizedDictionary`2" DisplayName="SynchronizedDictionary&lt;TKey,TValue&gt;" Kind="Class" />
-      <Type Name="SynchronizedList`1" DisplayName="SynchronizedList&lt;T&gt;" Kind="Class" />
     </Namespace>
     <Namespace Name="Cadenza.ComponentModel">
       <Type Name="NotifyingProperty" Kind="Class" />
@@ -7635,34 +7631,6 @@
         </summary>
         </Docs>
         <Link Type="Cadenza.NullableCoda" Member="M:Cadenza.NullableCoda.ToMaybe``1(System.Nullable{``0})" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="System.Object" />
-      </Targets>
-      <Member MemberName="CreateMonitorLockAccessor&lt;T&gt;">
-        <MemberSignature Language="C#" Value="public static Func&lt;Action&gt; CreateMonitorLockAccessor&lt;T&gt; (this T self) where T : class;" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>System.Func&lt;System.Action&gt;</ReturnType>
-        </ReturnValue>
-        <TypeParameters>
-          <TypeParameter Name="T">
-            <Constraints>
-              <ParameterAttribute>ReferenceTypeConstraint</ParameterAttribute>
-            </Constraints>
-          </TypeParameter>
-        </TypeParameters>
-        <Parameters>
-          <Parameter Name="self" Type="T" RefType="this" />
-        </Parameters>
-        <Docs>
-          <typeparam name="T">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
-        </Docs>
-        <Link Type="Cadenza.ObjectCoda" Member="M:Cadenza.ObjectCoda.CreateMonitorLockAccessor``1(``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>

@@ -13,44 +13,6 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
-    <Member MemberName="CreateReadLockAccessor">
-      <MemberSignature Language="C#" Value="public static Func&lt;Action&gt; CreateReadLockAccessor (this System.Threading.ReaderWriterLockSlim self);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Func&lt;System.Action&gt;</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="self" Type="System.Threading.ReaderWriterLockSlim" RefType="this" />
-      </Parameters>
-      <Docs>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="CreateWriteLockAccessor">
-      <MemberSignature Language="C#" Value="public static Func&lt;Action&gt; CreateWriteLockAccessor (this System.Threading.ReaderWriterLockSlim self);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Func&lt;System.Action&gt;</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="self" Type="System.Threading.ReaderWriterLockSlim" RefType="this" />
-      </Parameters>
-      <Docs>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public static Cadenza.Threading.ReaderWriterLockSlimCoda.LockHandle Read (this System.Threading.ReaderWriterLockSlim self);" />
       <MemberType>Method</MemberType>

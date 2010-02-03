@@ -148,46 +148,6 @@
       <Targets>
         <Target Type="T:System.Threading.ReaderWriterLockSlim" />
       </Targets>
-      <Member MemberName="CreateReadLockAccessor">
-        <MemberSignature Language="C#" Value="public static Func&lt;Action&gt; CreateReadLockAccessor (this System.Threading.ReaderWriterLockSlim self);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>System.Func&lt;System.Action&gt;</ReturnType>
-        </ReturnValue>
-        <Parameters>
-          <Parameter Name="self" Type="System.Threading.ReaderWriterLockSlim" RefType="this" />
-        </Parameters>
-        <Docs>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
-        </Docs>
-        <Link Type="Cadenza.Threading.ReaderWriterLockSlimCoda" Member="M:Cadenza.Threading.ReaderWriterLockSlimCoda.CreateReadLockAccessor(System.Threading.ReaderWriterLockSlim)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.Threading.ReaderWriterLockSlim" />
-      </Targets>
-      <Member MemberName="CreateWriteLockAccessor">
-        <MemberSignature Language="C#" Value="public static Func&lt;Action&gt; CreateWriteLockAccessor (this System.Threading.ReaderWriterLockSlim self);" />
-        <MemberType>ExtensionMethod</MemberType>
-        <ReturnValue>
-          <ReturnType>System.Func&lt;System.Action&gt;</ReturnType>
-        </ReturnValue>
-        <Parameters>
-          <Parameter Name="self" Type="System.Threading.ReaderWriterLockSlim" RefType="this" />
-        </Parameters>
-        <Docs>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
-        </Docs>
-        <Link Type="Cadenza.Threading.ReaderWriterLockSlimCoda" Member="M:Cadenza.Threading.ReaderWriterLockSlimCoda.CreateWriteLockAccessor(System.Threading.ReaderWriterLockSlim)" />
-      </Member>
-    </ExtensionMethod>
-    <ExtensionMethod>
-      <Targets>
-        <Target Type="T:System.Threading.ReaderWriterLockSlim" />
-      </Targets>
       <Member MemberName="Read">
         <MemberSignature Language="C#" Value="public static Cadenza.Threading.ReaderWriterLockSlimCoda.LockHandle Read (this System.Threading.ReaderWriterLockSlim self);" />
         <MemberType>ExtensionMethod</MemberType>
