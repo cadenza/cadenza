@@ -4,7 +4,7 @@
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
 //
-// Copyright (c) 2008 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2010 Novell, Inc. (http://www.novell.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
