@@ -67,64 +67,46 @@ namespace Cadenza.Collections.Tests
 			Assert.IsTrue (((ICollection<KeyValuePair<string, string>>)GetBlankDict()).IsReadOnly);
 		}
 
-		[Test]
-		[ExpectedException (typeof (NotSupportedException))]
-		public void Add()
-		{
-			GetBlankDict().Add ("foo", "bar");
-		}
-
-		[Test]
-		[ExpectedException (typeof (NotSupportedException))]
-		public void AddKvp()
-		{
-			GetBlankDict().Add (new KeyValuePair<string, string>("foo", "bar"));
-		}
-
-		[Test]
-		[ExpectedException(typeof (NotSupportedException))]
-		public void Clear()
-		{
-			GetBlankDict().Clear();
-		}
-
-		[Test]
-		[ExpectedException (typeof(NotSupportedException))]
-		public void Remove()
-		{
-			GetBlankDict().Remove ("foo");
-		}
-
-		[Test]
-		[ExpectedException (typeof(NotSupportedException))]
-		public void RemoveKvp()
-		{
-			GetBlankDict().Remove (new KeyValuePair<string, string> ("foo", "bar"));
-		}
-
-		[Test]
-		[ExpectedException (typeof(NotSupportedException))]
-		public void IndexerSet()
-		{
-			GetBlankDict()["foo"] = "bar";
-		}
-
-		[Test]
-		public void IndexerGet()
-		{
-			var dict = new ReadOnlyDictionary<string, string> (new Dictionary<string, string>
-			{
-				{"foo", "bar"},
-				{"hi", "bye"}
-			});
-
-			Assert.AreEqual ("bar", dict["foo"]);
-			Assert.AreEqual ("bye", dict["hi"]);
-		}
-
 		private static ReadOnlyDictionary<string, string> GetBlankDict()
 		{
 			return new ReadOnlyDictionary<string, string> (new Dictionary<string, string>());
+		}
+	}
+
+	[TestFixture]
+	public class ReadOnlyDictionaryCollectionContractTests : ICollectionContract<KeyValuePair<string, string>> {
+		protected override ICollection<KeyValuePair<string, string>> CreateCollection (IEnumerable<KeyValuePair<string, string>> values)
+		{
+			var d = new Dictionary<string, string> ();
+			foreach (var v in values)
+				d.Add (v.Key, v.Value);
+			return new ReadOnlyDictionary<string, string> (d);
+		}
+
+		protected override KeyValuePair<string, string> CreateValueA ()
+		{
+			return new KeyValuePair<string, string> ("A", "1");
+		}
+
+		protected override KeyValuePair<string, string> CreateValueB ()
+		{
+			return new KeyValuePair<string, string> ("B", "2");
+		}
+
+		protected override KeyValuePair<string, string> CreateValueC ()
+		{
+			return new KeyValuePair<string, string> ("C", "3");
+		}
+	}
+
+	[TestFixture]
+	public class ReadOnlyDictionaryDictionaryContractTests : IDictionaryContract {
+		protected override IDictionary<string, string> CreateDictionary (IEnumerable<KeyValuePair<string, string>> values)
+		{
+			var d = new Dictionary<string, string> ();
+			foreach (var v in values)
+				d.Add (v.Key, v.Value);
+			return new ReadOnlyDictionary<string, string> (d);
 		}
 	}
 }

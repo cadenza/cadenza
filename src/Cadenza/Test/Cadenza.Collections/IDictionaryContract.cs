@@ -51,7 +51,6 @@ namespace Cadenza.Collections.Tests {
 			Assert.AreEqual (n, d.Values.Count);
 
 			// key cannot be null
-			Assert.Throws<ArgumentNullException>(() => d.Add (null, null));
 			try {
 				d.Add ("key", "value");
 				Assert.IsTrue (d.ContainsKey ("key"));
@@ -63,6 +62,8 @@ namespace Cadenza.Collections.Tests {
 
 				// Cannot use Add() w/ the same key
 				Assert.Throws<ArgumentException>(() => d.Add ("key", "value2"));
+
+				Assert.Throws<ArgumentNullException>(() => d.Add (null, null));
 			}
 			catch (NotSupportedException) {
 				Assert.IsTrue (d.IsReadOnly);
@@ -87,7 +88,6 @@ namespace Cadenza.Collections.Tests {
 			var d = CreateDictionary (new KeyValuePair<string, string> []{
 				new KeyValuePair<string, string> ("another-key", "another-value"),
 			});
-			Assert.Throws<ArgumentNullException>(() => d.Remove (null));
 			var n = d.Count;
 			try {
 				Assert.IsFalse (d.Remove ("key"));
@@ -98,6 +98,8 @@ namespace Cadenza.Collections.Tests {
 				Assert.AreEqual (n-1, d.Values.Count);
 				Assert.IsFalse (d.Keys.Contains ("another-key"));
 				Assert.IsFalse (d.Values.Contains ("another-value"));
+
+				Assert.Throws<ArgumentNullException>(() => d.Remove (null));
 			}
 			catch (NotSupportedException) {
 				Assert.IsTrue (d.IsReadOnly);
