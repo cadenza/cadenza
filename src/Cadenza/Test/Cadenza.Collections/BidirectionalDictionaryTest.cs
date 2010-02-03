@@ -505,4 +505,41 @@ namespace Cadenza.Collections.Tests
 			}
 		}
 	}
+
+	[TestFixture]
+	public class BidirectionalDictionaryCollectionContractTests : ICollectionContract<KeyValuePair<string, string>> {
+		protected override ICollection<KeyValuePair<string, string>> CreateCollection (IEnumerable<KeyValuePair<string, string>> values)
+		{
+			var d = new BidirectionalDictionary<string, string> ();
+			foreach (var v in values)
+				d.Add (v.Key, v.Value);
+			return d;
+		}
+
+		protected override KeyValuePair<string, string> CreateValueA ()
+		{
+			return new KeyValuePair<string, string> ("A", "1");
+		}
+
+		protected override KeyValuePair<string, string> CreateValueB ()
+		{
+			return new KeyValuePair<string, string> ("B", "2");
+		}
+
+		protected override KeyValuePair<string, string> CreateValueC ()
+		{
+			return new KeyValuePair<string, string> ("C", "3");
+		}
+	}
+
+	[TestFixture]
+	public class BidirectionalDictionaryDictionaryContractTests : IDictionaryContract {
+		protected override IDictionary<string, string> CreateDictionary (IEnumerable<KeyValuePair<string, string>> values)
+		{
+			var d = new BidirectionalDictionary<string, string> ();
+			foreach (var v in values)
+				d.Add (v.Key, v.Value);
+			return d;
+		}
+	}
 }
