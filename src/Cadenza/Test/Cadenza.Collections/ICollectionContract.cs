@@ -37,12 +37,31 @@ using Cadenza.Tests;
 
 namespace Cadenza.Collections.Tests {
 
+	// NOTE:  when adding new tests to this type, add them to the
+	//        RunAllTests() method as well.
+	//        RunAllTests() is used by IDictionaryContract<T>.Keys()/.Values()
+	//        to test the behavior of the .Keys/.Values read-only collections.
+	//
+	// NOTE:  No test may use [ExpectedException]; use Assert.Throws<T> instead.
 	public abstract class ICollectionContract<T> : BaseRocksFixture {
 
 		protected abstract ICollection<T> CreateCollection (IEnumerable<T> values);
 		protected abstract T CreateValueA ();
 		protected abstract T CreateValueB ();
 		protected abstract T CreateValueC ();
+
+		public void RunAllTests ()
+		{
+			Add ();
+			Clear ();
+			Contains ();
+			CopyTo ();
+			CopyTo_Exceptions ();
+			CopyTo_SequenceComparison ();
+			Ctor_CopySequence ();
+			Ctor_Initial_Count_Is_Zero ();
+			Remove ();
+		}
 
 		[Test]
 		public void Ctor_Initial_Count_Is_Zero ()

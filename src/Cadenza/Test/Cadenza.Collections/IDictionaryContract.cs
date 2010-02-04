@@ -155,6 +155,53 @@ namespace Cadenza.Collections.Tests {
 			Assert.AreEqual (d.Keys.IndexOf ("b"), d.Values.IndexOf ("2"));
 			Assert.AreEqual (d.Keys.IndexOf ("c"), d.Values.IndexOf ("3"));
 		}
+
+		class SubCollectionContract : ICollectionContract<string> {
+			IDictionaryContract dictContract;
+			Func<IDictionary<string, string>, ICollection<string>> collectionSelector;
+
+			public SubCollectionContract (IDictionaryContract dictContract,
+					Func<IDictionary<string, string>, ICollection<string>> collectionSelector)
+			{
+				this.dictContract = dictContract;
+				this.collectionSelector = collectionSelector;
+			}
+
+			protected override ICollection<string> CreateCollection (IEnumerable<string> values)
+			{
+				var d = dictContract.CreateDictionary (values.Select (v => new KeyValuePair<string, string>(v, v)));
+				var c = collectionSelector (d);
+				Assert.IsTrue (c.IsReadOnly);
+				return c;
+			}
+
+			protected override string CreateValueA ()
+			{
+				return "A";
+			}
+
+			protected override string CreateValueB ()
+			{
+				return "B";
+			}
+
+			protected override string CreateValueC ()
+			{
+				return "C";
+			}
+		}
+
+		[Test]
+		public void Keys ()
+		{
+			new SubCollectionContract (this, d => d.Keys).RunAllTests ();
+		}
+
+		[Test]
+		public void Values ()
+		{
+			new SubCollectionContract (this, d => d.Values).RunAllTests ();
+		}
 	}
 }
 
