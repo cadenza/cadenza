@@ -64,6 +64,37 @@ namespace Cadenza.Collections.Tests {
 		}
 
 		[Test]
+		public void SequenceEqual_Arguments ()
+		{
+			IDictionary<string, string> s = null;
+			IDictionary<string, string> o = new Dictionary<string, string> ();
+			Assert.Throws<ArgumentNullException>(() => s.SequenceEqual (o));
+			s = o;
+			o = null;
+			Assert.Throws<ArgumentNullException>(() => s.SequenceEqual (o));
+		}
+
+		[Test]
+		public void SequenceEqual ()
+		{
+			var a = new Dictionary<string, string> {
+				{ "a", "1" },
+				{ "b", "2" },
+			};
+			var b = new Dictionary<string, string> {
+				{ "b", "2" },
+				{ "a", "1" },
+			};
+			Assert.IsTrue (a.SequenceEqual (b));
+			b.Remove ("a");
+			Assert.IsFalse (a.SequenceEqual (b));
+
+			a.Clear ();
+			b.Clear ();
+			Assert.IsTrue (a.SequenceEqual (b));
+		}
+
+		[Test]
 		public void UpdateValue_Arguments ()
 		{
 			IDictionary<string, int> s = null;

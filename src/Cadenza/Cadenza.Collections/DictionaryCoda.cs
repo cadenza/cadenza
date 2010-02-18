@@ -52,6 +52,31 @@ namespace Cadenza.Collections {
 			return self.TryGetValue(key, out value) ? value : defaultValue;
 		}
 
+		public static bool SequenceEqual<TKey, TValue>(this IDictionary<TKey, TValue> self, IDictionary<TKey, TValue> other)
+		{
+			return SequenceEqual (self, other, null);
+		}
+
+		public static bool SequenceEqual<TKey, TValue>(this IDictionary<TKey, TValue> self, IDictionary<TKey, TValue> other, IEqualityComparer<TValue> comparer)
+		{
+			Check.Self (self);
+			if (other == null)
+				throw new ArgumentNullException ("null");
+			comparer = comparer ?? EqualityComparer<TValue>.Default;
+
+			if (self.Count != other.Count)
+				return false;
+
+			foreach (var k in self.Keys) {
+				if (!other.ContainsKey (k))
+					return false;
+				if (!comparer.Equals (self [k], other [k]))
+					return false;
+			}
+
+			return true;
+		}
+
 		public static void UpdateValue<TKey, TValue>(this IDictionary<TKey, TValue> self, TKey key, Func<TValue, TValue> valueSelector)
 		{
 			Check.Self (self);
