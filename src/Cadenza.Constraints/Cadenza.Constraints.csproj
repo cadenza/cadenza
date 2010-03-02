@@ -38,6 +38,7 @@
     <Compile Include="Assembly\AssemblyInfo.cs" />
     <Compile Include="Cadenza.ComponentModel\SynchronizeInvokeCoda.cs" />
     <Compile Include="Cadenza.Constraints\Arguments.cs" />
+    <Compile Include="Cadenza.Numerics\ExpressionMathProvider.cs" />
     <Compile Include="Cadenza.Reflection\ILGeneratorCoda.cs" />
     <Compile Include="Cadenza.Threading\ReaderWriterLockSlimCoda.cs" />
   </ItemGroup>
@@ -47,4 +48,10 @@
     <PostBuildEvent>$(Mdoc) update --exceptions=added -o $(ProjectDir)Documentation\en $(TargetPath)
 $(Mdoc) export-msxdoc -o $(TargetDir)$(TargetName).xml $(ProjectDir)Documentation\en</PostBuildEvent>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cadenza\Cadenza.csproj">
+      <Project>{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}</Project>
+      <Name>Cadenza</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

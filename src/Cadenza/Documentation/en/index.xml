@@ -113,6 +113,20 @@
       <Type Name="ValueReader`1" DisplayName="ValueReader&lt;T&gt;" Kind="Class" />
       <Type Name="ValueReaderCoda" Kind="Class" />
     </Namespace>
+    <Namespace Name="Cadenza.Numerics">
+      <Type Name="IBoundedProvider`1" DisplayName="IBoundedProvider&lt;T&gt;" Kind="Interface" />
+      <Type Name="IFloatingProvider`1" DisplayName="IFloatingProvider&lt;T&gt;" Kind="Interface" />
+      <Type Name="IFractionalProvider`1" DisplayName="IFractionalProvider&lt;T&gt;" Kind="Interface" />
+      <Type Name="IIntegralNumberProvider`1" DisplayName="IIntegralNumberProvider&lt;T&gt;" Kind="Interface" />
+      <Type Name="INumericProvider`1" DisplayName="INumericProvider&lt;T&gt;" Kind="Interface" />
+      <Type Name="IOrderedTypeProvider`1" DisplayName="IOrderedTypeProvider&lt;T&gt;" Kind="Interface" />
+      <Type Name="IRealFloatProvider`1" DisplayName="IRealFloatProvider&lt;T&gt;" Kind="Interface" />
+      <Type Name="IRealFracProvider`1" DisplayName="IRealFracProvider&lt;T&gt;" Kind="Interface" />
+      <Type Name="IRealProvider`1" DisplayName="IRealProvider&lt;T&gt;" Kind="Interface" />
+      <Type Name="ISequentiallyOrderedTypeProvider`1" DisplayName="ISequentiallyOrderedTypeProvider&lt;T&gt;" Kind="Interface" />
+      <Type Name="MathProvider`1" DisplayName="MathProvider&lt;T&gt;" Kind="Class" />
+      <Type Name="SequentiallyOrderedTypeProviderCoda" Kind="Class" />
+    </Namespace>
     <Namespace Name="Cadenza.Reflection">
       <Type Name="CustomAttributeProviderCoda" Kind="Class" />
     </Namespace>

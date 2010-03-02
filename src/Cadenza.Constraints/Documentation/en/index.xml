@@ -38,6 +38,9 @@
     <Namespace Name="Cadenza.Constraints">
       <Type Name="Arguments" Kind="Class" />
     </Namespace>
+    <Namespace Name="Cadenza.Numerics">
+      <Type Name="ExpressionMathProvider`1" DisplayName="ExpressionMathProvider&lt;T&gt;" Kind="Class" />
+    </Namespace>
     <Namespace Name="Cadenza.Reflection">
       <Type Name="ILGeneratorCoda" Kind="Class" />
     </Namespace>
