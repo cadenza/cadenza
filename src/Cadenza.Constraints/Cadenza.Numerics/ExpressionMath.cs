@@ -141,16 +141,6 @@ namespace Cadenza.Numerics {
 			return negate (value);
 		}
 
-		public override T Abs (T value)
-		{
-			throw new NotSupportedException ();
-		}
-
-		public override T Sign (T value)
-		{
-			throw new NotSupportedException ();
-		}
-
 		public override T Divide (T x, T y)
 		{
 			if (divide == null)
