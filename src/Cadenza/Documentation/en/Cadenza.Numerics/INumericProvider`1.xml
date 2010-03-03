@@ -58,6 +58,25 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="FromIConvertible">
+      <MemberSignature Language="C#" Value="public T FromIConvertible (IConvertible value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="value" Type="System.IConvertible" />
+      </Parameters>
+      <Docs>
+        <param name="value">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="Multiply">
       <MemberSignature Language="C#" Value="public T Multiply (T x, T y);" />
       <MemberType>Method</MemberType>
@@ -93,25 +112,6 @@
       </Parameters>
       <Docs>
         <param name="x">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="Parse">
-      <MemberSignature Language="C#" Value="public T Parse (int value);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>T</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="value" Type="System.Int32" />
-      </Parameters>
-      <Docs>
-        <param name="value">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>

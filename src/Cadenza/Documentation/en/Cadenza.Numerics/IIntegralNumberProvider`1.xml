@@ -159,14 +159,14 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="ToInt64">
-      <MemberSignature Language="C#" Value="public long ToInt64 (T value);" />
+    <Member MemberName="ToIConvertible">
+      <MemberSignature Language="C#" Value="public IConvertible ToIConvertible (T value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Int64</ReturnType>
+        <ReturnType>System.IConvertible</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="value" Type="T" />

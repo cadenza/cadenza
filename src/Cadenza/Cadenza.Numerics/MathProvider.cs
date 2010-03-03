@@ -202,7 +202,10 @@ namespace Cadenza.Numerics {
 		T Abs (T value);
 		int Sign (T value);
 
-		T Parse (int value);
+#if NET_4_0
+		T FromBigInteger (BigInteger value);
+#endif
+		T FromIConvertible (IConvertible value);
 		#endregion
 	}
 
@@ -220,7 +223,10 @@ namespace Cadenza.Numerics {
 		T Modulus (T x, T y);   // integer moduleus, satisfying: (x `div` y)*y + (x `mod` y) == x
 		Tuple<T, T> QuotientRemainder (T x, T y);
 		Tuple<T, T> DivideModulus (T x, T y);
-		long ToInt64 (T value); // toInteger
+#if NET_4_0
+		BigInteger ToBigInteger (T value);
+#endif
+		IConvertible ToIConvertible (T value);
 		#endregion
 	}
 
