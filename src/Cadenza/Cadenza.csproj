@@ -60,7 +60,7 @@
     <Compile Include="Cadenza.IO\TextReader.cs" />
     <Compile Include="Cadenza.IO\TextValueReader.cs" />
     <Compile Include="Cadenza.IO\ValueReader.cs" />
-    <Compile Include="Cadenza.Numerics\MathProvider.cs" />
+    <Compile Include="Cadenza.Numerics\Math.cs" />
     <Compile Include="Cadenza.Reflection\CustomAttributeProvider.cs" />
     <Compile Include="Cadenza\AssemblyInfo.cs" />
     <Compile Include="Cadenza\Check.cs" />

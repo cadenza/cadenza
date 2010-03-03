@@ -38,7 +38,7 @@
     <Compile Include="Assembly\AssemblyInfo.cs" />
     <Compile Include="Cadenza.ComponentModel\SynchronizeInvokeCoda.cs" />
     <Compile Include="Cadenza.Constraints\Arguments.cs" />
-    <Compile Include="Cadenza.Numerics\ExpressionMathProvider.cs" />
+    <Compile Include="Cadenza.Numerics\ExpressionMath.cs" />
     <Compile Include="Cadenza.Reflection\ILGeneratorCoda.cs" />
     <Compile Include="Cadenza.Threading\ReaderWriterLockSlimCoda.cs" />
   </ItemGroup>
