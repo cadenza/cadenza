@@ -122,5 +122,43 @@ namespace Cadenza.Numerics.Tests {
 			var m = Math<T>.Default;
 			Assert.AreEqual (5, m.ToInt32 (m.FromInt32 (5)));
 		}
+
+		[Test]
+		public void EnumerateFrom ()
+		{
+			var m = Math<T>.Default;
+			AssertAreSame (
+					new [] { 3, 4, 5 },
+					m.EnumerateFrom (m.FromInt32 (3)).Take (3).Select (v => m.ToInt32 (v)));
+		}
+
+		[Test]
+		public void EnumerateFromThen ()
+		{
+			var m = Math<T>.Default;
+			AssertAreSame (
+					new [] { 0, 3, 4, 5 },
+					m.EnumerateFromThen (m.FromInt32 (0), m.FromInt32 (3)).Take (4).Select (v => m.ToInt32 (v)));
+		}
+
+		[Test]
+		public void EnumerateFromTo ()
+		{
+			var m = Math<T>.Default;
+			Assert.Throws<ArgumentException>(() => m.EnumerateFromTo (m.FromInt32 (5), m.FromInt32 (2)));
+			AssertAreSame (
+					new [] { 2, 3, 4, 5 },
+					m.EnumerateFromTo (m.FromInt32 (2), m.FromInt32 (5)).Select (v => m.ToInt32 (v)));
+		}
+
+		[Test]
+		public void EnumerateFromThenTo ()
+		{
+			var m = Math<T>.Default;
+			Assert.Throws<ArgumentException>(() => m.EnumerateFromThenTo (m.FromInt32 (10), m.FromInt32 (5), m.FromInt32 (2)));
+			AssertAreSame (
+					new [] { 0, 2, 3, 4, 5 },
+					m.EnumerateFromThenTo (m.FromInt32 (0), m.FromInt32 (2), m.FromInt32 (5)).Select (v => m.ToInt32 (v)));
+		}
 	}
 }
