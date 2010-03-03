@@ -41,12 +41,12 @@ namespace Cadenza {
 
 		public static Maybe<T> TryParse<T> (string value)
 		{
-			return TryParse<string, T> (value);
+			return TryConvert<string, T> (value);
 		}
 
-		public static Maybe<TResult> TryParse<TSource, TResult> (TSource value)
+		public static Maybe<TResult> TryConvert<TSource, TResult> (TSource value)
 		{
-			Either<TResult, Exception> e = Either.TryParse<TSource, TResult> (value);
+			Either<TResult, Exception> e = Either.TryConvert<TSource, TResult> (value);
 			return e.Fold<Maybe<TResult>> (v => new Maybe<TResult> (v), v => Maybe<TResult>.Nothing);
 		}
 

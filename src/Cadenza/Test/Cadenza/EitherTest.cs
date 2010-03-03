@@ -170,20 +170,31 @@ namespace Cadenza.Tests {
 			n = v2.Fold (i => i.Value, i => -1);
 			Assert.AreEqual (42, n);
 			#endregion
+		}
 
-			#region TryParse2
-			Either<DateTime, Exception> a = Either.TryParse<int, DateTime> (42);
-			e = a.Fold (i => null, i => i);
+		[Test]
+		public void TryConvert_Validation ()
+		{
+			object value = null;
+			Assert.Throws<ArgumentNullException>(() => Either.TryConvert<int>(value));
+		}
+
+		[Test]
+		public void TryConvert ()
+		{
+			#region TryConvert
+			Either<DateTime, Exception> a = Either.TryConvert<int, DateTime> (42);
+			Exception e = a.Fold (i => null, i => i);
 			Assert.IsNotNull (e);
 			Assert.IsTrue (typeof (Exception).IsAssignableFrom (e.GetType()));
 
-			Either<string, Exception> b = Either.TryParse<int, string> (42);
-			var n2 = b.Fold (i => i, i => null);
+			Either<string, Exception> b = Either.TryConvert<int, string> (42);
+			string n2 = b.Fold (i => i, i => null);
 			Assert.AreEqual ("42", n2);
 
 			Either<int, Exception> c = 
-				Either.TryParse<CustomConvertible, int> (new CustomConvertible ());
-			var n3 = c.Fold (i => i, i => -1);
+				Either.TryConvert<CustomConvertible, int> (new CustomConvertible ());
+			int n3 = c.Fold (i => i, i => -1);
 			Assert.AreEqual (CustomConvertible.Int32, n3);
 			#endregion
 		}

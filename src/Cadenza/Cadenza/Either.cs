@@ -41,29 +41,41 @@ namespace Cadenza {
 
 		public static Either<T, Exception> TryParse<T> (string value)
 		{
-			return TryParse<string, T> (value);
+			return TryConvert<string, T>(value, typeof (string), typeof (T));
 		}
 
-		public static Either<TResult, Exception> TryParse<TSource, TResult> (TSource value)
+		public static Either<TResult, Exception> TryConvert<TSource, TResult> (TSource value)
+		{
+			return TryConvert<TSource, TResult>(value, typeof (TSource), typeof (TResult));
+		}
+
+		static Either<TResult, Exception> TryConvert<TSource, TResult>(TSource value, Type sourceType, Type resultType)
 		{
 			try {
-				TypeConverter c = TypeDescriptor.GetConverter (typeof (TResult));
-				if (c.CanConvertFrom (typeof (TSource)))
+				TypeConverter c = TypeDescriptor.GetConverter (resultType);
+				if (c.CanConvertFrom (sourceType))
 					return Either<TResult, Exception>.A ((TResult) c.ConvertFrom (value));
 
-				c = TypeDescriptor.GetConverter (typeof (TSource));
-				if (c.CanConvertTo (typeof (TResult)))
+				c = TypeDescriptor.GetConverter (sourceType);
+				if (c.CanConvertTo (resultType))
 					return Either<TResult, Exception>.A ((TResult) c.ConvertTo (value, typeof (TResult)));
 
 				// Convert.ChangeType uses IConvertible for type conversions;
 				// throws InvalidCastException if type could not be converted.
-				return Either<TResult, Exception>.A ((TResult) Convert.ChangeType (value, typeof (TResult)));
+				return Either<TResult, Exception>.A ((TResult) Convert.ChangeType (value, resultType));
 			}
 			catch (Exception e) {
 				return Either<TResult, Exception>.B (new NotSupportedException (
 							string.Format ("Conversion from {0} to {1} is not supported.",
-								typeof (TSource).FullName, typeof (TResult).FullName), e));
+								sourceType.FullName, resultType.FullName), e));
 			}
+		}
+
+		public static Either<TResult, Exception> TryConvert<TResult> (object value)
+		{
+			if (value == null)
+				throw new ArgumentNullException ("value");
+			return TryConvert<object, TResult>(value, value.GetType (), typeof (TResult));
 		}
 	}
 }

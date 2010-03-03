@@ -92,13 +92,17 @@ namespace Cadenza.Tests {
 			Assert.IsTrue (n.HasValue);
 			Assert.AreEqual (42, n.Value);
 			#endregion
+		}
 
-			#region TryParse2
-			Maybe<string> a = Maybe.TryParse<int, string> (42);
+		[Test]
+		public void TryConvert ()
+		{
+			#region TryConvert
+			Maybe<string> a = Maybe.TryConvert<int, string> (42);
 			Assert.IsTrue (a.HasValue);
 			Assert.AreEqual ("42", a.Value);
 
-			Maybe<DateTime> b = Maybe.TryParse<int, DateTime> (42);
+			Maybe<DateTime> b = Maybe.TryConvert<int, DateTime> (42);
 			Assert.IsFalse (b.HasValue);
 			#endregion
 		}

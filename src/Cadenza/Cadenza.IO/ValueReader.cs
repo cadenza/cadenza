@@ -192,7 +192,7 @@ namespace Cadenza.IO
 		{
 			Check.Self (self);
 
-			value = Either.TryParse<TSource, TValue> (self.GetNextItem ())
+			value = Either.TryConvert<TSource, TValue> (self.GetNextItem ())
 				.Fold<TValue> (v => v, v => {throw v;});
 
 			return self;

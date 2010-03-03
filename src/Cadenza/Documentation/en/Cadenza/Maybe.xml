@@ -23,74 +23,8 @@
     </remarks>
   </Docs>
   <Members>
-    <Member MemberName="TryParse&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; TryParse&lt;T&gt; (string value);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
-      </ReturnValue>
-      <TypeParameters>
-        <TypeParameter Name="T" />
-      </TypeParameters>
-      <Parameters>
-        <Parameter Name="value" Type="System.String" />
-      </Parameters>
-      <Docs>
-        <typeparam name="T">
-          The type of object to attempt to parse out of 
-          <paramref name="value" />.
-        </typeparam>
-        <param name="value">
-          A <see cref="T:System.String" /> containing the value to parse into
-          an instance of type <typeparamref name="T" />.
-        </param>
-        <summary>
-          Converts a <see cref="T:System.String" />
-          into an instance of type <typeparamref name="T" />.
-        </summary>
-        <returns>
-          A <see cref="T:Cadenza.Maybe{T}" />.  If <paramref name="value" />
-          could be converted into a value of type <typeparamref name="T" />,
-          then <see cref="P:Cadenza.Maybe{T}.HasValue" /> will be
-          <see langword="true" /> and 
-          <see cref="P:Cadenza.Maybe{T}.Value" /> will contain the
-          converted value; otherwise, 
-          <see cref="P:Cadenza.Maybe{T}.HasValue" /> will be
-          <see langword="false" />.
-        </returns>
-        <remarks>
-          <para>
-            <c>TryParse</c> uses
-            <see cref="M:Cadenza.Either.TryParse``2(``0)" /> to convert
-            the string <paramref name="value" /> into an instance of type
-            <typeparamref name="T" />.
-          </para>
-          <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#TryParse">Maybe&lt;int&gt; n;
-
-n = Maybe.TryParse&lt;int&gt; (null);
-Assert.IsFalse (n.HasValue);
-
-n = Maybe.TryParse&lt;int&gt; ("");
-Assert.IsFalse (n.HasValue);
-
-n = Maybe.TryParse&lt;int&gt; ("foo");
-Assert.IsFalse (n.HasValue);
-
-n = Maybe.TryParse&lt;int&gt; ("42.01");
-Assert.IsFalse (n.HasValue);
-
-n = Maybe.TryParse&lt;int&gt; ("42");
-Assert.IsTrue (n.HasValue);
-Assert.AreEqual (42, n.Value);
-</code>
-        </remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="TryParse&lt;TSource,TResult&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;TResult&gt; TryParse&lt;TSource,TResult&gt; (TSource value);" />
+    <Member MemberName="TryConvert&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;TResult&gt; TryConvert&lt;TSource,TResult&gt; (TSource value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -133,17 +67,83 @@ Assert.AreEqual (42, n.Value);
         </returns>
         <remarks>
           <para>
-            <c>TryParse</c> uses
-            <see cref="M:Cadenza.Either.TryParse``2(``0)" /> to convert
+            <c>TryConvert</c> uses
+            <see cref="M:Cadenza.Either.TryConvert``2(``0)" /> to convert
             <paramref name="value" /> into an instance of type
             <typeparamref name="TResult" />.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#TryParse2">Maybe&lt;string&gt; a = Maybe.TryParse&lt;int, string&gt; (42);
+          <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#TryConvert">Maybe&lt;string&gt; a = Maybe.TryConvert&lt;int, string&gt; (42);
 Assert.IsTrue (a.HasValue);
 Assert.AreEqual ("42", a.Value);
 
-Maybe&lt;DateTime&gt; b = Maybe.TryParse&lt;int, DateTime&gt; (42);
+Maybe&lt;DateTime&gt; b = Maybe.TryConvert&lt;int, DateTime&gt; (42);
 Assert.IsFalse (b.HasValue);
+</code>
+        </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TryParse&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; TryParse&lt;T&gt; (string value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="value" Type="System.String" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">
+          The type of object to attempt to parse out of 
+          <paramref name="value" />.
+        </typeparam>
+        <param name="value">
+          A <see cref="T:System.String" /> containing the value to parse into
+          an instance of type <typeparamref name="T" />.
+        </param>
+        <summary>
+          Converts a <see cref="T:System.String" />
+          into an instance of type <typeparamref name="T" />.
+        </summary>
+        <returns>
+          A <see cref="T:Cadenza.Maybe{T}" />.  If <paramref name="value" />
+          could be converted into a value of type <typeparamref name="T" />,
+          then <see cref="P:Cadenza.Maybe{T}.HasValue" /> will be
+          <see langword="true" /> and 
+          <see cref="P:Cadenza.Maybe{T}.Value" /> will contain the
+          converted value; otherwise, 
+          <see cref="P:Cadenza.Maybe{T}.HasValue" /> will be
+          <see langword="false" />.
+        </returns>
+        <remarks>
+          <para>
+            <c>TryParse</c> uses
+            <see cref="M:Cadenza.Either.TryConvert``2(``0)" /> to convert
+            the string <paramref name="value" /> into an instance of type
+            <typeparamref name="T" />.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#TryParse">Maybe&lt;int&gt; n;
+
+n = Maybe.TryParse&lt;int&gt; (null);
+Assert.IsFalse (n.HasValue);
+
+n = Maybe.TryParse&lt;int&gt; ("");
+Assert.IsFalse (n.HasValue);
+
+n = Maybe.TryParse&lt;int&gt; ("foo");
+Assert.IsFalse (n.HasValue);
+
+n = Maybe.TryParse&lt;int&gt; ("42.01");
+Assert.IsFalse (n.HasValue);
+
+n = Maybe.TryParse&lt;int&gt; ("42");
+Assert.IsTrue (n.HasValue);
+Assert.AreEqual (42, n.Value);
 </code>
         </remarks>
       </Docs>

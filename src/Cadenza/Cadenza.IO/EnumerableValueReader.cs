@@ -42,7 +42,7 @@ namespace Cadenza.IO {
 
 		private R Convert<R> (T value)
 		{
-			return Either.TryParse<T, R> (value)
+			return Either.TryConvert<T, R> (value)
 				.Fold<R> (v => v, v => {throw v;});
 		}
 
