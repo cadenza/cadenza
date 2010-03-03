@@ -124,7 +124,7 @@
       <Type Name="IRealFracProvider`1" DisplayName="IRealFracProvider&lt;T&gt;" Kind="Interface" />
       <Type Name="IRealProvider`1" DisplayName="IRealProvider&lt;T&gt;" Kind="Interface" />
       <Type Name="ISequentiallyOrderedTypeProvider`1" DisplayName="ISequentiallyOrderedTypeProvider&lt;T&gt;" Kind="Interface" />
-      <Type Name="MathProvider`1" DisplayName="MathProvider&lt;T&gt;" Kind="Class" />
+      <Type Name="Math`1" DisplayName="Math&lt;T&gt;" Kind="Class" />
       <Type Name="OrderedTypeProviderCoda" Kind="Class" />
       <Type Name="SequentiallyOrderedTypeProviderCoda" Kind="Class" />
     </Namespace>

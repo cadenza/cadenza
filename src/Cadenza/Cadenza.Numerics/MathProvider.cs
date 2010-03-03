@@ -283,23 +283,23 @@ namespace Cadenza.Numerics {
 		#endregion
 	}
 
-	public abstract partial class MathProvider<T> : IComparer<T>, IEqualityComparer<T> {
+	public abstract partial class Math<T> : IComparer<T>, IEqualityComparer<T> {
 
-		protected MathProvider ()
+		protected Math ()
 		{
 		}
 
-		static MathProvider ()
+		static Math ()
 		{
-			// set defaultProvider...
+			// TODO: set defaultProvider...
 		}
 
-		static MathProvider<T> defaultProvider;
-		public MathProvider<T> Default {
+		static Math<T> defaultProvider;
+		public Math<T> Default {
 			get {return defaultProvider;}
 		}
 
-		public static void SetDefault (MathProvider<T> provider)
+		public static void SetDefault (Math<T> provider)
 		{
 			defaultProvider = provider;
 		}

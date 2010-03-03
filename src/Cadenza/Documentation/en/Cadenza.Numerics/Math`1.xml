@@ -1,5 +1,5 @@
-<Type Name="MathProvider&lt;T&gt;" FullName="Cadenza.Numerics.MathProvider&lt;T&gt;">
-  <TypeSignature Language="C#" Value="public abstract class MathProvider&lt;T&gt; : System.Collections.Generic.IComparer&lt;T&gt;, System.Collections.Generic.IEqualityComparer&lt;T&gt;" />
+<Type Name="Math&lt;T&gt;" FullName="Cadenza.Numerics.Math&lt;T&gt;">
+  <TypeSignature Language="C#" Value="public abstract class Math&lt;T&gt; : System.Collections.Generic.IComparer&lt;T&gt;, System.Collections.Generic.IEqualityComparer&lt;T&gt;" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -25,7 +25,7 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="protected MathProvider ();" />
+      <MemberSignature Language="C#" Value="protected Math ();" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -58,13 +58,13 @@
       </Docs>
     </Member>
     <Member MemberName="Default">
-      <MemberSignature Language="C#" Value="public Cadenza.Numerics.MathProvider&lt;T&gt; Default { get; }" />
+      <MemberSignature Language="C#" Value="public Cadenza.Numerics.Math&lt;T&gt; Default { get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.Numerics.MathProvider&lt;T&gt;</ReturnType>
+        <ReturnType>Cadenza.Numerics.Math&lt;T&gt;</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -113,7 +113,7 @@
       </Docs>
     </Member>
     <Member MemberName="SetDefault">
-      <MemberSignature Language="C#" Value="public static void SetDefault (Cadenza.Numerics.MathProvider&lt;T&gt; provider);" />
+      <MemberSignature Language="C#" Value="public static void SetDefault (Cadenza.Numerics.Math&lt;T&gt; provider);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -122,7 +122,7 @@
         <ReturnType>System.Void</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="provider" Type="Cadenza.Numerics.MathProvider&lt;T&gt;" />
+        <Parameter Name="provider" Type="Cadenza.Numerics.Math&lt;T&gt;" />
       </Parameters>
       <Docs>
         <param name="provider">To be added.</param>

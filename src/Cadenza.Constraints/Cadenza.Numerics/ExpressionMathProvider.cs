@@ -36,7 +36,7 @@ using Cadenza;
 namespace Cadenza.Numerics {
 
 	// from: http://www.yoda.arachsys.com/csharp/genericoperators.html
-	public class ExpressionMathProvider<T> : MathProvider<T>
+	public class ExpressionMath<T> : Math<T>
 	{
 		static Func<T, T, T> add    = CreateBinaryExpression<T> ((a, b) => Expression.Add (a, b));
 		static Func<T, T, T> sub    = CreateBinaryExpression<T> ((a, b) =>Expression.SubtractChecked (a, b));

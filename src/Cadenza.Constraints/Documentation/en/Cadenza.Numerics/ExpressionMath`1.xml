@@ -1,5 +1,5 @@
-<Type Name="ExpressionMathProvider&lt;T&gt;" FullName="Cadenza.Numerics.ExpressionMathProvider&lt;T&gt;">
-  <TypeSignature Language="C#" Value="public class ExpressionMathProvider&lt;T&gt; : Cadenza.Numerics.MathProvider&lt;T&gt;" />
+<Type Name="ExpressionMath&lt;T&gt;" FullName="Cadenza.Numerics.ExpressionMath&lt;T&gt;">
+  <TypeSignature Language="C#" Value="public class ExpressionMath&lt;T&gt; : Cadenza.Numerics.Math&lt;T&gt;" />
   <AssemblyInfo>
     <AssemblyName>Cadenza.Constraints</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -8,7 +8,7 @@
     <TypeParameter Name="T" />
   </TypeParameters>
   <Base>
-    <BaseTypeName>Cadenza.Numerics.MathProvider&lt;T&gt;</BaseTypeName>
+    <BaseTypeName>Cadenza.Numerics.Math&lt;T&gt;</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>
@@ -18,7 +18,7 @@
   </Docs>
   <Members>
     <Member MemberName=".ctor">
-      <MemberSignature Language="C#" Value="public ExpressionMathProvider ();" />
+      <MemberSignature Language="C#" Value="public ExpressionMath ();" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
