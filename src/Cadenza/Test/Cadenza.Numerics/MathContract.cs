@@ -275,10 +275,19 @@ namespace Cadenza.Numerics.Tests {
 			Assert.AreEqual (m.FromInt32 (1), m.Sign (m.FromInt32 (1)));
 			Assert.AreEqual (m.FromInt32 (0), m.Sign (m.FromInt32 (0)));
 
+			var n = m.FromInt32 (2);
+			Assert.AreEqual (n, m.Multiply (m.Abs (n), m.Sign (n)));
+
+			n = m.FromInt32 (0);
+			Assert.AreEqual (n, m.Multiply (m.Abs (n), m.Sign (n)));
+
 			try {
 				Assert.AreEqual (m.FromInt32 (-1), m.Sign (m.FromInt32 (-1)));
 				Assert.AreEqual (m.FromInt32 (-1), m.Sign (m.FromInt32 (-2)));
 				Assert.AreEqual (m.FromInt32 (-1), m.Sign (m.FromInt32 (-3)));
+
+				n = m.FromInt32 (-2);
+				Assert.AreEqual (n, m.Multiply (m.Abs (n), m.Sign (n)));
 			}
 			catch (NotSupportedException) {
 				// unsigned
