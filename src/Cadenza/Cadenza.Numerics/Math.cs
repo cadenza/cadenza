@@ -198,9 +198,22 @@ namespace Cadenza.Numerics {
 			return Subtract (FromInt32 (0), value);
 		}
 
-		public abstract T Abs (T value);
+		public virtual T Abs (T value)
+		{
+			if (LessThan (value, FromInt32 (0)))
+				return Negate (value);
+			return value;
+		}
 
-		public abstract T Sign (T value);
+		public virtual T Sign (T value)
+		{
+			var zero = FromInt32 (0);
+			if (Equals (zero, value))
+				return zero;
+			if (LessThan (value, zero))
+				return FromInt32 (-1);
+			return FromInt32 (1);
+		}
 
 		[CLSCompliant (false)]
 		public virtual T FromIConvertible (IConvertible value)
