@@ -129,21 +129,21 @@ namespace Cadenza.Numerics {
 	public static class SequentiallyOrderedTypeProviderCoda
 	{
 		// Default implmentations
-		public static T DefaultSuccessor<T> (ISequentiallyOrderedTypeProvider<T> self, T value)
+		public static T DefaultSuccessor<T> (this ISequentiallyOrderedTypeProvider<T> self, T value)
 		{
 			Check.Self (self);
 
 			return self.FromInt32 (checked (self.ToInt32 (value) + 1));
 		}
 
-		public static T DefaultPredecessor<T> (ISequentiallyOrderedTypeProvider<T> self, T value)
+		public static T DefaultPredecessor<T> (this ISequentiallyOrderedTypeProvider<T> self, T value)
 		{
 			Check.Self (self);
 
 			return self.FromInt32 (checked (self.ToInt32 (value) - 1));
 		}
 
-		public static IEnumerable<T> DefaultEnumFrom<T> (ISequentiallyOrderedTypeProvider<T> self, T value)
+		public static IEnumerable<T> DefaultEnumFrom<T> (this ISequentiallyOrderedTypeProvider<T> self, T value)
 		{
 			Check.Self (self);
 
@@ -151,7 +151,7 @@ namespace Cadenza.Numerics {
 				.Select (v => self.FromInt32 (v));
 		}
 
-		public static IEnumerable<T> DefaultEnumFromThen<T> (ISequentiallyOrderedTypeProvider<T> self, T first, T start)
+		public static IEnumerable<T> DefaultEnumFromThen<T> (this ISequentiallyOrderedTypeProvider<T> self, T first, T start)
 		{
 			Check.Self (self);
 
@@ -160,7 +160,7 @@ namespace Cadenza.Numerics {
 				.Select (v => self.FromInt32 (v));
 		}
 
-		public static IEnumerable<T> DefaultEnumFromTo<T> (ISequentiallyOrderedTypeProvider<T> self, T start, T end)
+		public static IEnumerable<T> DefaultEnumFromTo<T> (this ISequentiallyOrderedTypeProvider<T> self, T start, T end)
 		{
 			Check.Self (self);
 
@@ -170,7 +170,7 @@ namespace Cadenza.Numerics {
 			return Enumerable.Range (s, e - s).Select (v => self.FromInt32 (v));
 		}
 
-		public static IEnumerable<T> DefaultEnumFromThenTo<T> (ISequentiallyOrderedTypeProvider<T> self, T first, T start, T end)
+		public static IEnumerable<T> DefaultEnumFromThenTo<T> (this ISequentiallyOrderedTypeProvider<T> self, T first, T start, T end)
 		{
 			Check.Self (self);
 
@@ -289,7 +289,12 @@ namespace Cadenza.Numerics {
 		#endregion
 	}
 
-	public abstract partial class Math<T> : IComparer<T>, IEqualityComparer<T> {
+	public partial class Math<T> : IComparer<T>, IEqualityComparer<T>,
+		IBoundedProvider<T>, IFloatingProvider<T>, IFractionalProvider<T>,
+		IIntegralNumberProvider<T>, INumericProvider<T>, IOrderedTypeProvider<T>,
+		IRealFloatProvider<T>, IRealFracProvider<T>, IRealProvider<T>,
+		ISequentiallyOrderedTypeProvider<T>
+	{
 
 		protected Math ()
 		{
@@ -328,6 +333,327 @@ namespace Cadenza.Numerics {
 			return EqualityComparer<T>.Default.GetHashCode (obj);
 		}
 		#endregion
+
+		#region IBoundedProvider<T>
+		public virtual T MinBound ()
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual T MaxBound ()
+		{
+			throw new NotSupportedException ();
+		}
+		#endregion IBoundedProvider<T>
+
+		#region IFloatingProvider<T>
+		public virtual T Pi {
+			get {return FromIConvertible (Math.PI);}
+		}
+
+		public virtual T E {
+			get {return FromIConvertible (Math.PI);}
+		}
+
+		public virtual T Exp (T value)
+		{
+			return FromIConvertible (Math.Exp (ToIConvertible (value).ToDouble (null)));
+		}
+
+		public virtual T Sqrt (T value)
+		{
+			return FromIConvertible (Math.Sqrt (ToIConvertible (value).ToDouble (null)));
+		}
+
+		public virtual T Log (T value)
+		{
+			return FromIConvertible (Math.Log (ToIConvertible (value).ToDouble (null)));
+		}
+
+		public virtual T Exponentiate (T value, T exp)
+		{
+			return FromIConvertible (
+					Math.Pow (
+						ToIConvertible (value).ToDouble (null),
+						ToIConvertible (exp).ToDouble (null)));
+		}
+
+		public virtual T Log (T value, T newBase)
+		{
+			return FromIConvertible (
+					Math.Log (
+						ToIConvertible (value).ToDouble (null),
+						ToIConvertible (newBase).ToDouble (null)));
+		}
+
+		public virtual T Sin (T value)
+		{
+			return FromIConvertible (Math.Sin (ToIConvertible (value).ToDouble (null)));
+		}
+
+		public virtual T Tan (T value)
+		{
+			return FromIConvertible (Math.Tan (ToIConvertible (value).ToDouble (null)));
+		}
+
+		public virtual T Cos (T value)
+		{
+			return FromIConvertible (Math.Cos (ToIConvertible (value).ToDouble (null)));
+		}
+
+		public virtual T Asin (T value)
+		{
+			return FromIConvertible (Math.Asin (ToIConvertible (value).ToDouble (null)));
+		}
+
+		public virtual T Atan (T value)
+		{
+			return FromIConvertible (Math.Atan (ToIConvertible (value).ToDouble (null)));
+		}
+
+		public virtual T Acos (T value)
+		{
+			return FromIConvertible (Math.Acos (ToIConvertible (value).ToDouble (null)));
+		}
+
+		public virtual T Sinh (T value)
+		{
+			return FromIConvertible (Math.Sin (ToIConvertible (value).ToDouble (null)));
+		}
+
+		public virtual T Tanh (T value)
+		{
+			return FromIConvertible (Math.Tan (ToIConvertible (value).ToDouble (null)));
+		}
+
+		public virtual T Cosh (T value)
+		{
+			return FromIConvertible (Math.Cos (ToIConvertible (value).ToDouble (null)));
+		}
+		#endregion IFloatingProvider<T>
+
+		#region IFractionalProvider<T>,
+		// Divide declared in IIntegralNumberProvider<T> region
+		// TODO: should float vs. int divide be distinct?
+
+		public virtual T Reciprocal (T value)
+		{
+			return Divide (FromInt32 (1), value);
+		}
+		#endregion IFractionalProvider<T>
+
+		#region IIntegralNumberProvider<T>
+		public virtual T Quotient (T x, T y)
+		{
+			return QuotientRemainder (x, y).Item1;
+		}
+
+		public virtual T Remainder (T x, T y)
+		{
+			return QuotientRemainder (x, y).Item2;
+		}
+
+		public virtual T Divide (T x, T y)
+		{
+			return DivideModulus (x, y).Item1;
+		}
+
+		public virtual T Modulus (T x, T y)
+		{
+			return DivideModulus (x, y).Item2;
+		}
+
+		public virtual Tuple<T, T> QuotientRemainder (T x, T y)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual Tuple<T, T> DivideModulus (T x, T y)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual IConvertible ToIConvertible (T value)
+		{
+			var v = value as IConvertible;
+			if (v != null)
+				return v;
+			throw new NotSupportedException ();
+		}
+		#endregion IIntegralNumberProvider<T>
+
+		#region INumericProvider<T>
+		public virtual T Add (T x, T y)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual T Multiply (T x, T y)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual T Subtract (T x, T y)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual T Negate (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual T Abs (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual int Sign (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual T FromIConvertible (IConvertible value)
+		{
+			throw new NotSupportedException ();
+		}
+		#endregion INumericProvider<T>
+
+		#region IOrderedTypeProvider<T>,
+		public virtual bool LessThan (T x, T y)
+		{
+			return Comparer<T>.Default.DefaultLessThan (x, y);
+		}
+
+		public virtual bool LessThanOrEqual (T x, T y)
+		{
+			return Comparer<T>.Default.DefaultLessThanOrEqual (x, y);
+		}
+
+		public virtual bool GreaterThan (T x, T y)
+		{
+			return Comparer<T>.Default.DefaultGreaterThan (x, y);
+		}
+
+		public virtual bool GreaterThanOrEqual (T x, T y)
+		{
+			return Comparer<T>.Default.DefaultGreaterThanOrEqual (x, y);
+		}
+
+		public virtual T Max (T x, T y)
+		{
+			return Comparer<T>.Default.DefaultMax (x, y);
+		}
+
+		public virtual T Min (T x, T y)
+		{
+			return Comparer<T>.Default.DefaultMin (x, y);
+		}
+		#endregion IOrderedTypeProvider<T>
+
+		#region IRealFloatProvider<T>
+		public virtual int Radix (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual int Digits (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual Tuple<int, int> Range (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual bool IsNaN (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual bool IsInfinite (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual bool IsIEEE (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual T Atan2 (T x, T y)
+		{
+			throw new NotSupportedException ();
+		}
+		#endregion IRealFloatProvider<T>
+
+		#region IRealFracProvider<T>
+		public virtual T Truncate (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual T Round (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual T Ceiling (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public virtual T Floor (T value)
+		{
+			throw new NotSupportedException ();
+		}
+		#endregion IRealFracProvider<T>
+
+		#region IRealProvider<T>
+		#endregion IRealProvider<T>
+
+		#region ISequentiallyOrderedTypeProvider<T>
+		public virtual T Successor (T value)
+		{
+			return this.DefaultSuccessor (value);
+		}
+
+		public virtual T Predecessor (T value)
+		{
+			return this.DefaultPredecessor (value);
+		}
+
+		public virtual T FromInt32 (int value)
+		{
+			return (T) Convert.ChangeType (value, typeof (T));
+		}
+
+		public virtual int ToInt32 (T value)
+		{
+			return (int) Convert.ChangeType (value, typeof (int));
+		}
+
+		public virtual IEnumerable<T> EnumerateFrom (T value)
+		{
+			return this.DefaultEnumFrom (value);
+		}
+
+		public virtual IEnumerable<T> EnumerateFromThen (T first, T start)
+		{
+			return this.DefaultEnumFromThen (first, start);
+		}
+
+		public virtual IEnumerable<T> EnumerateFromTo (T start, T end)
+		{
+			return this.DefaultEnumFromTo (start, end);
+		}
+
+		public virtual IEnumerable<T> EnumerateFromThenTo (T first, T start, T end)
+		{
+			return this.DefaultEnumFromThenTo (first, start, end);
+		}
+		#endregion ISequentiallyOrderedTypeProvider<T>
 
 		#region Numeric functions
 		// subtract?

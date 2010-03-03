@@ -14,7 +14,7 @@
   </Docs>
   <Members>
     <Member MemberName="DefaultEnumFrom&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;T&gt; DefaultEnumFrom&lt;T&gt; (Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt; self, T value);" />
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;T&gt; DefaultEnumFrom&lt;T&gt; (this Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt; self, T value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -26,7 +26,7 @@
         <TypeParameter Name="T" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="self" Type="Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt;" />
+        <Parameter Name="self" Type="Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt;" RefType="this" />
         <Parameter Name="value" Type="T" />
       </Parameters>
       <Docs>
@@ -39,7 +39,7 @@
       </Docs>
     </Member>
     <Member MemberName="DefaultEnumFromThen&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;T&gt; DefaultEnumFromThen&lt;T&gt; (Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt; self, T first, T start);" />
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;T&gt; DefaultEnumFromThen&lt;T&gt; (this Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt; self, T first, T start);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -51,7 +51,7 @@
         <TypeParameter Name="T" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="self" Type="Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt;" />
+        <Parameter Name="self" Type="Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt;" RefType="this" />
         <Parameter Name="first" Type="T" />
         <Parameter Name="start" Type="T" />
       </Parameters>
@@ -66,7 +66,7 @@
       </Docs>
     </Member>
     <Member MemberName="DefaultEnumFromThenTo&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;T&gt; DefaultEnumFromThenTo&lt;T&gt; (Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt; self, T first, T start, T end);" />
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;T&gt; DefaultEnumFromThenTo&lt;T&gt; (this Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt; self, T first, T start, T end);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -78,7 +78,7 @@
         <TypeParameter Name="T" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="self" Type="Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt;" />
+        <Parameter Name="self" Type="Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt;" RefType="this" />
         <Parameter Name="first" Type="T" />
         <Parameter Name="start" Type="T" />
         <Parameter Name="end" Type="T" />
@@ -95,7 +95,7 @@
       </Docs>
     </Member>
     <Member MemberName="DefaultEnumFromTo&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;T&gt; DefaultEnumFromTo&lt;T&gt; (Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt; self, T start, T end);" />
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;T&gt; DefaultEnumFromTo&lt;T&gt; (this Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt; self, T start, T end);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -107,7 +107,7 @@
         <TypeParameter Name="T" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="self" Type="Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt;" />
+        <Parameter Name="self" Type="Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt;" RefType="this" />
         <Parameter Name="start" Type="T" />
         <Parameter Name="end" Type="T" />
       </Parameters>
@@ -122,7 +122,7 @@
       </Docs>
     </Member>
     <Member MemberName="DefaultPredecessor&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public static T DefaultPredecessor&lt;T&gt; (Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt; self, T value);" />
+      <MemberSignature Language="C#" Value="public static T DefaultPredecessor&lt;T&gt; (this Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt; self, T value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -134,7 +134,7 @@
         <TypeParameter Name="T" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="self" Type="Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt;" />
+        <Parameter Name="self" Type="Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt;" RefType="this" />
         <Parameter Name="value" Type="T" />
       </Parameters>
       <Docs>
@@ -147,7 +147,7 @@
       </Docs>
     </Member>
     <Member MemberName="DefaultSuccessor&lt;T&gt;">
-      <MemberSignature Language="C#" Value="public static T DefaultSuccessor&lt;T&gt; (Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt; self, T value);" />
+      <MemberSignature Language="C#" Value="public static T DefaultSuccessor&lt;T&gt; (this Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt; self, T value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -159,7 +159,7 @@
         <TypeParameter Name="T" />
       </TypeParameters>
       <Parameters>
-        <Parameter Name="self" Type="Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt;" />
+        <Parameter Name="self" Type="Cadenza.Numerics.ISequentiallyOrderedTypeProvider&lt;T&gt;" RefType="this" />
         <Parameter Name="value" Type="T" />
       </Parameters>
       <Docs>
