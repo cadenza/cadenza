@@ -51,10 +51,12 @@ namespace Cadenza.Numerics {
 		static Math ()
 		{
 			// TODO: set defaultProvider...
+			if (typeof (T) == typeof (int))
+				defaultProvider = (Math<T>) (object) new Int32Math ();
 		}
 
 		static Math<T> defaultProvider;
-		public Math<T> Default {
+		public static Math<T> Default {
 			get {return defaultProvider;}
 		}
 
@@ -179,14 +181,12 @@ namespace Cadenza.Numerics {
 		#endregion class Enum a
 
 		#region class Bounded a where
-		public virtual T MinBound ()
-		{
-			throw new NotSupportedException ();
+		public virtual T MinValue {
+			get {throw new NotSupportedException ();}
 		}
 
-		public virtual T MaxBound ()
-		{
-			throw new NotSupportedException ();
+		public virtual T MaxValue {
+			get {throw new NotSupportedException ();}
 		}
 		#endregion class Bounded
 
@@ -441,5 +441,45 @@ namespace Cadenza.Numerics {
 			throw new NotImplementedException ();
 		}
 		#endregion
+	}
+
+	internal class Int32Math : Math<int> {
+
+		static void NotZero (int value)
+		{
+			if (value == 0)
+				throw new ArgumentException ("Value must not be zero.", "value");
+		}
+
+		public override bool  LessThan            (int x, int y)  {return x < y;}
+		public override bool  LessThanOrEqual     (int x, int y)  {return x <= y;}
+		public override bool  GreaterThan         (int x, int y)  {return x > y;}
+		public override bool  GreaterThanOrEqual  (int x, int y)  {return x >= y;}
+		public override int   Max                 (int x, int y)  {return Math.Max (x, y);}
+		public override int   Min                 (int x, int y)  {return Math.Min (x, y);}
+		public override int   Successor           (int value)     {return checked (value+1);}
+		public override int   Predecessor         (int value)     {return checked (value-1);}
+		public override int   FromInt32           (int value)     {return value;}
+		public override int   MinValue                           {get {return int.MinValue;}}
+		public override int   MaxValue                           {get {return int.MaxValue;}}
+		public override int   Add                 (int x, int y)  {return checked (x + y);}
+		public override int   Multiply            (int x, int y)  {return checked (x * y);}
+		public override int   Subtract            (int x, int y)  {return checked (x - y);}
+		public override int   Negate              (int value)     {return checked (-value);}
+		public override int   Abs                 (int value)     {return Math.Abs (value);}
+		public override int   Sign                (int value)     {return Math.Sign (value);}
+		public override int   FromIConvertible    (IConvertible value)  {Check.Value (value); return value.ToInt32 (null);}
+		public override int   Quotient            (int x, int y)  {return x / y;} // truncates toward 0
+		public override int   Remainder           (int x, int y)  {return x % y;}
+		public override int   Divide              (int x, int y)  {return ((x >= 0) ? x : checked (x-1))/ y;} // truncates toward -inf
+		public override int   Modulus             (int x, int y)  {return x % y;} // TODO?
+		public override Tuple<int, int>
+		                        QuotientRemainder (int x, int y)  {return Tuple.Create (Quotient (x, y), Remainder (x, y));}
+		public override Tuple<int, int>
+		                        DivideModulus     (int x, int y)  {return Tuple.Create (Divide (x, y), Modulus (x, y));}
+		public override int   Reciprocal        (int value)       {NotZero (value); return 0;}
+		public override bool  IsNaN             (int value)       {return false;}
+		public override bool  IsInfinite        (int value)       {return false;}
+		public override bool  IsIEEE            (int value)       {return false;}
 	}
 }

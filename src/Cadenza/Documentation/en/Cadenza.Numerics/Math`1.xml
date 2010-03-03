@@ -237,7 +237,7 @@
       </Docs>
     </Member>
     <Member MemberName="Default">
-      <MemberSignature Language="C#" Value="public Cadenza.Numerics.Math&lt;T&gt; Default { get; }" />
+      <MemberSignature Language="C#" Value="public static Cadenza.Numerics.Math&lt;T&gt; Default { get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -513,6 +513,11 @@
         <remarks>To be added.</remarks>
         <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.FromIConvertible(System.IConvertible)" /></exception>
       </Docs>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
     </Member>
     <Member MemberName="FromInt32">
       <MemberSignature Language="C#" Value="public virtual T FromInt32 (int value);" />
@@ -757,21 +762,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="MaxBound">
-      <MemberSignature Language="C#" Value="public virtual T MaxBound ();" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="MaxValue">
+      <MemberSignature Language="C#" Value="public virtual T MaxValue { get; }" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>T</ReturnType>
       </ReturnValue>
-      <Parameters />
       <Docs>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.MaxBound" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Min">
@@ -795,21 +798,19 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="MinBound">
-      <MemberSignature Language="C#" Value="public virtual T MinBound ();" />
-      <MemberType>Method</MemberType>
+    <Member MemberName="MinValue">
+      <MemberSignature Language="C#" Value="public virtual T MinValue { get; }" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>T</ReturnType>
       </ReturnValue>
-      <Parameters />
       <Docs>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.MinBound" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Modulus">
@@ -887,6 +888,27 @@
       <Docs>
         <summary>To be added.</summary>
         <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Pow">
+      <MemberSignature Language="C#" Value="public virtual T Pow (T x, T y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="T" />
+        <Parameter Name="y" Type="T" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -1245,6 +1267,11 @@
         <remarks>To be added.</remarks>
         <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.ToIConvertible(`0)" /></exception>
       </Docs>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
     </Member>
     <Member MemberName="ToInt32">
       <MemberSignature Language="C#" Value="public virtual int ToInt32 (T value);" />
