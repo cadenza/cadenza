@@ -133,12 +133,12 @@ namespace Cadenza.Numerics {
 		#region class Enum a where
 		public virtual T Successor (T value)
 		{
-			return FromInt32 (checked (ToInt32 (value) + 1));
+			return Add (value, FromInt32 (1));
 		}
 
 		public virtual T Predecessor (T value)
 		{
-			return FromInt32 (checked (ToInt32 (value) - 1));
+			return Subtract (value, FromInt32 (1));
 		}
 
 		public virtual T FromInt32 (int value)
@@ -155,23 +155,20 @@ namespace Cadenza.Numerics {
 
 		public virtual IEnumerable<T> EnumerateFrom (T start)
 		{
-			return Sequence.Iterate (ToInt32 (start), v => checked (v + 1))
-				.Select (v => FromInt32 (v));
+			return Sequence.Iterate (start, v => Successor (v));
 		}
 
 		public virtual IEnumerable<T> EnumerateFromThen (T first, T start)
 		{
-			return new[]{ToInt32 (first)}
-				.Concat (Sequence.Iterate (ToInt32 (start), v => checked (v + 1)))
-				.Select (v => FromInt32 (v));
+			return new[]{first}.Concat (EnumerateFrom (start));
 		}
 
 		public virtual IEnumerable<T> EnumerateFromTo (T start, T end)
 		{
-			int s = ToInt32 (start);
-			int e = ToInt32 (end);
+			if (GreaterThan (start, end))
+				throw new ArgumentException ("Cannot enumerate when end value is greater than start value.");
 
-			return Enumerable.Range (s, e - s).Select (v => FromInt32 (v));
+			return EnumerateFrom (start).TakeWhile (v => LessThanOrEqual (v, end));
 		}
 
 		public virtual IEnumerable<T> EnumerateFromThenTo (T first, T start, T end)
