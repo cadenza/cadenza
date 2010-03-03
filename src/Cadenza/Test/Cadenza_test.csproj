@@ -59,6 +59,8 @@
     <Compile Include="Cadenza.IO\SystemStreamConverterTest.cs" />
     <Compile Include="Cadenza.IO\TextReaderTest.cs" />
     <Compile Include="Cadenza.IO\TextValueReaderTest.cs" />
+    <Compile Include="Cadenza.Numerics\MathTest.cs" />
+    <Compile Include="Cadenza.Numerics\MathContract.cs" />
     <Compile Include="Cadenza.Reflection\CustomAttributeProviderTest.cs" />
     <Compile Include="Cadenza\AssemblyInfo.cs" />
     <Compile Include="Cadenza\BaseRocksFixture.cs" />
