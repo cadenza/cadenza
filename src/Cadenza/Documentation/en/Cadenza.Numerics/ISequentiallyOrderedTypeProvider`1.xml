@@ -98,8 +98,8 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="Parse">
-      <MemberSignature Language="C#" Value="public T Parse (int value);" />
+    <Member MemberName="FromInt32">
+      <MemberSignature Language="C#" Value="public T FromInt32 (int value);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

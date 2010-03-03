@@ -117,7 +117,7 @@ namespace Cadenza.Numerics {
 		#region class Enum a where
 		T Successor (T value);
 		T Predecessor (T value);
-		T Parse (int value);
+		T FromInt32 (int value);
 		int ToInt32 (T value);
 		IEnumerable<T> EnumerateFrom (T value);
 		IEnumerable<T> EnumerateFromThen (T first, T start);
@@ -133,14 +133,14 @@ namespace Cadenza.Numerics {
 		{
 			Check.Self (self);
 
-			return self.Parse (checked (self.ToInt32 (value) + 1));
+			return self.FromInt32 (checked (self.ToInt32 (value) + 1));
 		}
 
 		public static T DefaultPredecessor<T> (ISequentiallyOrderedTypeProvider<T> self, T value)
 		{
 			Check.Self (self);
 
-			return self.Parse (checked (self.ToInt32 (value) - 1));
+			return self.FromInt32 (checked (self.ToInt32 (value) - 1));
 		}
 
 		public static IEnumerable<T> DefaultEnumFrom<T> (ISequentiallyOrderedTypeProvider<T> self, T value)
@@ -148,7 +148,7 @@ namespace Cadenza.Numerics {
 			Check.Self (self);
 
 			return Sequence.Iterate (self.ToInt32 (value), v => checked (v + 1))
-				.Select (v => self.Parse (v));
+				.Select (v => self.FromInt32 (v));
 		}
 
 		public static IEnumerable<T> DefaultEnumFromThen<T> (ISequentiallyOrderedTypeProvider<T> self, T first, T start)
@@ -157,7 +157,7 @@ namespace Cadenza.Numerics {
 
 			return new[]{self.ToInt32 (first)}
 				.Concat (Sequence.Iterate (self.ToInt32 (start), v => checked (v + 1)))
-				.Select (v => self.Parse (v));
+				.Select (v => self.FromInt32 (v));
 		}
 
 		public static IEnumerable<T> DefaultEnumFromTo<T> (ISequentiallyOrderedTypeProvider<T> self, T start, T end)
@@ -167,7 +167,7 @@ namespace Cadenza.Numerics {
 			int s = self.ToInt32 (start);
 			int e = self.ToInt32 (end);
 
-			return Enumerable.Range (s, e - s).Select (v => self.Parse (v));
+			return Enumerable.Range (s, e - s).Select (v => self.FromInt32 (v));
 		}
 
 		public static IEnumerable<T> DefaultEnumFromThenTo<T> (ISequentiallyOrderedTypeProvider<T> self, T first, T start, T end)
@@ -177,7 +177,7 @@ namespace Cadenza.Numerics {
 			int s = self.ToInt32 (start);
 			int e = self.ToInt32 (end);
 
-			return new[]{first}.Concat (Enumerable.Range (s, e - s).Select (v => self.Parse (v)));
+			return new[]{first}.Concat (Enumerable.Range (s, e - s).Select (v => self.FromInt32 (v)));
 		}
 	}
 
