@@ -460,6 +460,7 @@ namespace Cadenza.Numerics {
 		public override int   Successor           (int value)     {return checked (value+1);}
 		public override int   Predecessor         (int value)     {return checked (value-1);}
 		public override int   FromInt32           (int value)     {return value;}
+		public override int   ToInt32             (int value)     {return value;}
 		public override int   MinValue                            {get {return int.MinValue;}}
 		public override int   MaxValue                            {get {return int.MaxValue;}}
 		public override int   Add                 (int x, int y)  {return checked (x + y);}
