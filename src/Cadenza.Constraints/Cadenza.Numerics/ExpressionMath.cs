@@ -55,20 +55,111 @@ namespace Cadenza.Numerics {
 		{
 			var a = Expression.Parameter (typeof (T), "a");
 			var b = Expression.Parameter (typeof (T), "b");
-			var body = operation (a, b);
-			return Expression.Lambda<Func<T, T, TRet>> (body, a, b).Compile ();
+			try {
+				var body = operation (a, b);
+				return Expression.Lambda<Func<T, T, TRet>> (body, a, b).Compile ();
+			}
+			catch {
+				// operation not supported.
+				return null;
+			}
 		}
 
 		static Func<T, T> CreateUnaryExpression (Func<ParameterExpression, UnaryExpression> operation)
 		{
 			var value = Expression.Parameter (typeof (T), "value");
-			var body = operation (value);
-			return Expression.Lambda<Func<T, T>> (body, value).Compile ();
+			try {
+				var body = operation (value);
+				return Expression.Lambda<Func<T, T>> (body, value).Compile ();
+			}
+			catch {
+				// operation not supported.
+				return null;
+			}
 		}
 
-		public T Add (T x, T y)
+		public override bool Equals (T x, T y)
 		{
+			if (eq == null)
+				return base.Equals (x, y);
+			return eq (x, y);
+		}
+
+		public override bool LessThan (T x, T y)
+		{
+			if (lt == null)
+				return base.LessThan (x, y);
+			return lt (x, y);
+		}
+
+		public override bool LessThanOrEqual (T x, T y)
+		{
+			if (lte == null)
+				return base.LessThan (x, y);
+			return lte (x, y);
+		}
+
+		public override bool GreaterThan (T x, T y)
+		{
+			if (gt == null)
+				return base.GreaterThan (x, y);
+			return gt (x, y);
+		}
+
+		public override bool GreaterThanOrEqual (T x, T y)
+		{
+			if (gte == null)
+				return base.GreaterThan (x, y);
+			return gte (x, y);
+		}
+
+		public override T Add (T x, T y)
+		{
+			if (add == null)
+				return base.Add (x, y);
 			return add (x, y);
+		}
+
+		public override T Multiply (T x, T y)
+		{
+			if (mult == null)
+				return base.Multiply (x, y);
+			return mult (x, y);
+		}
+
+		public override T Subtract (T x, T y)
+		{
+			if (sub == null)
+				return base.Add (x, y);
+			return sub (x, y);
+		}
+
+		public override T Negate (T value)
+		{
+			if (negate == null)
+				return base.Negate (value);
+			return negate (value);
+		}
+
+		public override T Divide (T x, T y)
+		{
+			if (divide == null)
+				return base.Divide (x, y);
+			return divide (x, y);
+		}
+
+		public override T Modulus (T x, T y)
+		{
+			if (mod == null)
+				return base.Modulus (x, y);
+			return mod (x, y);
+		}
+
+		public override T Pow (T x, T y)
+		{
+			if (pow == null)
+				return base.Pow (x, y);
+			return pow (x, y);
 		}
 	}
 }

@@ -221,6 +221,7 @@ namespace Cadenza.Numerics {
 			throw new NotSupportedException ();
 		}
 
+		[CLSCompliant (false)]
 		public virtual T FromIConvertible (IConvertible value)
 		{
 			var r = Either.TryConvert<T>((object) value);
@@ -262,6 +263,7 @@ namespace Cadenza.Numerics {
 			throw new NotSupportedException ();
 		}
 
+		[CLSCompliant (false)]
 		public virtual IConvertible ToIConvertible (T value)
 		{
 			var v = value as IConvertible;
@@ -434,6 +436,10 @@ namespace Cadenza.Numerics {
 		public abstract T LeastCommonMultiple (T a, T b);
 		#endif
 		// TODO: ^, ^^, fromIntegral, realToFrac
+		public virtual T Pow (T x, T y)
+		{
+			throw new NotImplementedException ();
+		}
 		#endregion
 	}
 }
