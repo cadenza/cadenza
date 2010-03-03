@@ -423,6 +423,11 @@ namespace Cadenza.Numerics {
 		#endif
 		// TODO: ^, ^^, fromIntegral, realToFrac
 		#endregion
+
+		public virtual T IEEERemainder (T x, T y)
+		{
+			throw new NotSupportedException ();
+		}
 	}
 
 	internal class Int32Math : Math<int> {
