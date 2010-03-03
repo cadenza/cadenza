@@ -35,6 +35,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq.Expressions;
 
+using Cadenza.Reflection;
+
 namespace Cadenza {
 
 	public static class Either {
@@ -52,16 +54,20 @@ namespace Cadenza {
 		static Either<TResult, Exception> TryConvert<TSource, TResult>(TSource value, Type sourceType, Type resultType)
 		{
 			try {
-				TypeConverter c = TypeDescriptor.GetConverter (resultType);
-				if (c.CanConvertFrom (sourceType))
+				TypeConverter c = GetConverter (resultType);
+				if (c != null && c.CanConvertFrom (sourceType))
 					return Either<TResult, Exception>.A ((TResult) c.ConvertFrom (value));
 
-				c = TypeDescriptor.GetConverter (sourceType);
-				if (c.CanConvertTo (resultType))
-					return Either<TResult, Exception>.A ((TResult) c.ConvertTo (value, typeof (TResult)));
+				c = GetConverter (sourceType);
+				if (c != null && c.CanConvertTo (resultType))
+					return Either<TResult, Exception>.A ((TResult) c.ConvertTo (value, resultType));
 
 				// Convert.ChangeType uses IConvertible for type conversions;
 				// throws InvalidCastException if type could not be converted.
+
+				// Convert.ChangeType() doesn't handle nullable types; remove nullable if appropriate.
+				if (resultType.IsNullable ())
+					resultType = Nullable.GetUnderlyingType (resultType);
 				return Either<TResult, Exception>.A ((TResult) Convert.ChangeType (value, resultType));
 			}
 			catch (Exception e) {
@@ -69,6 +75,28 @@ namespace Cadenza {
 							string.Format ("Conversion from {0} to {1} is not supported.",
 								sourceType.FullName, resultType.FullName), e));
 			}
+		}
+
+		static TypeConverter GetConverter (Type type)
+		{
+#if !SILVERLIGHT
+			return TypeDescriptor.GetConverter (type);
+#else
+			if (type.IsNullable ())
+				type = Nullable.GetUnderlyingType (type);
+			var tca = type.GetCustomAttribute<TypeConverterAttribute> ();
+			if (tca == null)
+				return null;
+			if (string.IsNullOrEmpty (tca.ConverterTypeName))
+				return null;
+			var converterType = Type.GetType (tca.ConverterTypeName, false);
+			if (converterType == null)
+				return null;
+			var ctor = converterType.GetConstructor (new Type[]{typeof (Type)});
+			if (ctor != null)
+				return (TypeConverter) ctor.Invoke (new object[]{type});
+			return (TypeConverter) Activator.CreateInstance (converterType);
+#endif
 		}
 
 		public static Either<TResult, Exception> TryConvert<TResult> (object value)
