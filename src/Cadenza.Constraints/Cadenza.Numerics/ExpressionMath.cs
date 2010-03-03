@@ -116,21 +116,21 @@ namespace Cadenza.Numerics {
 		public override T Add (T x, T y)
 		{
 			if (add == null)
-				return base.Add (x, y);
+				throw new NotSupportedException ();
 			return add (x, y);
 		}
 
 		public override T Multiply (T x, T y)
 		{
 			if (mult == null)
-				return base.Multiply (x, y);
+				throw new NotSupportedException ();
 			return mult (x, y);
 		}
 
 		public override T Subtract (T x, T y)
 		{
 			if (sub == null)
-				return base.Add (x, y);
+				throw new NotSupportedException ();
 			return sub (x, y);
 		}
 
@@ -141,10 +141,20 @@ namespace Cadenza.Numerics {
 			return negate (value);
 		}
 
+		public override T Abs (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
+		public override T Sign (T value)
+		{
+			throw new NotSupportedException ();
+		}
+
 		public override T Divide (T x, T y)
 		{
 			if (divide == null)
-				return base.Divide (x, y);
+				throw new NotSupportedException ();
 			return divide (x, y);
 		}
 
@@ -153,6 +163,11 @@ namespace Cadenza.Numerics {
 			if (mod == null)
 				return base.Modulus (x, y);
 			return mod (x, y);
+		}
+
+		public override Tuple<T, T> QuotientRemainder (T x, T y)
+		{
+			return Tuple.Create (Quotient (x, y), Remainder (x, y));
 		}
 
 		public override T Pow (T x, T y)

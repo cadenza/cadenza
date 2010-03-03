@@ -42,7 +42,7 @@ namespace Cadenza.Numerics {
 	// TODO: support Rational?
 	// TODO: how should we support Integer?  it's a variable-sized integer type
 
-	public partial class Math<T> : IComparer<T>, IEqualityComparer<T>
+	public abstract partial class Math<T> : IComparer<T>, IEqualityComparer<T>
 	{
 		protected Math ()
 		{
@@ -191,35 +191,19 @@ namespace Cadenza.Numerics {
 		#endregion class Bounded
 
 		#region class (Eq a, Show a) => Num a where
-		public virtual T Add (T x, T y)
-		{
-			throw new NotSupportedException ();
-		}
+		public abstract T Add (T x, T y);
+		public abstract T Multiply (T x, T y);
 
-		public virtual T Multiply (T x, T y)
-		{
-			throw new NotSupportedException ();
-		}
-
-		public virtual T Subtract (T x, T y)
-		{
-			throw new NotSupportedException ();
-		}
+		public abstract T Subtract (T x, T y);  // could be implemented in terms of Negate, but we need to choose one...
 
 		public virtual T Negate (T value)
 		{
-			throw new NotSupportedException ();
+			return Subtract (FromInt32 (0), value);
 		}
 
-		public virtual T Abs (T value)
-		{
-			throw new NotSupportedException ();
-		}
+		public abstract T Abs (T value);
 
-		public virtual int Sign (T value)
-		{
-			throw new NotSupportedException ();
-		}
+		public abstract T Sign (T value);
 
 		[CLSCompliant (false)]
 		public virtual T FromIConvertible (IConvertible value)
@@ -253,14 +237,14 @@ namespace Cadenza.Numerics {
 			return DivideModulus (x, y).Item2;
 		}
 
-		public virtual Tuple<T, T> QuotientRemainder (T x, T y)
-		{
-			throw new NotSupportedException ();
-		}
+		public abstract Tuple<T, T> QuotientRemainder (T x, T y);
 
 		public virtual Tuple<T, T> DivideModulus (T x, T y)
 		{
-			throw new NotSupportedException ();
+			var qr = QuotientRemainder (x, y);
+			if (Equals (Sign (qr.Item2), Negate (Sign (y))))
+				return Tuple.Create (Predecessor (qr.Item1), Successor (qr.Item2));
+			return qr;
 		}
 
 		[CLSCompliant (false)]
@@ -307,7 +291,7 @@ namespace Cadenza.Numerics {
 			return FromIConvertible (Math.Log (ToIConvertible (value).ToDouble (null)));
 		}
 
-		public virtual T Exponentiate (T value, T exp)
+		public virtual T Pow (T value, T exp)
 		{
 			return FromIConvertible (
 					Math.Pow (
@@ -370,20 +354,22 @@ namespace Cadenza.Numerics {
 		#endregion classFloating a
 
 		#region class (Real a, Fractional a) => RealFrac a where
-		public virtual int Radix (T value)
+		public virtual int FloatRadix (T value)
 		{
 			throw new NotSupportedException ();
 		}
 
-		public virtual int Digits (T value)
+		public virtual int FloatDigits (T value)
 		{
 			throw new NotSupportedException ();
 		}
 
-		public virtual Tuple<int, int> Range (T value)
+		public virtual Tuple<int, int> FloatRange (T value)
 		{
 			throw new NotSupportedException ();
 		}
+
+		// skip: decodeFloat, encodeFloat, exponent, significand, scaleFloat
 
 		public virtual bool IsNaN (T value)
 		{
@@ -402,29 +388,32 @@ namespace Cadenza.Numerics {
 
 		public virtual T Atan2 (T x, T y)
 		{
-			throw new NotSupportedException ();
+			return FromIConvertible (
+					Math.Atan2 (
+						ToIConvertible (x).ToDouble (null),
+						ToIConvertible (y).ToDouble (null)));
 		}
 		#endregion class RealFrac a
 
 		#region class (RealFrac a, Floating a) => RealFloat a where
 		public virtual T Truncate (T value)
 		{
-			throw new NotSupportedException ();
+			return FromIConvertible (Math.Truncate (ToIConvertible (value).ToDouble (null)));
 		}
 
 		public virtual T Round (T value)
 		{
-			throw new NotSupportedException ();
+			return FromIConvertible (Math.Round (ToIConvertible (value).ToDouble (null)));
 		}
 
 		public virtual T Ceiling (T value)
 		{
-			throw new NotSupportedException ();
+			return FromIConvertible (Math.Ceiling (ToIConvertible (value).ToDouble (null)));
 		}
 
 		public virtual T Floor (T value)
 		{
-			throw new NotSupportedException ();
+			return FromIConvertible (Math.Floor (ToIConvertible (value).ToDouble (null)));
 		}
 		#endregion class RealFloat a
 
@@ -436,10 +425,6 @@ namespace Cadenza.Numerics {
 		public abstract T LeastCommonMultiple (T a, T b);
 		#endif
 		// TODO: ^, ^^, fromIntegral, realToFrac
-		public virtual T Pow (T x, T y)
-		{
-			throw new NotImplementedException ();
-		}
 		#endregion
 	}
 
@@ -478,8 +463,5 @@ namespace Cadenza.Numerics {
 		public override Tuple<int, int>
 		                        DivideModulus     (int x, int y)  {return Tuple.Create (Divide (x, y), Modulus (x, y));}
 		public override int   Reciprocal        (int value)       {NotZero (value); return 0;}
-		public override bool  IsNaN             (int value)       {return false;}
-		public override bool  IsInfinite        (int value)       {return false;}
-		public override bool  IsIEEE            (int value)       {return false;}
 	}
 }
