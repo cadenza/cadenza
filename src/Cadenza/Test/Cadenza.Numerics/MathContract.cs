@@ -160,5 +160,129 @@ namespace Cadenza.Numerics.Tests {
 					new [] { 0, 2, 3, 4, 5 },
 					m.EnumerateFromThenTo (m.FromInt32 (0), m.FromInt32 (2), m.FromInt32 (5)).Select (v => m.ToInt32 (v)));
 		}
+
+		[Test]
+		public void Add ()
+		{
+			var m = Math<T>.Default;
+			Assert.AreEqual (m.FromInt32 (3), m.Add (m.FromInt32 (1), m.FromInt32 (2)));
+			Assert.AreEqual (m.FromInt32 (3), m.Add (m.FromInt32 (2), m.FromInt32 (1)));
+			Assert.AreEqual (m.FromInt32 (2), m.Add (m.FromInt32 (2), m.FromInt32 (0)));
+			Assert.AreEqual (m.FromInt32 (2), m.Add (m.FromInt32 (0), m.FromInt32 (2)));
+			try {
+				var max = m.MaxValue;
+				var max1 = m.Add (max, m.FromInt32 (1));
+				// If we're here, then T should be a floating point type
+				Assert.IsTrue (m.IsIEEE (max1));
+			}
+			catch (OverflowException) {
+				// thrown if m.MaxValue+1 can't be represented
+			}
+			catch (NotSupportedException) {
+				// thrown if m.MaxValue doesn't exist
+			}
+		}
+
+		[Test]
+		public void Multiply ()
+		{
+			var m = Math<T>.Default;
+			Assert.AreEqual (m.FromInt32 (1), m.Multiply (m.FromInt32 (1), m.FromInt32 (1)));
+			Assert.AreEqual (m.FromInt32 (0), m.Multiply (m.FromInt32 (1), m.FromInt32 (0)));
+			Assert.AreEqual (m.FromInt32 (0), m.Multiply (m.FromInt32 (0), m.FromInt32 (0)));
+			Assert.AreEqual (m.FromInt32 (0), m.Multiply (m.FromInt32 (0), m.FromInt32 (1)));
+			Assert.AreEqual (m.FromInt32 (6), m.Multiply (m.FromInt32 (2), m.FromInt32 (3)));
+
+			try {
+				var max = m.MaxValue;
+				var max1 = m.Multiply (max, max);
+				// If we're here, then T should be a floating point type
+				Assert.IsTrue (m.IsIEEE (max1));
+				Assert.IsTrue (m.IsInfinite (max1));
+			}
+			catch (OverflowException) {
+				// thrown if m.MaxValue+1 can't be represented
+			}
+			catch (NotSupportedException) {
+				// thrown if m.MaxValue doesn't exist
+			}
+		}
+
+		[Test]
+		public void Subtract ()
+		{
+			var m = Math<T>.Default;
+			Assert.AreEqual (m.FromInt32 (1), m.Subtract (m.FromInt32 (3), m.FromInt32 (2)));
+			try {
+				var min = m.MinValue;
+				var min1 = m.Subtract (min, m.FromInt32 (1));
+				// If we're here, then T should be a floating point type
+				Assert.IsTrue (m.IsIEEE (min1));
+			}
+			catch (OverflowException) {
+				// thrown if m.MaxValue+1 can't be represented
+			}
+			catch (NotSupportedException) {
+				// thrown if m.MaxValue doesn't exist
+			}
+		}
+
+		[Test]
+		public void Negate ()
+		{
+			var m = Math<T>.Default;
+			try {
+				Assert.AreEqual (m.FromInt32 (-1), m.Negate (m.FromInt32 (1)));
+			}
+			catch (NotSupportedException) {
+				// likely unsigned values.
+			}
+
+			try {
+				var min = m.MinValue;
+				var nmin = m.Negate (min);
+				Assert.IsTrue (m.IsIEEE (nmin));
+			}
+			catch (OverflowException) {
+				// in 2's complement, `-int.MinValue` can't be held in an int.
+			}
+			catch (NotSupportedException) {
+				// no MinValue
+			}
+		}
+
+		[Test]
+		public void Abs ()
+		{
+			var m = Math<T>.Default;
+
+			Assert.AreEqual (m.FromInt32 (2), m.Abs (m.FromInt32 (2)));
+			try {
+				Assert.AreEqual (m.FromInt32 (2), m.Abs (m.FromInt32 (-2)));
+			}
+			catch (NotSupportedException) {
+				// unsigned type
+			}
+		}
+
+		[Test]
+		public void Sign ()
+		{
+			var m = Math<T>.Default;
+
+			Assert.AreEqual (m.FromInt32 (1), m.Sign (m.FromInt32 (3)));
+			Assert.AreEqual (m.FromInt32 (1), m.Sign (m.FromInt32 (2)));
+			Assert.AreEqual (m.FromInt32 (1), m.Sign (m.FromInt32 (1)));
+			Assert.AreEqual (m.FromInt32 (0), m.Sign (m.FromInt32 (0)));
+
+			try {
+				Assert.AreEqual (m.FromInt32 (-1), m.Sign (m.FromInt32 (-1)));
+				Assert.AreEqual (m.FromInt32 (-1), m.Sign (m.FromInt32 (-2)));
+				Assert.AreEqual (m.FromInt32 (-1), m.Sign (m.FromInt32 (-3)));
+			}
+			catch (NotSupportedException) {
+				// unsigned
+			}
+		}
 	}
 }
