@@ -515,7 +515,8 @@ namespace Cadenza.Numerics {
 
 		public virtual T FromIConvertible (IConvertible value)
 		{
-			throw new NotSupportedException ();
+			var r = Either.TryConvert<T>((object) value);
+			return r.Fold (v => v, e => {throw e;});
 		}
 		#endregion INumericProvider<T>
 
@@ -626,12 +627,14 @@ namespace Cadenza.Numerics {
 
 		public virtual T FromInt32 (int value)
 		{
-			return (T) Convert.ChangeType (value, typeof (T));
+			var r = Either.TryConvert<int, T>(value);
+			return r.Fold (v => v, e => {throw e;});
 		}
 
 		public virtual int ToInt32 (T value)
 		{
-			return (int) Convert.ChangeType (value, typeof (int));
+			var r = Either.TryConvert<T, int> (value);
+			return r.Fold (v => v, e => {throw e;});
 		}
 
 		public virtual IEnumerable<T> EnumerateFrom (T value)
