@@ -52,6 +52,66 @@ namespace Cadenza.Numerics {
 		#endregion
 	}
 
+	public static class OrderedTypeProviderCoda
+	{
+		public static bool DefaultLessThan<T>(this IComparer<T> self, T x, T y)
+		{
+			Check.Self (self);
+
+			var c = self.Compare (x, y);
+			if (c < 0)
+				return true;
+			return false;
+		}
+
+		public static bool DefaultLessThanOrEqual<T>(this IComparer<T> self, T x, T y)
+		{
+			Check.Self (self);
+
+			var c = self.Compare (x, y);
+			if (c <= 0)
+				return true;
+			return false;
+		}
+
+		public static bool DefaultGreaterThan<T>(this IComparer<T> self, T x, T y)
+		{
+			Check.Self (self);
+
+			var c = self.Compare (x, y);
+			if (c > 0)
+				return true;
+			return false;
+		}
+
+		public static bool DefaultGreaterThanOrEqual<T>(this IComparer<T> self, T x, T y)
+		{
+			Check.Self (self);
+
+			var c = self.Compare (x, y);
+			if (c >= 0)
+				return true;
+			return false;
+		}
+
+		public static T DefaultMax<T> (this IComparer<T> self, T x, T y)
+		{
+			Check.Self (self);
+
+			var c = self.Compare (x, y);
+			return c >= 0 ? x : y;
+		}
+
+		public static T DefaultMin<T> (this IComparer<T> self, T x, T y)
+		{
+			Check.Self (self);
+
+			var c = self.Compare (x, y);
+			return c <= 0 ? x : y;
+		}
+	}
+
+
 	public interface ISequentiallyOrderedTypeProvider<T>
 	{
 		#region class Enum a where

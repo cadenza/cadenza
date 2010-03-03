@@ -125,6 +125,7 @@
       <Type Name="IRealProvider`1" DisplayName="IRealProvider&lt;T&gt;" Kind="Interface" />
       <Type Name="ISequentiallyOrderedTypeProvider`1" DisplayName="ISequentiallyOrderedTypeProvider&lt;T&gt;" Kind="Interface" />
       <Type Name="MathProvider`1" DisplayName="MathProvider&lt;T&gt;" Kind="Class" />
+      <Type Name="OrderedTypeProviderCoda" Kind="Class" />
       <Type Name="SequentiallyOrderedTypeProviderCoda" Kind="Class" />
     </Namespace>
     <Namespace Name="Cadenza.Reflection">
@@ -7730,6 +7731,174 @@
         </summary>
         </Docs>
         <Link Type="Cadenza.NullableCoda" Member="M:Cadenza.NullableCoda.ToMaybe``1(System.Nullable{``0})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IComparer`1" />
+      </Targets>
+      <Member MemberName="DefaultGreaterThan&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static bool DefaultGreaterThan&lt;T&gt; (this System.Collections.Generic.IComparer&lt;T&gt; self, T x, T y);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IComparer&lt;T&gt;" RefType="this" />
+          <Parameter Name="x" Type="T" />
+          <Parameter Name="y" Type="T" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="x">To be added.</param>
+          <param name="y">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.Numerics.OrderedTypeProviderCoda" Member="M:Cadenza.Numerics.OrderedTypeProviderCoda.DefaultGreaterThan``1(System.Collections.Generic.IComparer{``0},``0,``0)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IComparer`1" />
+      </Targets>
+      <Member MemberName="DefaultGreaterThanOrEqual&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static bool DefaultGreaterThanOrEqual&lt;T&gt; (this System.Collections.Generic.IComparer&lt;T&gt; self, T x, T y);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IComparer&lt;T&gt;" RefType="this" />
+          <Parameter Name="x" Type="T" />
+          <Parameter Name="y" Type="T" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="x">To be added.</param>
+          <param name="y">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.Numerics.OrderedTypeProviderCoda" Member="M:Cadenza.Numerics.OrderedTypeProviderCoda.DefaultGreaterThanOrEqual``1(System.Collections.Generic.IComparer{``0},``0,``0)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IComparer`1" />
+      </Targets>
+      <Member MemberName="DefaultLessThan&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static bool DefaultLessThan&lt;T&gt; (this System.Collections.Generic.IComparer&lt;T&gt; self, T x, T y);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IComparer&lt;T&gt;" RefType="this" />
+          <Parameter Name="x" Type="T" />
+          <Parameter Name="y" Type="T" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="x">To be added.</param>
+          <param name="y">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.Numerics.OrderedTypeProviderCoda" Member="M:Cadenza.Numerics.OrderedTypeProviderCoda.DefaultLessThan``1(System.Collections.Generic.IComparer{``0},``0,``0)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IComparer`1" />
+      </Targets>
+      <Member MemberName="DefaultLessThanOrEqual&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static bool DefaultLessThanOrEqual&lt;T&gt; (this System.Collections.Generic.IComparer&lt;T&gt; self, T x, T y);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IComparer&lt;T&gt;" RefType="this" />
+          <Parameter Name="x" Type="T" />
+          <Parameter Name="y" Type="T" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="x">To be added.</param>
+          <param name="y">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.Numerics.OrderedTypeProviderCoda" Member="M:Cadenza.Numerics.OrderedTypeProviderCoda.DefaultLessThanOrEqual``1(System.Collections.Generic.IComparer{``0},``0,``0)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IComparer`1" />
+      </Targets>
+      <Member MemberName="DefaultMax&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static T DefaultMax&lt;T&gt; (this System.Collections.Generic.IComparer&lt;T&gt; self, T x, T y);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>T</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IComparer&lt;T&gt;" RefType="this" />
+          <Parameter Name="x" Type="T" />
+          <Parameter Name="y" Type="T" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="x">To be added.</param>
+          <param name="y">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.Numerics.OrderedTypeProviderCoda" Member="M:Cadenza.Numerics.OrderedTypeProviderCoda.DefaultMax``1(System.Collections.Generic.IComparer{``0},``0,``0)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IComparer`1" />
+      </Targets>
+      <Member MemberName="DefaultMin&lt;T&gt;">
+        <MemberSignature Language="C#" Value="public static T DefaultMin&lt;T&gt; (this System.Collections.Generic.IComparer&lt;T&gt; self, T x, T y);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>T</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="T" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IComparer&lt;T&gt;" RefType="this" />
+          <Parameter Name="x" Type="T" />
+          <Parameter Name="y" Type="T" />
+        </Parameters>
+        <Docs>
+          <typeparam name="T">To be added.</typeparam>
+          <param name="self">To be added.</param>
+          <param name="x">To be added.</param>
+          <param name="y">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Cadenza.Numerics.OrderedTypeProviderCoda" Member="M:Cadenza.Numerics.OrderedTypeProviderCoda.DefaultMin``1(System.Collections.Generic.IComparer{``0},``0,``0)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
