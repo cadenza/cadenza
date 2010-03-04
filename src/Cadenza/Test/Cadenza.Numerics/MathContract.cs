@@ -307,5 +307,65 @@ namespace Cadenza.Numerics.Tests {
 				Assert.IsTrue (m.IsUnsigned);
 			}
 		}
+
+		[Test]
+		public void Quotient ()
+		{
+			// "integer division truncating toward zero"
+			var m = Math<T>.Default;
+
+			Assert.AreEqual (m.FromInt32 (2), m.Quotient (m.FromInt32 (5), m.FromInt32 (2)));
+			try {
+				// -5/2 == -2.5; truncate toward 0 == -2
+				Assert.AreEqual (m.FromInt32 (-2), m.Quotient (m.FromInt32 (-5), m.FromInt32 (2)));
+			}
+			catch (NotSupportedException) {
+				Assert.IsTrue (m.IsUnsigned);
+			}
+		}
+
+		[Test]
+		public void Remainder ()
+		{
+			var m = Math<T>.Default;
+
+			var x = m.FromInt32 (5);
+			var y = m.FromInt32 (2);
+
+			var r = m.Remainder (x, y);
+			Assert.AreEqual (m.FromInt32 (1), r);
+
+			// Must satisfy: (x `quote` y)*y + (x `rem` y) == x
+			var q = m.Quotient (x, y);
+			Assert.AreEqual (x, m.Add (m.Multiply (q, y), r));
+
+			try {
+				x = m.FromInt32 (-5);
+				q = m.Quotient (x, y);
+				r = m.Remainder (x, y);
+				Assert.AreEqual (m.FromInt32 (-1), r);
+				Assert.AreEqual (x, m.Add (m.Multiply (q, y), r));
+			}
+			catch (NotSupportedException) {
+				Assert.IsTrue (m.IsUnsigned);
+			}
+		}
+
+		[Test]
+		public void Divide ()
+		{
+			// "integer division truncating toward negative infinity"
+			var m = Math<T>.Default;
+
+			var d = m.Divide (m.FromInt32 (5), m.FromInt32 (2));
+			Assert.AreEqual (m.FromInt32 (2), d);
+			try {
+				// -5/2 == -2.5; truncate toward -inf == -3
+				Assert.AreEqual (m.FromInt32 (-3), m.Divide (m.FromInt32 (-5), m.FromInt32 (2)));
+			}
+			catch (NotSupportedException) {
+				Assert.IsTrue (m.IsUnsigned);
+			}
+		}
 	}
 }
