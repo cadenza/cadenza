@@ -44,12 +44,14 @@ namespace Cadenza.Numerics {
 		static Func<T, T, T> mod    = CreateBinaryExpression<T> ((a, b) => Expression.Modulo (a, b));
 		static Func<T, T, T> mult   = CreateBinaryExpression<T> ((a, b) => Expression.MultiplyChecked (a, b));
 		static Func<T, T, T> pow    = CreateBinaryExpression<T>((a, b) => Expression.Power (a, b));
-		static Func<T, T> negate    = CreateUnaryExpression (v => Expression.NegateChecked (v));
+		static Func<T, T> negate    = CreateUnaryExpression<T, T> (v => Expression.NegateChecked (v));
 		static Func<T, T, bool> eq  = CreateBinaryExpression<bool> ((a, b) => Expression.Equal (a, b));
 		static Func<T, T, bool> gt  = CreateBinaryExpression<bool> ((a, b) => Expression.GreaterThan (a, b));
 		static Func<T, T, bool> gte = CreateBinaryExpression<bool> ((a, b) => Expression.GreaterThanOrEqual (a, b));
 		static Func<T, T, bool> lt  = CreateBinaryExpression<bool> ((a, b) => Expression.LessThan (a, b));
 		static Func<T, T, bool> lte = CreateBinaryExpression<bool> ((a, b) => Expression.LessThanOrEqual (a, b));
+		static Func<T, int> toInt32 = CreateUnaryExpression<T, int> (v => Expression.Convert (v, typeof (int)));
+		static Func<int, T> fromInt32 = CreateUnaryExpression<int, T> (v => Expression.Convert (v, typeof (T)));
 
 		static Func<T, T, TRet> CreateBinaryExpression<TRet> (Func<ParameterExpression, ParameterExpression, BinaryExpression> operation)
 		{
@@ -65,17 +67,31 @@ namespace Cadenza.Numerics {
 			}
 		}
 
-		static Func<T, T> CreateUnaryExpression (Func<ParameterExpression, UnaryExpression> operation)
+		static Func<T1, TRet> CreateUnaryExpression<T1, TRet> (Func<ParameterExpression, UnaryExpression> operation)
 		{
-			var value = Expression.Parameter (typeof (T), "value");
+			var value = Expression.Parameter (typeof (T1), "value");
 			try {
 				var body = operation (value);
-				return Expression.Lambda<Func<T, T>> (body, value).Compile ();
+				return Expression.Lambda<Func<T1, TRet>> (body, value).Compile ();
 			}
 			catch {
 				// operation not supported.
 				return null;
 			}
+		}
+
+		public override T FromInt32 (int value)
+		{
+			if (fromInt32 != null)
+				return fromInt32 (value);
+			return base.FromInt32 (value);
+		}
+
+		public override int ToInt32 (T value)
+		{
+			if (toInt32 != null)
+				return toInt32 (value);
+			return base.ToInt32 (value);
 		}
 
 		public override bool Equals (T x, T y)
