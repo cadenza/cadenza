@@ -155,9 +155,10 @@ namespace Cadenza.Numerics {
 			return mod (x, y);
 		}
 
-		public override Tuple<T, T> QuotientRemainder (T x, T y)
+		public override T QuotientRemainder (T x, T y, out T remainder)
 		{
-			return Tuple.Create (Quotient (x, y), Remainder (x, y));
+			remainder = Remainder (x, y);
+			return Quotient (x, y);
 		}
 
 		public override T Pow (T x, T y)

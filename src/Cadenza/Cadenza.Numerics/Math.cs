@@ -237,32 +237,42 @@ namespace Cadenza.Numerics {
 		#region class (Real a, Enum a) => Integral a where
 		public virtual T Quotient (T x, T y)
 		{
-			return QuotientRemainder (x, y).Item1;
+			T remainder;
+			return QuotientRemainder (x, y, out remainder);
 		}
 
 		public virtual T Remainder (T x, T y)
 		{
-			return QuotientRemainder (x, y).Item2;
+			T remainder;
+			QuotientRemainder (x, y, out remainder);
+			return remainder;
 		}
 
 		public virtual T Divide (T x, T y)
 		{
-			return DivideModulus (x, y).Item1;
+			T _;
+			return DivideModulus (x, y, out _);
 		}
 
 		public virtual T Modulus (T x, T y)
 		{
-			return DivideModulus (x, y).Item2;
+			T modulus;
+			DivideModulus (x, y, out modulus);
+			return modulus;
 		}
 
-		public abstract Tuple<T, T> QuotientRemainder (T x, T y);
+		// returns quotient
+		public abstract T QuotientRemainder (T x, T y, out T remainder);
 
-		public virtual Tuple<T, T> DivideModulus (T x, T y)
+		// returns divide
+		public virtual T DivideModulus (T x, T y, out T modulus)
 		{
-			var qr = QuotientRemainder (x, y);
-			if (Equals (Sign (qr.Item2), Negate (Sign (y))))
-				return Tuple.Create (Predecessor (qr.Item1), Successor (qr.Item2));
-			return qr;
+			var quotient = QuotientRemainder (x, y, out modulus);
+			if (Equals (Sign (modulus), Negate (Sign (y)))) {
+				quotient  = Predecessor (quotient);
+				modulus   = Successor (modulus);
+			}
+			return quotient;
 		}
 
 		[CLSCompliant (false)]
@@ -488,10 +498,8 @@ namespace Cadenza.Numerics {
 		public override int   Remainder           (int x, int y)  {return x % y;}
 		public override int   Divide              (int x, int y)  {return ((x >= 0) ? x : checked (x-1))/ y;} // truncates toward -inf
 		public override int   Modulus             (int x, int y)  {return x % y;} // TODO?
-		public override Tuple<int, int>
-		                        QuotientRemainder (int x, int y)  {return Tuple.Create (Quotient (x, y), Remainder (x, y));}
-		public override Tuple<int, int>
-		                        DivideModulus     (int x, int y)  {return Tuple.Create (Divide (x, y), Modulus (x, y));}
+		public override int   QuotientRemainder   (int x, int y, out int remainder) {remainder = x % y; return x / y;}
+		public override int   DivideModulus       (int x, int y, out int modulus)   {modulus = x % y; return Divide (x, y);}
 		public override int   Reciprocal          (int value)     {NotZero (value); return 0;}
 		public override bool  IsFloatingPoint                     {get {return false;}}
 	}

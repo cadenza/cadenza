@@ -273,25 +273,26 @@
       </Docs>
     </Member>
     <Member MemberName="DivideModulus">
-      <MemberSignature Language="C#" Value="public virtual Cadenza.Tuple&lt;T,T&gt; DivideModulus (T x, T y);" />
+      <MemberSignature Language="C#" Value="public virtual T DivideModulus (T x, T y, out T modulus);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.Tuple&lt;T,T&gt;</ReturnType>
+        <ReturnType>T</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="x" Type="T" />
         <Parameter Name="y" Type="T" />
+        <Parameter Name="modulus" Type="T&amp;" RefType="out" />
       </Parameters>
       <Docs>
         <param name="x">To be added.</param>
         <param name="y">To be added.</param>
+        <param name="modulus">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.DivideModulus(`0,`0)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="E">
@@ -1039,25 +1040,26 @@
       </Docs>
     </Member>
     <Member MemberName="QuotientRemainder">
-      <MemberSignature Language="C#" Value="public abstract Cadenza.Tuple&lt;T,T&gt; QuotientRemainder (T x, T y);" />
+      <MemberSignature Language="C#" Value="public abstract T QuotientRemainder (T x, T y, out T remainder);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Cadenza.Tuple&lt;T,T&gt;</ReturnType>
+        <ReturnType>T</ReturnType>
       </ReturnValue>
       <Parameters>
         <Parameter Name="x" Type="T" />
         <Parameter Name="y" Type="T" />
+        <Parameter Name="remainder" Type="T&amp;" RefType="out" />
       </Parameters>
       <Docs>
         <param name="x">To be added.</param>
         <param name="y">To be added.</param>
+        <param name="remainder">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.QuotientRemainder(`0,`0)" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Reciprocal">
