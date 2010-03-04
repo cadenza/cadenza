@@ -98,7 +98,7 @@ namespace Cadenza.Numerics.Tests {
 				Assert.Throws<OverflowException>(() => m.Successor (max));
 			}
 			catch (NotSupportedException) {
-				// thrown if m.MaxValue doesn't exist
+				Assert.IsFalse (m.HasBounds);
 			}
 		}
 
@@ -112,7 +112,7 @@ namespace Cadenza.Numerics.Tests {
 				Assert.Throws<OverflowException>(() => m.Predecessor (min));
 			}
 			catch (NotSupportedException) {
-				// thrown if m.MinValue doesn't exist
+				Assert.IsFalse (m.HasBounds);
 			}
 		}
 
@@ -171,15 +171,18 @@ namespace Cadenza.Numerics.Tests {
 			Assert.AreEqual (m.FromInt32 (2), m.Add (m.FromInt32 (0), m.FromInt32 (2)));
 			try {
 				var max = m.MaxValue;
-				var max1 = m.Add (max, m.FromInt32 (1));
+				var max1 = m.Add (max, max);
 				// If we're here, then T should be a floating point type
-				Assert.IsTrue (m.IsIEEE (max1));
+				Assert.IsTrue (m.IsFloatingPoint);
+				Assert.IsTrue (m.IsInfinite (max1));
 			}
 			catch (OverflowException) {
 				// thrown if m.MaxValue+1 can't be represented
+				Assert.IsFalse (m.IsFloatingPoint);
 			}
 			catch (NotSupportedException) {
 				// thrown if m.MaxValue doesn't exist
+				Assert.IsFalse (m.HasBounds);
 			}
 		}
 
@@ -197,14 +200,16 @@ namespace Cadenza.Numerics.Tests {
 				var max = m.MaxValue;
 				var max1 = m.Multiply (max, max);
 				// If we're here, then T should be a floating point type
-				Assert.IsTrue (m.IsIEEE (max1));
+				Assert.IsTrue (m.IsFloatingPoint);
 				Assert.IsTrue (m.IsInfinite (max1));
 			}
 			catch (OverflowException) {
 				// thrown if m.MaxValue+1 can't be represented
+				Assert.IsFalse (m.IsFloatingPoint);
 			}
 			catch (NotSupportedException) {
 				// thrown if m.MaxValue doesn't exist
+				Assert.IsFalse (m.HasBounds);
 			}
 		}
 
@@ -215,15 +220,19 @@ namespace Cadenza.Numerics.Tests {
 			Assert.AreEqual (m.FromInt32 (1), m.Subtract (m.FromInt32 (3), m.FromInt32 (2)));
 			try {
 				var min = m.MinValue;
-				var min1 = m.Subtract (min, m.FromInt32 (1));
+				m.Subtract (min, m.FromInt32 (1));
 				// If we're here, then T should be a floating point type
-				Assert.IsTrue (m.IsIEEE (min1));
+				Assert.IsTrue (m.IsFloatingPoint);
+				var ninf = m.Subtract (min, m.MaxValue);
+				Assert.IsTrue (m.IsInfinite (ninf));
 			}
 			catch (OverflowException) {
 				// thrown if m.MaxValue+1 can't be represented
+				Assert.IsFalse (m.IsFloatingPoint);
 			}
 			catch (NotSupportedException) {
 				// thrown if m.MaxValue doesn't exist
+				Assert.IsFalse (m.HasBounds);
 			}
 		}
 
@@ -236,18 +245,21 @@ namespace Cadenza.Numerics.Tests {
 			}
 			catch (NotSupportedException) {
 				// likely unsigned values.
+				Assert.IsTrue (m.IsUnsigned);
 			}
 
 			try {
 				var min = m.MinValue;
-				var nmin = m.Negate (min);
-				Assert.IsTrue (m.IsIEEE (nmin));
+				m.Negate (min);
+				Assert.IsTrue (m.IsFloatingPoint);
 			}
 			catch (OverflowException) {
 				// in 2's complement, `-int.MinValue` can't be held in an int.
+				Assert.IsFalse (m.IsFloatingPoint);
 			}
 			catch (NotSupportedException) {
 				// no MinValue
+				Assert.IsFalse (m.HasBounds);
 			}
 		}
 
@@ -262,6 +274,7 @@ namespace Cadenza.Numerics.Tests {
 			}
 			catch (NotSupportedException) {
 				// unsigned type
+				Assert.IsTrue (m.IsUnsigned);
 			}
 		}
 
@@ -291,6 +304,7 @@ namespace Cadenza.Numerics.Tests {
 			}
 			catch (NotSupportedException) {
 				// unsigned
+				Assert.IsTrue (m.IsUnsigned);
 			}
 		}
 	}

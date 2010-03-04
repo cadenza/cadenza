@@ -84,6 +84,10 @@ namespace Cadenza.Numerics {
 		}
 		#endregion
 
+		public virtual bool IsUnsigned {
+			get {return false;}
+		}
+
 		#region class Eq a => Ord a where
 		public virtual bool LessThan (T x, T y)
 		{
@@ -176,6 +180,10 @@ namespace Cadenza.Numerics {
 			return new[]{first}.Concat (EnumerateFromTo (start, end));
 		}
 		#endregion class Enum a
+
+		public virtual bool HasBounds {
+			get {return false;}
+		}
 
 		#region class Bounded a where
 		public virtual T MinValue {
@@ -362,6 +370,10 @@ namespace Cadenza.Numerics {
 			return FromIConvertible (Math.Cos (ToIConvertible (value).ToDouble (null)));
 		}
 		#endregion classFloating a
+
+		public virtual bool IsFloatingPoint {
+			get {return false;}
+		}
 
 		#region class (Real a, Fractional a) => RealFrac a where
 		public virtual int FloatRadix (T value)
