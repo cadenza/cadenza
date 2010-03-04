@@ -463,6 +463,7 @@ namespace Cadenza.Numerics {
 				throw new ArgumentException ("Value must not be zero.", "value");
 		}
 
+		public override bool  IsUnsigned                          {get {return false;}}
 		public override bool  LessThan            (int x, int y)  {return x < y;}
 		public override bool  LessThanOrEqual     (int x, int y)  {return x <= y;}
 		public override bool  GreaterThan         (int x, int y)  {return x > y;}
@@ -473,6 +474,7 @@ namespace Cadenza.Numerics {
 		public override int   Predecessor         (int value)     {return checked (value-1);}
 		public override int   FromInt32           (int value)     {return value;}
 		public override int   ToInt32             (int value)     {return value;}
+		public override bool  HasBounds                           {get {return true;}}
 		public override int   MinValue                            {get {return int.MinValue;}}
 		public override int   MaxValue                            {get {return int.MaxValue;}}
 		public override int   Add                 (int x, int y)  {return checked (x + y);}
@@ -491,5 +493,6 @@ namespace Cadenza.Numerics {
 		public override Tuple<int, int>
 		                        DivideModulus     (int x, int y)  {return Tuple.Create (Divide (x, y), Modulus (x, y));}
 		public override int   Reciprocal          (int value)     {NotZero (value); return 0;}
+		public override bool  IsFloatingPoint                     {get {return false;}}
 	}
 }
