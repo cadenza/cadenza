@@ -173,12 +173,12 @@ namespace Cadenza.Numerics.Tests {
 				var max = m.MaxValue;
 				var max1 = m.Add (max, max);
 				// If we're here, then T should be a floating point type
-				Assert.IsTrue (m.IsFloatingPoint);
+				Assert.IsFalse (m.IsIntegral);
 				Assert.IsTrue (m.IsInfinite (max1));
 			}
 			catch (OverflowException) {
 				// thrown if m.MaxValue+1 can't be represented
-				Assert.IsFalse (m.IsFloatingPoint);
+				Assert.IsTrue (m.IsIntegral);
 			}
 			catch (NotSupportedException) {
 				// thrown if m.MaxValue doesn't exist
@@ -200,12 +200,12 @@ namespace Cadenza.Numerics.Tests {
 				var max = m.MaxValue;
 				var max1 = m.Multiply (max, max);
 				// If we're here, then T should be a floating point type
-				Assert.IsTrue (m.IsFloatingPoint);
+				Assert.IsFalse (m.IsIntegral);
 				Assert.IsTrue (m.IsInfinite (max1));
 			}
 			catch (OverflowException) {
 				// thrown if m.MaxValue+1 can't be represented
-				Assert.IsFalse (m.IsFloatingPoint);
+				Assert.IsTrue (m.IsIntegral);
 			}
 			catch (NotSupportedException) {
 				// thrown if m.MaxValue doesn't exist
@@ -222,13 +222,13 @@ namespace Cadenza.Numerics.Tests {
 				var min = m.MinValue;
 				m.Subtract (min, m.FromInt32 (1));
 				// If we're here, then T should be a floating point type
-				Assert.IsTrue (m.IsFloatingPoint);
+				Assert.IsFalse (m.IsIntegral);
 				var ninf = m.Subtract (min, m.MaxValue);
 				Assert.IsTrue (m.IsInfinite (ninf));
 			}
 			catch (OverflowException) {
 				// thrown if m.MaxValue+1 can't be represented
-				Assert.IsFalse (m.IsFloatingPoint);
+				Assert.IsTrue (m.IsIntegral);
 			}
 			catch (NotSupportedException) {
 				// thrown if m.MaxValue doesn't exist
@@ -251,11 +251,11 @@ namespace Cadenza.Numerics.Tests {
 			try {
 				var min = m.MinValue;
 				m.Negate (min);
-				Assert.IsTrue (m.IsFloatingPoint);
+				Assert.IsFalse (m.IsIntegral);
 			}
 			catch (OverflowException) {
 				// in 2's complement, `-int.MinValue` can't be held in an int.
-				Assert.IsFalse (m.IsFloatingPoint);
+				Assert.IsTrue (m.IsIntegral);
 			}
 			catch (NotSupportedException) {
 				// no MinValue
@@ -352,16 +352,16 @@ namespace Cadenza.Numerics.Tests {
 		}
 
 		[Test]
-		public void Divide ()
+		public void DivideIntegral ()
 		{
 			// "integer division truncating toward negative infinity"
 			var m = Math<T>.Default;
 
-			var d = m.Divide (m.FromInt32 (5), m.FromInt32 (2));
+			var d = m.DivideIntegral (m.FromInt32 (5), m.FromInt32 (2));
 			Assert.AreEqual (m.FromInt32 (2), d);
 			try {
 				// -5/2 == -2.5; truncate toward -inf == -3
-				Assert.AreEqual (m.FromInt32 (-3), m.Divide (m.FromInt32 (-5), m.FromInt32 (2)));
+				Assert.AreEqual (m.FromInt32 (-3), m.DivideIntegral (m.FromInt32 (-5), m.FromInt32 (2)));
 			}
 			catch (NotSupportedException) {
 				Assert.IsTrue (m.IsUnsigned);

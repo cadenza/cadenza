@@ -272,8 +272,29 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="DivideModulus">
-      <MemberSignature Language="C#" Value="public virtual T DivideModulus (T x, T y, out T modulus);" />
+    <Member MemberName="DivideIntegral">
+      <MemberSignature Language="C#" Value="public virtual T DivideIntegral (T x, T y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>T</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="x" Type="T" />
+        <Parameter Name="y" Type="T" />
+      </Parameters>
+      <Docs>
+        <param name="x">To be added.</param>
+        <param name="y">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DivideIntegralModulus">
+      <MemberSignature Language="C#" Value="public virtual T DivideIntegralModulus (T x, T y, out T modulus);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -656,21 +677,6 @@
         <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.IEEERemainder(`0,`0)" /></exception>
       </Docs>
     </Member>
-    <Member MemberName="IsFloatingPoint">
-      <MemberSignature Language="C#" Value="public virtual bool IsFloatingPoint { get; }" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="IsIEEE">
       <MemberSignature Language="C#" Value="public virtual bool IsIEEE (T value);" />
       <MemberType>Method</MemberType>
@@ -709,6 +715,21 @@
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.IsInfinite(`0)" /></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="IsIntegral">
+      <MemberSignature Language="C#" Value="public virtual bool IsIntegral { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="IsNaN">

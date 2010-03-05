@@ -248,16 +248,16 @@ namespace Cadenza.Numerics {
 			return remainder;
 		}
 
-		public virtual T Divide (T x, T y)
+		public virtual T DivideIntegral (T x, T y)
 		{
 			T _;
-			return DivideModulus (x, y, out _);
+			return DivideIntegralModulus (x, y, out _);
 		}
 
 		public virtual T Modulus (T x, T y)
 		{
 			T modulus;
-			DivideModulus (x, y, out modulus);
+			DivideIntegralModulus (x, y, out modulus);
 			return modulus;
 		}
 
@@ -265,7 +265,7 @@ namespace Cadenza.Numerics {
 		public abstract T QuotientRemainder (T x, T y, out T remainder);
 
 		// returns divide
-		public virtual T DivideModulus (T x, T y, out T modulus)
+		public virtual T DivideIntegralModulus (T x, T y, out T modulus)
 		{
 			var quotient = QuotientRemainder (x, y, out modulus);
 			if (Equals (Sign (modulus), Negate (Sign (y)))) {
@@ -286,8 +286,10 @@ namespace Cadenza.Numerics {
 		#endregion class Integral a
 
 		#region class Num a => Fractional a where
-		// Divide declared in IIntegralNumberProvider<T> region
-		// TODO: should float vs. int divide be distinct?
+		public virtual T Divide (T x, T y)
+		{
+			return DivideIntegral (x, y);
+		}
 
 		public virtual T Reciprocal (T value)
 		{
@@ -381,8 +383,8 @@ namespace Cadenza.Numerics {
 		}
 		#endregion classFloating a
 
-		public virtual bool IsFloatingPoint {
-			get {return false;}
+		public virtual bool IsIntegral {
+			get {return true;}
 		}
 
 		#region class (Real a, Fractional a) => RealFrac a where
@@ -496,11 +498,12 @@ namespace Cadenza.Numerics {
 		public override int   FromIConvertible    (IConvertible value)  {Check.Value (value); return value.ToInt32 (null);}
 		public override int   Quotient            (int x, int y)  {return x / y;} // truncates toward 0
 		public override int   Remainder           (int x, int y)  {return x % y;}
-		public override int   Divide              (int x, int y)  {return ((x >= 0) ? x : checked (x-1))/ y;} // truncates toward -inf
+		public override int   DivideIntegral      (int x, int y)  {return ((x >= 0) ? x : checked (x-1))/ y;} // truncates toward -inf
 		public override int   Modulus             (int x, int y)  {return x % y;} // TODO?
 		public override int   QuotientRemainder   (int x, int y, out int remainder) {remainder = x % y; return x / y;}
-		public override int   DivideModulus       (int x, int y, out int modulus)   {modulus = x % y; return Divide (x, y);}
+		public override int   DivideIntegralModulus (int x, int y, out int modulus)   {modulus = x % y; return Divide (x, y);}
+		public override int   Divide              (int x, int y)  {return x / y;}
 		public override int   Reciprocal          (int value)     {NotZero (value); return 0;}
-		public override bool  IsFloatingPoint                     {get {return false;}}
+		public override bool  IsIntegral                          {get {return true;}}
 	}
 }
