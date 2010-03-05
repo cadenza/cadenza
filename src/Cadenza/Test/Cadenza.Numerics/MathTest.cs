@@ -42,6 +42,10 @@ namespace Cadenza.Numerics.Tests {
 	//
 
 	[TestFixture]
+	public class DoubleMathTests : MathContract<double> {
+	}
+
+	[TestFixture]
 	public class Int32MathTests : MathContract<int> {
 	}
 

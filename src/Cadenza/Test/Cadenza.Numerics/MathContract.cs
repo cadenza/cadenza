@@ -95,7 +95,13 @@ namespace Cadenza.Numerics.Tests {
 			Assert.AreEqual (m.FromInt32 (1), m.Successor (m.FromInt32 (0)));
 			try {
 				var max = m.MaxValue;
-				Assert.Throws<OverflowException>(() => m.Successor (max));
+				try {
+					m.Successor (max);
+					Assert.IsFalse (m.IsIntegral);
+				}
+				catch (OverflowException) {
+					Assert.IsTrue (m.IsIntegral);
+				}
 			}
 			catch (NotSupportedException) {
 				Assert.IsFalse (m.HasBounds);
@@ -109,7 +115,13 @@ namespace Cadenza.Numerics.Tests {
 			Assert.AreEqual (m.FromInt32 (0), m.Predecessor (m.FromInt32 (1)));
 			try {
 				var min = m.MinValue;
-				Assert.Throws<OverflowException>(() => m.Predecessor (min));
+				try {
+					m.Predecessor (min);
+					Assert.IsFalse (m.IsIntegral);
+				}
+				catch (OverflowException) {
+					Assert.IsTrue (m.IsIntegral);
+				}
 			}
 			catch (NotSupportedException) {
 				Assert.IsFalse (m.HasBounds);
@@ -227,7 +239,7 @@ namespace Cadenza.Numerics.Tests {
 				Assert.IsTrue (m.IsInfinite (ninf));
 			}
 			catch (OverflowException) {
-				// thrown if m.MaxValue+1 can't be represented
+				// thrown if m.MaxValue-1 can't be represented
 				Assert.IsTrue (m.IsIntegral);
 			}
 			catch (NotSupportedException) {
