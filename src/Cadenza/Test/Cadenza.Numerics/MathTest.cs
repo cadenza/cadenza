@@ -95,6 +95,11 @@ namespace Cadenza.Numerics.Tests {
 		}
 
 		public int Value {get; private set;}
+
+		public override string ToString ()
+		{
+			return "(" + GetType ().Name + " " + Value.ToString () + ")";
+		}
 	}
 
 	// minimal implementation

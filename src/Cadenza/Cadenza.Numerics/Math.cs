@@ -270,7 +270,7 @@ namespace Cadenza.Numerics {
 			var quotient = QuotientRemainder (x, y, out modulus);
 			if (Equals (Sign (modulus), Negate (Sign (y)))) {
 				quotient  = Predecessor (quotient);
-				modulus   = Successor (modulus);
+				modulus   = Add (modulus, y);
 			}
 			return quotient;
 		}
@@ -499,9 +499,9 @@ namespace Cadenza.Numerics {
 		public override int   Quotient            (int x, int y)  {return x / y;} // truncates toward 0
 		public override int   Remainder           (int x, int y)  {return x % y;}
 		public override int   DivideIntegral      (int x, int y)  {return ((x >= 0) ? x : checked (x-1))/ y;} // truncates toward -inf
-		public override int   Modulus             (int x, int y)  {return x % y;} // TODO?
+		public override int   Modulus             (int x, int y)  {return Math.Abs (x % y);} // TODO?
 		public override int   QuotientRemainder   (int x, int y, out int remainder) {remainder = x % y; return x / y;}
-		public override int   DivideIntegralModulus (int x, int y, out int modulus)   {modulus = x % y; return Divide (x, y);}
+		public override int   DivideIntegralModulus (int x, int y, out int modulus) {modulus = Math.Abs (x % y); return DivideIntegral (x, y);}
 		public override int   Divide              (int x, int y)  {return x / y;}
 		public override int   Reciprocal          (int value)     {NotZero (value); return 0;}
 		public override bool  IsIntegral                          {get {return true;}}

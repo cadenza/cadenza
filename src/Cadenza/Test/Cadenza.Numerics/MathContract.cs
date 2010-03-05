@@ -367,5 +367,93 @@ namespace Cadenza.Numerics.Tests {
 				Assert.IsTrue (m.IsUnsigned);
 			}
 		}
+
+		[Test]
+		public void Modulus ()
+		{
+			var m = Math<T>.Default;
+
+			var x = m.FromInt32 (5);
+			var y = m.FromInt32 (2);
+
+			var mod = m.Modulus (x, y);
+			Assert.AreEqual (m.FromInt32 (1), mod);
+
+			// Must satisfy: (x `div` y)*y + (x `mod` y) == x
+			var div = m.DivideIntegral (x, y);
+			Assert.AreEqual (x, m.Add (m.Multiply (div, y), mod));
+
+			try {
+				x = m.FromInt32 (-5);
+				div = m.DivideIntegral (x, y);
+				mod = m.Modulus (x, y);
+				Assert.AreEqual (m.FromInt32 (1), mod);
+				Assert.AreEqual (x, m.Add (m.Multiply (div, y), mod));
+			}
+			catch (NotSupportedException) {
+				Assert.IsTrue (m.IsUnsigned);
+			}
+		}
+
+		[Test]
+		public void QuotientRemainder ()
+		{
+			// "integer division truncating toward zero"
+			var m = Math<T>.Default;
+
+			T q, r;
+			var x = m.FromInt32 (5);
+			var y = m.FromInt32 (2);
+
+			q = m.QuotientRemainder (x, y, out r);
+			Assert.AreEqual (m.FromInt32 (2), q);
+			Assert.AreEqual (m.FromInt32 (1), r);
+
+			// Must satisfy: (x `quote` y)*y + (x `rem` y) == x
+			Assert.AreEqual (x, m.Add (m.Multiply (q, y), r));
+
+
+			try {
+				x = m.FromInt32 (-5);
+
+				q = m.QuotientRemainder (x, y, out r);
+				Assert.AreEqual (m.FromInt32 (-2), q);
+				Assert.AreEqual (m.FromInt32 (-1), r);
+
+				Assert.AreEqual (x, m.Add (m.Multiply (q, y), r));
+			}
+			catch (NotSupportedException) {
+				Assert.IsTrue (m.IsUnsigned);
+			}
+		}
+
+		[Test]
+		public void DivideIntegralModulus ()
+		{
+			// "integer division truncating toward negative infinity"
+			var m = Math<T>.Default;
+
+			T div, mod;
+			var x = m.FromInt32 (5);
+			var y = m.FromInt32 (2);
+
+			div = m.DivideIntegralModulus (x, y, out mod);
+			Assert.AreEqual (m.FromInt32 (2), div);
+			Assert.AreEqual (m.FromInt32 (1), mod);
+			Assert.AreEqual (x, m.Add (m.Multiply (div, y), mod));
+
+			try {
+				// -5/2 == -2.5; truncate toward -inf == -3
+				x = m.FromInt32 (-5);
+				div = m.DivideIntegralModulus (x, y, out mod);
+
+				Assert.AreEqual (m.FromInt32 (-3), div);
+				Assert.AreEqual (m.FromInt32 (1), mod);
+				Assert.AreEqual (x, m.Add (m.Multiply (div, y), mod));
+			}
+			catch (NotSupportedException) {
+				Assert.IsTrue (m.IsUnsigned);
+			}
+		}
 	}
 }
