@@ -467,5 +467,24 @@ namespace Cadenza.Numerics.Tests {
 				Assert.IsTrue (m.IsUnsigned);
 			}
 		}
+
+		[Test]
+		public void ToIConvertible ()
+		{
+			var m = Math<T>.Default;
+
+			var v = m.FromInt32 (1);
+			try {
+				var c = m.ToIConvertible (v);
+				Assert.IsNotNull (c);
+				var e = c as IEquatable<T>;
+				if (e != null)
+					// Type opted into value equality contract
+					Assert.AreEqual (v, e);
+			}
+			catch (NotSupportedException) {
+				// default implementation
+			}
+		}
 	}
 }
