@@ -136,7 +136,7 @@
       </Docs>
     </Member>
     <Member MemberName="Atan2">
-      <MemberSignature Language="C#" Value="public virtual T Atan2 (T x, T y);" />
+      <MemberSignature Language="C#" Value="public virtual T Atan2 (T y, T x);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -145,12 +145,12 @@
         <ReturnType>T</ReturnType>
       </ReturnValue>
       <Parameters>
-        <Parameter Name="x" Type="T" />
         <Parameter Name="y" Type="T" />
+        <Parameter Name="x" Type="T" />
       </Parameters>
       <Docs>
-        <param name="x">To be added.</param>
         <param name="y">To be added.</param>
+        <param name="x">To be added.</param>
         <summary>To be added.</summary>
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
