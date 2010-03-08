@@ -486,5 +486,31 @@ namespace Cadenza.Numerics.Tests {
 				// default implementation
 			}
 		}
+
+		[Test]
+		public void Divide ()
+		{
+			var m = Math<T>.Default;
+
+			Assert.AreEqual (m.FromInt32 (3), m.Divide (m.FromInt32 (6), m.FromInt32 (2)));
+
+			var r = m.Divide (m.FromInt32 (5), m.FromInt32 (2));
+			if (m.IsIntegral)
+				Assert.AreEqual (m.FromInt32 (2), r);
+			else
+				Assert.AreEqual (m.FromIConvertible (2.5), r);
+		}
+
+		[Test]
+		public void Reciprocal ()
+		{
+			var m = Math<T>.Default;
+
+			var r = m.Reciprocal (m.FromInt32 (2));
+			if (m.IsIntegral)
+				Assert.AreEqual (m.FromInt32 (0), r);
+			else
+				Assert.AreEqual (m.FromIConvertible (0.5), r);
+		}
 	}
 }
