@@ -157,24 +157,15 @@ namespace Cadenza.Numerics {
 			return negate (value);
 		}
 
-		public override T Divide (T x, T y)
-		{
-			if (divide == null)
-				throw new NotSupportedException ();
-			return divide (x, y);
-		}
-
-		public override T Modulus (T x, T y)
-		{
-			if (mod == null)
-				return base.Modulus (x, y);
-			return mod (x, y);
-		}
-
 		public override T QuotientRemainder (T x, T y, out T remainder)
 		{
-			remainder = Remainder (x, y);
-			return Quotient (x, y);
+			if (mod == null)
+				throw new NotSupportedException ("Need Expression.Modulus() support to implement Math<T>.QuotientRemainder().");
+			if (divide == null)
+				throw new NotSupportedException ("Need Expression.Divide() support to implement Math<T>.QuotientRemainder().");
+			// TODO: properly handle negative values.
+			remainder = mod (x, y);
+			return Floor (divide (x, y));
 		}
 
 		public override T Pow (T x, T y)
@@ -182,6 +173,13 @@ namespace Cadenza.Numerics {
 			if (pow == null)
 				return base.Pow (x, y);
 			return pow (x, y);
+		}
+
+		public override T Divide (T x, T y)
+		{
+			if (divide == null)
+				throw new NotSupportedException ();
+			return divide (x, y);
 		}
 	}
 }
