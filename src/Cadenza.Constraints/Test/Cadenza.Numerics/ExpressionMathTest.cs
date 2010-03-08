@@ -53,11 +53,9 @@ namespace Cadenza.Numerics.Tests
 		}
 	}
 
-#if false
 	[TestFixture]
 	public class DoubleExpressionMathTests : ExpressionMathContract<double> {
 	}
-#endif
 
 	[TestFixture]
 	public class Int32ExpressionMathTests : ExpressionMathContract<int> {

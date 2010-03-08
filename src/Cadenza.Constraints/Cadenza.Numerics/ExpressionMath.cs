@@ -53,6 +53,33 @@ namespace Cadenza.Numerics {
 		static Func<T, int> toInt32 = CreateUnaryExpression<T, int> (v => Expression.Convert (v, typeof (int)));
 		static Func<int, T> fromInt32 = CreateUnaryExpression<int, T> (v => Expression.Convert (v, typeof (T)));
 
+		static bool isFractional;
+
+		static ExpressionMath ()
+		{
+			if (divide != null) {
+				try {
+					T zero = _FromInt32 (0);
+					T one  = _FromInt32 (1);
+					T two  = _FromInt32 (2);
+
+					// (1/2) == 0.5; if 0.5 == 0, then it's an integral type
+					if (!EqualityComparer<T>.Default.Equals (zero, divide (one, two)))
+						isFractional = true;
+				}
+				catch {
+					// ignore
+				}
+			}
+		}
+
+		static T _FromInt32 (int value)
+		{
+			if (fromInt32 !=  null)
+				return fromInt32 (value);
+			return Either.TryConvert<int, T>(value).Fold (v => v, e => {throw e;});
+		}
+
 		static Func<T, T, TRet> CreateBinaryExpression<TRet> (Func<ParameterExpression, ParameterExpression, BinaryExpression> operation)
 		{
 			var a = Expression.Parameter (typeof (T), "a");
@@ -163,9 +190,8 @@ namespace Cadenza.Numerics {
 				throw new NotSupportedException ("Need Expression.Modulus() support to implement Math<T>.QuotientRemainder().");
 			if (divide == null)
 				throw new NotSupportedException ("Need Expression.Divide() support to implement Math<T>.QuotientRemainder().");
-			// TODO: properly handle negative values.
 			remainder = mod (x, y);
-			return Floor (divide (x, y));
+			return FromInt32 (ToInt32 ((divide (x, y))));
 		}
 
 		public override T Pow (T x, T y)
@@ -180,6 +206,10 @@ namespace Cadenza.Numerics {
 			if (divide == null)
 				throw new NotSupportedException ();
 			return divide (x, y);
+		}
+
+		public override bool IsIntegral {
+			get {return !isFractional;}
 		}
 	}
 }
