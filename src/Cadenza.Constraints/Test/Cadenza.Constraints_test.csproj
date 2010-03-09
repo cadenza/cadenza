@@ -40,6 +40,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\Cadenza\Cadenza.csproj">
+      <Project>{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}</Project>
+      <Name>Cadenza</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Cadenza.Constraints.csproj">
       <Project>{C84F2A75-81FD-42BA-8660-02A6CA773851}</Project>
       <Name>Cadenza.Constraints</Name>
