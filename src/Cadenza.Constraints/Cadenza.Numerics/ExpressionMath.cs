@@ -39,24 +39,24 @@ namespace Cadenza.Numerics {
 	// from: http://www.yoda.arachsys.com/csharp/genericoperators.html
 	public class ExpressionMath<T> : Math<T>
 	{
-		static Func<T, T, T> add    = CreateBinaryExpression<T> ((a, b) => Expression.Add (a, b));
-		static Func<T, T, T> sub    = CreateBinaryExpression<T> ((a, b) =>Expression.SubtractChecked (a, b));
-		static Func<T, T, T> divide = CreateBinaryExpression<T> ((a, b) => Expression.Divide (a, b));
-		static Func<T, T, T> mod    = CreateBinaryExpression<T> ((a, b) => Expression.Modulo (a, b));
-		static Func<T, T, T> mult   = CreateBinaryExpression<T> ((a, b) => Expression.MultiplyChecked (a, b));
-		static Func<T, T, T> pow    = CreateBinaryExpression<T>((a, b) => Expression.Power (a, b));
-		static Func<T, T> negate    = CreateUnaryExpression<T, T> (v => Expression.NegateChecked (v));
-		static Func<T, T, bool> eq  = CreateBinaryExpression<bool> ((a, b) => Expression.Equal (a, b));
-		static Func<T, T, bool> gt  = CreateBinaryExpression<bool> ((a, b) => Expression.GreaterThan (a, b));
-		static Func<T, T, bool> gte = CreateBinaryExpression<bool> ((a, b) => Expression.GreaterThanOrEqual (a, b));
-		static Func<T, T, bool> lt  = CreateBinaryExpression<bool> ((a, b) => Expression.LessThan (a, b));
-		static Func<T, T, bool> lte = CreateBinaryExpression<bool> ((a, b) => Expression.LessThanOrEqual (a, b));
-		static Func<T, int> toInt32 = CreateUnaryExpression<T, int> (v => Expression.Convert (v, typeof (int)));
-		static Func<int, T> fromInt32 = CreateUnaryExpression<int, T> (v => Expression.Convert (v, typeof (T)));
+		static readonly Func<T, T, T> add    = CreateBinaryExpression<T> ((a, b) => Expression.Add (a, b));
+		static readonly Func<T, T, T> sub    = CreateBinaryExpression<T> ((a, b) =>Expression.SubtractChecked (a, b));
+		static readonly Func<T, T, T> divide = CreateBinaryExpression<T> ((a, b) => Expression.Divide (a, b));
+		static readonly Func<T, T, T> mod    = CreateBinaryExpression<T> ((a, b) => Expression.Modulo (a, b));
+		static readonly Func<T, T, T> mult   = CreateBinaryExpression<T> ((a, b) => Expression.MultiplyChecked (a, b));
+		static readonly Func<T, T, T> pow    = CreateBinaryExpression<T>((a, b) => Expression.Power (a, b));
+		static readonly Func<T, T> negate    = CreateUnaryExpression<T, T> (v => Expression.NegateChecked (v));
+		static readonly Func<T, T, bool> eq  = CreateBinaryExpression<bool> ((a, b) => Expression.Equal (a, b));
+		static readonly Func<T, T, bool> gt  = CreateBinaryExpression<bool> ((a, b) => Expression.GreaterThan (a, b));
+		static readonly Func<T, T, bool> gte = CreateBinaryExpression<bool> ((a, b) => Expression.GreaterThanOrEqual (a, b));
+		static readonly Func<T, T, bool> lt  = CreateBinaryExpression<bool> ((a, b) => Expression.LessThan (a, b));
+		static readonly Func<T, T, bool> lte = CreateBinaryExpression<bool> ((a, b) => Expression.LessThanOrEqual (a, b));
+		static readonly Func<T, int> toInt32 = CreateUnaryExpression<T, int> (v => Expression.Convert (v, typeof (int)));
+		static readonly Func<int, T> fromInt32 = CreateUnaryExpression<int, T> (v => Expression.Convert (v, typeof (T)));
 
-		static bool isFractional;
-		static bool haveBounds;
-		static T maxValue, minValue;
+		static readonly bool isFractional;
+		static readonly bool haveBounds;
+		static readonly T maxValue, minValue;
 
 		static ExpressionMath ()
 		{
