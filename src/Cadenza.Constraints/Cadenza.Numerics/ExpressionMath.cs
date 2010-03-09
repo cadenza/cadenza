@@ -30,6 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 
 using Cadenza;
 
@@ -54,6 +55,8 @@ namespace Cadenza.Numerics {
 		static Func<int, T> fromInt32 = CreateUnaryExpression<int, T> (v => Expression.Convert (v, typeof (T)));
 
 		static bool isFractional;
+		static bool haveBounds;
+		static T maxValue, minValue;
 
 		static ExpressionMath ()
 		{
@@ -71,6 +74,8 @@ namespace Cadenza.Numerics {
 					// ignore
 				}
 			}
+
+			haveBounds = GetMemberValue ("MaxValue", out maxValue) && GetMemberValue ("MinValue", out minValue);
 		}
 
 		static T _FromInt32 (int value)
@@ -78,6 +83,36 @@ namespace Cadenza.Numerics {
 			if (fromInt32 !=  null)
 				return fromInt32 (value);
 			return Either.TryConvert<int, T>(value).Fold (v => v, e => {throw e;});
+		}
+
+		static bool GetMemberValue (string name, out T value)
+		{
+			const BindingFlags flags = BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase;
+
+			try {
+				var f = typeof (T).GetField (name, flags);
+				if (f != null) {
+					value = (T) f.GetValue (null);
+					return true;
+				}
+			}
+			catch {
+				// ignore
+			}
+
+			try {
+				var p = typeof (T).GetProperty (name, flags);
+				if (p != null) {
+					value = (T) p.GetValue (null, null);
+					return true;
+				}
+			}
+			catch {
+				// ignore
+			}
+
+			value = default (T);
+			return false;
 		}
 
 		static Func<T, T, TRet> CreateBinaryExpression<TRet> (Func<ParameterExpression, ParameterExpression, BinaryExpression> operation)
