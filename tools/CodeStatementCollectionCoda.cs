@@ -1,10 +1,10 @@
 //
-// Lambdas.cs
+// CodeStatementCollectionCoda.cs
 //
 // Author:
 //   Jonathan Pryor (jpryor@novell.com)
 //
-// Copyright (c) 2009 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2009-2010 Novell, Inc. (http://www.novell.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -36,7 +36,7 @@ using Cadenza;
 
 namespace Cadenza.Tools
 {
-	public static class CodeDomRocks
+	public static class CodeStatementCollectionCoda
 	{
 		public static void AddCheck (this CodeStatementCollection self, string method, string argument)
 		{
@@ -44,44 +44,6 @@ namespace Cadenza.Tools
 					new CodeExpressionStatement (
 						new CodeMethodInvokeExpression (
 							new CodeTypeReferenceExpression ("Check"), method, new CodeVariableReferenceExpression (argument))));
-		}
-
-		public static void AddRange (this CodeCommentStatementCollection self, IEnumerable<CodeCommentStatement> comments)
-		{
-			foreach (var c in comments)
-				self.Add (c);
-		}
-
-		public static void AddRange (this CodeTypeMemberCollection self, IEnumerable<CodeTypeMember> ps)
-		{
-			foreach (var p in ps)
-				self.Add (p);
-		}
-
-		public static void AddRange (this CodeTypeParameterCollection self, IEnumerable<CodeTypeParameter> ps)
-		{
-			foreach (var p in ps)
-				self.Add (p);
-		}
-
-		public static void AddRange (this CodeCommentStatementCollection self, params object[] comments)
-		{
-			foreach (var comment in Sequence.Expand (comments))
-				self.Add (new CodeCommentStatement (comment.ToString ()));
-		}
-
-		public static void AddDocs (this CodeCommentStatementCollection self, params object[] comments)
-		{
-			foreach (var comment in Sequence.Expand (comments)) {
-				if (comment is string && string.IsNullOrEmpty ((string) comment))
-					continue;
-				self.Add (new CodeCommentStatement (comment.ToString (), true));
-			}
-		}
-
-		public static IEnumerable<CodeMemberMethod> GetMethods (this CodeTypeDeclaration self, string name)
-		{
-			return self.Members.OfType<CodeMemberMethod>().Where(m => m.Name == name);
 		}
 
 		public static void ThrowWhenArgumentIsNull (this CodeStatementCollection self, string argument)
@@ -120,3 +82,4 @@ namespace Cadenza.Tools
 		}
 	}
 }
+
