@@ -1,5 +1,7 @@
 *.dll
+*.dll.mdb
 *.exe
+*.exe.mdb
 *.pdb
 *.pidb
 obj
