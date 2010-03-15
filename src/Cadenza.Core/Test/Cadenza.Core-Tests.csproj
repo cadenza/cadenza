@@ -8,7 +8,7 @@
     <ProjectGuid>{4A583707-7446-4575-9252-8B4C34686030}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Cadenza</RootNamespace>
-    <AssemblyName>Cadenza.Core_test</AssemblyName>
+    <AssemblyName>Cadenza.Core-Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -48,9 +48,9 @@
       <Project>{C84F2A75-81FD-42BA-8660-02A6CA773851}</Project>
       <Name>Cadenza.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Cadenza\Test\Cadenza_test.csproj">
+    <ProjectReference Include="..\..\Cadenza\Test\Cadenza-Tests.csproj">
       <Project>{37880451-3753-44B1-81DE-03C21E5D603B}</Project>
-      <Name>Cadenza_test</Name>
+      <Name>Cadenza-Tests</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

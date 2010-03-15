@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadenza", "src\Cadenza\Cade
 		{7E42A1FF-7E63-4F80-A184-49A214C4A978} = {7E42A1FF-7E63-4F80-A184-49A214C4A978}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadenza_test", "src\Cadenza\Test\Cadenza_test.csproj", "{37880451-3753-44B1-81DE-03C21E5D603B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadenza-Tests", "src\Cadenza\Test\Cadenza-Tests.csproj", "{37880451-3753-44B1-81DE-03C21E5D603B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{B0006991-25C5-4A27-A4B0-0C048BF7784F}"
 EndProject
@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "doc", "doc\doc.csproj", "{9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadenza.Core", "src\Cadenza.Core\Cadenza.Core.csproj", "{C84F2A75-81FD-42BA-8660-02A6CA773851}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadenza.Core_test", "src\Cadenza.Core\Test\Cadenza.Core_test.csproj", "{4A583707-7446-4575-9252-8B4C34686030}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadenza.Core-Tests", "src\Cadenza.Core\Test\Cadenza.Core-Tests.csproj", "{4A583707-7446-4575-9252-8B4C34686030}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
