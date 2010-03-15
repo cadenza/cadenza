@@ -1,5 +1,5 @@
 //
-// DelegateTest.cs
+// FuncCodaTest.cs
 //
 // Author:
 //   Jonathan Pryor
@@ -43,34 +43,13 @@ using Cadenza;
 namespace Cadenza.Tests {
 
 	[TestFixture]
-	public class DelegateTest : BaseRocksFixture {
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Curry_A1_P1_SelfNull ()
-		{
-			Action<byte>  a = null;
-			Action        r = a.Curry ((byte) 1);
-		}
+	public class FuncCodaTest : BaseRocksFixture {
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
 		public void Curry_F1_P1_SelfNull ()
 		{
 			Func<byte, char>  a = null;
 			Func<char>        r = a.Curry ((byte) 1);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Curry_A2_P1_SelfNull ()
-		{
-			Action<byte, char>  a = null;
-			Action<char>        r = a.Curry ((byte) 1);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Curry_A2_P2_SelfNull ()
-		{
-			Action<byte, char>  a = null;
-			Action              r = a.Curry ((byte) 1, '2');
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -85,27 +64,6 @@ namespace Cadenza.Tests {
 		{
 			Func<byte, char, short> a = null;
 			Func<short>             r = a.Curry ((byte) 1, '2');
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Curry_A3_P1_SelfNull ()
-		{
-			Action<byte, char, short> a = null;
-			Action<char, short>       r = a.Curry ((byte) 1);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Curry_A3_P2_SelfNull ()
-		{
-			Action<byte, char, short> a = null;
-			Action<short>             r = a.Curry ((byte) 1, '2');
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Curry_A3_P3_SelfNull ()
-		{
-			Action<byte, char, short> a = null;
-			Action                    r = a.Curry ((byte) 1, '2', (short) 3);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -127,34 +85,6 @@ namespace Cadenza.Tests {
 		{
 			Func<byte, char, short, int>  a = null;
 			Func<int>                     r = a.Curry ((byte) 1, '2', (short) 3);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Curry_A4_P1_SelfNull ()
-		{
-			Action<byte, char, short, int>  a = null;
-			Action<char, short, int>        r = a.Curry ((byte) 1);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Curry_A4_P2_SelfNull ()
-		{
-			Action<byte, char, short, int>  a = null;
-			Action<short, int>              r = a.Curry ((byte) 1, '2');
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Curry_A4_P3_SelfNull ()
-		{
-			Action<byte, char, short, int>  a = null;
-			Action<int>                     r = a.Curry ((byte) 1, '2', (short) 3);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Curry_A4_P4_SelfNull ()
-		{
-			Action<byte, char, short, int>  a = null;
-			Action                          r = a.Curry ((byte) 1, '2', (short) 3, 4);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -186,22 +116,6 @@ namespace Cadenza.Tests {
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Compose_A1_SelfNull ()
-		{
-			Action<char>      s = null;
-			Func<byte, char>  x = a => (char) a;
-			Action<byte>      r = s.Compose(x);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Compose_A1_ComposerNull ()
-		{
-			Action<char>      s = a => {};
-			Func<byte, char>  x = null;
-			Action<byte>      r = s.Compose(x);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
 		public void Compose_F1_SelfNull ()
 		{
 			Func<char, short>   s = null;
@@ -215,22 +129,6 @@ namespace Cadenza.Tests {
 			Func<char, short>   s = a => (short) a;
 			Func<byte, char>    x = null;
 			Func<byte, short>   r = s.Compose(x);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Compose_A2_SelfNull ()
-		{
-			Action<short>           s = null;
-			Func<byte, char, short> x = (a, b) => a;
-			Action<byte, char>      r = s.Compose(x);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Compose_A2_ComposerNull ()
-		{
-			Action<short>           s = a => {};
-			Func<byte, char, short> x = null;
-			Action<byte, char>      r = s.Compose(x);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -250,22 +148,6 @@ namespace Cadenza.Tests {
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Compose_A3_SelfNull ()
-		{
-			Action<int>                   s = null;
-			Func<byte, char, short, int>  x = (a, b, c) => c;
-			Action<byte, char, short>     r = s.Compose(x);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Compose_A3_ComposerNull ()
-		{
-			Action<int>                   s = a => {};
-			Func<byte, char, short, int>  x = null;
-			Action<byte, char, short>     r = s.Compose(x);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
 		public void Compose_F3_SelfNull ()
 		{
 			Func<int, long>               s = null;
@@ -279,22 +161,6 @@ namespace Cadenza.Tests {
 			Func<int, long>               s = a => a;
 			Func<byte, char, short, int>  x = null;
 			Func<byte, char, short, long> r = s.Compose(x);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Compose_A4_SelfNull ()
-		{
-			Action<long>                        s = null;
-			Func<byte, char, short, int, long>  x = (a, b, c, d) => d;
-			Action<byte, char, short, int>      r = s.Compose(x);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Compose_A4_ComposerNull ()
-		{
-			Action<long>                        s = a => {};
-			Func<byte, char, short, int, long>  x = null;
-			Action<byte, char, short, int>      r = s.Compose(x);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -323,24 +189,10 @@ namespace Cadenza.Tests {
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void TraditionalCurry_A1_SelfNull ()
-		{
-			Action<byte> s = null;
-			Action<byte> r = s.Curry ();
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
 		public void TraditionalCurry_F1_SelfNull ()
 		{
 			Func<byte, char> s = null;
 			Func<byte, char> r = s.Curry ();
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void TraditionalCurry_A2_SelfNull ()
-		{
-			Action<byte, char>       s = null;
-			Func<byte, Action<char>> r = s.Curry ();
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -351,24 +203,10 @@ namespace Cadenza.Tests {
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void TraditionalCurry_A3_SelfNull ()
-		{
-			Action<byte, char, short>              s = null;
-			Func<byte, Func<char, Action<short>>>  r = s.Curry ();
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
 		public void TraditionalCurry_F3_SelfNull ()
 		{
 			Func<byte, char, short, int>             s = null;
 			Func<byte, Func<char, Func<short, int>>> r = s.Curry ();
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void TraditionalCurry_A4_SelfNull ()
-		{
-			Action<byte, char, short, int>                   s = null;
-			Func<byte, Func<char, Func<short, Action<int>>>> r = s.Curry ();
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -386,13 +224,6 @@ namespace Cadenza.Tests {
 			var c = b (1);
 			var d = c (2);
 			Assert.AreEqual (6, d (3));
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Timings_A0_SelfNull ()
-		{
-			Action                s = null;
-			IEnumerable<TimeSpan> r = s.Timings (0);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -417,13 +248,6 @@ namespace Cadenza.Tests {
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Timings_A1_SelfNull ()
-		{
-			Action<byte>          s = null;
-			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b', 0);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
 		public void Timings_F1_SelfNull ()
 		{
 			Action<byte>          s = null;
@@ -442,13 +266,6 @@ namespace Cadenza.Tests {
 		{
 			Action<byte>          s = a => {};
 			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b', 1, -1);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Timings_A2_SelfNull ()
-		{
-			Action<byte, char>    s = null;
-			IEnumerable<TimeSpan> r = s.Timings ((byte) 'b', 'c', 0);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
@@ -473,13 +290,6 @@ namespace Cadenza.Tests {
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Timings_A3_SelfNull ()
-		{
-			Action<byte, char, short> s = null;
-			IEnumerable<TimeSpan>     r = s.Timings ((byte) 'b', 'c', (short) 16, 0);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
 		public void Timings_F3_SelfNull ()
 		{
 			Action<byte, char, short> s = null;
@@ -498,13 +308,6 @@ namespace Cadenza.Tests {
 		{
 			Action<byte, char, short> s = (a, b, c) => {};
 			IEnumerable<TimeSpan>     r = s.Timings ((byte) 'b', 'c', (short) 16, 1, -1);
-		}
-
-		[Test, ExpectedException (typeof (ArgumentNullException))]
-		public void Timings_A4_SelfNull ()
-		{
-			Action<byte, char, short, int>  s = null;
-			IEnumerable<TimeSpan>           r = s.Timings ((byte) 'b', 'c', (short) 16, 32, 0);
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]

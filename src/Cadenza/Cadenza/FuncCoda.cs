@@ -1,5 +1,5 @@
 //
-// Delegate.cs: Delegate extension methods
+// FuncCoda.cs: Delegate extension methods
 //
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
@@ -30,7 +30,7 @@ using System.Linq.Expressions;
 
 namespace Cadenza {
 
-	public static partial class DelegateCoda {
+	public static partial class FuncCoda {
 	}
 }
 

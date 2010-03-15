@@ -62,11 +62,13 @@
     <Compile Include="Cadenza.IO\ValueReader.cs" />
     <Compile Include="Cadenza.Numerics\Math.cs" />
     <Compile Include="Cadenza.Reflection\CustomAttributeProvider.cs" />
+    <Compile Include="Cadenza\ActionCoda.cs" />
+    <Compile Include="Cadenza\ActionCoda.g.cs" />
     <Compile Include="Cadenza\AssemblyInfo.cs" />
     <Compile Include="Cadenza\Check.cs" />
-    <Compile Include="Cadenza\Delegate.cs" />
-    <Compile Include="Cadenza\Delegates.cs" />
     <Compile Include="Cadenza\Either.cs" />
+    <Compile Include="Cadenza\FuncCoda.cs" />
+    <Compile Include="Cadenza\FuncCoda.g.cs" />
     <Compile Include="Cadenza\Eithers.cs" />
     <Compile Include="Cadenza\EventHandlerCoda.cs" />
     <Compile Include="Cadenza\Int16.cs" />

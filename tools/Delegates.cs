@@ -4,7 +4,7 @@
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
 //
-// Copyright (c) 2009 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2009-2010 Novell, Inc. (http://www.novell.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -32,6 +32,7 @@ using System.CodeDom.Compiler;
 using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -42,11 +43,14 @@ namespace Cadenza.Tools {
 	{
 		public static int Main (string[] args)
 		{
-			return new Delegates ().Run (args);
-		}
-
-		protected override string Header {
-			get {return "Delegates.cs: Extension methods for various delegate types.";}
+			if (args.Any(a => new[]{"-h", "--help", "/help", "/?"}.Contains (a)))
+				return new ActionCoda ().Run (args);
+			foreach (var p in new FileGenerator[]{new ActionCoda(), new FuncCoda ()}) {
+				var r = p.Run (args);
+				if (r != 0)
+					return r;
+			}
+			return 0;
 		}
 
 		protected override IEnumerable<string> GetUsings ()
@@ -57,92 +61,7 @@ namespace Cadenza.Tools {
 			yield return "System.Linq.Expressions";
 		}
 
-		protected override IEnumerable<CodeTypeDeclaration> GetRocksNamespaceTypes ()
-		{
-			yield return CreateDelegateRocks (TypeParameterCount);
-		}
-
-		CodeTypeDeclaration CreateDelegateRocks (int n)
-		{
-			var dr = new CodeTypeDeclaration ("DelegateCoda") {
-				IsPartial      = true,
-				TypeAttributes = TypeAttributes.Public,
-			};
-			for (int i = 0; i <= n; ++i) {
-				dr.Members.AddRange (CreateCurryActions (i));
-				dr.Members.AddRange (CreateCurryTupleActions (i));
-				dr.Members.AddRange (CreateTraditionalCurryActions (i));
-				dr.Members.AddRange (CreateCurryFuncs (i));
-				dr.Members.AddRange (CreateCurryTupleFuncs (i));
-				dr.Members.AddRange (CreateTraditionalCurryFuncs (i));
-				dr.Members.AddRange (CreateCompose (i));
-				dr.Members.AddRange (CreateTimings (i, dr));
-			}
-			dr.Comments.AddDocs (
-					XmlDocs.Summary (
-						"Provides extension methods on <see cref=\"T:System.Action{T}\"/>,",
-						"<see cref=\"T:System.Func{T,TResult}\"/>, and related delegates."),
-					XmlDocs.Remarks (
-						"<para>",
-						" " + XmlDocs.See (DefaultNamespace, dr) + " provides methods methods for:",
-						"</para>",
-						"<list type=\"bullet\">",
-						" <item><term>",
-						"  Delegate currying and partial application (<see cref=\"M:Cadenza.DelegateCoda.Curry\" />)",
-						" </term></item>",
-						" <item><term>",
-						"  Delegate composition (<see cref=\"M:Cadenza.DelegateCoda.Compose\" />)",
-						" </term></item>",
-						" <item><term>",
-						"  Timing generation (<see cref=\"M:Cadenza.DelegateCoda.Timings\" />)",
-						" </term></item>",
-						"</list>",
-						"<para>",
-						" Currying via partial application is a way to easily transform ",
-						" functions which accept N arguments into functions which accept ",
-						" N-1 arguments, by \"fixing\" arguments with a value.",
-						"</para>",
-						"<code lang=\"C#\">",
-						"// partial application:",
-						"Func&lt;int,int,int,int&gt; function = (int a, int b, int c) => a + b + c;",
-						"Func&lt;int,int,int&gt;     f_3      = function.Curry (3);",
-						"Func&lt;int&gt;             f_321    = function.Curry (3, 2, 1);",
-						"Console.WriteLine (f_3 (2, 1));  // prints (3 + 2 + 1) == \"6\"",
-						"Console.WriteLine (f_321 ());    // prints (3 + 2 + 1) == \"6\"</code>",
-						"<para>",
-						" \"Traditional\" currying converts a delegate that accepts N arguments",
-						" into a delegate which accepts only one argument, but when invoked may ",
-						" return a further delegate (etc.) until the final value is returned.",
-						"</para>",
-						"<code lang=\"C#\">",
-						"// traditional currying:",
-						"Func&lt;int, Func&lt;int, Func&lt;int, int&gt;&gt;&gt; curry = function.Curry ();",
-						"Func&lt;int, Func&lt;int, int&gt;&gt;            fc_1  = curry (1);",
-						"Func&lt;int, int&gt;                       fc_12 = fc_1 (2);",
-						"Console.WriteLine (fc_12 (3));        // prints (3 + 2 + 1) == \"6\"",
-						"Console.WriteLine (curry (3)(2)(1));  // prints (3 + 2 + 1) == \"6\"</code>",
-						"<para>",
-						" Composition is a way to easy chain (or pipe) together multiple delegates",
-						" so that the return value of a \"composer\" delegate is used as the input ",
-						" parameter for the chained delegate:",
-						"</para>",
-						"<code lang=\"C#\">",
-						"Func&lt;int,string> tostring = Lambda.F ((int n) => n.ToString ());",
-						"Func&lt;int, int>    doubler = Lambda.F ((int n) => n * 2);",
-						"Func&lt;int, string>",
-						"     double_then_tostring = tostring.Compose (doubler);",
-						"Console.WriteLine (double_then_tostring (5));",
-						"    // Prints \"10\";</code>",
-						"<para>",
-						" All possible argument and return delegate permutations are provided",
-						" for the <see cref=\"T:System.Action{T}\"/>, ",
-						" <see cref=\"T:System.Func{T,TResult}\"/>, and related types.",
-						"</para>")
-			);
-			return dr;
-		}
-
-		static CodeMemberMethod CreateCurryMethod (Func<int, int, CodeTypeReference> getSelfType, Func<int, int, CodeTypeReference> getRetType, int n, int a, bool tret)
+		protected static CodeMemberMethod CreateCurryMethod (Func<int, int, CodeTypeReference> getSelfType, Func<int, int, CodeTypeReference> getRetType, int n, int a, bool tret)
 		{
 			var selfType = getSelfType (n, 0);
 			var retType = getRetType (n, a);
@@ -180,14 +99,14 @@ namespace Cadenza.Tools {
 			return m;
 		}
 
-		static string Value (int n, int i)
+		protected static string Value (int n, int i)
 		{
 			if (n == 0 || n == 1)
 				return "value";
 			return "value" + (i+1);
 		}
 
-		static void Values (StringBuilder buf, int n, int start, int end)
+		protected static void Values (StringBuilder buf, int n, int start, int end)
 		{
 			bool comma = false;
 			for (int i = start; i < end; ++i) {
@@ -198,31 +117,19 @@ namespace Cadenza.Tools {
 			}
 		}
 
-		static IEnumerable<string> Values (int n, int start, int end)
+		protected static IEnumerable<string> Values (int n, int start, int end)
 		{
 			for (int i = start; i < end; ++i)
 				yield return Value (n, i);
 		}
 
-		static IEnumerable<IEnumerable<string>> GetTypeParameters (int n, CodeTypeReference selfType)
+		protected static IEnumerable<IEnumerable<string>> GetTypeParameters (int n, CodeTypeReference selfType)
 		{
 			return Enumerable.Range (0, n).Select (p => XmlDocs.TypeParam (Types.GetTypeParameter (n, p),
 					"A " + XmlDocs.See (selfType) + " parameter type."));
 		}
 
-		IEnumerable<CodeTypeMember> CreateCurryActions (int n)
-		{
-			for (int i = 1; i <= n; ++i)
-				yield return CreateCurryMethod (Types.ThisAction, Types.Action, n, i, false);
-		}
-
-		IEnumerable<CodeTypeMember> CreateCurryFuncs (int n)
-		{
-			for (int i = 1; i <= n; ++i)
-				yield return CreateCurryMethod (Types.ThisFunc, Types.Func, n, i, true);
-		}
-
-		static CodeMemberMethod CreateCurryTupleMethod (Func<int, int, CodeTypeReference> getSelfType, Func<int, int, CodeTypeReference> getRetType, int n, int a, bool tret)
+		protected static CodeMemberMethod CreateCurryTupleMethod (Func<int, int, CodeTypeReference> getSelfType, Func<int, int, CodeTypeReference> getRetType, int n, int a, bool tret)
 		{
 			var selfType = getSelfType (n, 0);
 			var retType  = getRetType (n, a);
@@ -264,19 +171,7 @@ namespace Cadenza.Tools {
 			return m;
 		}
 
-		IEnumerable<CodeTypeMember> CreateCurryTupleActions (int n)
-		{
-			for (int i = 1; i <= n; ++i)
-				yield return CreateCurryTupleMethod (Types.ThisAction, Types.Action, n, i, false);
-		}
-
-		IEnumerable<CodeTypeMember> CreateCurryTupleFuncs (int n)
-		{
-			for (int i = 1; i <= n; ++i)
-				yield return CreateCurryTupleMethod (Types.ThisFunc, Types.Func, n, i, true);
-		}
-
-		static CodeMemberMethod CreateTraditionalCurryMethod (Func<int, int, CodeTypeReference> getSelfType, Func<int, int, CodeTypeReference> getRetType, int n, bool tret)
+		protected static CodeMemberMethod CreateTraditionalCurryMethod (Func<int, int, CodeTypeReference> getSelfType, Func<int, int, CodeTypeReference> getRetType, int n, bool tret)
 		{
 			var selfType = getSelfType (n, 0);
 			var retType  = getRetType (n, n - 1);
@@ -337,21 +232,7 @@ namespace Cadenza.Tools {
 			return m;
 		}
 
-		IEnumerable<CodeTypeMember> CreateTraditionalCurryActions (int n)
-		{
-			if (n < 1)
-				yield break;
-			yield return CreateTraditionalCurryMethod (Types.ThisAction, Types.Action, n, false);
-		}
-
-		IEnumerable<CodeTypeMember> CreateTraditionalCurryFuncs (int n)
-		{
-			if (n < 1)
-				yield break;
-			yield return CreateTraditionalCurryMethod (Types.ThisFunc, Types.Func, n, true);
-		}
-
-		static CodeMemberMethod CreateComposeMethod (Func<int, int, int, CodeTypeReference> getSelfType, Func<int, int, int, CodeTypeReference> getRetType, int n, bool tret)
+		protected static CodeMemberMethod CreateComposeMethod (Func<int, int, int, CodeTypeReference> getSelfType, Func<int, int, int, CodeTypeReference> getRetType, int n, bool tret)
 		{
 			var selfType = getSelfType (n + 1, n, 1);
 			var retType  = getRetType (n + 1, 0, n);
@@ -413,11 +294,114 @@ namespace Cadenza.Tools {
 			if (tret)
 				yield return XmlDocs.TypeParam ("TResult", "The " + XmlDocs.See (selfType) + " return type.");
 		}
+	}
 
-		IEnumerable<CodeTypeMember> CreateCompose (int n)
+	class ActionCoda : Delegates {
+
+		protected override TextWriter GetOutputFile (string outputFile)
 		{
-			yield return CreateComposeMethod (Types.ThisAction, Types.Action, n, false);
-			yield return CreateComposeMethod (Types.ThisFunc, Types.Func, n, true);
+			if (outputFile != null)
+				outputFile = outputFile.Replace ("Delegates.cs", "ActionCoda.g.cs");
+			return base.GetOutputFile (outputFile);
+		}
+
+		protected override string Header {
+			get {return "Action.g.cs: Extension methods for Action<...> types.";}
+		}
+
+		protected override IEnumerable<CodeTypeDeclaration> GetRocksNamespaceTypes ()
+		{
+			var dr = new CodeTypeDeclaration ("ActionCoda") {
+				IsPartial      = true,
+				TypeAttributes = TypeAttributes.Public,
+			};
+			for (int i = 0; i <= TypeParameterCount; ++i) {
+				dr.Members.AddRange (CreateCurryActions (i));
+				dr.Members.AddRange (CreateCurryTupleActions (i));
+				dr.Members.AddRange (CreateTraditionalCurryActions (i));
+				dr.Members.Add (CreateComposeMethod (Types.ThisAction, Types.Action, i, false));
+				dr.Members.AddRange (CreateTimings (i, dr));
+			}
+			dr.Comments.AddDocs (
+					XmlDocs.Summary (
+						"Provides extension methods on <see cref=\"T:System.Action{T}\"/>",
+						"and related delegates."),
+					XmlDocs.Remarks (
+						"<para>",
+						" " + XmlDocs.See (DefaultNamespace, dr) + " provides methods methods for:",
+						"</para>",
+						"<list type=\"bullet\">",
+						" <item><term>",
+						"  Delegate currying and partial application (<see cref=\"M:Cadenza.DelegateCoda.Curry\" />)",
+						" </term></item>",
+						" <item><term>",
+						"  Delegate composition (<see cref=\"M:Cadenza.DelegateCoda.Compose\" />)",
+						" </term></item>",
+						" <item><term>",
+						"  Timing generation (<see cref=\"M:Cadenza.DelegateCoda.Timings\" />)",
+						" </term></item>",
+						"</list>",
+						"<para>",
+						" Currying via partial application is a way to easily transform ",
+						" functions which accept N arguments into functions which accept ",
+						" N-1 arguments, by \"fixing\" arguments with a value.",
+						"</para>",
+						"<code lang=\"C#\">",
+						"// partial application:",
+						"Func&lt;int,int,int,int&gt; function = (int a, int b, int c) => a + b + c;",
+						"Func&lt;int,int,int&gt;     f_3      = function.Curry (3);",
+						"Func&lt;int&gt;             f_321    = function.Curry (3, 2, 1);",
+						"Console.WriteLine (f_3 (2, 1));  // prints (3 + 2 + 1) == \"6\"",
+						"Console.WriteLine (f_321 ());    // prints (3 + 2 + 1) == \"6\"</code>",
+						"<para>",
+						" \"Traditional\" currying converts a delegate that accepts N arguments",
+						" into a delegate which accepts only one argument, but when invoked may ",
+						" return a further delegate (etc.) until the final value is returned.",
+						"</para>",
+						"<code lang=\"C#\">",
+						"// traditional currying:",
+						"Func&lt;int, Func&lt;int, Func&lt;int, int&gt;&gt;&gt; curry = function.Curry ();",
+						"Func&lt;int, Func&lt;int, int&gt;&gt;            fc_1  = curry (1);",
+						"Func&lt;int, int&gt;                       fc_12 = fc_1 (2);",
+						"Console.WriteLine (fc_12 (3));        // prints (3 + 2 + 1) == \"6\"",
+						"Console.WriteLine (curry (3)(2)(1));  // prints (3 + 2 + 1) == \"6\"</code>",
+						"<para>",
+						" Composition is a way to easy chain (or pipe) together multiple delegates",
+						" so that the return value of a \"composer\" delegate is used as the input ",
+						" parameter for the chained delegate:",
+						"</para>",
+						"<code lang=\"C#\">",
+						"Func&lt;int,string> tostring = Lambda.F ((int n) => n.ToString ());",
+						"Func&lt;int, int>    doubler = Lambda.F ((int n) => n * 2);",
+						"Func&lt;int, string>",
+						"     double_then_tostring = tostring.Compose (doubler);",
+						"Console.WriteLine (double_then_tostring (5));",
+						"    // Prints \"10\";</code>",
+						"<para>",
+						" All possible argument and return delegate permutations are provided",
+						" for the <see cref=\"T:System.Action{T}\"/> and related types.",
+						"</para>")
+			);
+			yield return dr;
+		}
+
+		IEnumerable<CodeTypeMember> CreateCurryActions (int n)
+		{
+			for (int i = 1; i <= n; ++i)
+				yield return CreateCurryMethod (Types.ThisAction, Types.Action, n, i, false);
+		}
+
+		IEnumerable<CodeTypeMember> CreateCurryTupleActions (int n)
+		{
+			for (int i = 1; i <= n; ++i)
+				yield return CreateCurryTupleMethod (Types.ThisAction, Types.Action, n, i, false);
+		}
+
+		IEnumerable<CodeTypeMember> CreateTraditionalCurryActions (int n)
+		{
+			if (n < 1)
+				yield break;
+			yield return CreateTraditionalCurryMethod (Types.ThisAction, Types.Action, n, false);
 		}
 
 		static CodeMemberMethod CreateTimingsHeader (int n, string name, MemberAttributes protection)
@@ -607,6 +591,114 @@ namespace Cadenza.Tools {
 			yield return AddTimingsDocs (m, n, dr, f);
 			yield return AddTimingsDocs (f, n, null, null);
 			yield return CreateTimingsIteratorMethod (n);
+		}
+	}
+
+	class FuncCoda : Delegates {
+
+		protected override TextWriter GetOutputFile (string outputFile)
+		{
+			if (outputFile != null)
+				outputFile = outputFile.Replace ("Delegates.cs", "FuncCoda.g.cs");
+			return base.GetOutputFile (outputFile);
+		}
+
+		protected override string Header {
+			get {return "FuncCoda.g.cs: Extension methods for Func<...> delegate types.";}
+		}
+
+		protected override IEnumerable<CodeTypeDeclaration> GetRocksNamespaceTypes ()
+		{
+			var dr = new CodeTypeDeclaration ("FuncCoda") {
+				IsPartial      = true,
+				TypeAttributes = TypeAttributes.Public,
+			};
+			for (int i = 0; i <= TypeParameterCount; ++i) {
+				dr.Members.AddRange (CreateCurryFuncs (i));
+				dr.Members.AddRange (CreateCurryTupleFuncs (i));
+				dr.Members.AddRange (CreateTraditionalCurryFuncs (i));
+				dr.Members.Add (CreateComposeMethod (Types.ThisFunc, Types.Func, i, true));
+			}
+			dr.Comments.AddDocs (
+					XmlDocs.Summary (
+						"Provides extension methods on <see cref=\"T:System.Func{TResult}\"/>",
+						"and related delegates."),
+					XmlDocs.Remarks (
+						"<para>",
+						" " + XmlDocs.See (DefaultNamespace, dr) + " provides methods methods for:",
+						"</para>",
+						"<list type=\"bullet\">",
+						" <item><term>",
+						"  Delegate currying and partial application (<see cref=\"M:Cadenza.DelegateCoda.Curry\" />)",
+						" </term></item>",
+						" <item><term>",
+						"  Delegate composition (<see cref=\"M:Cadenza.DelegateCoda.Compose\" />)",
+						" </term></item>",
+						" <item><term>",
+						"  Timing generation (<see cref=\"M:Cadenza.DelegateCoda.Timings\" />)",
+						" </term></item>",
+						"</list>",
+						"<para>",
+						" Currying via partial application is a way to easily transform ",
+						" functions which accept N arguments into functions which accept ",
+						" N-1 arguments, by \"fixing\" arguments with a value.",
+						"</para>",
+						"<code lang=\"C#\">",
+						"// partial application:",
+						"Func&lt;int,int,int,int&gt; function = (int a, int b, int c) => a + b + c;",
+						"Func&lt;int,int,int&gt;     f_3      = function.Curry (3);",
+						"Func&lt;int&gt;             f_321    = function.Curry (3, 2, 1);",
+						"Console.WriteLine (f_3 (2, 1));  // prints (3 + 2 + 1) == \"6\"",
+						"Console.WriteLine (f_321 ());    // prints (3 + 2 + 1) == \"6\"</code>",
+						"<para>",
+						" \"Traditional\" currying converts a delegate that accepts N arguments",
+						" into a delegate which accepts only one argument, but when invoked may ",
+						" return a further delegate (etc.) until the final value is returned.",
+						"</para>",
+						"<code lang=\"C#\">",
+						"// traditional currying:",
+						"Func&lt;int, Func&lt;int, Func&lt;int, int&gt;&gt;&gt; curry = function.Curry ();",
+						"Func&lt;int, Func&lt;int, int&gt;&gt;            fc_1  = curry (1);",
+						"Func&lt;int, int&gt;                       fc_12 = fc_1 (2);",
+						"Console.WriteLine (fc_12 (3));        // prints (3 + 2 + 1) == \"6\"",
+						"Console.WriteLine (curry (3)(2)(1));  // prints (3 + 2 + 1) == \"6\"</code>",
+						"<para>",
+						" Composition is a way to easy chain (or pipe) together multiple delegates",
+						" so that the return value of a \"composer\" delegate is used as the input ",
+						" parameter for the chained delegate:",
+						"</para>",
+						"<code lang=\"C#\">",
+						"Func&lt;int,string> tostring = Lambda.F ((int n) => n.ToString ());",
+						"Func&lt;int, int>    doubler = Lambda.F ((int n) => n * 2);",
+						"Func&lt;int, string>",
+						"     double_then_tostring = tostring.Compose (doubler);",
+						"Console.WriteLine (double_then_tostring (5));",
+						"    // Prints \"10\";</code>",
+						"<para>",
+						" All possible argument and return delegate permutations are provided",
+						" for the <see cref=\"T:System.Func{T,TResult}\"/> and related types.",
+						"</para>")
+			);
+			yield return dr;
+		}
+
+		IEnumerable<CodeTypeMember> CreateCurryFuncs (int n)
+		{
+			for (int i = 1; i <= n; ++i)
+				yield return CreateCurryMethod (Types.ThisFunc, Types.Func, n, i, true);
+		}
+
+		IEnumerable<CodeTypeMember> CreateCurryTupleFuncs (int n)
+		{
+			for (int i = 1; i <= n; ++i)
+				yield return CreateCurryTupleMethod (Types.ThisFunc, Types.Func, n, i, true);
+		}
+
+		IEnumerable<CodeTypeMember> CreateTraditionalCurryFuncs (int n)
+		{
+			if (n < 1)
+				yield break;
+			yield return CreateTraditionalCurryMethod (Types.ThisFunc, Types.Func, n, true);
 		}
 	}
 }
