@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4A583707-7446-4575-9252-8B4C34686030}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Cadenza.Contraints_test</RootNamespace>
-    <AssemblyName>Cadenza.Constraints_test</AssemblyName>
+    <RootNamespace>Cadenza</RootNamespace>
+    <AssemblyName>Cadenza.Core_test</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -44,9 +44,9 @@
       <Project>{F656F792-2CDE-4E17-BB5F-6A6F1C266CB8}</Project>
       <Name>Cadenza</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Cadenza.Constraints.csproj">
+    <ProjectReference Include="..\Cadenza.Core.csproj">
       <Project>{C84F2A75-81FD-42BA-8660-02A6CA773851}</Project>
-      <Name>Cadenza.Constraints</Name>
+      <Name>Cadenza.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Cadenza\Test\Cadenza_test.csproj">
       <Project>{37880451-3753-44B1-81DE-03C21E5D603B}</Project>

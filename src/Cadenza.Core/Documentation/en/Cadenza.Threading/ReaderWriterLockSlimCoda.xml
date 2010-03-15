@@ -1,7 +1,7 @@
 <Type Name="ReaderWriterLockSlimCoda" FullName="Cadenza.Threading.ReaderWriterLockSlimCoda">
   <TypeSignature Language="C#" Value="public static class ReaderWriterLockSlimCoda" />
   <AssemblyInfo>
-    <AssemblyName>Cadenza.Constraints</AssemblyName>
+    <AssemblyName>Cadenza.Core</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>

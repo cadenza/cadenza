@@ -1,7 +1,7 @@
 <Type Name="Arguments" FullName="Cadenza.Constraints.Arguments">
   <TypeSignature Language="C#" Value="public static class Arguments" />
   <AssemblyInfo>
-    <AssemblyName>Cadenza.Constraints</AssemblyName>
+    <AssemblyName>Cadenza.Core</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>

@@ -1,7 +1,7 @@
 <Type Name="ILGeneratorCoda" FullName="Cadenza.Reflection.ILGeneratorCoda">
   <TypeSignature Language="C#" Value="public static class ILGeneratorCoda" />
   <AssemblyInfo>
-    <AssemblyName>Cadenza.Constraints</AssemblyName>
+    <AssemblyName>Cadenza.Core</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>

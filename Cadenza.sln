@@ -25,9 +25,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "tools\Tools.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "doc", "doc\doc.csproj", "{9D66D3EB-C4CD-4964-95B1-33C7FAE14CAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadenza.Constraints", "src\Cadenza.Constraints\Cadenza.Constraints.csproj", "{C84F2A75-81FD-42BA-8660-02A6CA773851}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadenza.Core", "src\Cadenza.Core\Cadenza.Core.csproj", "{C84F2A75-81FD-42BA-8660-02A6CA773851}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadenza.Constraints_test", "src\Cadenza.Constraints\Test\Cadenza.Constraints_test.csproj", "{4A583707-7446-4575-9252-8B4C34686030}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadenza.Core_test", "src\Cadenza.Core\Test\Cadenza.Core_test.csproj", "{4A583707-7446-4575-9252-8B4C34686030}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
