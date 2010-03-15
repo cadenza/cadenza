@@ -1,10 +1,10 @@
 //
-// Tuple.cs
+// TupleCoda.cs: Extension methods on Tuple<...> types.
 //
 // Author:
 //   Jonathan Pryor  <jpryor@novell.com>
 //
-// Copyright (c) 2008 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2008, 2010 Novell, Inc. (http://www.novell.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -34,10 +34,14 @@ using System.Text;
 
 namespace Cadenza {
 
-#if !NET_4_0
-	public static partial class Tuple {
-
+	public static partial class TupleCoda
+	{
+		public static KeyValuePair<TKey, TValue>
+			ToKeyValuePair<TKey, TValue> (this Tuple<TKey, TValue> self)
+		{
+			return new KeyValuePair<TKey, TValue> (self.Item1, self.Item2);
+		}
 	}
-#endif	// !NET_4_0
 }
+
 
