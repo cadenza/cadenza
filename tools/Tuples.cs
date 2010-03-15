@@ -386,7 +386,7 @@ namespace Cadenza.Tools {
 		protected override TextWriter GetOutputFile (string outputFile)
 		{
 			if (outputFile != null)
-				outputFile = outputFile.Replace (".cs", "Coda.cs");
+				outputFile = outputFile.Replace (".g.cs", "Coda.g.cs");
 			return base.GetOutputFile (outputFile);
 		}
 

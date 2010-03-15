@@ -45,8 +45,8 @@ namespace Cadenza
     
     
     /// <summary>
-    ///   Provides extension methods on <see cref="T:System.Action{T}"/>,
-    ///   <see cref="T:System.Func{T,TResult}"/>, and related delegates.
+    ///   Provides extension methods on <see cref="T:System.Func{TResult}"/>
+    ///   and related delegates.
     /// </summary>
     /// <remarks>
     ///   <para>

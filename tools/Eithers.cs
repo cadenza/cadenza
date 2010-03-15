@@ -113,7 +113,7 @@ namespace Cadenza.Tools {
 					"          v => v.Length);                               // 2nd position converter",
 					"  ",
 					"  Console.WriteLine (r);                        // prints 3",
-					"",
+					" ",
 					"  // alternatively...",
 					"  Either&lt;double, string&gt; b = \"value\";           // value stored in 2nd position",
 					"  Console.WriteLine (b.Fold (v => v.ToString(), v => v));",

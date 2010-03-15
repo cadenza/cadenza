@@ -13,9 +13,9 @@
 // 
 // GENERATED CODE: DO NOT EDIT.
 // 
-// To regenerate this code, execute: Eithers.exe -n 4 -o Cadenza/Eithers.cs
+// To regenerate this code, execute: Eithers.exe -n 4 -o Cadenza/Either.g.cs
 // 
-// Copyright (c) 2009 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2010 Novell, Inc. (http://www.novell.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -84,7 +84,7 @@ namespace Cadenza
     ///           v => v.Length);                               // 2nd position converter
     ///   
     ///   Console.WriteLine (r);                        // prints 3
-    /// 
+    ///  
     ///   // alternatively...
     ///   Either&lt;double, string&gt; b = "value";           // value stored in 2nd position
     ///   Console.WriteLine (b.Fold (v => v.ToString(), v => v));
@@ -492,7 +492,7 @@ namespace Cadenza
     ///           v => v.Length);                               // 2nd position converter
     ///   
     ///   Console.WriteLine (r);                        // prints 3
-    /// 
+    ///  
     ///   // alternatively...
     ///   Either&lt;double, string&gt; b = "value";           // value stored in 2nd position
     ///   Console.WriteLine (b.Fold (v => v.ToString(), v => v));
@@ -1028,7 +1028,7 @@ namespace Cadenza
     ///           v => v.Length);                               // 2nd position converter
     ///   
     ///   Console.WriteLine (r);                        // prints 3
-    /// 
+    ///  
     ///   // alternatively...
     ///   Either&lt;double, string&gt; b = "value";           // value stored in 2nd position
     ///   Console.WriteLine (b.Fold (v => v.ToString(), v => v));
