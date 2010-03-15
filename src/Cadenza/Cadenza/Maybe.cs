@@ -68,34 +68,6 @@ namespace Cadenza {
 		}
 	}
 
-	public static class MaybeCoda {
-#region BNC_424064 - Should be Maybe<T> instance members
-		public static Maybe<TResult> Select<TSource, TResult>(this Maybe<TSource> self, Func<TSource, TResult> selector)
-		{
-			Check.Selector (selector);
-
-			if (!self.HasValue)
-				return Maybe<TResult>.Nothing;
-			return selector (self.Value).ToMaybe ();
-		}
-
-		public static Maybe<TResult> SelectMany<TSource, TCollection, TResult>(this Maybe<TSource> self,
-				Func<TSource, Maybe<TCollection>> selector, 
-				Func<TSource, TCollection, TResult> resultSelector)
-		{
-			Check.Selector (selector);
-			Check.ResultSelector (resultSelector);
-
-			if (!self.HasValue)
-				return Maybe<TResult>.Nothing;
-			Maybe<TCollection> n = selector (self.Value);
-			if (!n.HasValue)
-				return Maybe<TResult>.Nothing;
-			return resultSelector(self.Value, n.Value).ToMaybe ();
-		}
-#endregion
-	}
-
 	public struct Maybe<T> : IEquatable<Maybe<T>> {
 		private T value;
 		private bool has_value;
@@ -175,6 +147,30 @@ namespace Cadenza {
 		public static bool operator!= (Maybe<T> a, Maybe<T> b)
 		{
 			return !a.Equals (b);
+		}
+
+		public Maybe<TResult> Select<TResult>(Func<T, TResult> selector)
+		{
+			Check.Selector (selector);
+
+			if (!HasValue)
+				return Maybe<TResult>.Nothing;
+			return selector (Value).ToMaybe ();
+		}
+
+		public Maybe<TResult> SelectMany<TCollection, TResult>(
+				Func<T, Maybe<TCollection>> selector,
+				Func<T, TCollection, TResult> resultSelector)
+		{
+			Check.Selector (selector);
+			Check.ResultSelector (resultSelector);
+
+			if (!HasValue)
+				return Maybe<TResult>.Nothing;
+			Maybe<TCollection> n = selector (Value);
+			if (!n.HasValue)
+				return Maybe<TResult>.Nothing;
+			return resultSelector(Value, n.Value).ToMaybe ();
 		}
 	}
 }

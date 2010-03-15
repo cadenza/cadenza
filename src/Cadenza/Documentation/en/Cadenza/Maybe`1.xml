@@ -100,6 +100,18 @@
         </term>
         </item>
       </list>
+      <para>
+        Query comprehension support is also provided, allowing:
+      </para>
+      <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#SelectMany_QueryComprehension">Assert.AreEqual (Maybe&lt;int&gt;.Nothing,
+		from x in 5.ToMaybe ()
+		from y in Maybe&lt;int&gt;.Nothing
+		select x + y);
+Assert.AreEqual (9.ToMaybe (),
+		from x in 5.ToMaybe ()
+		from y in 4.ToMaybe ()
+		select x + y);
+</code>
     </remarks>
   </Docs>
   <Members>
@@ -567,6 +579,186 @@
             See <see cref="M:Cadenza.Maybe{T}.Equals(Cadenza.Maybe`1)" />.
           </block>
         </remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Select&lt;TResult&gt;">
+      <MemberSignature Language="C#" Value="public Cadenza.Maybe&lt;TResult&gt; Select&lt;TResult&gt; (Func&lt;T,TResult&gt; selector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Maybe&lt;TResult&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="selector" Type="System.Func&lt;T,TResult&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TResult">
+          The type of the resulting value.
+        </typeparam>
+        <param name="selector">
+          A <see cref="T:System.Func{T,TResult}" /> which is
+          used to convert <see cref="P:Cadenza.Maybe{T}.Value" />
+          into the value returned.
+        </param>
+        <summary>
+          Projects a <see cref="T:Cadenza.Maybe{T}" /> into a
+          <see cref="T:Cadenza.Maybe{TResult}" />.
+        </summary>
+        <returns>
+          A <see cref="T:Cadenza.Maybe{TResult}" /> containing
+          <see cref="F:Cadenza.Maybe{TResult}.Nothing" /> if 
+          <see cref="P:Cadenza.Maybe{T}.HasValue" /> is <see langword="false" />,
+          or if <paramref name="selector" /> returns <see langword="null" />;
+          otherwise returns
+          <c><paramref name="selector" />(<see langword="this" />).ToMaybe()</c>.
+        </returns>
+        <remarks>
+          <para>
+            This method is provided to support C# query comprehension
+            expressions on <see cref="T:Cadenza.Maybe{T}" /> types.
+          </para>
+          <block subset="none" type="behavior">
+            <para>
+              If <see langword="this" /> contains no value 
+              (<see cref="P:Cadenza.Maybe{T}.HasValue" /> is 
+              <see langword="false" />), then
+              <see cref="F:Cadenza.Maybe{TResult}.Nothing" /> is returned.
+            </para>
+            <para>
+              Otherwise, 
+              <c><paramref name="selector" />(<see langword="this" />.Value).ToMaybe()</c>
+              is returned.
+            </para>
+          </block>
+          <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#Select">Assert.AreEqual (2.Just (),
+	1.Just ().Select (x =&gt; x + 1));
+Assert.AreEqual (2.Just (),
+	from x in 1.Just ()
+	select x + 1);
+</code>
+        </remarks>
+        <altmember cref="M:Cadenza.ObjectCoda.ToMaybe``1(``0)" />
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="selector" /> is <see langword="null" />.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="SelectMany&lt;TCollection,TResult&gt;">
+      <MemberSignature Language="C#" Value="public Cadenza.Maybe&lt;TResult&gt; SelectMany&lt;TCollection,TResult&gt; (Func&lt;T,Cadenza.Maybe&lt;TCollection&gt;&gt; selector, Func&lt;T,TCollection,TResult&gt; resultSelector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Maybe&lt;TResult&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TCollection" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="selector" Type="System.Func&lt;T,Cadenza.Maybe&lt;TCollection&gt;&gt;" />
+        <Parameter Name="resultSelector" Type="System.Func&lt;T,TCollection,TResult&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TCollection">
+          The type of the intermediate value within 
+          <paramref name="selector" />.
+        </typeparam>
+        <typeparam name="TResult">
+          The type of the resulting value.
+        </typeparam>
+        <param name="selector">
+          A <see cref="T:System.Func{T,Cadenza.Maybe{TCollection}}" />
+          used to generate an intermediate value.
+        </param>
+        <param name="resultSelector">
+          A <see cref="T:System.Func{T,TCollection,TResult}" /> which is
+          used to convert <see cref="P:Cadenza.Maybe{T}.Value" /> and
+          <c><paramref name="selector" />(<see langword="this" />).Value</c>
+          into the value returned.
+        </param>
+        <summary>
+          Projects a <see cref="T:Cadenza.Maybe{T}" /> and
+          <see cref="T:Cadenza.Maybe{TCollection}" /> into a 
+          <see cref="T:Cadenza.Maybe{TResult}" />.
+        </summary>
+        <returns>
+          A <see cref="T:Cadenza.Maybe{TResult}" /> containing
+          <see cref="F:Cadenza.Maybe{TResult}.Nothing" /> if either
+          <see langword="this" />'s 
+          <see name="P:Cadenza.Maybe{T}.HasValue" /> or
+          <paramref name="selector" />(<paramref name="this" />)'s 
+          <see cref="P:Cadenza.Maybe{TCollection}.HasValue" /> property 
+          is <see langword="false" />; otherwise, returns
+          <c><paramref name="resultSelector" />(<see langword="this" />.Value,
+          <paramref name="selector" />(<see langword="this" />).Value).ToMaybe()</c>.
+        </returns>
+        <remarks>
+          <para>
+            This method is provided to support C# query comprehension
+            expressions on <see cref="T:Cadenza.Maybe{T}" /> types.
+            <c>SelectMany</c> acts as a "null propagation of nullables" for
+            any type, as opposed to just <see cref="T:System.Nullable{T}" />
+            types.
+          </para>
+          <block subset="none" type="behavior">
+            <para>
+              If <see langword="null" /> contains no value 
+              (<see cref="P:Cadenza.Maybe{TSource}.HasValue" /> is 
+              <see langword="false" />), then
+              <see cref="F:Cadenza.Maybe{TResult}.Nothing" /> is returned.
+            </para>
+            <para>
+              If <paramref name="selector" />(<see langword="this" />) 
+              contains no value 
+              (<see cref="P:Cadenza.Maybe{TCollection}.HasValue" /> is 
+              <see langword="false" />), then
+              <see cref="F:Cadenza.Maybe{TResult}.Nothing" /> is returned.
+            </para>
+            <para>
+              Otherwise, 
+              <c><paramref name="resultSelector" />(<see langword="this" />.Value,
+              <paramref name="selector" />(<see langwrod="this" />).Value).ToMaybe()</c>
+              is returned.  (This means that if 
+              <paramref name="resultSelector" /> returns <see langword="null" />,
+              then <see cref="F:Cadenza.Maybe{TResult}.Nothing" /> is
+              returned.)
+            </para>
+          </block>
+          <code lang="C#" src="../../Test/Cadenza/MaybeTest.cs#SelectMany_TCollection">Assert.AreEqual (Maybe&lt;int&gt;.Nothing, 
+		5.Just().SelectMany(
+			x =&gt; Maybe&lt;int&gt;.Nothing,
+			(x, y) =&gt; x + y));
+Assert.AreEqual (Maybe&lt;int&gt;.Nothing,
+		from x in 5.Just ()
+		from y in Maybe&lt;int&gt;.Nothing
+		select x + y);
+Assert.AreEqual (9.Just (),
+		5.Just().SelectMany(
+			x =&gt; 4.Just (),
+			(x, y) =&gt; x + y));
+Assert.AreEqual (9.Just (),
+		from x in 5.Just ()
+		from y in 4.Just ()
+		select x + y);
+</code>
+        </remarks>
+        <altmember cref="M:Cadenza.ObjectCoda.ToMaybe``1(``0)" />
+        <exception cref="T:System.ArgumentNullException">
+          <para>
+            <paramref name="selector" /> is <see langword="null" />.
+          </para>
+          <para>-or-</para>
+          <para>
+            <paramref name="resultSelector" /> is <see langword="null" />.
+          </para>
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="ToString">
