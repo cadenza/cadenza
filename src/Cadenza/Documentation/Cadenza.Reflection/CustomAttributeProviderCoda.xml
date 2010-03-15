@@ -1,0 +1,71 @@
+<Type Name="CustomAttributeProviderCoda" FullName="Cadenza.Reflection.CustomAttributeProviderCoda">
+  <TypeSignature Language="C#" Value="public static class CustomAttributeProviderCoda" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="GetCustomAttribute&lt;TAttribute&gt;">
+      <MemberSignature Language="C#" Value="public static TAttribute GetCustomAttribute&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TAttribute</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TAttribute">
+          <Constraints>
+            <BaseTypeName>System.Attribute</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Reflection.ICustomAttributeProvider" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TAttribute">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetCustomAttributes&lt;TAttribute&gt;">
+      <MemberSignature Language="C#" Value="public static TAttribute[] GetCustomAttributes&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TAttribute[]</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TAttribute">
+          <Constraints>
+            <BaseTypeName>System.Attribute</BaseTypeName>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Reflection.ICustomAttributeProvider" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TAttribute">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,239 @@
+<Type Name="ObjectCoda" FullName="Cadenza.ObjectCoda">
+  <TypeSignature Language="C#" Value="public static class ObjectCoda" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Just&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; Just&lt;T&gt; (this T self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="T" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Match&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static TResult Match&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="TSource" RefType="this" />
+        <Parameter Name="matchers" Type="System.Func&lt;TSource,Cadenza.Maybe&lt;TResult&gt;&gt;[]">
+          <Attributes>
+            <Attribute>
+              <AttributeName>System.ParamArray</AttributeName>
+            </Attribute>
+          </Attributes>
+        </Parameter>
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <typeparam name="TResult">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="matchers">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ToMaybe&lt;T&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; ToMaybe&lt;T&gt; (this T self);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="T" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="T" RefType="this" />
+      </Parameters>
+      <Docs>
+        <typeparam name="T">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TraverseBreadthFirst&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; TraverseBreadthFirst&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="TSource" RefType="this" />
+        <Parameter Name="valueSelector" Type="System.Func&lt;TSource,TResult&gt;" />
+        <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <typeparam name="TResult">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="valueSelector">To be added.</param>
+        <param name="childrenSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TraverseBreadthFirstWithParent&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt; TraverseBreadthFirstWithParent&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="TSource" RefType="this" />
+        <Parameter Name="valueSelector" Type="System.Func&lt;TSource,TResult&gt;" />
+        <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <typeparam name="TResult">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="valueSelector">To be added.</param>
+        <param name="childrenSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TraverseDepthFirst&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; TraverseDepthFirst&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="TSource" RefType="this" />
+        <Parameter Name="valueSelector" Type="System.Func&lt;TSource,TResult&gt;" />
+        <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <typeparam name="TResult">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="valueSelector">To be added.</param>
+        <param name="childrenSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="TraverseDepthFirstWithParent&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt; TraverseDepthFirstWithParent&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt;</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="TSource" RefType="this" />
+        <Parameter Name="valueSelector" Type="System.Func&lt;TSource,TResult&gt;" />
+        <Parameter Name="childrenSelector" Type="System.Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <typeparam name="TResult">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="valueSelector">To be added.</param>
+        <param name="childrenSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="With&lt;TSource,TResult&gt;">
+      <MemberSignature Language="C#" Value="public static TResult With&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; selector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TResult</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TResult" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="TSource" RefType="this" />
+        <Parameter Name="selector" Type="System.Func&lt;TSource,TResult&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">To be added.</typeparam>
+        <typeparam name="TResult">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="selector">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

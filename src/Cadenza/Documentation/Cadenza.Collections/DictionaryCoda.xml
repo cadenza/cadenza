@@ -1,0 +1,157 @@
+<Type Name="DictionaryCoda" FullName="Cadenza.Collections.DictionaryCoda">
+  <TypeSignature Language="C#" Value="public static class DictionaryCoda" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="GetValueOrDefault&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static TValue GetValueOrDefault&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TValue</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="key" Type="TKey" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="key">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetValueOrDefault&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static TValue GetValueOrDefault&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key, TValue defaultValue);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TValue</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="key" Type="TKey" />
+        <Parameter Name="defaultValue" Type="TValue" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="key">To be added.</param>
+        <param name="defaultValue">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SequenceEqual&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static bool SequenceEqual&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; other);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="other" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="other">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="SequenceEqual&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static bool SequenceEqual&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; other, System.Collections.Generic.IEqualityComparer&lt;TValue&gt; comparer);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="other" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" />
+        <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="other">To be added.</param>
+        <param name="comparer">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="UpdateValue&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static void UpdateValue&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key, Func&lt;TValue,TValue&gt; valueSelector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="key" Type="TKey" />
+        <Parameter Name="valueSelector" Type="System.Func&lt;TValue,TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="key">To be added.</param>
+        <param name="valueSelector">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
