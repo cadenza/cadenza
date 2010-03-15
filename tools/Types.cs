@@ -40,7 +40,7 @@ using Mono.Options;
 
 namespace Cadenza.Tools {
 
-	static class Types {
+	public static class Types {
 
 		public const int MaxFuncArgs = 4;
 

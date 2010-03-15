@@ -34,13 +34,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Options.cs" />
-    <Compile Include="CodeDomRocks.cs" />
-    <Compile Include="FileGenerator.cs" />
-    <Compile Include="Types.cs" />
-    <Compile Include="XmlDocs.cs" />
     <Compile Include="Delegates.cs" />
-    <Compile Include="..\src\Cadenza\Cadenza\Sequence.Tools.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
@@ -50,4 +44,10 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <ItemGroup>
+    <ProjectReference Include="Tools.csproj">
+      <Project>{F62009EE-45C5-4FBC-8E05-9198B6267086}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

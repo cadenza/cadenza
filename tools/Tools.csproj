@@ -5,10 +5,10 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7E42A1FF-7E63-4F80-A184-49A214C4A978}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Lambdas</RootNamespace>
-    <AssemblyName>Lambdas</AssemblyName>
+    <ProjectGuid>{F62009EE-45C5-4FBC-8E05-9198B6267086}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Cadenza.Tools</RootNamespace>
+    <AssemblyName>Tools</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -34,7 +34,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Lambdas.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="CodeDomRocks.cs" />
+    <Compile Include="FileGenerator.cs" />
+    <Compile Include="Types.cs" />
+    <Compile Include="XmlDocs.cs" />
+    <Compile Include="..\src\Cadenza\Cadenza\Sequence.Tools.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
@@ -44,10 +49,4 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
-  <ItemGroup>
-    <ProjectReference Include="Tools.csproj">
-      <Project>{F62009EE-45C5-4FBC-8E05-9198B6267086}</Project>
-      <Name>Tools</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
