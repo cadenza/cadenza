@@ -512,5 +512,79 @@ namespace Cadenza.Numerics.Tests {
 			else
 				Assert.AreEqual (m.FromIConvertible (0.5), r);
 		}
+
+		[Test]
+		public void Exp ()
+		{
+			var m = Math<T>.Default;
+
+			TryUnlessConversionFromDoubleNotSupported (() => {
+				Assert.AreEqual (m.FromInt32 (1), m.Exp (m.FromInt32 (0)));
+				Assert.AreEqual (m.E, m.Exp (m.FromInt32 (1)));
+			});
+		}
+
+		static void TryUnlessConversionFromDoubleNotSupported (Action action)
+		{
+			try {
+				action ();
+			}
+			catch (NotSupportedException) {
+				// Type doesn't support conversion to double
+				Assert.Throws<NotSupportedException>(() => Math<T>.Default.FromIConvertible (1.0));
+			}
+		}
+
+		[Test]
+		public void Sqrt ()
+		{
+			var m = Math<T>.Default;
+
+			TryUnlessConversionFromDoubleNotSupported (() => {
+				Assert.AreEqual (m.FromInt32 (0), m.Sqrt (m.FromInt32 (0)));
+				Assert.AreEqual (m.FromInt32 (1), m.Sqrt (m.FromInt32 (1)));
+				Assert.AreEqual (m.FromInt32 (2), m.Sqrt (m.FromInt32 (4)));
+				Assert.AreEqual (m.FromInt32 (3), m.Sqrt (m.FromInt32 (9)));
+			});
+
+			try {
+				Assert.IsTrue (m.IsNaN (m.Sqrt (m.FromInt32 (-1))));
+			}
+			catch (NotSupportedException) {
+				// Math<T>.IsNaN() isn't overridden, or unsigned types.
+				if (!m.IsUnsigned)
+					Assert.Throws<NotSupportedException>(() => m.IsNaN (m.FromInt32 (0)));
+			}
+		}
+
+		[Test]
+		public void Log ()
+		{
+			var m = Math<T>.Default;
+
+			TryUnlessConversionFromDoubleNotSupported(() => {
+				Assert.AreEqual (m.FromInt32 (0), m.Log (m.FromInt32 (1)));
+
+				try {
+					Assert.IsTrue (m.IsInfinite (m.Log (m.FromInt32 (0))));
+				}
+				catch (OverflowException) {
+					// Could not convert -inf to value; how do we assert that?
+				}
+			});
+
+
+			try {
+				Assert.IsTrue (m.IsNaN (m.Log (m.FromInt32 (-1))));
+			}
+			catch (OverflowException) {
+				// Could not convert -inf to value; how do we assert that?
+			}
+			catch (NotSupportedException) {
+				// Math<T>.IsNaN() isn't overridden, or unsigned types.
+				if (!m.IsUnsigned)
+					Assert.Throws<NotSupportedException>(() => m.IsNaN (m.FromInt32 (0)));
+			}
+		}
 	}
 }
