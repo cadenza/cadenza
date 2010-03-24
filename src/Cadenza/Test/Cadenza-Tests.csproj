@@ -50,6 +50,7 @@
     <Compile Include="Cadenza.Collections\IEnumerableContract.cs" />
     <Compile Include="Cadenza.Collections\KeyValuePairCodaTest.cs" />
     <Compile Include="Cadenza.Collections\LinkedListCodaTest.cs" />
+    <Compile Include="Cadenza.Collections\ListCodaTest.cs" />
     <Compile Include="Cadenza.Collections\MutableLookupTest.cs" />
     <Compile Include="Cadenza.Collections\OrderedDictionaryTest.cs" />
     <Compile Include="Cadenza.Collections\ReadOnlyDictionaryTest.cs" />

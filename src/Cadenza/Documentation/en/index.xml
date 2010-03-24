@@ -91,6 +91,7 @@
       <Type Name="EnumerableCoda" Kind="Class" />
       <Type Name="KeyValuePairCoda" Kind="Class" />
       <Type Name="LinkedListCoda" Kind="Class" />
+      <Type Name="ListCoda" Kind="Class" />
       <Type Name="MutableLookup`2" DisplayName="MutableLookup&lt;TKey,TElement&gt;" Kind="Class" />
       <Type Name="OrderedDictionary`2" DisplayName="OrderedDictionary&lt;TKey,TValue&gt;" Kind="Class" />
       <Type Name="ReadOnlyDictionary`2" DisplayName="ReadOnlyDictionary&lt;TKey,TValue&gt;" Kind="Class" />
@@ -5400,6 +5401,36 @@
         </summary>
         </Docs>
         <Link Type="Cadenza.Collections.LinkedListCoda" Member="M:Cadenza.Collections.LinkedListCoda.NodeAt``1(System.Collections.Generic.LinkedList{``0},System.Int32)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IList`1" />
+      </Targets>
+      <Member MemberName="BinarySearch&lt;TSource,TValue&gt;">
+        <MemberSignature Language="C#" Value="public static int BinarySearch&lt;TSource,TValue&gt; (this System.Collections.Generic.IList&lt;TSource&gt; self, TValue item, Func&lt;TSource,TValue,int&gt; comparer);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Int32</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TValue" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IList&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="item" Type="TValue" />
+          <Parameter Name="comparer" Type="System.Func&lt;TSource,TValue,System.Int32&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">The type of elements in <paramref name="self" />.</typeparam>
+          <typeparam name="TValue">The type of the item to search for.</typeparam>
+          <param name="self">The list to be searched for a given <paramref name="item" /> (must be sorted).</param>
+          <param name="item">The element for which to search. (<paramref name="item" /> can be <see langword="null" /> if <typeparamref name="TValue" /> is a reference type.)</param>
+          <param name="comparer">The function to compare an item in the list with <paramref name="item" />, <see cref="M:System.Collections.Generic.IComparer{T}.Compare" />.</param>
+          <summary>Searches the entire sorted list for an element using the specified comparer and returns the zero-based index of the element.</summary>
+        </Docs>
+        <Link Type="Cadenza.Collections.ListCoda" Member="M:Cadenza.Collections.ListCoda.BinarySearch``2(System.Collections.Generic.IList{``0},``1,System.Func{``0,``1,System.Int32})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>

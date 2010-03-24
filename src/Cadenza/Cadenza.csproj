@@ -47,6 +47,7 @@
     <Compile Include="Cadenza.Collections\CollectionCoda.cs" />
     <Compile Include="Cadenza.Collections\KeyValuePairCoda.cs" />
     <Compile Include="Cadenza.Collections\LinkedListCoda.cs" />
+    <Compile Include="Cadenza.Collections\ListCoda.cs" />
     <Compile Include="Cadenza.Collections\MutableLookup.cs" />
     <Compile Include="Cadenza.Collections\OrderedDictionary.cs" />
     <Compile Include="Cadenza.Collections\ReadOnlyDictionary.cs" />

@@ -1,0 +1,51 @@
+<Type Name="ListCoda" FullName="Cadenza.Collections.ListCoda">
+  <TypeSignature Language="C#" Value="public static class ListCoda" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>
+      <see cref="T:System.Collections.Generic.IList{T}" /> extension methods.</summary>
+    <remarks>
+    </remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="BinarySearch&lt;TSource,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static int BinarySearch&lt;TSource,TValue&gt; (this System.Collections.Generic.IList&lt;TSource&gt; self, TValue item, Func&lt;TSource,TValue,int&gt; comparer);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Int32</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IList&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="item" Type="TValue" />
+        <Parameter Name="comparer" Type="System.Func&lt;TSource,TValue,System.Int32&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">The type of elements in <paramref name="self" />.</typeparam>
+        <typeparam name="TValue">The type of the item to search for.</typeparam>
+        <param name="self">The list to be searched for a given <paramref name="item" /> (must be sorted).</param>
+        <param name="item">The element for which to search. (<paramref name="item" /> can be <see langword="null" /> if <typeparamref name="TValue" /> is a reference type.)</param>
+        <param name="comparer">The function to compare an item in the list with <paramref name="item" />, <see cref="M:System.Collections.Generic.IComparer{T}.Compare" />.</param>
+        <summary>Searches the entire sorted list for an element using the specified comparer and returns the zero-based index of the element.</summary>
+        <returns>The zero-based index of <paramref name="item" /> in the sorted list, if <paramref name="item" /> is found;
+        otherwise, a negative number, which is the bitwise complement of the index of the next element that is larger than <paramref name="item" />
+        or, if there is no larger element, the bitwise complement of <see cref="M:System.Collections.Generic.IList{T}.Count" />.</returns>
+        <remarks>This is similar to <see cref="M:System.Collections.Generic.IList{T}.BinarySearch(T, System.Collections.Generic.IComparer{T})" />
+        except the type of the item being sought does not have to match the type of the elements in the list.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
