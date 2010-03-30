@@ -118,6 +118,16 @@ namespace Cadenza.Numerics.Tests {
 			return value.Value;
 		}
 
+		public override SimpleNumber FromIConvertible (IConvertible c)
+		{
+			return new SimpleNumber (c.ToInt32 (null));
+		}
+
+		public override IConvertible ToIConvertible (SimpleNumber v)
+		{
+			return v.Value;
+		}
+
 		public override SimpleNumber Add (SimpleNumber x, SimpleNumber y)
 		{
 			return new SimpleNumber (x.Value + y.Value);
