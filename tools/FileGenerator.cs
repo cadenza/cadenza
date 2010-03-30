@@ -80,13 +80,16 @@ namespace Cadenza.Tools {
 			foreach (var ns in GetCodeNamespaces ())
 				file.Namespaces.Add (ns);
 
+			var options = new CodeGeneratorOptions () {
+				// BlankLinesBetweenMembers = true,
+				BracingStyle = "C",
+			};
 			using (var o = GetOutputFile (OutputFile)) {
 				o.NewLine = "\n";
 				var provider = new CSharpCodeProvider ();
-				provider.GenerateCodeFromCompileUnit (file, o, new CodeGeneratorOptions () {
-						// BlankLinesBetweenMembers = true,
-						BracingStyle = "C",
-				});
+				foreach (var ns in GetCodeNamespaces ()) {
+					provider.GenerateCodeFromNamespace (ns, o, options);
+				}
 				o.Flush ();
 			}
 			return 0;
