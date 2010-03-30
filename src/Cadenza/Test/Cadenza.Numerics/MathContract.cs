@@ -571,6 +571,17 @@ namespace Cadenza.Numerics.Tests {
 				catch (OverflowException) {
 					// Could not convert -inf to value; how do we assert that?
 				}
+				catch (NotSupportedException e) {
+					// NotSupportedException might be wrapping an OverflowException.
+					var ie = e.InnerException;
+					while (ie != null) {
+						if (ie.GetType () == typeof (OverflowException))
+							break;
+						ie = ie.InnerException;
+					}
+					if (ie == null)
+						throw;
+				}
 			});
 
 
