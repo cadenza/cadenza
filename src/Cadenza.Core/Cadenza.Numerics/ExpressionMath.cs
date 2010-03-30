@@ -39,7 +39,7 @@ namespace Cadenza.Numerics {
 	// from: http://www.yoda.arachsys.com/csharp/genericoperators.html
 	public class ExpressionMath<T> : Math<T>
 	{
-		static readonly Func<T, T, T> add    = CreateBinaryExpression<T> ((a, b) => Expression.Add (a, b));
+		static readonly Func<T, T, T> add    = CreateBinaryExpression<T> ((a, b) => Expression.AddChecked (a, b));
 		static readonly Func<T, T, T> sub    = CreateBinaryExpression<T> ((a, b) =>Expression.SubtractChecked (a, b));
 		static readonly Func<T, T, T> divide = CreateBinaryExpression<T> ((a, b) => Expression.Divide (a, b));
 		static readonly Func<T, T, T> mod    = CreateBinaryExpression<T> ((a, b) => Expression.Modulo (a, b));
@@ -244,6 +244,18 @@ namespace Cadenza.Numerics {
 			if (divide == null)
 				throw new NotSupportedException ();
 			return divide (x, y);
+		}
+
+		public override bool HasBounds {
+			get {return haveBounds;}
+		}
+
+		public override T MaxValue {
+			get {return maxValue;}
+		}
+
+		public override T MinValue {
+			get {return minValue;}
 		}
 
 		public override bool IsIntegral {
