@@ -305,7 +305,7 @@ namespace Cadenza.Numerics {
 		}
 
 		public virtual T E {
-			get {return FromIConvertible (Math.PI);}
+			get {return FromIConvertible (Math.E);}
 		}
 
 		public virtual T Exp (T value)
