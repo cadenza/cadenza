@@ -35,6 +35,8 @@ namespace Cadenza
     using System.Text;
     
     
+    #region Start Tuple
+#if !NET_4_0
     /// <summary>
     ///   Utility methods to create Tuple instances.
     /// </summary>
@@ -205,7 +207,14 @@ namespace Cadenza
             return new Cadenza.Tuple<T1, T2, T3, T4>(item1, item2, item3, item4);
         }
     }
+    #region End Tuple
+    #endregion
+#endif  // !NET_4_0
+
+    #endregion
     
+    #region Start Tuple
+#if !NET_4_0
     /// <typeparam name="T">
     ///   The first value type.
     /// </typeparam>
@@ -336,7 +345,14 @@ namespace Cadenza
             return string.Concat("(", this.Item1.ToString(), ")");
         }
     }
+    #region End Tuple
+    #endregion
+#endif  // !NET_4_0
+
+    #endregion
     
+    #region Start Tuple
+#if !NET_4_0
     /// <typeparam name="T1">
     ///   The first value type.
     /// </typeparam>
@@ -496,7 +512,14 @@ namespace Cadenza
             return string.Concat("(", this.Item1.ToString(), ", ", this.Item2.ToString(), ")");
         }
     }
+    #region End Tuple
+    #endregion
+#endif  // !NET_4_0
+
+    #endregion
     
+    #region Start Tuple
+#if !NET_4_0
     /// <typeparam name="T1">
     ///   The first value type.
     /// </typeparam>
@@ -685,7 +708,14 @@ namespace Cadenza
             return string.Concat("(", this.Item1.ToString(), ", ", this.Item2.ToString(), ", ", this.Item3.ToString(), ")");
         }
     }
+    #region End Tuple
+    #endregion
+#endif  // !NET_4_0
+
+    #endregion
     
+    #region Start Tuple
+#if !NET_4_0
     /// <typeparam name="T1">
     ///   The first value type.
     /// </typeparam>
@@ -903,4 +933,9 @@ namespace Cadenza
             return string.Concat("(", this.Item1.ToString(), ", ", this.Item2.ToString(), ", ", this.Item3.ToString(), ", ", this.Item4.ToString(), ")");
         }
     }
+    #region End Tuple
+    #endregion
+#endif  // !NET_4_0
+
+    #endregion
 }

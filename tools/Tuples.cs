@@ -81,6 +81,7 @@ namespace Cadenza.Tools {
 				TypeAttributes = TypeAttributes.Public,
 				IsPartial      = true,
 			};
+			AddConditionalCompilationDirective (tuple, "!NET_4_0");
 			var maxValues = new CodeMemberProperty () {
 				Attributes      = MemberAttributes.Public | MemberAttributes.Static,
 				Name            = "MaxValues",
@@ -134,6 +135,15 @@ namespace Cadenza.Tools {
 			return tuple;
 		}
 
+		void AddConditionalCompilationDirective (CodeTypeDeclaration type, string condition)
+		{
+			type.StartDirectives.Add (new CodeRegionDirective (CodeRegionMode.Start,
+					string.Format ("Start {0}\n#if {1}", type.Name, condition)));
+			type.EndDirectives.Add (new CodeRegionDirective (CodeRegionMode.Start,
+					string.Format ("End {0}\n    #endregion\n#endif  // {1}\n", type.Name, condition)));
+			type.EndDirectives.Add (new CodeRegionDirective (CodeRegionMode.End, null));
+		}
+
 		CodeMemberMethod CreateCreateMethod (int n)
 		{
 			var retType = new CodeTypeReference ("Cadenza.Tuple", Types.GetTypeParameterReferences (n, false).ToArray ());
@@ -174,6 +184,7 @@ namespace Cadenza.Tools {
 				TypeAttributes = TypeAttributes.Public,
 				IsPartial      = true,
 			};
+			AddConditionalCompilationDirective (tuple, "!NET_4_0");
 			for (int i = 0; i < n; ++i) {
 				tuple.TypeParameters.Add (Types.GetTypeParameter (n, i));
 				tuple.Members.Add (new CodeMemberField (Types.GetTypeParameter (n, i), Tuple.item (n, i)));
