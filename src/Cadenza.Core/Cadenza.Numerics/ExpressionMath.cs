@@ -57,6 +57,8 @@ namespace Cadenza.Numerics {
 		static readonly bool isFractional;
 		static readonly bool haveBounds;
 		static readonly T maxValue, minValue;
+		static readonly bool canBeInfinite;
+		static readonly T negInf, posInf;
 
 		static ExpressionMath ()
 		{
@@ -76,6 +78,7 @@ namespace Cadenza.Numerics {
 			}
 
 			haveBounds = GetMemberValue ("MaxValue", out maxValue) && GetMemberValue ("MinValue", out minValue);
+			canBeInfinite = GetMemberValue ("NegativeInfinity", out negInf) && GetMemberValue ("PositiveInfinity", out posInf);
 		}
 
 		static T _FromInt32 (int value)
@@ -245,6 +248,13 @@ namespace Cadenza.Numerics {
 
 		public override bool IsIntegral {
 			get {return !isFractional;}
+		}
+
+		public override bool IsInfinite (T value)
+		{
+			if (!canBeInfinite)
+				return base.IsInfinite (value);
+			return negInf.Equals (value) || posInf.Equals (value);
 		}
 	}
 }
