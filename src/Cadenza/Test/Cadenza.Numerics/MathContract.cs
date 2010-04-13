@@ -547,13 +547,41 @@ namespace Cadenza.Numerics.Tests {
 				Assert.AreEqual (m.FromInt32 (3), m.Sqrt (m.FromInt32 (9)));
 			});
 
+			CheckSqrtNegative1 ();
+		}
+
+		void CheckSqrtNegative1 ()
+		{
+			var m = Math<T>.Default;
+
+			T neg1;
 			try {
-				Assert.IsTrue (m.IsNaN (m.Sqrt (m.FromInt32 (-1))));
+				neg1 = m.FromInt32 (-1);
+			}
+			catch (NotSupportedException) {
+				// Unsigned types don't support negative values.
+				return;
+			}
+
+			T sqrtNeg1;
+			try {
+				sqrtNeg1 = m.Sqrt (neg1);
+			}
+			catch (OverflowException) {
+				// NaN->int conversion throws under .NET
+				return;
+			}
+			catch (NotSupportedException) {
+				// T doesn't support conversion from/to IConvertible
+				return;
+			}
+
+			try {
+				Assert.IsTrue (m.IsNaN (sqrtNeg1));
 			}
 			catch (NotSupportedException) {
 				// Math<T>.IsNaN() isn't overridden, or unsigned types.
-				if (!m.IsUnsigned)
-					Assert.Throws<NotSupportedException>(() => m.IsNaN (m.FromInt32 (0)));
+				return;
 			}
 		}
 
