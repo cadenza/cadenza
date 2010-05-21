@@ -56,7 +56,14 @@ namespace Cadenza.Collections.Tests
 		[ExpectedException (typeof (ArgumentNullException))]
 		public void CtorNull()
 		{
-			new MutableLookup<string, string> (null);
+			new MutableLookup<string, string> ((ILookup<string,string>)null);
+		}
+
+		[Test]
+		[ExpectedException (typeof (ArgumentNullException))]
+		public void CtorEqualityComparerNull()
+		{
+			new MutableLookup<string, string> ((IEqualityComparer<string>)null);
 		}
 
 		[Test]
@@ -305,6 +312,18 @@ namespace Cadenza.Collections.Tests
 			Assert.IsTrue (lookup.Any (g => g.Key == 1));
 			Assert.IsTrue (lookup.Any (g => g.Key == 2));
 			Assert.IsTrue (lookup.Any (g => g.Key == 3));
+		}
+
+		[Test]
+		public void EnumeratorNotNull()
+		{
+			List<string> strings = new List<string> { "hi", "hai", "bai", "bye" };
+			var lookup = new MutableLookup<string, string> (strings.ToLookup (s => s[0].ToString()));
+
+			Assert.AreEqual (2, lookup.Count);
+			Assert.IsTrue (lookup.Any (g => g.Key == "h"));
+			Assert.IsTrue (lookup.Any (g => g.Key == "b"));
+			Assert.IsFalse (lookup.Any (g => g.Key == null));
 		}
 
 		[Test]

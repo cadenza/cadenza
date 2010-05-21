@@ -40,8 +40,16 @@ namespace Cadenza.Collections
 	public class MutableLookup<TKey, TElement> : ILookup<TKey, TElement>
 	{
 		public MutableLookup ()
+			: this (EqualityComparer<TKey>.Default)
 		{
-			this.groupings = new Dictionary<TKey, MutableLookupGrouping> ();
+		}
+
+		public MutableLookup (IEqualityComparer<TKey> comparer)
+		{
+			if (comparer == null)
+				throw new ArgumentNullException ("comparer");
+
+			this.groupings = new Dictionary<TKey, MutableLookupGrouping> (comparer);
 			if (!typeof(TKey).IsValueType)
 				this.nullGrouping = new MutableLookupGrouping (default(TKey));
 		}
@@ -50,16 +58,16 @@ namespace Cadenza.Collections
 		{
 			if (lookup == null)
 				throw new ArgumentNullException ("lookup");
-			
+
 			this.groupings = new Dictionary<TKey, MutableLookupGrouping> (lookup.Count);
-			
+
 			if (!typeof(TKey).IsValueType)
 				this.nullGrouping = new MutableLookupGrouping (default(TKey), lookup[default(TKey)]);
 			
 			foreach (var grouping in lookup) {
 				if (grouping.Key == null)
 					continue;
-				
+
 				this.groupings.Add (grouping.Key, new MutableLookupGrouping (grouping.Key, grouping));
 			}
 		}
@@ -75,11 +83,15 @@ namespace Cadenza.Collections
 				this.nullGrouping.Add (element);
 				return;
 			}
+
+			MutableLookupGrouping grouping;
+			if (!this.groupings.TryGetValue (key, out grouping))
+			{
+				grouping = new MutableLookupGrouping (key);
+				this.groupings.Add (key, grouping);
+			}
 			
-			if (!this.groupings.ContainsKey (key))
-				this.groupings.Add (key, new MutableLookupGrouping (key));
-			
-			this.groupings[key].Add (element);
+			grouping.Add (element);
 		}
 
 		/// <summary>
@@ -198,7 +210,7 @@ namespace Cadenza.Collections
 			foreach (var g in this.groupings.Values)
 				yield return g;
 			
-			if (this.nullGrouping != null)
+			if (this.nullGrouping != null && this.nullGrouping.Count > 0)
 				yield return this.nullGrouping;
 		}
 
