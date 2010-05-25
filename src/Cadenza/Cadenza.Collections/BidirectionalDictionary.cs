@@ -45,6 +45,11 @@ namespace Cadenza.Collections
 
 		public BidirectionalDictionary (int capacity) : this (capacity, null, null) {}
 
+		public BidirectionalDictionary (IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer)
+			: this (10, keyComparer, valueComparer)
+		{
+		}
+
 		public BidirectionalDictionary (int capacity, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer)
 		{
 			if (capacity < 0)
