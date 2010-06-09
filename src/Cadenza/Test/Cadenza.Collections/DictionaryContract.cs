@@ -37,7 +37,7 @@ using Cadenza.Tests;
 
 namespace Cadenza.Collections.Tests {
 
-	public abstract class IDictionaryContract : BaseRocksFixture {
+	public abstract class DictionaryContract : BaseRocksFixture {
 
 		protected abstract IDictionary<string, string> CreateDictionary (IEnumerable<KeyValuePair<string, string>> values);
 
@@ -156,11 +156,11 @@ namespace Cadenza.Collections.Tests {
 			Assert.AreEqual (d.Keys.IndexOf ("c"), d.Values.IndexOf ("3"));
 		}
 
-		class SubCollectionContract : ICollectionContract<string> {
-			IDictionaryContract dictContract;
+		class SubCollectionContract : CollectionContract<string> {
+			DictionaryContract dictContract;
 			Func<IDictionary<string, string>, ICollection<string>> collectionSelector;
 
-			public SubCollectionContract (IDictionaryContract dictContract,
+			public SubCollectionContract (DictionaryContract dictContract,
 					Func<IDictionary<string, string>, ICollection<string>> collectionSelector)
 			{
 				this.dictContract = dictContract;

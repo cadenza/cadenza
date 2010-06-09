@@ -38,7 +38,7 @@ using Cadenza.Tests;
 namespace Cadenza.Collections.Tests {
 
 	[TestFixture]
-	public class CachedSequenceTest : IEnumerableContract {
+	public class CachedSequenceTest : EnumerableContract {
 
 		protected override IEnumerable<T> CreateSequence<T>(IEnumerable<T> source)
 		{

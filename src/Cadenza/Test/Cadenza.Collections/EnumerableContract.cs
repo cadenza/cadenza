@@ -37,7 +37,7 @@ using Cadenza.Tests;
 
 namespace Cadenza.Collections.Tests {
 
-	public abstract class IEnumerableContract : BaseRocksFixture {
+	public abstract class EnumerableContract : BaseRocksFixture {
 
 		protected abstract IEnumerable<T> CreateSequence<T> (IEnumerable<T> source);
 

@@ -74,7 +74,7 @@ namespace Cadenza.Collections.Tests
 	}
 
 	[TestFixture]
-	public class ReadOnlyDictionaryCollectionContractTests : ICollectionContract<KeyValuePair<string, string>> {
+	public class ReadOnlyDictionaryCollectionContractTests : CollectionContract<KeyValuePair<string, string>> {
 		protected override ICollection<KeyValuePair<string, string>> CreateCollection (IEnumerable<KeyValuePair<string, string>> values)
 		{
 			var d = new Dictionary<string, string> ();
@@ -100,7 +100,7 @@ namespace Cadenza.Collections.Tests
 	}
 
 	[TestFixture]
-	public class ReadOnlyDictionaryDictionaryContractTests : IDictionaryContract {
+	public class ReadOnlyDictionaryDictionaryContractTests : DictionaryContract {
 		protected override IDictionary<string, string> CreateDictionary (IEnumerable<KeyValuePair<string, string>> values)
 		{
 			var d = new Dictionary<string, string> ();

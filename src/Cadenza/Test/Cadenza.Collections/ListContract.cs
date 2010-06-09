@@ -37,7 +37,7 @@ using Cadenza.Tests;
 
 namespace Cadenza.Collections.Tests {
 
-	public abstract class ListContract<T> : ICollectionContract<T> {
+	public abstract class ListContract<T> : CollectionContract<T> {
 
 		private IList<T> CreateList (IEnumerable<T> values)
 		{

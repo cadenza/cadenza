@@ -791,7 +791,7 @@ namespace Cadenza.Collections.Tests
 	}
 
 	[TestFixture]
-	public class OrderedDictionaryDictionaryContractTests : IDictionaryContract {
+	public class OrderedDictionaryDictionaryContractTests : DictionaryContract {
 		protected override IDictionary<string, string> CreateDictionary (IEnumerable<KeyValuePair<string, string>> values)
 		{
 			var d = new OrderedDictionary<string, string> ();

@@ -507,7 +507,7 @@ namespace Cadenza.Collections.Tests
 	}
 
 	[TestFixture]
-	public class BidirectionalDictionaryCollectionContractTests : ICollectionContract<KeyValuePair<string, string>> {
+	public class BidirectionalDictionaryCollectionContractTests : CollectionContract<KeyValuePair<string, string>> {
 		protected override ICollection<KeyValuePair<string, string>> CreateCollection (IEnumerable<KeyValuePair<string, string>> values)
 		{
 			var d = new BidirectionalDictionary<string, string> ();
@@ -533,7 +533,7 @@ namespace Cadenza.Collections.Tests
 	}
 
 	[TestFixture]
-	public class BidirectionalDictionaryDictionaryContractTests : IDictionaryContract {
+	public class BidirectionalDictionaryDictionaryContractTests : DictionaryContract {
 		protected override IDictionary<string, string> CreateDictionary (IEnumerable<KeyValuePair<string, string>> values)
 		{
 			var d = new BidirectionalDictionary<string, string> ();

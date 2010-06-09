@@ -43,7 +43,7 @@ namespace Cadenza.Collections.Tests {
 	//        to test the behavior of the .Keys/.Values read-only collections.
 	//
 	// NOTE:  No test may use [ExpectedException]; use Assert.Throws<T> instead.
-	public abstract class ICollectionContract<T> : BaseRocksFixture {
+	public abstract class CollectionContract<T> : BaseRocksFixture {
 
 		protected abstract ICollection<T> CreateCollection (IEnumerable<T> values);
 		protected abstract T CreateValueA ();

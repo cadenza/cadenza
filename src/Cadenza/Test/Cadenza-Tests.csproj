@@ -43,11 +43,11 @@
     <Compile Include="Cadenza.Collections\BidirectionalDictionaryTest.cs" />
     <Compile Include="Cadenza.Collections\CachedSequenceTest.cs" />
     <Compile Include="Cadenza.Collections\CollectionCodaTests.cs" />
+    <Compile Include="Cadenza.Collections\CollectionContract.cs" />
     <Compile Include="Cadenza.Collections\DictionaryCodaTest.cs" />
+    <Compile Include="Cadenza.Collections\DictionaryContract.cs" />
     <Compile Include="Cadenza.Collections\EnumerableCodaTest.cs" />
-    <Compile Include="Cadenza.Collections\ICollectionContract.cs" />
-    <Compile Include="Cadenza.Collections\IDictionaryContract.cs" />
-    <Compile Include="Cadenza.Collections\IEnumerableContract.cs" />
+    <Compile Include="Cadenza.Collections\EnumerableContract.cs" />
     <Compile Include="Cadenza.Collections\KeyValuePairCodaTest.cs" />
     <Compile Include="Cadenza.Collections\LinkedListCodaTest.cs" />
     <Compile Include="Cadenza.Collections\ListCodaTest.cs" />
