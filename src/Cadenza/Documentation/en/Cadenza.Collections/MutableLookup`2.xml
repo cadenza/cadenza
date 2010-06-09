@@ -40,6 +40,22 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public MutableLookup (System.Collections.Generic.IEqualityComparer&lt;TKey&gt; comparer);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="comparer" Type="System.Collections.Generic.IEqualityComparer&lt;TKey&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="comparer">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Collections.MutableLookup`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})" /></exception>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public MutableLookup (System.Linq.ILookup&lt;TKey,TElement&gt; lookup);" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>

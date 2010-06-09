@@ -57,6 +57,23 @@
       </Docs>
     </Member>
     <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BidirectionalDictionary (System.Collections.Generic.IEqualityComparer&lt;TKey&gt; keyComparer, System.Collections.Generic.IEqualityComparer&lt;TValue&gt; valueComparer);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="keyComparer" Type="System.Collections.Generic.IEqualityComparer&lt;TKey&gt;" />
+        <Parameter Name="valueComparer" Type="System.Collections.Generic.IEqualityComparer&lt;TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <param name="keyComparer">To be added.</param>
+        <param name="valueComparer">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public BidirectionalDictionary (int capacity, System.Collections.Generic.IEqualityComparer&lt;TKey&gt; keyComparer, System.Collections.Generic.IEqualityComparer&lt;TValue&gt; valueComparer);" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
