@@ -316,11 +316,10 @@ namespace Cadenza.Collections
 			if (arrayIndex < 0)
 				throw new ArgumentOutOfRangeException ("arrayIndex");
 
-			int index = 0;
-			for (int i = arrayIndex; i < array.Length; ++i)
-			{
-				TKey key = keyOrder[index++];
-				array[i] = new KeyValuePair<TKey, TValue> (key, this.dict[key]);
+
+			for (int i = 0; i < this.keyOrder.Count; ++i) {
+				TKey key = keyOrder [i];
+				array [arrayIndex++] = new KeyValuePair<TKey, TValue> (key, this.dict [key]);
 			}
 		}
 
@@ -373,9 +372,8 @@ namespace Cadenza.Collections
 				if (arrayIndex < 0 || arrayIndex > array.Length)
 					throw new ArgumentOutOfRangeException ("arrayIndex");
 
-				int index = 0;
-				for (int i = arrayIndex; i < array.Length; ++i)
-					array[i] = this.odict[index++];
+				for (int i = 0; i < this.odict.Count; ++i)
+					array [arrayIndex++] = this.odict [i];
 			}
 
 			public int Count
