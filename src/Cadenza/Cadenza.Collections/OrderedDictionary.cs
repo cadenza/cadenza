@@ -263,8 +263,8 @@ namespace Cadenza.Collections
 		/// <exception cref="ArgumentOutOfRangeException"><paramref name="index"/> is less than 0 or greater than <see cref="Count"/></exception>
 		public void Insert (int index, TKey key, TValue value)
 		{
-			this.dict.Add (key, value);
 			this.keyOrder.Insert (index, key);
+			this.dict.Add (key, value);
 		}
 
 		void IList<KeyValuePair<TKey, TValue>>.Insert (int index, KeyValuePair<TKey, TValue> item)
