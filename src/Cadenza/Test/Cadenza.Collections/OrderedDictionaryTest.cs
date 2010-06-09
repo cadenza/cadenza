@@ -765,13 +765,13 @@ namespace Cadenza.Collections.Tests
 	}
 
 	[TestFixture]
-	public class OrderedDictionaryCollectionContractTests : ICollectionContract<KeyValuePair<string, string>> {
+	public class OrderedDictionaryListContractTests : ListContract<KeyValuePair<string, string>> {
 		protected override ICollection<KeyValuePair<string, string>> CreateCollection (IEnumerable<KeyValuePair<string, string>> values)
 		{
-			var d = new Dictionary<string, string> ();
+			var d = new OrderedDictionary<string, string> ();
 			foreach (var v in values)
 				d.Add (v.Key, v.Value);
-			return new ReadOnlyDictionary<string, string> (d);
+			return d;
 		}
 
 		protected override KeyValuePair<string, string> CreateValueA ()
@@ -794,10 +794,10 @@ namespace Cadenza.Collections.Tests
 	public class OrderedDictionaryDictionaryContractTests : IDictionaryContract {
 		protected override IDictionary<string, string> CreateDictionary (IEnumerable<KeyValuePair<string, string>> values)
 		{
-			var d = new Dictionary<string, string> ();
+			var d = new OrderedDictionary<string, string> ();
 			foreach (var v in values)
 				d.Add (v.Key, v.Value);
-			return new ReadOnlyDictionary<string, string> (d);
+			return d;
 		}
 	}
 }
