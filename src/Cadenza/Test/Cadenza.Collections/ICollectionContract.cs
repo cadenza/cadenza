@@ -55,9 +55,9 @@ namespace Cadenza.Collections.Tests {
 			Add ();
 			Clear ();
 			Contains ();
-			CopyTo ();
 			CopyTo_Exceptions ();
 			CopyTo_SequenceComparison ();
+			CopyTo ();
 			Ctor_CopySequence ();
 			Ctor_Initial_Count_Is_Zero ();
 			Remove ();
@@ -121,7 +121,7 @@ namespace Cadenza.Collections.Tests {
 		{
 			var c = CreateCollection (new []{CreateValueA (), CreateValueB (), CreateValueC ()});
 			Assert.Throws<ArgumentNullException>(() => c.CopyTo (null, 0));
-			Assert.Throws<ArgumentOutOfRangeException>(() => c.CopyTo (new T [1], -1));
+			Assert.Throws<ArgumentOutOfRangeException>(() => c.CopyTo (new T [3], -1));
 			var d = new T[5];
 			// not enough space from d[3..d.Length-1] to hold c.Count elements.
 			Assert.Throws<ArgumentException>(() => c.CopyTo (d, 3));
