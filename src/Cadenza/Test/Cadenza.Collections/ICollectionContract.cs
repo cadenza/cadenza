@@ -107,9 +107,12 @@ namespace Cadenza.Collections.Tests {
 		[Test]
 		public void Contains ()
 		{
-			var c = CreateCollection (new []{CreateValueA (), CreateValueB ()});
-			Assert.IsTrue (c.Contains (CreateValueA ()));
-			Assert.IsTrue (c.Contains (CreateValueB ()));
+			var a = CreateValueA ();
+			var b = CreateValueB ();
+
+			var c = CreateCollection (new []{a, b});
+			Assert.IsTrue (c.Contains (a));
+			Assert.IsTrue (c.Contains (b));
 			Assert.IsFalse (c.Contains (CreateValueC ()));
 		}
 
@@ -129,38 +132,50 @@ namespace Cadenza.Collections.Tests {
 		[Test]
 		public virtual void CopyTo_SequenceComparison ()
 		{
-			var c = CreateCollection (new []{CreateValueA (), CreateValueB (), CreateValueC ()});
+			var a = CreateValueA ();
+			var b = CreateValueB ();
+			var c = CreateValueC ();
+
+			var coll = CreateCollection (new []{a, b, c});
 			var d = new T [5];
-			c.CopyTo (d, 1);
+			coll.CopyTo (d, 1);
 			Assert.IsTrue (new []{
-				default (T), CreateValueA (), CreateValueB (), CreateValueC (), default (T),
+				default (T), a, b, c, default (T),
 			}.SequenceEqual (d));
 		}
 
 		[Test]
 		public void CopyTo ()
 		{
-			var c = CreateCollection (new []{CreateValueA (), CreateValueB (), CreateValueC ()});
+			var a = CreateValueA ();
+			var b = CreateValueB ();
+			var c = CreateValueC ();
+
+			var coll = CreateCollection (new []{a, b, c});
 			var d = new T [5];
-			c.CopyTo (d, 1);
-			Assert.IsTrue (Array.IndexOf (d, CreateValueA ()) >= 0);
-			Assert.IsTrue (Array.IndexOf (d, CreateValueB ()) >= 0);
-			Assert.IsTrue (Array.IndexOf (d, CreateValueC ()) >= 0);
+			coll.CopyTo (d, 1);
+			Assert.IsTrue (Array.IndexOf (d, a) >= 0);
+			Assert.IsTrue (Array.IndexOf (d, b) >= 0);
+			Assert.IsTrue (Array.IndexOf (d, c) >= 0);
 		}
 
 		[Test]
 		public void Remove ()
 		{
-			var c = CreateCollection (new []{CreateValueA (), CreateValueB ()});
-			int n = c.Count;
+			var a = CreateValueA ();
+			var b = CreateValueB ();
+			var c = CreateValueC ();
+
+			var coll = CreateCollection (new []{a, b});
+			int n = coll.Count;
 			try {
-				Assert.IsFalse (c.Remove (CreateValueC ()));
-				Assert.AreEqual (n, c.Count);
-				Assert.IsTrue (c.Remove (CreateValueA ()));
-				Assert.AreEqual (n-1, c.Count);
+				Assert.IsFalse (coll.Remove (c));
+				Assert.AreEqual (n, coll.Count);
+				Assert.IsTrue (coll.Remove (a));
+				Assert.AreEqual (n-1, coll.Count);
 			}
 			catch (NotSupportedException) {
-				Assert.IsTrue (c.IsReadOnly);
+				Assert.IsTrue (coll.IsReadOnly);
 			}
 		}
 	}
