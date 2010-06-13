@@ -62,19 +62,29 @@ namespace Cadenza.Numerics.Tests {
 				DisallowApplicationBaseProbing = true,
 			};
 			AppDomain d = AppDomain.CreateDomain ("Test Math<string>.Default", null, ads);
+			Assembly[] assemblies =new Assembly [2];
+			int i = 0;
 			foreach (var type in new[]{typeof (Math<>), typeof (MathTests)}) {
 				using (var f = File.OpenRead (type.Assembly.Location)) {
 					byte[] lib = new byte [f.Length];
 					f.Read (lib, 0, lib.Length);
-					d.Load (lib);
+					assemblies [i++] = d.Load (lib);
 				}
 			}
 			try {
-				d.DoCallBack(() => { var m = Math<string>.Default; });
+				var t = assemblies [1].GetType ("Cadenza.Numeric.Tests.MathTests", true);
+				var m = t.GetMethod ("GetStringMathOps", BindingFlags.NonPublic | BindingFlags.Static);
+				var c = (CrossAppDomainDelegate) Delegate.CreateDelegate (t, m);
+				d.DoCallBack (c);
 			}
 			finally {
 				AppDomain.Unload (d);
 			}
+		}
+
+		static void GetStringMathOps ()
+		{
+			var m = Math<string>.Default;
 		}
 
 		[Test]
@@ -103,11 +113,11 @@ namespace Cadenza.Numerics.Tests {
 	}
 
 	[TestFixture]
-	public class Int32MathTests : MathContract<int> {
+	public class SingleMathTests : MathContract<float> {
 	}
 
 	[TestFixture]
-	public class SingleMathTests : MathContract<float> {
+	public class Int32MathTests : MathContract<int> {
 	}
 
 	//
