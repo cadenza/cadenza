@@ -29,6 +29,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 using Cadenza;
 
@@ -48,23 +49,56 @@ namespace Cadenza.Numerics {
 		{
 		}
 
+
+		static Exception defaultProviderError;
+
 		static Math ()
 		{
+			SetDefault (null, e => defaultProviderError = e);
+		}
+
+		static Math<T> defaultProvider;
+		public static Math<T> Default {
+			get {
+				if (defaultProvider == null)
+					throw new NotSupportedException (
+							string.Format ("Could not find an implementation for '{0}'. " +
+								"Try calling Cadenza.Numerics.Math<T>.SetDefault() with a Math<T> implementation.",
+								typeof (T).FullName),
+							defaultProviderError);
+				return defaultProvider;
+			}
+		}
+
+		public static void SetDefault (Math<T> provider)
+		{
+			if (provider != null) {
+				defaultProvider       = provider;
+				defaultProviderError  = null;
+				return;
+			}
+
 			// TODO: set defaultProvider...
 			if (typeof (T) == typeof (double))
 				defaultProvider = (Math<T>) (object) new DoubleMath ();
 			else if (typeof (T) == typeof (int))
 				defaultProvider = (Math<T>) (object) new Int32Math ();
+			else {
+				Assembly  a     = Assembly.Load ("Cadenza.Core");
+				Type      gem   = a.GetType ("Cadenza.Numerics.ExpressionMath`1");
+				Type      em    = gem.MakeGenericType (typeof (T));
+				defaultProvider = (Math<T>) Activator.CreateInstance (em);
+			}
 		}
 
-		static Math<T> defaultProvider;
-		public static Math<T> Default {
-			get {return defaultProvider;}
-		}
-
-		public static void SetDefault (Math<T> provider)
+		static void SetDefault (Math<T> provider, Action<Exception> handler)
 		{
-			defaultProvider = provider;
+			try {
+				SetDefault (provider);
+			}
+			catch (Exception e) {
+				handler (e);
+			}
 		}
 
 		#region IComparer<T>

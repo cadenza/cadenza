@@ -29,13 +29,70 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 
 using NUnit.Framework;
 
 using Cadenza;
+using Cadenza.Tests;
 
 namespace Cadenza.Numerics.Tests {
+
+	[TestFixture]
+	public class MathTests : BaseRocksFixture {
+
+		// "Unsupported", i.e. types which don't support add/subtract/etc.
+		// We still allow these to be created; the individual methods will instead throw.
+		[Test]
+		public void Default_DoesNotThrowsWithUnsupportedTypes ()
+		{
+			Math<string> m = Math<string>.Default;
+		}
+
+		// Math<T>.Default uses ExpressionMath<T> as a fallback, which is in Cadenza.Core.
+		// If Cadenza.Core can't be found (e.g. MonoTouch, bad packaging), then
+		// Math<T>.Default should throw a NotSupportedException.
+		[Test, ExpectedException (typeof (NotSupportedException))]
+		public void Default_ThrowsIfCadenzaCoreCannotBeFound ()
+		{
+			var ads = new AppDomainSetup () {
+				ApplicationBase = Path.GetDirectoryName (typeof (Math<>).Assembly.Location),
+				DisallowApplicationBaseProbing = true,
+			};
+			AppDomain d = AppDomain.CreateDomain ("Test Math<string>.Default", null, ads);
+			foreach (var type in new[]{typeof (Math<>), typeof (MathTests)}) {
+				using (var f = File.OpenRead (type.Assembly.Location)) {
+					byte[] lib = new byte [f.Length];
+					f.Read (lib, 0, lib.Length);
+					d.Load (lib);
+				}
+			}
+			try {
+				d.DoCallBack(() => { var m = Math<string>.Default; });
+			}
+			finally {
+				AppDomain.Unload (d);
+			}
+		}
+
+		[Test]
+		public void SetDefault ()
+		{
+			var d = Math<SimpleNumber>.Default;
+			try {
+				Math<SimpleNumber>.SetDefault (new SimpleNumberMath ());
+				Assert.IsFalse (object.ReferenceEquals (d, Math<SimpleNumber>.Default));
+
+				Math<SimpleNumber>.SetDefault (null);
+				Assert.AreEqual (d.GetType ().FullName, Math<SimpleNumber>.Default.GetType ().FullName);
+			}
+			finally {
+				Math<SimpleNumber>.SetDefault (d);
+			}
+		}
+	}
 
 	//
 	// Builtin type tests

@@ -249,6 +249,10 @@
         <summary>To be added.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
+        <exception cref="T:System.NotSupportedException">
+          A <see cref="T:Cadenza.Numerics.Math{T}" /> implementation could not
+          be found for <typeparam name="T" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Divide">
