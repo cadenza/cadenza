@@ -106,6 +106,10 @@ namespace Cadenza.Numerics.Tests {
 	public class Int32MathTests : MathContract<int> {
 	}
 
+	[TestFixture]
+	public class SingleMathTests : MathContract<float> {
+	}
+
 	//
 	// To implement Math<T> support for a new type, you obviously need a type.
 	// We also require the ability to create instances of that type from an int.

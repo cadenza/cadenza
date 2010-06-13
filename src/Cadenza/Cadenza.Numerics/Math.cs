@@ -83,6 +83,8 @@ namespace Cadenza.Numerics {
 				defaultProvider = (Math<T>) (object) new DoubleMath ();
 			else if (typeof (T) == typeof (int))
 				defaultProvider = (Math<T>) (object) new Int32Math ();
+			else if (typeof (T) == typeof (float))
+				defaultProvider = (Math<T>) (object) new SingleMath ();
 			else {
 				Assembly  a     = Assembly.Load ("Cadenza.Core");
 				Type      gem   = a.GetType ("Cadenza.Numerics.ExpressionMath`1");
@@ -572,6 +574,77 @@ namespace Cadenza.Numerics {
 		public override double  Ceiling             (double value)        {return Math.Ceiling (value);}
 		public override double  Floor               (double value)        {return Math.Floor (value);}
 		public override double  IEEERemainder       (double x, double y)  {return Math.IEEERemainder (x, y);}
+	}
+
+	internal class SingleMath : Math<float> {
+
+		static void NotZero (float value)
+		{
+			if (value == 0)
+				throw new ArgumentException ("Value must not be zero.", "value");
+		}
+
+		public override bool    IsUnsigned                                {get {return false;}}
+		public override bool    LessThan            (float x, float y)    {return x < y;}
+		public override bool    LessThanOrEqual     (float x, float y)    {return x <= y;}
+		public override bool    GreaterThan         (float x, float y)    {return x > y;}
+		public override bool    GreaterThanOrEqual  (float x, float y)    {return x >= y;}
+		public override float   Max                 (float x, float y)    {return Math.Max (x, y);}
+		public override float   Min                 (float x, float y)    {return Math.Min (x, y);}
+		public override float   Successor           (float value)         {return checked (value+1);}
+		public override float   Predecessor         (float value)         {return checked (value-1);}
+		public override float   FromInt32           (int value)           {return value;}
+		public override int     ToInt32             (float value)         {return (int) value;}
+		public override bool    HasBounds                                 {get {return true;}}
+		public override float   MinValue                                  {get {return float.MinValue;}}
+		public override float   MaxValue                                  {get {return float.MaxValue;}}
+		public override float   Add                 (float x, float y)    {return checked (x + y);}
+		public override float   Multiply            (float x, float y)    {return checked (x * y);}
+		public override float   Subtract            (float x, float y)    {return checked (x - y);}
+		public override float   Negate              (float value)         {return checked (-value);}
+		public override float   Abs                 (float value)         {return Math.Abs (value);}
+		public override float   Sign                (float value)         {return Math.Sign (value);}
+		public override float   FromIConvertible    (IConvertible value)  {Check.Value (value); return value.ToSingle (null);}
+		public override float   Quotient            (float x, float y)    {return (int) (x / y);}       // truncates toward 0
+		public override float   Remainder           (float x, float y)    {return x % y;}
+		public override float   DivideIntegral      (float x, float y)    {return (float) Math.Floor (x / y);}  // truncates toward -inf
+		public override float   Modulus             (float x, float y)    {return Math.Abs (x % y);}
+		public override float   QuotientRemainder   (float x, float y, out float remainder) {remainder = x % y; return (int) (x / y);}
+		public override float   DivideIntegralModulus (float x, float y, out float modulus) {modulus = Math.Abs (x % y); return DivideIntegral (x, y);}
+		public override IConvertible
+		                           ToIConvertible   (float value)         {return value;}
+		public override float   Divide              (float x, float y)    {return x / y;}
+		public override float   Reciprocal          (float value)         {NotZero (value); return 1.0f / value;}
+		public override float   Pi                                        {get {return (float) Math.PI;}}
+		public override float   E                                         {get {return (float) Math.E;}}
+		public override float   Exp (float value)                         {return (float) Math.Exp (value);}
+		public override float   Sqrt (float value)                        {return (float) Math.Sqrt (value);}
+		public override float   Log (float value)                         {return (float) Math.Log (value);}
+		public override float   Pow (float value, float exp)              {return (float) Math.Pow (value, exp);}
+		public override float   Log (float value, float newBase)          {return (float) Math.Log (value, newBase);}
+		public override float   Sin (float value)                         {return (float) Math.Sin (value);}
+		public override float   Tan (float value)                         {return (float) Math.Tan (value);}
+		public override float   Cos (float value)                         {return (float) Math.Cos (value);}
+		public override float   Asin (float value)                        {return (float) Math.Asin (value);}
+		public override float   Atan (float value)                        {return (float) Math.Atan (value);}
+		public override float   Acos (float value)                        {return (float) Math.Acos (value);}
+		public override float   Sinh (float value)                        {return (float) Math.Sinh (value);}
+		public override float   Tanh (float value)                        {return (float) Math.Tanh (value);}
+		public override float   Cosh (float value)                        {return (float) Math.Cosh (value);}
+		public override bool    IsIntegral                                {get {return false;}}
+		public override int     FloatRadix          (float value)         {return 2;}
+		public override int     FloatDigits         (float value)         {return 24;}
+		public override Tuple<int, int>
+		                        FloatRange          (float value)         {return Tuple.Create (-126, 127);}  // TODO: valid?
+		public override bool    IsNaN               (float value)         {return float.IsNaN (value);}
+		public override bool    IsInfinite          (float value)         {return float.IsInfinity (value);}
+		public override bool    IsIEEE              (float value)         {return true;}
+		public override float   Atan2               (float y, float x)    {return (float) Math.Atan2 (y, x);}
+		public override float   Truncate            (float value)         {return (float) Math.Truncate (value);}
+		public override float   Round               (float value)         {return (float) Math.Round (value);}
+		public override float   Ceiling             (float value)         {return (float) Math.Ceiling (value);}
+		public override float   Floor               (float value)         {return (float) Math.Floor (value);}
+		public override float   IEEERemainder       (float x, float y)    {return (float) Math.IEEERemainder (x, y);}
 	}
 
 	internal class Int32Math : Math<int> {
