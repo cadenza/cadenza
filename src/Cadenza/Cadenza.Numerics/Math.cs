@@ -577,22 +577,22 @@ namespace Cadenza.Numerics {
 		                        ToIConvertible   (decimal value)            {return value;}
 		public override decimal Divide              (decimal x, decimal y)  {return x / y;}
 		public override decimal Reciprocal          (decimal value)         {NotZero (value); return 1.0m / value;}
-		public override decimal Pi                                          {get {return (decimal) Math.PI;}}
-		public override decimal E                                           {get {return (decimal) Math.E;}}
-		public override decimal Exp (decimal value)                         {return (decimal) Math.Exp (decimal.ToDouble (value));}
-		public override decimal Sqrt (decimal value)                        {return (decimal) Math.Sqrt (decimal.ToDouble (value));}
-		public override decimal Log (decimal value)                         {return (decimal) Math.Log (decimal.ToDouble (value));}
-		public override decimal Pow (decimal value, decimal exp)            {return (decimal) Math.Pow (decimal.ToDouble (value), decimal.ToDouble (exp));}
-		public override decimal Log (decimal value, decimal newBase)        {return (decimal) Math.Log (decimal.ToDouble (value), decimal.ToDouble (newBase));}
-		public override decimal Sin (decimal value)                         {return (decimal) Math.Sin (decimal.ToDouble (value));}
-		public override decimal Tan (decimal value)                         {return (decimal) Math.Tan (decimal.ToDouble (value));}
-		public override decimal Cos (decimal value)                         {return (decimal) Math.Cos (decimal.ToDouble (value));}
-		public override decimal Asin (decimal value)                        {return (decimal) Math.Asin (decimal.ToDouble (value));}
-		public override decimal Atan (decimal value)                        {return (decimal) Math.Atan (decimal.ToDouble (value));}
-		public override decimal Acos (decimal value)                        {return (decimal) Math.Acos (decimal.ToDouble (value));}
-		public override decimal Sinh (decimal value)                        {return (decimal) Math.Sinh (decimal.ToDouble (value));}
-		public override decimal Tanh (decimal value)                        {return (decimal) Math.Tanh (decimal.ToDouble (value));}
-		public override decimal Cosh (decimal value)                        {return (decimal) Math.Cosh (decimal.ToDouble (value));}
+		public override decimal Pi                                          {get {return new decimal (Math.PI);}}
+		public override decimal E                                           {get {return new decimal (Math.E);}}
+		public override decimal Exp (decimal value)                         {return new decimal (Math.Exp (decimal.ToDouble (value)));}
+		public override decimal Sqrt (decimal value)                        {return new decimal (Math.Sqrt (decimal.ToDouble (value)));}
+		public override decimal Log (decimal value)                         {return new decimal (Math.Log (decimal.ToDouble (value)));}
+		public override decimal Pow (decimal value, decimal exp)            {return new decimal (Math.Pow (decimal.ToDouble (value), decimal.ToDouble (exp)));}
+		public override decimal Log (decimal value, decimal newBase)        {return new decimal (Math.Log (decimal.ToDouble (value), decimal.ToDouble (newBase)));}
+		public override decimal Sin (decimal value)                         {return new decimal (Math.Sin (decimal.ToDouble (value)));}
+		public override decimal Tan (decimal value)                         {return new decimal (Math.Tan (decimal.ToDouble (value)));}
+		public override decimal Cos (decimal value)                         {return new decimal (Math.Cos (decimal.ToDouble (value)));}
+		public override decimal Asin (decimal value)                        {return new decimal (Math.Asin (decimal.ToDouble (value)));}
+		public override decimal Atan (decimal value)                        {return new decimal (Math.Atan (decimal.ToDouble (value)));}
+		public override decimal Acos (decimal value)                        {return new decimal (Math.Acos (decimal.ToDouble (value)));}
+		public override decimal Sinh (decimal value)                        {return new decimal (Math.Sinh (decimal.ToDouble (value)));}
+		public override decimal Tanh (decimal value)                        {return new decimal (Math.Tanh (decimal.ToDouble (value)));}
+		public override decimal Cosh (decimal value)                        {return new decimal (Math.Cosh (decimal.ToDouble (value)));}
 		public override int     FloatRadix          (decimal value)         {return 10;}
 		public override int     FloatDigits         (decimal value)         {return 96;}
 		public override Tuple<int, int>
