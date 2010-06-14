@@ -475,63 +475,51 @@
       </Docs>
     </Member>
     <Member MemberName="FloatDigits">
-      <MemberSignature Language="C#" Value="public virtual int FloatDigits (T value);" />
-      <MemberType>Method</MemberType>
+      <MemberSignature Language="C#" Value="public virtual int FloatDigits { get; }" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="value" Type="T" />
-      </Parameters>
       <Docs>
-        <param name="value">To be added.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.FloatDigits(`0)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.get_FloatDigits" /></exception>
       </Docs>
     </Member>
     <Member MemberName="FloatRadix">
-      <MemberSignature Language="C#" Value="public virtual int FloatRadix (T value);" />
-      <MemberType>Method</MemberType>
+      <MemberSignature Language="C#" Value="public virtual int FloatRadix { get; }" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="value" Type="T" />
-      </Parameters>
       <Docs>
-        <param name="value">To be added.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.FloatRadix(`0)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.get_FloatRadix" /></exception>
       </Docs>
     </Member>
     <Member MemberName="FloatRange">
-      <MemberSignature Language="C#" Value="public virtual Cadenza.Tuple&lt;int,int&gt; FloatRange (T value);" />
-      <MemberType>Method</MemberType>
+      <MemberSignature Language="C#" Value="public virtual Cadenza.Tuple&lt;int,int&gt; FloatRange { get; }" />
+      <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Cadenza.Tuple&lt;System.Int32,System.Int32&gt;</ReturnType>
       </ReturnValue>
-      <Parameters>
-        <Parameter Name="value" Type="T" />
-      </Parameters>
       <Docs>
-        <param name="value">To be added.</param>
         <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
-        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.FloatRange(`0)" /></exception>
+        <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.get_FloatRange" /></exception>
       </Docs>
     </Member>
     <Member MemberName="Floor">

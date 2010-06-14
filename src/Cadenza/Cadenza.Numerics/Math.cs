@@ -456,19 +456,22 @@ namespace Cadenza.Numerics {
 		#endregion classFloating a
 
 		#region class (Real a, Fractional a) => RealFrac a where
-		public virtual int FloatRadix (T value)
-		{
-			throw new NotSupportedException ();
+		public virtual int FloatRadix {
+			get {
+				throw new NotSupportedException ();
+			}
 		}
 
-		public virtual int FloatDigits (T value)
-		{
-			throw new NotSupportedException ();
+		public virtual int FloatDigits {
+			get {
+				throw new NotSupportedException ();
+			}
 		}
 
-		public virtual Tuple<int, int> FloatRange (T value)
-		{
-			throw new NotSupportedException ();
+		public virtual Tuple<int, int> FloatRange {
+			get {
+				throw new NotSupportedException ();
+			}
 		}
 
 		// skip: decodeFloat, encodeFloat, exponent, significand, scaleFloat
@@ -593,10 +596,10 @@ namespace Cadenza.Numerics {
 		public override decimal Sinh (decimal value)                        {return new decimal (Math.Sinh (decimal.ToDouble (value)));}
 		public override decimal Tanh (decimal value)                        {return new decimal (Math.Tanh (decimal.ToDouble (value)));}
 		public override decimal Cosh (decimal value)                        {return new decimal (Math.Cosh (decimal.ToDouble (value)));}
-		public override int     FloatRadix          (decimal value)         {return 10;}
-		public override int     FloatDigits         (decimal value)         {return 96;}
+		public override int     FloatRadix                                  {get {return 10;}}
+		public override int     FloatDigits                                 {get {return 96;}}
 		public override Tuple<int, int>
-		                        FloatRange          (decimal value)         {throw new InvalidOperationException ("No idea what to do w/ decimal.");}	// TODO
+		                        FloatRange                                  {get {throw new InvalidOperationException ("No idea what to do w/ decimal.");}}	// TODO
 		public override bool    IsNaN               (decimal value)         {return false;}
 		public override bool    IsInfinite          (decimal value)         {return false;}
 		public override bool    IsIEEE              (decimal value)         {return false;}
@@ -666,10 +669,10 @@ namespace Cadenza.Numerics {
 		public override double  Sinh (double value)                       {return Math.Sinh (value);}
 		public override double  Tanh (double value)                       {return Math.Tanh (value);}
 		public override double  Cosh (double value)                       {return Math.Cosh (value);}
-		public override int     FloatRadix          (double value)        {return 2;}
-		public override int     FloatDigits         (double value)        {return 53;}
+		public override int     FloatRadix                                {get {return 2;}}
+		public override int     FloatDigits                               {get {return 53;}}
 		public override Tuple<int, int>
-		                           FloatRange       (double value)        {return Tuple.Create (-1022, 1023);}  // TODO: valid?
+		                        FloatRange                                {get {return Tuple.Create (-1022, 1023);}}  // TODO: valid?
 		public override bool    IsNaN               (double value)        {return double.IsNaN (value);}
 		public override bool    IsInfinite          (double value)        {return double.IsInfinity (value);}
 		public override bool    IsIEEE              (double value)        {return true;}
@@ -739,10 +742,10 @@ namespace Cadenza.Numerics {
 		public override float   Sinh (float value)                        {return (float) Math.Sinh (value);}
 		public override float   Tanh (float value)                        {return (float) Math.Tanh (value);}
 		public override float   Cosh (float value)                        {return (float) Math.Cosh (value);}
-		public override int     FloatRadix          (float value)         {return 2;}
-		public override int     FloatDigits         (float value)         {return 24;}
+		public override int     FloatRadix                                {get {return 2;}}
+		public override int     FloatDigits                               {get {return 24;}}
 		public override Tuple<int, int>
-		                        FloatRange          (float value)         {return Tuple.Create (-126, 127);}  // TODO: valid?
+		                        FloatRange                                {get {return Tuple.Create (-126, 127);}}  // TODO: valid?
 		public override bool    IsNaN               (float value)         {return float.IsNaN (value);}
 		public override bool    IsInfinite          (float value)         {return float.IsInfinity (value);}
 		public override bool    IsIEEE              (float value)         {return true;}
