@@ -39,36 +39,36 @@ namespace Cadenza.Numerics {
 	// from: http://www.yoda.arachsys.com/csharp/genericoperators.html
 	public class ExpressionMath<T> : Math<T>
 	{
-		static readonly Func<T, T, T> add    = CreateBinaryExpression<T> ((a, b) => Expression.AddChecked (a, b));
-		static readonly Func<T, T, T> sub    = CreateBinaryExpression<T> ((a, b) =>Expression.SubtractChecked (a, b));
-		static readonly Func<T, T, T> divide = CreateBinaryExpression<T> ((a, b) => Expression.Divide (a, b));
-		static readonly Func<T, T, T> mod    = CreateBinaryExpression<T> ((a, b) => Expression.Modulo (a, b));
-		static readonly Func<T, T, T> mult   = CreateBinaryExpression<T> ((a, b) => Expression.MultiplyChecked (a, b));
-		static readonly Func<T, T, T> pow    = CreateBinaryExpression<T>((a, b) => Expression.Power (a, b));
-		static readonly Func<T, T> negate    = CreateUnaryExpression<T, T> (v => Expression.NegateChecked (v));
-		static readonly Func<T, T, bool> eq  = CreateBinaryExpression<bool> ((a, b) => Expression.Equal (a, b));
-		static readonly Func<T, T, bool> gt  = CreateBinaryExpression<bool> ((a, b) => Expression.GreaterThan (a, b));
-		static readonly Func<T, T, bool> gte = CreateBinaryExpression<bool> ((a, b) => Expression.GreaterThanOrEqual (a, b));
-		static readonly Func<T, T, bool> lt  = CreateBinaryExpression<bool> ((a, b) => Expression.LessThan (a, b));
-		static readonly Func<T, T, bool> lte = CreateBinaryExpression<bool> ((a, b) => Expression.LessThanOrEqual (a, b));
-		static readonly Func<T, int> toInt32 = CreateUnaryExpression<T, int> (v => Expression.Convert (v, typeof (int)));
-		static readonly Func<int, T> fromInt32 = CreateUnaryExpression<int, T> (v => Expression.Convert (v, typeof (T)));
+		readonly Func<T, T, T> add    = CreateBinaryExpression<T> ((a, b) => Expression.AddChecked (a, b));
+		readonly Func<T, T, T> sub    = CreateBinaryExpression<T> ((a, b) =>Expression.SubtractChecked (a, b));
+		readonly Func<T, T, T> divide = CreateBinaryExpression<T> ((a, b) => Expression.Divide (a, b));
+		readonly Func<T, T, T> mod    = CreateBinaryExpression<T> ((a, b) => Expression.Modulo (a, b));
+		readonly Func<T, T, T> mult   = CreateBinaryExpression<T> ((a, b) => Expression.MultiplyChecked (a, b));
+		readonly Func<T, T, T> pow    = CreateBinaryExpression<T>((a, b) => Expression.Power (a, b));
+		readonly Func<T, T> negate    = CreateUnaryExpression<T, T> (v => Expression.NegateChecked (v));
+		readonly Func<T, T, bool> eq  = CreateBinaryExpression<bool> ((a, b) => Expression.Equal (a, b));
+		readonly Func<T, T, bool> gt  = CreateBinaryExpression<bool> ((a, b) => Expression.GreaterThan (a, b));
+		readonly Func<T, T, bool> gte = CreateBinaryExpression<bool> ((a, b) => Expression.GreaterThanOrEqual (a, b));
+		readonly Func<T, T, bool> lt  = CreateBinaryExpression<bool> ((a, b) => Expression.LessThan (a, b));
+		readonly Func<T, T, bool> lte = CreateBinaryExpression<bool> ((a, b) => Expression.LessThanOrEqual (a, b));
+		readonly Func<T, int> toInt32 = CreateUnaryExpression<T, int> (v => Expression.Convert (v, typeof (int)));
+		readonly Func<int, T> fromInt32 = CreateUnaryExpression<int, T> (v => Expression.Convert (v, typeof (T)));
 
-		static readonly bool isFractional;
-		static readonly bool haveBounds;
-		static readonly T maxValue, minValue;
-		static readonly bool canBeInfinite;
-		static readonly T negInf, posInf;
-		static readonly bool twosComplement;
-		static readonly bool unsigned;
+		readonly bool isFractional;
+		readonly bool haveBounds;
+		readonly T maxValue, minValue;
+		readonly bool canBeInfinite;
+		readonly T negInf, posInf;
+		readonly bool twosComplement;
+		readonly bool unsigned;
 
-		static ExpressionMath ()
+		public ExpressionMath ()
 		{
 			if (divide != null) {
 				try {
-					T zero = _FromInt32 (0);
-					T one  = _FromInt32 (1);
-					T two  = _FromInt32 (2);
+					T zero = FromInt32 (0);
+					T one  = FromInt32 (1);
+					T two  = FromInt32 (2);
 
 					// (1/2) == 0.5; if 0.5 == 0, then it's an integral type
 					if (!EqualityComparer<T>.Default.Equals (zero, divide (one, two)))
@@ -92,14 +92,7 @@ namespace Cadenza.Numerics {
 					// ignore
 				}
 			}
-			unsigned = haveBounds && EqualityComparer<T>.Default.Equals (minValue, _FromInt32 (0));
-		}
-
-		static T _FromInt32 (int value)
-		{
-			if (fromInt32 !=  null)
-				return fromInt32 (value);
-			return Either.TryConvert<int, T>(value).Fold (v => v, e => {throw e;});
+			unsigned = haveBounds && EqualityComparer<T>.Default.Equals (minValue, FromInt32 (0));
 		}
 
 		static bool GetMemberValue (string name, out T value)
