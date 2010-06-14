@@ -111,6 +111,10 @@ namespace Cadenza.Numerics.Tests {
 	//
 
 	[TestFixture]
+	public class DecimalMathTests : MathContract<decimal> {
+	}
+
+	[TestFixture]
 	public class DoubleMathTests : MathContract<double> {
 	}
 

@@ -459,6 +459,21 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
+    <Member MemberName="Features">
+      <MemberSignature Language="C#" Value="public virtual Cadenza.Numerics.MathFeatures Features { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Numerics.MathFeatures</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="FloatDigits">
       <MemberSignature Language="C#" Value="public virtual int FloatDigits (T value);" />
       <MemberType>Method</MemberType>
@@ -681,6 +696,36 @@
         <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.IEEERemainder(`0,`0)" /></exception>
       </Docs>
     </Member>
+    <Member MemberName="IsFloatingPoint">
+      <MemberSignature Language="C#" Value="public virtual bool IsFloatingPoint { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="IsFractional">
+      <MemberSignature Language="C#" Value="public virtual bool IsFractional { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="IsIEEE">
       <MemberSignature Language="C#" Value="public virtual bool IsIEEE (T value);" />
       <MemberType>Method</MemberType>
@@ -721,21 +766,6 @@
         <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.IsInfinite(`0)" /></exception>
       </Docs>
     </Member>
-    <Member MemberName="IsIntegral">
-      <MemberSignature Language="C#" Value="public virtual bool IsIntegral { get; }" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Boolean</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="IsNaN">
       <MemberSignature Language="C#" Value="public virtual bool IsNaN (T value);" />
       <MemberType>Method</MemberType>
@@ -754,6 +784,21 @@
         <returns>To be added.</returns>
         <remarks>To be added.</remarks>
         <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.IsNaN(`0)" /></exception>
+      </Docs>
+    </Member>
+    <Member MemberName="IsTwosComplement">
+      <MemberSignature Language="C#" Value="public virtual bool IsTwosComplement { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
       </Docs>
     </Member>
     <Member MemberName="IsUnsigned">

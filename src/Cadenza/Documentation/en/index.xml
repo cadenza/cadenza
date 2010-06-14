@@ -116,6 +116,7 @@
     </Namespace>
     <Namespace Name="Cadenza.Numerics">
       <Type Name="Math`1" DisplayName="Math&lt;T&gt;" Kind="Class" />
+      <Type Name="MathFeatures" Kind="Enumeration" />
     </Namespace>
     <Namespace Name="Cadenza.Reflection">
       <Type Name="CustomAttributeProviderCoda" Kind="Class" />

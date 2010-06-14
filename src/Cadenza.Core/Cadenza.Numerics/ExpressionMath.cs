@@ -258,8 +258,12 @@ namespace Cadenza.Numerics {
 			get {return minValue;}
 		}
 
-		public override bool IsIntegral {
-			get {return !isFractional;}
+		public override bool IsFractional {
+			get {return isFractional;}
+		}
+
+		public override bool IsFloatingPoint {
+			get {return canBeInfinite;}
 		}
 
 		public override bool IsInfinite (T value)

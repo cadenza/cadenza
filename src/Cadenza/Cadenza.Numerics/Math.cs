@@ -43,6 +43,16 @@ namespace Cadenza.Numerics {
 	// TODO: support Rational?
 	// TODO: how should we support Integer?  it's a variable-sized integer type
 
+	[Flags]
+	public enum MathFeatures {
+		None            = 0,        // FxDG compliance
+		Bounded         = 1 << 0,   // has .MaxValue and .MinValue
+		Unsigned        = 1 << 1,   // unsigned type (i.e. not int, short, etc.)
+		TwosComplement  = 1 << 2,   // Has more negative values than positive values, e.g. int, NOT decimal
+		Fractional      = 1 << 3,   // decimal, float, double, BigDecimal?, Rational...
+		FloatingPoint   = 1 << 4,   // float, double; supports .PositiveInfinity, .IsNaN, etc.
+	}
+
 	public abstract partial class Math<T> : IComparer<T>, IEqualityComparer<T>
 	{
 		protected Math ()
@@ -78,8 +88,9 @@ namespace Cadenza.Numerics {
 				return;
 			}
 
-			// TODO: set defaultProvider...
-			if (typeof (T) == typeof (double))
+			if (typeof (T) == typeof (decimal))
+				defaultProvider = (Math<T>) (object) new DecimalMath ();
+			else if (typeof (T) == typeof (double))
 				defaultProvider = (Math<T>) (object) new DoubleMath ();
 			else if (typeof (T) == typeof (int))
 				defaultProvider = (Math<T>) (object) new Int32Math ();
@@ -103,6 +114,33 @@ namespace Cadenza.Numerics {
 			}
 		}
 
+		public virtual MathFeatures Features {
+			get {
+				return 
+					(HasBounds ? MathFeatures.Bounded : 0) |
+					(IsUnsigned ? MathFeatures.Unsigned : 0) |
+					(IsTwosComplement ? MathFeatures.TwosComplement : 0) |
+					(IsFractional ? MathFeatures.Fractional : 0) |
+					(IsFloatingPoint ? MathFeatures.FloatingPoint : 0);
+			}
+		}
+
+		public virtual bool IsUnsigned {
+			get {return false;}
+		}
+
+		public virtual bool IsTwosComplement {
+			get {return false;}
+		}
+
+		public virtual bool IsFractional {
+			get {return false;}
+		}
+
+		public virtual bool IsFloatingPoint {
+			get {return false;}
+		}
+
 		#region IComparer<T>
 		public virtual int Compare (T x, T y)
 		{
@@ -121,10 +159,6 @@ namespace Cadenza.Numerics {
 			return EqualityComparer<T>.Default.GetHashCode (obj);
 		}
 		#endregion
-
-		public virtual bool IsUnsigned {
-			get {return false;}
-		}
 
 		#region class Eq a => Ord a where
 		public virtual bool LessThan (T x, T y)
@@ -421,10 +455,6 @@ namespace Cadenza.Numerics {
 		}
 		#endregion classFloating a
 
-		public virtual bool IsIntegral {
-			get {return true;}
-		}
-
 		#region class (Real a, Fractional a) => RealFrac a where
 		public virtual int FloatRadix (T value)
 		{
@@ -505,6 +535,79 @@ namespace Cadenza.Numerics {
 		}
 	}
 
+	internal class DecimalMath : Math<decimal> {
+
+		static void NotZero (decimal value)
+		{
+			if (value == 0)
+				throw new ArgumentException ("Value must not be zero.", "value");
+		}
+
+		public override bool    IsUnsigned                                  {get {return false;}}
+		public override bool    IsTwosComplement                            {get {return false;}}
+		public override bool    IsFractional                                {get {return true;}}
+		public override bool    IsFloatingPoint                             {get {return false;}}
+		public override bool    LessThan            (decimal x, decimal y)  {return x < y;}
+		public override bool    LessThanOrEqual     (decimal x, decimal y)  {return x <= y;}
+		public override bool    GreaterThan         (decimal x, decimal y)  {return x > y;}
+		public override bool    GreaterThanOrEqual  (decimal x, decimal y)  {return x >= y;}
+		public override decimal Max                 (decimal x, decimal y)  {return Math.Max (x, y);}
+		public override decimal Min                 (decimal x, decimal y)  {return Math.Min (x, y);}
+		public override decimal Successor           (decimal value)         {return checked (value+1);}
+		public override decimal Predecessor         (decimal value)         {return checked (value-1);}
+		public override decimal FromInt32           (int value)             {return value;}
+		public override int     ToInt32             (decimal value)         {return (int) value;}
+		public override bool    HasBounds                                   {get {return true;}}
+		public override decimal MinValue                                    {get {return decimal.MinValue;}}
+		public override decimal MaxValue                                    {get {return decimal.MaxValue;}}
+		public override decimal Add                 (decimal x, decimal y)  {return checked (x + y);}
+		public override decimal Multiply            (decimal x, decimal y)  {return checked (x * y);}
+		public override decimal Subtract            (decimal x, decimal y)  {return checked (x - y);}
+		public override decimal Negate              (decimal value)         {return checked (-value);}
+		public override decimal Abs                 (decimal value)         {return Math.Abs (value);}
+		public override decimal Sign                (decimal value)         {return Math.Sign (value);}
+		public override decimal FromIConvertible    (IConvertible value)    {Check.Value (value); return value.ToDecimal (null);}
+		public override decimal Quotient            (decimal x, decimal y)  {return (int) (x / y);}       // truncates toward 0
+		public override decimal Remainder           (decimal x, decimal y)  {return x % y;}
+		public override decimal DivideIntegral      (decimal x, decimal y)  {return Math.Floor (x / y);}  // truncates toward -inf
+		public override decimal Modulus             (decimal x, decimal y)  {return Math.Abs (x % y);}
+		public override decimal QuotientRemainder   (decimal x, decimal y, out decimal remainder) {remainder = x % y; return (int) (x / y);}
+		public override decimal DivideIntegralModulus (decimal x, decimal y, out decimal modulus) {modulus = Math.Abs (x % y); return DivideIntegral (x, y);}
+		public override IConvertible
+		                        ToIConvertible   (decimal value)            {return value;}
+		public override decimal Divide              (decimal x, decimal y)  {return x / y;}
+		public override decimal Reciprocal          (decimal value)         {NotZero (value); return 1.0m / value;}
+		public override decimal Pi                                          {get {return (decimal) Math.PI;}}
+		public override decimal E                                           {get {return (decimal) Math.E;}}
+		public override decimal Exp (decimal value)                         {return (decimal) Math.Exp (decimal.ToDouble (value));}
+		public override decimal Sqrt (decimal value)                        {return (decimal) Math.Sqrt (decimal.ToDouble (value));}
+		public override decimal Log (decimal value)                         {return (decimal) Math.Log (decimal.ToDouble (value));}
+		public override decimal Pow (decimal value, decimal exp)            {return (decimal) Math.Pow (decimal.ToDouble (value), decimal.ToDouble (exp));}
+		public override decimal Log (decimal value, decimal newBase)        {return (decimal) Math.Log (decimal.ToDouble (value), decimal.ToDouble (newBase));}
+		public override decimal Sin (decimal value)                         {return (decimal) Math.Sin (decimal.ToDouble (value));}
+		public override decimal Tan (decimal value)                         {return (decimal) Math.Tan (decimal.ToDouble (value));}
+		public override decimal Cos (decimal value)                         {return (decimal) Math.Cos (decimal.ToDouble (value));}
+		public override decimal Asin (decimal value)                        {return (decimal) Math.Asin (decimal.ToDouble (value));}
+		public override decimal Atan (decimal value)                        {return (decimal) Math.Atan (decimal.ToDouble (value));}
+		public override decimal Acos (decimal value)                        {return (decimal) Math.Acos (decimal.ToDouble (value));}
+		public override decimal Sinh (decimal value)                        {return (decimal) Math.Sinh (decimal.ToDouble (value));}
+		public override decimal Tanh (decimal value)                        {return (decimal) Math.Tanh (decimal.ToDouble (value));}
+		public override decimal Cosh (decimal value)                        {return (decimal) Math.Cosh (decimal.ToDouble (value));}
+		public override int     FloatRadix          (decimal value)         {return 10;}
+		public override int     FloatDigits         (decimal value)         {return 96;}
+		public override Tuple<int, int>
+		                        FloatRange          (decimal value)         {throw new InvalidOperationException ("No idea what to do w/ decimal.");}	// TODO
+		public override bool    IsNaN               (decimal value)         {return false;}
+		public override bool    IsInfinite          (decimal value)         {return false;}
+		public override bool    IsIEEE              (decimal value)         {return false;}
+		public override decimal Atan2               (decimal y, decimal x)  {return (decimal) Math.Atan2 (decimal.ToDouble (y), decimal.ToDouble (x));}
+		public override decimal Truncate            (decimal value)         {return Math.Truncate (value);}
+		public override decimal Round               (decimal value)         {return Math.Round (value);}
+		public override decimal Ceiling             (decimal value)         {return Math.Ceiling (value);}
+		public override decimal Floor               (decimal value)         {return Math.Floor (value);}
+		public override decimal IEEERemainder       (decimal x, decimal y)  {return (decimal) Math.IEEERemainder (decimal.ToDouble (x), decimal.ToDouble (y));}
+	}
+
 	internal class DoubleMath : Math<double> {
 
 		static void NotZero (double value)
@@ -514,6 +617,9 @@ namespace Cadenza.Numerics {
 		}
 
 		public override bool    IsUnsigned                                {get {return false;}}
+		public override bool    IsTwosComplement                          {get {return false;}}
+		public override bool    IsFractional                              {get {return true;}}
+		public override bool    IsFloatingPoint                           {get {return true;}}
 		public override bool    LessThan            (double x, double y)  {return x < y;}
 		public override bool    LessThanOrEqual     (double x, double y)  {return x <= y;}
 		public override bool    GreaterThan         (double x, double y)  {return x > y;}
@@ -560,7 +666,6 @@ namespace Cadenza.Numerics {
 		public override double  Sinh (double value)                       {return Math.Sinh (value);}
 		public override double  Tanh (double value)                       {return Math.Tanh (value);}
 		public override double  Cosh (double value)                       {return Math.Cosh (value);}
-		public override bool    IsIntegral                                {get {return false;}}
 		public override int     FloatRadix          (double value)        {return 2;}
 		public override int     FloatDigits         (double value)        {return 53;}
 		public override Tuple<int, int>
@@ -585,6 +690,9 @@ namespace Cadenza.Numerics {
 		}
 
 		public override bool    IsUnsigned                                {get {return false;}}
+		public override bool    IsTwosComplement                          {get {return false;}}
+		public override bool    IsFractional                              {get {return true;}}
+		public override bool    IsFloatingPoint                           {get {return true;}}
 		public override bool    LessThan            (float x, float y)    {return x < y;}
 		public override bool    LessThanOrEqual     (float x, float y)    {return x <= y;}
 		public override bool    GreaterThan         (float x, float y)    {return x > y;}
@@ -631,7 +739,6 @@ namespace Cadenza.Numerics {
 		public override float   Sinh (float value)                        {return (float) Math.Sinh (value);}
 		public override float   Tanh (float value)                        {return (float) Math.Tanh (value);}
 		public override float   Cosh (float value)                        {return (float) Math.Cosh (value);}
-		public override bool    IsIntegral                                {get {return false;}}
 		public override int     FloatRadix          (float value)         {return 2;}
 		public override int     FloatDigits         (float value)         {return 24;}
 		public override Tuple<int, int>
@@ -656,6 +763,9 @@ namespace Cadenza.Numerics {
 		}
 
 		public override bool  IsUnsigned                          {get {return false;}}
+		public override bool  IsTwosComplement                    {get {return true;}}
+		public override bool  IsFractional                        {get {return false;}}
+		public override bool  IsFloatingPoint                     {get {return false;}}
 		public override bool  LessThan            (int x, int y)  {return x < y;}
 		public override bool  LessThanOrEqual     (int x, int y)  {return x <= y;}
 		public override bool  GreaterThan         (int x, int y)  {return x > y;}
@@ -684,6 +794,5 @@ namespace Cadenza.Numerics {
 		public override int   DivideIntegralModulus (int x, int y, out int modulus) {modulus = Math.Abs (x % y); return DivideIntegral (x, y);}
 		public override int   Divide              (int x, int y)  {return x / y;}
 		public override int   Reciprocal          (int value)     {NotZero (value); return 0;}
-		public override bool  IsIntegral                          {get {return true;}}
 	}
 }
