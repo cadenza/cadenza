@@ -49,6 +49,7 @@ namespace Cadenza.Numerics.Tests {
 		public void Default_DoesNotThrowsWithUnsupportedTypes ()
 		{
 			Math<string> m = Math<string>.Default;
+			Ignore (m);
 		}
 
 		// Math<T>.Default uses ExpressionMath<T> as a fallback, which is in Cadenza.Core.
@@ -74,7 +75,7 @@ namespace Cadenza.Numerics.Tests {
 			try {
 				var t = assemblies [1].GetType (typeof (MathTests).FullName, true);
 				var m = t.GetMethod ("GetStringMathOps", BindingFlags.NonPublic | BindingFlags.Static);
-				var c = (CrossAppDomainDelegate) Delegate.CreateDelegate (t, m);
+				var c = (CrossAppDomainDelegate) Delegate.CreateDelegate (typeof (CrossAppDomainDelegate), m);
 				d.DoCallBack (c);
 			}
 			finally {
@@ -85,6 +86,7 @@ namespace Cadenza.Numerics.Tests {
 		static void GetStringMathOps ()
 		{
 			var m = Math<string>.Default;
+			Ignore (m);
 		}
 
 		[Test]
