@@ -72,7 +72,7 @@ namespace Cadenza.Numerics.Tests {
 				}
 			}
 			try {
-				var t = assemblies [1].GetType ("Cadenza.Numeric.Tests.MathTests", true);
+				var t = assemblies [1].GetType (typeof (MathTests).FullName, true);
 				var m = t.GetMethod ("GetStringMathOps", BindingFlags.NonPublic | BindingFlags.Static);
 				var c = (CrossAppDomainDelegate) Delegate.CreateDelegate (t, m);
 				d.DoCallBack (c);
