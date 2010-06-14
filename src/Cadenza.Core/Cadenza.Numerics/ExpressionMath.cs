@@ -59,6 +59,8 @@ namespace Cadenza.Numerics {
 		static readonly T maxValue, minValue;
 		static readonly bool canBeInfinite;
 		static readonly T negInf, posInf;
+		static readonly bool twosComplement;
+		static readonly bool unsigned;
 
 		static ExpressionMath ()
 		{
@@ -79,6 +81,18 @@ namespace Cadenza.Numerics {
 
 			haveBounds = GetMemberValue ("MaxValue", out maxValue) && GetMemberValue ("MinValue", out minValue);
 			canBeInfinite = GetMemberValue ("NegativeInfinity", out negInf) && GetMemberValue ("PositiveInfinity", out posInf);
+			if (negate != null && haveBounds) {
+				try {
+					negate (minValue);
+				}
+				catch (OverflowException) {
+					twosComplement = true;
+				}
+				catch (Exception) {
+					// ignore
+				}
+			}
+			unsigned = haveBounds && EqualityComparer<T>.Default.Equals (minValue, _FromInt32 (0));
 		}
 
 		static T _FromInt32 (int value)
@@ -143,6 +157,22 @@ namespace Cadenza.Numerics {
 				// operation not supported.
 				return null;
 			}
+		}
+
+		public override bool IsUnsigned {
+			get {return unsigned;}
+		}
+
+		public override bool IsTwosComplement {
+			get {return twosComplement;}
+		}
+
+		public override bool IsFractional {
+			get {return isFractional;}
+		}
+
+		public override bool IsFloatingPoint {
+			get {return canBeInfinite;}
 		}
 
 		public override T FromInt32 (int value)
@@ -256,14 +286,6 @@ namespace Cadenza.Numerics {
 
 		public override T MinValue {
 			get {return minValue;}
-		}
-
-		public override bool IsFractional {
-			get {return isFractional;}
-		}
-
-		public override bool IsFloatingPoint {
-			get {return canBeInfinite;}
 		}
 
 		public override bool IsInfinite (T value)
