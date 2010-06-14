@@ -55,38 +55,44 @@ namespace Cadenza.Numerics.Tests {
 		// Math<T>.Default uses ExpressionMath<T> as a fallback, which is in Cadenza.Core.
 		// If Cadenza.Core can't be found (e.g. MonoTouch, bad packaging), then
 		// Math<T>.Default should throw a NotSupportedException.
-		[Test, ExpectedException (typeof (NotSupportedException))]
+		[Test]
 		public void Default_ThrowsIfCadenzaCoreCannotBeFound ()
 		{
-			var ads = new AppDomainSetup () {
-				ApplicationBase = Path.GetDirectoryName (typeof (Math<>).Assembly.Location),
-				DisallowApplicationBaseProbing = true,
-			};
-			AppDomain d = AppDomain.CreateDomain ("Test Math<string>.Default", null, ads);
-			Assembly[] assemblies =new Assembly [2];
-			int i = 0;
-			foreach (var type in new[]{typeof (Math<>), typeof (MathTests)}) {
-				using (var f = File.OpenRead (type.Assembly.Location)) {
-					byte[] lib = new byte [f.Length];
-					f.Read (lib, 0, lib.Length);
-					assemblies [i++] = d.Load (lib);
+			try {
+				var ads = new AppDomainSetup () {
+					ApplicationBase = Path.GetDirectoryName (typeof (Math<>).Assembly.Location),
+					DisallowApplicationBaseProbing = true,
+				};
+				AppDomain d = AppDomain.CreateDomain ("Test Math<string>.Default", null, ads);
+				Assembly[] assemblies = new[]{typeof (Math<>), typeof (MathTests)}.Select (type => {
+					using (var f = File.OpenRead (type.Assembly.Location)) {
+						byte[] lib = new byte [f.Length];
+						f.Read (lib, 0, lib.Length);
+						return d.Load (lib);
+					}
+				}).ToArray ();
+				try {
+					var r = (GetStringMathOpsRunner) assemblies [1].CreateInstance (typeof (GetStringMathOpsRunner).FullName);
+					r.Run ();
+				}
+				finally {
+					AppDomain.Unload (d);
 				}
 			}
-			try {
-				var t = assemblies [1].GetType (typeof (MathTests).FullName, true);
-				var m = t.GetMethod ("GetStringMathOps", BindingFlags.NonPublic | BindingFlags.Static);
-				var c = (CrossAppDomainDelegate) Delegate.CreateDelegate (typeof (CrossAppDomainDelegate), m);
-				d.DoCallBack (c);
+			catch (NotSupportedException) {
+				// success!
 			}
-			finally {
-				AppDomain.Unload (d);
+			catch (Exception e) {
+				Assert.Fail ("Generated exception: " + e);
 			}
 		}
 
-		static void GetStringMathOps ()
-		{
-			var m = Math<string>.Default;
-			Ignore (m);
+		class GetStringMathOpsRunner : MarshalByRefObject {
+			public void Run ()
+			{
+				var m = Math<string>.Default;
+				Ignore (m);
+			}
 		}
 
 		[Test]
