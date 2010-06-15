@@ -679,17 +679,6 @@ namespace Cadenza.Numerics.Tests {
 				catch (OverflowException) {
 					Assert.IsFalse (m.IsFloatingPoint);
 				}
-				catch (NotSupportedException e) {
-					// NotSupportedException might be wrapping an OverflowException.
-					var ie = e.InnerException;
-					while (ie != null) {
-						if (ie.GetType () == typeof (OverflowException))
-							break;
-						ie = ie.InnerException;
-					}
-					if (ie == null)
-						throw;
-				}
 			});
 
 
