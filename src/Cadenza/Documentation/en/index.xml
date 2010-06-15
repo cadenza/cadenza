@@ -90,6 +90,7 @@
       <Type Name="DictionaryCoda" Kind="Class" />
       <Type Name="EnumerableCoda" Kind="Class" />
       <Type Name="KeyValuePairCoda" Kind="Class" />
+      <Type Name="LambdaComparer`1" DisplayName="LambdaComparer&lt;T&gt;" Kind="Class" />
       <Type Name="LinkedListCoda" Kind="Class" />
       <Type Name="ListCoda" Kind="Class" />
       <Type Name="MutableLookup`2" DisplayName="MutableLookup&lt;TKey,TElement&gt;" Kind="Class" />
@@ -3285,6 +3286,184 @@
           <summary>To be added.</summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Intersperse``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}},System.Collections.Generic.IEnumerable{``0})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
+      <Member MemberName="MaxBy&lt;TSource,TValue&gt;">
+        <MemberSignature Language="C#" Value="public static TSource MaxBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TSource</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TValue" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="selector" Type="System.Func&lt;TSource,TValue&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+          <typeparam name="TValue">
+          The type of the value returned by <paramref name="selector" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing elements to find the maximum value from.
+        </param>
+          <param name="selector">
+          A <see cref="T:System.Func{TSource, TValue}" /> used to produce a
+          value for comparison.
+        </param>
+          <summary>
+          Gets the max element of <paramref name="self" />, based on the result 
+          of using the default comparer on the result of 
+          <paramref name="selector" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
+      <Member MemberName="MaxBy&lt;TSource,TValue&gt;">
+        <MemberSignature Language="C#" Value="public static TSource MaxBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector, System.Collections.Generic.IComparer&lt;TValue&gt; comparer);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TSource</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TValue" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="selector" Type="System.Func&lt;TSource,TValue&gt;" />
+          <Parameter Name="comparer" Type="System.Collections.Generic.IComparer&lt;TValue&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+          <typeparam name="TValue">
+          The type of the value returned by <paramref name="selector" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing elements to find the maximum value from.
+        </param>
+          <param name="selector">
+          A <see cref="T:System.Func{TSource, TValue}" /> used to produce a
+          value for comparison.
+        </param>
+          <param name="comparer">
+          A <see cref="T:System.Collections.Generic.IComparer{TValue}" />
+          to use to compare values to determine the maximum value.
+        </param>
+          <summary>
+          Gets the max element of <paramref name="self" />, based on the result 
+          of using the specified <paramref name="comparer" /> on the result of 
+          <paramref name="selector" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
+      <Member MemberName="MinBy&lt;TSource,TValue&gt;">
+        <MemberSignature Language="C#" Value="public static TSource MinBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TSource</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TValue" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="selector" Type="System.Func&lt;TSource,TValue&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+          <typeparam name="TValue">
+          The type of the value returned by <paramref name="selector" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing elements to find the minimum value from.
+        </param>
+          <param name="selector">
+          A <see cref="T:System.Func{TSource, TValue}" /> used to produce a
+          value for comparison.
+        </param>
+          <summary>
+          Gets the min element of <paramref name="self" />, based on the result 
+          of using the default comparer on the result of 
+          <paramref name="selector" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:System.Collections.Generic.IEnumerable`1" />
+      </Targets>
+      <Member MemberName="MinBy&lt;TSource,TValue&gt;">
+        <MemberSignature Language="C#" Value="public static TSource MinBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector, System.Collections.Generic.IComparer&lt;TValue&gt; comparer);" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>TSource</ReturnType>
+        </ReturnValue>
+        <TypeParameters>
+          <TypeParameter Name="TSource" />
+          <TypeParameter Name="TValue" />
+        </TypeParameters>
+        <Parameters>
+          <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+          <Parameter Name="selector" Type="System.Func&lt;TSource,TValue&gt;" />
+          <Parameter Name="comparer" Type="System.Collections.Generic.IComparer&lt;TValue&gt;" />
+        </Parameters>
+        <Docs>
+          <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+          <typeparam name="TValue">
+          The type of the value returned by <paramref name="selector" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing elements to find the minimum value from.
+        </param>
+          <param name="selector">
+          A <see cref="T:System.Func{TSource, TValue}" /> used to produce a
+          value for comparison.
+        </param>
+          <param name="comparer">
+          A <see cref="T:System.Collections.Generic.IComparer{TValue}" />
+          to use to compare values to determine the minimum value.
+        </param>
+          <summary>
+          Gets the min element of <paramref name="self" />, based on the result 
+          of using the specified <paramref name="comparer" /> on the result of 
+          <paramref name="selector" />.
+        </summary>
+        </Docs>
+        <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>

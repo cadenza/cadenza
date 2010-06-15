@@ -7,8 +7,10 @@
 //   Distilled Brilliance <contact@dispatcher.distilledb.com>
 //   Eric Maupin <me@ermau.com>
 //   Chris Howie <cdhowie@gmail.com>
+//   Rik Hemsley <rik@rikkus.info>
 //
 // Copyright (c) 2007-2010 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2010 Rik Hemsley
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -1518,6 +1520,98 @@ namespace Cadenza.Collections {
 						yield return combined;
 				}
 			}
+		}
+
+		/// <summary>
+		/// Gets the min element of <paramref name="source"/>, based on the result of using
+		/// the default comparer on the result of <paramref name="valueFunc"/>.
+		/// </summary>
+		/// <param name="source">The input sequence.</param>
+		/// <param name="valueFunc">Used to produce a value for comparison.</param>
+		/// <returns>The min element of <paramref name="source"/>.</returns>
+		/// <example>
+		/// Given an IEnumerable of Pig, where a Pig has attributes Name and Size:
+		/// var smallestPig = pigs.MaxBy(pig => pig.Size);
+		/// </example>
+		/// <exception cref="InvalidOperationException"><paramref name="source"/> contained no elements.</exception>
+		public static TSource MinBy<TSource, TValue>(this IEnumerable<TSource > self, Func<TSource, TValue> selector)
+		{
+			return MinBy (self, selector, null);
+		}
+
+		/// <summary>
+		/// Gets the min element of <paramref name="source"/>, based on the result of using
+		/// <paramref name="comparer"/> on the result of <paramref name="valueFunc"/>.
+		/// </summary>
+		/// <param name="source">The input sequence.</param>
+		/// <param name="valueFunc">Used to produce a value for comparison.</param>
+		/// <param name="comparer">Used to compare values produced by valueFunc.</param>
+		/// <returns>The min element of <paramref name="source"/>.</returns>
+		/// <example>
+		/// Given an IEnumerable of Pig, where a Pig has attributes Name and Hue:
+		/// var leastPrettyPig = pigs.MaxBy(pig => pig.Hue, (hue1, hue2) => HueComparer.Compare(hue1, hue2));
+		/// </example>
+		/// <exception cref="InvalidOperationException"><paramref name="source"/> contained no elements.</exception>
+		public static TSource MinBy<TSource, TValue>(this IEnumerable<TSource> self, Func<TSource, TValue> selector, IComparer<TValue> comparer)
+		{
+			comparer = comparer ?? Comparer<TValue>.Default;
+			return MaxBy (self, selector, new LambdaComparer<TValue>((x, y) => comparer.Compare (y, x)));
+		}
+
+		/// <summary>
+		/// Gets the max element of <paramref name="source"/>, based on the result of using
+		/// the default comparer on the result of <paramref name="valueFunc"/>.
+		/// </summary>
+		/// <param name="source">The input sequence.</param>
+		/// <param name="valueFunc">Used to produce a value for comparison.</param>
+		/// <returns>The max element of <paramref name="source"/>.</returns>
+		/// <example>
+		/// Given an IEnumerable of Pig, where a Pig has attributes Name and Size:
+		/// var largestPig = pigs.MaxBy(pig => pig.Size);
+		/// </example>
+		/// <exception cref="InvalidOperationException"><paramref name="source"/> contained no elements.</exception>
+		public static TSource MaxBy<TSource, TValue>(this IEnumerable<TSource> self, Func<TSource, TValue> selector)
+		{
+			return MaxBy (self, selector, null);
+		}
+
+		/// <summary>
+		/// Gets the max element of <paramref name="source"/>, based on the result of using
+		/// <paramref name="comparer"/> on the result of <paramref name="valueFunc"/>.
+		/// </summary>
+		/// <param name="source">The input sequence.</param>
+		/// <param name="valueFunc">Used to produce a value for comparison.</param>
+		/// <param name="comparer">Used to compare values produced by valueFunc.</param>
+		/// <returns>The max element of <paramref name="source"/>.</returns>
+		/// <example>
+		/// Given an IEnumerable of Pig, where a Pig has attributes Name and Hue:
+		/// var prettiestPig = pigs.MaxBy(pig => pig.Hue, (hue1, hue2) => HueComparer.Compare(hue1, hue2));
+		/// </example>
+		/// <exception cref="InvalidOperationException"><paramref name="source"/> contained no elements.</exception>
+		public static TSource MaxBy<TSource, TValue>(this IEnumerable<TSource> self, Func<TSource, TValue> selector, IComparer<TValue> comparer)
+		{
+			Check.Self (self);
+			Check.Selector (selector);
+
+			comparer = comparer ?? Comparer<TValue>.Default;
+
+			TSource max       = default (TSource);
+			TValue  maxValue  = default (TValue);
+			bool    haveMax   = false;
+
+			foreach (var e in self) {
+				var newValue = selector (e);
+				if (!haveMax || comparer.Compare (newValue, maxValue) > 0) {
+					max = e;
+					maxValue = newValue;
+					haveMax = true;
+				}
+			}
+
+			if (!haveMax)
+				throw new InvalidOperationException("Sequence contains no elements.");
+
+			return max;
 		}
 	}
 }

@@ -1363,6 +1363,228 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
       </Docs>
     </Member>
+    <Member MemberName="MaxBy&lt;TSource,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static TSource MaxBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TSource</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="selector" Type="System.Func&lt;TSource,TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+        <typeparam name="TValue">
+          The type of the value returned by <paramref name="selector" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing elements to find the maximum value from.
+        </param>
+        <param name="selector">
+          A <see cref="T:System.Func{TSource, TValue}" /> used to produce a
+          value for comparison.
+        </param>
+        <summary>
+          Gets the max element of <paramref name="self" />, based on the result 
+          of using the default comparer on the result of 
+          <paramref name="selector" />.
+        </summary>
+        <returns>
+          The element from <paramref name="self" /> which has the largest
+          value from <paramref name="selector" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#MaxBy" />
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> or <paramref name="selector" /> is 
+          <see langword="null" />.
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          <paramref name="self" /> contained no elements.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="MaxBy&lt;TSource,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static TSource MaxBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector, System.Collections.Generic.IComparer&lt;TValue&gt; comparer);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TSource</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="selector" Type="System.Func&lt;TSource,TValue&gt;" />
+        <Parameter Name="comparer" Type="System.Collections.Generic.IComparer&lt;TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+        <typeparam name="TValue">
+          The type of the value returned by <paramref name="selector" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing elements to find the maximum value from.
+        </param>
+        <param name="selector">
+          A <see cref="T:System.Func{TSource, TValue}" /> used to produce a
+          value for comparison.
+        </param>
+        <param name="comparer">
+          A <see cref="T:System.Collections.Generic.IComparer{TValue}" />
+          to use to compare values to determine the maximum value.
+        </param>
+        <summary>
+          Gets the max element of <paramref name="self" />, based on the result 
+          of using the specified <paramref name="comparer" /> on the result of 
+          <paramref name="selector" />.
+        </summary>
+        <returns>
+          The element from <paramref name="self" /> which has the largest
+          value from <paramref name="selector" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#MinBy" />
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> or <paramref name="selector" /> is 
+          <see langword="null" />.
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          <paramref name="self" /> contained no elements.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="MinBy&lt;TSource,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static TSource MinBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TSource</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="selector" Type="System.Func&lt;TSource,TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+        <typeparam name="TValue">
+          The type of the value returned by <paramref name="selector" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing elements to find the minimum value from.
+        </param>
+        <param name="selector">
+          A <see cref="T:System.Func{TSource, TValue}" /> used to produce a
+          value for comparison.
+        </param>
+        <summary>
+          Gets the min element of <paramref name="self" />, based on the result 
+          of using the default comparer on the result of 
+          <paramref name="selector" />.
+        </summary>
+        <returns>
+          The element from <paramref name="self" /> which has the smallest
+          value from <paramref name="selector" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#MinBy" />
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> or <paramref name="selector" /> is 
+          <see langword="null" />.
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          <paramref name="self" /> contained no elements.
+        </exception>
+      </Docs>
+    </Member>
+    <Member MemberName="MinBy&lt;TSource,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static TSource MinBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector, System.Collections.Generic.IComparer&lt;TValue&gt; comparer);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TSource</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TSource" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
+        <Parameter Name="selector" Type="System.Func&lt;TSource,TValue&gt;" />
+        <Parameter Name="comparer" Type="System.Collections.Generic.IComparer&lt;TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+        <typeparam name="TValue">
+          The type of the value returned by <paramref name="selector" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing elements to find the minimum value from.
+        </param>
+        <param name="selector">
+          A <see cref="T:System.Func{TSource, TValue}" /> used to produce a
+          value for comparison.
+        </param>
+        <param name="comparer">
+          A <see cref="T:System.Collections.Generic.IComparer{TValue}" />
+          to use to compare values to determine the minimum value.
+        </param>
+        <summary>
+          Gets the min element of <paramref name="self" />, based on the result 
+          of using the specified <paramref name="comparer" /> on the result of 
+          <paramref name="selector" />.
+        </summary>
+        <returns>
+          The element from <paramref name="self" /> which has the smallest
+          value from <paramref name="selector" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#MinBy" />
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> or <paramref name="selector" /> is 
+          <see langword="null" />.
+        </exception>
+        <exception cref="T:System.InvalidOperationException">
+          <paramref name="self" /> contained no elements.
+        </exception>
+      </Docs>
+    </Member>
     <Member MemberName="NotNull&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; NotNull&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;Nullable&lt;TSource&gt;&gt; self) where TSource : struct;" />
       <MemberType>Method</MemberType>

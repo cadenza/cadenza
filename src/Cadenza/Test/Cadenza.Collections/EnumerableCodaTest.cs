@@ -2757,5 +2757,99 @@ namespace Cadenza.Collections.Tests {
 
 			CollectionAssert.AreEqual (expected, output);
 		}
+
+		[Test, ExpectedException (typeof (InvalidOperationException))]
+		public void MaxBy_EmptySequenceThrowsInvalidOperation ()
+		{
+			new int[] { }.MaxBy(i => 0);
+		}
+
+		[Test]
+		public void MaxBy_SingleItemSequenceDefaultComparerReturnsOnlyItem ()
+		{
+			Assert.AreEqual(42, new[] { 42 }.MaxBy(i => i));
+		}
+
+		[Test]
+		public void MaxBy_TwoItemSequenceDefaultComparerReturnsMaxItem ()
+		{
+			Assert.AreEqual(42, new[] { 42, 41 }.MaxBy(i => i));
+		}
+
+		[Test]
+		public void MaxBy_TwoItemSequenceInverseComparerReturnsMinItem ()
+		{
+			Assert.AreEqual(42, new[] { 42, 43 }.MaxBy(i => i, new LambdaComparer<int>((x, y) => y - x)));
+		}
+
+		[Test]
+		public void MaxBy_TwoItemSequenceCustomValueReturnsMaxItem ()
+		{
+			#region MaxBy
+			Assert.AreEqual ("forty-three",
+					new[] {
+						new {A = "forty-two",    B = 42},
+						new {A = "forty-three",  B = 43},
+					}.MaxBy (i => i.B).A);
+			#endregion
+		}
+
+		[Test]
+		public void MaxBy_ThreeItemSequenceCustomValueAndTwoIdenticalKeysReturnsFirstMaxItem ()
+		{
+			Assert.AreEqual ("first-max",
+					new[] {
+						new {A = "forty-two",   B = 42},
+						new {A = "first-max",   B = 43},
+						new {A = "forty-three", B = 43},
+					}.MaxBy (i => i.B).A);
+		}
+
+		[Test, ExpectedException (typeof (InvalidOperationException))]
+		public void MinBy_EmptySequenceThrowsInvalidOperation ()
+		{
+			new int [0].MinBy (i => 0);
+		}
+
+		[Test]
+		public void MinBy_SingleItemSequenceDefaultComparerReturnsOnlyItem ()
+		{
+			Assert.AreEqual (42, new[]{ 42 }.MinBy (i => i));
+		}
+
+		[Test]
+		public void MinBy_TwoItemSequenceDefaultComparerReturnsMainItem ()
+		{
+			Assert.AreEqual (42, new[] { 42, 43 }.MinBy (i => i));
+		}
+
+		[Test]
+		public void MinBy_TwoItemSequenceInverseComparerReturnsMaxItem ()
+		{
+			Assert.AreEqual(42, new[] { 42, 41 }.MinBy (i => i, new LambdaComparer<int>((x, y) => y - x)));
+		}
+
+		[Test]
+		public void MinBy_TwoItemSequenceCustomValueReturnsMinItem ()
+		{
+			#region MinBy
+			Assert.AreEqual ("forty-two",
+					new[] {
+						new {A = "forty-two",   B = 42},
+						new {A = "forty-three", B = 43},
+					}.MinBy (i => i.B).A);
+			#endregion
+		}
+
+		[Test]
+		public void MinBy_ThreeItemSequenceCustomValueAndTwoIdenticalKeysReturnsFirstMinItem ()
+		{
+			Assert.AreEqual ("first-min",
+					new[] {
+						new {A = "first-min",   B = 42},
+						new {A = "forty-two",   B = 42},
+						new {A = "forty-three", B = 43},
+					}.MinBy (i => i.B).A);
+		}
 	}
 }
