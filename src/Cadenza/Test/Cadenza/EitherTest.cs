@@ -145,7 +145,10 @@ namespace Cadenza.Tests {
 			uint IConvertible.ToUInt32 (IFormatProvider p)
 				{return UInt32;}
 			ulong IConvertible.ToUInt64 (IFormatProvider p)
-				{return UInt64;}
+				{throw new BadException ();}
+		}
+
+		class BadException : Exception {
 		}
 
 		[Test]
@@ -186,7 +189,7 @@ namespace Cadenza.Tests {
 			Either<DateTime, Exception> a = Either.TryConvert<int, DateTime> (42);
 			Exception e = a.Fold (i => null, i => i);
 			Assert.IsNotNull (e);
-			Assert.IsTrue (typeof (Exception).IsAssignableFrom (e.GetType()));
+			Assert.AreEqual (typeof (InvalidCastException), e.GetType ());
 
 			Either<string, Exception> b = Either.TryConvert<int, string> (42);
 			string n2 = b.Fold (i => i, i => null);
@@ -196,6 +199,13 @@ namespace Cadenza.Tests {
 				Either.TryConvert<CustomConvertible, int> (new CustomConvertible ());
 			int n3 = c.Fold (i => i, i => -1);
 			Assert.AreEqual (CustomConvertible.Int32, n3);
+
+			Either<ulong, Exception> u = 
+				Either.TryConvert<CustomConvertible, ulong> (new CustomConvertible ());
+			e = u.Fold (i => null, i => i);
+			Assert.IsNotNull (e);
+			Assert.AreEqual (typeof (NotSupportedException), e.GetType ());
+			Assert.AreEqual (typeof (BadException), e.InnerException.GetType ());
 			#endregion
 		}
 

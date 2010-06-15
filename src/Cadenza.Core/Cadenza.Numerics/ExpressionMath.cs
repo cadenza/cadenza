@@ -58,7 +58,7 @@ namespace Cadenza.Numerics {
 		readonly bool haveBounds;
 		readonly T maxValue, minValue;
 		readonly bool canBeInfinite;
-		readonly T negInf, posInf;
+		readonly T negInf, posInf, nan;
 		readonly bool twosComplement;
 		readonly bool unsigned;
 
@@ -80,7 +80,8 @@ namespace Cadenza.Numerics {
 			}
 
 			haveBounds = GetMemberValue ("MaxValue", out maxValue) && GetMemberValue ("MinValue", out minValue);
-			canBeInfinite = GetMemberValue ("NegativeInfinity", out negInf) && GetMemberValue ("PositiveInfinity", out posInf);
+			canBeInfinite = GetMemberValue ("NegativeInfinity", out negInf) && GetMemberValue ("PositiveInfinity", out posInf) &&
+				GetMemberValue ("NaN", out nan);
 			if (negate != null && haveBounds) {
 				try {
 					negate (minValue);
@@ -252,7 +253,10 @@ namespace Cadenza.Numerics {
 			if (divide == null)
 				throw new NotSupportedException ("Need Expression.Divide() support to implement Math<T>.QuotientRemainder().");
 			remainder = mod (x, y);
-			return FromInt32 (ToInt32 ((divide (x, y))));
+			T d = divide (x, y);
+			if (IsInfinite (d) || IsNaN (d))
+				return d;
+			return FromInt32 (ToInt32 (d));
 		}
 
 		public override T Pow (T x, T y)
@@ -286,6 +290,13 @@ namespace Cadenza.Numerics {
 			if (!canBeInfinite)
 				return base.IsInfinite (value);
 			return negInf.Equals (value) || posInf.Equals (value);
+		}
+
+		public override bool IsNaN (T value)
+		{
+			if (!canBeInfinite)
+				return base.IsInfinite (value);
+			return nan.Equals (value);
 		}
 	}
 }

@@ -71,10 +71,30 @@ namespace Cadenza {
 				return Either<TResult, Exception>.A ((TResult) Convert.ChangeType (value, resultType));
 			}
 			catch (Exception e) {
-				return Either<TResult, Exception>.B (new NotSupportedException (
-							string.Format ("Conversion from {0} to {1} is not supported.",
-								sourceType.FullName, resultType.FullName), e));
+				return Either<TResult, Exception>.B (WrapException (e, sourceType, resultType));
 			}
+		}
+
+		// In many circumstances, it's easier for invoking code to deal with the
+		// original exception, not the wrapped exception.  
+		//
+		// See e.g. TargetInvocationException, or what prompted the change,
+		// MathContract<T> + ExpressionMath<T> + double.NaN (where NaN->int
+		// results in OverflowException, which is wrapped, which complicates the
+		// tests...).
+		//
+		// If we can't find a (string, Exception) constructor on the original
+		// exception type, we use NotSupportedException, but this should rarely
+		// happen.
+		static Exception WrapException (Exception e, Type sourceType, Type resultType)
+		{
+			string message = string.Format ("Conversion from {0} to {1} is not supported.",
+					sourceType.FullName, resultType.FullName);
+			Type t = e.GetType ();
+			var  c = t.GetConstructor (new Type[]{typeof (string), typeof (Exception)});
+			if (c == null)
+				return new NotSupportedException (message, e);
+			return (Exception) c.Invoke (new object[]{message, e});
 		}
 
 		static TypeConverter GetConverter (Type type)

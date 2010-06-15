@@ -478,17 +478,17 @@ namespace Cadenza.Numerics {
 
 		public virtual bool IsNaN (T value)
 		{
-			throw new NotSupportedException ();
+			return false;
 		}
 
 		public virtual bool IsInfinite (T value)
 		{
-			throw new NotSupportedException ();
+			return false;
 		}
 
 		public virtual bool IsIEEE (T value)
 		{
-			throw new NotSupportedException ();
+			return false;
 		}
 
 		public virtual T Atan2 (T y, T x)
@@ -540,12 +540,6 @@ namespace Cadenza.Numerics {
 
 	internal class DecimalMath : Math<decimal> {
 
-		static void NotZero (decimal value)
-		{
-			if (value == 0)
-				throw new ArgumentException ("Value must not be zero.", "value");
-		}
-
 		public override bool    IsUnsigned                                  {get {return false;}}
 		public override bool    IsTwosComplement                            {get {return false;}}
 		public override bool    IsFractional                                {get {return true;}}
@@ -579,7 +573,7 @@ namespace Cadenza.Numerics {
 		public override IConvertible
 		                        ToIConvertible   (decimal value)            {return value;}
 		public override decimal Divide              (decimal x, decimal y)  {return x / y;}
-		public override decimal Reciprocal          (decimal value)         {NotZero (value); return 1.0m / value;}
+		public override decimal Reciprocal          (decimal value)         {return 1.0m / value;}
 		public override decimal Pi                                          {get {return new decimal (Math.PI);}}
 		public override decimal E                                           {get {return new decimal (Math.E);}}
 		public override decimal Exp (decimal value)                         {return new decimal (Math.Exp (decimal.ToDouble (value)));}
@@ -613,12 +607,6 @@ namespace Cadenza.Numerics {
 
 	internal class DoubleMath : Math<double> {
 
-		static void NotZero (double value)
-		{
-			if (value == 0)
-				throw new ArgumentException ("Value must not be zero.", "value");
-		}
-
 		public override bool    IsUnsigned                                {get {return false;}}
 		public override bool    IsTwosComplement                          {get {return false;}}
 		public override bool    IsFractional                              {get {return true;}}
@@ -643,16 +631,16 @@ namespace Cadenza.Numerics {
 		public override double  Abs                 (double value)        {return Math.Abs (value);}
 		public override double  Sign                (double value)        {return Math.Sign (value);}
 		public override double  FromIConvertible    (IConvertible value)  {Check.Value (value); return value.ToDouble (null);}
-		public override double  Quotient            (double x, double y)  {return (int) (x / y);}       // truncates toward 0
+		public override double  Quotient            (double x, double y)  {double q = (x / y); return IsNaN (q) || IsInfinite (q) ? q : (double) (int) q;}  // truncates toward 0
 		public override double  Remainder           (double x, double y)  {return x % y;}
 		public override double  DivideIntegral      (double x, double y)  {return Math.Floor (x / y);}  // truncates toward -inf
 		public override double  Modulus             (double x, double y)  {return Math.Abs (x % y);}
-		public override double  QuotientRemainder   (double x, double y, out double remainder) {remainder = x % y; return (int) (x / y);}
+		public override double  QuotientRemainder   (double x, double y, out double remainder) {remainder = Remainder (x, y); return Quotient (x, y);}
 		public override double  DivideIntegralModulus (double x, double y, out double modulus) {modulus = Math.Abs (x % y); return DivideIntegral (x, y);}
 		public override IConvertible
 		                           ToIConvertible   (double value)        {return value;}
 		public override double  Divide              (double x, double y)  {return x / y;}
-		public override double  Reciprocal          (double value)        {NotZero (value); return 1.0 / value;}
+		public override double  Reciprocal          (double value)        {return 1.0 / value;}
 		public override double  Pi                                        {get {return Math.PI;}}
 		public override double  E                                         {get {return Math.E;}}
 		public override double  Exp (double value)                        {return Math.Exp (value);}
@@ -686,12 +674,6 @@ namespace Cadenza.Numerics {
 
 	internal class SingleMath : Math<float> {
 
-		static void NotZero (float value)
-		{
-			if (value == 0)
-				throw new ArgumentException ("Value must not be zero.", "value");
-		}
-
 		public override bool    IsUnsigned                                {get {return false;}}
 		public override bool    IsTwosComplement                          {get {return false;}}
 		public override bool    IsFractional                              {get {return true;}}
@@ -716,16 +698,16 @@ namespace Cadenza.Numerics {
 		public override float   Abs                 (float value)         {return Math.Abs (value);}
 		public override float   Sign                (float value)         {return Math.Sign (value);}
 		public override float   FromIConvertible    (IConvertible value)  {Check.Value (value); return value.ToSingle (null);}
-		public override float   Quotient            (float x, float y)    {return (int) (x / y);}       // truncates toward 0
+		public override float   Quotient            (float x, float y)    {float q = (x / y); return IsNaN (q) || IsInfinite (q) ? q : (float) (int) q;}  // truncates toward 0
 		public override float   Remainder           (float x, float y)    {return x % y;}
 		public override float   DivideIntegral      (float x, float y)    {return (float) Math.Floor (x / y);}  // truncates toward -inf
 		public override float   Modulus             (float x, float y)    {return Math.Abs (x % y);}
-		public override float   QuotientRemainder   (float x, float y, out float remainder) {remainder = x % y; return (int) (x / y);}
+		public override float   QuotientRemainder   (float x, float y, out float remainder) {remainder = Remainder (x, y); return Quotient (x, y);}
 		public override float   DivideIntegralModulus (float x, float y, out float modulus) {modulus = Math.Abs (x % y); return DivideIntegral (x, y);}
 		public override IConvertible
 		                           ToIConvertible   (float value)         {return value;}
 		public override float   Divide              (float x, float y)    {return x / y;}
-		public override float   Reciprocal          (float value)         {NotZero (value); return 1.0f / value;}
+		public override float   Reciprocal          (float value)         {return 1.0f / value;}
 		public override float   Pi                                        {get {return (float) Math.PI;}}
 		public override float   E                                         {get {return (float) Math.E;}}
 		public override float   Exp (float value)                         {return (float) Math.Exp (value);}
@@ -759,12 +741,6 @@ namespace Cadenza.Numerics {
 
 	internal class Int32Math : Math<int> {
 
-		static void NotZero (int value)
-		{
-			if (value == 0)
-				throw new ArgumentException ("Value must not be zero.", "value");
-		}
-
 		public override bool  IsUnsigned                          {get {return false;}}
 		public override bool  IsTwosComplement                    {get {return true;}}
 		public override bool  IsFractional                        {get {return false;}}
@@ -796,6 +772,6 @@ namespace Cadenza.Numerics {
 		public override int   QuotientRemainder   (int x, int y, out int remainder) {remainder = x % y; return x / y;}
 		public override int   DivideIntegralModulus (int x, int y, out int modulus) {modulus = Math.Abs (x % y); return DivideIntegral (x, y);}
 		public override int   Divide              (int x, int y)  {return x / y;}
-		public override int   Reciprocal          (int value)     {NotZero (value); return 0;}
+		public override int   Reciprocal          (int value)     {return checked (0 / value);}
 	}
 }

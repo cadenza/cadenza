@@ -334,6 +334,15 @@ namespace Cadenza.Numerics.Tests {
 			catch (NotSupportedException) {
 				Assert.IsTrue (m.IsUnsigned);
 			}
+
+			try {
+				var d = m.Quotient (m.FromInt32 (2), m.FromInt32 (0));
+				Assert.IsTrue (m.IsFloatingPoint);
+				Assert.IsTrue (m.IsInfinite (d));
+			}
+			catch (DivideByZeroException) {
+				Assert.IsFalse (m.IsFloatingPoint);
+			}
 		}
 
 		[Test]
@@ -361,6 +370,15 @@ namespace Cadenza.Numerics.Tests {
 			catch (NotSupportedException) {
 				Assert.IsTrue (m.IsUnsigned);
 			}
+
+			try {
+				var d = m.Remainder (m.FromInt32 (2), m.FromInt32 (0));
+				Assert.IsTrue (m.IsFloatingPoint);
+				Assert.IsTrue (m.IsNaN (d));
+			}
+			catch (DivideByZeroException) {
+				Assert.IsFalse (m.IsFloatingPoint);
+			}
 		}
 
 		[Test]
@@ -377,6 +395,15 @@ namespace Cadenza.Numerics.Tests {
 			}
 			catch (NotSupportedException) {
 				Assert.IsTrue (m.IsUnsigned);
+			}
+
+			try {
+				d = m.DivideIntegral (m.FromInt32 (5), m.FromInt32 (0));
+				Assert.IsTrue (m.IsFloatingPoint);
+				Assert.IsTrue (m.IsInfinite (d));
+			}
+			catch (DivideByZeroException) {
+				Assert.IsFalse (m.IsFloatingPoint);
 			}
 		}
 
@@ -404,6 +431,15 @@ namespace Cadenza.Numerics.Tests {
 			}
 			catch (NotSupportedException) {
 				Assert.IsTrue (m.IsUnsigned);
+			}
+
+			try {
+				div = m.Modulus (m.FromInt32 (5), m.FromInt32 (0));
+				Assert.IsTrue (m.IsFloatingPoint);
+				Assert.IsTrue (m.IsNaN (div));
+			}
+			catch (DivideByZeroException) {
+				Assert.IsFalse (m.IsFloatingPoint);
 			}
 		}
 
@@ -437,6 +473,16 @@ namespace Cadenza.Numerics.Tests {
 			catch (NotSupportedException) {
 				Assert.IsTrue (m.IsUnsigned);
 			}
+
+			try {
+				q = m.QuotientRemainder(m.FromInt32 (5), m.FromInt32 (0), out r);
+				Assert.IsTrue (m.IsFloatingPoint);
+				Assert.IsTrue (m.IsInfinite (q));
+				Assert.IsTrue (m.IsNaN (r));
+			}
+			catch (DivideByZeroException) {
+				Assert.IsFalse (m.IsFloatingPoint);
+			}
 		}
 
 		[Test]
@@ -465,6 +511,16 @@ namespace Cadenza.Numerics.Tests {
 			}
 			catch (NotSupportedException) {
 				Assert.IsTrue (m.IsUnsigned);
+			}
+
+			try {
+				div = m.DivideIntegralModulus (m.FromInt32 (5), m.FromInt32 (0), out mod);
+				Assert.IsTrue (m.IsFloatingPoint);
+				Assert.IsTrue (m.IsInfinite (div));
+				Assert.IsTrue (m.IsNaN (mod));
+			}
+			catch (DivideByZeroException) {
+				Assert.IsFalse (m.IsFloatingPoint);
 			}
 		}
 
@@ -499,6 +555,15 @@ namespace Cadenza.Numerics.Tests {
 				Assert.AreEqual (m.FromIConvertible (2.5), r);
 			else
 				Assert.AreEqual (m.FromInt32 (2), r);
+
+			try {
+				r = m.Divide (m.FromInt32 (5), m.FromInt32 (0));
+				Assert.IsTrue (m.IsFloatingPoint);
+				Assert.IsTrue (m.IsInfinite (r));
+			}
+			catch (DivideByZeroException) {
+				Assert.IsFalse (m.IsFloatingPoint);
+			}
 		}
 
 		[Test]
@@ -511,6 +576,15 @@ namespace Cadenza.Numerics.Tests {
 				Assert.AreEqual (m.FromIConvertible (0.5), r);
 			else
 				Assert.AreEqual (m.FromInt32 (0), r);
+
+			try {
+				r = m.Reciprocal (m.FromInt32 (0));
+				Assert.IsTrue (m.IsFloatingPoint);
+				Assert.IsTrue (m.IsInfinite (r));
+			}
+			catch (DivideByZeroException) {
+				Assert.IsFalse (m.IsFloatingPoint);
+			}
 		}
 
 		[Test]
@@ -529,9 +603,14 @@ namespace Cadenza.Numerics.Tests {
 			try {
 				action ();
 			}
-			catch (NotSupportedException) {
+			catch (InvalidCastException) {
 				// Type doesn't support conversion to double
-				Assert.Throws<NotSupportedException>(() => Math<T>.Default.FromIConvertible (1.0));
+				Assert.Throws<InvalidCastException>(() => Math<T>.Default.FromIConvertible (1.0));
+			}
+			catch (NotSupportedException) {
+				// Type doesn't support conversion to IConvertible
+				var m = Math<T>.Default;
+				Assert.Throws<NotSupportedException>(() => m.ToIConvertible (m.FromInt32 (0)));
 			}
 		}
 
@@ -560,27 +639,27 @@ namespace Cadenza.Numerics.Tests {
 			}
 			catch (NotSupportedException) {
 				// Unsigned types don't support negative values.
-				return;
-			}
-
-			T sqrtNeg1;
-			try {
-				sqrtNeg1 = m.Sqrt (neg1);
-			}
-			catch (OverflowException) {
-				// NaN->int conversion throws under .NET
-				return;
-			}
-			catch (NotSupportedException) {
-				// T doesn't support conversion from/to IConvertible
+				Assert.IsTrue (m.IsUnsigned);
 				return;
 			}
 
 			try {
+				T sqrtNeg1 = m.Sqrt (neg1);
+				Assert.IsTrue (m.IsFloatingPoint);
 				Assert.IsTrue (m.IsNaN (sqrtNeg1));
 			}
 			catch (NotSupportedException) {
-				// Math<T>.IsNaN() isn't overridden, or unsigned types.
+				// or doesn't support conversion to IConvertible
+				Assert.Throws<NotSupportedException>(() => m.ToIConvertible (m.FromInt32 (0)));
+			}
+			catch (OverflowException) {
+				// NaN->int conversion throws under .NET
+				Assert.IsFalse (m.IsFloatingPoint);
+				return;
+			}
+			catch (InvalidCastException) {
+				// Could not perform double->T conversion?
+				Assert.Throws<InvalidCastException>(() => m.FromIConvertible (1.0));
 				return;
 			}
 		}
@@ -595,9 +674,10 @@ namespace Cadenza.Numerics.Tests {
 
 				try {
 					Assert.IsTrue (m.IsInfinite (m.Log (m.FromInt32 (0))));
+					Assert.IsTrue (m.IsFloatingPoint);
 				}
 				catch (OverflowException) {
-					// Could not convert -inf to value; how do we assert that?
+					Assert.IsFalse (m.IsFloatingPoint);
 				}
 				catch (NotSupportedException e) {
 					// NotSupportedException might be wrapping an OverflowException.
@@ -615,14 +695,20 @@ namespace Cadenza.Numerics.Tests {
 
 			try {
 				Assert.IsTrue (m.IsNaN (m.Log (m.FromInt32 (-1))));
+				Assert.IsTrue (m.IsFloatingPoint);
 			}
 			catch (OverflowException) {
-				// Could not convert -inf to value; how do we assert that?
+				Assert.IsFalse (m.IsFloatingPoint);
 			}
 			catch (NotSupportedException) {
-				// Math<T>.IsNaN() isn't overridden, or unsigned types.
-				if (!m.IsUnsigned)
-					Assert.Throws<NotSupportedException>(() => m.IsNaN (m.FromInt32 (0)));
+				// Unsigned type
+				if (!m.IsUnsigned) {
+					// or doesn't support conversion to IConvertible
+					Assert.Throws<NotSupportedException>(() => m.ToIConvertible (m.FromInt32 (0)));
+				}
+			}
+			catch (InvalidCastException) {
+				Assert.Throws<InvalidCastException>(() => m.FromIConvertible (1.0));
 			}
 		}
 	}

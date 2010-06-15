@@ -117,7 +117,7 @@
           <code lang="C#" src="../../Test/Cadenza/EitherTest.cs#TryConvert">Either&lt;DateTime, Exception&gt; a = Either.TryConvert&lt;int, DateTime&gt; (42);
 Exception e = a.Fold (i =&gt; null, i =&gt; i);
 Assert.IsNotNull (e);
-Assert.IsTrue (typeof (Exception).IsAssignableFrom (e.GetType()));
+Assert.AreEqual (typeof (InvalidCastException), e.GetType ());
 
 Either&lt;string, Exception&gt; b = Either.TryConvert&lt;int, string&gt; (42);
 string n2 = b.Fold (i =&gt; i, i =&gt; null);
@@ -127,6 +127,13 @@ Either&lt;int, Exception&gt; c =
 	Either.TryConvert&lt;CustomConvertible, int&gt; (new CustomConvertible ());
 int n3 = c.Fold (i =&gt; i, i =&gt; -1);
 Assert.AreEqual (CustomConvertible.Int32, n3);
+
+Either&lt;ulong, Exception&gt; u = 
+	Either.TryConvert&lt;CustomConvertible, ulong&gt; (new CustomConvertible ());
+e = u.Fold (i =&gt; null, i =&gt; i);
+Assert.IsNotNull (e);
+Assert.AreEqual (typeof (NotSupportedException), e.GetType ());
+Assert.AreEqual (typeof (BadException), e.InnerException.GetType ());
 </code>
         </remarks>
         <altmember cref="M:System.Convert.ChangeType(System.Object,System.Type)" />
