@@ -51,8 +51,8 @@ namespace Cadenza.Numerics {
 		readonly Func<T, T, bool> gte = CreateBinaryExpression<bool> ((a, b) => Expression.GreaterThanOrEqual (a, b));
 		readonly Func<T, T, bool> lt  = CreateBinaryExpression<bool> ((a, b) => Expression.LessThan (a, b));
 		readonly Func<T, T, bool> lte = CreateBinaryExpression<bool> ((a, b) => Expression.LessThanOrEqual (a, b));
-		readonly Func<T, int> toInt32 = CreateUnaryExpression<T, int> (v => Expression.Convert (v, typeof (int)));
-		readonly Func<int, T> fromInt32 = CreateUnaryExpression<int, T> (v => Expression.Convert (v, typeof (T)));
+		readonly Func<T, int> toInt32 = CreateUnaryExpression<T, int> (v => Expression.ConvertChecked (v, typeof (int)));
+		readonly Func<int, T> fromInt32 = CreateUnaryExpression<int, T> (v => Expression.ConvertChecked (v, typeof (T)));
 
 		readonly bool isFractional;
 		readonly bool haveBounds;

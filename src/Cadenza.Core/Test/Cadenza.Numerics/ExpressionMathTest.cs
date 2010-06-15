@@ -60,4 +60,8 @@ namespace Cadenza.Numerics.Tests
 	[TestFixture]
 	public class Int32ExpressionMathTests : ExpressionMathContract<int> {
 	}
+
+	[TestFixture]
+	public class UInt32ExpressionMathTests : ExpressionMathContract<uint> {
+	}
 }

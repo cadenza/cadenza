@@ -344,7 +344,7 @@ namespace Cadenza.Numerics {
 		public virtual T DivideIntegralModulus (T x, T y, out T modulus)
 		{
 			var quotient = QuotientRemainder (x, y, out modulus);
-			if (Equals (Sign (modulus), Negate (Sign (y)))) {
+			if (!IsUnsigned && Equals (Sign (modulus), Negate (Sign (y)))) {
 				quotient  = Predecessor (quotient);
 				modulus   = Add (modulus, y);
 			}
