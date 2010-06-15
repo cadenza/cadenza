@@ -59,6 +59,14 @@ namespace Cadenza.Numerics {
 		{
 		}
 
+		static Dictionary<Type, Type> defaultProviders = new Dictionary<Type, Type> () {
+			{ typeof (decimal),   typeof (DecimalMath) },
+			{ typeof (double),    typeof (DoubleMath) },
+			{ typeof (float),     typeof (SingleMath) },
+			{ typeof (byte),      typeof (ByteMath) },
+			{ typeof (sbyte),     typeof (SByteMath) },
+			{ typeof (int),       typeof (Int32Math) },
+		};
 
 		static Exception defaultProviderError;
 
@@ -88,18 +96,9 @@ namespace Cadenza.Numerics {
 				return;
 			}
 
-			if (typeof (T) == typeof (decimal))
-				defaultProvider = (Math<T>) (object) new DecimalMath ();
-			else if (typeof (T) == typeof (double))
-				defaultProvider = (Math<T>) (object) new DoubleMath ();
-			else if (typeof (T) == typeof (byte))
-				defaultProvider = (Math<T>) (object) new ByteMath ();
-			else if (typeof (T) == typeof (int))
-				defaultProvider = (Math<T>) (object) new Int32Math ();
-			else if (typeof (T) == typeof (sbyte))
-				defaultProvider = (Math<T>) (object) new SByteMath ();
-			else if (typeof (T) == typeof (float))
-				defaultProvider = (Math<T>) (object) new SingleMath ();
+			Type defaultType;
+			if (defaultProviders.TryGetValue (typeof (T), out defaultType))
+				defaultProvider = (Math<T>) Activator.CreateInstance (defaultType);
 			else {
 				Assembly  a     = Assembly.Load ("Cadenza.Core");
 				Type      gem   = a.GetType ("Cadenza.Numerics.ExpressionMath`1");
