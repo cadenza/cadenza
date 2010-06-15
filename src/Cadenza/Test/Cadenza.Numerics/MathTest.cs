@@ -137,11 +137,19 @@ namespace Cadenza.Numerics.Tests {
 	}
 
 	[TestFixture]
+	public class Int64MathTests : MathContract<int> {
+	}
+
+	[TestFixture]
 	public class SByteMathTests : MathContract<sbyte> {
 	}
 
 	[TestFixture]
 	public class UInt32MathTests : MathContract<uint> {
+	}
+
+	[TestFixture]
+	public class UInt64MathTests : MathContract<uint> {
 	}
 
 	//
