@@ -129,7 +129,15 @@ namespace Cadenza.Numerics.Tests {
 	}
 
 	[TestFixture]
+	public class ByteMathTests : MathContract<byte> {
+	}
+
+	[TestFixture]
 	public class Int32MathTests : MathContract<int> {
+	}
+
+	[TestFixture]
+	public class SByteMathTests : MathContract<sbyte> {
 	}
 
 	//

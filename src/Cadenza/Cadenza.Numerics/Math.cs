@@ -92,8 +92,12 @@ namespace Cadenza.Numerics {
 				defaultProvider = (Math<T>) (object) new DecimalMath ();
 			else if (typeof (T) == typeof (double))
 				defaultProvider = (Math<T>) (object) new DoubleMath ();
+			else if (typeof (T) == typeof (byte))
+				defaultProvider = (Math<T>) (object) new ByteMath ();
 			else if (typeof (T) == typeof (int))
 				defaultProvider = (Math<T>) (object) new Int32Math ();
+			else if (typeof (T) == typeof (sbyte))
+				defaultProvider = (Math<T>) (object) new SByteMath ();
 			else if (typeof (T) == typeof (float))
 				defaultProvider = (Math<T>) (object) new SingleMath ();
 			else {
@@ -739,6 +743,42 @@ namespace Cadenza.Numerics {
 		public override float   IEEERemainder       (float x, float y)    {return (float) Math.IEEERemainder (x, y);}
 	}
 
+	internal class ByteMath : Math<byte> {
+
+		public override bool  IsUnsigned                            {get {return true;}}
+		public override bool  IsTwosComplement                      {get {return false;}}
+		public override bool  IsFractional                          {get {return false;}}
+		public override bool  IsFloatingPoint                       {get {return false;}}
+		public override bool  LessThan            (byte x, byte y)  {return x < y;}
+		public override bool  LessThanOrEqual     (byte x, byte y)  {return x <= y;}
+		public override bool  GreaterThan         (byte x, byte y)  {return x > y;}
+		public override bool  GreaterThanOrEqual  (byte x, byte y)  {return x >= y;}
+		public override byte  Max                 (byte x, byte y)  {return Math.Max (x, y);}
+		public override byte  Min                 (byte x, byte y)  {return Math.Min (x, y);}
+		public override byte  Successor           (byte value)      {return checked ((byte) (value+1));}
+		public override byte  Predecessor         (byte value)      {return checked ((byte) (value-1));}
+		public override byte  FromInt32           (int value)       {if (value < 0) throw new NotSupportedException (); return checked ((byte) value);}
+		public override int   ToInt32             (byte value)      {return value;}
+		public override bool  HasBounds                             {get {return true;}}
+		public override byte  MinValue                              {get {return byte.MinValue;}}
+		public override byte  MaxValue                              {get {return byte.MaxValue;}}
+		public override byte  Add                 (byte x, byte y)  {return checked ((byte) (x + y));}
+		public override byte  Multiply            (byte x, byte y)  {return checked ((byte) (x * y));}
+		public override byte  Subtract            (byte x, byte y)  {return checked ((byte) (x - y));}
+		public override byte  Negate              (byte value)      {return checked ((byte) (-value));}
+		public override byte  Abs                 (byte value)      {return (byte) Math.Abs (value);}
+		public override byte  Sign                (byte value)      {return (byte) Math.Sign (value);}
+		public override byte  FromIConvertible    (IConvertible value)  {Check.Value (value); return value.ToByte (null);}
+		public override byte  Quotient            (byte x, byte y)  {return checked ((byte) (x / y));} // truncates toward 0
+		public override byte  Remainder           (byte x, byte y)  {return checked ((byte) (x % y));}
+		public override byte  DivideIntegral      (byte x, byte y)  {return (byte) (((x >= 0) ? x : checked ((byte) (x-1))) / y);} // truncates toward -inf
+		public override byte  Modulus             (byte x, byte y)  {return (byte) Math.Abs (x % y);} // TODO?
+		public override byte  QuotientRemainder   (byte x, byte y, out byte remainder) {remainder = checked ((byte) (x % y)); return checked ((byte) (x / y));}
+		public override byte  DivideIntegralModulus (byte x, byte y, out byte modulus) {modulus = (byte) Math.Abs (x % y); return DivideIntegral (x, y);}
+		public override byte  Divide              (byte x, byte y)  {return (byte) (x / y);}
+		public override byte  Reciprocal          (byte value)      {return checked ((byte) (0 / value));}
+	}
+
 	internal class Int32Math : Math<int> {
 
 		public override bool  IsUnsigned                          {get {return false;}}
@@ -773,5 +813,41 @@ namespace Cadenza.Numerics {
 		public override int   DivideIntegralModulus (int x, int y, out int modulus) {modulus = Math.Abs (x % y); return DivideIntegral (x, y);}
 		public override int   Divide              (int x, int y)  {return x / y;}
 		public override int   Reciprocal          (int value)     {return checked (0 / value);}
+	}
+
+	internal class SByteMath : Math<sbyte> {
+
+		public override bool  IsUnsigned                              {get {return false;}}
+		public override bool  IsTwosComplement                        {get {return true;}}
+		public override bool  IsFractional                            {get {return false;}}
+		public override bool  IsFloatingPoint                         {get {return false;}}
+		public override bool  LessThan            (sbyte x, sbyte y)  {return x < y;}
+		public override bool  LessThanOrEqual     (sbyte x, sbyte y)  {return x <= y;}
+		public override bool  GreaterThan         (sbyte x, sbyte y)  {return x > y;}
+		public override bool  GreaterThanOrEqual  (sbyte x, sbyte y)  {return x >= y;}
+		public override sbyte Max                 (sbyte x, sbyte y)  {return Math.Max (x, y);}
+		public override sbyte Min                 (sbyte x, sbyte y)  {return Math.Min (x, y);}
+		public override sbyte Successor           (sbyte value)       {return checked ((sbyte) (value+1));}
+		public override sbyte Predecessor         (sbyte value)       {return checked ((sbyte) (value-1));}
+		public override sbyte FromInt32           (int value)         {return checked ((sbyte) value);}
+		public override int   ToInt32             (sbyte value)       {return value;}
+		public override bool  HasBounds                               {get {return true;}}
+		public override sbyte MinValue                                {get {return sbyte.MinValue;}}
+		public override sbyte MaxValue                                {get {return sbyte.MaxValue;}}
+		public override sbyte Add                 (sbyte x, sbyte y)  {return checked ((sbyte) (x + y));}
+		public override sbyte Multiply            (sbyte x, sbyte y)  {return checked ((sbyte) (x * y));}
+		public override sbyte Subtract            (sbyte x, sbyte y)  {return checked ((sbyte) (x - y));}
+		public override sbyte Negate              (sbyte value)       {return checked ((sbyte) (-value));}
+		public override sbyte Abs                 (sbyte value)       {return (sbyte) Math.Abs (value);}
+		public override sbyte Sign                (sbyte value)       {return (sbyte) Math.Sign (value);}
+		public override sbyte FromIConvertible    (IConvertible value)  {Check.Value (value); return value.ToSByte (null);}
+		public override sbyte Quotient            (sbyte x, sbyte y)  {return checked ((sbyte) (x / y));} // truncates toward 0
+		public override sbyte Remainder           (sbyte x, sbyte y)  {return checked ((sbyte) (x % y));}
+		public override sbyte DivideIntegral      (sbyte x, sbyte y)  {return (sbyte) (((x >= 0) ? x : checked ((sbyte) (x-1))) / y);} // truncates toward -inf
+		public override sbyte Modulus             (sbyte x, sbyte y)  {return (sbyte) Math.Abs (x % y);} // TODO?
+		public override sbyte QuotientRemainder   (sbyte x, sbyte y, out sbyte remainder) {remainder = checked ((sbyte) (x % y)); return checked ((sbyte) (x / y));}
+		public override sbyte DivideIntegralModulus (sbyte x, sbyte y, out sbyte modulus) {modulus = (sbyte) Math.Abs (x % y); return DivideIntegral (x, y);}
+		public override sbyte Divide              (sbyte x, sbyte y)  {return (sbyte) (x / y);}
+		public override sbyte Reciprocal          (sbyte value)       {return checked ((sbyte) (0 / value));}
 	}
 }
