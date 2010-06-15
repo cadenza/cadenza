@@ -109,7 +109,7 @@ namespace Cadenza.IO.Tests {
 			new TextValueReader (null);
 		}
 
-		[Test, ExpectedException (typeof (NotSupportedException))]
+		[Test, ExpectedException (typeof (InvalidCastException))]
 		public void Read_UnsupportedT ()
 		{
 			TextValueReader r = new[]{"component-model-doesn't-support-TvrOp"}

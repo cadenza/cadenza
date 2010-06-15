@@ -49,7 +49,7 @@ namespace Cadenza.IO.Tests {
 			new EnumerableValueReader<int> (values);
 		}
 
-		[Test, ExpectedException (typeof (NotSupportedException))]
+		[Test, ExpectedException (typeof (InvalidCastException))]
 		public void Read_UnsupportedT ()
 		{
 			int n;
