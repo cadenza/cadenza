@@ -255,7 +255,7 @@ namespace Cadenza.Numerics.Tests {
 			try {
 				Assert.AreEqual (m.FromInt32 (-1), m.Negate (m.FromInt32 (1)));
 			}
-			catch (NotSupportedException) {
+			catch (OverflowException) {
 				// likely unsigned values.
 				Assert.IsTrue (m.IsUnsigned);
 			}
@@ -284,7 +284,7 @@ namespace Cadenza.Numerics.Tests {
 			try {
 				Assert.AreEqual (m.FromInt32 (2), m.Abs (m.FromInt32 (-2)));
 			}
-			catch (NotSupportedException) {
+			catch (OverflowException) {
 				// unsigned type
 				Assert.IsTrue (m.IsUnsigned);
 			}
@@ -314,7 +314,7 @@ namespace Cadenza.Numerics.Tests {
 				n = m.FromInt32 (-2);
 				Assert.AreEqual (n, m.Multiply (m.Abs (n), m.Sign (n)));
 			}
-			catch (NotSupportedException) {
+			catch (OverflowException) {
 				// unsigned
 				Assert.IsTrue (m.IsUnsigned);
 			}
@@ -331,7 +331,7 @@ namespace Cadenza.Numerics.Tests {
 				// -5/2 == -2.5; truncate toward 0 == -2
 				Assert.AreEqual (m.FromInt32 (-2), m.Quotient (m.FromInt32 (-5), m.FromInt32 (2)));
 			}
-			catch (NotSupportedException) {
+			catch (OverflowException) {
 				Assert.IsTrue (m.IsUnsigned);
 			}
 
@@ -367,7 +367,7 @@ namespace Cadenza.Numerics.Tests {
 				Assert.AreEqual (m.FromInt32 (-1), r);
 				Assert.AreEqual (x, m.Add (m.Multiply (q, y), r));
 			}
-			catch (NotSupportedException) {
+			catch (OverflowException) {
 				Assert.IsTrue (m.IsUnsigned);
 			}
 
@@ -393,7 +393,7 @@ namespace Cadenza.Numerics.Tests {
 				// -5/2 == -2.5; truncate toward -inf == -3
 				Assert.AreEqual (m.FromInt32 (-3), m.DivideIntegral (m.FromInt32 (-5), m.FromInt32 (2)));
 			}
-			catch (NotSupportedException) {
+			catch (OverflowException) {
 				Assert.IsTrue (m.IsUnsigned);
 			}
 
@@ -429,7 +429,7 @@ namespace Cadenza.Numerics.Tests {
 				Assert.AreEqual (m.FromInt32 (1), mod);
 				Assert.AreEqual (x, m.Add (m.Multiply (div, y), mod));
 			}
-			catch (NotSupportedException) {
+			catch (OverflowException) {
 				Assert.IsTrue (m.IsUnsigned);
 			}
 
@@ -470,7 +470,7 @@ namespace Cadenza.Numerics.Tests {
 
 				Assert.AreEqual (x, m.Add (m.Multiply (q, y), r));
 			}
-			catch (NotSupportedException) {
+			catch (OverflowException) {
 				Assert.IsTrue (m.IsUnsigned);
 			}
 
@@ -509,7 +509,7 @@ namespace Cadenza.Numerics.Tests {
 				Assert.AreEqual (m.FromInt32 (1), mod);
 				Assert.AreEqual (x, m.Add (m.Multiply (div, y), mod));
 			}
-			catch (NotSupportedException) {
+			catch (OverflowException) {
 				Assert.IsTrue (m.IsUnsigned);
 			}
 
@@ -637,7 +637,7 @@ namespace Cadenza.Numerics.Tests {
 			try {
 				neg1 = m.FromInt32 (-1);
 			}
-			catch (NotSupportedException) {
+			catch (OverflowException) {
 				// Unsigned types don't support negative values.
 				Assert.IsTrue (m.IsUnsigned);
 				return;

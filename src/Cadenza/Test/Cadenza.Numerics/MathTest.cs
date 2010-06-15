@@ -140,6 +140,10 @@ namespace Cadenza.Numerics.Tests {
 	public class SByteMathTests : MathContract<sbyte> {
 	}
 
+	[TestFixture]
+	public class UInt32MathTests : MathContract<uint> {
+	}
+
 	//
 	// To implement Math<T> support for a new type, you obviously need a type.
 	// We also require the ability to create instances of that type from an int.
