@@ -65,8 +65,12 @@ namespace Cadenza.Numerics {
 			{ typeof (float),     typeof (SingleMath) },
 			{ typeof (byte),      typeof (ByteMath) },
 			{ typeof (sbyte),     typeof (SByteMath) },
+			{ typeof (short),     typeof (Int16Math) },
+			{ typeof (ushort),    typeof (UInt16Math) },
 			{ typeof (int),       typeof (Int32Math) },
 			{ typeof (uint),      typeof (UInt32Math) },
+			{ typeof (long),      typeof (Int64Math) },
+			{ typeof (ulong),     typeof (UInt64Math) },
 		};
 
 		static Exception defaultProviderError;
@@ -779,6 +783,42 @@ namespace Cadenza.Numerics {
 		public override byte  Reciprocal          (byte value)      {return checked ((byte) (0 / value));}
 	}
 
+	internal class Int16Math : Math<short> {
+
+		public override bool  IsUnsigned                              {get {return false;}}
+		public override bool  IsTwosComplement                        {get {return true;}}
+		public override bool  IsFractional                            {get {return false;}}
+		public override bool  IsFloatingPoint                         {get {return false;}}
+		public override bool  LessThan            (short x, short y)  {return x < y;}
+		public override bool  LessThanOrEqual     (short x, short y)  {return x <= y;}
+		public override bool  GreaterThan         (short x, short y)  {return x > y;}
+		public override bool  GreaterThanOrEqual  (short x, short y)  {return x >= y;}
+		public override short Max                 (short x, short y)  {return Math.Max (x, y);}
+		public override short Min                 (short x, short y)  {return Math.Min (x, y);}
+		public override short Successor           (short value)       {return checked ((short) (value+1));}
+		public override short Predecessor         (short value)       {return checked ((short) (value-1));}
+		public override short FromInt32           (int value)         {return checked ((short) value);}
+		public override int   ToInt32             (short value)       {return checked ((int) value);}
+		public override bool  HasBounds                               {get {return true;}}
+		public override short MinValue                                {get {return short.MinValue;}}
+		public override short MaxValue                                {get {return short.MaxValue;}}
+		public override short Add                 (short x, short y)  {return checked ((short) (x + y));}
+		public override short Multiply            (short x, short y)  {return checked ((short) (x * y));}
+		public override short Subtract            (short x, short y)  {return checked ((short) (x - y));}
+		public override short Negate              (short value)       {return checked ((short) (-value));}
+		public override short Abs                 (short value)       {return checked ((short) Math.Abs (value));}
+		public override short Sign                (short value)       {return (short) Math.Sign (value);}
+		public override short FromIConvertible    (IConvertible value)  {Check.Value (value); return value.ToInt16 (null);}
+		public override short Quotient            (short x, short y)  {return checked ((short) (x / y));} // truncates toward 0
+		public override short Remainder           (short x, short y)  {return checked ((short) (x % y));}
+		public override short DivideIntegral      (short x, short y)  {return (short) (((x >= 0) ? x : checked ((short) (x-1))) / y);} // truncates toward -inf
+		public override short Modulus             (short x, short y)  {return (short) Math.Abs (x % y);} // TODO?
+		public override short QuotientRemainder   (short x, short y, out short remainder) {remainder = checked ((short) (x % y)); return checked ((short) (x / y));}
+		public override short DivideIntegralModulus (short x, short y, out short modulus) {modulus = (short) Math.Abs (x % y); return DivideIntegral (x, y);}
+		public override short Divide              (short x, short y)  {return (short) (x / y);}
+		public override short Reciprocal          (short value)       {return checked ((short) (0 / value));}
+	}
+
 	internal class Int32Math : Math<int> {
 
 		public override bool  IsUnsigned                          {get {return false;}}
@@ -817,8 +857,8 @@ namespace Cadenza.Numerics {
 
 	internal class Int64Math : Math<long> {
 
-		public override bool  IsUnsigned                            {get {return true;}}
-		public override bool  IsTwosComplement                      {get {return false;}}
+		public override bool  IsUnsigned                            {get {return false;}}
+		public override bool  IsTwosComplement                      {get {return true;}}
 		public override bool  IsFractional                          {get {return false;}}
 		public override bool  IsFloatingPoint                       {get {return false;}}
 		public override bool  LessThan            (long x, long y)  {return x < y;}
@@ -887,6 +927,42 @@ namespace Cadenza.Numerics {
 		public override sbyte Reciprocal          (sbyte value)       {return checked ((sbyte) (0 / value));}
 	}
 
+	internal class UInt16Math : Math<ushort> {
+
+		public override bool    IsUnsigned                                {get {return true;}}
+		public override bool    IsTwosComplement                          {get {return false;}}
+		public override bool    IsFractional                              {get {return false;}}
+		public override bool    IsFloatingPoint                           {get {return false;}}
+		public override bool    LessThan            (ushort x, ushort y)  {return x < y;}
+		public override bool    LessThanOrEqual     (ushort x, ushort y)  {return x <= y;}
+		public override bool    GreaterThan         (ushort x, ushort y)  {return x > y;}
+		public override bool    GreaterThanOrEqual  (ushort x, ushort y)  {return x >= y;}
+		public override ushort  Max                 (ushort x, ushort y)  {return Math.Max (x, y);}
+		public override ushort  Min                 (ushort x, ushort y)  {return Math.Min (x, y);}
+		public override ushort  Successor           (ushort value)        {return checked ((ushort) (value+1));}
+		public override ushort  Predecessor         (ushort value)        {return checked ((ushort) (value-1));}
+		public override ushort  FromInt32           (int value)           {return checked ((ushort) value);}
+		public override int     ToInt32             (ushort value)        {return checked ((int) value);}
+		public override bool    HasBounds                                 {get {return true;}}
+		public override ushort  MinValue                                  {get {return ushort.MinValue;}}
+		public override ushort  MaxValue                                  {get {return ushort.MaxValue;}}
+		public override ushort  Add                 (ushort x, ushort y)  {return checked ((ushort) (x + y));}
+		public override ushort  Multiply            (ushort x, ushort y)  {return checked ((ushort) (x * y));}
+		public override ushort  Subtract            (ushort x, ushort y)  {return checked ((ushort) (x - y));}
+		public override ushort  Negate              (ushort value)        {return checked ((ushort) (-value));}
+		public override ushort  Abs                 (ushort value)        {return checked ((ushort) Math.Abs (new decimal (value)));}
+		public override ushort  Sign                (ushort value)        {return (ushort) Math.Sign (new decimal (value));}
+		public override ushort  FromIConvertible    (IConvertible value)  {Check.Value (value); return value.ToUInt16 (null);}
+		public override ushort  Quotient            (ushort x, ushort y)  {return checked ((ushort) (x / y));} // truncates toward 0
+		public override ushort  Remainder           (ushort x, ushort y)  {return checked ((ushort) (x % y));}
+		public override ushort  DivideIntegral      (ushort x, ushort y)  {return (ushort) (((x >= 0) ? x : checked ((ushort) (x-1))) / y);} // truncates toward -inf
+		public override ushort  Modulus             (ushort x, ushort y)  {return (ushort) Math.Abs (new decimal (x % y));} // TODO?
+		public override ushort  QuotientRemainder   (ushort x, ushort y, out ushort remainder) {remainder = checked ((ushort) (x % y)); return checked ((ushort) (x / y));}
+		public override ushort  DivideIntegralModulus (ushort x, ushort y, out ushort modulus) {modulus = (ushort) Math.Abs (new decimal (x % y)); return DivideIntegral (x, y);}
+		public override ushort  Divide              (ushort x, ushort y)  {return (ushort) (x / y);}
+		public override ushort  Reciprocal          (ushort value)        {return checked ((ushort) (0 / value));}
+	}
+
 	internal class UInt32Math : Math<uint> {
 
 		public override bool IsUnsigned                            {get {return true;}}
@@ -945,7 +1021,7 @@ namespace Cadenza.Numerics {
 		public override ulong Add                 (ulong x, ulong y)  {return checked ((ulong) (x + y));}
 		public override ulong Multiply            (ulong x, ulong y)  {return checked ((ulong) (x * y));}
 		public override ulong Subtract            (ulong x, ulong y)  {return checked ((ulong) (x - y));}
-		public override ulong Negate              (ulong value)       {throw new OverflowException ();}
+		public override ulong Negate              (ulong value)       {if (value == 0UL) return value; throw new OverflowException ();}
 		public override ulong Abs                 (ulong value)       {return checked ((ulong) Math.Abs (new decimal (value)));}
 		public override ulong Sign                (ulong value)       {return (ulong) Math.Sign (new decimal (value));}
 		public override ulong FromIConvertible    (IConvertible value)  {Check.Value (value); return value.ToUInt64 (null);}

@@ -133,11 +133,15 @@ namespace Cadenza.Numerics.Tests {
 	}
 
 	[TestFixture]
+	public class Int16MathTests : MathContract<short> {
+	}
+
+	[TestFixture]
 	public class Int32MathTests : MathContract<int> {
 	}
 
 	[TestFixture]
-	public class Int64MathTests : MathContract<int> {
+	public class Int64MathTests : MathContract<long> {
 	}
 
 	[TestFixture]
@@ -145,11 +149,15 @@ namespace Cadenza.Numerics.Tests {
 	}
 
 	[TestFixture]
+	public class UInt16MathTests : MathContract<ushort> {
+	}
+
+	[TestFixture]
 	public class UInt32MathTests : MathContract<uint> {
 	}
 
 	[TestFixture]
-	public class UInt64MathTests : MathContract<uint> {
+	public class UInt64MathTests : MathContract<ulong> {
 	}
 
 	//
