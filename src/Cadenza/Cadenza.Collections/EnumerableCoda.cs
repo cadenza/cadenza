@@ -42,6 +42,7 @@ using System.Reflection;
 using System.Text;
 
 using Cadenza.IO;
+using Cadenza.Numerics;
 
 namespace Cadenza.Collections {
 
@@ -609,6 +610,23 @@ namespace Cadenza.Collections {
 
 			foreach (var e in self)
 				destination.Add (e);
+		}
+
+		public static TSource Sum<TSource> (this IEnumerable<TSource> self)
+		{
+			return Sum (self, null);
+		}
+
+		public static TSource Sum<TSource> (this IEnumerable<TSource> self, Math<TSource> m)
+		{
+			Check.Self (self);
+			m = m ?? Math<TSource>.Default;
+
+			var sum = m.FromInt32 (0);
+			foreach (var e in self) {
+				sum = m.Add (sum, e);
+			}
+			return sum;
 		}
 
 		// Haskell: zipWith

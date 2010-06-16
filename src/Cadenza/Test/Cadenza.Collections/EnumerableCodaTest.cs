@@ -38,6 +38,7 @@ using NUnit.Framework;
 using Cadenza;
 using Cadenza.Collections;
 using Cadenza.Tests;
+using Cadenza.Numerics.Tests;
 
 // "The variable `r' is assigned but it's value is never used."
 // It's value isn't supposed to be used; it's purpose is as a manual check the
@@ -1201,6 +1202,24 @@ namespace Cadenza.Collections.Tests {
 					1, 2, 3, 4
 			}.SequenceEqual (collection));
 			#endregion
+		}
+
+		[Test]
+		public void Sum ()
+		{
+			IEnumerable<uint> s = null;
+			Assert.Throws<ArgumentNullException>(() => s.Sum ());
+
+			s = new []{1U, 2U, 3U};
+			Assert.AreEqual (6U, s.Sum ());
+			Assert.AreEqual (6U, s.Sum (null));
+
+			IEnumerable<SimpleNumber> s2 = new[]{
+				new SimpleNumber (1),
+				new SimpleNumber (2),
+				new SimpleNumber (3),
+			};
+			Assert.AreEqual (new SimpleNumber (6), s2.Sum (new SimpleNumberMath ()));
 		}
 
 		[Test]
