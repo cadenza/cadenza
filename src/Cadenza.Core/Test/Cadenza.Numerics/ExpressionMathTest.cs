@@ -54,7 +54,15 @@ namespace Cadenza.Numerics.Tests
 	}
 
 	[TestFixture]
+	public class DecimalExpressionMathTests : ExpressionMathContract<decimal> {
+	}
+
+	[TestFixture]
 	public class DoubleExpressionMathTests : ExpressionMathContract<double> {
+	}
+
+	[TestFixture]
+	public class SingleExpressionMathTests : ExpressionMathContract<float> {
 	}
 
 	[TestFixture]
@@ -63,5 +71,9 @@ namespace Cadenza.Numerics.Tests
 
 	[TestFixture]
 	public class UInt32ExpressionMathTests : ExpressionMathContract<uint> {
+	}
+
+	[TestFixture]
+	public class UInt64ExpressionMathTests : ExpressionMathContract<ulong> {
 	}
 }
