@@ -127,13 +127,13 @@
       </Docs>
     </Member>
     <Member MemberName="UpdateValue&lt;TKey,TValue&gt;">
-      <MemberSignature Language="C#" Value="public static void UpdateValue&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key, Func&lt;TValue,TValue&gt; valueSelector);" />
+      <MemberSignature Language="C#" Value="public static TValue UpdateValue&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key, Func&lt;TValue,TValue&gt; valueSelector);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
+        <ReturnType>TValue</ReturnType>
       </ReturnValue>
       <TypeParameters>
         <TypeParameter Name="TKey" />
@@ -151,6 +151,7 @@
         <param name="key">To be added.</param>
         <param name="valueSelector">To be added.</param>
         <summary>To be added.</summary>
+        <returns>To be added.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

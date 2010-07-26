@@ -77,7 +77,7 @@ namespace Cadenza.Collections {
 			return true;
 		}
 
-		public static void UpdateValue<TKey, TValue>(this IDictionary<TKey, TValue> self, TKey key, Func<TValue, TValue> valueSelector)
+		public static TValue UpdateValue<TKey, TValue>(this IDictionary<TKey, TValue> self, TKey key, Func<TValue, TValue> valueSelector)
 		{
 			Check.Self (self);
 			Check.ValueSelector (valueSelector);
@@ -85,7 +85,9 @@ namespace Cadenza.Collections {
 			TValue value;
 			if (!self.TryGetValue (key, out value))
 				value = default (TValue);
-			self [key] = valueSelector (value);
+			value = valueSelector (value);
+			self [key] = value;
+			return value;
 		}
 	}
 }

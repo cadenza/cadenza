@@ -1974,10 +1974,10 @@
         <Target Type="T:System.Collections.Generic.IDictionary`2" />
       </Targets>
       <Member MemberName="UpdateValue&lt;TKey,TValue&gt;">
-        <MemberSignature Language="C#" Value="public static void UpdateValue&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key, Func&lt;TValue,TValue&gt; valueSelector);" />
+        <MemberSignature Language="C#" Value="public static TValue UpdateValue&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key, Func&lt;TValue,TValue&gt; valueSelector);" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
-          <ReturnType>System.Void</ReturnType>
+          <ReturnType>TValue</ReturnType>
         </ReturnValue>
         <TypeParameters>
           <TypeParameter Name="TKey" />

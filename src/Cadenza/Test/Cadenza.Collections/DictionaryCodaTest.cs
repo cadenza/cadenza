@@ -115,8 +115,11 @@ namespace Cadenza.Collections.Tests {
 				"words",
 			};
 			var wordCounts = new Dictionary<string, int> ();
-			foreach (var word in words)
-				wordCounts.UpdateValue (word, v => v + 1);
+			foreach (var word in words) {
+				int c;
+				wordCounts.TryGetValue (word, out c);
+				Assert.AreEqual (c + 1, wordCounts.UpdateValue (word, v => v + 1));
+			}
 			Assert.AreEqual (4, wordCounts.Count);
 			Assert.AreEqual (1, wordCounts ["Count"]);
 			Assert.AreEqual (2, wordCounts ["the"]);
