@@ -127,5 +127,33 @@ namespace Cadenza.Collections.Tests {
 			Assert.AreEqual (1, wordCounts ["words"]);
 			#endregion
 		}
+
+		[Test]
+		public void GetValueOrCreate_Arguments ()
+		{
+			IDictionary<string, int> s = null;
+			Assert.Throws<ArgumentNullException>(() => s.GetValueOrCreate ("foo"));
+			Assert.Throws<ArgumentNullException>(() => s.GetValueOrCreate ("foo", null));
+		}
+
+		[Test]
+		public void GetValueOrCreate_ReturnsNewValue ()
+		{
+			var s = new Dictionary<string, List<int>>();
+			Assert.AreEqual (new List<int>(), s.GetValueOrCreate ("foo"));
+			List<int> v = null;
+			var r = s.GetValueOrCreate ("bar", () => v = new List<int> ());
+			Assert.AreSame (r, v);
+		}
+
+		[Test]
+		public void GetValueOrCreate_ReturnsOldValue ()
+		{
+			var s = new Dictionary<string, List<int>> () {
+				{ "foo", new List<int> {42} },
+			};
+			AssertAreSame (new[]{42}, s.GetValueOrCreate ("foo"));
+			AssertAreSame (new[]{42}, s.GetValueOrCreate ("foo", () => new List<int> {1}));
+		}
 	}
 }

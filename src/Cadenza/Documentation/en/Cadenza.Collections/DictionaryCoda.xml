@@ -13,6 +13,66 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    <Member MemberName="GetValueOrCreate&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static TValue GetValueOrCreate&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key) where TValue : new();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TValue</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue">
+          <Constraints>
+            <ParameterAttribute>DefaultConstructorConstraint</ParameterAttribute>
+          </Constraints>
+        </TypeParameter>
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="key" Type="TKey" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="key">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="GetValueOrCreate&lt;TKey,TValue&gt;">
+      <MemberSignature Language="C#" Value="public static TValue GetValueOrCreate&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key, Func&lt;TValue&gt; creator);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>TValue</ReturnType>
+      </ReturnValue>
+      <TypeParameters>
+        <TypeParameter Name="TKey" />
+        <TypeParameter Name="TValue" />
+      </TypeParameters>
+      <Parameters>
+        <Parameter Name="self" Type="System.Collections.Generic.IDictionary&lt;TKey,TValue&gt;" RefType="this" />
+        <Parameter Name="key" Type="TKey" />
+        <Parameter Name="creator" Type="System.Func&lt;TValue&gt;" />
+      </Parameters>
+      <Docs>
+        <typeparam name="TKey">To be added.</typeparam>
+        <typeparam name="TValue">To be added.</typeparam>
+        <param name="self">To be added.</param>
+        <param name="key">To be added.</param>
+        <param name="creator">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
     <Member MemberName="GetValueOrDefault&lt;TKey,TValue&gt;">
       <MemberSignature Language="C#" Value="public static TValue GetValueOrDefault&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key);" />
       <MemberType>Method</MemberType>

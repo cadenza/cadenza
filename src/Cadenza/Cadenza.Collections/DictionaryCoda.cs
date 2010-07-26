@@ -89,5 +89,31 @@ namespace Cadenza.Collections {
 			self [key] = value;
 			return value;
 		}
+
+		public static TValue GetValueOrCreate<TKey, TValue>(this IDictionary<TKey, TValue> self, TKey key)
+			where TValue : new()
+		{
+			Check.Self(self);
+
+			TValue value;
+
+			if (!self.TryGetValue (key, out value)) {
+				self.Add (key, value = new TValue ());
+			}
+			return value;
+		}
+
+		public static TValue GetValueOrCreate<TKey, TValue>(this IDictionary<TKey, TValue> self, TKey key, Func<TValue> creator)
+		{
+			Check.Self(self);
+			Check.Creator (creator);
+
+			TValue value;
+
+			if (!self.TryGetValue (key, out value)) {
+				self.Add (key, value = creator ());
+			}
+			return value;
+		}
 	}
 }

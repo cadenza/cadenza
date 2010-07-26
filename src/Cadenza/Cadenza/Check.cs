@@ -62,6 +62,12 @@ namespace Cadenza {
 				throw new ArgumentNullException ("composer");
 		}
 
+		public static void Creator (object comparer)
+		{
+			if (comparer == null)
+				throw new ArgumentNullException ("creator");
+		}
+
 		public static void Destination (object destination)
 		{
 			if (destination == null)
