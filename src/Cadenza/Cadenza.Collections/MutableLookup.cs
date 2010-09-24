@@ -37,7 +37,8 @@ namespace Cadenza.Collections
 	/// </summary>
 	/// <typeparam name="TKey">The lookup key.</typeparam>
 	/// <typeparam name="TElement">The elements under each <typeparamref name="TKey"/>.</typeparam>
-	public class MutableLookup<TKey, TElement> : ILookup<TKey, TElement>
+	public class MutableLookup<TKey, TElement>
+		: ILookup<TKey, TElement>
 	{
 		public MutableLookup ()
 			: this (EqualityComparer<TKey>.Default)
@@ -79,19 +80,33 @@ namespace Cadenza.Collections
 		/// <param name="element">The element to add.</param>
 		public void Add (TKey key, TElement element)
 		{
-			if (key == null) {
-				this.nullGrouping.Add (element);
-				return;
-			}
-
 			MutableLookupGrouping grouping;
-			if (!this.groupings.TryGetValue (key, out grouping))
+			if (key == null)
+				grouping = nullGrouping;
+			else if (!this.groupings.TryGetValue (key, out grouping))
 			{
 				grouping = new MutableLookupGrouping (key);
 				this.groupings.Add (key, grouping);
 			}
 			
 			grouping.Add (element);
+		}
+
+		public void Add (TKey key, IEnumerable<TElement> elements)
+		{
+			if (elements == null)
+				throw new ArgumentNullException ("elements");
+
+			MutableLookupGrouping grouping;
+			if (key == null)
+				grouping = nullGrouping;
+			else if (!this.groupings.TryGetValue (key, out grouping))
+			{
+				grouping = new MutableLookupGrouping (key);
+				this.groupings.Add (key, grouping);
+			}
+
+			grouping.AddRange (elements);
 		}
 
 		/// <summary>

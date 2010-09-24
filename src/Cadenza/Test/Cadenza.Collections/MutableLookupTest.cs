@@ -42,7 +42,7 @@ namespace Cadenza.Collections.Tests
 		public MutableLookup<string, string> GetTestLookup()
 		{
 			var lookup = new MutableLookup<string, string>();
-			lookup.Add (null, null);
+			lookup.Add (null, (string)null);
 			lookup.Add (null, "blah");
 			lookup.Add (null, "monkeys");
 			lookup.Add ("F", "Foo");
@@ -101,7 +101,7 @@ namespace Cadenza.Collections.Tests
 			Assert.AreEqual (1, lookup.Count);
 			Assert.AreEqual (2, lookup["F"].Count());
 		}
-
+		
 		[Test]
 		public void AddNull()
 		{
@@ -109,9 +109,36 @@ namespace Cadenza.Collections.Tests
 			lookup.Add (null, "Foo");
 			Assert.AreEqual (1, lookup.Count);
 			Assert.AreEqual (1, lookup[null].Count());
-			lookup.Add (null, null);
+			lookup.Add (null, (string)null);
 			Assert.AreEqual (1, lookup.Count);
 			Assert.AreEqual (2, lookup[null].Count());
+		}
+
+		[Test]
+		public void AddMultiple()
+		{
+			var values = new [] { "Foo", "Foobar" };
+			var lookup = new MutableLookup<string, string>();
+			lookup.Add ("key", values);
+			Assert.AreEqual (1, lookup.Count);
+			Assert.Contains (values[0], lookup["key"].ToList());
+			Assert.Contains (values[1], lookup["key"].ToList());
+			lookup.Add ("key2", values);
+			Assert.AreEqual (2, lookup.Count);
+			Assert.Contains (values[0], lookup["key2"].ToList());
+			Assert.Contains (values[1], lookup["key2"].ToList());
+		}
+
+		[Test]
+		public void AddMultipleNull()
+		{
+			var values = new [] { "Foo", "Foobar" };
+			var lookup = new MutableLookup<string, string>();
+			lookup.Add (null, values);
+			Assert.AreEqual (1, lookup.Count);
+			Assert.IsTrue (values.SequenceEqual (lookup[null]), "S");
+
+			Assert.Throws<ArgumentNullException> (() => lookup.Add ("foo", (IEnumerable<string>)null));
 		}
 
 		[Test]
