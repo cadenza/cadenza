@@ -235,7 +235,7 @@ namespace Cadenza {
 		{
 			Check.Self (self);
 
-			if (start < 0 || start >= self.Length)
+			if (start < 0 || start > self.Length)
 				throw new ArgumentOutOfRangeException ("start");
 
 			if (end < 0)

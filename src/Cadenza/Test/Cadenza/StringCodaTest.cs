@@ -313,6 +313,7 @@ namespace Cadenza.Tests {
 			Assert.AreEqual ("89",      data.Slice (8, 10));
 			Assert.AreEqual ("456789",  data.Slice (4, -1));
 			Assert.AreEqual ("8",       data.Slice (8, -2));
+			Assert.AreEqual ("",        data.Slice (data.Length, data.Length));
 			#endregion
 		}
 
