@@ -121,7 +121,9 @@ namespace Cadenza {
 
 		private static int GetLineEnd (int start, int length, string description)
 		{
-			int end = System.Math.Min (start + length, description.Length);
+			int end = ((start + length) < start)	// overflow
+				? description.Length
+				: Math.Min (start + length, description.Length);
 			int sep = -1;
 			for (int i = start; i < end; ++i) {
 				if (description [i] == '\n')

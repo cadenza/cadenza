@@ -117,6 +117,13 @@ namespace Cadenza.Tests {
 		}
 
 		[Test]
+		public void WrappedLines_MaxIntValid ()
+		{
+			Assert.AreEqual ("\nfoo",
+					"\nfoo".WrappedLines (int.MaxValue).Implode ("\n"));
+		}
+
+		[Test]
 		public void WrappedLines ()
 		{
 			#region WrappedLines
