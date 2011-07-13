@@ -1,5 +1,6 @@
 <Type Name="SynchronizeInvokeCoda" FullName="Cadenza.ComponentModel.SynchronizeInvokeCoda">
   <TypeSignature Language="C#" Value="public static class SynchronizeInvokeCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit SynchronizeInvokeCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza.Core</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -15,6 +16,7 @@
   <Members>
     <Member MemberName="AutoInvoke">
       <MemberSignature Language="C#" Value="public static void AutoInvoke (this System.ComponentModel.ISynchronizeInvoke self, Action action);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void AutoInvoke(class System.ComponentModel.ISynchronizeInvoke self, class System.Action action) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -35,6 +37,7 @@
     </Member>
     <Member MemberName="AutoInvoke">
       <MemberSignature Language="C#" Value="public static object AutoInvoke (this System.ComponentModel.ISynchronizeInvoke self, Delegate method, object[] args);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig object AutoInvoke(class System.ComponentModel.ISynchronizeInvoke self, class System.Delegate method, object[] args) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -64,6 +67,7 @@
     </Member>
     <Member MemberName="Invoked">
       <MemberSignature Language="C#" Value="public static AsyncCallback Invoked (this AsyncCallback self, System.ComponentModel.ISynchronizeInvoke obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.AsyncCallback Invoked(class System.AsyncCallback self, class System.ComponentModel.ISynchronizeInvoke obj) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

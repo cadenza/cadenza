@@ -1,5 +1,6 @@
 <Type Name="Math&lt;T&gt;" FullName="Cadenza.Numerics.Math&lt;T&gt;">
   <TypeSignature Language="C#" Value="public abstract class Math&lt;T&gt; : System.Collections.Generic.IComparer&lt;T&gt;, System.Collections.Generic.IEqualityComparer&lt;T&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract Math`1&lt;T&gt; extends System.Object implements class System.Collections.Generic.IComparer`1&lt;!T&gt;, class System.Collections.Generic.IEqualityComparer`1&lt;!T&gt;" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -26,6 +27,7 @@
   <Members>
     <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="protected Math ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -38,6 +40,7 @@
     </Member>
     <Member MemberName="Abs">
       <MemberSignature Language="C#" Value="public virtual T Abs (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Abs(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -58,6 +61,7 @@
     </Member>
     <Member MemberName="Acos">
       <MemberSignature Language="C#" Value="public virtual T Acos (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Acos(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -77,6 +81,7 @@
     </Member>
     <Member MemberName="Add">
       <MemberSignature Language="C#" Value="public abstract T Add (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Add(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -99,6 +104,7 @@
     </Member>
     <Member MemberName="Asin">
       <MemberSignature Language="C#" Value="public virtual T Asin (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Asin(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -118,6 +124,7 @@
     </Member>
     <Member MemberName="Atan">
       <MemberSignature Language="C#" Value="public virtual T Atan (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Atan(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -137,6 +144,7 @@
     </Member>
     <Member MemberName="Atan2">
       <MemberSignature Language="C#" Value="public virtual T Atan2 (T y, T x);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Atan2(!T y, !T x) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -159,6 +167,7 @@
     </Member>
     <Member MemberName="Ceiling">
       <MemberSignature Language="C#" Value="public virtual T Ceiling (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Ceiling(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -179,6 +188,7 @@
     </Member>
     <Member MemberName="Compare">
       <MemberSignature Language="C#" Value="public virtual int Compare (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance int32 Compare(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -200,6 +210,7 @@
     </Member>
     <Member MemberName="Cos">
       <MemberSignature Language="C#" Value="public virtual T Cos (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Cos(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -219,6 +230,7 @@
     </Member>
     <Member MemberName="Cosh">
       <MemberSignature Language="C#" Value="public virtual T Cosh (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Cosh(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -238,6 +250,7 @@
     </Member>
     <Member MemberName="Default">
       <MemberSignature Language="C#" Value="public static Cadenza.Numerics.Math&lt;T&gt; Default { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class Cadenza.Numerics.Math`1&lt;!T&gt; Default" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -257,6 +270,7 @@
     </Member>
     <Member MemberName="Divide">
       <MemberSignature Language="C#" Value="public virtual T Divide (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Divide(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -278,6 +292,7 @@
     </Member>
     <Member MemberName="DivideIntegral">
       <MemberSignature Language="C#" Value="public virtual T DivideIntegral (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T DivideIntegral(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -299,6 +314,7 @@
     </Member>
     <Member MemberName="DivideIntegralModulus">
       <MemberSignature Language="C#" Value="public virtual T DivideIntegralModulus (T x, T y, out T modulus);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T DivideIntegralModulus(!T x, !T y, !T modulus) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -322,6 +338,7 @@
     </Member>
     <Member MemberName="E">
       <MemberSignature Language="C#" Value="public virtual T E { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance !T E" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -337,6 +354,7 @@
     </Member>
     <Member MemberName="EnumerateFrom">
       <MemberSignature Language="C#" Value="public virtual System.Collections.Generic.IEnumerable&lt;T&gt; EnumerateFrom (T start);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Collections.Generic.IEnumerable`1&lt;!T&gt; EnumerateFrom(!T start) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -356,6 +374,7 @@
     </Member>
     <Member MemberName="EnumerateFromThen">
       <MemberSignature Language="C#" Value="public virtual System.Collections.Generic.IEnumerable&lt;T&gt; EnumerateFromThen (T first, T start);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Collections.Generic.IEnumerable`1&lt;!T&gt; EnumerateFromThen(!T first, !T start) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -377,6 +396,7 @@
     </Member>
     <Member MemberName="EnumerateFromThenTo">
       <MemberSignature Language="C#" Value="public virtual System.Collections.Generic.IEnumerable&lt;T&gt; EnumerateFromThenTo (T first, T start, T end);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Collections.Generic.IEnumerable`1&lt;!T&gt; EnumerateFromThenTo(!T first, !T start, !T end) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -400,6 +420,7 @@
     </Member>
     <Member MemberName="EnumerateFromTo">
       <MemberSignature Language="C#" Value="public virtual System.Collections.Generic.IEnumerable&lt;T&gt; EnumerateFromTo (T start, T end);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.Collections.Generic.IEnumerable`1&lt;!T&gt; EnumerateFromTo(!T start, !T end) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -421,6 +442,7 @@
     </Member>
     <Member MemberName="Equals">
       <MemberSignature Language="C#" Value="public virtual bool Equals (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Equals(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -442,6 +464,7 @@
     </Member>
     <Member MemberName="Exp">
       <MemberSignature Language="C#" Value="public virtual T Exp (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Exp(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -461,6 +484,7 @@
     </Member>
     <Member MemberName="Features">
       <MemberSignature Language="C#" Value="public virtual Cadenza.Numerics.MathFeatures Features { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance valuetype Cadenza.Numerics.MathFeatures Features" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -476,6 +500,7 @@
     </Member>
     <Member MemberName="FloatDigits">
       <MemberSignature Language="C#" Value="public virtual int FloatDigits { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 FloatDigits" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -492,6 +517,7 @@
     </Member>
     <Member MemberName="FloatRadix">
       <MemberSignature Language="C#" Value="public virtual int FloatRadix { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance int32 FloatRadix" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -508,6 +534,7 @@
     </Member>
     <Member MemberName="FloatRange">
       <MemberSignature Language="C#" Value="public virtual Cadenza.Tuple&lt;int,int&gt; FloatRange { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class Cadenza.Tuple`2&lt;int32, int32&gt; FloatRange" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -524,6 +551,7 @@
     </Member>
     <Member MemberName="Floor">
       <MemberSignature Language="C#" Value="public virtual T Floor (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Floor(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -544,10 +572,16 @@
     </Member>
     <Member MemberName="FromIConvertible">
       <MemberSignature Language="C#" Value="public virtual T FromIConvertible (IConvertible value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T FromIConvertible(class System.IConvertible value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>T</ReturnType>
       </ReturnValue>
@@ -561,14 +595,10 @@
         <remarks>To be added.</remarks>
         <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.FromIConvertible(System.IConvertible)" /></exception>
       </Docs>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
     </Member>
     <Member MemberName="FromInt32">
       <MemberSignature Language="C#" Value="public virtual T FromInt32 (int value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T FromInt32(int32 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -588,6 +618,7 @@
     </Member>
     <Member MemberName="GetHashCode">
       <MemberSignature Language="C#" Value="public virtual int GetHashCode (T obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance int32 GetHashCode(!T obj) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -607,6 +638,7 @@
     </Member>
     <Member MemberName="GreaterThan">
       <MemberSignature Language="C#" Value="public virtual bool GreaterThan (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool GreaterThan(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -628,6 +660,7 @@
     </Member>
     <Member MemberName="GreaterThanOrEqual">
       <MemberSignature Language="C#" Value="public virtual bool GreaterThanOrEqual (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool GreaterThanOrEqual(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -649,6 +682,7 @@
     </Member>
     <Member MemberName="HasBounds">
       <MemberSignature Language="C#" Value="public virtual bool HasBounds { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool HasBounds" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -664,6 +698,7 @@
     </Member>
     <Member MemberName="IEEERemainder">
       <MemberSignature Language="C#" Value="public virtual T IEEERemainder (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T IEEERemainder(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -686,6 +721,7 @@
     </Member>
     <Member MemberName="IsFloatingPoint">
       <MemberSignature Language="C#" Value="public virtual bool IsFloatingPoint { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsFloatingPoint" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -701,6 +737,7 @@
     </Member>
     <Member MemberName="IsFractional">
       <MemberSignature Language="C#" Value="public virtual bool IsFractional { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsFractional" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -716,6 +753,7 @@
     </Member>
     <Member MemberName="IsIEEE">
       <MemberSignature Language="C#" Value="public virtual bool IsIEEE (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool IsIEEE(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -736,6 +774,7 @@
     </Member>
     <Member MemberName="IsInfinite">
       <MemberSignature Language="C#" Value="public virtual bool IsInfinite (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool IsInfinite(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -756,6 +795,7 @@
     </Member>
     <Member MemberName="IsNaN">
       <MemberSignature Language="C#" Value="public virtual bool IsNaN (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool IsNaN(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -776,6 +816,7 @@
     </Member>
     <Member MemberName="IsTwosComplement">
       <MemberSignature Language="C#" Value="public virtual bool IsTwosComplement { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsTwosComplement" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -791,6 +832,7 @@
     </Member>
     <Member MemberName="IsUnsigned">
       <MemberSignature Language="C#" Value="public virtual bool IsUnsigned { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool IsUnsigned" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -806,6 +848,7 @@
     </Member>
     <Member MemberName="LessThan">
       <MemberSignature Language="C#" Value="public virtual bool LessThan (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool LessThan(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -827,6 +870,7 @@
     </Member>
     <Member MemberName="LessThanOrEqual">
       <MemberSignature Language="C#" Value="public virtual bool LessThanOrEqual (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool LessThanOrEqual(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -848,6 +892,7 @@
     </Member>
     <Member MemberName="Log">
       <MemberSignature Language="C#" Value="public virtual T Log (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Log(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -867,6 +912,7 @@
     </Member>
     <Member MemberName="Log">
       <MemberSignature Language="C#" Value="public virtual T Log (T value, T newBase);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Log(!T value, !T newBase) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -888,6 +934,7 @@
     </Member>
     <Member MemberName="Max">
       <MemberSignature Language="C#" Value="public virtual T Max (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Max(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -909,6 +956,7 @@
     </Member>
     <Member MemberName="MaxValue">
       <MemberSignature Language="C#" Value="public virtual T MaxValue { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance !T MaxValue" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -924,6 +972,7 @@
     </Member>
     <Member MemberName="Min">
       <MemberSignature Language="C#" Value="public virtual T Min (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Min(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -945,6 +994,7 @@
     </Member>
     <Member MemberName="MinValue">
       <MemberSignature Language="C#" Value="public virtual T MinValue { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance !T MinValue" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -960,6 +1010,7 @@
     </Member>
     <Member MemberName="Modulus">
       <MemberSignature Language="C#" Value="public virtual T Modulus (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Modulus(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -981,6 +1032,7 @@
     </Member>
     <Member MemberName="Multiply">
       <MemberSignature Language="C#" Value="public abstract T Multiply (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Multiply(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1003,6 +1055,7 @@
     </Member>
     <Member MemberName="Negate">
       <MemberSignature Language="C#" Value="public virtual T Negate (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Negate(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1023,6 +1076,7 @@
     </Member>
     <Member MemberName="Pi">
       <MemberSignature Language="C#" Value="public virtual T Pi { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance !T Pi" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1038,6 +1092,7 @@
     </Member>
     <Member MemberName="Pow">
       <MemberSignature Language="C#" Value="public virtual T Pow (T value, T exp);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Pow(!T value, !T exp) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1059,6 +1114,7 @@
     </Member>
     <Member MemberName="Predecessor">
       <MemberSignature Language="C#" Value="public virtual T Predecessor (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Predecessor(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1078,6 +1134,7 @@
     </Member>
     <Member MemberName="Quotient">
       <MemberSignature Language="C#" Value="public virtual T Quotient (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Quotient(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1099,6 +1156,7 @@
     </Member>
     <Member MemberName="QuotientRemainder">
       <MemberSignature Language="C#" Value="public abstract T QuotientRemainder (T x, T y, out T remainder);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T QuotientRemainder(!T x, !T y, !T remainder) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1122,6 +1180,7 @@
     </Member>
     <Member MemberName="Reciprocal">
       <MemberSignature Language="C#" Value="public virtual T Reciprocal (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Reciprocal(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1141,6 +1200,7 @@
     </Member>
     <Member MemberName="Remainder">
       <MemberSignature Language="C#" Value="public virtual T Remainder (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Remainder(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1162,6 +1222,7 @@
     </Member>
     <Member MemberName="Round">
       <MemberSignature Language="C#" Value="public virtual T Round (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Round(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1182,6 +1243,7 @@
     </Member>
     <Member MemberName="SetDefault">
       <MemberSignature Language="C#" Value="public static void SetDefault (Cadenza.Numerics.Math&lt;T&gt; provider);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void SetDefault(class Cadenza.Numerics.Math`1&lt;!T&gt; provider) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1200,6 +1262,7 @@
     </Member>
     <Member MemberName="Sign">
       <MemberSignature Language="C#" Value="public virtual T Sign (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Sign(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1219,6 +1282,7 @@
     </Member>
     <Member MemberName="Sin">
       <MemberSignature Language="C#" Value="public virtual T Sin (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Sin(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1238,6 +1302,7 @@
     </Member>
     <Member MemberName="Sinh">
       <MemberSignature Language="C#" Value="public virtual T Sinh (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Sinh(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1257,6 +1322,7 @@
     </Member>
     <Member MemberName="Sqrt">
       <MemberSignature Language="C#" Value="public virtual T Sqrt (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Sqrt(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1276,6 +1342,7 @@
     </Member>
     <Member MemberName="Subtract">
       <MemberSignature Language="C#" Value="public abstract T Subtract (T x, T y);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Subtract(!T x, !T y) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1298,6 +1365,7 @@
     </Member>
     <Member MemberName="Successor">
       <MemberSignature Language="C#" Value="public virtual T Successor (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Successor(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1317,6 +1385,7 @@
     </Member>
     <Member MemberName="Tan">
       <MemberSignature Language="C#" Value="public virtual T Tan (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Tan(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1336,6 +1405,7 @@
     </Member>
     <Member MemberName="Tanh">
       <MemberSignature Language="C#" Value="public virtual T Tanh (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Tanh(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1355,10 +1425,16 @@
     </Member>
     <Member MemberName="ToIConvertible">
       <MemberSignature Language="C#" Value="public virtual IConvertible ToIConvertible (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class System.IConvertible ToIConvertible(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>System.IConvertible</ReturnType>
       </ReturnValue>
@@ -1372,14 +1448,10 @@
         <remarks>To be added.</remarks>
         <exception cref="T:System.NotSupportedException">To be added; from: <see cref="M:Cadenza.Numerics.Math`1.ToIConvertible(`0)" /></exception>
       </Docs>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
     </Member>
     <Member MemberName="ToInt32">
       <MemberSignature Language="C#" Value="public virtual int ToInt32 (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance int32 ToInt32(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1399,6 +1471,7 @@
     </Member>
     <Member MemberName="Truncate">
       <MemberSignature Language="C#" Value="public virtual T Truncate (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !T Truncate(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

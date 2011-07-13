@@ -1,5 +1,6 @@
 <Type Name="StreamConverter" FullName="Cadenza.IO.StreamConverter">
   <TypeSignature Language="C#" Value="public abstract class StreamConverter : Cadenza.IO.IValueReader, Cadenza.IO.IValueWriter, IDisposable" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit StreamConverter extends System.Object implements class Cadenza.IO.IValueReader, class Cadenza.IO.IValueWriter, class System.IDisposable" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -18,6 +19,11 @@
       <InterfaceName>System.IDisposable</InterfaceName>
     </Interface>
   </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.CLSCompliant(false)</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
     <summary>To be added.</summary>
     <remarks>To be added.</remarks>
@@ -25,6 +31,7 @@
   <Members>
     <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="protected StreamConverter ();" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig specialname rtspecialname instance void .ctor() cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -37,6 +44,7 @@
     </Member>
     <Member MemberName="Dispose">
       <MemberSignature Language="C#" Value="public void Dispose ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance void Dispose() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -52,6 +60,7 @@
     </Member>
     <Member MemberName="Dispose">
       <MemberSignature Language="C#" Value="protected virtual void Dispose (bool disposing);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig newslot virtual instance void Dispose(bool disposing) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -70,6 +79,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueReader Read (out bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(bool value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -89,6 +99,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueReader Read (out byte value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(unsigned int8 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -108,6 +119,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public Cadenza.IO.StreamConverter Read (byte[] value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.StreamConverter Read(unsigned int8[] value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -128,6 +140,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueReader Read (out char value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(char value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -147,6 +160,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueReader Read (out DateTime value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(valuetype System.DateTime value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -166,6 +180,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueReader Read (out decimal value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(valuetype System.Decimal value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -185,6 +200,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueReader Read (out double value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(float64 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -204,6 +220,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueReader Read (out short value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(int16 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -223,6 +240,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueReader Read (out int value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(int32 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -242,6 +260,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueReader Read (out long value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(int64 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -261,6 +280,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public virtual Cadenza.IO.IValueReader Read (out sbyte value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(int8 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -280,6 +300,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueReader Read (out float value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(float32 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -299,6 +320,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueReader Read (out string value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -318,6 +340,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public virtual Cadenza.IO.IValueReader Read (out ushort value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(unsigned int16 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -337,6 +360,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public virtual Cadenza.IO.IValueReader Read (out uint value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(unsigned int32 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -356,6 +380,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public virtual Cadenza.IO.IValueReader Read (out ulong value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(unsigned int64 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -375,6 +400,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueReader Read (byte[] value, int offset, int count);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(unsigned int8[] value, int32 offset, int32 count) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -398,6 +424,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueReader Read (int size, System.Text.Encoding encoding, out string value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueReader Read(int32 size, class System.Text.Encoding encoding, string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -421,6 +448,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueWriter Write (bool value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(bool value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -440,6 +468,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueWriter Write (byte value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(unsigned int8 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -459,6 +488,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public Cadenza.IO.StreamConverter Write (byte[] value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.StreamConverter Write(unsigned int8[] value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -479,6 +509,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueWriter Write (char value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(char value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -498,6 +529,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueWriter Write (DateTime value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(valuetype System.DateTime value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -517,6 +549,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueWriter Write (decimal value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(valuetype System.Decimal value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -536,6 +569,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueWriter Write (double value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(float64 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -555,6 +589,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueWriter Write (short value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(int16 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -574,6 +609,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueWriter Write (int value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(int32 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -593,6 +629,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueWriter Write (long value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(int64 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -612,6 +649,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public virtual Cadenza.IO.IValueWriter Write (sbyte value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(int8 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -631,6 +669,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueWriter Write (float value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(float32 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -650,6 +689,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.IValueWriter Write (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -669,6 +709,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public virtual Cadenza.IO.IValueWriter Write (ushort value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(unsigned int16 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -688,6 +729,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public virtual Cadenza.IO.IValueWriter Write (uint value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(unsigned int32 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -707,6 +749,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public virtual Cadenza.IO.IValueWriter Write (ulong value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.IValueWriter Write(unsigned int64 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -726,6 +769,7 @@
     </Member>
     <Member MemberName="Write">
       <MemberSignature Language="C#" Value="public abstract Cadenza.IO.StreamConverter Write (byte[] value, int offset, int count);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance class Cadenza.IO.StreamConverter Write(unsigned int8[] value, int32 offset, int32 count) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -748,9 +792,4 @@
       </Docs>
     </Member>
   </Members>
-  <Attributes>
-    <Attribute>
-      <AttributeName>System.CLSCompliant(false)</AttributeName>
-    </Attribute>
-  </Attributes>
 </Type>

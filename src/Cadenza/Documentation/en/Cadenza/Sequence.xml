@@ -1,5 +1,6 @@
 <Type Name="Sequence" FullName="Cadenza.Sequence">
   <TypeSignature Language="C#" Value="public static class Sequence" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit Sequence extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -21,6 +22,7 @@
   <Members>
     <Member MemberName="Expand">
       <MemberSignature Language="C#" Value="public static System.Collections.IEnumerable Expand (object o);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.IEnumerable Expand(object o) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -71,6 +73,7 @@
     </Member>
     <Member MemberName="Expand">
       <MemberSignature Language="C#" Value="public static System.Collections.IEnumerable Expand (object o, System.Collections.Generic.IEnumerable&lt;Type&gt; except);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.IEnumerable Expand(object o, class System.Collections.Generic.IEnumerable`1&lt;class System.Type&gt; except) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -139,6 +142,7 @@ foreach (object v in seq)
     </Member>
     <Member MemberName="Expand">
       <MemberSignature Language="C#" Value="public static System.Collections.IEnumerable Expand (object o, Type[] except);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.IEnumerable Expand(object o, class System.Type[] except) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -213,6 +217,7 @@ foreach (object v in seq)
     </Member>
     <Member MemberName="GenerateReverse&lt;TSource,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; GenerateReverse&lt;TSource,TResult&gt; (TSource value, Func&lt;TSource,Cadenza.Maybe&lt;Cadenza.Tuple&lt;TResult,TSource&gt;&gt;&gt; selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; GenerateReverse&lt;TSource, TResult&gt;(!!TSource value, class System.Func`2&lt;!!TSource, valuetype Cadenza.Maybe`1&lt;class Cadenza.Tuple`2&lt;!!TResult, !!TSource&gt;&gt;&gt; selector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -298,6 +303,7 @@ foreach (object v in seq)
     </Member>
     <Member MemberName="Iterate&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Iterate&lt;TSource&gt; (TSource value, Func&lt;TSource,TSource&gt; selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Iterate&lt;TSource&gt;(!!TSource value, class System.Func`2&lt;!!TSource, !!TSource&gt; selector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -368,6 +374,7 @@ Assert.AreEqual ("1,2,3,4,5",
     </Member>
     <Member MemberName="Repeat&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Repeat&lt;TSource&gt; (TSource value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Repeat&lt;TSource&gt;(!!TSource value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

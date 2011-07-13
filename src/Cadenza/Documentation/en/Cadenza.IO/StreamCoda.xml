@@ -1,5 +1,6 @@
 <Type Name="StreamCoda" FullName="Cadenza.IO.StreamCoda">
   <TypeSignature Language="C#" Value="public static class StreamCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit StreamCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -15,10 +16,16 @@
   <Members>
     <Member MemberName="WithSystemConverter">
       <MemberSignature Language="C#" Value="public static Cadenza.IO.StreamConverter WithSystemConverter (this System.IO.Stream self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.IO.StreamConverter WithSystemConverter(class System.IO.Stream self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Cadenza.IO.StreamConverter</ReturnType>
       </ReturnValue>
@@ -32,14 +39,10 @@
         <remarks>To be added.</remarks>
         <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
       </Docs>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
     </Member>
     <Member MemberName="WriteTo">
       <MemberSignature Language="C#" Value="public static void WriteTo (this System.IO.Stream self, System.IO.Stream destination);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void WriteTo(class System.IO.Stream self, class System.IO.Stream destination) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

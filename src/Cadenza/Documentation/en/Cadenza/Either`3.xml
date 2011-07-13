@@ -1,5 +1,6 @@
 <Type Name="Either&lt;T1,T2,T3&gt;" FullName="Cadenza.Either&lt;T1,T2,T3&gt;">
   <TypeSignature Language="C#" Value="public abstract class Either&lt;T1,T2,T3&gt; : IEquatable&lt;Cadenza.Either&lt;T1,T2,T3&gt;&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract beforefieldinit Either`3&lt;T1, T2, T3&gt; extends System.Object implements class System.IEquatable`1&lt;class Cadenza.Either`3&lt;!T1, !T2, !T3&gt;&gt;" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -92,6 +93,7 @@
   <Members>
     <Member MemberName="A">
       <MemberSignature Language="C#" Value="public static Cadenza.Either&lt;T1,T2,T3&gt; A (T1 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Either`3&lt;!T1, !T2, !T3&gt; A(!T1 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -134,6 +136,7 @@
     </Member>
     <Member MemberName="B">
       <MemberSignature Language="C#" Value="public static Cadenza.Either&lt;T1,T2,T3&gt; B (T2 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Either`3&lt;!T1, !T2, !T3&gt; B(!T2 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -176,6 +179,7 @@
     </Member>
     <Member MemberName="C">
       <MemberSignature Language="C#" Value="public static Cadenza.Either&lt;T1,T2,T3&gt; C (T3 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Either`3&lt;!T1, !T2, !T3&gt; C(!T3 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -218,6 +222,7 @@
     </Member>
     <Member MemberName="Equals">
       <MemberSignature Language="C#" Value="public abstract bool Equals (Cadenza.Either&lt;T1,T2,T3&gt; obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Equals(class Cadenza.Either`3&lt;!T1, !T2, !T3&gt; obj) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -254,6 +259,7 @@
     </Member>
     <Member MemberName="Equals">
       <MemberSignature Language="C#" Value="public abstract bool Equals (object obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Equals(object obj) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -296,6 +302,7 @@
     </Member>
     <Member MemberName="Fold&lt;TResult&gt;">
       <MemberSignature Language="C#" Value="public abstract TResult Fold&lt;TResult&gt; (Func&lt;T1,TResult&gt; a, Func&lt;T2,TResult&gt; b, Func&lt;T3,TResult&gt; c);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance !!TResult Fold&lt;TResult&gt;(class System.Func`2&lt;!T1, !!TResult&gt; a, class System.Func`2&lt;!T2, !!TResult&gt; b, class System.Func`2&lt;!T3, !!TResult&gt; c) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -372,6 +379,7 @@
     </Member>
     <Member MemberName="GetHashCode">
       <MemberSignature Language="C#" Value="public abstract int GetHashCode ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance int32 GetHashCode() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -398,6 +406,7 @@
     </Member>
     <Member MemberName="op_Implicit">
       <MemberSignature Language="C#" Value="public static Cadenza.Either&lt;T1,T2,T3&gt; op_Implicit (T1 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname class Cadenza.Either`3&lt;!T1, !T2, !T3&gt; op_Implicit(!T1 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -436,6 +445,7 @@
     </Member>
     <Member MemberName="op_Implicit">
       <MemberSignature Language="C#" Value="public static Cadenza.Either&lt;T1,T2,T3&gt; op_Implicit (T2 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname class Cadenza.Either`3&lt;!T1, !T2, !T3&gt; op_Implicit(!T2 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -474,6 +484,7 @@
     </Member>
     <Member MemberName="op_Implicit">
       <MemberSignature Language="C#" Value="public static Cadenza.Either&lt;T1,T2,T3&gt; op_Implicit (T3 value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname class Cadenza.Either`3&lt;!T1, !T2, !T3&gt; op_Implicit(!T3 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

@@ -1,5 +1,6 @@
 <Type Name="CustomAttributeProviderCoda" FullName="Cadenza.Reflection.CustomAttributeProviderCoda">
   <TypeSignature Language="C#" Value="public static class CustomAttributeProviderCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit CustomAttributeProviderCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -19,6 +20,7 @@
   <Members>
     <Member MemberName="GetCustomAttribute&lt;TAttribute&gt;">
       <MemberSignature Language="C#" Value="public static TAttribute GetCustomAttribute&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TAttribute GetCustomAttribute&lt;(class System.Attribute) TAttribute&gt;(class System.Reflection.ICustomAttributeProvider self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -64,6 +66,7 @@ FooAttribute foo = typeof (Bar).GetCustomAttribute&lt;FooAttribute&gt; ();</code
     </Member>
     <Member MemberName="GetCustomAttributes&lt;TAttribute&gt;">
       <MemberSignature Language="C#" Value="public static TAttribute[] GetCustomAttributes&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TAttribute[] GetCustomAttributes&lt;(class System.Attribute) TAttribute&gt;(class System.Reflection.ICustomAttributeProvider self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

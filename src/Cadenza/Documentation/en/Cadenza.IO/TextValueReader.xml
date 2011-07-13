@@ -1,5 +1,6 @@
 <Type Name="TextValueReader" FullName="Cadenza.IO.TextValueReader">
   <TypeSignature Language="C#" Value="public sealed class TextValueReader : Cadenza.IO.ValueReader&lt;string&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed beforefieldinit TextValueReader extends Cadenza.IO.ValueReader`1&lt;string&gt;" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -12,6 +13,11 @@
   </Base>
   <Interfaces>
   </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.CLSCompliant(false)</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
     <summary>To be added.</summary>
     <remarks>To be added.</remarks>
@@ -19,6 +25,7 @@
   <Members>
     <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public TextValueReader (System.Collections.Generic.IEnumerable&lt;string&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Collections.Generic.IEnumerable`1&lt;string&gt; values) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -35,6 +42,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out byte value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.TextValueReader Read(class System.IFormatProvider provider, unsigned int8 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -57,6 +65,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out DateTime value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.TextValueReader Read(class System.IFormatProvider provider, valuetype System.DateTime value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -79,6 +88,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out decimal value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.TextValueReader Read(class System.IFormatProvider provider, valuetype System.Decimal value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -101,6 +111,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out double value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.TextValueReader Read(class System.IFormatProvider provider, float64 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -123,6 +134,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out short value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.TextValueReader Read(class System.IFormatProvider provider, int16 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -145,6 +157,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out int value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.TextValueReader Read(class System.IFormatProvider provider, int32 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -167,6 +180,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out long value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.TextValueReader Read(class System.IFormatProvider provider, int64 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -189,6 +203,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out sbyte value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.TextValueReader Read(class System.IFormatProvider provider, int8 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -211,6 +226,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out float value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.TextValueReader Read(class System.IFormatProvider provider, float32 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -233,6 +249,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out ushort value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.TextValueReader Read(class System.IFormatProvider provider, unsigned int16 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -255,6 +272,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out uint value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.TextValueReader Read(class System.IFormatProvider provider, unsigned int32 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -277,6 +295,7 @@
     </Member>
     <Member MemberName="Read">
       <MemberSignature Language="C#" Value="public Cadenza.IO.TextValueReader Read (IFormatProvider provider, out ulong value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance class Cadenza.IO.TextValueReader Read(class System.IFormatProvider provider, unsigned int64 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -299,6 +318,7 @@
     </Member>
     <Member MemberName="ToBoolean">
       <MemberSignature Language="C#" Value="protected override bool ToBoolean (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance bool ToBoolean(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -318,6 +338,7 @@
     </Member>
     <Member MemberName="ToByte">
       <MemberSignature Language="C#" Value="protected override byte ToByte (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance unsigned int8 ToByte(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -337,6 +358,7 @@
     </Member>
     <Member MemberName="ToChar">
       <MemberSignature Language="C#" Value="protected override char ToChar (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance char ToChar(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -356,6 +378,7 @@
     </Member>
     <Member MemberName="ToDateTime">
       <MemberSignature Language="C#" Value="protected override DateTime ToDateTime (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance valuetype System.DateTime ToDateTime(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -375,6 +398,7 @@
     </Member>
     <Member MemberName="ToDecimal">
       <MemberSignature Language="C#" Value="protected override decimal ToDecimal (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance valuetype System.Decimal ToDecimal(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -394,6 +418,7 @@
     </Member>
     <Member MemberName="ToDouble">
       <MemberSignature Language="C#" Value="protected override double ToDouble (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance float64 ToDouble(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -413,6 +438,7 @@
     </Member>
     <Member MemberName="ToInt16">
       <MemberSignature Language="C#" Value="protected override short ToInt16 (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance int16 ToInt16(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -432,6 +458,7 @@
     </Member>
     <Member MemberName="ToInt32">
       <MemberSignature Language="C#" Value="protected override int ToInt32 (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance int32 ToInt32(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -451,6 +478,7 @@
     </Member>
     <Member MemberName="ToInt64">
       <MemberSignature Language="C#" Value="protected override long ToInt64 (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance int64 ToInt64(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -470,6 +498,7 @@
     </Member>
     <Member MemberName="ToSByte">
       <MemberSignature Language="C#" Value="protected override sbyte ToSByte (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance int8 ToSByte(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -489,6 +518,7 @@
     </Member>
     <Member MemberName="ToSingle">
       <MemberSignature Language="C#" Value="protected override float ToSingle (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance float32 ToSingle(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -508,6 +538,7 @@
     </Member>
     <Member MemberName="ToString">
       <MemberSignature Language="C#" Value="protected override string ToString (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance string ToString(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -527,6 +558,7 @@
     </Member>
     <Member MemberName="ToUInt16">
       <MemberSignature Language="C#" Value="protected override ushort ToUInt16 (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance unsigned int16 ToUInt16(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -546,6 +578,7 @@
     </Member>
     <Member MemberName="ToUInt32">
       <MemberSignature Language="C#" Value="protected override uint ToUInt32 (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance unsigned int32 ToUInt32(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -565,6 +598,7 @@
     </Member>
     <Member MemberName="ToUInt64">
       <MemberSignature Language="C#" Value="protected override ulong ToUInt64 (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance unsigned int64 ToUInt64(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -583,9 +617,4 @@
       </Docs>
     </Member>
   </Members>
-  <Attributes>
-    <Attribute>
-      <AttributeName>System.CLSCompliant(false)</AttributeName>
-    </Attribute>
-  </Attributes>
 </Type>

@@ -1,5 +1,6 @@
 <Type Name="LinkedListCoda" FullName="Cadenza.Collections.LinkedListCoda">
   <TypeSignature Language="C#" Value="public static class LinkedListCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit LinkedListCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -18,6 +19,7 @@
   <Members>
     <Member MemberName="NodeAt&lt;T&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.LinkedListNode&lt;T&gt; NodeAt&lt;T&gt; (this System.Collections.Generic.LinkedList&lt;T&gt; self, int index);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.LinkedListNode`1&lt;!!T&gt; NodeAt&lt;T&gt;(class System.Collections.Generic.LinkedList`1&lt;!!T&gt; self, int32 index) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

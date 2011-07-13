@@ -1,5 +1,6 @@
 <Type Name="NotifyingProperty" FullName="Cadenza.ComponentModel.NotifyingProperty">
   <TypeSignature Language="C#" Value="public static class NotifyingProperty" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit NotifyingProperty extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -15,6 +16,7 @@
   <Members>
     <Member MemberName="Create&lt;TValue&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.ComponentModel.NotifyingProperty&lt;TValue&gt; Create&lt;TValue&gt; (System.Linq.Expressions.Expression&lt;Func&lt;TValue&gt;&gt; expression, Func&lt;System.ComponentModel.PropertyChangedEventHandler&gt; notifier);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Cadenza.ComponentModel.NotifyingProperty`1&lt;!!TValue&gt; Create&lt;TValue&gt;(class System.Linq.Expressions.Expression`1&lt;class System.Func`1&lt;!!TValue&gt;&gt; expression, class System.Func`1&lt;class System.ComponentModel.PropertyChangedEventHandler&gt; notifier) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -40,6 +42,7 @@
     </Member>
     <Member MemberName="CreateDependent&lt;TValue&gt;">
       <MemberSignature Language="C#" Value="public static void CreateDependent&lt;TValue&gt; (System.Linq.Expressions.Expression&lt;Func&lt;TValue&gt;&gt; property, Func&lt;System.ComponentModel.PropertyChangedEventHandler&gt; notifier, System.Linq.Expressions.Expression&lt;Func&lt;object&gt;&gt;[] dependents);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CreateDependent&lt;TValue&gt;(class System.Linq.Expressions.Expression`1&lt;class System.Func`1&lt;!!TValue&gt;&gt; property, class System.Func`1&lt;class System.ComponentModel.PropertyChangedEventHandler&gt; notifier, class System.Linq.Expressions.Expression`1&lt;class System.Func`1&lt;object&gt;&gt;[] dependents) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

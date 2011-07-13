@@ -1,5 +1,6 @@
 <Type Name="TupleCoda" FullName="Cadenza.TupleCoda">
   <TypeSignature Language="C#" Value="public static class TupleCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit TupleCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -17,6 +18,7 @@
   <Members>
     <Member MemberName="Aggregate&lt;T,TResult&gt;">
       <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T,TResult&gt; (this Cadenza.Tuple&lt;T&gt; self, Func&lt;T,TResult&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;T, TResult&gt;(class Cadenza.Tuple`1&lt;!!T&gt; self, class System.Func`2&lt;!!T, !!TResult&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -76,6 +78,7 @@
     </Member>
     <Member MemberName="Aggregate&lt;T1,T2,TResult&gt;">
       <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T1,T2,TResult&gt; (this Cadenza.Tuple&lt;T1,T2&gt; self, Func&lt;T1,T2,TResult&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;T1, T2, TResult&gt;(class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; self, class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -139,6 +142,7 @@
     </Member>
     <Member MemberName="Aggregate&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T1,T2,T3,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3&gt; self, Func&lt;T1,T2,T3,TResult&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;T1, T2, T3, TResult&gt;(class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; self, class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -206,6 +210,7 @@
     </Member>
     <Member MemberName="Aggregate&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T1,T2,T3,T4,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3,T4&gt; self, Func&lt;T1,T2,T3,T4,TResult&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;T1, T2, T3, T4, TResult&gt;(class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -277,6 +282,7 @@
     </Member>
     <Member MemberName="Match&lt;T,TResult&gt;">
       <MemberSignature Language="C#" Value="public static TResult Match&lt;T,TResult&gt; (this Cadenza.Tuple&lt;T&gt; self, Func&lt;T,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;T, TResult&gt;(class Cadenza.Tuple`1&lt;!!T&gt; self, class System.Func`2&lt;!!T, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -375,6 +381,7 @@
     </Member>
     <Member MemberName="Match&lt;T1,T2,TResult&gt;">
       <MemberSignature Language="C#" Value="public static TResult Match&lt;T1,T2,TResult&gt; (this Cadenza.Tuple&lt;T1,T2&gt; self, Func&lt;T1,T2,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;T1, T2, TResult&gt;(class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; self, class System.Func`3&lt;!!T1, !!T2, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -477,6 +484,7 @@
     </Member>
     <Member MemberName="Match&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static TResult Match&lt;T1,T2,T3,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3&gt; self, Func&lt;T1,T2,T3,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;T1, T2, T3, TResult&gt;(class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; self, class System.Func`4&lt;!!T1, !!T2, !!T3, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -581,6 +589,7 @@
     </Member>
     <Member MemberName="Match&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static TResult Match&lt;T1,T2,T3,T4,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3,T4&gt; self, Func&lt;T1,T2,T3,T4,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;T1, T2, T3, T4, TResult&gt;(class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -687,6 +696,7 @@
     </Member>
     <Member MemberName="ToEnumerable&lt;T&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T&gt; (this Cadenza.Tuple&lt;T&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;object&gt; ToEnumerable&lt;T&gt;(class Cadenza.Tuple`1&lt;!!T&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -729,6 +739,7 @@
     </Member>
     <Member MemberName="ToEnumerable&lt;T1,T2&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T1,T2&gt; (this Cadenza.Tuple&lt;T1,T2&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;object&gt; ToEnumerable&lt;T1, T2&gt;(class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -775,6 +786,7 @@
     </Member>
     <Member MemberName="ToEnumerable&lt;T1,T2,T3&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T1,T2,T3&gt; (this Cadenza.Tuple&lt;T1,T2,T3&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;object&gt; ToEnumerable&lt;T1, T2, T3&gt;(class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -825,6 +837,7 @@
     </Member>
     <Member MemberName="ToEnumerable&lt;T1,T2,T3,T4&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T1,T2,T3,T4&gt; (this Cadenza.Tuple&lt;T1,T2,T3,T4&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;object&gt; ToEnumerable&lt;T1, T2, T3, T4&gt;(class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -879,6 +892,7 @@
     </Member>
     <Member MemberName="ToKeyValuePair&lt;TKey,TValue&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; ToKeyValuePair&lt;TKey,TValue&gt; (this Cadenza.Tuple&lt;TKey,TValue&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype System.Collections.Generic.KeyValuePair`2&lt;!!TKey, !!TValue&gt; ToKeyValuePair&lt;TKey, TValue&gt;(class Cadenza.Tuple`2&lt;!!TKey, !!TValue&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

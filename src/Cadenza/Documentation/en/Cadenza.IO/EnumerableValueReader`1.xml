@@ -1,5 +1,6 @@
 <Type Name="EnumerableValueReader&lt;T&gt;" FullName="Cadenza.IO.EnumerableValueReader&lt;T&gt;">
   <TypeSignature Language="C#" Value="public sealed class EnumerableValueReader&lt;T&gt; : Cadenza.IO.ValueReader&lt;T&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed beforefieldinit EnumerableValueReader`1&lt;T&gt; extends Cadenza.IO.ValueReader`1&lt;!T&gt;" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -15,6 +16,11 @@
   </Base>
   <Interfaces>
   </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.CLSCompliant(false)</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
     <typeparam name="T">To be added.</typeparam>
     <summary>To be added.</summary>
@@ -23,6 +29,7 @@
   <Members>
     <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public EnumerableValueReader (System.Collections.Generic.IEnumerable&lt;T&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Collections.Generic.IEnumerable`1&lt;!T&gt; values) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -39,6 +46,7 @@
     </Member>
     <Member MemberName="ToBoolean">
       <MemberSignature Language="C#" Value="protected override bool ToBoolean (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance bool ToBoolean(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -58,6 +66,7 @@
     </Member>
     <Member MemberName="ToByte">
       <MemberSignature Language="C#" Value="protected override byte ToByte (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance unsigned int8 ToByte(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -77,6 +86,7 @@
     </Member>
     <Member MemberName="ToChar">
       <MemberSignature Language="C#" Value="protected override char ToChar (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance char ToChar(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -96,6 +106,7 @@
     </Member>
     <Member MemberName="ToDateTime">
       <MemberSignature Language="C#" Value="protected override DateTime ToDateTime (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance valuetype System.DateTime ToDateTime(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -115,6 +126,7 @@
     </Member>
     <Member MemberName="ToDecimal">
       <MemberSignature Language="C#" Value="protected override decimal ToDecimal (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance valuetype System.Decimal ToDecimal(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -134,6 +146,7 @@
     </Member>
     <Member MemberName="ToDouble">
       <MemberSignature Language="C#" Value="protected override double ToDouble (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance float64 ToDouble(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -153,6 +166,7 @@
     </Member>
     <Member MemberName="ToInt16">
       <MemberSignature Language="C#" Value="protected override short ToInt16 (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance int16 ToInt16(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -172,6 +186,7 @@
     </Member>
     <Member MemberName="ToInt32">
       <MemberSignature Language="C#" Value="protected override int ToInt32 (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance int32 ToInt32(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -191,6 +206,7 @@
     </Member>
     <Member MemberName="ToInt64">
       <MemberSignature Language="C#" Value="protected override long ToInt64 (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance int64 ToInt64(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -210,6 +226,7 @@
     </Member>
     <Member MemberName="ToSByte">
       <MemberSignature Language="C#" Value="protected override sbyte ToSByte (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance int8 ToSByte(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -229,6 +246,7 @@
     </Member>
     <Member MemberName="ToSingle">
       <MemberSignature Language="C#" Value="protected override float ToSingle (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance float32 ToSingle(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -248,6 +266,7 @@
     </Member>
     <Member MemberName="ToString">
       <MemberSignature Language="C#" Value="protected override string ToString (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance string ToString(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -267,6 +286,7 @@
     </Member>
     <Member MemberName="ToUInt16">
       <MemberSignature Language="C#" Value="protected override ushort ToUInt16 (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance unsigned int16 ToUInt16(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -291,6 +311,7 @@
     </Member>
     <Member MemberName="ToUInt32">
       <MemberSignature Language="C#" Value="protected override uint ToUInt32 (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance unsigned int32 ToUInt32(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -315,6 +336,7 @@
     </Member>
     <Member MemberName="ToUInt64">
       <MemberSignature Language="C#" Value="protected override ulong ToUInt64 (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance unsigned int64 ToUInt64(!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -338,9 +360,4 @@
       </Docs>
     </Member>
   </Members>
-  <Attributes>
-    <Attribute>
-      <AttributeName>System.CLSCompliant(false)</AttributeName>
-    </Attribute>
-  </Attributes>
 </Type>

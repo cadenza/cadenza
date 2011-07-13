@@ -1,5 +1,6 @@
 <Type Name="ILGeneratorCoda" FullName="Cadenza.Reflection.ILGeneratorCoda">
   <TypeSignature Language="C#" Value="public static class ILGeneratorCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit ILGeneratorCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza.Core</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -15,6 +16,7 @@
   <Members>
     <Member MemberName="EmitTypeof">
       <MemberSignature Language="C#" Value="public static void EmitTypeof (this System.Reflection.Emit.ILGenerator self, Type type);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void EmitTypeof(class System.Reflection.Emit.ILGenerator self, class System.Type type) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

@@ -1,5 +1,6 @@
 <Type Name="SequenceComparison&lt;T&gt;" FullName="Cadenza.Collections.SequenceComparison&lt;T&gt;">
   <TypeSignature Language="C#" Value="public class SequenceComparison&lt;T&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit SequenceComparison`1&lt;T&gt; extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -19,6 +20,7 @@
   <Members>
     <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public SequenceComparison (System.Collections.Generic.IEnumerable&lt;T&gt; original, System.Collections.Generic.IEnumerable&lt;T&gt; update);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Collections.Generic.IEnumerable`1&lt;!T&gt; original, class System.Collections.Generic.IEnumerable`1&lt;!T&gt; update) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -36,6 +38,7 @@
     </Member>
     <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public SequenceComparison (System.Collections.Generic.IEnumerable&lt;T&gt; original, System.Collections.Generic.IEnumerable&lt;T&gt; update, System.Collections.Generic.IEqualityComparer&lt;T&gt; comparer);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class System.Collections.Generic.IEnumerable`1&lt;!T&gt; original, class System.Collections.Generic.IEnumerable`1&lt;!T&gt; update, class System.Collections.Generic.IEqualityComparer`1&lt;!T&gt; comparer) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -56,6 +59,7 @@
     </Member>
     <Member MemberName="Added">
       <MemberSignature Language="C#" Value="public System.Collections.Generic.IEnumerable&lt;T&gt; Added { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IEnumerable`1&lt;!T&gt; Added" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -71,6 +75,7 @@
     </Member>
     <Member MemberName="Comparer">
       <MemberSignature Language="C#" Value="public System.Collections.Generic.IEqualityComparer&lt;T&gt; Comparer { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IEqualityComparer`1&lt;!T&gt; Comparer" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -86,6 +91,7 @@
     </Member>
     <Member MemberName="Removed">
       <MemberSignature Language="C#" Value="public System.Collections.Generic.IEnumerable&lt;T&gt; Removed { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IEnumerable`1&lt;!T&gt; Removed" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -101,6 +107,7 @@
     </Member>
     <Member MemberName="Stayed">
       <MemberSignature Language="C#" Value="public System.Collections.Generic.IEnumerable&lt;T&gt; Stayed { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance class System.Collections.Generic.IEnumerable`1&lt;!T&gt; Stayed" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

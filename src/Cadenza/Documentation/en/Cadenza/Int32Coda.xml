@@ -1,5 +1,6 @@
 <Type Name="Int32Coda" FullName="Cadenza.Int32Coda">
   <TypeSignature Language="C#" Value="public static class Int32Coda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit Int32Coda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -16,6 +17,7 @@
   <Members>
     <Member MemberName="DownTo">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; DownTo (this int self, int limit);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; DownTo(int32 self, int32 limit) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -73,6 +75,7 @@ Console.WriteLine (5.DownTo (0).Implode (", "));
     </Member>
     <Member MemberName="IsEven">
       <MemberSignature Language="C#" Value="public static bool IsEven (this int value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsEven(int32 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -106,6 +109,7 @@ Console.WriteLine (5.DownTo (0).Implode (", "));
     </Member>
     <Member MemberName="IsOdd">
       <MemberSignature Language="C#" Value="public static bool IsOdd (this int value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsOdd(int32 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -139,6 +143,7 @@ Console.WriteLine (5.DownTo (0).Implode (", "));
     </Member>
     <Member MemberName="Step">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; Step (this int self, int limit, int step);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; Step(int32 self, int32 limit, int32 step) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -202,6 +207,7 @@ Console.WriteLine (1.Step(9, 2).Implode (", "));
     </Member>
     <Member MemberName="Times">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; Times (this int self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; Times(int32 self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -251,6 +257,7 @@ Console.WriteLine (6.Times ().Implode (", "));
     </Member>
     <Member MemberName="UpTo">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; UpTo (this int self, int limit);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; UpTo(int32 self, int32 limit) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

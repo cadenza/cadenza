@@ -1,5 +1,6 @@
 <Type Name="TypeCoda" FullName="Cadenza.TypeCoda">
   <TypeSignature Language="C#" Value="public static class TypeCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit TypeCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -18,6 +19,7 @@
   <Members>
     <Member MemberName="IsAssignableTo">
       <MemberSignature Language="C#" Value="public static bool IsAssignableTo (this Type self, Type type);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsAssignableTo(class System.Type self, class System.Type type) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -67,6 +69,7 @@ Assert.IsFalse (typeof(object).IsAssignableTo (typeof (string)));
     </Member>
     <Member MemberName="IsNullable">
       <MemberSignature Language="C#" Value="public static bool IsNullable (this Type self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsNullable(class System.Type self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

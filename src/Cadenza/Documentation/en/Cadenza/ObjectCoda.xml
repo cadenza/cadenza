@@ -1,5 +1,6 @@
 <Type Name="ObjectCoda" FullName="Cadenza.ObjectCoda">
   <TypeSignature Language="C#" Value="public static class ObjectCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit ObjectCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -16,6 +17,7 @@
   <Members>
     <Member MemberName="Just&lt;T&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; Just&lt;T&gt; (this T self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Cadenza.Maybe`1&lt;!!T&gt; Just&lt;T&gt;(!!T self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -68,6 +70,7 @@
     </Member>
     <Member MemberName="Match&lt;TSource,TResult&gt;">
       <MemberSignature Language="C#" Value="public static TResult Match&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;TSource, TResult&gt;(!!TSource self, class System.Func`2&lt;!!TSource, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -171,6 +174,7 @@ Assert.AreEqual (-1, "*default*".Match (m));
     </Member>
     <Member MemberName="ToMaybe&lt;T&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; ToMaybe&lt;T&gt; (this T self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Cadenza.Maybe`1&lt;!!T&gt; ToMaybe&lt;T&gt;(!!T self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -223,6 +227,7 @@ Assert.AreEqual (-1, "*default*".Match (m));
     </Member>
     <Member MemberName="TraverseBreadthFirst&lt;TSource,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; TraverseBreadthFirst&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; TraverseBreadthFirst&lt;TSource, TResult&gt;(!!TSource self, class System.Func`2&lt;!!TSource, !!TResult&gt; valueSelector, class System.Func`2&lt;!!TSource, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; childrenSelector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -333,6 +338,7 @@ AssertAreSame (new[]{ 1, 2, 3, 4, 5 }, values);
     </Member>
     <Member MemberName="TraverseBreadthFirstWithParent&lt;TSource,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt; TraverseBreadthFirstWithParent&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.Collections.Generic.KeyValuePair`2&lt;!!TSource, !!TResult&gt;&gt; TraverseBreadthFirstWithParent&lt;TSource, TResult&gt;(!!TSource self, class System.Func`2&lt;!!TSource, !!TResult&gt; valueSelector, class System.Func`2&lt;!!TSource, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; childrenSelector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -423,6 +429,7 @@ AssertAreSame (new[]{ 1, 2, 3, 4, 5 }, values);
     </Member>
     <Member MemberName="TraverseDepthFirst&lt;TSource,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; TraverseDepthFirst&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; TraverseDepthFirst&lt;TSource, TResult&gt;(!!TSource self, class System.Func`2&lt;!!TSource, !!TResult&gt; valueSelector, class System.Func`2&lt;!!TSource, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; childrenSelector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -533,6 +540,7 @@ AssertAreSame (new[]{ 1, 2, 3, 5, 4 }, values);
     </Member>
     <Member MemberName="TraverseDepthFirstWithParent&lt;TSource,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt; TraverseDepthFirstWithParent&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.Collections.Generic.KeyValuePair`2&lt;!!TSource, !!TResult&gt;&gt; TraverseDepthFirstWithParent&lt;TSource, TResult&gt;(!!TSource self, class System.Func`2&lt;!!TSource, !!TResult&gt; valueSelector, class System.Func`2&lt;!!TSource, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; childrenSelector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -623,6 +631,7 @@ AssertAreSame (new[]{ 1, 2, 3, 5, 4 }, values);
     </Member>
     <Member MemberName="With&lt;TSource,TResult&gt;">
       <MemberSignature Language="C#" Value="public static TResult With&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult With&lt;TSource, TResult&gt;(!!TSource self, class System.Func`2&lt;!!TSource, !!TResult&gt; selector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

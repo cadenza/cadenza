@@ -1,5 +1,6 @@
 <Type Name="EnumerableCoda" FullName="Cadenza.Collections.EnumerableCoda">
   <TypeSignature Language="C#" Value="public static class EnumerableCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit EnumerableCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -22,6 +23,7 @@
   <Members>
     <Member MemberName="AggregateHistory&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; AggregateHistory&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TSource,TSource&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; AggregateHistory&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`3&lt;!!TSource, !!TSource, !!TSource&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -48,6 +50,7 @@
     </Member>
     <Member MemberName="AggregateHistory&lt;TSource,TAccumulate&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TAccumulate&gt; AggregateHistory&lt;TSource,TAccumulate&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TAccumulate&gt; AggregateHistory&lt;TSource, TAccumulate&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -78,6 +81,7 @@
     </Member>
     <Member MemberName="AggregateHistory&lt;TSource,TAccumulate,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; AggregateHistory&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; func, Func&lt;TAccumulate,TResult&gt; resultSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; AggregateHistory&lt;TSource, TAccumulate, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; func, class System.Func`2&lt;!!TAccumulate, !!TResult&gt; resultSelector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -112,6 +116,7 @@
     </Member>
     <Member MemberName="AggregateReverse&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static TSource AggregateReverse&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TSource,TSource&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource AggregateReverse&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`3&lt;!!TSource, !!TSource, !!TSource&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -139,6 +144,7 @@
     </Member>
     <Member MemberName="AggregateReverse&lt;TSource,TAccumulate&gt;">
       <MemberSignature Language="C#" Value="public static TAccumulate AggregateReverse&lt;TSource,TAccumulate&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TAccumulate AggregateReverse&lt;TSource, TAccumulate&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -169,6 +175,7 @@
     </Member>
     <Member MemberName="AggregateReverse&lt;TSource,TAccumulate,TResult&gt;">
       <MemberSignature Language="C#" Value="public static TResult AggregateReverse&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; func, Func&lt;TAccumulate,TResult&gt; resultSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult AggregateReverse&lt;TSource, TAccumulate, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; func, class System.Func`2&lt;!!TAccumulate, !!TResult&gt; resultSelector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -203,6 +210,7 @@
     </Member>
     <Member MemberName="AggregateReverseHistory&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; AggregateReverseHistory&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TSource,TSource&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; AggregateReverseHistory&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`3&lt;!!TSource, !!TSource, !!TSource&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -229,6 +237,7 @@
     </Member>
     <Member MemberName="AggregateReverseHistory&lt;TSource,TAccumulate&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TAccumulate&gt; AggregateReverseHistory&lt;TSource,TAccumulate&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TAccumulate&gt; AggregateReverseHistory&lt;TSource, TAccumulate&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -259,6 +268,7 @@
     </Member>
     <Member MemberName="AggregateReverseHistory&lt;TSource,TAccumulate,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; AggregateReverseHistory&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; func, Func&lt;TAccumulate,TResult&gt; resultSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; AggregateReverseHistory&lt;TSource, TAccumulate, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; func, class System.Func`2&lt;!!TAccumulate, !!TResult&gt; resultSelector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -293,6 +303,7 @@
     </Member>
     <Member MemberName="And">
       <MemberSignature Language="C#" Value="public static bool And (this System.Collections.Generic.IEnumerable&lt;bool&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool And(class System.Collections.Generic.IEnumerable`1&lt;bool&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -313,6 +324,7 @@
     </Member>
     <Member MemberName="Apply&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static void Apply&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Apply&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -336,6 +348,7 @@
     </Member>
     <Member MemberName="ApplyPairs&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; ApplyPairs&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource&gt;[] actions);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; ApplyPairs&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Action`1&lt;!!TSource&gt;[] actions) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -368,6 +381,7 @@
     </Member>
     <Member MemberName="AsIList&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IList&lt;TSource&gt; AsIList&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IList`1&lt;!!TSource&gt; AsIList&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -391,6 +405,7 @@
     </Member>
     <Member MemberName="Break&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Break&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Break&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, bool&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -417,6 +432,7 @@
     </Member>
     <Member MemberName="Cache&lt;T&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Collections.CachedSequence&lt;T&gt; Cache&lt;T&gt; (this System.Collections.Generic.IEnumerable&lt;T&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Collections.CachedSequence`1&lt;!!T&gt; Cache&lt;T&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -440,6 +456,7 @@
     </Member>
     <Member MemberName="CompareWith&lt;T&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Collections.SequenceComparison&lt;T&gt; CompareWith&lt;T&gt; (this System.Collections.Generic.IEnumerable&lt;T&gt; self, System.Collections.Generic.IEnumerable&lt;T&gt; update);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Collections.SequenceComparison`1&lt;!!T&gt; CompareWith&lt;T&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T&gt; update) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -467,6 +484,7 @@
     </Member>
     <Member MemberName="CompareWith&lt;T&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Collections.SequenceComparison&lt;T&gt; CompareWith&lt;T&gt; (this System.Collections.Generic.IEnumerable&lt;T&gt; self, System.Collections.Generic.IEnumerable&lt;T&gt; update, System.Collections.Generic.IEqualityComparer&lt;T&gt; comparer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Collections.SequenceComparison`1&lt;!!T&gt; CompareWith&lt;T&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T&gt; update, class System.Collections.Generic.IEqualityComparer`1&lt;!!T&gt; comparer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -496,6 +514,7 @@
     </Member>
     <Member MemberName="Concat&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Concat&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; selfs);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Concat&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; selfs) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -522,6 +541,7 @@
     </Member>
     <Member MemberName="Concat&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Concat&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt;[] selfs);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Concat&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;[] selfs) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -554,6 +574,7 @@
     </Member>
     <Member MemberName="ContiguousSubsequences&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; ContiguousSubsequences&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, int windowSize);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; ContiguousSubsequences&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, int32 windowSize) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -579,6 +600,7 @@
     </Member>
     <Member MemberName="CopyTo&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static void CopyTo&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.ICollection&lt;TSource&gt; destination);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CopyTo&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.ICollection`1&lt;!!TSource&gt; destination) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -604,6 +626,7 @@
     </Member>
     <Member MemberName="CopyTo&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static void CopyTo&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource[] array, int arrayIndex);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CopyTo&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource[] array, int32 arrayIndex) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -632,6 +655,7 @@
     </Member>
     <Member MemberName="Cycle&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Cycle&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Cycle&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -656,6 +680,7 @@
     </Member>
     <Member MemberName="Each&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Each&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource,int&gt; action);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Each&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Action`2&lt;!!TSource, int32&gt; action) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -682,6 +707,7 @@
     </Member>
     <Member MemberName="Each&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Each&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource&gt; action);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Each&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Action`1&lt;!!TSource&gt; action) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -708,6 +734,7 @@
     </Member>
     <Member MemberName="ExceptLast&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; ExceptLast&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; ExceptLast&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -733,6 +760,7 @@
     </Member>
     <Member MemberName="ExceptLast&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; ExceptLast&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, int count);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; ExceptLast&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, int32 count) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -760,6 +788,7 @@
     </Member>
     <Member MemberName="FindIndex&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static int FindIndex&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 FindIndex&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, bool&gt; predicate) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -786,6 +815,7 @@
     </Member>
     <Member MemberName="FindIndices&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; FindIndices&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; FindIndices&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, bool&gt; predicate) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -812,6 +842,7 @@
     </Member>
     <Member MemberName="ForEach&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static void ForEach&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource,int&gt; action);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void ForEach&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Action`2&lt;!!TSource, int32&gt; action) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -837,6 +868,7 @@
     </Member>
     <Member MemberName="ForEach&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static void ForEach&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource&gt; action);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig void ForEach&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Action`1&lt;!!TSource&gt; action) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -862,6 +894,7 @@
     </Member>
     <Member MemberName="HaskellGroup&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; HaskellGroup&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; HaskellGroup&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -886,6 +919,7 @@
     </Member>
     <Member MemberName="HaskellGroupBy&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; HaskellGroupBy&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TSource,bool&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; HaskellGroupBy&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`3&lt;!!TSource, !!TSource, bool&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -956,6 +990,7 @@ Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
     </Member>
     <Member MemberName="Implode&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static string Implode&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Implode&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -980,6 +1015,7 @@ Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
     </Member>
     <Member MemberName="Implode&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static string Implode&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, string separator);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Implode&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, string separator) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1006,6 +1042,7 @@ Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
     </Member>
     <Member MemberName="Implode&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static string Implode&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, string separator, Func&lt;TSource,string&gt; selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Implode&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, string separator, class System.Func`2&lt;!!TSource, string&gt; selector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1034,6 +1071,7 @@ Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
     </Member>
     <Member MemberName="IndexOf&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static int IndexOf&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 IndexOf&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1060,6 +1098,7 @@ Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
     </Member>
     <Member MemberName="IndexOfAny&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static int IndexOfAny&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 IndexOfAny&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1086,6 +1125,7 @@ Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
     </Member>
     <Member MemberName="IndexOfAny&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static int IndexOfAny&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource[] values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 IndexOfAny&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource[] values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1118,6 +1158,7 @@ Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
     </Member>
     <Member MemberName="IndicesOf&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; IndicesOf&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; IndicesOf&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1144,6 +1185,7 @@ Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
     </Member>
     <Member MemberName="IndicesOfAny&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; IndicesOfAny&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; IndicesOfAny&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1170,6 +1212,7 @@ Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
     </Member>
     <Member MemberName="IndicesOfAny&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; IndicesOfAny&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource[] values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; IndicesOfAny&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource[] values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1202,6 +1245,7 @@ Assert.IsTrue(new[]{'9'}.SequenceEqual (pairs [4]));
     </Member>
     <Member MemberName="InitialSegments&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; InitialSegments&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; InitialSegments&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1259,6 +1303,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
     </Member>
     <Member MemberName="Insert&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Insert&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Insert&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1285,6 +1330,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
     </Member>
     <Member MemberName="Insert&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Insert&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value, Func&lt;TSource,TSource,int&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Insert&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value, class System.Func`3&lt;!!TSource, !!TSource, int32&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1313,6 +1359,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
     </Member>
     <Member MemberName="Intersperse&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Intersperse&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; between);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Intersperse&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; between) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1339,6 +1386,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
     </Member>
     <Member MemberName="Intersperse&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Intersperse&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Intersperse&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1365,6 +1413,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
     </Member>
     <Member MemberName="MaxBy&lt;TSource,TValue&gt;">
       <MemberSignature Language="C#" Value="public static TSource MaxBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource MaxBy&lt;TSource, TValue&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TValue&gt; selector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1418,6 +1467,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
     </Member>
     <Member MemberName="MaxBy&lt;TSource,TValue&gt;">
       <MemberSignature Language="C#" Value="public static TSource MaxBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector, System.Collections.Generic.IComparer&lt;TValue&gt; comparer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource MaxBy&lt;TSource, TValue&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TValue&gt; selector, class System.Collections.Generic.IComparer`1&lt;!!TValue&gt; comparer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1476,6 +1526,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
     </Member>
     <Member MemberName="MinBy&lt;TSource,TValue&gt;">
       <MemberSignature Language="C#" Value="public static TSource MinBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource MinBy&lt;TSource, TValue&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TValue&gt; selector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1529,6 +1580,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
     </Member>
     <Member MemberName="MinBy&lt;TSource,TValue&gt;">
       <MemberSignature Language="C#" Value="public static TSource MinBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector, System.Collections.Generic.IComparer&lt;TValue&gt; comparer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource MinBy&lt;TSource, TValue&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TValue&gt; selector, class System.Collections.Generic.IComparer`1&lt;!!TValue&gt; comparer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1587,6 +1639,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
     </Member>
     <Member MemberName="NotNull&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; NotNull&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;Nullable&lt;TSource&gt;&gt; self) where TSource : struct;" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; NotNull&lt;struct .ctor (class System.ValueType) TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;valuetype System.Nullable`1&lt;!!TSource&gt;&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1616,6 +1669,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
     </Member>
     <Member MemberName="Or">
       <MemberSignature Language="C#" Value="public static bool Or (this System.Collections.Generic.IEnumerable&lt;bool&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool Or(class System.Collections.Generic.IEnumerable`1&lt;bool&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1636,6 +1690,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
     </Member>
     <Member MemberName="OrderByNatural&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; OrderByNatural&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,string&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; OrderByNatural&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, string&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1662,6 +1717,7 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
     </Member>
     <Member MemberName="Partition&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Partition&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Partition&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, bool&gt; predicate) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1720,6 +1776,7 @@ Assert.IsTrue (new[]{1, 3, 5}.SequenceEqual (r.Item2));
     </Member>
     <Member MemberName="PathCombine">
       <MemberSignature Language="C#" Value="public static string PathCombine (this System.Collections.Generic.IEnumerable&lt;string&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string PathCombine(class System.Collections.Generic.IEnumerable`1&lt;string&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1803,6 +1860,7 @@ Assert.AreEqual (Path.Combine (String.Empty, String.Empty), data.PathCombine (),
     </Member>
     <Member MemberName="RemoveFirstOccurrence&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; RemoveFirstOccurrence&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; RemoveFirstOccurrence&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1858,6 +1916,7 @@ Assert.AreEqual (Path.Combine (String.Empty, String.Empty), data.PathCombine (),
     </Member>
     <Member MemberName="RemoveFirstOccurrence&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; RemoveFirstOccurrence&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value, System.Collections.Generic.IEqualityComparer&lt;TSource&gt; comparer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; RemoveFirstOccurrence&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value, class System.Collections.Generic.IEqualityComparer`1&lt;!!TSource&gt; comparer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1915,6 +1974,7 @@ Assert.AreEqual (Path.Combine (String.Empty, String.Empty), data.PathCombine (),
     </Member>
     <Member MemberName="RemoveFirstOccurrences&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; RemoveFirstOccurrences&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value, int count);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; RemoveFirstOccurrences&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value, int32 count) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1979,6 +2039,7 @@ Assert.AreEqual (Path.Combine (String.Empty, String.Empty), data.PathCombine (),
     </Member>
     <Member MemberName="RemoveFirstOccurrences&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; RemoveFirstOccurrences&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value, int count, System.Collections.Generic.IEqualityComparer&lt;TSource&gt; comparer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; RemoveFirstOccurrences&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value, int32 count, class System.Collections.Generic.IEqualityComparer`1&lt;!!TSource&gt; comparer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -2045,6 +2106,7 @@ Assert.AreEqual (Path.Combine (String.Empty, String.Empty), data.PathCombine (),
     </Member>
     <Member MemberName="Repeat&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Repeat&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, int number);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Repeat&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, int32 number) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -2093,6 +2155,7 @@ Assert.AreEqual ("foobarfoobar", new [] {"foo", "bar"}.Repeat (2).Implode ());
     </Member>
     <Member MemberName="SelectAggregated&lt;TSource,TAccumulate,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt; SelectAggregated&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,Cadenza.Tuple&lt;TAccumulate,TResult&gt;&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;!!TAccumulate, class System.Collections.Generic.List`1&lt;!!TResult&gt;&gt; SelectAggregated&lt;TSource, TAccumulate, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, class Cadenza.Tuple`2&lt;!!TAccumulate, !!TResult&gt;&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -2179,6 +2242,7 @@ Assert.AreEqual (0, r.Item2.Count);
     </Member>
     <Member MemberName="SelectBreadthFirst&lt;TSource,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; SelectBreadthFirst&lt;TSource,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; SelectBreadthFirst&lt;TSource, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TResult&gt; valueSelector, class System.Func`2&lt;!!TSource, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; childrenSelector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -2294,6 +2358,7 @@ AssertAreSame (new[]{ 1, 2, 3, 4, 5, -1 }, values);
     </Member>
     <Member MemberName="SelectDepthFirst&lt;TSource,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; SelectDepthFirst&lt;TSource,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; SelectDepthFirst&lt;TSource, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TResult&gt; valueSelector, class System.Func`2&lt;!!TSource, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; childrenSelector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -2410,6 +2475,7 @@ AssertAreSame (new[]{ 1, 2, 3, 5, 4, -1 }, values);
     </Member>
     <Member MemberName="SelectFromEach&lt;T1,T2,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; SelectFromEach&lt;T1,T2,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, Func&lt;T1,T2,TResult&gt; selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; SelectFromEach&lt;T1, T2, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt; source2, class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; selector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -2498,6 +2564,7 @@ Assert.AreEqual ('d', c [3].Second);
     </Member>
     <Member MemberName="SelectFromEach&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; SelectFromEach&lt;T1,T2,T3,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, System.Collections.Generic.IEnumerable&lt;T3&gt; source3, Func&lt;T1,T2,T3,TResult&gt; selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; SelectFromEach&lt;T1, T2, T3, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt; source2, class System.Collections.Generic.IEnumerable`1&lt;!!T3&gt; source3, class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; selector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -2586,6 +2653,7 @@ Assert.AreEqual ('d', c [3].Second);
     </Member>
     <Member MemberName="SelectFromEach&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; SelectFromEach&lt;T1,T2,T3,T4,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, System.Collections.Generic.IEnumerable&lt;T3&gt; source3, System.Collections.Generic.IEnumerable&lt;T4&gt; source4, Func&lt;T1,T2,T3,T4,TResult&gt; selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; SelectFromEach&lt;T1, T2, T3, T4, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt; source2, class System.Collections.Generic.IEnumerable`1&lt;!!T3&gt; source3, class System.Collections.Generic.IEnumerable`1&lt;!!T4&gt; source4, class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; selector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -2683,6 +2751,7 @@ Assert.AreEqual ('d', c [3].Second);
     </Member>
     <Member MemberName="SelectReverseAggregated&lt;TSource,TAccumulate,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt; SelectReverseAggregated&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,Cadenza.Tuple&lt;TAccumulate,TResult&gt;&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;!!TAccumulate, class System.Collections.Generic.List`1&lt;!!TResult&gt;&gt; SelectReverseAggregated&lt;TSource, TAccumulate, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, class Cadenza.Tuple`2&lt;!!TAccumulate, !!TResult&gt;&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -2769,6 +2838,7 @@ Assert.AreEqual (0, r.Item2.Count);
     </Member>
     <Member MemberName="SequenceCompare&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static int SequenceCompare&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; list);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 SequenceCompare&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; list) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -2869,6 +2939,7 @@ Assert.AreEqual (1,
     </Member>
     <Member MemberName="SequenceCompare&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static int SequenceCompare&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; list, System.Collections.Generic.IComparer&lt;TSource&gt; comparer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 SequenceCompare&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; list, class System.Collections.Generic.IComparer`1&lt;!!TSource&gt; comparer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -2974,6 +3045,7 @@ Assert.AreEqual (1,
     </Member>
     <Member MemberName="Shuffle&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Shuffle&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Shuffle&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3028,6 +3100,7 @@ Assert.IsFalse (r.Contains (6));
     </Member>
     <Member MemberName="Shuffle&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Shuffle&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Random random);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Shuffle&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Random random) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3088,6 +3161,7 @@ Assert.IsFalse (r.Contains (6));
     </Member>
     <Member MemberName="SkipPrefix&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; SkipPrefix&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; prefix);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; SkipPrefix&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; prefix) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3148,6 +3222,7 @@ Assert.AreEqual (null,
     </Member>
     <Member MemberName="SkipPrefix&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; SkipPrefix&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; prefix, System.Collections.Generic.IEqualityComparer&lt;TSource&gt; comparer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; SkipPrefix&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; prefix, class System.Collections.Generic.IEqualityComparer`1&lt;!!TSource&gt; comparer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3214,6 +3289,7 @@ Assert.AreEqual (null,
     </Member>
     <Member MemberName="Sort&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Sort&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Sort&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3274,6 +3350,7 @@ Assert.AreEqual (null,
     </Member>
     <Member MemberName="Sort&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Sort&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IComparer&lt;TSource&gt; comparer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Sort&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IComparer`1&lt;!!TSource&gt; comparer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3344,6 +3421,7 @@ Assert.AreEqual (null,
     </Member>
     <Member MemberName="Sort&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Sort&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Comparison&lt;TSource&gt; comparison);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Sort&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Comparison`1&lt;!!TSource&gt; comparison) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3407,6 +3485,7 @@ Assert.AreEqual (null,
     </Member>
     <Member MemberName="SortNatural">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; SortNatural (this System.Collections.Generic.IEnumerable&lt;string&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; SortNatural(class System.Collections.Generic.IEnumerable`1&lt;string&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3448,6 +3527,7 @@ Assert.AreEqual (null,
     </Member>
     <Member MemberName="Span&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Span&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Span&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, bool&gt; predicate) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3517,6 +3597,7 @@ Assert.AreEqual ("|123",
     </Member>
     <Member MemberName="SplitAt&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; SplitAt&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, int firstLength);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; SplitAt&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, int32 firstLength) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3593,6 +3674,7 @@ Assert.AreEqual ("|123",
     </Member>
     <Member MemberName="Subsets&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Subsets&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Subsets&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3681,6 +3763,7 @@ Next
     </Member>
     <Member MemberName="Subsets&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Subsets&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,bool&gt; predicate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Subsets&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;, bool&gt; predicate) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3768,6 +3851,7 @@ Next
     </Member>
     <Member MemberName="Sum&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static TSource Sum&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource Sum&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3791,6 +3875,7 @@ Next
     </Member>
     <Member MemberName="Sum&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static TSource Sum&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Cadenza.Numerics.Math&lt;TSource&gt; m);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource Sum&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class Cadenza.Numerics.Math`1&lt;!!TSource&gt; m) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -3816,6 +3901,7 @@ Next
     </Member>
     <Member MemberName="Tokens&lt;TSource,TAccumulate,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; Tokens&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; accumulate, Func&lt;TAccumulate,Cadenza.Tuple&lt;TResult,TAccumulate&gt;&gt; resultSelector, Func&lt;TAccumulate,TSource,bool&gt;[] categories);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; Tokens&lt;TSource, TAccumulate, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; accumulate, class System.Func`2&lt;!!TAccumulate, class Cadenza.Tuple`2&lt;!!TResult, !!TAccumulate&gt;&gt; resultSelector, class System.Func`3&lt;!!TAccumulate, !!TSource, bool&gt;[] categories) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4011,6 +4097,7 @@ Assert.IsTrue (
     </Member>
     <Member MemberName="ToList&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.List&lt;System.Collections.Generic.List&lt;TSource&gt;&gt; ToList&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.List`1&lt;class System.Collections.Generic.List`1&lt;!!TSource&gt;&gt; ToList&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4068,6 +4155,7 @@ Assert.AreEqual (a [1][2], c [1][2]);
     </Member>
     <Member MemberName="ToReadOnlyDictionary&lt;TSource,TKey&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TSource&gt; ToReadOnlyDictionary&lt;TSource,TKey&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TKey&gt; keySelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Collections.ReadOnlyDictionary`2&lt;!!TKey, !!TSource&gt; ToReadOnlyDictionary&lt;TSource, TKey&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TKey&gt; keySelector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4128,6 +4216,7 @@ Assert.AreEqual (a [1][2], c [1][2]);
     </Member>
     <Member MemberName="ToReadOnlyDictionary&lt;TSource,TKey,TValue&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TValue&gt; ToReadOnlyDictionary&lt;TSource,TKey,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TKey&gt; keySelector, Func&lt;TSource,TValue&gt; valueSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Collections.ReadOnlyDictionary`2&lt;!!TKey, !!TValue&gt; ToReadOnlyDictionary&lt;TSource, TKey, TValue&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TKey&gt; keySelector, class System.Func`2&lt;!!TSource, !!TValue&gt; valueSelector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4197,6 +4286,7 @@ Assert.AreEqual (a [1][2], c [1][2]);
     </Member>
     <Member MemberName="ToTuple">
       <MemberSignature Language="C#" Value="public static object ToTuple (this System.Collections.IEnumerable self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig object ToTuple(class System.Collections.IEnumerable self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4259,10 +4349,16 @@ Assert.AreEqual ("4", t.Item4);
     </Member>
     <Member MemberName="ToValueReader">
       <MemberSignature Language="C#" Value="public static Cadenza.IO.TextValueReader ToValueReader (this System.Collections.Generic.IEnumerable&lt;string&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.IO.TextValueReader ToValueReader(class System.Collections.Generic.IEnumerable`1&lt;string&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
       </AssemblyInfo>
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.CLSCompliant(false)</AttributeName>
+        </Attribute>
+      </Attributes>
       <ReturnValue>
         <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
       </ReturnValue>
@@ -4291,18 +4387,19 @@ Assert.AreEqual ("4", t.Item4);
           <paramref name="self" /> is <see langword="null" />.
         </exception>
       </Docs>
+    </Member>
+    <Member MemberName="ToValueReader&lt;TSource&gt;">
+      <MemberSignature Language="C#" Value="public static Cadenza.IO.EnumerableValueReader&lt;TSource&gt; ToValueReader&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.IO.EnumerableValueReader`1&lt;!!TSource&gt; ToValueReader&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
       <Attributes>
         <Attribute>
           <AttributeName>System.CLSCompliant(false)</AttributeName>
         </Attribute>
       </Attributes>
-    </Member>
-    <Member MemberName="ToValueReader&lt;TSource&gt;">
-      <MemberSignature Language="C#" Value="public static Cadenza.IO.EnumerableValueReader&lt;TSource&gt; ToValueReader&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.1.0.0</AssemblyVersion>
-      </AssemblyInfo>
       <ReturnValue>
         <ReturnType>Cadenza.IO.EnumerableValueReader&lt;TSource&gt;</ReturnType>
       </ReturnValue>
@@ -4340,14 +4437,10 @@ Assert.AreEqual ("4", t.Item4);
           <paramref name="self" /> is <see langword="null" />.
         </exception>
       </Docs>
-      <Attributes>
-        <Attribute>
-          <AttributeName>System.CLSCompliant(false)</AttributeName>
-        </Attribute>
-      </Attributes>
     </Member>
     <Member MemberName="TrailingSegments&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; TrailingSegments&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; TrailingSegments&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4405,6 +4498,7 @@ AssertAreSame (new char[]{},          l [3]);
     </Member>
     <Member MemberName="Transpose&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Transpose&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Transpose&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4482,6 +4576,7 @@ Assert.IsTrue (new[]{2, 5}.SequenceEqual (b.ElementAt (1)));
     </Member>
     <Member MemberName="TryGetFirst&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static bool TryGetFirst&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, out TSource first);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool TryGetFirst&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource first) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4541,6 +4636,7 @@ Assert.IsTrue (0 == first);
     </Member>
     <Member MemberName="TryGetFirst&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static bool TryGetFirst&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate, out TSource first);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool TryGetFirst&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, bool&gt; predicate, !!TSource first) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4609,6 +4705,7 @@ Assert.IsTrue (0 == first);
     </Member>
     <Member MemberName="Unzip&lt;T1,T2&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;&gt; Unzip&lt;T1,T2&gt; (this System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2&gt;&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt;&gt; Unzip&lt;T1, T2&gt;(class System.Collections.Generic.IEnumerable`1&lt;class Cadenza.Tuple`2&lt;!!T1, !!T2&gt;&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4665,6 +4762,7 @@ Assert.IsTrue (0 == first);
     </Member>
     <Member MemberName="Unzip&lt;T1,T2,T3&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;&gt; Unzip&lt;T1,T2,T3&gt; (this System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3&gt;&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`3&lt;class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!T3&gt;&gt; Unzip&lt;T1, T2, T3&gt;(class System.Collections.Generic.IEnumerable`1&lt;class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt;&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4725,6 +4823,7 @@ Assert.IsTrue (0 == first);
     </Member>
     <Member MemberName="Unzip&lt;T1,T2,T3,T4&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;,System.Collections.Generic.IEnumerable&lt;T4&gt;&gt; Unzip&lt;T1,T2,T3,T4&gt; (this System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3,T4&gt;&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`4&lt;class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!T3&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!T4&gt;&gt; Unzip&lt;T1, T2, T3, T4&gt;(class System.Collections.Generic.IEnumerable`1&lt;class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt;&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4789,6 +4888,7 @@ Assert.IsTrue (0 == first);
     </Member>
     <Member MemberName="Zip&lt;T1,T2&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2&gt;&gt; Zip&lt;T1,T2&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class Cadenza.Tuple`2&lt;!!T1, !!T2&gt;&gt; Zip&lt;T1, T2&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt; source2) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4863,6 +4963,7 @@ Assert.AreEqual ("",
     </Member>
     <Member MemberName="Zip&lt;T1,T2,T3&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3&gt;&gt; Zip&lt;T1,T2,T3&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, System.Collections.Generic.IEnumerable&lt;T3&gt; source3);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt;&gt; Zip&lt;T1, T2, T3&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt; source2, class System.Collections.Generic.IEnumerable`1&lt;!!T3&gt; source3) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -4947,6 +5048,7 @@ Assert.AreEqual ("",
     </Member>
     <Member MemberName="Zip&lt;T1,T2,T3,T4&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3,T4&gt;&gt; Zip&lt;T1,T2,T3,T4&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, System.Collections.Generic.IEnumerable&lt;T3&gt; source3, System.Collections.Generic.IEnumerable&lt;T4&gt; source4);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt;&gt; Zip&lt;T1, T2, T3, T4&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt; source2, class System.Collections.Generic.IEnumerable`1&lt;!!T3&gt; source3, class System.Collections.Generic.IEnumerable`1&lt;!!T4&gt; source4) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

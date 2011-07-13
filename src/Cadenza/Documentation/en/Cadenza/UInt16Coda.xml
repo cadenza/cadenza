@@ -1,5 +1,6 @@
 <Type Name="UInt16Coda" FullName="Cadenza.UInt16Coda">
   <TypeSignature Language="C#" Value="public static class UInt16Coda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit UInt16Coda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -23,6 +24,7 @@
   <Members>
     <Member MemberName="IsEven">
       <MemberSignature Language="C#" Value="public static bool IsEven (this ushort value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsEven(unsigned int16 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -56,6 +58,7 @@
     </Member>
     <Member MemberName="IsOdd">
       <MemberSignature Language="C#" Value="public static bool IsOdd (this ushort value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsOdd(unsigned int16 value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

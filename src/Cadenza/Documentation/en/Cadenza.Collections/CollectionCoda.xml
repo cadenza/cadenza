@@ -1,5 +1,6 @@
 <Type Name="CollectionCoda" FullName="Cadenza.Collections.CollectionCoda">
   <TypeSignature Language="C#" Value="public static class CollectionCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit CollectionCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -15,6 +16,7 @@
   <Members>
     <Member MemberName="RemoveAll&lt;T&gt;">
       <MemberSignature Language="C#" Value="public static bool RemoveAll&lt;T&gt; (this System.Collections.Generic.ICollection&lt;T&gt; self, Func&lt;T,bool&gt; predicate);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool RemoveAll&lt;T&gt;(class System.Collections.Generic.ICollection`1&lt;!!T&gt; self, class System.Func`2&lt;!!T, bool&gt; predicate) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

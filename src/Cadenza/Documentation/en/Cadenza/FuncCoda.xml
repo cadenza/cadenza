@@ -1,5 +1,6 @@
 <Type Name="FuncCoda" FullName="Cadenza.FuncCoda">
   <TypeSignature Language="C#" Value="public static class FuncCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit FuncCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -79,6 +80,7 @@
   <Members>
     <Member MemberName="Compose&lt;T,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Compose&lt;T,TResult&gt; (this Func&lt;T,TResult&gt; self, Func&lt;T&gt; composer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Compose&lt;T, TResult&gt;(class System.Func`2&lt;!!T, !!TResult&gt; self, class System.Func`1&lt;!!T&gt; composer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -142,6 +144,7 @@
     </Member>
     <Member MemberName="Compose&lt;T1,T2,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T1,TResult&gt; Compose&lt;T1,T2,TResult&gt; (this Func&lt;T2,TResult&gt; self, Func&lt;T1,T2&gt; composer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T1, !!TResult&gt; Compose&lt;T1, T2, TResult&gt;(class System.Func`2&lt;!!T2, !!TResult&gt; self, class System.Func`2&lt;!!T1, !!T2&gt; composer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -207,6 +210,7 @@
     </Member>
     <Member MemberName="Compose&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T1,T2,TResult&gt; Compose&lt;T1,T2,T3,TResult&gt; (this Func&lt;T3,TResult&gt; self, Func&lt;T1,T2,T3&gt; composer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; Compose&lt;T1, T2, T3, TResult&gt;(class System.Func`2&lt;!!T3, !!TResult&gt; self, class System.Func`3&lt;!!T1, !!T2, !!T3&gt; composer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -276,6 +280,7 @@
     </Member>
     <Member MemberName="Compose&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T1,T2,T3,TResult&gt; Compose&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T4,TResult&gt; self, Func&lt;T1,T2,T3,T4&gt; composer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; Compose&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`2&lt;!!T4, !!TResult&gt; self, class System.Func`4&lt;!!T1, !!T2, !!T3, !!T4&gt; composer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -349,6 +354,7 @@
     </Member>
     <Member MemberName="Compose&lt;T1,T2,T3,T4,T5,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T1,T2,T3,T4,TResult&gt; Compose&lt;T1,T2,T3,T4,T5,TResult&gt; (this Func&lt;T5,TResult&gt; self, Func&lt;T1,T2,T3,T4,T5&gt; composer);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; Compose&lt;T1, T2, T3, T4, T5, TResult&gt;(class System.Func`2&lt;!!T5, !!TResult&gt; self, class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!T5&gt; composer) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -426,6 +432,7 @@
     </Member>
     <Member MemberName="Curry&lt;T,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T,TResult&gt; Curry&lt;T,TResult&gt; (this Func&lt;T,TResult&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T, !!TResult&gt; Curry&lt;T, TResult&gt;(class System.Func`2&lt;!!T, !!TResult&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -477,6 +484,7 @@
     </Member>
     <Member MemberName="Curry&lt;T,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T,TResult&gt; (this Func&lt;T,TResult&gt; self, Cadenza.Tuple&lt;T&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T, TResult&gt;(class System.Func`2&lt;!!T, !!TResult&gt; self, class Cadenza.Tuple`1&lt;!!T&gt; values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -518,6 +526,7 @@
     </Member>
     <Member MemberName="Curry&lt;T,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T,TResult&gt; (this Func&lt;T,TResult&gt; self, T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T, TResult&gt;(class System.Func`2&lt;!!T, !!TResult&gt; self, !!T value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -559,6 +568,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T1,Func&lt;T2,TResult&gt;&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T1, class System.Func`2&lt;!!T2, !!TResult&gt;&gt; Curry&lt;T1, T2, TResult&gt;(class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -615,6 +625,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T1, T2, TResult&gt;(class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; self, class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -660,6 +671,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T2,TResult&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T2, !!TResult&gt; Curry&lt;T1, T2, TResult&gt;(class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; self, class Cadenza.Tuple`1&lt;!!T1&gt; values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -705,6 +717,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T2,TResult&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self, T1 value1);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T2, !!TResult&gt; Curry&lt;T1, T2, TResult&gt;(class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; self, !!T1 value1) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -750,6 +763,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self, T1 value1, T2 value2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T1, T2, TResult&gt;(class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; self, !!T1 value1, !!T2 value2) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -799,6 +813,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T1,Func&lt;T2,Func&lt;T3,TResult&gt;&gt;&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T1, class System.Func`2&lt;!!T2, class System.Func`2&lt;!!T3, !!TResult&gt;&gt;&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -859,6 +874,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, Cadenza.Tuple&lt;T1,T2,T3&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self, class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -908,6 +924,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T3,TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T3, !!TResult&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self, class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -957,6 +974,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T2,T3,TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`3&lt;!!T2, !!T3, !!TResult&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self, class Cadenza.Tuple`1&lt;!!T1&gt; values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1006,6 +1024,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T2,T3,TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, T1 value1);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`3&lt;!!T2, !!T3, !!TResult&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self, !!T1 value1) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1055,6 +1074,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T3,TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, T1 value1, T2 value2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T3, !!TResult&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self, !!T1 value1, !!T2 value2) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1108,6 +1128,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, T1 value1, T2 value2, T3 value3);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self, !!T1 value1, !!T2 value2, !!T3 value3) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1165,6 +1186,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T1,Func&lt;T2,Func&lt;T3,Func&lt;T4,TResult&gt;&gt;&gt;&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T1, class System.Func`2&lt;!!T2, class System.Func`2&lt;!!T3, class System.Func`2&lt;!!T4, !!TResult&gt;&gt;&gt;&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1229,6 +1251,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Cadenza.Tuple&lt;T1,T2,T3,T4&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt; values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1282,6 +1305,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Cadenza.Tuple&lt;T1,T2,T3&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T4, !!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1335,6 +1359,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T3,T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`3&lt;!!T3, !!T4, !!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1388,6 +1413,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T2,T3,T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`4&lt;!!T2, !!T3, !!T4, !!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, class Cadenza.Tuple`1&lt;!!T1&gt; values) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1441,6 +1467,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T2,T3,T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, T1 value1);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`4&lt;!!T2, !!T3, !!T4, !!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, !!T1 value1) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1494,6 +1521,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T3,T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, T1 value1, T2 value2);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`3&lt;!!T3, !!T4, !!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, !!T1 value1, !!T2 value2) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1551,6 +1579,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, T1 value1, T2 value2, T3 value3);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T4, !!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, !!T1 value1, !!T2 value2, !!T3 value3) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1612,6 +1641,7 @@
     </Member>
     <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, T1 value1, T2 value2, T3 value3, T4 value4);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, !!T1 value1, !!T2 value2, !!T3 value3, !!T4 value4) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

@@ -1,5 +1,6 @@
 <Type Name="StringCoda" FullName="Cadenza.StringCoda">
   <TypeSignature Language="C#" Value="public static class StringCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit StringCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -18,6 +19,7 @@
   <Members>
     <Member MemberName="CaptureNamedGroups">
       <MemberSignature Language="C#" Value="public static System.Linq.ILookup&lt;string,string&gt; CaptureNamedGroups (this string self, string regex);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.ILookup`2&lt;string, string&gt; CaptureNamedGroups(string self, string regex) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -72,6 +74,7 @@
     </Member>
     <Member MemberName="CaptureNamedGroups">
       <MemberSignature Language="C#" Value="public static System.Linq.ILookup&lt;string,string&gt; CaptureNamedGroups (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.ILookup`2&lt;string, string&gt; CaptureNamedGroups(string self, string regex, valuetype System.Text.RegularExpressions.RegexOptions options) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -134,6 +137,7 @@
     </Member>
     <Member MemberName="Captures">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Captures (this string self, string regex);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Captures(string self, string regex) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -185,6 +189,7 @@
     </Member>
     <Member MemberName="Captures">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Captures (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Captures(string self, string regex, valuetype System.Text.RegularExpressions.RegexOptions options) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -244,6 +249,7 @@
     </Member>
     <Member MemberName="IsNullOrWhitespace">
       <MemberSignature Language="C#" Value="public static bool IsNullOrWhitespace (this string self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsNullOrWhitespace(string self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -281,6 +287,7 @@ Assert.IsFalse ("foo".IsNullOrWhitespace());
     </Member>
     <Member MemberName="Lines">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this string self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Lines(string self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -325,6 +332,7 @@ Assert.IsFalse ("foo".IsNullOrWhitespace());
     </Member>
     <Member MemberName="Matches">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt; Matches (this string self, string regex);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Text.RegularExpressions.Match&gt; Matches(string self, string regex) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -382,6 +390,7 @@ Assert.AreEqual ("e - f", matches [2].Value);
     </Member>
     <Member MemberName="Matches">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt; Matches (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Text.RegularExpressions.Match&gt; Matches(string self, string regex, valuetype System.Text.RegularExpressions.RegexOptions options) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -447,6 +456,7 @@ Assert.AreEqual ("e - f", matches [2].Value);
     </Member>
     <Member MemberName="MatchValues">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; MatchValues (this string self, string regex);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; MatchValues(string self, string regex) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -509,6 +519,7 @@ AssertAreSame (expected, actual);
     </Member>
     <Member MemberName="MatchValues">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; MatchValues (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; MatchValues(string self, string regex, valuetype System.Text.RegularExpressions.RegexOptions options) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -579,6 +590,7 @@ AssertAreSame (expected, actual);
     </Member>
     <Member MemberName="Remove">
       <MemberSignature Language="C#" Value="public static string Remove (this string self, string[] targets);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Remove(string self, string[] targets) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -626,6 +638,7 @@ Assert.AreEqual (" Bar ", "Foo Bar Foo".Remove ("Foo"));
     </Member>
     <Member MemberName="Slice">
       <MemberSignature Language="C#" Value="public static string Slice (this string self, int start, int end);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Slice(string self, int32 start, int32 end) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -706,6 +719,7 @@ Assert.AreEqual ("8",       data.Slice (8, -2));
     </Member>
     <Member MemberName="ToEnum&lt;TEnum&gt;">
       <MemberSignature Language="C#" Value="public static TEnum ToEnum&lt;TEnum&gt; (this string self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TEnum ToEnum&lt;TEnum&gt;(string self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -752,6 +766,7 @@ Assert.AreEqual (Foo.Bar,    "Bar".ToEnum&lt;Foo&gt; ());
     </Member>
     <Member MemberName="Tokens">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this string self, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Tokens(string self, class System.Func`3&lt;valuetype System.Nullable`1&lt;char&gt;, char, bool&gt;[] categories) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -833,6 +848,7 @@ AssertAreSame (expected, actual);
     </Member>
     <Member MemberName="Words">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this string self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Words(string self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -881,6 +897,7 @@ AssertAreSame (expected, actual);
     </Member>
     <Member MemberName="WrappedLines">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; WrappedLines (this string self, System.Collections.Generic.IEnumerable&lt;int&gt; widths);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; WrappedLines(string self, class System.Collections.Generic.IEnumerable`1&lt;int32&gt; widths) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1069,6 +1086,7 @@ Assert.IsTrue (new[]{
     </Member>
     <Member MemberName="WrappedLines">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; WrappedLines (this string self, int[] widths);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; WrappedLines(string self, int32[] widths) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

@@ -1,5 +1,6 @@
 <Type Name="KeyValuePairCoda" FullName="Cadenza.Collections.KeyValuePairCoda">
   <TypeSignature Language="C#" Value="public static class KeyValuePairCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit KeyValuePairCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -19,6 +20,7 @@
   <Members>
     <Member MemberName="Aggregate&lt;TKey,TValue,TResult&gt;">
       <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;TKey,TValue,TResult&gt; (this System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; self, Func&lt;TKey,TValue,TResult&gt; func);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;TKey, TValue, TResult&gt;(valuetype System.Collections.Generic.KeyValuePair`2&lt;!!TKey, !!TValue&gt; self, class System.Func`3&lt;!!TKey, !!TValue, !!TResult&gt; func) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -86,6 +88,7 @@ string entries = dict
     </Member>
     <Member MemberName="ToTuple&lt;TKey,TValue&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;TKey,TValue&gt; ToTuple&lt;TKey,TValue&gt; (this System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;!!TKey, !!TValue&gt; ToTuple&lt;TKey, TValue&gt;(valuetype System.Collections.Generic.KeyValuePair`2&lt;!!TKey, !!TValue&gt; self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

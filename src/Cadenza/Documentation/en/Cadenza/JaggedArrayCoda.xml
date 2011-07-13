@@ -1,5 +1,6 @@
 <Type Name="JaggedArrayCoda" FullName="Cadenza.JaggedArrayCoda">
   <TypeSignature Language="C#" Value="public static class JaggedArrayCoda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit JaggedArrayCoda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -19,6 +20,7 @@
   <Members>
     <Member MemberName="Rows&lt;TSource&gt;">
       <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Rows&lt;TSource&gt; (this TSource[][] self);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Rows&lt;TSource&gt;(!!TSource[][] self) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

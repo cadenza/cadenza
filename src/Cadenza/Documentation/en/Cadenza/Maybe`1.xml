@@ -1,5 +1,6 @@
 <Type Name="Maybe&lt;T&gt;" FullName="Cadenza.Maybe&lt;T&gt;">
   <TypeSignature Language="C#" Value="public struct Maybe&lt;T&gt; : IEquatable&lt;Cadenza.Maybe&lt;T&gt;&gt;" />
+  <TypeSignature Language="ILAsm" Value=".class public sequential ansi sealed beforefieldinit Maybe`1&lt;T&gt; extends System.ValueType implements class System.IEquatable`1&lt;valuetype Cadenza.Maybe`1&lt;!T&gt;&gt;" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -117,6 +118,7 @@ Assert.AreEqual (9.ToMaybe (),
   <Members>
     <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public Maybe (T value);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(!T value) cil managed" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -152,6 +154,7 @@ Assert.AreEqual (9.ToMaybe (),
     </Member>
     <Member MemberName="Equals">
       <MemberSignature Language="C#" Value="public bool Equals (Cadenza.Maybe&lt;T&gt; obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig newslot virtual instance bool Equals(valuetype Cadenza.Maybe`1&lt;!T&gt; obj) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -240,6 +243,7 @@ Assert.AreEqual (9.ToMaybe (),
     </Member>
     <Member MemberName="Equals">
       <MemberSignature Language="C#" Value="public override bool Equals (object obj);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance bool Equals(object obj) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -357,6 +361,7 @@ Assert.AreEqual (9.ToMaybe (),
     </Member>
     <Member MemberName="GetHashCode">
       <MemberSignature Language="C#" Value="public override int GetHashCode ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance int32 GetHashCode() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -389,6 +394,7 @@ Assert.AreEqual (9.ToMaybe (),
     </Member>
     <Member MemberName="GetValueOrDefault">
       <MemberSignature Language="C#" Value="public T GetValueOrDefault ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !T GetValueOrDefault() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -420,6 +426,7 @@ Assert.AreEqual (9.ToMaybe (),
     </Member>
     <Member MemberName="GetValueOrDefault">
       <MemberSignature Language="C#" Value="public T GetValueOrDefault (T defaultValue);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance !T GetValueOrDefault(!T defaultValue) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -457,6 +464,7 @@ Assert.AreEqual (9.ToMaybe (),
     </Member>
     <Member MemberName="HasValue">
       <MemberSignature Language="C#" Value="public bool HasValue { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance bool HasValue" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -485,6 +493,7 @@ Assert.AreEqual (9.ToMaybe (),
     </Member>
     <Member MemberName="Nothing">
       <MemberSignature Language="C#" Value="public static readonly Cadenza.Maybe&lt;T&gt; Nothing;" />
+      <MemberSignature Language="ILAsm" Value=".field public static initonly valuetype Cadenza.Maybe`1&lt;!T&gt; Nothing" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -511,6 +520,7 @@ Assert.AreEqual (9.ToMaybe (),
     </Member>
     <Member MemberName="op_Equality">
       <MemberSignature Language="C#" Value="public static bool op_Equality (Cadenza.Maybe&lt;T&gt; a, Cadenza.Maybe&lt;T&gt; b);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Equality(valuetype Cadenza.Maybe`1&lt;!T&gt; a, valuetype Cadenza.Maybe`1&lt;!T&gt; b) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -547,6 +557,7 @@ Assert.AreEqual (9.ToMaybe (),
     </Member>
     <Member MemberName="op_Inequality">
       <MemberSignature Language="C#" Value="public static bool op_Inequality (Cadenza.Maybe&lt;T&gt; a, Cadenza.Maybe&lt;T&gt; b);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig specialname bool op_Inequality(valuetype Cadenza.Maybe`1&lt;!T&gt; a, valuetype Cadenza.Maybe`1&lt;!T&gt; b) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -583,6 +594,7 @@ Assert.AreEqual (9.ToMaybe (),
     </Member>
     <Member MemberName="Select&lt;TResult&gt;">
       <MemberSignature Language="C#" Value="public Cadenza.Maybe&lt;TResult&gt; Select&lt;TResult&gt; (Func&lt;T,TResult&gt; selector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Cadenza.Maybe`1&lt;!!TResult&gt; Select&lt;TResult&gt;(class System.Func`2&lt;!T, !!TResult&gt; selector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -650,6 +662,7 @@ Assert.AreEqual (2.Just (),
     </Member>
     <Member MemberName="SelectMany&lt;TCollection,TResult&gt;">
       <MemberSignature Language="C#" Value="public Cadenza.Maybe&lt;TResult&gt; SelectMany&lt;TCollection,TResult&gt; (Func&lt;T,Cadenza.Maybe&lt;TCollection&gt;&gt; selector, Func&lt;T,TCollection,TResult&gt; resultSelector);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig instance valuetype Cadenza.Maybe`1&lt;!!TResult&gt; SelectMany&lt;TCollection, TResult&gt;(class System.Func`2&lt;!T, valuetype Cadenza.Maybe`1&lt;!!TCollection&gt;&gt; selector, class System.Func`3&lt;!T, !!TCollection, !!TResult&gt; resultSelector) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -763,6 +776,7 @@ Assert.AreEqual (9.Just (),
     </Member>
     <Member MemberName="ToString">
       <MemberSignature Language="C#" Value="public override string ToString ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig virtual instance string ToString() cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -792,6 +806,7 @@ Assert.AreEqual (9.Just (),
     </Member>
     <Member MemberName="Value">
       <MemberSignature Language="C#" Value="public T Value { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance !T Value" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

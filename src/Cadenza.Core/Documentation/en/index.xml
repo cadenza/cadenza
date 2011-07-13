@@ -57,6 +57,7 @@
       </Targets>
       <Member MemberName="AutoInvoke">
         <MemberSignature Language="C#" Value="public static void AutoInvoke (this System.ComponentModel.ISynchronizeInvoke self, Action action);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void AutoInvoke(class System.ComponentModel.ISynchronizeInvoke self, class System.Action action) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -79,6 +80,7 @@
       </Targets>
       <Member MemberName="AutoInvoke">
         <MemberSignature Language="C#" Value="public static object AutoInvoke (this System.ComponentModel.ISynchronizeInvoke self, Delegate method, object[] args);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig object AutoInvoke(class System.ComponentModel.ISynchronizeInvoke self, class System.Delegate method, object[] args) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Object</ReturnType>
@@ -109,6 +111,7 @@
       </Targets>
       <Member MemberName="Invoked">
         <MemberSignature Language="C#" Value="public static AsyncCallback Invoked (this AsyncCallback self, System.ComponentModel.ISynchronizeInvoke obj);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.AsyncCallback Invoked(class System.AsyncCallback self, class System.ComponentModel.ISynchronizeInvoke obj) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.AsyncCallback</ReturnType>
@@ -131,6 +134,7 @@
       </Targets>
       <Member MemberName="EmitTypeof">
         <MemberSignature Language="C#" Value="public static void EmitTypeof (this System.Reflection.Emit.ILGenerator self, Type type);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void EmitTypeof(class System.Reflection.Emit.ILGenerator self, class System.Type type) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -153,6 +157,7 @@
       </Targets>
       <Member MemberName="Read">
         <MemberSignature Language="C#" Value="public static Cadenza.Threading.ReaderWriterLockSlimCoda.LockHandle Read (this System.Threading.ReaderWriterLockSlim self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Cadenza.Threading.ReaderWriterLockSlimCoda/LockHandle Read(class System.Threading.ReaderWriterLockSlim self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Threading.ReaderWriterLockSlimCoda+LockHandle</ReturnType>
@@ -173,6 +178,7 @@
       </Targets>
       <Member MemberName="UpgradeableRead">
         <MemberSignature Language="C#" Value="public static Cadenza.Threading.ReaderWriterLockSlimCoda.LockHandle UpgradeableRead (this System.Threading.ReaderWriterLockSlim self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Cadenza.Threading.ReaderWriterLockSlimCoda/LockHandle UpgradeableRead(class System.Threading.ReaderWriterLockSlim self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Threading.ReaderWriterLockSlimCoda+LockHandle</ReturnType>
@@ -193,6 +199,7 @@
       </Targets>
       <Member MemberName="Write">
         <MemberSignature Language="C#" Value="public static Cadenza.Threading.ReaderWriterLockSlimCoda.LockHandle Write (this System.Threading.ReaderWriterLockSlim self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Cadenza.Threading.ReaderWriterLockSlimCoda/LockHandle Write(class System.Threading.ReaderWriterLockSlim self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Threading.ReaderWriterLockSlimCoda+LockHandle</ReturnType>

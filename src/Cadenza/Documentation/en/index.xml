@@ -131,6 +131,7 @@
       </Targets>
       <Member MemberName="Compose&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static Action Compose&lt;T&gt; (this Action&lt;T&gt; self, Func&lt;T&gt; composer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action Compose&lt;T&gt;(class System.Action`1&lt;!!T&gt; self, class System.Func`1&lt;!!T&gt; composer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action</ReturnType>
@@ -165,6 +166,7 @@
       </Targets>
       <Member MemberName="Compose&lt;T1,T2&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T1&gt; Compose&lt;T1,T2&gt; (this Action&lt;T2&gt; self, Func&lt;T1,T2&gt; composer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`1&lt;!!T1&gt; Compose&lt;T1, T2&gt;(class System.Action`1&lt;!!T2&gt; self, class System.Func`2&lt;!!T1, !!T2&gt; composer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T1&gt;</ReturnType>
@@ -201,6 +203,7 @@
       </Targets>
       <Member MemberName="Compose&lt;T1,T2,T3&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T1,T2&gt; Compose&lt;T1,T2,T3&gt; (this Action&lt;T3&gt; self, Func&lt;T1,T2,T3&gt; composer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`2&lt;!!T1, !!T2&gt; Compose&lt;T1, T2, T3&gt;(class System.Action`1&lt;!!T3&gt; self, class System.Func`3&lt;!!T1, !!T2, !!T3&gt; composer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T1,T2&gt;</ReturnType>
@@ -241,6 +244,7 @@
       </Targets>
       <Member MemberName="Compose&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T1,T2,T3&gt; Compose&lt;T1,T2,T3,T4&gt; (this Action&lt;T4&gt; self, Func&lt;T1,T2,T3,T4&gt; composer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`3&lt;!!T1, !!T2, !!T3&gt; Compose&lt;T1, T2, T3, T4&gt;(class System.Action`1&lt;!!T4&gt; self, class System.Func`4&lt;!!T1, !!T2, !!T3, !!T4&gt; composer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T1,T2,T3&gt;</ReturnType>
@@ -285,6 +289,7 @@
       </Targets>
       <Member MemberName="Compose&lt;T1,T2,T3,T4,T5&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T1,T2,T3,T4&gt; Compose&lt;T1,T2,T3,T4,T5&gt; (this Action&lt;T5&gt; self, Func&lt;T1,T2,T3,T4,T5&gt; composer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; Compose&lt;T1, T2, T3, T4, T5&gt;(class System.Action`1&lt;!!T5&gt; self, class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!T5&gt; composer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T1,T2,T3,T4&gt;</ReturnType>
@@ -333,6 +338,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T&gt; Curry&lt;T&gt; (this Action&lt;T&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`1&lt;!!T&gt; Curry&lt;T&gt;(class System.Action`1&lt;!!T&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T&gt;</ReturnType>
@@ -363,6 +369,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static Action Curry&lt;T&gt; (this Action&lt;T&gt; self, T value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action Curry&lt;T&gt;(class System.Action`1&lt;!!T&gt; self, !!T value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action</ReturnType>
@@ -397,6 +404,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static Action Curry&lt;T&gt; (this Action&lt;T&gt; self, Cadenza.Tuple&lt;T&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action Curry&lt;T&gt;(class System.Action`1&lt;!!T&gt; self, class Cadenza.Tuple`1&lt;!!T&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action</ReturnType>
@@ -431,6 +439,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T1,Action&lt;T2&gt;&gt; Curry&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T1, class System.Action`1&lt;!!T2&gt;&gt; Curry&lt;T1, T2&gt;(class System.Action`2&lt;!!T1, !!T2&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T1,System.Action&lt;T2&gt;&gt;</ReturnType>
@@ -465,6 +474,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T2&gt; Curry&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, T1 value1);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`1&lt;!!T2&gt; Curry&lt;T1, T2&gt;(class System.Action`2&lt;!!T1, !!T2&gt; self, !!T1 value1) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T2&gt;</ReturnType>
@@ -503,6 +513,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2&gt;">
         <MemberSignature Language="C#" Value="public static Action Curry&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, T1 value1, T2 value2);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action Curry&lt;T1, T2&gt;(class System.Action`2&lt;!!T1, !!T2&gt; self, !!T1 value1, !!T2 value2) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action</ReturnType>
@@ -545,6 +556,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2&gt;">
         <MemberSignature Language="C#" Value="public static Action Curry&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action Curry&lt;T1, T2&gt;(class System.Action`2&lt;!!T1, !!T2&gt; self, class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action</ReturnType>
@@ -583,6 +595,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T2&gt; Curry&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`1&lt;!!T2&gt; Curry&lt;T1, T2&gt;(class System.Action`2&lt;!!T1, !!T2&gt; self, class Cadenza.Tuple`1&lt;!!T1&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T2&gt;</ReturnType>
@@ -621,6 +634,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T1,Func&lt;T2,Action&lt;T3&gt;&gt;&gt; Curry&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T1, class System.Func`2&lt;!!T2, class System.Action`1&lt;!!T3&gt;&gt;&gt; Curry&lt;T1, T2, T3&gt;(class System.Action`3&lt;!!T1, !!T2, !!T3&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T1,System.Func&lt;T2,System.Action&lt;T3&gt;&gt;&gt;</ReturnType>
@@ -659,6 +673,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T2,T3&gt; Curry&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, T1 value1);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`2&lt;!!T2, !!T3&gt; Curry&lt;T1, T2, T3&gt;(class System.Action`3&lt;!!T1, !!T2, !!T3&gt; self, !!T1 value1) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T2,T3&gt;</ReturnType>
@@ -701,6 +716,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T3&gt; Curry&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, T1 value1, T2 value2);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`1&lt;!!T3&gt; Curry&lt;T1, T2, T3&gt;(class System.Action`3&lt;!!T1, !!T2, !!T3&gt; self, !!T1 value1, !!T2 value2) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T3&gt;</ReturnType>
@@ -747,6 +763,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3&gt;">
         <MemberSignature Language="C#" Value="public static Action Curry&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, T1 value1, T2 value2, T3 value3);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action Curry&lt;T1, T2, T3&gt;(class System.Action`3&lt;!!T1, !!T2, !!T3&gt; self, !!T1 value1, !!T2 value2, !!T3 value3) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action</ReturnType>
@@ -797,6 +814,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3&gt;">
         <MemberSignature Language="C#" Value="public static Action Curry&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, Cadenza.Tuple&lt;T1,T2,T3&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action Curry&lt;T1, T2, T3&gt;(class System.Action`3&lt;!!T1, !!T2, !!T3&gt; self, class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action</ReturnType>
@@ -839,6 +857,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T3&gt; Curry&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`1&lt;!!T3&gt; Curry&lt;T1, T2, T3&gt;(class System.Action`3&lt;!!T1, !!T2, !!T3&gt; self, class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T3&gt;</ReturnType>
@@ -881,6 +900,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T2,T3&gt; Curry&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`2&lt;!!T2, !!T3&gt; Curry&lt;T1, T2, T3&gt;(class System.Action`3&lt;!!T1, !!T2, !!T3&gt; self, class Cadenza.Tuple`1&lt;!!T1&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T2,T3&gt;</ReturnType>
@@ -923,6 +943,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T1,Func&lt;T2,Func&lt;T3,Action&lt;T4&gt;&gt;&gt;&gt; Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T1, class System.Func`2&lt;!!T2, class System.Func`2&lt;!!T3, class System.Action`1&lt;!!T4&gt;&gt;&gt;&gt; Curry&lt;T1, T2, T3, T4&gt;(class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T1,System.Func&lt;T2,System.Func&lt;T3,System.Action&lt;T4&gt;&gt;&gt;&gt;</ReturnType>
@@ -965,6 +986,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T2,T3,T4&gt; Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, T1 value1);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`3&lt;!!T2, !!T3, !!T4&gt; Curry&lt;T1, T2, T3, T4&gt;(class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, !!T1 value1) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T2,T3,T4&gt;</ReturnType>
@@ -1011,6 +1033,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T3,T4&gt; Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, T1 value1, T2 value2);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`2&lt;!!T3, !!T4&gt; Curry&lt;T1, T2, T3, T4&gt;(class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, !!T1 value1, !!T2 value2) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T3,T4&gt;</ReturnType>
@@ -1061,6 +1084,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T4&gt; Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, T1 value1, T2 value2, T3 value3);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`1&lt;!!T4&gt; Curry&lt;T1, T2, T3, T4&gt;(class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, !!T1 value1, !!T2 value2, !!T3 value3) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T4&gt;</ReturnType>
@@ -1115,6 +1139,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static Action Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, T1 value1, T2 value2, T3 value3, T4 value4);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action Curry&lt;T1, T2, T3, T4&gt;(class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, !!T1 value1, !!T2 value2, !!T3 value3, !!T4 value4) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action</ReturnType>
@@ -1173,6 +1198,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static Action Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, Cadenza.Tuple&lt;T1,T2,T3,T4&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action Curry&lt;T1, T2, T3, T4&gt;(class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action</ReturnType>
@@ -1219,6 +1245,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T4&gt; Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, Cadenza.Tuple&lt;T1,T2,T3&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`1&lt;!!T4&gt; Curry&lt;T1, T2, T3, T4&gt;(class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T4&gt;</ReturnType>
@@ -1265,6 +1292,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T3,T4&gt; Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`2&lt;!!T3, !!T4&gt; Curry&lt;T1, T2, T3, T4&gt;(class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T3,T4&gt;</ReturnType>
@@ -1311,6 +1339,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static Action&lt;T2,T3,T4&gt; Curry&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`3&lt;!!T2, !!T3, !!T4&gt; Curry&lt;T1, T2, T3, T4&gt;(class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, class Cadenza.Tuple`1&lt;!!T1&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Action&lt;T2,T3,T4&gt;</ReturnType>
@@ -1357,6 +1386,7 @@
       </Targets>
       <Member MemberName="Timings">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings (this Action self, int runs);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.TimeSpan&gt; Timings(class System.Action self, int32 runs) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
@@ -1385,6 +1415,7 @@
       </Targets>
       <Member MemberName="Timings">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings (this Action self, int runs, int loopsPerRun);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.TimeSpan&gt; Timings(class System.Action self, int32 runs, int32 loopsPerRun) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
@@ -1417,6 +1448,7 @@
       </Targets>
       <Member MemberName="Timings&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T&gt; (this Action&lt;T&gt; self, T value, int runs);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.TimeSpan&gt; Timings&lt;T&gt;(class System.Action`1&lt;!!T&gt; self, !!T value, int32 runs) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
@@ -1455,6 +1487,7 @@
       </Targets>
       <Member MemberName="Timings&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T&gt; (this Action&lt;T&gt; self, T value, int runs, int loopsPerRun);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.TimeSpan&gt; Timings&lt;T&gt;(class System.Action`1&lt;!!T&gt; self, !!T value, int32 runs, int32 loopsPerRun) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
@@ -1497,6 +1530,7 @@
       </Targets>
       <Member MemberName="Timings&lt;T1,T2&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, T1 value1, T2 value2, int runs);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.TimeSpan&gt; Timings&lt;T1, T2&gt;(class System.Action`2&lt;!!T1, !!T2&gt; self, !!T1 value1, !!T2 value2, int32 runs) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
@@ -1543,6 +1577,7 @@
       </Targets>
       <Member MemberName="Timings&lt;T1,T2&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2&gt; (this Action&lt;T1,T2&gt; self, T1 value1, T2 value2, int runs, int loopsPerRun);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.TimeSpan&gt; Timings&lt;T1, T2&gt;(class System.Action`2&lt;!!T1, !!T2&gt; self, !!T1 value1, !!T2 value2, int32 runs, int32 loopsPerRun) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
@@ -1593,6 +1628,7 @@
       </Targets>
       <Member MemberName="Timings&lt;T1,T2,T3&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, T1 value1, T2 value2, T3 value3, int runs);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.TimeSpan&gt; Timings&lt;T1, T2, T3&gt;(class System.Action`3&lt;!!T1, !!T2, !!T3&gt; self, !!T1 value1, !!T2 value2, !!T3 value3, int32 runs) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
@@ -1647,6 +1683,7 @@
       </Targets>
       <Member MemberName="Timings&lt;T1,T2,T3&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2,T3&gt; (this Action&lt;T1,T2,T3&gt; self, T1 value1, T2 value2, T3 value3, int runs, int loopsPerRun);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.TimeSpan&gt; Timings&lt;T1, T2, T3&gt;(class System.Action`3&lt;!!T1, !!T2, !!T3&gt; self, !!T1 value1, !!T2 value2, !!T3 value3, int32 runs, int32 loopsPerRun) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
@@ -1705,6 +1742,7 @@
       </Targets>
       <Member MemberName="Timings&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, T1 value1, T2 value2, T3 value3, T4 value4, int runs);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.TimeSpan&gt; Timings&lt;T1, T2, T3, T4&gt;(class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, !!T1 value1, !!T2 value2, !!T3 value3, !!T4 value4, int32 runs) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
@@ -1767,6 +1805,7 @@
       </Targets>
       <Member MemberName="Timings&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TimeSpan&gt; Timings&lt;T1,T2,T3,T4&gt; (this Action&lt;T1,T2,T3,T4&gt; self, T1 value1, T2 value2, T3 value3, T4 value4, int runs, int loopsPerRun);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.TimeSpan&gt; Timings&lt;T1, T2, T3, T4&gt;(class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, !!T1 value1, !!T2 value2, !!T3 value3, !!T4 value4, int32 runs, int32 loopsPerRun) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.TimeSpan&gt;</ReturnType>
@@ -1833,6 +1872,7 @@
       </Targets>
       <Member MemberName="RemoveAll&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static bool RemoveAll&lt;T&gt; (this System.Collections.Generic.ICollection&lt;T&gt; self, Func&lt;T,bool&gt; predicate);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool RemoveAll&lt;T&gt;(class System.Collections.Generic.ICollection`1&lt;!!T&gt; self, class System.Func`2&lt;!!T, bool&gt; predicate) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -1859,6 +1899,7 @@
       </Targets>
       <Member MemberName="GetValueOrCreate&lt;TKey,TValue&gt;">
         <MemberSignature Language="C#" Value="public static TValue GetValueOrCreate&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key) where TValue : new();" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TValue GetValueOrCreate&lt;TKey, .ctor TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, !!TKey key) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TValue</ReturnType>
@@ -1891,6 +1932,7 @@
       </Targets>
       <Member MemberName="GetValueOrCreate&lt;TKey,TValue&gt;">
         <MemberSignature Language="C#" Value="public static TValue GetValueOrCreate&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key, Func&lt;TValue&gt; creator);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TValue GetValueOrCreate&lt;TKey, TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, !!TKey key, class System.Func`1&lt;!!TValue&gt; creator) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TValue</ReturnType>
@@ -1921,6 +1963,7 @@
       </Targets>
       <Member MemberName="GetValueOrDefault&lt;TKey,TValue&gt;">
         <MemberSignature Language="C#" Value="public static TValue GetValueOrDefault&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TValue GetValueOrDefault&lt;TKey, TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, !!TKey key) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TValue</ReturnType>
@@ -1949,6 +1992,7 @@
       </Targets>
       <Member MemberName="GetValueOrDefault&lt;TKey,TValue&gt;">
         <MemberSignature Language="C#" Value="public static TValue GetValueOrDefault&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key, TValue defaultValue);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TValue GetValueOrDefault&lt;TKey, TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, !!TKey key, !!TValue defaultValue) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TValue</ReturnType>
@@ -1979,6 +2023,7 @@
       </Targets>
       <Member MemberName="SequenceEqual&lt;TKey,TValue&gt;">
         <MemberSignature Language="C#" Value="public static bool SequenceEqual&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; other);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool SequenceEqual&lt;TKey, TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; other) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -2007,6 +2052,7 @@
       </Targets>
       <Member MemberName="SequenceEqual&lt;TKey,TValue&gt;">
         <MemberSignature Language="C#" Value="public static bool SequenceEqual&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; other, System.Collections.Generic.IEqualityComparer&lt;TValue&gt; comparer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool SequenceEqual&lt;TKey, TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; other, class System.Collections.Generic.IEqualityComparer`1&lt;!!TValue&gt; comparer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -2037,6 +2083,7 @@
       </Targets>
       <Member MemberName="UpdateValue&lt;TKey,TValue&gt;">
         <MemberSignature Language="C#" Value="public static TValue UpdateValue&lt;TKey,TValue&gt; (this System.Collections.Generic.IDictionary&lt;TKey,TValue&gt; self, TKey key, Func&lt;TValue,TValue&gt; valueSelector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TValue UpdateValue&lt;TKey, TValue&gt;(class System.Collections.Generic.IDictionary`2&lt;!!TKey, !!TValue&gt; self, !!TKey key, class System.Func`2&lt;!!TValue, !!TValue&gt; valueSelector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TValue</ReturnType>
@@ -2067,6 +2114,7 @@
       </Targets>
       <Member MemberName="AggregateHistory&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; AggregateHistory&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TSource,TSource&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; AggregateHistory&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`3&lt;!!TSource, !!TSource, !!TSource&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -2093,6 +2141,7 @@
       </Targets>
       <Member MemberName="AggregateHistory&lt;TSource,TAccumulate&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TAccumulate&gt; AggregateHistory&lt;TSource,TAccumulate&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TAccumulate&gt; AggregateHistory&lt;TSource, TAccumulate&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TAccumulate&gt;</ReturnType>
@@ -2123,6 +2172,7 @@
       </Targets>
       <Member MemberName="AggregateHistory&lt;TSource,TAccumulate,TResult&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; AggregateHistory&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; func, Func&lt;TAccumulate,TResult&gt; resultSelector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; AggregateHistory&lt;TSource, TAccumulate, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; func, class System.Func`2&lt;!!TAccumulate, !!TResult&gt; resultSelector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
@@ -2157,6 +2207,7 @@
       </Targets>
       <Member MemberName="AggregateReverse&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static TSource AggregateReverse&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TSource,TSource&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource AggregateReverse&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`3&lt;!!TSource, !!TSource, !!TSource&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TSource</ReturnType>
@@ -2183,6 +2234,7 @@
       </Targets>
       <Member MemberName="AggregateReverse&lt;TSource,TAccumulate&gt;">
         <MemberSignature Language="C#" Value="public static TAccumulate AggregateReverse&lt;TSource,TAccumulate&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TAccumulate AggregateReverse&lt;TSource, TAccumulate&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TAccumulate</ReturnType>
@@ -2213,6 +2265,7 @@
       </Targets>
       <Member MemberName="AggregateReverse&lt;TSource,TAccumulate,TResult&gt;">
         <MemberSignature Language="C#" Value="public static TResult AggregateReverse&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; func, Func&lt;TAccumulate,TResult&gt; resultSelector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult AggregateReverse&lt;TSource, TAccumulate, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; func, class System.Func`2&lt;!!TAccumulate, !!TResult&gt; resultSelector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TResult</ReturnType>
@@ -2247,6 +2300,7 @@
       </Targets>
       <Member MemberName="AggregateReverseHistory&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; AggregateReverseHistory&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TSource,TSource&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; AggregateReverseHistory&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`3&lt;!!TSource, !!TSource, !!TSource&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -2273,6 +2327,7 @@
       </Targets>
       <Member MemberName="AggregateReverseHistory&lt;TSource,TAccumulate&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TAccumulate&gt; AggregateReverseHistory&lt;TSource,TAccumulate&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TAccumulate&gt; AggregateReverseHistory&lt;TSource, TAccumulate&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TAccumulate&gt;</ReturnType>
@@ -2303,6 +2358,7 @@
       </Targets>
       <Member MemberName="AggregateReverseHistory&lt;TSource,TAccumulate,TResult&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; AggregateReverseHistory&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; func, Func&lt;TAccumulate,TResult&gt; resultSelector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; AggregateReverseHistory&lt;TSource, TAccumulate, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; func, class System.Func`2&lt;!!TAccumulate, !!TResult&gt; resultSelector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
@@ -2337,6 +2393,7 @@
       </Targets>
       <Member MemberName="And">
         <MemberSignature Language="C#" Value="public static bool And (this System.Collections.Generic.IEnumerable&lt;bool&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool And(class System.Collections.Generic.IEnumerable`1&lt;bool&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -2357,6 +2414,7 @@
       </Targets>
       <Member MemberName="Apply&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static void Apply&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Apply&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -2381,6 +2439,7 @@
       </Targets>
       <Member MemberName="ApplyPairs&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; ApplyPairs&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource&gt;[] actions);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; ApplyPairs&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Action`1&lt;!!TSource&gt;[] actions) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -2413,6 +2472,7 @@
       </Targets>
       <Member MemberName="AsIList&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IList&lt;TSource&gt; AsIList&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IList`1&lt;!!TSource&gt; AsIList&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IList&lt;TSource&gt;</ReturnType>
@@ -2437,6 +2497,7 @@
       </Targets>
       <Member MemberName="Break&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Break&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Break&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, bool&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -2463,6 +2524,7 @@
       </Targets>
       <Member MemberName="Cache&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Collections.CachedSequence&lt;T&gt; Cache&lt;T&gt; (this System.Collections.Generic.IEnumerable&lt;T&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Collections.CachedSequence`1&lt;!!T&gt; Cache&lt;T&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Collections.CachedSequence&lt;T&gt;</ReturnType>
@@ -2487,6 +2549,7 @@
       </Targets>
       <Member MemberName="CompareWith&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Collections.SequenceComparison&lt;T&gt; CompareWith&lt;T&gt; (this System.Collections.Generic.IEnumerable&lt;T&gt; self, System.Collections.Generic.IEnumerable&lt;T&gt; update);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Collections.SequenceComparison`1&lt;!!T&gt; CompareWith&lt;T&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T&gt; update) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Collections.SequenceComparison&lt;T&gt;</ReturnType>
@@ -2513,6 +2576,7 @@
       </Targets>
       <Member MemberName="CompareWith&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Collections.SequenceComparison&lt;T&gt; CompareWith&lt;T&gt; (this System.Collections.Generic.IEnumerable&lt;T&gt; self, System.Collections.Generic.IEnumerable&lt;T&gt; update, System.Collections.Generic.IEqualityComparer&lt;T&gt; comparer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Collections.SequenceComparison`1&lt;!!T&gt; CompareWith&lt;T&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T&gt; update, class System.Collections.Generic.IEqualityComparer`1&lt;!!T&gt; comparer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Collections.SequenceComparison&lt;T&gt;</ReturnType>
@@ -2541,6 +2605,7 @@
       </Targets>
       <Member MemberName="Concat&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Concat&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt;[] selfs);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Concat&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;[] selfs) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -2573,6 +2638,7 @@
       </Targets>
       <Member MemberName="Concat&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Concat&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; selfs);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Concat&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; selfs) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -2599,6 +2665,7 @@
       </Targets>
       <Member MemberName="ContiguousSubsequences&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; ContiguousSubsequences&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, int windowSize);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; ContiguousSubsequences&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, int32 windowSize) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -2625,6 +2692,7 @@
       </Targets>
       <Member MemberName="CopyTo&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static void CopyTo&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource[] array, int arrayIndex);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CopyTo&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource[] array, int32 arrayIndex) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -2653,6 +2721,7 @@
       </Targets>
       <Member MemberName="CopyTo&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static void CopyTo&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.ICollection&lt;TSource&gt; destination);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void CopyTo&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.ICollection`1&lt;!!TSource&gt; destination) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -2679,6 +2748,7 @@
       </Targets>
       <Member MemberName="Cycle&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Cycle&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Cycle&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -2703,6 +2773,7 @@
       </Targets>
       <Member MemberName="Each&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Each&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource,int&gt; action);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Each&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Action`2&lt;!!TSource, int32&gt; action) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -2729,6 +2800,7 @@
       </Targets>
       <Member MemberName="Each&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Each&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource&gt; action);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Each&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Action`1&lt;!!TSource&gt; action) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -2755,6 +2827,7 @@
       </Targets>
       <Member MemberName="ExceptLast&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; ExceptLast&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; ExceptLast&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -2779,6 +2852,7 @@
       </Targets>
       <Member MemberName="ExceptLast&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; ExceptLast&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, int count);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; ExceptLast&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, int32 count) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -2805,6 +2879,7 @@
       </Targets>
       <Member MemberName="FindIndex&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static int FindIndex&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 FindIndex&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, bool&gt; predicate) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Int32</ReturnType>
@@ -2831,6 +2906,7 @@
       </Targets>
       <Member MemberName="FindIndices&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; FindIndices&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; FindIndices&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, bool&gt; predicate) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Int32&gt;</ReturnType>
@@ -2857,6 +2933,7 @@
       </Targets>
       <Member MemberName="ForEach&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static void ForEach&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource,int&gt; action);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void ForEach&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Action`2&lt;!!TSource, int32&gt; action) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -2883,6 +2960,7 @@
       </Targets>
       <Member MemberName="ForEach&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static void ForEach&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Action&lt;TSource&gt; action);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void ForEach&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Action`1&lt;!!TSource&gt; action) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -2909,6 +2987,7 @@
       </Targets>
       <Member MemberName="HaskellGroup&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; HaskellGroup&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; HaskellGroup&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -2933,6 +3012,7 @@
       </Targets>
       <Member MemberName="HaskellGroupBy&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; HaskellGroupBy&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TSource,bool&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; HaskellGroupBy&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`3&lt;!!TSource, !!TSource, bool&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -2970,6 +3050,7 @@
       </Targets>
       <Member MemberName="Implode&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static string Implode&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Implode&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.String</ReturnType>
@@ -2994,6 +3075,7 @@
       </Targets>
       <Member MemberName="Implode&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static string Implode&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, string separator);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Implode&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, string separator) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.String</ReturnType>
@@ -3020,6 +3102,7 @@
       </Targets>
       <Member MemberName="Implode&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static string Implode&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, string separator, Func&lt;TSource,string&gt; selector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Implode&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, string separator, class System.Func`2&lt;!!TSource, string&gt; selector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.String</ReturnType>
@@ -3048,6 +3131,7 @@
       </Targets>
       <Member MemberName="IndexOf&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static int IndexOf&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 IndexOf&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Int32</ReturnType>
@@ -3074,6 +3158,7 @@
       </Targets>
       <Member MemberName="IndexOfAny&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static int IndexOfAny&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource[] values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 IndexOfAny&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource[] values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Int32</ReturnType>
@@ -3106,6 +3191,7 @@
       </Targets>
       <Member MemberName="IndexOfAny&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static int IndexOfAny&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 IndexOfAny&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Int32</ReturnType>
@@ -3132,6 +3218,7 @@
       </Targets>
       <Member MemberName="IndicesOf&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; IndicesOf&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; IndicesOf&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Int32&gt;</ReturnType>
@@ -3158,6 +3245,7 @@
       </Targets>
       <Member MemberName="IndicesOfAny&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; IndicesOfAny&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource[] values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; IndicesOfAny&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource[] values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Int32&gt;</ReturnType>
@@ -3190,6 +3278,7 @@
       </Targets>
       <Member MemberName="IndicesOfAny&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; IndicesOfAny&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; IndicesOfAny&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Int32&gt;</ReturnType>
@@ -3216,6 +3305,7 @@
       </Targets>
       <Member MemberName="InitialSegments&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; InitialSegments&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; InitialSegments&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -3250,6 +3340,7 @@
       </Targets>
       <Member MemberName="Insert&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Insert&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Insert&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -3276,6 +3367,7 @@
       </Targets>
       <Member MemberName="Insert&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Insert&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value, Func&lt;TSource,TSource,int&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Insert&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value, class System.Func`3&lt;!!TSource, !!TSource, int32&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -3304,6 +3396,7 @@
       </Targets>
       <Member MemberName="Intersperse&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Intersperse&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Intersperse&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -3330,6 +3423,7 @@
       </Targets>
       <Member MemberName="Intersperse&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Intersperse&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; between);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Intersperse&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; between) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -3356,6 +3450,7 @@
       </Targets>
       <Member MemberName="MaxBy&lt;TSource,TValue&gt;">
         <MemberSignature Language="C#" Value="public static TSource MaxBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource MaxBy&lt;TSource, TValue&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TValue&gt; selector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TSource</ReturnType>
@@ -3398,6 +3493,7 @@
       </Targets>
       <Member MemberName="MaxBy&lt;TSource,TValue&gt;">
         <MemberSignature Language="C#" Value="public static TSource MaxBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector, System.Collections.Generic.IComparer&lt;TValue&gt; comparer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource MaxBy&lt;TSource, TValue&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TValue&gt; selector, class System.Collections.Generic.IComparer`1&lt;!!TValue&gt; comparer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TSource</ReturnType>
@@ -3445,6 +3541,7 @@
       </Targets>
       <Member MemberName="MinBy&lt;TSource,TValue&gt;">
         <MemberSignature Language="C#" Value="public static TSource MinBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource MinBy&lt;TSource, TValue&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TValue&gt; selector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TSource</ReturnType>
@@ -3487,6 +3584,7 @@
       </Targets>
       <Member MemberName="MinBy&lt;TSource,TValue&gt;">
         <MemberSignature Language="C#" Value="public static TSource MinBy&lt;TSource,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TValue&gt; selector, System.Collections.Generic.IComparer&lt;TValue&gt; comparer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource MinBy&lt;TSource, TValue&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TValue&gt; selector, class System.Collections.Generic.IComparer`1&lt;!!TValue&gt; comparer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TSource</ReturnType>
@@ -3534,6 +3632,7 @@
       </Targets>
       <Member MemberName="NotNull&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; NotNull&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;Nullable&lt;TSource&gt;&gt; self) where TSource : struct;" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; NotNull&lt;struct .ctor (class System.ValueType) TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;valuetype System.Nullable`1&lt;!!TSource&gt;&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -3564,6 +3663,7 @@
       </Targets>
       <Member MemberName="Or">
         <MemberSignature Language="C#" Value="public static bool Or (this System.Collections.Generic.IEnumerable&lt;bool&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool Or(class System.Collections.Generic.IEnumerable`1&lt;bool&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -3584,6 +3684,7 @@
       </Targets>
       <Member MemberName="OrderByNatural&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; OrderByNatural&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,string&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; OrderByNatural&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, string&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -3610,6 +3711,7 @@
       </Targets>
       <Member MemberName="Partition&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Partition&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Partition&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, bool&gt; predicate) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -3652,6 +3754,7 @@
       </Targets>
       <Member MemberName="PathCombine">
         <MemberSignature Language="C#" Value="public static string PathCombine (this System.Collections.Generic.IEnumerable&lt;string&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig string PathCombine(class System.Collections.Generic.IEnumerable`1&lt;string&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.String</ReturnType>
@@ -3678,6 +3781,7 @@
       </Targets>
       <Member MemberName="RemoveFirstOccurrence&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; RemoveFirstOccurrence&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; RemoveFirstOccurrence&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -3716,6 +3820,7 @@
       </Targets>
       <Member MemberName="RemoveFirstOccurrence&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; RemoveFirstOccurrence&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value, System.Collections.Generic.IEqualityComparer&lt;TSource&gt; comparer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; RemoveFirstOccurrence&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value, class System.Collections.Generic.IEqualityComparer`1&lt;!!TSource&gt; comparer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -3762,6 +3867,7 @@
       </Targets>
       <Member MemberName="RemoveFirstOccurrences&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; RemoveFirstOccurrences&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value, int count);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; RemoveFirstOccurrences&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value, int32 count) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -3806,6 +3912,7 @@
       </Targets>
       <Member MemberName="RemoveFirstOccurrences&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; RemoveFirstOccurrences&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TSource value, int count, System.Collections.Generic.IEqualityComparer&lt;TSource&gt; comparer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; RemoveFirstOccurrences&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource value, int32 count, class System.Collections.Generic.IEqualityComparer`1&lt;!!TSource&gt; comparer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -3858,6 +3965,7 @@
       </Targets>
       <Member MemberName="Repeat&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Repeat&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, int number);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Repeat&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, int32 number) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -3894,6 +4002,7 @@
       </Targets>
       <Member MemberName="SelectAggregated&lt;TSource,TAccumulate,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt; SelectAggregated&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,Cadenza.Tuple&lt;TAccumulate,TResult&gt;&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;!!TAccumulate, class System.Collections.Generic.List`1&lt;!!TResult&gt;&gt; SelectAggregated&lt;TSource, TAccumulate, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, class Cadenza.Tuple`2&lt;!!TAccumulate, !!TResult&gt;&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt;</ReturnType>
@@ -3953,6 +4062,7 @@
       </Targets>
       <Member MemberName="SelectBreadthFirst&lt;TSource,TResult&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; SelectBreadthFirst&lt;TSource,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; SelectBreadthFirst&lt;TSource, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TResult&gt; valueSelector, class System.Func`2&lt;!!TSource, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; childrenSelector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
@@ -4000,6 +4110,7 @@
       </Targets>
       <Member MemberName="SelectDepthFirst&lt;TSource,TResult&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; SelectDepthFirst&lt;TSource,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; SelectDepthFirst&lt;TSource, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TResult&gt; valueSelector, class System.Func`2&lt;!!TSource, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; childrenSelector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
@@ -4048,6 +4159,7 @@
       </Targets>
       <Member MemberName="SelectFromEach&lt;T1,T2,TResult&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; SelectFromEach&lt;T1,T2,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, Func&lt;T1,T2,TResult&gt; selector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; SelectFromEach&lt;T1, T2, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt; source2, class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; selector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
@@ -4100,6 +4212,7 @@
       </Targets>
       <Member MemberName="SelectFromEach&lt;T1,T2,T3,TResult&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; SelectFromEach&lt;T1,T2,T3,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, System.Collections.Generic.IEnumerable&lt;T3&gt; source3, Func&lt;T1,T2,T3,TResult&gt; selector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; SelectFromEach&lt;T1, T2, T3, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt; source2, class System.Collections.Generic.IEnumerable`1&lt;!!T3&gt; source3, class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; selector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
@@ -4161,6 +4274,7 @@
       </Targets>
       <Member MemberName="SelectFromEach&lt;T1,T2,T3,T4,TResult&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; SelectFromEach&lt;T1,T2,T3,T4,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, System.Collections.Generic.IEnumerable&lt;T3&gt; source3, System.Collections.Generic.IEnumerable&lt;T4&gt; source4, Func&lt;T1,T2,T3,T4,TResult&gt; selector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; SelectFromEach&lt;T1, T2, T3, T4, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt; source2, class System.Collections.Generic.IEnumerable`1&lt;!!T3&gt; source3, class System.Collections.Generic.IEnumerable`1&lt;!!T4&gt; source4, class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; selector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
@@ -4231,6 +4345,7 @@
       </Targets>
       <Member MemberName="SelectReverseAggregated&lt;TSource,TAccumulate,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt; SelectReverseAggregated&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,Cadenza.Tuple&lt;TAccumulate,TResult&gt;&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;!!TAccumulate, class System.Collections.Generic.List`1&lt;!!TResult&gt;&gt; SelectReverseAggregated&lt;TSource, TAccumulate, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, class Cadenza.Tuple`2&lt;!!TAccumulate, !!TResult&gt;&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Tuple&lt;TAccumulate,System.Collections.Generic.List&lt;TResult&gt;&gt;</ReturnType>
@@ -4290,6 +4405,7 @@
       </Targets>
       <Member MemberName="SequenceCompare&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static int SequenceCompare&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; list);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 SequenceCompare&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; list) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Int32</ReturnType>
@@ -4327,6 +4443,7 @@
       </Targets>
       <Member MemberName="SequenceCompare&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static int SequenceCompare&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; list, System.Collections.Generic.IComparer&lt;TSource&gt; comparer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 SequenceCompare&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; list, class System.Collections.Generic.IComparer`1&lt;!!TSource&gt; comparer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Int32</ReturnType>
@@ -4373,6 +4490,7 @@
       </Targets>
       <Member MemberName="Shuffle&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Shuffle&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Shuffle&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -4404,6 +4522,7 @@
       </Targets>
       <Member MemberName="Shuffle&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Shuffle&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Random random);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Shuffle&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Random random) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -4439,6 +4558,7 @@
       </Targets>
       <Member MemberName="SkipPrefix&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; SkipPrefix&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; prefix);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; SkipPrefix&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; prefix) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -4477,6 +4597,7 @@
       </Targets>
       <Member MemberName="SkipPrefix&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; SkipPrefix&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IEnumerable&lt;TSource&gt; prefix, System.Collections.Generic.IEqualityComparer&lt;TSource&gt; comparer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; SkipPrefix&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; prefix, class System.Collections.Generic.IEqualityComparer`1&lt;!!TSource&gt; comparer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -4524,6 +4645,7 @@
       </Targets>
       <Member MemberName="Sort&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Sort&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Sort&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -4553,6 +4675,7 @@
       </Targets>
       <Member MemberName="Sort&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Sort&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, System.Collections.Generic.IComparer&lt;TSource&gt; comparer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Sort&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Collections.Generic.IComparer`1&lt;!!TSource&gt; comparer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -4591,6 +4714,7 @@
       </Targets>
       <Member MemberName="Sort&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TSource&gt; Sort&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Comparison&lt;TSource&gt; comparison);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; Sort&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Comparison`1&lt;!!TSource&gt; comparison) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TSource&gt;</ReturnType>
@@ -4626,6 +4750,7 @@
       </Targets>
       <Member MemberName="SortNatural">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; SortNatural (this System.Collections.Generic.IEnumerable&lt;string&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; SortNatural(class System.Collections.Generic.IEnumerable`1&lt;string&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -4655,6 +4780,7 @@
       </Targets>
       <Member MemberName="Span&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Span&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Span&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, bool&gt; predicate) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -4697,6 +4823,7 @@
       </Targets>
       <Member MemberName="SplitAt&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; SplitAt&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, int firstLength);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; SplitAt&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, int32 firstLength) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -4734,6 +4861,7 @@
       </Targets>
       <Member MemberName="Subsets&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Subsets&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Subsets&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -4765,6 +4893,7 @@
       </Targets>
       <Member MemberName="Subsets&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Subsets&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;,bool&gt; predicate);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Subsets&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;, bool&gt; predicate) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -4799,6 +4928,7 @@
       </Targets>
       <Member MemberName="Sum&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static TSource Sum&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource Sum&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TSource</ReturnType>
@@ -4823,6 +4953,7 @@
       </Targets>
       <Member MemberName="Sum&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static TSource Sum&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Cadenza.Numerics.Math&lt;TSource&gt; m);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TSource Sum&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class Cadenza.Numerics.Math`1&lt;!!TSource&gt; m) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TSource</ReturnType>
@@ -4849,6 +4980,7 @@
       </Targets>
       <Member MemberName="Tokens&lt;TSource,TAccumulate,TResult&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; Tokens&lt;TSource,TAccumulate,TResult&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, TAccumulate seed, Func&lt;TAccumulate,TSource,TAccumulate&gt; accumulate, Func&lt;TAccumulate,Cadenza.Tuple&lt;TResult,TAccumulate&gt;&gt; resultSelector, Func&lt;TAccumulate,TSource,bool&gt;[] categories);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; Tokens&lt;TSource, TAccumulate, TResult&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TAccumulate seed, class System.Func`3&lt;!!TAccumulate, !!TSource, !!TAccumulate&gt; accumulate, class System.Func`2&lt;!!TAccumulate, class Cadenza.Tuple`2&lt;!!TResult, !!TAccumulate&gt;&gt; resultSelector, class System.Func`3&lt;!!TAccumulate, !!TSource, bool&gt;[] categories) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
@@ -4930,6 +5062,7 @@
       </Targets>
       <Member MemberName="ToList&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.List&lt;System.Collections.Generic.List&lt;TSource&gt;&gt; ToList&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.List`1&lt;class System.Collections.Generic.List`1&lt;!!TSource&gt;&gt; ToList&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.List&lt;System.Collections.Generic.List&lt;TSource&gt;&gt;</ReturnType>
@@ -4964,6 +5097,7 @@
       </Targets>
       <Member MemberName="ToReadOnlyDictionary&lt;TSource,TKey&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TSource&gt; ToReadOnlyDictionary&lt;TSource,TKey&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TKey&gt; keySelector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Collections.ReadOnlyDictionary`2&lt;!!TKey, !!TSource&gt; ToReadOnlyDictionary&lt;TSource, TKey&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TKey&gt; keySelector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TSource&gt;</ReturnType>
@@ -5009,6 +5143,7 @@
       </Targets>
       <Member MemberName="ToReadOnlyDictionary&lt;TSource,TKey,TValue&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TValue&gt; ToReadOnlyDictionary&lt;TSource,TKey,TValue&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,TKey&gt; keySelector, Func&lt;TSource,TValue&gt; valueSelector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Collections.ReadOnlyDictionary`2&lt;!!TKey, !!TValue&gt; ToReadOnlyDictionary&lt;TSource, TKey, TValue&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, !!TKey&gt; keySelector, class System.Func`2&lt;!!TSource, !!TValue&gt; valueSelector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Collections.ReadOnlyDictionary&lt;TKey,TValue&gt;</ReturnType>
@@ -5063,6 +5198,7 @@
       </Targets>
       <Member MemberName="ToTuple">
         <MemberSignature Language="C#" Value="public static object ToTuple (this System.Collections.IEnumerable self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig object ToTuple(class System.Collections.IEnumerable self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Object</ReturnType>
@@ -5088,6 +5224,7 @@
       </Targets>
       <Member MemberName="ToValueReader">
         <MemberSignature Language="C#" Value="public static Cadenza.IO.TextValueReader ToValueReader (this System.Collections.Generic.IEnumerable&lt;string&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.IO.TextValueReader ToValueReader(class System.Collections.Generic.IEnumerable`1&lt;string&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.IO.TextValueReader</ReturnType>
@@ -5116,6 +5253,7 @@
       </Targets>
       <Member MemberName="ToValueReader&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.IO.EnumerableValueReader&lt;TSource&gt; ToValueReader&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.IO.EnumerableValueReader`1&lt;!!TSource&gt; ToValueReader&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.IO.EnumerableValueReader&lt;TSource&gt;</ReturnType>
@@ -5150,6 +5288,7 @@
       </Targets>
       <Member MemberName="TrailingSegments&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; TrailingSegments&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; TrailingSegments&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -5184,6 +5323,7 @@
       </Targets>
       <Member MemberName="Transpose&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Transpose&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Transpose&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -5218,6 +5358,7 @@
       </Targets>
       <Member MemberName="TryGetFirst&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static bool TryGetFirst&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, out TSource first);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool TryGetFirst&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, !!TSource first) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -5252,6 +5393,7 @@
       </Targets>
       <Member MemberName="TryGetFirst&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static bool TryGetFirst&lt;TSource&gt; (this System.Collections.Generic.IEnumerable&lt;TSource&gt; self, Func&lt;TSource,bool&gt; predicate, out TSource first);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool TryGetFirst&lt;TSource&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt; self, class System.Func`2&lt;!!TSource, bool&gt; predicate, !!TSource first) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -5292,6 +5434,7 @@
       </Targets>
       <Member MemberName="Unzip&lt;T1,T2&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;&gt; Unzip&lt;T1,T2&gt; (this System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2&gt;&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt;&gt; Unzip&lt;T1, T2&gt;(class System.Collections.Generic.IEnumerable`1&lt;class Cadenza.Tuple`2&lt;!!T1, !!T2&gt;&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;&gt;</ReturnType>
@@ -5332,6 +5475,7 @@
       </Targets>
       <Member MemberName="Unzip&lt;T1,T2,T3&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;&gt; Unzip&lt;T1,T2,T3&gt; (this System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3&gt;&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`3&lt;class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!T3&gt;&gt; Unzip&lt;T1, T2, T3&gt;(class System.Collections.Generic.IEnumerable`1&lt;class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt;&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;&gt;</ReturnType>
@@ -5376,6 +5520,7 @@
       </Targets>
       <Member MemberName="Unzip&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;,System.Collections.Generic.IEnumerable&lt;T4&gt;&gt; Unzip&lt;T1,T2,T3,T4&gt; (this System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3,T4&gt;&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`4&lt;class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!T3&gt;, class System.Collections.Generic.IEnumerable`1&lt;!!T4&gt;&gt; Unzip&lt;T1, T2, T3, T4&gt;(class System.Collections.Generic.IEnumerable`1&lt;class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt;&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Tuple&lt;System.Collections.Generic.IEnumerable&lt;T1&gt;,System.Collections.Generic.IEnumerable&lt;T2&gt;,System.Collections.Generic.IEnumerable&lt;T3&gt;,System.Collections.Generic.IEnumerable&lt;T4&gt;&gt;</ReturnType>
@@ -5424,6 +5569,7 @@
       </Targets>
       <Member MemberName="Zip&lt;T1,T2&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2&gt;&gt; Zip&lt;T1,T2&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class Cadenza.Tuple`2&lt;!!T1, !!T2&gt;&gt; Zip&lt;T1, T2&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt; source2) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2&gt;&gt;</ReturnType>
@@ -5467,6 +5613,7 @@
       </Targets>
       <Member MemberName="Zip&lt;T1,T2,T3&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3&gt;&gt; Zip&lt;T1,T2,T3&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, System.Collections.Generic.IEnumerable&lt;T3&gt; source3);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt;&gt; Zip&lt;T1, T2, T3&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt; source2, class System.Collections.Generic.IEnumerable`1&lt;!!T3&gt; source3) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3&gt;&gt;</ReturnType>
@@ -5519,6 +5666,7 @@
       </Targets>
       <Member MemberName="Zip&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3,T4&gt;&gt; Zip&lt;T1,T2,T3,T4&gt; (this System.Collections.Generic.IEnumerable&lt;T1&gt; self, System.Collections.Generic.IEnumerable&lt;T2&gt; source2, System.Collections.Generic.IEnumerable&lt;T3&gt; source3, System.Collections.Generic.IEnumerable&lt;T4&gt; source4);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt;&gt; Zip&lt;T1, T2, T3, T4&gt;(class System.Collections.Generic.IEnumerable`1&lt;!!T1&gt; self, class System.Collections.Generic.IEnumerable`1&lt;!!T2&gt; source2, class System.Collections.Generic.IEnumerable`1&lt;!!T3&gt; source3, class System.Collections.Generic.IEnumerable`1&lt;!!T4&gt; source4) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;Cadenza.Tuple&lt;T1,T2,T3,T4&gt;&gt;</ReturnType>
@@ -5580,6 +5728,7 @@
       </Targets>
       <Member MemberName="Aggregate&lt;TKey,TValue,TResult&gt;">
         <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;TKey,TValue,TResult&gt; (this System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; self, Func&lt;TKey,TValue,TResult&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;TKey, TValue, TResult&gt;(valuetype System.Collections.Generic.KeyValuePair`2&lt;!!TKey, !!TValue&gt; self, class System.Func`3&lt;!!TKey, !!TValue, !!TResult&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TResult</ReturnType>
@@ -5624,6 +5773,7 @@
       </Targets>
       <Member MemberName="ToTuple&lt;TKey,TValue&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Tuple&lt;TKey,TValue&gt; ToTuple&lt;TKey,TValue&gt; (this System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Tuple`2&lt;!!TKey, !!TValue&gt; ToTuple&lt;TKey, TValue&gt;(valuetype System.Collections.Generic.KeyValuePair`2&lt;!!TKey, !!TValue&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Tuple&lt;TKey,TValue&gt;</ReturnType>
@@ -5660,6 +5810,7 @@
       </Targets>
       <Member MemberName="NodeAt&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.LinkedListNode&lt;T&gt; NodeAt&lt;T&gt; (this System.Collections.Generic.LinkedList&lt;T&gt; self, int index);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.LinkedListNode`1&lt;!!T&gt; NodeAt&lt;T&gt;(class System.Collections.Generic.LinkedList`1&lt;!!T&gt; self, int32 index) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.LinkedListNode&lt;T&gt;</ReturnType>
@@ -5701,6 +5852,7 @@
       </Targets>
       <Member MemberName="BinarySearch&lt;TSource,TValue&gt;">
         <MemberSignature Language="C#" Value="public static int BinarySearch&lt;TSource,TValue&gt; (this System.Collections.Generic.IList&lt;TSource&gt; self, TValue item, Func&lt;TSource,TValue,int&gt; comparer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig int32 BinarySearch&lt;TSource, TValue&gt;(class System.Collections.Generic.IList`1&lt;!!TSource&gt; self, !!TValue item, class System.Func`3&lt;!!TSource, !!TValue, int32&gt; comparer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Int32</ReturnType>
@@ -5731,6 +5883,7 @@
       </Targets>
       <Member MemberName="Raise">
         <MemberSignature Language="C#" Value="public static void Raise (this EventHandler self, object sender);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Raise(class System.EventHandler self, object sender) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -5753,6 +5906,7 @@
       </Targets>
       <Member MemberName="Raise">
         <MemberSignature Language="C#" Value="public static void Raise (this EventHandler self, object sender, EventArgs e);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Raise(class System.EventHandler self, object sender, class System.EventArgs e) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -5777,6 +5931,7 @@
       </Targets>
       <Member MemberName="Raise">
         <MemberSignature Language="C#" Value="public static void Raise (this EventHandler self, object sender, Func&lt;EventArgs&gt; creator);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Raise(class System.EventHandler self, object sender, class System.Func`1&lt;class System.EventArgs&gt; creator) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -5801,6 +5956,7 @@
       </Targets>
       <Member MemberName="Raise&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static void Raise&lt;T&gt; (this EventHandler&lt;T&gt; self, object sender, T args) where T : EventArgs;" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Raise&lt;(class System.EventArgs) T&gt;(class System.EventHandler`1&lt;!!T&gt; self, object sender, !!T args) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -5833,6 +5989,7 @@
       </Targets>
       <Member MemberName="Raise&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static void Raise&lt;T&gt; (this EventHandler&lt;T&gt; self, object sender, Func&lt;T&gt; creator) where T : EventArgs;" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void Raise&lt;(class System.EventArgs) T&gt;(class System.EventHandler`1&lt;!!T&gt; self, object sender, class System.Func`1&lt;!!T&gt; creator) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -5865,6 +6022,7 @@
       </Targets>
       <Member MemberName="Compose&lt;T,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Compose&lt;T,TResult&gt; (this Func&lt;T,TResult&gt; self, Func&lt;T&gt; composer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Compose&lt;T, TResult&gt;(class System.Func`2&lt;!!T, !!TResult&gt; self, class System.Func`1&lt;!!T&gt; composer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
@@ -5903,6 +6061,7 @@
       </Targets>
       <Member MemberName="Compose&lt;T1,T2,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T1,TResult&gt; Compose&lt;T1,T2,TResult&gt; (this Func&lt;T2,TResult&gt; self, Func&lt;T1,T2&gt; composer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T1, !!TResult&gt; Compose&lt;T1, T2, TResult&gt;(class System.Func`2&lt;!!T2, !!TResult&gt; self, class System.Func`2&lt;!!T1, !!T2&gt; composer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T1,TResult&gt;</ReturnType>
@@ -5943,6 +6102,7 @@
       </Targets>
       <Member MemberName="Compose&lt;T1,T2,T3,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T1,T2,TResult&gt; Compose&lt;T1,T2,T3,TResult&gt; (this Func&lt;T3,TResult&gt; self, Func&lt;T1,T2,T3&gt; composer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; Compose&lt;T1, T2, T3, TResult&gt;(class System.Func`2&lt;!!T3, !!TResult&gt; self, class System.Func`3&lt;!!T1, !!T2, !!T3&gt; composer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T1,T2,TResult&gt;</ReturnType>
@@ -5987,6 +6147,7 @@
       </Targets>
       <Member MemberName="Compose&lt;T1,T2,T3,T4,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T1,T2,T3,TResult&gt; Compose&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T4,TResult&gt; self, Func&lt;T1,T2,T3,T4&gt; composer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; Compose&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`2&lt;!!T4, !!TResult&gt; self, class System.Func`4&lt;!!T1, !!T2, !!T3, !!T4&gt; composer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T1,T2,T3,TResult&gt;</ReturnType>
@@ -6035,6 +6196,7 @@
       </Targets>
       <Member MemberName="Compose&lt;T1,T2,T3,T4,T5,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T1,T2,T3,T4,TResult&gt; Compose&lt;T1,T2,T3,T4,T5,TResult&gt; (this Func&lt;T5,TResult&gt; self, Func&lt;T1,T2,T3,T4,T5&gt; composer);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; Compose&lt;T1, T2, T3, T4, T5, TResult&gt;(class System.Func`2&lt;!!T5, !!TResult&gt; self, class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!T5&gt; composer) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T1,T2,T3,T4,TResult&gt;</ReturnType>
@@ -6087,6 +6249,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T,TResult&gt; Curry&lt;T,TResult&gt; (this Func&lt;T,TResult&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T, !!TResult&gt; Curry&lt;T, TResult&gt;(class System.Func`2&lt;!!T, !!TResult&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T,TResult&gt;</ReturnType>
@@ -6121,6 +6284,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T,TResult&gt; (this Func&lt;T,TResult&gt; self, T value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T, TResult&gt;(class System.Func`2&lt;!!T, !!TResult&gt; self, !!T value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
@@ -6157,6 +6321,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T,TResult&gt; (this Func&lt;T,TResult&gt; self, Cadenza.Tuple&lt;T&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T, TResult&gt;(class System.Func`2&lt;!!T, !!TResult&gt; self, class Cadenza.Tuple`1&lt;!!T&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
@@ -6193,6 +6358,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T1,Func&lt;T2,TResult&gt;&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T1, class System.Func`2&lt;!!T2, !!TResult&gt;&gt; Curry&lt;T1, T2, TResult&gt;(class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T1,System.Func&lt;T2,TResult&gt;&gt;</ReturnType>
@@ -6231,6 +6397,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T2,TResult&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self, T1 value1);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T2, !!TResult&gt; Curry&lt;T1, T2, TResult&gt;(class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; self, !!T1 value1) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T2,TResult&gt;</ReturnType>
@@ -6271,6 +6438,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self, T1 value1, T2 value2);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T1, T2, TResult&gt;(class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; self, !!T1 value1, !!T2 value2) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
@@ -6315,6 +6483,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T1, T2, TResult&gt;(class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; self, class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
@@ -6355,6 +6524,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T2,TResult&gt; Curry&lt;T1,T2,TResult&gt; (this Func&lt;T1,T2,TResult&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T2, !!TResult&gt; Curry&lt;T1, T2, TResult&gt;(class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; self, class Cadenza.Tuple`1&lt;!!T1&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T2,TResult&gt;</ReturnType>
@@ -6395,6 +6565,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T1,Func&lt;T2,Func&lt;T3,TResult&gt;&gt;&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T1, class System.Func`2&lt;!!T2, class System.Func`2&lt;!!T3, !!TResult&gt;&gt;&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T1,System.Func&lt;T2,System.Func&lt;T3,TResult&gt;&gt;&gt;</ReturnType>
@@ -6437,6 +6608,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T2,T3,TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, T1 value1);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`3&lt;!!T2, !!T3, !!TResult&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self, !!T1 value1) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T2,T3,TResult&gt;</ReturnType>
@@ -6481,6 +6653,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T3,TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, T1 value1, T2 value2);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T3, !!TResult&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self, !!T1 value1, !!T2 value2) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T3,TResult&gt;</ReturnType>
@@ -6529,6 +6702,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, T1 value1, T2 value2, T3 value3);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self, !!T1 value1, !!T2 value2, !!T3 value3) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
@@ -6581,6 +6755,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, Cadenza.Tuple&lt;T1,T2,T3&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self, class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
@@ -6625,6 +6800,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T3,TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T3, !!TResult&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self, class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T3,TResult&gt;</ReturnType>
@@ -6669,6 +6845,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T2,T3,TResult&gt; Curry&lt;T1,T2,T3,TResult&gt; (this Func&lt;T1,T2,T3,TResult&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`3&lt;!!T2, !!T3, !!TResult&gt; Curry&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; self, class Cadenza.Tuple`1&lt;!!T1&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T2,T3,TResult&gt;</ReturnType>
@@ -6713,6 +6890,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T1,Func&lt;T2,Func&lt;T3,Func&lt;T4,TResult&gt;&gt;&gt;&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T1, class System.Func`2&lt;!!T2, class System.Func`2&lt;!!T3, class System.Func`2&lt;!!T4, !!TResult&gt;&gt;&gt;&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T1,System.Func&lt;T2,System.Func&lt;T3,System.Func&lt;T4,TResult&gt;&gt;&gt;&gt;</ReturnType>
@@ -6759,6 +6937,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T2,T3,T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, T1 value1);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`4&lt;!!T2, !!T3, !!T4, !!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, !!T1 value1) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T2,T3,T4,TResult&gt;</ReturnType>
@@ -6807,6 +6986,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T3,T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, T1 value1, T2 value2);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`3&lt;!!T3, !!T4, !!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, !!T1 value1, !!T2 value2) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T3,T4,TResult&gt;</ReturnType>
@@ -6859,6 +7039,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, T1 value1, T2 value2, T3 value3);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T4, !!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, !!T1 value1, !!T2 value2, !!T3 value3) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T4,TResult&gt;</ReturnType>
@@ -6915,6 +7096,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, T1 value1, T2 value2, T3 value3, T4 value4);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, !!T1 value1, !!T2 value2, !!T3 value3, !!T4 value4) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
@@ -6975,6 +7157,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Cadenza.Tuple&lt;T1,T2,T3,T4&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;TResult&gt;</ReturnType>
@@ -7023,6 +7206,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Cadenza.Tuple&lt;T1,T2,T3&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T4, !!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T4,TResult&gt;</ReturnType>
@@ -7071,6 +7255,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T3,T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Cadenza.Tuple&lt;T1,T2&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`3&lt;!!T3, !!T4, !!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T3,T4,TResult&gt;</ReturnType>
@@ -7119,6 +7304,7 @@
       </Targets>
       <Member MemberName="Curry&lt;T1,T2,T3,T4,TResult&gt;">
         <MemberSignature Language="C#" Value="public static Func&lt;T2,T3,T4,TResult&gt; Curry&lt;T1,T2,T3,T4,TResult&gt; (this Func&lt;T1,T2,T3,T4,TResult&gt; self, Cadenza.Tuple&lt;T1&gt; values);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`4&lt;!!T2, !!T3, !!T4, !!TResult&gt; Curry&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; self, class Cadenza.Tuple`1&lt;!!T1&gt; values) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Func&lt;T2,T3,T4,TResult&gt;</ReturnType>
@@ -7167,6 +7353,7 @@
       </Targets>
       <Member MemberName="IsEven">
         <MemberSignature Language="C#" Value="public static bool IsEven (this short value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsEven(int16 value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -7191,6 +7378,7 @@
       </Targets>
       <Member MemberName="IsOdd">
         <MemberSignature Language="C#" Value="public static bool IsOdd (this short value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsOdd(int16 value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -7215,6 +7403,7 @@
       </Targets>
       <Member MemberName="DownTo">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; DownTo (this int self, int limit);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; DownTo(int32 self, int32 limit) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Int32&gt;</ReturnType>
@@ -7246,6 +7435,7 @@
       </Targets>
       <Member MemberName="IsEven">
         <MemberSignature Language="C#" Value="public static bool IsEven (this int value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsEven(int32 value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -7270,6 +7460,7 @@
       </Targets>
       <Member MemberName="IsOdd">
         <MemberSignature Language="C#" Value="public static bool IsOdd (this int value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsOdd(int32 value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -7294,6 +7485,7 @@
       </Targets>
       <Member MemberName="Step">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; Step (this int self, int limit, int step);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; Step(int32 self, int32 limit, int32 step) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Int32&gt;</ReturnType>
@@ -7331,6 +7523,7 @@
       </Targets>
       <Member MemberName="Times">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; Times (this int self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; Times(int32 self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Int32&gt;</ReturnType>
@@ -7358,6 +7551,7 @@
       </Targets>
       <Member MemberName="UpTo">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;int&gt; UpTo (this int self, int limit);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;int32&gt; UpTo(int32 self, int32 limit) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Int32&gt;</ReturnType>
@@ -7389,6 +7583,7 @@
       </Targets>
       <Member MemberName="IsEven">
         <MemberSignature Language="C#" Value="public static bool IsEven (this long value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsEven(int64 value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -7413,6 +7608,7 @@
       </Targets>
       <Member MemberName="IsOdd">
         <MemberSignature Language="C#" Value="public static bool IsOdd (this long value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsOdd(int64 value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -7437,6 +7633,7 @@
       </Targets>
       <Member MemberName="WithSystemConverter">
         <MemberSignature Language="C#" Value="public static Cadenza.IO.StreamConverter WithSystemConverter (this System.IO.Stream self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.IO.StreamConverter WithSystemConverter(class System.IO.Stream self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.IO.StreamConverter</ReturnType>
@@ -7457,6 +7654,7 @@
       </Targets>
       <Member MemberName="WriteTo">
         <MemberSignature Language="C#" Value="public static void WriteTo (this System.IO.Stream self, System.IO.Stream destination);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig void WriteTo(class System.IO.Stream self, class System.IO.Stream destination) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Void</ReturnType>
@@ -7479,6 +7677,7 @@
       </Targets>
       <Member MemberName="Read&lt;TValue&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.IO.StreamConverter Read&lt;TValue&gt; (this Cadenza.IO.StreamConverter self, out TValue value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.IO.StreamConverter Read&lt;TValue&gt;(class Cadenza.IO.StreamConverter self, !!TValue value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.IO.StreamConverter</ReturnType>
@@ -7505,6 +7704,7 @@
       </Targets>
       <Member MemberName="Write&lt;TValue&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.IO.StreamConverter Write&lt;TValue&gt; (this Cadenza.IO.StreamConverter self, TValue value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.IO.StreamConverter Write&lt;TValue&gt;(class Cadenza.IO.StreamConverter self, !!TValue value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.IO.StreamConverter</ReturnType>
@@ -7531,6 +7731,7 @@
       </Targets>
       <Member MemberName="Lines">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Lines(class System.IO.TextReader self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -7559,6 +7760,7 @@
       </Targets>
       <Member MemberName="Lines">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this System.IO.TextReader self, Cadenza.IO.TextReaderCodaOptions options);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Lines(class System.IO.TextReader self, valuetype Cadenza.IO.TextReaderCodaOptions options) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -7592,6 +7794,7 @@
       </Targets>
       <Member MemberName="Tokens">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Cadenza.IO.TextReaderCodaOptions options, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Tokens(class System.IO.TextReader self, valuetype Cadenza.IO.TextReaderCodaOptions options, class System.Func`3&lt;valuetype System.Nullable`1&lt;char&gt;, char, bool&gt;[] categories) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -7646,6 +7849,7 @@
       </Targets>
       <Member MemberName="Tokens">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this System.IO.TextReader self, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Tokens(class System.IO.TextReader self, class System.Func`3&lt;valuetype System.Nullable`1&lt;char&gt;, char, bool&gt;[] categories) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -7695,6 +7899,7 @@
       </Targets>
       <Member MemberName="Words">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Words(class System.IO.TextReader self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -7723,6 +7928,7 @@
       </Targets>
       <Member MemberName="Words">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this System.IO.TextReader self, Cadenza.IO.TextReaderCodaOptions options);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Words(class System.IO.TextReader self, valuetype Cadenza.IO.TextReaderCodaOptions options) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -7756,6 +7962,7 @@
       </Targets>
       <Member MemberName="Read&lt;TSource,TValue&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.IO.ValueReader&lt;TSource&gt; Read&lt;TSource,TValue&gt; (this Cadenza.IO.ValueReader&lt;TSource&gt; self, out TValue value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.IO.ValueReader`1&lt;!!TSource&gt; Read&lt;TSource, TValue&gt;(class Cadenza.IO.ValueReader`1&lt;!!TSource&gt; self, !!TValue value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.IO.ValueReader&lt;TSource&gt;</ReturnType>
@@ -7784,6 +7991,7 @@
       </Targets>
       <Member MemberName="Rows&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Rows&lt;TSource&gt; (this TSource[][] self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Rows&lt;TSource&gt;(!!TSource[][] self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -7815,6 +8023,7 @@
       </Targets>
       <Member MemberName="Just&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; Just&lt;T&gt; (this Nullable&lt;T&gt; self) where T : struct;" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Cadenza.Maybe`1&lt;!!T&gt; Just&lt;struct .ctor (class System.ValueType) T&gt;(valuetype System.Nullable`1&lt;!!T&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
@@ -7854,6 +8063,7 @@
       </Targets>
       <Member MemberName="ToMaybe&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; ToMaybe&lt;T&gt; (this Nullable&lt;T&gt; self) where T : struct;" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Cadenza.Maybe`1&lt;!!T&gt; ToMaybe&lt;struct .ctor (class System.ValueType) T&gt;(valuetype System.Nullable`1&lt;!!T&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
@@ -7893,6 +8103,7 @@
       </Targets>
       <Member MemberName="Just&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; Just&lt;T&gt; (this T self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Cadenza.Maybe`1&lt;!!T&gt; Just&lt;T&gt;(!!T self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
@@ -7926,6 +8137,7 @@
       </Targets>
       <Member MemberName="Match&lt;TSource,TResult&gt;">
         <MemberSignature Language="C#" Value="public static TResult Match&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;TSource, TResult&gt;(!!TSource self, class System.Func`2&lt;!!TSource, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TResult</ReturnType>
@@ -7971,6 +8183,7 @@
       </Targets>
       <Member MemberName="ToMaybe&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static Cadenza.Maybe&lt;T&gt; ToMaybe&lt;T&gt; (this T self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Cadenza.Maybe`1&lt;!!T&gt; ToMaybe&lt;T&gt;(!!T self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>Cadenza.Maybe&lt;T&gt;</ReturnType>
@@ -8004,6 +8217,7 @@
       </Targets>
       <Member MemberName="TraverseBreadthFirst&lt;TSource,TResult&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; TraverseBreadthFirst&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; TraverseBreadthFirst&lt;TSource, TResult&gt;(!!TSource self, class System.Func`2&lt;!!TSource, !!TResult&gt; valueSelector, class System.Func`2&lt;!!TSource, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; childrenSelector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
@@ -8050,6 +8264,7 @@
       </Targets>
       <Member MemberName="TraverseBreadthFirstWithParent&lt;TSource,TResult&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt; TraverseBreadthFirstWithParent&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.Collections.Generic.KeyValuePair`2&lt;!!TSource, !!TResult&gt;&gt; TraverseBreadthFirstWithParent&lt;TSource, TResult&gt;(!!TSource self, class System.Func`2&lt;!!TSource, !!TResult&gt; valueSelector, class System.Func`2&lt;!!TSource, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; childrenSelector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt;</ReturnType>
@@ -8096,6 +8311,7 @@
       </Targets>
       <Member MemberName="TraverseDepthFirst&lt;TSource,TResult&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;TResult&gt; TraverseDepthFirst&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;!!TResult&gt; TraverseDepthFirst&lt;TSource, TResult&gt;(!!TSource self, class System.Func`2&lt;!!TSource, !!TResult&gt; valueSelector, class System.Func`2&lt;!!TSource, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; childrenSelector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;TResult&gt;</ReturnType>
@@ -8142,6 +8358,7 @@
       </Targets>
       <Member MemberName="TraverseDepthFirstWithParent&lt;TSource,TResult&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt; TraverseDepthFirstWithParent&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; valueSelector, Func&lt;TSource,System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; childrenSelector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;valuetype System.Collections.Generic.KeyValuePair`2&lt;!!TSource, !!TResult&gt;&gt; TraverseDepthFirstWithParent&lt;TSource, TResult&gt;(!!TSource self, class System.Func`2&lt;!!TSource, !!TResult&gt; valueSelector, class System.Func`2&lt;!!TSource, class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; childrenSelector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;TSource,TResult&gt;&gt;</ReturnType>
@@ -8188,6 +8405,7 @@
       </Targets>
       <Member MemberName="With&lt;TSource,TResult&gt;">
         <MemberSignature Language="C#" Value="public static TResult With&lt;TSource,TResult&gt; (this TSource self, Func&lt;TSource,TResult&gt; selector);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult With&lt;TSource, TResult&gt;(!!TSource self, class System.Func`2&lt;!!TSource, !!TResult&gt; selector) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TResult</ReturnType>
@@ -8225,6 +8443,7 @@
       </Targets>
       <Member MemberName="Rows&lt;TSource&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt; Rows&lt;TSource&gt; (this TSource[,] self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Collections.Generic.IEnumerable`1&lt;!!TSource&gt;&gt; Rows&lt;TSource&gt;(!!TSource[,] self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.IEnumerable&lt;TSource&gt;&gt;</ReturnType>
@@ -8256,6 +8475,7 @@
       </Targets>
       <Member MemberName="GetCustomAttribute&lt;TAttribute&gt;">
         <MemberSignature Language="C#" Value="public static TAttribute GetCustomAttribute&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TAttribute GetCustomAttribute&lt;(class System.Attribute) TAttribute&gt;(class System.Reflection.ICustomAttributeProvider self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TAttribute</ReturnType>
@@ -8291,6 +8511,7 @@
       </Targets>
       <Member MemberName="GetCustomAttributes&lt;TAttribute&gt;">
         <MemberSignature Language="C#" Value="public static TAttribute[] GetCustomAttributes&lt;TAttribute&gt; (this System.Reflection.ICustomAttributeProvider self) where TAttribute : Attribute;" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TAttribute[] GetCustomAttributes&lt;(class System.Attribute) TAttribute&gt;(class System.Reflection.ICustomAttributeProvider self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TAttribute[]</ReturnType>
@@ -8326,6 +8547,7 @@
       </Targets>
       <Member MemberName="CaptureNamedGroups">
         <MemberSignature Language="C#" Value="public static System.Linq.ILookup&lt;string,string&gt; CaptureNamedGroups (this string self, string regex);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.ILookup`2&lt;string, string&gt; CaptureNamedGroups(string self, string regex) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Linq.ILookup&lt;System.String,System.String&gt;</ReturnType>
@@ -8357,6 +8579,7 @@
       </Targets>
       <Member MemberName="CaptureNamedGroups">
         <MemberSignature Language="C#" Value="public static System.Linq.ILookup&lt;string,string&gt; CaptureNamedGroups (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.ILookup`2&lt;string, string&gt; CaptureNamedGroups(string self, string regex, valuetype System.Text.RegularExpressions.RegexOptions options) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Linq.ILookup&lt;System.String,System.String&gt;</ReturnType>
@@ -8393,6 +8616,7 @@
       </Targets>
       <Member MemberName="Captures">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Captures (this string self, string regex);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Captures(string self, string regex) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -8424,6 +8648,7 @@
       </Targets>
       <Member MemberName="Captures">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Captures (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Captures(string self, string regex, valuetype System.Text.RegularExpressions.RegexOptions options) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -8460,6 +8685,7 @@
       </Targets>
       <Member MemberName="IsNullOrWhitespace">
         <MemberSignature Language="C#" Value="public static bool IsNullOrWhitespace (this string self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsNullOrWhitespace(string self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -8486,6 +8712,7 @@
       </Targets>
       <Member MemberName="Lines">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Lines (this string self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Lines(string self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -8512,6 +8739,7 @@
       </Targets>
       <Member MemberName="Matches">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt; Matches (this string self, string regex);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Text.RegularExpressions.Match&gt; Matches(string self, string regex) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt;</ReturnType>
@@ -8543,6 +8771,7 @@
       </Targets>
       <Member MemberName="Matches">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt; Matches (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;class System.Text.RegularExpressions.Match&gt; Matches(string self, string regex, valuetype System.Text.RegularExpressions.RegexOptions options) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Text.RegularExpressions.Match&gt;</ReturnType>
@@ -8579,6 +8808,7 @@
       </Targets>
       <Member MemberName="MatchValues">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; MatchValues (this string self, string regex);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; MatchValues(string self, string regex) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -8610,6 +8840,7 @@
       </Targets>
       <Member MemberName="MatchValues">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; MatchValues (this string self, string regex, System.Text.RegularExpressions.RegexOptions options);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; MatchValues(string self, string regex, valuetype System.Text.RegularExpressions.RegexOptions options) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -8646,6 +8877,7 @@
       </Targets>
       <Member MemberName="Remove">
         <MemberSignature Language="C#" Value="public static string Remove (this string self, string[] targets);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Remove(string self, string[] targets) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.String</ReturnType>
@@ -8683,6 +8915,7 @@
       </Targets>
       <Member MemberName="Slice">
         <MemberSignature Language="C#" Value="public static string Slice (this string self, int start, int end);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig string Slice(string self, int32 start, int32 end) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.String</ReturnType>
@@ -8720,6 +8953,7 @@
       </Targets>
       <Member MemberName="ToEnum&lt;TEnum&gt;">
         <MemberSignature Language="C#" Value="public static TEnum ToEnum&lt;TEnum&gt; (this string self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TEnum ToEnum&lt;TEnum&gt;(string self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TEnum</ReturnType>
@@ -8753,6 +8987,7 @@
       </Targets>
       <Member MemberName="Tokens">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Tokens (this string self, Func&lt;Nullable&lt;char&gt;,char,bool&gt;[] categories);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Tokens(string self, class System.Func`3&lt;valuetype System.Nullable`1&lt;char&gt;, char, bool&gt;[] categories) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -8800,6 +9035,7 @@
       </Targets>
       <Member MemberName="Words">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; Words (this string self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; Words(string self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -8826,6 +9062,7 @@
       </Targets>
       <Member MemberName="WrappedLines">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; WrappedLines (this string self, System.Collections.Generic.IEnumerable&lt;int&gt; widths);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; WrappedLines(string self, class System.Collections.Generic.IEnumerable`1&lt;int32&gt; widths) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -8860,6 +9097,7 @@
       </Targets>
       <Member MemberName="WrappedLines">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;string&gt; WrappedLines (this string self, int[] widths);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;string&gt; WrappedLines(string self, int32[] widths) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.String&gt;</ReturnType>
@@ -8898,6 +9136,7 @@
       </Targets>
       <Member MemberName="Aggregate&lt;T,TResult&gt;">
         <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T,TResult&gt; (this Cadenza.Tuple&lt;T&gt; self, Func&lt;T,TResult&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;T, TResult&gt;(class Cadenza.Tuple`1&lt;!!T&gt; self, class System.Func`2&lt;!!T, !!TResult&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TResult</ReturnType>
@@ -8939,6 +9178,7 @@
       </Targets>
       <Member MemberName="Aggregate&lt;T1,T2,TResult&gt;">
         <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T1,T2,TResult&gt; (this Cadenza.Tuple&lt;T1,T2&gt; self, Func&lt;T1,T2,TResult&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;T1, T2, TResult&gt;(class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; self, class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TResult</ReturnType>
@@ -8984,6 +9224,7 @@
       </Targets>
       <Member MemberName="Aggregate&lt;T1,T2,T3,TResult&gt;">
         <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T1,T2,T3,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3&gt; self, Func&lt;T1,T2,T3,TResult&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;T1, T2, T3, TResult&gt;(class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; self, class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TResult</ReturnType>
@@ -9033,6 +9274,7 @@
       </Targets>
       <Member MemberName="Aggregate&lt;T1,T2,T3,T4,TResult&gt;">
         <MemberSignature Language="C#" Value="public static TResult Aggregate&lt;T1,T2,T3,T4,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3,T4&gt; self, Func&lt;T1,T2,T3,T4,TResult&gt; func);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Aggregate&lt;T1, T2, T3, T4, TResult&gt;(class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; func) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TResult</ReturnType>
@@ -9086,6 +9328,7 @@
       </Targets>
       <Member MemberName="Match&lt;T,TResult&gt;">
         <MemberSignature Language="C#" Value="public static TResult Match&lt;T,TResult&gt; (this Cadenza.Tuple&lt;T&gt; self, Func&lt;T,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;T, TResult&gt;(class Cadenza.Tuple`1&lt;!!T&gt; self, class System.Func`2&lt;!!T, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TResult</ReturnType>
@@ -9133,6 +9376,7 @@
       </Targets>
       <Member MemberName="Match&lt;T1,T2,TResult&gt;">
         <MemberSignature Language="C#" Value="public static TResult Match&lt;T1,T2,TResult&gt; (this Cadenza.Tuple&lt;T1,T2&gt; self, Func&lt;T1,T2,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;T1, T2, TResult&gt;(class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; self, class System.Func`3&lt;!!T1, !!T2, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TResult</ReturnType>
@@ -9184,6 +9428,7 @@
       </Targets>
       <Member MemberName="Match&lt;T1,T2,T3,TResult&gt;">
         <MemberSignature Language="C#" Value="public static TResult Match&lt;T1,T2,T3,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3&gt; self, Func&lt;T1,T2,T3,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;T1, T2, T3, TResult&gt;(class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; self, class System.Func`4&lt;!!T1, !!T2, !!T3, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TResult</ReturnType>
@@ -9237,6 +9482,7 @@
       </Targets>
       <Member MemberName="Match&lt;T1,T2,T3,T4,TResult&gt;">
         <MemberSignature Language="C#" Value="public static TResult Match&lt;T1,T2,T3,T4,TResult&gt; (this Cadenza.Tuple&lt;T1,T2,T3,T4&gt; self, Func&lt;T1,T2,T3,T4,Cadenza.Maybe&lt;TResult&gt;&gt;[] matchers);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig !!TResult Match&lt;T1, T2, T3, T4, TResult&gt;(class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self, class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, valuetype Cadenza.Maybe`1&lt;!!TResult&gt;&gt;[] matchers) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>TResult</ReturnType>
@@ -9292,6 +9538,7 @@
       </Targets>
       <Member MemberName="ToEnumerable&lt;T&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T&gt; (this Cadenza.Tuple&lt;T&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;object&gt; ToEnumerable&lt;T&gt;(class Cadenza.Tuple`1&lt;!!T&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Object&gt;</ReturnType>
@@ -9322,6 +9569,7 @@
       </Targets>
       <Member MemberName="ToEnumerable&lt;T1,T2&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T1,T2&gt; (this Cadenza.Tuple&lt;T1,T2&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;object&gt; ToEnumerable&lt;T1, T2&gt;(class Cadenza.Tuple`2&lt;!!T1, !!T2&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Object&gt;</ReturnType>
@@ -9356,6 +9604,7 @@
       </Targets>
       <Member MemberName="ToEnumerable&lt;T1,T2,T3&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T1,T2,T3&gt; (this Cadenza.Tuple&lt;T1,T2,T3&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;object&gt; ToEnumerable&lt;T1, T2, T3&gt;(class Cadenza.Tuple`3&lt;!!T1, !!T2, !!T3&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Object&gt;</ReturnType>
@@ -9394,6 +9643,7 @@
       </Targets>
       <Member MemberName="ToEnumerable&lt;T1,T2,T3,T4&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.IEnumerable&lt;object&gt; ToEnumerable&lt;T1,T2,T3,T4&gt; (this Cadenza.Tuple&lt;T1,T2,T3,T4&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Collections.Generic.IEnumerable`1&lt;object&gt; ToEnumerable&lt;T1, T2, T3, T4&gt;(class Cadenza.Tuple`4&lt;!!T1, !!T2, !!T3, !!T4&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.IEnumerable&lt;System.Object&gt;</ReturnType>
@@ -9436,6 +9686,7 @@
       </Targets>
       <Member MemberName="ToKeyValuePair&lt;TKey,TValue&gt;">
         <MemberSignature Language="C#" Value="public static System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt; ToKeyValuePair&lt;TKey,TValue&gt; (this Cadenza.Tuple&lt;TKey,TValue&gt; self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype System.Collections.Generic.KeyValuePair`2&lt;!!TKey, !!TValue&gt; ToKeyValuePair&lt;TKey, TValue&gt;(class Cadenza.Tuple`2&lt;!!TKey, !!TValue&gt; self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Collections.Generic.KeyValuePair&lt;TKey,TValue&gt;</ReturnType>
@@ -9472,6 +9723,7 @@
       </Targets>
       <Member MemberName="IsAssignableTo">
         <MemberSignature Language="C#" Value="public static bool IsAssignableTo (this Type self, Type type);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsAssignableTo(class System.Type self, class System.Type type) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -9504,6 +9756,7 @@
       </Targets>
       <Member MemberName="IsNullable">
         <MemberSignature Language="C#" Value="public static bool IsNullable (this Type self);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsNullable(class System.Type self) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -9528,6 +9781,7 @@
       </Targets>
       <Member MemberName="IsEven">
         <MemberSignature Language="C#" Value="public static bool IsEven (this ushort value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsEven(unsigned int16 value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -9552,6 +9806,7 @@
       </Targets>
       <Member MemberName="IsOdd">
         <MemberSignature Language="C#" Value="public static bool IsOdd (this ushort value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsOdd(unsigned int16 value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -9576,6 +9831,7 @@
       </Targets>
       <Member MemberName="IsEven">
         <MemberSignature Language="C#" Value="public static bool IsEven (this uint value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsEven(unsigned int32 value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -9600,6 +9856,7 @@
       </Targets>
       <Member MemberName="IsOdd">
         <MemberSignature Language="C#" Value="public static bool IsOdd (this uint value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsOdd(unsigned int32 value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -9624,6 +9881,7 @@
       </Targets>
       <Member MemberName="IsEven">
         <MemberSignature Language="C#" Value="public static bool IsEven (this ulong value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsEven(unsigned int64 value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>
@@ -9648,6 +9906,7 @@
       </Targets>
       <Member MemberName="IsOdd">
         <MemberSignature Language="C#" Value="public static bool IsOdd (this ulong value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsOdd(unsigned int64 value) cil managed" />
         <MemberType>ExtensionMethod</MemberType>
         <ReturnValue>
           <ReturnType>System.Boolean</ReturnType>

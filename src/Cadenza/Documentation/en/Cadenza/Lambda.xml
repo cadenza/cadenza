@@ -1,5 +1,6 @@
 <Type Name="Lambda" FullName="Cadenza.Lambda">
   <TypeSignature Language="C#" Value="public static class Lambda" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit Lambda extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -101,6 +102,7 @@
   <Members>
     <Member MemberName="A">
       <MemberSignature Language="C#" Value="public static Action A (Action lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action A(class System.Action lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -126,6 +128,7 @@
     </Member>
     <Member MemberName="A&lt;T&gt;">
       <MemberSignature Language="C#" Value="public static Action&lt;T&gt; A&lt;T&gt; (Action&lt;T&gt; lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`1&lt;!!T&gt; A&lt;T&gt;(class System.Action`1&lt;!!T&gt; lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -157,6 +160,7 @@
     </Member>
     <Member MemberName="A&lt;T1,T2&gt;">
       <MemberSignature Language="C#" Value="public static Action&lt;T1,T2&gt; A&lt;T1,T2&gt; (Action&lt;T1,T2&gt; lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`2&lt;!!T1, !!T2&gt; A&lt;T1, T2&gt;(class System.Action`2&lt;!!T1, !!T2&gt; lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -192,6 +196,7 @@
     </Member>
     <Member MemberName="A&lt;T1,T2,T3&gt;">
       <MemberSignature Language="C#" Value="public static Action&lt;T1,T2,T3&gt; A&lt;T1,T2,T3&gt; (Action&lt;T1,T2,T3&gt; lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`3&lt;!!T1, !!T2, !!T3&gt; A&lt;T1, T2, T3&gt;(class System.Action`3&lt;!!T1, !!T2, !!T3&gt; lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -231,6 +236,7 @@
     </Member>
     <Member MemberName="A&lt;T1,T2,T3,T4&gt;">
       <MemberSignature Language="C#" Value="public static Action&lt;T1,T2,T3,T4&gt; A&lt;T1,T2,T3,T4&gt; (Action&lt;T1,T2,T3,T4&gt; lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; A&lt;T1, T2, T3, T4&gt;(class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt; lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -274,6 +280,7 @@
     </Member>
     <Member MemberName="F&lt;TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;TResult&gt; F&lt;TResult&gt; (Func&lt;TResult&gt; lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`1&lt;!!TResult&gt; F&lt;TResult&gt;(class System.Func`1&lt;!!TResult&gt; lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -305,6 +312,7 @@
     </Member>
     <Member MemberName="F&lt;T,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T,TResult&gt; F&lt;T,TResult&gt; (Func&lt;T,TResult&gt; lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T, !!TResult&gt; F&lt;T, TResult&gt;(class System.Func`2&lt;!!T, !!TResult&gt; lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -340,6 +348,7 @@
     </Member>
     <Member MemberName="F&lt;T1,T2,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T1,T2,TResult&gt; F&lt;T1,T2,TResult&gt; (Func&lt;T1,T2,TResult&gt; lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; F&lt;T1, T2, TResult&gt;(class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -379,6 +388,7 @@
     </Member>
     <Member MemberName="F&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T1,T2,T3,TResult&gt; F&lt;T1,T2,T3,TResult&gt; (Func&lt;T1,T2,T3,TResult&gt; lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; F&lt;T1, T2, T3, TResult&gt;(class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -422,6 +432,7 @@
     </Member>
     <Member MemberName="F&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T1,T2,T3,T4,TResult&gt; F&lt;T1,T2,T3,T4,TResult&gt; (Func&lt;T1,T2,T3,T4,TResult&gt; lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; F&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -469,6 +480,7 @@
     </Member>
     <Member MemberName="RecFunc&lt;T,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T,TResult&gt; RecFunc&lt;T,TResult&gt; (Func&lt;Func&lt;T,TResult&gt;,Func&lt;T,TResult&gt;&gt; lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`2&lt;!!T, !!TResult&gt; RecFunc&lt;T, TResult&gt;(class System.Func`2&lt;class System.Func`2&lt;!!T, !!TResult&gt;, class System.Func`2&lt;!!T, !!TResult&gt;&gt; lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -516,6 +528,7 @@
     </Member>
     <Member MemberName="RecFunc&lt;T1,T2,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T1,T2,TResult&gt; RecFunc&lt;T1,T2,TResult&gt; (Func&lt;Func&lt;T1,T2,TResult&gt;,Func&lt;T1,T2,TResult&gt;&gt; lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`3&lt;!!T1, !!T2, !!TResult&gt; RecFunc&lt;T1, T2, TResult&gt;(class System.Func`2&lt;class System.Func`3&lt;!!T1, !!T2, !!TResult&gt;, class System.Func`3&lt;!!T1, !!T2, !!TResult&gt;&gt; lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -567,6 +580,7 @@
     </Member>
     <Member MemberName="RecFunc&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T1,T2,T3,TResult&gt; RecFunc&lt;T1,T2,T3,TResult&gt; (Func&lt;Func&lt;T1,T2,T3,TResult&gt;,Func&lt;T1,T2,T3,TResult&gt;&gt; lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt; RecFunc&lt;T1, T2, T3, TResult&gt;(class System.Func`2&lt;class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt;, class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt;&gt; lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -622,6 +636,7 @@
     </Member>
     <Member MemberName="RecFunc&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Func&lt;T1,T2,T3,T4,TResult&gt; RecFunc&lt;T1,T2,T3,T4,TResult&gt; (Func&lt;Func&lt;T1,T2,T3,T4,TResult&gt;,Func&lt;T1,T2,T3,T4,TResult&gt;&gt; lambda);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt; RecFunc&lt;T1, T2, T3, T4, TResult&gt;(class System.Func`2&lt;class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt;, class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt;&gt; lambda) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -681,6 +696,7 @@
     </Member>
     <Member MemberName="XA">
       <MemberSignature Language="C#" Value="public static System.Linq.Expressions.Expression&lt;Action&gt; XA (System.Linq.Expressions.Expression&lt;Action&gt; expr);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.Expressions.Expression`1&lt;class System.Action&gt; XA(class System.Linq.Expressions.Expression`1&lt;class System.Action&gt; expr) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -706,6 +722,7 @@
     </Member>
     <Member MemberName="XA&lt;T&gt;">
       <MemberSignature Language="C#" Value="public static System.Linq.Expressions.Expression&lt;Action&lt;T&gt;&gt; XA&lt;T&gt; (System.Linq.Expressions.Expression&lt;Action&lt;T&gt;&gt; expr);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.Expressions.Expression`1&lt;class System.Action`1&lt;!!T&gt;&gt; XA&lt;T&gt;(class System.Linq.Expressions.Expression`1&lt;class System.Action`1&lt;!!T&gt;&gt; expr) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -737,6 +754,7 @@
     </Member>
     <Member MemberName="XA&lt;T1,T2&gt;">
       <MemberSignature Language="C#" Value="public static System.Linq.Expressions.Expression&lt;Action&lt;T1,T2&gt;&gt; XA&lt;T1,T2&gt; (System.Linq.Expressions.Expression&lt;Action&lt;T1,T2&gt;&gt; expr);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.Expressions.Expression`1&lt;class System.Action`2&lt;!!T1, !!T2&gt;&gt; XA&lt;T1, T2&gt;(class System.Linq.Expressions.Expression`1&lt;class System.Action`2&lt;!!T1, !!T2&gt;&gt; expr) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -772,6 +790,7 @@
     </Member>
     <Member MemberName="XA&lt;T1,T2,T3&gt;">
       <MemberSignature Language="C#" Value="public static System.Linq.Expressions.Expression&lt;Action&lt;T1,T2,T3&gt;&gt; XA&lt;T1,T2,T3&gt; (System.Linq.Expressions.Expression&lt;Action&lt;T1,T2,T3&gt;&gt; expr);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.Expressions.Expression`1&lt;class System.Action`3&lt;!!T1, !!T2, !!T3&gt;&gt; XA&lt;T1, T2, T3&gt;(class System.Linq.Expressions.Expression`1&lt;class System.Action`3&lt;!!T1, !!T2, !!T3&gt;&gt; expr) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -811,6 +830,7 @@
     </Member>
     <Member MemberName="XA&lt;T1,T2,T3,T4&gt;">
       <MemberSignature Language="C#" Value="public static System.Linq.Expressions.Expression&lt;Action&lt;T1,T2,T3,T4&gt;&gt; XA&lt;T1,T2,T3,T4&gt; (System.Linq.Expressions.Expression&lt;Action&lt;T1,T2,T3,T4&gt;&gt; expr);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.Expressions.Expression`1&lt;class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt;&gt; XA&lt;T1, T2, T3, T4&gt;(class System.Linq.Expressions.Expression`1&lt;class System.Action`4&lt;!!T1, !!T2, !!T3, !!T4&gt;&gt; expr) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -854,6 +874,7 @@
     </Member>
     <Member MemberName="XF&lt;TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Linq.Expressions.Expression&lt;Func&lt;TResult&gt;&gt; XF&lt;TResult&gt; (System.Linq.Expressions.Expression&lt;Func&lt;TResult&gt;&gt; expr);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.Expressions.Expression`1&lt;class System.Func`1&lt;!!TResult&gt;&gt; XF&lt;TResult&gt;(class System.Linq.Expressions.Expression`1&lt;class System.Func`1&lt;!!TResult&gt;&gt; expr) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -885,6 +906,7 @@
     </Member>
     <Member MemberName="XF&lt;T,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Linq.Expressions.Expression&lt;Func&lt;T,TResult&gt;&gt; XF&lt;T,TResult&gt; (System.Linq.Expressions.Expression&lt;Func&lt;T,TResult&gt;&gt; expr);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;!!T, !!TResult&gt;&gt; XF&lt;T, TResult&gt;(class System.Linq.Expressions.Expression`1&lt;class System.Func`2&lt;!!T, !!TResult&gt;&gt; expr) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -920,6 +942,7 @@
     </Member>
     <Member MemberName="XF&lt;T1,T2,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Linq.Expressions.Expression&lt;Func&lt;T1,T2,TResult&gt;&gt; XF&lt;T1,T2,TResult&gt; (System.Linq.Expressions.Expression&lt;Func&lt;T1,T2,TResult&gt;&gt; expr);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.Expressions.Expression`1&lt;class System.Func`3&lt;!!T1, !!T2, !!TResult&gt;&gt; XF&lt;T1, T2, TResult&gt;(class System.Linq.Expressions.Expression`1&lt;class System.Func`3&lt;!!T1, !!T2, !!TResult&gt;&gt; expr) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -959,6 +982,7 @@
     </Member>
     <Member MemberName="XF&lt;T1,T2,T3,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Linq.Expressions.Expression&lt;Func&lt;T1,T2,T3,TResult&gt;&gt; XF&lt;T1,T2,T3,TResult&gt; (System.Linq.Expressions.Expression&lt;Func&lt;T1,T2,T3,TResult&gt;&gt; expr);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.Expressions.Expression`1&lt;class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt;&gt; XF&lt;T1, T2, T3, TResult&gt;(class System.Linq.Expressions.Expression`1&lt;class System.Func`4&lt;!!T1, !!T2, !!T3, !!TResult&gt;&gt; expr) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -1002,6 +1026,7 @@
     </Member>
     <Member MemberName="XF&lt;T1,T2,T3,T4,TResult&gt;">
       <MemberSignature Language="C#" Value="public static System.Linq.Expressions.Expression&lt;Func&lt;T1,T2,T3,T4,TResult&gt;&gt; XF&lt;T1,T2,T3,T4,TResult&gt; (System.Linq.Expressions.Expression&lt;Func&lt;T1,T2,T3,T4,TResult&gt;&gt; expr);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class System.Linq.Expressions.Expression`1&lt;class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt;&gt; XF&lt;T1, T2, T3, T4, TResult&gt;(class System.Linq.Expressions.Expression`1&lt;class System.Func`5&lt;!!T1, !!T2, !!T3, !!T4, !!TResult&gt;&gt; expr) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>

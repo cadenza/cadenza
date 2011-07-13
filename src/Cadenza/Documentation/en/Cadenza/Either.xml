@@ -1,5 +1,6 @@
 <Type Name="Either" FullName="Cadenza.Either">
   <TypeSignature Language="C#" Value="public static class Either" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi abstract sealed beforefieldinit Either extends System.Object" />
   <AssemblyInfo>
     <AssemblyName>Cadenza</AssemblyName>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -25,6 +26,7 @@
   <Members>
     <Member MemberName="TryConvert&lt;TResult&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Either&lt;TResult,Exception&gt; TryConvert&lt;TResult&gt; (object value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Either`2&lt;!!TResult, class System.Exception&gt; TryConvert&lt;TResult&gt;(object value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -49,6 +51,7 @@
     </Member>
     <Member MemberName="TryConvert&lt;TSource,TResult&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Either&lt;TResult,Exception&gt; TryConvert&lt;TSource,TResult&gt; (TSource value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Either`2&lt;!!TResult, class System.Exception&gt; TryConvert&lt;TSource, TResult&gt;(!!TSource value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
@@ -144,6 +147,7 @@ Assert.AreEqual (typeof (BadException), e.InnerException.GetType ());
     </Member>
     <Member MemberName="TryParse&lt;T&gt;">
       <MemberSignature Language="C#" Value="public static Cadenza.Either&lt;T,Exception&gt; TryParse&lt;T&gt; (string value);" />
+      <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Cadenza.Either`2&lt;!!T, class System.Exception&gt; TryParse&lt;T&gt;(string value) cil managed" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.1.0.0</AssemblyVersion>
