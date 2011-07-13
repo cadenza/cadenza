@@ -5,7 +5,7 @@
 // 
 // To regenerate this code, execute: Delegates.exe -n 4 -o Cadenza/Delegates.cs
 // 
-// Copyright (c) 2010 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2011 Novell, Inc. (http://www.novell.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -286,7 +286,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Action{T}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action" /> which, when invoked, will
@@ -295,7 +295,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Action Curry<T>(this System.Action<T> self, Cadenza.Tuple<T> values)
+        public static System.Action Curry<T>(this System.Action<T> self, Tuple<T> values)
         
         {
             Check.Self(self);
@@ -586,7 +586,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Action{T1,T2}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action{T2}" /> which, when invoked, will
@@ -595,7 +595,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Action<T2> Curry<T1, T2>(this System.Action<T1, T2> self, Cadenza.Tuple<T1> values)
+        public static System.Action<T2> Curry<T1, T2>(this System.Action<T1, T2> self, Tuple<T1> values)
         
         
         {
@@ -616,7 +616,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Action{T1,T2}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1,T2}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1,T2}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action" /> which, when invoked, will
@@ -625,7 +625,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Action Curry<T1, T2>(this System.Action<T1, T2> self, Cadenza.Tuple<T1, T2> values)
+        public static System.Action Curry<T1, T2>(this System.Action<T1, T2> self, Tuple<T1, T2> values)
         
         
         {
@@ -991,7 +991,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Action{T1,T2,T3}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action{T2,T3}" /> which, when invoked, will
@@ -1000,7 +1000,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Action<T2, T3> Curry<T1, T2, T3>(this System.Action<T1, T2, T3> self, Cadenza.Tuple<T1> values)
+        public static System.Action<T2, T3> Curry<T1, T2, T3>(this System.Action<T1, T2, T3> self, Tuple<T1> values)
         
         
         
@@ -1025,7 +1025,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Action{T1,T2,T3}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1,T2}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1,T2}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action{T3}" /> which, when invoked, will
@@ -1034,7 +1034,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Action<T3> Curry<T1, T2, T3>(this System.Action<T1, T2, T3> self, Cadenza.Tuple<T1, T2> values)
+        public static System.Action<T3> Curry<T1, T2, T3>(this System.Action<T1, T2, T3> self, Tuple<T1, T2> values)
         
         
         
@@ -1059,7 +1059,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Action{T1,T2,T3}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1,T2,T3}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action" /> which, when invoked, will
@@ -1068,7 +1068,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Action Curry<T1, T2, T3>(this System.Action<T1, T2, T3> self, Cadenza.Tuple<T1, T2, T3> values)
+        public static System.Action Curry<T1, T2, T3>(this System.Action<T1, T2, T3> self, Tuple<T1, T2, T3> values)
         
         
         
@@ -1520,7 +1520,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Action{T1,T2,T3,T4}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action{T2,T3,T4}" /> which, when invoked, will
@@ -1529,7 +1529,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Action<T2, T3, T4> Curry<T1, T2, T3, T4>(this System.Action<T1, T2, T3, T4> self, Cadenza.Tuple<T1> values)
+        public static System.Action<T2, T3, T4> Curry<T1, T2, T3, T4>(this System.Action<T1, T2, T3, T4> self, Tuple<T1> values)
         
         
         
@@ -1558,7 +1558,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Action{T1,T2,T3,T4}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1,T2}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1,T2}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action{T3,T4}" /> which, when invoked, will
@@ -1567,7 +1567,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Action<T3, T4> Curry<T1, T2, T3, T4>(this System.Action<T1, T2, T3, T4> self, Cadenza.Tuple<T1, T2> values)
+        public static System.Action<T3, T4> Curry<T1, T2, T3, T4>(this System.Action<T1, T2, T3, T4> self, Tuple<T1, T2> values)
         
         
         
@@ -1596,7 +1596,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Action{T1,T2,T3,T4}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1,T2,T3}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action{T4}" /> which, when invoked, will
@@ -1605,7 +1605,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Action<T4> Curry<T1, T2, T3, T4>(this System.Action<T1, T2, T3, T4> self, Cadenza.Tuple<T1, T2, T3> values)
+        public static System.Action<T4> Curry<T1, T2, T3, T4>(this System.Action<T1, T2, T3, T4> self, Tuple<T1, T2, T3> values)
         
         
         
@@ -1634,7 +1634,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Action{T1,T2,T3,T4}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1,T2,T3,T4}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Action" /> which, when invoked, will
@@ -1643,7 +1643,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Action Curry<T1, T2, T3, T4>(this System.Action<T1, T2, T3, T4> self, Cadenza.Tuple<T1, T2, T3, T4> values)
+        public static System.Action Curry<T1, T2, T3, T4>(this System.Action<T1, T2, T3, T4> self, Tuple<T1, T2, T3, T4> values)
         
         
         

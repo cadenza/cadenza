@@ -5,7 +5,7 @@
 // 
 // To regenerate this code, execute: Tuples.exe -n 4 -o Cadenza/Tuple.g.cs
 // 
-// Copyright (c) 2010 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2011 Novell, Inc. (http://www.novell.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the

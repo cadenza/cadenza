@@ -5,7 +5,7 @@
 // 
 // To regenerate this code, execute: Delegates.exe -n 4 -o Cadenza/Delegates.cs
 // 
-// Copyright (c) 2010 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2011 Novell, Inc. (http://www.novell.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -186,7 +186,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Func{T,TResult}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{TResult}" /> which, when invoked, will
@@ -195,7 +195,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Func<TResult> Curry<T, TResult>(this System.Func<T, TResult> self, Cadenza.Tuple<T> values)
+        public static System.Func<TResult> Curry<T, TResult>(this System.Func<T, TResult> self, Tuple<T> values)
         
         
         {
@@ -377,7 +377,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Func{T1,T2,TResult}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{T2,TResult}" /> which, when invoked, will
@@ -386,7 +386,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Func<T2, TResult> Curry<T1, T2, TResult>(this System.Func<T1, T2, TResult> self, Cadenza.Tuple<T1> values)
+        public static System.Func<T2, TResult> Curry<T1, T2, TResult>(this System.Func<T1, T2, TResult> self, Tuple<T1> values)
         
         
         
@@ -408,7 +408,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Func{T1,T2,TResult}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1,T2}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1,T2}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{TResult}" /> which, when invoked, will
@@ -417,7 +417,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Func<TResult> Curry<T1, T2, TResult>(this System.Func<T1, T2, TResult> self, Cadenza.Tuple<T1, T2> values)
+        public static System.Func<TResult> Curry<T1, T2, TResult>(this System.Func<T1, T2, TResult> self, Tuple<T1, T2> values)
         
         
         
@@ -660,7 +660,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Func{T1,T2,T3,TResult}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{T2,T3,TResult}" /> which, when invoked, will
@@ -669,7 +669,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Func<T2, T3, TResult> Curry<T1, T2, T3, TResult>(this System.Func<T1, T2, T3, TResult> self, Cadenza.Tuple<T1> values)
+        public static System.Func<T2, T3, TResult> Curry<T1, T2, T3, TResult>(this System.Func<T1, T2, T3, TResult> self, Tuple<T1> values)
         
         
         
@@ -695,7 +695,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Func{T1,T2,T3,TResult}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1,T2}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1,T2}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{T3,TResult}" /> which, when invoked, will
@@ -704,7 +704,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Func<T3, TResult> Curry<T1, T2, T3, TResult>(this System.Func<T1, T2, T3, TResult> self, Cadenza.Tuple<T1, T2> values)
+        public static System.Func<T3, TResult> Curry<T1, T2, T3, TResult>(this System.Func<T1, T2, T3, TResult> self, Tuple<T1, T2> values)
         
         
         
@@ -730,7 +730,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Func{T1,T2,T3,TResult}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1,T2,T3}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{TResult}" /> which, when invoked, will
@@ -739,7 +739,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Func<TResult> Curry<T1, T2, T3, TResult>(this System.Func<T1, T2, T3, TResult> self, Cadenza.Tuple<T1, T2, T3> values)
+        public static System.Func<TResult> Curry<T1, T2, T3, TResult>(this System.Func<T1, T2, T3, TResult> self, Tuple<T1, T2, T3> values)
         
         
         
@@ -1054,7 +1054,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{T2,T3,T4,TResult}" /> which, when invoked, will
@@ -1063,7 +1063,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Func<T2, T3, T4, TResult> Curry<T1, T2, T3, T4, TResult>(this System.Func<T1, T2, T3, T4, TResult> self, Cadenza.Tuple<T1> values)
+        public static System.Func<T2, T3, T4, TResult> Curry<T1, T2, T3, T4, TResult>(this System.Func<T1, T2, T3, T4, TResult> self, Tuple<T1> values)
         
         
         
@@ -1093,7 +1093,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1,T2}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1,T2}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{T3,T4,TResult}" /> which, when invoked, will
@@ -1102,7 +1102,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Func<T3, T4, TResult> Curry<T1, T2, T3, T4, TResult>(this System.Func<T1, T2, T3, T4, TResult> self, Cadenza.Tuple<T1, T2> values)
+        public static System.Func<T3, T4, TResult> Curry<T1, T2, T3, T4, TResult>(this System.Func<T1, T2, T3, T4, TResult> self, Tuple<T1, T2> values)
         
         
         
@@ -1132,7 +1132,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1,T2,T3}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1,T2,T3}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{T4,TResult}" /> which, when invoked, will
@@ -1141,7 +1141,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Func<T4, TResult> Curry<T1, T2, T3, T4, TResult>(this System.Func<T1, T2, T3, T4, TResult> self, Cadenza.Tuple<T1, T2, T3> values)
+        public static System.Func<T4, TResult> Curry<T1, T2, T3, T4, TResult>(this System.Func<T1, T2, T3, T4, TResult> self, Tuple<T1, T2, T3> values)
         
         
         
@@ -1171,7 +1171,7 @@ namespace Cadenza
         ///   The <see cref="T:System.Func{T1,T2,T3,T4,TResult}" /> to curry.
         /// </param>
         /// <param name="values">
-        ///   A value of type <see cref="T:Cadenza.Tuple{T1,T2,T3,T4}" /> which contains the values to fix.
+        ///   A value of type <see cref="T:Tuple{T1,T2,T3,T4}" /> which contains the values to fix.
         /// </param>
         /// <returns>
         ///   Returns a <see cref="T:System.Func{TResult}" /> which, when invoked, will
@@ -1180,7 +1180,7 @@ namespace Cadenza
         /// <exception cref="T:System.ArgumentNullException">
         ///   if <paramref name="self"/> is <see langword="null" />.
         /// </exception>
-        public static System.Func<TResult> Curry<T1, T2, T3, T4, TResult>(this System.Func<T1, T2, T3, T4, TResult> self, Cadenza.Tuple<T1, T2, T3, T4> values)
+        public static System.Func<TResult> Curry<T1, T2, T3, T4, TResult>(this System.Func<T1, T2, T3, T4, TResult> self, Tuple<T1, T2, T3, T4> values)
         
         
         
