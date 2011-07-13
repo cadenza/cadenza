@@ -144,7 +144,7 @@ namespace Cadenza.Tools {
 				m.TypeParameters.Add ("TResult");
 			m.Parameters.Add (new CodeParameterDeclarationExpression (selfType, "self"));
 			var valuesType =
-				new CodeTypeReference ("Cadenza.Tuple", Types.GetTypeParameterReferences (n, 0, a, false).ToArray ());
+				new CodeTypeReference ("Tuple", Types.GetTypeParameterReferences (n, 0, a, false).ToArray ());
 			m.Parameters.Add (new CodeParameterDeclarationExpression (valuesType, "values"));
 			m.Statements.AddCheck ("Self", "self");
 			var expr = new StringBuilder ().Append ("(");
