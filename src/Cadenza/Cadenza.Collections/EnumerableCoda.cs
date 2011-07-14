@@ -803,7 +803,7 @@ namespace Cadenza.Collections {
 
 			IList<IList<TSource>> items = self as IList<IList<TSource>>;
 			if (items == null) {
-				items = self.ToList().Select(x => (IList<TSource>) x).ToList();
+				items = (IList<IList<TSource>>) self.ToList().Select(x => (IList<TSource>) x).ToList();
 			}
 
 			int max = 0;
