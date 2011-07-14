@@ -55,7 +55,7 @@
             This is equivalent to
             <c><paramref name="type" />.IsAssignableFrom(<paramref name="self" />)</c>.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/TypeTest.cs#IsAssignableTo">// Can string be implicitly converted to object?  Yes.
+          <code lang="C#" src="../../Test/Cadenza/TypeCodaTest.cs#IsAssignableTo">// Can string be implicitly converted to object?  Yes.
 Assert.IsTrue (typeof(string).IsAssignableTo (typeof (object)));
 // Can object be implicitly converted to string?  No.
 Assert.IsFalse (typeof(object).IsAssignableTo (typeof (string)));
@@ -109,7 +109,7 @@ Assert.IsFalse (typeof(object).IsAssignableTo (typeof (string)));
             </term>
             </item>
           </list>
-          <code lang="C#" src="../../Test/Cadenza/TypeTest.cs#IsNullable">Assert.IsTrue (typeof (int?).IsNullable ());
+          <code lang="C#" src="../../Test/Cadenza/TypeCodaTest.cs#IsNullable">Assert.IsTrue (typeof (int?).IsNullable ());
 Assert.IsFalse (typeof (int).IsNullable ());
 Assert.IsFalse (typeof (string).IsNullable ());
 Assert.IsFalse (typeof (Nullable&lt;&gt;).IsNullable ());

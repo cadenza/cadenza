@@ -199,7 +199,7 @@
               them.
             </para>
           </block>
-          <code lang="C#" src="../../Test/Cadenza.IO/TextReaderTest.cs#Tokens">var r = new MyStringReader ("(append 3.5 \"hello, world!\")");
+          <code lang="C#" src="../../Test/Cadenza.IO/TextReaderCodaTest.cs#Tokens">var r = new MyStringReader ("(append 3.5 \"hello, world!\")");
 var words = r.Tokens (
 	(p, c) =&gt; char.IsLetterOrDigit (c) || c == '.',
 	(p, c) =&gt; !char.IsWhiteSpace (c))
@@ -303,7 +303,7 @@ Assert.IsFalse (r.WasDisposed);
               them.
             </para>
           </block>
-          <code lang="C#" src="../../Test/Cadenza.IO/TextReaderTest.cs#Tokens">var r = new MyStringReader ("(append 3.5 \"hello, world!\")");
+          <code lang="C#" src="../../Test/Cadenza.IO/TextReaderCodaTest.cs#Tokens">var r = new MyStringReader ("(append 3.5 \"hello, world!\")");
 var words = r.Tokens (
 	(p, c) =&gt; char.IsLetterOrDigit (c) || c == '.',
 	(p, c) =&gt; !char.IsWhiteSpace (c))
@@ -373,7 +373,7 @@ Assert.IsFalse (r.WasDisposed);
               returns <see langword="false" />.
             </para>
           </block>
-          <code lang="C#" src="../../Test/Cadenza.IO/TextReaderTest.cs#Words">MyStringReader r = new MyStringReader ("   (skip  leading,\r\n\tand trailing\vwhitespace)   ");
+          <code lang="C#" src="../../Test/Cadenza.IO/TextReaderCodaTest.cs#Words">MyStringReader r = new MyStringReader ("   (skip  leading,\r\n\tand trailing\vwhitespace)   ");
 string[] words = r.Words ().ToArray ();
 Assert.IsTrue (r.WasDisposed);
 Assert.AreEqual (5, words.Length);
@@ -458,7 +458,7 @@ Assert.AreEqual ("4", r.Words ().First ());
               returns <see langword="false" />.
             </para>
           </block>
-          <code lang="C#" src="../../Test/Cadenza.IO/TextReaderTest.cs#Words">MyStringReader r = new MyStringReader ("   (skip  leading,\r\n\tand trailing\vwhitespace)   ");
+          <code lang="C#" src="../../Test/Cadenza.IO/TextReaderCodaTest.cs#Words">MyStringReader r = new MyStringReader ("   (skip  leading,\r\n\tand trailing\vwhitespace)   ");
 string[] words = r.Words ().ToArray ();
 Assert.IsTrue (r.WasDisposed);
 Assert.AreEqual (5, words.Length);

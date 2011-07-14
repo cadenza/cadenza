@@ -50,7 +50,7 @@
           the associated captured values within <paramref name="self" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#CaptureNamedGroups">Assert.AreEqual ("flag=--; name=foo; value=bar",
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#CaptureNamedGroups">Assert.AreEqual ("flag=--; name=foo; value=bar",
 		"--foo=bar"
 		.CaptureNamedGroups (@"^(?&lt;flag&gt;--|-|/)(?&lt;name&gt;[^:=]+)((?&lt;sep&gt;[:=])(?&lt;value&gt;.*))?$")
 		.With (r =&gt; "flag=" + r ["flag"].Implode () + 
@@ -110,7 +110,7 @@
           the associated captured values within <paramref name="self" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#CaptureNamedGroups">Assert.AreEqual ("flag=--; name=foo; value=bar",
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#CaptureNamedGroups">Assert.AreEqual ("flag=--; name=foo; value=bar",
 		"--foo=bar"
 		.CaptureNamedGroups (@"^(?&lt;flag&gt;--|-|/)(?&lt;name&gt;[^:=]+)((?&lt;sep&gt;[:=])(?&lt;value&gt;.*))?$")
 		.With (r =&gt; "flag=" + r ["flag"].Implode () + 
@@ -168,7 +168,7 @@
           match the regular expression <paramref name="regex" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Captures">Assert.IsTrue (
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Captures">Assert.IsTrue (
 		new[]{"a", "b", "c", "d"}.SequenceEqual (
 			"a - b - c - d".Captures (@"(\w+)")));
 </code>
@@ -225,7 +225,7 @@
           match the regular expression <paramref name="regex" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Captures">Assert.IsTrue (
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Captures">Assert.IsTrue (
 		new[]{"a", "b", "c", "d"}.SequenceEqual (
 			"a - b - c - d".Captures (@"(\w+)")));
 </code>
@@ -275,7 +275,7 @@
           whitespace; otherwise, <see langword="false" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#IsNullOrWhitespace">string s = null;
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#IsNullOrWhitespace">string s = null;
 Assert.IsTrue (s.IsNullOrWhitespace());
 Assert.IsTrue ("".IsNullOrWhitespace());
 Assert.IsTrue ("    ".IsNullOrWhitespace());
@@ -320,7 +320,7 @@ Assert.IsFalse ("foo".IsNullOrWhitespace());
             A "line of text" is the same as that used by 
             <see cref="M:Cadenza.TextReaderCoda.Lines(System.IO.TextReader)" />.
           </block>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Lines">Assert.IsTrue (new[]{"one", "two", "three"}
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Lines">Assert.IsTrue (new[]{"one", "two", "three"}
 		.SequenceEqual ("one\ntwo\nthree".Lines ()));
 </code>
         </remarks>
@@ -363,7 +363,7 @@ Assert.IsFalse ("foo".IsNullOrWhitespace());
           text within <paramref name="self" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Matches">string match = @"a - b
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Matches">string match = @"a - b
 c - d
 e - f";
 
@@ -426,7 +426,7 @@ Assert.AreEqual ("e - f", matches [2].Value);
           text within <paramref name="self" />.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Matches">string match = @"a - b
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Matches">string match = @"a - b
 c - d
 e - f";
 
@@ -493,7 +493,7 @@ Assert.AreEqual ("e - f", matches [2].Value);
             in that no captures (parenthesis) are required within 
             <paramref name="regex" />.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#MatchValues">string match = @"a - b
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#MatchValues">string match = @"a - b
 c - d
 e - f";
 
@@ -561,7 +561,7 @@ AssertAreSame (expected, actual);
             in that no captures (parenthesis) are required within 
             <paramref name="regex" />.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#MatchValues">string match = @"a - b
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#MatchValues">string match = @"a - b
 c - d
 e - f";
 
@@ -626,7 +626,7 @@ AssertAreSame (expected, actual);
           within <paramref name="targets " /> have been removed.
         </returns>
         <remarks>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Remove">Assert.AreEqual (" Bar ", "Foo Bar Monkeys".Remove ("Foo", "Monkeys"));
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Remove">Assert.AreEqual (" Bar ", "Foo Bar Monkeys".Remove ("Foo", "Monkeys"));
 Assert.AreEqual (" Bar ", "Foo Bar Foo".Remove ("Foo"));
 </code>
         </remarks>
@@ -689,12 +689,13 @@ Assert.AreEqual (" Bar ", "Foo Bar Foo".Remove ("Foo"));
             When <paramref name="end" /> is positive, this is equivalent to
             <c>self.Substring (start, end - start)</c>.
           </para>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Slice">var data = "0123456789";
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Slice">var data = "0123456789";
 
 Assert.AreEqual ("0",       data.Slice (0, 1));
 Assert.AreEqual ("89",      data.Slice (8, 10));
 Assert.AreEqual ("456789",  data.Slice (4, -1));
 Assert.AreEqual ("8",       data.Slice (8, -2));
+Assert.AreEqual ("",        data.Slice (data.Length, data.Length));
 </code>
         </remarks>
         <exception cref="T:System.ArgumentNullException">
@@ -755,7 +756,7 @@ Assert.AreEqual ("8",       data.Slice (8, -2));
             This probabably doesn't properly support
             <see cref="T:System.FlagsAttribute" /> enums...
           </block>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#ToEnum">Assert.AreEqual (Foo.Gazonk, "Gazonk".ToEnum&lt;Foo&gt; ());
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#ToEnum">Assert.AreEqual (Foo.Gazonk, "Gazonk".ToEnum&lt;Foo&gt; ());
 Assert.AreEqual (Foo.Bar,    "Bar".ToEnum&lt;Foo&gt; ());
 </code>
         </remarks>
@@ -828,7 +829,7 @@ Assert.AreEqual (Foo.Bar,    "Bar".ToEnum&lt;Foo&gt; ());
               them.
             </para>
           </block>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Tokens">string[] expected = {"(", "hello", ",", "world", "!)"};
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Tokens">string[] expected = {"(", "hello", ",", "world", "!)"};
 string[] actual = "(hello, world!)"
 	.Tokens (
 			(p, c) =&gt; char.IsLetterOrDigit (c), // words
@@ -882,7 +883,7 @@ AssertAreSame (expected, actual);
             <see cref="M:System.Char.IsWhiteSpace(System.Char)" />
             returns <see langword="false" />.
           </block>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#Words">string[] expected = {"skip", "leading", "and", "trailing", "whitespace"};
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#Words">string[] expected = {"skip", "leading", "and", "trailing", "whitespace"};
 string[] actual = 
 	"   skip  leading\r\n\tand trailing\vwhitespace   "
 	.Words ().ToArray ();
@@ -995,7 +996,7 @@ AssertAreSame (expected, actual);
               </term>
             </item>
           </list>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#WrappedLines">// Notice that the first width is 50, but the actual returned length is 17.
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#WrappedLines">// Notice that the first width is 50, but the actual returned length is 17.
 // This is because the newline is encountered first.
 // The width of 48 is used to constrain all remaining lines, causing
 // the 4th line to require line-wrapping.
@@ -1188,7 +1189,7 @@ Assert.IsTrue (new[]{
               </term>
             </item>
           </list>
-          <code lang="C#" src="../../Test/Cadenza/StringTest.cs#WrappedLines">// Notice that the first width is 50, but the actual returned length is 17.
+          <code lang="C#" src="../../Test/Cadenza/StringCodaTest.cs#WrappedLines">// Notice that the first width is 50, but the actual returned length is 17.
 // This is because the newline is encountered first.
 // The width of 48 is used to constrain all remaining lines, causing
 // the 4th line to require line-wrapping.

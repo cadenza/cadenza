@@ -33,7 +33,7 @@
         which come from a generator that will generate different values
         from each invocation.  Consider the following generator:
       </para>
-      <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#CachedSequence_RandomValuesGenerator">internal static IEnumerable&lt;int&gt; RandomValues (Random r, int max)
+      <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableCodaTest.cs#CachedSequence_RandomValuesGenerator">internal static IEnumerable&lt;int&gt; RandomValues (Random r, int max)
 {
 	while (true)
 		yield return r.Next (max);
@@ -62,7 +62,7 @@ foreach (var v in RandomValues (r, 10).Take(3))
         referenced multiple times (under the assumption that the
         sequence won't change):
       </para>
-      <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableTest.cs#NoCache">var randSeq = RandomValues (new Random (), 100);
+      <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableCodaTest.cs#NoCache">var randSeq = RandomValues (new Random (), 100);
 // this could pass, but that's highly improbable
 Assert.IsFalse (
 		randSeq.Take (10).SelectFromEach (randSeq.Take (10),
