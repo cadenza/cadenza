@@ -31,8 +31,6 @@ using System.Collections.Generic;
 
 using NUnit.Framework;
 
-using Cadenza;
-
 namespace Cadenza.Tests {
 
 	[TestFixture]
@@ -42,7 +40,7 @@ namespace Cadenza.Tests {
 		public void TargetBaseCtor ()
 		{
 			var val = new Uri ("file:///someuri/somepath");
-			var wr = new Cadenza.WeakReference<Uri> (val);
+			var wr = new WeakReference<Uri> (val);
 			Assert.AreSame (val, wr.Target);
 
 			val = new Uri ("file:///someuri/somepath");
@@ -56,12 +54,12 @@ namespace Cadenza.Tests {
 		{
 			var track = true;
 			var val = new Uri ("file:///someuri/somepath");
-			var wr = new Cadenza.WeakReference<Uri> (val, track);
+			var wr = new WeakReference<Uri> (val, track);
 			Assert.AreSame (val, wr.Target);
 			Assert.AreEqual (track, wr.TrackResurrection);
 
 			track = false;
-			wr = new Cadenza.WeakReference<Uri> (val, track);
+			wr = new WeakReference<Uri> (val, track);
 			Assert.AreEqual (track, wr.TrackResurrection);
 		}
 
