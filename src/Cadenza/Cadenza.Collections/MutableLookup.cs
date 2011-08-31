@@ -4,7 +4,7 @@
 // Author:
 //   Eric Maupin  <me@ermau.com>
 //
-// Copyright (c) 2010 Eric Maupin (http://www.ermau.com)
+// Copyright (c) 2011 Eric Maupin (http://www.ermau.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -38,7 +38,7 @@ namespace Cadenza.Collections
 	/// <typeparam name="TKey">The lookup key.</typeparam>
 	/// <typeparam name="TElement">The elements under each <typeparamref name="TKey"/>.</typeparam>
 	public class MutableLookup<TKey, TElement>
-		: ILookup<TKey, TElement>
+		: IMutableLookup<TKey, TElement>
 	{
 		public MutableLookup ()
 			: this (EqualityComparer<TKey>.Default)
