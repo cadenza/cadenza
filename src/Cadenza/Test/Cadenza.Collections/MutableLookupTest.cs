@@ -42,6 +42,11 @@ namespace Cadenza.Collections.Tests
 			return new MutableLookup<T, TE>();
 		}
 
+		protected override IMutableLookup<T, TE> GetLookupImplementation<T, TE> (IEqualityComparer<T> keyEquality)
+		{
+			return new MutableLookup<T, TE> (keyEquality);
+		}
+
 		[Test]
 		[ExpectedException (typeof (ArgumentNullException))]
 		public void CtorNull()

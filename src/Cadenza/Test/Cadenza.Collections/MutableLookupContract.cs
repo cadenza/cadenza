@@ -37,6 +37,7 @@ namespace Cadenza.Collections.Tests
 	public abstract class MutableLookupContract
 	{
 		protected abstract IMutableLookup<T, TE> GetLookupImplementation<T, TE>();
+		protected abstract IMutableLookup<T, TE> GetLookupImplementation<T, TE> (IEqualityComparer<T> keyEquality);
 
 		protected IMutableLookup<string, string> GetTestLookup()
 		{
@@ -99,6 +100,17 @@ namespace Cadenza.Collections.Tests
 			Assert.IsTrue (values.SequenceEqual (lookup[null]), "S");
 
 			Assert.Throws<ArgumentNullException> (() => lookup.Add ("foo", (IEnumerable<string>)null));
+		}
+
+		[Test]
+		public void AddCustomKeyEquality()
+		{
+			var lookup = GetLookupImplementation<string, string> (new DelegatedEqualityComparer<string> ((s1, s2) => s1.Length == s2.Length, s => s.Length.GetHashCode()));
+			lookup.Add ("s1", "foo");
+			lookup.Add ("s2", "bar");
+
+			CollectionAssert.Contains (lookup["s1"], "foo");
+			CollectionAssert.Contains (lookup["s1"], "bar");
 		}
 
 		[Test]

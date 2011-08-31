@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cadenza.Collections\BidirectionalDictionaryTest.cs" />
+    <Compile Include="Cadenza.Collections\BidirectionalLookupTest.cs" />
     <Compile Include="Cadenza.Collections\CachedSequenceTest.cs" />
     <Compile Include="Cadenza.Collections\CollectionCodaTests.cs" />
     <Compile Include="Cadenza.Collections\CollectionContract.cs" />
