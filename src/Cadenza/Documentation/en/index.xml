@@ -85,10 +85,14 @@
     </Namespace>
     <Namespace Name="Cadenza.Collections">
       <Type Name="BidirectionalDictionary`2" DisplayName="BidirectionalDictionary&lt;TKey,TValue&gt;" Kind="Class" />
+      <Type Name="BidirectionalLookup`2" DisplayName="BidirectionalLookup&lt;TKey,TElement&gt;" Kind="Class" />
       <Type Name="CachedSequence`1" DisplayName="CachedSequence&lt;T&gt;" Kind="Class" />
       <Type Name="CollectionCoda" Kind="Class" />
+      <Type Name="DelegatedEqualityComparer`1" DisplayName="DelegatedEqualityComparer&lt;T&gt;" Kind="Class" />
+      <Type Name="DelegatedEqualityComparer`2" DisplayName="DelegatedEqualityComparer&lt;TSource,T&gt;" Kind="Class" />
       <Type Name="DictionaryCoda" Kind="Class" />
       <Type Name="EnumerableCoda" Kind="Class" />
+      <Type Name="IMutableLookup`2" DisplayName="IMutableLookup&lt;TKey,TElement&gt;" Kind="Interface" />
       <Type Name="KeyValuePairCoda" Kind="Class" />
       <Type Name="LambdaComparer`1" DisplayName="LambdaComparer&lt;T&gt;" Kind="Class" />
       <Type Name="LinkedListCoda" Kind="Class" />

@@ -1,0 +1,106 @@
+<Type Name="MathFeatures" FullName="Cadenza.Numerics.MathFeatures">
+  <TypeSignature Language="C#" Value="public enum MathFeatures" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi sealed MathFeatures extends System.Enum" />
+  <AssemblyInfo>
+    <AssemblyName>Cadenza</AssemblyName>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.Flags</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="Bounded">
+      <MemberSignature Language="C#" Value="Bounded" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Cadenza.Numerics.MathFeatures Bounded = int32(1)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Numerics.MathFeatures</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="FloatingPoint">
+      <MemberSignature Language="C#" Value="FloatingPoint" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Cadenza.Numerics.MathFeatures FloatingPoint = int32(16)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Numerics.MathFeatures</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Fractional">
+      <MemberSignature Language="C#" Value="Fractional" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Cadenza.Numerics.MathFeatures Fractional = int32(8)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Numerics.MathFeatures</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="None">
+      <MemberSignature Language="C#" Value="None" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Cadenza.Numerics.MathFeatures None = int32(0)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Numerics.MathFeatures</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="TwosComplement">
+      <MemberSignature Language="C#" Value="TwosComplement" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Cadenza.Numerics.MathFeatures TwosComplement = int32(4)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Numerics.MathFeatures</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+    <Member MemberName="Unsigned">
+      <MemberSignature Language="C#" Value="Unsigned" />
+      <MemberSignature Language="ILAsm" Value=".field public static literal valuetype Cadenza.Numerics.MathFeatures Unsigned = int32(2)" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.1.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Cadenza.Numerics.MathFeatures</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+      </Docs>
+    </Member>
+  </Members>
+</Type>
