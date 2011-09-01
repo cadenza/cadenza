@@ -47,8 +47,8 @@
   <Import Project="..\..\lib\mdoc-net\mdoc.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(Mdoc) update --exceptions=added -o $(ProjectDir)Documentation\en $(TargetPath)
-$(Mdoc) export-msxdoc -o $(TargetDir)$(TargetName).xml $(ProjectDir)Documentation\en</PostBuildEvent>
+    <PostBuildEvent>$(Mdoc) update --exceptions=added -o "$(ProjectDir)Documentation\en" "$(TargetPath)"
+$(Mdoc) export-msxdoc -o "$(TargetDir)$(TargetName).xml" "$(ProjectDir)Documentation\en"</PostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cadenza\Cadenza.csproj">
