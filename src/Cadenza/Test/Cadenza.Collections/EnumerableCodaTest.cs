@@ -1697,6 +1697,8 @@ namespace Cadenza.Collections.Tests {
 					new[]{false, false, false, false}.Or ());
 			Assert.AreEqual (true,
 					new[]{true, true, true, true}.Or ());
+			Assert.AreEqual (true,
+					new[]{false, false, true}.Concat (Sequence.Repeat (false)).Or ());
 		}
 
 		[Test]

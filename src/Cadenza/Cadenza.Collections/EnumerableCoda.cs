@@ -944,7 +944,11 @@ namespace Cadenza.Collections {
 		{
 			Check.Self (self);
 
-			return self.Aggregate ((a, b) => a || b);
+			foreach (bool e in self)
+				if (e)
+					return true;
+
+			return false;
 		}
 
 		#region AggregateHistory
