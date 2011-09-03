@@ -3701,10 +3701,21 @@
           <Parameter Name="func" Type="System.Func&lt;TSource,System.String&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="func">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to order naturally.
+        </param>
+          <param name="func">
+          A <see cref="T:System.Func{TSource,System.String}" /> to use to
+          convert an element into a <see cref="T:System.String" />, as natural
+          ordering is done in terms of strings.
+        </param>
+          <summary>
+          Orders the elements of a sequence in natural order.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.OrderByNatural``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})" />
       </Member>

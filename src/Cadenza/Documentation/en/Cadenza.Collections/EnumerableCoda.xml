@@ -1726,13 +1726,73 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <Parameter Name="func" Type="System.Func&lt;TSource,System.String&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="func">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" />, <see cref="M:Cadenza.Check.Func(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence to order naturally.
+        </param>
+        <param name="func">
+          A <see cref="T:System.Func{TSource,System.String}" /> to use to
+          convert an element into a <see cref="T:System.String" />, as natural
+          ordering is done in terms of strings.
+        </param>
+        <summary>
+          Orders the elements of a sequence in natural order.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          in which the elements have been sorted in natural order.
+        </returns>
+        <remarks>
+          <para>
+            "Natural Ordering" orders embedded numeric data as humans would
+            sort, not as computers would sort. For example, "2" comes before
+            "10", not afterward as is typically the case.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableCodaTest.cs#OrderByNatural">string[] expected = {
+	"a.1.b.2.c.3.d.4.e.5.f.6.g.7.h.8.i.9.j.10.k.11",
+	"a.1.b.2.c.3.d.4.e.5.f.6.g.7.h.8.i.9.j.10.k.12",
+	"bar",
+	"foo",
+	"foo",
+	"foo1",
+	"foo2",
+	"foo3",
+	"foo4",
+	"foo5",
+	"foo6",
+	"foo7",
+	"foo8",
+	"foo9",
+	"foo10",
+};
+IEnumerable&lt;string&gt; actual = new[]{
+	"foo",
+	"foo",
+	"foo10",
+	"foo1",
+	"foo4",
+	"foo2",
+	"foo3",
+	"foo9",
+	"foo5",
+	"foo7",
+	"foo8",
+	"foo6",
+	"bar",
+	"a.1.b.2.c.3.d.4.e.5.f.6.g.7.h.8.i.9.j.10.k.12",
+	"a.1.b.2.c.3.d.4.e.5.f.6.g.7.h.8.i.9.j.10.k.11",
+}.OrderByNatural (s =&gt; s);
+
+AssertAreSame (expected, actual);
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> or <paramref name="func" />
+          is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Partition&lt;TSource&gt;">
