@@ -1694,6 +1694,7 @@ namespace Cadenza.Collections.Tests {
 		[Test]
 		public void Or ()
 		{
+			#region Or
 			Assert.AreEqual (true,
 					new[]{true, false, true, true}.Or ());
 			Assert.AreEqual (false,
@@ -1702,6 +1703,7 @@ namespace Cadenza.Collections.Tests {
 					new[]{true, true, true, true}.Or ());
 			Assert.AreEqual (true,
 					new[]{false, false, true}.Concat (Sequence.Repeat (false)).Or ());
+			#endregion
 		}
 
 		[Test]

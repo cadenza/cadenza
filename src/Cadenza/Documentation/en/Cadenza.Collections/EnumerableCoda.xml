@@ -1701,11 +1701,31 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;System.Boolean&gt;" RefType="this" />
       </Parameters>
       <Docs>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.Boolean}" />
+          containing the values to boolean-OR together.
+        </param>
+        <summary>Boolean-ORs a sequence together.</summary>
+        <returns>
+          <see langword="true" /> if any of the elements in the sequence is
+          <see langword="true" />; otherwise, <paramref name="self" /> is a
+          sequence of finite length and all of the elements are
+          <see langword="false" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableCodaTest.cs#Or">Assert.AreEqual (true,
+		new[]{true, false, true, true}.Or ());
+Assert.AreEqual (false,
+		new[]{false, false, false, false}.Or ());
+Assert.AreEqual (true,
+		new[]{true, true, true, true}.Or ());
+Assert.AreEqual (true,
+		new[]{false, false, true}.Concat (Sequence.Repeat (false)).Or ());
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="OrderByNatural&lt;TSource&gt;">
