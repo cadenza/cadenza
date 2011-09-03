@@ -3886,11 +3886,44 @@ Next
         <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <typeparam name="TSource">
+          The type of element in the sequence <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the values to sum.
+        </param>
+        <summary>Sums the values in a sequence.</summary>
+        <returns>
+          A <typeparamref name="TSource" /> containing the summation of the
+          values within <paramref name="source" />.
+        </returns>
+        <remarks>
+          <para>
+            This is equivalent to calling <c>Sum(self, null)</c>.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableCodaTest.cs#Sum">IEnumerable&lt;uint&gt; s = null;
+Assert.Throws&lt;ArgumentNullException&gt;(() =&gt; s.Sum ());
+
+s = new []{1U, 2U, 3U};
+Assert.AreEqual (6U, s.Sum ());
+Assert.AreEqual (6U, s.Sum (null));
+
+IEnumerable&lt;SimpleNumber&gt; s2 = new[]{
+	new SimpleNumber (1),
+	new SimpleNumber (2),
+	new SimpleNumber (3),
+};
+Assert.AreEqual (new SimpleNumber (6), s2.Sum (new SimpleNumberMath ()));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.NotSupportedException">
+          <see cref="P:Cadenza.Numerics.Math{TSource}.Default" />
+          could not be loaded.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Sum&lt;TSource&gt;">
@@ -3911,12 +3944,54 @@ Next
         <Parameter Name="m" Type="Cadenza.Numerics.Math&lt;TSource&gt;" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="m">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <typeparam name="TSource">
+          The type of element in the sequence <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the values to sum.
+        </param>
+        <param name="m">
+          A <see cref="T:Cadenza.Numerics.Math{TSource}" /> to use for summing
+          the values within <paramref name="self" />.
+          If <see langword="null" />, then
+          <see cref="P:Cadenza.Numerics.Math{TSource}.Default" /> is used.
+        </param>
+        <summary>Sums the values in a sequence.</summary>
+        <returns>
+          A <typeparamref name="TSource" /> containing the summation of the
+          values within <paramref name="source" />.
+        </returns>
+        <remarks>
+          <para>
+            This is the "fallback" provider for
+            <see cref="M:System.Linq.Enumerable.Sum" />, allowing summation
+            over types that LINQ doens't support, such as unsigned types and
+            user-defined types which provide appropriate arithmetic operators.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableCodaTest.cs#Sum">IEnumerable&lt;uint&gt; s = null;
+Assert.Throws&lt;ArgumentNullException&gt;(() =&gt; s.Sum ());
+
+s = new []{1U, 2U, 3U};
+Assert.AreEqual (6U, s.Sum ());
+Assert.AreEqual (6U, s.Sum (null));
+
+IEnumerable&lt;SimpleNumber&gt; s2 = new[]{
+	new SimpleNumber (1),
+	new SimpleNumber (2),
+	new SimpleNumber (3),
+};
+Assert.AreEqual (new SimpleNumber (6), s2.Sum (new SimpleNumberMath ()));
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
+        <exception cref="T:System.NotSupportedException">
+          <paramref name="m" /> is <see langword="null" /> and 
+          <see cref="P:Cadenza.Numerics.Math{TSource}.Default" />
+          could not be loaded.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Tokens&lt;TSource,TAccumulate,TResult&gt;">

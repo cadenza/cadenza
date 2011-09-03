@@ -4944,9 +4944,14 @@
           <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;TSource&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of element in the sequence <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the values to sum.
+        </param>
+          <summary>Sums the values in a sequence.</summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Sum``1(System.Collections.Generic.IEnumerable{``0})" />
       </Member>
@@ -4970,10 +4975,20 @@
           <Parameter Name="m" Type="Cadenza.Numerics.Math&lt;TSource&gt;" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="m">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of element in the sequence <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the values to sum.
+        </param>
+          <param name="m">
+          A <see cref="T:Cadenza.Numerics.Math{TSource}" /> to use for summing
+          the values within <paramref name="self" />.
+          If <see langword="null" />, then
+          <see cref="P:Cadenza.Numerics.Math{TSource}.Default" /> is used.
+        </param>
+          <summary>Sums the values in a sequence.</summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Sum``1(System.Collections.Generic.IEnumerable{``0},Cadenza.Numerics.Math{``0})" />
       </Member>

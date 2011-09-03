@@ -1207,6 +1207,7 @@ namespace Cadenza.Collections.Tests {
 		[Test]
 		public void Sum ()
 		{
+			#region Sum
 			IEnumerable<uint> s = null;
 			Assert.Throws<ArgumentNullException>(() => s.Sum ());
 
@@ -1220,6 +1221,7 @@ namespace Cadenza.Collections.Tests {
 				new SimpleNumber (3),
 			};
 			Assert.AreEqual (new SimpleNumber (6), s2.Sum (new SimpleNumberMath ()));
+			#endregion
 		}
 
 		[Test]
