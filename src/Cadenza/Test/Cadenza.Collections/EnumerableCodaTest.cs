@@ -3,9 +3,10 @@
 //
 // Author:
 //   Jb Evain (jbevain@novell.com)
-//   Jonathan Pryor (jpryor@novell.com)
+//   Jonathan Pryor (jonp@xamarin.com)
 //
 // Copyright (c) 2007-2010 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2011 Xamarin Inc. (http://xamarin.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -1678,6 +1679,8 @@ namespace Cadenza.Collections.Tests {
 					new[]{false, false, false, false}.And ());
 			Assert.AreEqual (true,
 					new[]{true, true, true, true}.And ());
+			Assert.AreEqual (false,
+					new[]{true, true, true, true}.Concat (Sequence.Repeat (false)).And ());
 		}
 
 		[Test]

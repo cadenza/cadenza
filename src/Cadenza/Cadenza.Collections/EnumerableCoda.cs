@@ -3,7 +3,7 @@
 //
 // Author:
 //   Jb Evain (jbevain@novell.com)
-//   Jonathan Pryor  <jpryor@novell.com>
+//   Jonathan Pryor  <jonp@xamarin.com>
 //   Distilled Brilliance <contact@dispatcher.distilledb.com>
 //   Eric Maupin <me@ermau.com>
 //   Chris Howie <cdhowie@gmail.com>
@@ -11,6 +11,7 @@
 //
 // Copyright (c) 2007-2010 Novell, Inc. (http://www.novell.com)
 // Copyright (c) 2010 Rik Hemsley
+// Copyright (c) 2011 Xamarin Inc. (http://xamarin.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -936,7 +937,11 @@ namespace Cadenza.Collections {
 		{
 			Check.Self (self);
 
-			return self.Aggregate ((a, b) => a && b);
+			foreach (bool e in self)
+				if (!e)
+					return false;
+
+			return true;
 		}
 
 		// Haskell: or
