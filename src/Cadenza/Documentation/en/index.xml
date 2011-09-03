@@ -2406,8 +2406,11 @@
           <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;System.Boolean&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.Boolean}" />
+          containing the values to boolean-OR together.
+        </param>
+          <summary>Boolean-ANDs a sequence together.</summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.And(System.Collections.Generic.IEnumerable{System.Boolean})" />
       </Member>

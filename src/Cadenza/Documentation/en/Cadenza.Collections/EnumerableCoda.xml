@@ -315,11 +315,31 @@
         <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;System.Boolean&gt;" RefType="this" />
       </Parameters>
       <Docs>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.Boolean}" />
+          containing the values to boolean-OR together.
+        </param>
+        <summary>Boolean-ANDs a sequence together.</summary>
+        <returns>
+          <see langword="false" /> if any of the elements in the sequence is
+          <see langword="false" />; otherwise, <paramref name="self" /> is a
+          sequence of finite length and all of the elements are
+          <see langword="true" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableCodaTest.cs#And">Assert.AreEqual (false,
+		new[]{true, false, true, true}.And ());
+Assert.AreEqual (false,
+		new[]{false, false, false, false}.And ());
+Assert.AreEqual (true,
+		new[]{true, true, true, true}.And ());
+Assert.AreEqual (false,
+		new[]{true, true, true, true}.Concat (Sequence.Repeat (false)).And ());
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="Apply&lt;TSource&gt;">
