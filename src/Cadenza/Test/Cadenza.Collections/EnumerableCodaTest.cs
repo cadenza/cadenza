@@ -1410,6 +1410,7 @@ namespace Cadenza.Collections.Tests {
 		[Test]
 		public void Intersperse ()
 		{
+			#region Intersperse
 			Assert.AreEqual ("1929394", new[]{1,2,3,4}.Intersperse (9).Implode ());
 			Assert.AreEqual ("a.z",     new[]{'a','z'}.Intersperse ('.').Implode ());
 			IEnumerable<IEnumerable<char>> e = new char[][]{ 
@@ -1418,6 +1419,7 @@ namespace Cadenza.Collections.Tests {
 			};
 			IEnumerable<char> x = new char[]{'a', 'a'};
 			Assert.AreEqual ("bcdaaefg", e.Intersperse (x).Implode ());
+			#endregion
 		}
 
 		[Test]

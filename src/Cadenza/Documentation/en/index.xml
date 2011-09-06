@@ -3416,10 +3416,24 @@
           <Parameter Name="value" Type="TSource" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <param name="value">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+          <typeparam name="TValue">
+          The type of the value returned by <paramref name="selector" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing elements to intersperse <paramref name="value" /> into.
+        </param>
+          <param name="value">
+          A <typeparamref name="TSource" /> to insert between each element of
+          <paramref name="self" />.
+        </param>
+          <summary>
+          Returns a sequence in which <paramref name="value" /> is inserted
+          between each element of <paramref name="self" />.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.Intersperse``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>

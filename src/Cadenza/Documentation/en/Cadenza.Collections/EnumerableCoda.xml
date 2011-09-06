@@ -1422,13 +1422,48 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <Parameter Name="value" Type="TSource" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <param name="value">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
-        <exception cref="T:System.ArgumentNullException">To be added; from: <see cref="M:Cadenza.Check.Self(System.Object)" /></exception>
+        <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+        <typeparam name="TValue">
+          The type of the value returned by <paramref name="selector" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing elements to intersperse <paramref name="value" /> into.
+        </param>
+        <param name="value">
+          A <typeparamref name="TSource" /> to insert between each element of
+          <paramref name="self" />.
+        </param>
+        <summary>
+          Returns a sequence in which <paramref name="value" /> is inserted
+          between each element of <paramref name="self" />.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the sequence <paramref name="self" /> with
+          <paramref name="value" /> interspersed between each element.
+        </returns>
+        <remarks>
+          <para>
+            This is conceptually like <see cref="M:System.String.Join" /> and
+            <see cref="M:Cadenza.Collections.EnumerableCoda.Implode" />, but
+            usable for non-<see cref="T:System.String" /> values.
+          </para>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableCodaTest.cs#Intersperse">Assert.AreEqual ("1929394", new[]{1,2,3,4}.Intersperse (9).Implode ());
+Assert.AreEqual ("a.z",     new[]{'a','z'}.Intersperse ('.').Implode ());
+IEnumerable&lt;IEnumerable&lt;char&gt;&gt; e = new char[][]{ 
+	new char[]{'b', 'c', 'd'}, 
+	new char[]{'e', 'f', 'g'},
+};
+IEnumerable&lt;char&gt; x = new char[]{'a', 'a'};
+Assert.AreEqual ("bcdaaefg", e.Intersperse (x).Implode ());
+</code>
+        </remarks>
+        <exception cref="T:System.ArgumentNullException">
+          <paramref name="self" /> is <see langword="null" />.
+        </exception>
       </Docs>
     </Member>
     <Member MemberName="MaxBy&lt;TSource,TValue&gt;">
