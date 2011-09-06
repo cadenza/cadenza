@@ -3657,9 +3657,17 @@
           <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;System.Nullable&lt;TSource&gt;&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <typeparam name="TSource">To be added.</typeparam>
-          <param name="self">To be added.</param>
-          <summary>To be added.</summary>
+          <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+          <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.Nullable{TSource}}" />
+          containing the sequence to retrieve the non-<see langword="null" />
+          elements from.
+        </param>
+          <summary>
+          Retrieves the non-<see langword="null" /> elements from the sequence.
+        </summary>
         </Docs>
         <Link Type="Cadenza.Collections.EnumerableCoda" Member="M:Cadenza.Collections.EnumerableCoda.NotNull``1(System.Collections.Generic.IEnumerable{System.Nullable{``0}})" />
       </Member>

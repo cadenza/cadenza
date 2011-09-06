@@ -1700,11 +1700,34 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <Parameter Name="self" Type="System.Collections.Generic.IEnumerable&lt;System.Nullable&lt;TSource&gt;&gt;" RefType="this" />
       </Parameters>
       <Docs>
-        <typeparam name="TSource">To be added.</typeparam>
-        <param name="self">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <typeparam name="TSource">
+          The type of the elements in <paramref name="self" />.
+        </typeparam>
+        <param name="self">
+          A <see cref="T:System.Collections.Generic.IEnumerable{System.Nullable{TSource}}" />
+          containing the sequence to retrieve the non-<see langword="null" />
+          elements from.
+        </param>
+        <summary>
+          Retrieves the non-<see langword="null" /> elements from the sequence.
+        </summary>
+        <returns>
+          A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
+          containing the non-<see langword="null" /> elements from
+          <paramref name="self" />.
+        </returns>
+        <remarks>
+          <code lang="C#" src="../../Test/Cadenza.Collections/EnumerableCodaTest.cs#NotNull">IEnumerable&lt;int?&gt; s = new int?[]{
+	null,
+	2,
+	null,
+	4
+};
+Assert.IsTrue (new []{
+		2, 4
+}.SequenceEqual (s.NotNull ()));
+</code>
+        </remarks>
       </Docs>
     </Member>
     <Member MemberName="Or">
