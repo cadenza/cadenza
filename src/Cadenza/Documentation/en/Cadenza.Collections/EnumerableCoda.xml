@@ -1425,9 +1425,6 @@ AssertAreSame (new[]{'a', 'b', 'c'},  l [3]);
         <typeparam name="TSource">
           The type of the elements in <paramref name="self" />.
         </typeparam>
-        <typeparam name="TValue">
-          The type of the value returned by <paramref name="selector" />.
-        </typeparam>
         <param name="self">
           A <see cref="T:System.Collections.Generic.IEnumerable{TSource}" />
           containing elements to intersperse <paramref name="value" /> into.
