@@ -95,7 +95,7 @@ namespace Cadenza {
 					if (char.IsWhiteSpace (c))
 						++start;
 					width = GetNextWidth (ewidths, width, ref hw);
-				} while (end < self.Length);
+				} while (start < self.Length);
 			}
 		}
 

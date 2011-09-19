@@ -126,6 +126,8 @@ namespace Cadenza.Tests {
 		[Test]
 		public void WrappedLines ()
 		{
+			Assert.AreEqual ("foo.",
+					"foo. ".WrappedLines(10).Implode ("\n"));
 			#region WrappedLines
 			// Notice that the first width is 50, but the actual returned length is 17.
 			// This is because the newline is encountered first.
