@@ -906,7 +906,13 @@ namespace Cadenza.Collections.Tests {
 		[ExpectedException (typeof (NotSupportedException))]
 		public void ToTuple_TooManyValues ()
 		{
+#if !NET_4_0
 			Enumerable.Range (0, Tuple.MaxValues+1).ToTuple ();
+#else
+			// .NET 4.0 has 1-8 in mscorlib.dll, 9-16 in System.Core.dll; 100 should
+			// break. ;-)
+			Enumerable.Range (0, 100).ToTuple ();
+#endif
 		}
 
 		[Test]
