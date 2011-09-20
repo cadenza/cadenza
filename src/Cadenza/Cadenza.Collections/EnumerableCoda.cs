@@ -348,7 +348,7 @@ namespace Cadenza.Collections {
 			Type tuple = Assembly.GetExecutingAssembly().GetType (
 				"Cadenza.Tuple`" + types.Count, 
 				false
-			);
+			) ?? Type.GetType ("System.Tuple`" + types.Count, false);
 			if (tuple == null)
 				throw new NotSupportedException (
 						string.Format ("Tuples with {0} values are not supported.", types.Count));
