@@ -1,7 +1,9 @@
 Cadenza.sln.cache
-Cadenza.suo
-Cadenza.userprefs
+*.suo
+*.userprefs
 Cadenza-Tests.VisualState.xml
 TestResult.xml
 *.pidb
 *.exe.mdb
+*.DotSettings
+*.dotCover
