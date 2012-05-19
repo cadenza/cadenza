@@ -56,6 +56,7 @@
     <Compile Include="Cadenza.Collections\ListCoda.cs" />
     <Compile Include="Cadenza.Collections\MutableLookup.cs" />
     <Compile Include="Cadenza.Collections\OrderedDictionary.cs" />
+    <Compile Include="Cadenza.Collections\QueueCoda.cs" />
     <Compile Include="Cadenza.Collections\ReadOnlyDictionary.cs" />
     <Compile Include="Cadenza.ComponentModel\NotifyingProperty.cs" />
     <Compile Include="Cadenza.IO\EnumerableValueReader.cs" />
