@@ -1485,6 +1485,7 @@ namespace Cadenza.Collections.Tests {
 			int[][] a = new int[][]{
 				new int[]{1, 2, 3},
 				new int[]{4, 5, 6},
+                null
 			};
 			IEnumerable<IEnumerable<int>> b = a;
 			List<List<int>> c = b.ToList ();
@@ -1497,7 +1498,9 @@ namespace Cadenza.Collections.Tests {
 			Assert.AreEqual (a [1][0], c [1][0]);
 			Assert.AreEqual (a [1][1], c [1][1]);
 			Assert.AreEqual (a [1][2], c [1][2]);
-			#endregion
+		    Assert.AreEqual (a [2],    c [2]);
+
+		    #endregion
 		}
 
 		[Test, ExpectedException (typeof (ArgumentNullException))]
