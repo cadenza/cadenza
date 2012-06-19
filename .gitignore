@@ -5,3 +5,6 @@ Cadenza-Tests.VisualState.xml
 TestResult.xml
 *.pidb
 *.exe.mdb
+_ReSharper.*
+*.user
+*.cache
