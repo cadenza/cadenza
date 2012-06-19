@@ -836,10 +836,16 @@ namespace Cadenza.Collections {
 			List<List<TSource>> r = new List<List<TSource>> ();
 			foreach (IEnumerable<TSource> row in self) {
 				List<TSource> items = new List<TSource> ();
-				r.Add (items);
-				foreach (TSource item in row) {
-					items.Add (item);
-				}
+                if (row == null)
+                    r.Add(null);
+			    else
+                {
+                    r.Add(items);                    
+                    foreach (TSource item in row)
+                    {
+                        items.Add(item);
+                    }
+                }
 			}
 			return r;
 		}
