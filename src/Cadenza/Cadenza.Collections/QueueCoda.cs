@@ -29,7 +29,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Cadenza.Cadenza.Collections
+namespace Cadenza.Collections
 {
 	public static class QueueCoda
 	{
