@@ -56,7 +56,7 @@ namespace Cadenza.Tests
 		public void RemoveAll_SingleList()
 		{
 			IList<int> list = new List<int> { 1, 2, 3 };
-			list.RemoveAll (i => i == 2);
+			Assert.IsTrue (list.RemoveAll (i => i == 2));
 
 			Assert.AreEqual (2, list.Count);
 			Assert.IsFalse (list.Contains (2), "List still contains removed item");
@@ -66,7 +66,7 @@ namespace Cadenza.Tests
 		public void RemoveAll_MultipleList()
 		{
 			IList<int> list = new List<int> { 1, 2, 3, 4, 1, 2, 5 };
-			list.RemoveAll (i => i == 2);
+			Assert.IsTrue (list.RemoveAll (i => i == 2));
 
 			Assert.AreEqual (5, list.Count);
 			Assert.IsFalse (list.Contains (2), "List still contains removed items");
@@ -76,7 +76,7 @@ namespace Cadenza.Tests
 		public void RemoveAll_SingleCollection()
 		{
 			var collection = new Dictionary<int, int> { { 1, 1 }, { 2, 2 }, { 3, 3 } };
-			collection.RemoveAll (kvp => kvp.Value == 2);
+			Assert.IsTrue (collection.RemoveAll (kvp => kvp.Value == 2));
 
 			Assert.AreEqual (2, collection.Count);
 			Assert.IsFalse (collection.ContainsValue (2), "Collection still contains removed items");
@@ -86,10 +86,28 @@ namespace Cadenza.Tests
 		public void RemoveAll_MultipleCollection()
 		{
 			var collection = new Dictionary<int, int> { { 1, 1 }, { 2, 2 }, { 3, 3 }, { 4, 2 }, { 5, 3 } };
-			collection.RemoveAll (kvp => kvp.Value == 2);
+			Assert.IsTrue (collection.RemoveAll (kvp => kvp.Value == 2));
 
 			Assert.AreEqual (3, collection.Count);
 			Assert.IsFalse (collection.ContainsValue (2), "Collection still contains removed items");
+		}
+
+		[Test]
+		public void RemoveAll_Collection_NotFound()
+		{
+			var collection = new Dictionary<int, int> { { 1, 1 }, { 3, 3 }, { 5, 3 } };
+			Assert.IsFalse (collection.RemoveAll (kvp => kvp.Value == 2));
+
+			Assert.AreEqual (3, collection.Count);
+		}
+
+		[Test]
+		public void RemoveAll_List_NotFound()
+		{
+			IList<int> list = new List<int> { 1, 3 };
+			Assert.IsFalse (list.RemoveAll (i => i == 2));
+
+			Assert.AreEqual (2, list.Count);
 		}
 	}
 }

@@ -59,7 +59,10 @@ namespace Cadenza.Collections
 			{
 				List<T> items = self.Where (predicate).ToList();
 				for (int i = 0; i < items.Count; ++i)
-					self.Remove (items[i]);
+				{
+					if (self.Remove (items[i]))
+						found = true;
+				}
 			}
 
 			return found;
