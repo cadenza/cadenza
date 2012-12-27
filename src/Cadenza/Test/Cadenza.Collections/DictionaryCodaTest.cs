@@ -155,5 +155,32 @@ namespace Cadenza.Collections.Tests {
 			AssertAreSame (new[]{42}, s.GetValueOrCreate ("foo"));
 			AssertAreSame (new[]{42}, s.GetValueOrCreate ("foo", () => new List<int> {1}));
 		}
+
+		[Test]
+		public void TryRemove_Arguments()
+		{
+			IDictionary<string, int> s = null;
+			int i;
+			Assert.Throws<ArgumentNullException> (() => s.TryRemove ("foo", out i));
+		}
+
+		[Test]
+		public void TryRemove_Found()
+		{
+			var dict = new Dictionary<string, string> { { "foo", "bar" } };
+
+			string value;
+			Assert.IsTrue (dict.TryRemove ("foo", out value));
+			Assert.AreEqual ("bar", value);
+		}
+
+		[Test]
+		public void TryRemove_NotFound()
+		{
+			var dict = new Dictionary<string, string> { { "foo", "bar" } };
+
+			string value;
+			Assert.IsFalse (dict.TryRemove ("foo2", out value));
+		}
 	}
 }

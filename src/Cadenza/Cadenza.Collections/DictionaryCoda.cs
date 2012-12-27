@@ -1,12 +1,14 @@
 //
 // DictionaryCoda.cs
 //
-// Author:
+// Authors:
 //   Jonathan Pryor  <jpryor@novell.com>
 //   Chris Howie <cdhowie@gmail.com>
+//   Eric Maupin <me@ermau.com>
 //
 // Copyright (c) 2010 Chris Howie
 // Copyright (c) 2010 Novell, Inc. (http://www.novell.com)
+// Copyright (c) 2012 Eric Maupin (http://ermau.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
@@ -36,6 +38,13 @@ using Cadenza;
 namespace Cadenza.Collections {
 
 	public static class DictionaryCoda {
+
+		public static bool TryRemove<TKey, TValue> (this IDictionary<TKey, TValue> self, TKey key, out TValue value)
+		{
+			Check.Self (self);
+
+			return self.TryGetValue (key, out value) && self.Remove (key);
+		}
 
 		public static TValue GetValueOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> self, TKey key)
 		{
